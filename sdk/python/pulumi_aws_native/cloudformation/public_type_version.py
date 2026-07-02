@@ -20,11 +20,11 @@ __all__ = ['PublicTypeVersionArgs', 'PublicTypeVersion']
 @pulumi.input_type
 class PublicTypeVersionArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_version_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_version_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['PublicTypeVersionType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublicTypeVersion resource.
 
@@ -49,55 +49,55 @@ class PublicTypeVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Number (ARN) of the extension.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logDeliveryBucket")
-    def log_delivery_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_delivery_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A url to the S3 bucket where logs for the testType run will be available
         """
         return pulumi.get(self, "log_delivery_bucket")
 
     @log_delivery_bucket.setter
-    def log_delivery_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_delivery_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_delivery_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="publicVersionNumber")
-    def public_version_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_version_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version number of a public third-party extension
         """
         return pulumi.get(self, "public_version_number")
 
     @public_version_number.setter
-    def public_version_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_version_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_version_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['PublicTypeVersionType']]:
+    def type(self) -> pulumi.Input[Optional['PublicTypeVersionType']]:
         """
         The kind of extension
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['PublicTypeVersionType']]):
+    def type(self, value: pulumi.Input[Optional['PublicTypeVersionType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the type being registered.
 
@@ -106,7 +106,7 @@ class PublicTypeVersionArgs:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
 
@@ -116,15 +116,14 @@ class PublicTypeVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_version_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_version_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['PublicTypeVersionType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Test and Publish a resource that has been registered in the CloudFormation Registry.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class PublicTypeVersion(pulumi.CustomResource):
         """
         Test and Publish a resource that has been registered in the CloudFormation Registry.
 
-
         :param str resource_name: The name of the resource.
         :param PublicTypeVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class PublicTypeVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_delivery_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_version_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_delivery_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_version_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['PublicTypeVersionType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

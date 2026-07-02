@@ -138,7 +138,6 @@ def get_configuration_profile(application_id: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str application_id: The application ID.
     :param _builtins.str configuration_profile_id: The configuration profile ID
     """
@@ -157,12 +156,11 @@ def get_configuration_profile(application_id: Optional[_builtins.str] = None,
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         validators=pulumi.get(__ret__, 'validators'))
-def get_configuration_profile_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_profile_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str application_id: The application ID.
     :param _builtins.str configuration_profile_id: The configuration profile ID

@@ -76,7 +76,6 @@ def get_location_f_sx_lustre(location_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DataSync::LocationFSxLustre.
 
-
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_location_f_sx_lustre(location_arn: Optional[_builtins.str] = None,
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_f_sx_lustre_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_f_sx_lustre_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxLustreResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxLustre.
-
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
     """

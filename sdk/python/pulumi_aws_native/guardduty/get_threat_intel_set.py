@@ -107,7 +107,6 @@ def get_threat_intel_set(detector_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GuardDuty::ThreatIntelSet
 
-
     :param _builtins.str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create a `threatIntelSet` .
            
            To find the `detectorId` in the current Region, see the
@@ -126,12 +125,11 @@ def get_threat_intel_set(detector_id: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_threat_intel_set_output(detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_threat_intel_set_output(detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThreatIntelSetResult]:
     """
     Resource Type definition for AWS::GuardDuty::ThreatIntelSet
-
 
     :param _builtins.str detector_id: The unique ID of the detector of the GuardDuty account for which you want to create a `threatIntelSet` .
            

@@ -114,7 +114,6 @@ def get_trigger(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Glue::Trigger
 
-
     :param _builtins.str name: The name of the trigger.
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_trigger(name: Optional[_builtins.str] = None,
         predicate=pulumi.get(__ret__, 'predicate'),
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_trigger_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trigger_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Resource Type definition for AWS::Glue::Trigger
-
 
     :param _builtins.str name: The name of the trigger.
     """

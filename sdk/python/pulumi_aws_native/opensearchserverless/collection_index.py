@@ -20,8 +20,8 @@ __all__ = ['CollectionIndexArgs', 'CollectionIndex']
 class CollectionIndexArgs:
     def __init__(__self__, *,
                  aws_id: pulumi.Input[_builtins.str],
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_schema: Optional[pulumi.Input[_builtins.str]] = None):
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CollectionIndex resource.
 
@@ -49,26 +49,26 @@ class CollectionIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collection index
         """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter(name="indexSchema")
-    def index_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Mappings for the collection index
         """
         return pulumi.get(self, "index_schema")
 
     @index_schema.setter
-    def index_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_schema", value)
 
 
@@ -78,13 +78,12 @@ class CollectionIndex(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::OpenSearchServerless::CollectionIndex
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,7 +100,6 @@ class CollectionIndex(pulumi.CustomResource):
         """
         Resource schema for AWS::OpenSearchServerless::CollectionIndex
 
-
         :param str resource_name: The name of the resource.
         :param CollectionIndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,9 +115,9 @@ class CollectionIndex(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_schema: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

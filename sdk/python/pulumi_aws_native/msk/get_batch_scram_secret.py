@@ -51,7 +51,6 @@ def get_batch_scram_secret(cluster_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::MSK::BatchScramSecret
 
-
     :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_batch_scram_secret(cluster_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetBatchScramSecretResult(
         secret_arn_list=pulumi.get(__ret__, 'secret_arn_list'))
-def get_batch_scram_secret_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_batch_scram_secret_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchScramSecretResult]:
     """
     Resource Type definition for AWS::MSK::BatchScramSecret
-
 
     :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
     """

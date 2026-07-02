@@ -257,7 +257,6 @@ def get_cloud_vm_cluster(cloud_vm_cluster_arn: Optional[_builtins.str] = None,
     """
     The AWS::ODB::CloudVmCluster resource creates a Cloud VM Cluster
 
-
     :param _builtins.str cloud_vm_cluster_arn: The Amazon Resource Name (ARN) of the VM cluster.
     """
     __args__ = dict()
@@ -284,11 +283,10 @@ def get_cloud_vm_cluster(cloud_vm_cluster_arn: Optional[_builtins.str] = None,
         storage_size_in_gbs=pulumi.get(__ret__, 'storage_size_in_gbs'),
         tags=pulumi.get(__ret__, 'tags'),
         vip_ids=pulumi.get(__ret__, 'vip_ids'))
-def get_cloud_vm_cluster_output(cloud_vm_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_vm_cluster_output(cloud_vm_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudVmClusterResult]:
     """
     The AWS::ODB::CloudVmCluster resource creates a Cloud VM Cluster
-
 
     :param _builtins.str cloud_vm_cluster_arn: The Amazon Resource Name (ARN) of the VM cluster.
     """

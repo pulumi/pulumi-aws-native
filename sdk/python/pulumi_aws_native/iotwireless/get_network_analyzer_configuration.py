@@ -114,7 +114,6 @@ def get_network_analyzer_configuration(name: Optional[_builtins.str] = None,
     """
     Create and manage NetworkAnalyzerConfiguration resource.
 
-
     :param _builtins.str name: Name of the network analyzer configuration
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_network_analyzer_configuration(name: Optional[_builtins.str] = None,
         trace_content=pulumi.get(__ret__, 'trace_content'),
         wireless_devices=pulumi.get(__ret__, 'wireless_devices'),
         wireless_gateways=pulumi.get(__ret__, 'wireless_gateways'))
-def get_network_analyzer_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_analyzer_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAnalyzerConfigurationResult]:
     """
     Create and manage NetworkAnalyzerConfiguration resource.
-
 
     :param _builtins.str name: Name of the network analyzer configuration
     """

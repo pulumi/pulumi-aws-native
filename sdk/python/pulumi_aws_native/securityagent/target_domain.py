@@ -24,8 +24,8 @@ __all__ = ['TargetDomainArgs', 'TargetDomain']
 class TargetDomainArgs:
     def __init__(__self__, *,
                  verification_method: pulumi.Input['TargetDomainVerificationMethod'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_domain_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_domain_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetDomain resource.
 
@@ -53,26 +53,26 @@ class TargetDomainArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the target domain
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDomainName")
-    def target_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Domain name of the target domain
         """
         return pulumi.get(self, "target_domain_name")
 
     @target_domain_name.setter
-    def target_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_domain_name", value)
 
 
@@ -82,13 +82,12 @@ class TargetDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_method: Optional[pulumi.Input['TargetDomainVerificationMethod']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_method: pulumi.Input[Optional['TargetDomainVerificationMethod']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::TargetDomain
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +104,6 @@ class TargetDomain(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityAgent::TargetDomain
 
-
         :param str resource_name: The name of the resource.
         :param TargetDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +119,9 @@ class TargetDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 verification_method: Optional[pulumi.Input['TargetDomainVerificationMethod']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 verification_method: pulumi.Input[Optional['TargetDomainVerificationMethod']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

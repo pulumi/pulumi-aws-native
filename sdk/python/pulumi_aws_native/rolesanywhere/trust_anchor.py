@@ -25,10 +25,10 @@ __all__ = ['TrustAnchorArgs', 'TrustAnchor']
 class TrustAnchorArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['TrustAnchorSourceArgs'],
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
 
@@ -62,50 +62,50 @@ class TrustAnchorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the trust anchor is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trust anchor.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSettings")
-    def notification_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]:
+    def notification_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]:
         """
         A list of notification settings to be associated to the trust anchor.
         """
         return pulumi.get(self, "notification_settings")
 
     @notification_settings.setter
-    def notification_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]):
+    def notification_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]):
         pulumi.set(self, "notification_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to attach to the trust anchor.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,15 +115,14 @@ class TrustAnchor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
-                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class TrustAnchor(pulumi.CustomResource):
         """
         Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param TrustAnchorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class TrustAnchor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
-                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrustAnchorNotificationSettingArgs', 'TrustAnchorNotificationSettingArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

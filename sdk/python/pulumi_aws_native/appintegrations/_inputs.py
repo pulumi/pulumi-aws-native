@@ -35,22 +35,22 @@ __all__ = [
 ]
 
 class ApplicationConfigArgsDict(TypedDict):
-    contact_handling: NotRequired[pulumi.Input['ApplicationContactHandlingArgsDict']]
+    contact_handling: NotRequired[pulumi.Input[Optional['ApplicationContactHandlingArgsDict']]]
 
 @pulumi.input_type
 class ApplicationConfigArgs:
     def __init__(__self__, *,
-                 contact_handling: Optional[pulumi.Input['ApplicationContactHandlingArgs']] = None):
+                 contact_handling: pulumi.Input[Optional['ApplicationContactHandlingArgs']] = None):
         if contact_handling is not None:
             pulumi.set(__self__, "contact_handling", contact_handling)
 
     @_builtins.property
     @pulumi.getter(name="contactHandling")
-    def contact_handling(self) -> Optional[pulumi.Input['ApplicationContactHandlingArgs']]:
+    def contact_handling(self) -> pulumi.Input[Optional['ApplicationContactHandlingArgs']]:
         return pulumi.get(self, "contact_handling")
 
     @contact_handling.setter
-    def contact_handling(self, value: Optional[pulumi.Input['ApplicationContactHandlingArgs']]):
+    def contact_handling(self, value: pulumi.Input[Optional['ApplicationContactHandlingArgs']]):
         pulumi.set(self, "contact_handling", value)
 
 
@@ -78,7 +78,7 @@ class ApplicationExternalUrlConfigArgsDict(TypedDict):
     """
     The URL to access the application.
     """
-    approved_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    approved_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Additional URLs to allow list if different than the access URL.
     """
@@ -87,7 +87,7 @@ class ApplicationExternalUrlConfigArgsDict(TypedDict):
 class ApplicationExternalUrlConfigArgs:
     def __init__(__self__, *,
                  access_url: pulumi.Input[_builtins.str],
-                 approved_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 approved_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] access_url: The URL to access the application.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] approved_origins: Additional URLs to allow list if different than the access URL.
@@ -110,26 +110,26 @@ class ApplicationExternalUrlConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvedOrigins")
-    def approved_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def approved_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Additional URLs to allow list if different than the access URL.
         """
         return pulumi.get(self, "approved_origins")
 
     @approved_origins.setter
-    def approved_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def approved_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "approved_origins", value)
 
 
 class ApplicationIframeConfigArgsDict(TypedDict):
-    allow: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    sandbox: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    sandbox: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class ApplicationIframeConfigArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sandbox: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allow: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sandbox: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if sandbox is not None:
@@ -137,20 +137,20 @@ class ApplicationIframeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow", value)
 
     @_builtins.property
     @pulumi.getter
-    def sandbox(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sandbox(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "sandbox")
 
     @sandbox.setter
-    def sandbox(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sandbox(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sandbox", value)
 
 
@@ -195,7 +195,7 @@ class DataIntegrationFileConfigurationArgsDict(TypedDict):
     """
     Identifiers for the source folders to pull all files from recursively.
     """
-    filters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    filters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]]
     """
     Restrictions for what files should be pulled from the source.
     """
@@ -204,7 +204,7 @@ class DataIntegrationFileConfigurationArgsDict(TypedDict):
 class DataIntegrationFileConfigurationArgs:
     def __init__(__self__, *,
                  folders: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 filters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
+                 filters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
         """
         The configuration for what files should be pulled from the source.
 
@@ -229,14 +229,14 @@ class DataIntegrationFileConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+    def filters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
         """
         Restrictions for what files should be pulled from the source.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+    def filters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "filters", value)
 
 
@@ -245,11 +245,11 @@ class DataIntegrationScheduleConfigArgsDict(TypedDict):
     """
     How often the data should be pulled from data source.
     """
-    first_execution_from: NotRequired[pulumi.Input[_builtins.str]]
+    first_execution_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
     """
-    object: NotRequired[pulumi.Input[_builtins.str]]
+    object: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the object to pull from the data source.
     """
@@ -258,8 +258,8 @@ class DataIntegrationScheduleConfigArgsDict(TypedDict):
 class DataIntegrationScheduleConfigArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[_builtins.str],
-                 first_execution_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 object: Optional[pulumi.Input[_builtins.str]] = None):
+                 first_execution_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 object: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] schedule_expression: How often the data should be pulled from data source.
         :param pulumi.Input[_builtins.str] first_execution_from: The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
@@ -285,26 +285,26 @@ class DataIntegrationScheduleConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="firstExecutionFrom")
-    def first_execution_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_execution_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
         """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
-    def first_execution_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_execution_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_execution_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the object to pull from the data source.
         """
         return pulumi.get(self, "object")
 
     @object.setter
-    def object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object", value)
 
 

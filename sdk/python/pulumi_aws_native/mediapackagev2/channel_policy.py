@@ -80,13 +80,12 @@ class ChannelPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         """
         <p>Represents a resource-based policy that allows or denies access to a channel.</p>
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +104,6 @@ class ChannelPolicy(pulumi.CustomResource):
         """
         <p>Represents a resource-based policy that allows or denies access to a channel.</p>
 
-
         :param str resource_name: The name of the resource.
         :param ChannelPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,8 +119,8 @@ class ChannelPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

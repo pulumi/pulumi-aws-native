@@ -20,7 +20,7 @@ __all__ = ['VpcEndpointServicePermissionsArgs', 'VpcEndpointServicePermissions']
 class VpcEndpointServicePermissionsArgs:
     def __init__(__self__, *,
                  service_id: pulumi.Input[_builtins.str],
-                 allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointServicePermissions resource.
 
@@ -45,14 +45,14 @@ class VpcEndpointServicePermissionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedPrincipals")
-    def allowed_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARN) of one or more principals (for example, users, IAM roles, and AWS accounts ). Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*). Permissions are revoked for principals not in this list. If the list is empty, then all permissions are revoked.
         """
         return pulumi.get(self, "allowed_principals")
 
     @allowed_principals.setter
-    def allowed_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_principals", value)
 
 
@@ -62,12 +62,11 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,7 +81,6 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
-
 
         :param str resource_name: The name of the resource.
         :param VpcEndpointServicePermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -99,8 +97,8 @@ class VpcEndpointServicePermissions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

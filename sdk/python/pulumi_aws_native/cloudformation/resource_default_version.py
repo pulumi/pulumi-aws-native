@@ -19,9 +19,9 @@ __all__ = ['ResourceDefaultVersionArgs', 'ResourceDefaultVersion']
 @pulumi.input_type
 class ResourceDefaultVersionArgs:
     def __init__(__self__, *,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceDefaultVersion resource.
 
@@ -40,7 +40,7 @@ class ResourceDefaultVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the type being registered.
 
@@ -49,31 +49,31 @@ class ResourceDefaultVersionArgs:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeVersionArn")
-    def type_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the type version.
         """
         return pulumi.get(self, "type_version_arn")
 
     @type_version_arn.setter
-    def type_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_version_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")
-    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an existing version of the resource to set as the default.
         """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
-    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_id", value)
 
 
@@ -83,13 +83,12 @@ class ResourceDefaultVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The default version of a resource that has been registered in the CloudFormation Registry.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,7 +107,6 @@ class ResourceDefaultVersion(pulumi.CustomResource):
         """
         The default version of a resource that has been registered in the CloudFormation Registry.
 
-
         :param str resource_name: The name of the resource.
         :param ResourceDefaultVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,9 +122,9 @@ class ResourceDefaultVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

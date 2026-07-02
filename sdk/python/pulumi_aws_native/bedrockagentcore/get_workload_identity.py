@@ -100,7 +100,6 @@ def get_workload_identity(name: Optional[_builtins.str] = None,
     """
     Definition of AWS::BedrockAgentCore::WorkloadIdentity Resource Type
 
-
     :param _builtins.str name: The name of the workload identity. The name must be unique within your account.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_workload_identity(name: Optional[_builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'),
         workload_identity_arn=pulumi.get(__ret__, 'workload_identity_arn'))
-def get_workload_identity_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workload_identity_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadIdentityResult]:
     """
     Definition of AWS::BedrockAgentCore::WorkloadIdentity Resource Type
-
 
     :param _builtins.str name: The name of the workload identity. The name must be unique within your account.
     """

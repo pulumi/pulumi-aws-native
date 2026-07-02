@@ -110,7 +110,6 @@ def get_encryption_configuration(account_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoT::EncryptionConfiguration
 
-
     :param _builtins.str account_id: The unique identifier (ID) of an AWS account.
     """
     __args__ = dict()
@@ -125,11 +124,10 @@ def get_encryption_configuration(account_id: Optional[_builtins.str] = None,
         kms_access_role_arn=pulumi.get(__ret__, 'kms_access_role_arn'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'))
-def get_encryption_configuration_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_encryption_configuration_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionConfigurationResult]:
     """
     Resource Type definition for AWS::IoT::EncryptionConfiguration
-
 
     :param _builtins.str account_id: The unique identifier (ID) of an AWS account.
     """

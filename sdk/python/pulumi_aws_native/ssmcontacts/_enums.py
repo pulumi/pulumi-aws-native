@@ -36,7 +36,7 @@ class ContactType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ssmcontacts:RotationDayOfWeek")
 class RotationDayOfWeek(_builtins.str, Enum):
     """
-    The day of the week when weekly recurring on-call shift rotations begin. 
+    The day of the week when weekly recurring on-call shift rotations begin.
     """
     MON = "MON"
     TUE = "TUE"

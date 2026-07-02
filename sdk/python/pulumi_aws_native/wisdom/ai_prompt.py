@@ -27,10 +27,10 @@ class AiPromptArgs:
                  template_configuration: pulumi.Input['AiPromptAiPromptTemplateConfigurationArgs'],
                  template_type: pulumi.Input['AiPromptAiPromptTemplateType'],
                  type: pulumi.Input['AiPromptAiPromptType'],
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AiPrompt resource.
 
@@ -156,50 +156,50 @@ class AiPromptArgs:
 
     @_builtins.property
     @pulumi.getter(name="assistantId")
-    def assistant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assistant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
-    def assistant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assistant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assistant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the AI Prompt.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AI Prompt
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -209,19 +209,18 @@ class AiPrompt(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_format: Optional[pulumi.Input['AiPromptAiPromptApiFormat']] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_configuration: Optional[pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
-                 template_type: Optional[pulumi.Input['AiPromptAiPromptTemplateType']] = None,
-                 type: Optional[pulumi.Input['AiPromptAiPromptType']] = None,
+                 api_format: pulumi.Input[Optional['AiPromptAiPromptApiFormat']] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
+                 template_type: pulumi.Input[Optional['AiPromptAiPromptTemplateType']] = None,
+                 type: pulumi.Input[Optional['AiPromptAiPromptType']] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AIPrompt Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +261,6 @@ class AiPrompt(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AIPrompt Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AiPromptArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,15 +276,15 @@ class AiPrompt(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_format: Optional[pulumi.Input['AiPromptAiPromptApiFormat']] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_configuration: Optional[pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
-                 template_type: Optional[pulumi.Input['AiPromptAiPromptTemplateType']] = None,
-                 type: Optional[pulumi.Input['AiPromptAiPromptType']] = None,
+                 api_format: pulumi.Input[Optional['AiPromptAiPromptApiFormat']] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
+                 template_type: pulumi.Input[Optional['AiPromptAiPromptTemplateType']] = None,
+                 type: pulumi.Input[Optional['AiPromptAiPromptType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

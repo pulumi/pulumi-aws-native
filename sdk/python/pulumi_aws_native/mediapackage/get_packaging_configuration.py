@@ -126,7 +126,6 @@ def get_packaging_configuration(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaPackage::PackagingConfiguration
 
-
     :param _builtins.str id: The ID of the PackagingConfiguration.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_packaging_configuration(id: Optional[_builtins.str] = None,
         mss_package=pulumi.get(__ret__, 'mss_package'),
         packaging_group_id=pulumi.get(__ret__, 'packaging_group_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_packaging_configuration_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_packaging_configuration_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackagingConfigurationResult]:
     """
     Resource schema for AWS::MediaPackage::PackagingConfiguration
-
 
     :param _builtins.str id: The ID of the PackagingConfiguration.
     """

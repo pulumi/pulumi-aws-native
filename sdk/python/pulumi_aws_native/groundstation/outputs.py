@@ -548,7 +548,7 @@ class ConfigFrequencyBandwidth(dict):
                  value: Optional[_builtins.float] = None):
         """
         :param 'ConfigBandwidthUnits' units: The units of the bandwidth.
-        :param _builtins.float value: The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations: 
+        :param _builtins.float value: The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
                
                - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
                - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
@@ -571,7 +571,7 @@ class ConfigFrequencyBandwidth(dict):
     @pulumi.getter
     def value(self) -> Optional[_builtins.float]:
         """
-        The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations: 
+        The value of the bandwidth. AWS Ground Station currently has the following bandwidth limitations:
 
         - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
         - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
@@ -708,7 +708,7 @@ class ConfigSpectrumConfig(dict):
                  center_frequency: Optional['outputs.ConfigFrequency'] = None,
                  polarization: Optional['ConfigPolarization'] = None):
         """
-        :param 'ConfigFrequencyBandwidth' bandwidth: The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
+        :param 'ConfigFrequencyBandwidth' bandwidth: The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
                
                - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
                - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
@@ -727,7 +727,7 @@ class ConfigSpectrumConfig(dict):
     @pulumi.getter
     def bandwidth(self) -> Optional['outputs.ConfigFrequencyBandwidth']:
         """
-        The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
+        The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
 
         - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
         - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.

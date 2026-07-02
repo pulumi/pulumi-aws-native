@@ -42,10 +42,10 @@ __all__ = [
     'DomainExportingConfigArgsDict',
     'DomainJobScheduleArgs',
     'DomainJobScheduleArgsDict',
-    'DomainMatchingRuleArgs',
-    'DomainMatchingRuleArgsDict',
     'DomainMatchingArgs',
     'DomainMatchingArgsDict',
+    'DomainMatchingRuleArgs',
+    'DomainMatchingRuleArgsDict',
     'DomainObjectTypeFieldArgs',
     'DomainObjectTypeFieldArgsDict',
     'DomainReadinessArgs',
@@ -86,24 +86,24 @@ __all__ = [
     'IntegrationSourceConnectorPropertiesArgsDict',
     'IntegrationSourceFlowConfigArgs',
     'IntegrationSourceFlowConfigArgsDict',
-    'IntegrationTaskPropertiesMapArgs',
-    'IntegrationTaskPropertiesMapArgsDict',
     'IntegrationTaskArgs',
     'IntegrationTaskArgsDict',
+    'IntegrationTaskPropertiesMapArgs',
+    'IntegrationTaskPropertiesMapArgsDict',
     'IntegrationTriggerConfigArgs',
     'IntegrationTriggerConfigArgsDict',
     'IntegrationTriggerPropertiesArgs',
     'IntegrationTriggerPropertiesArgsDict',
     'IntegrationZendeskSourcePropertiesArgs',
     'IntegrationZendeskSourcePropertiesArgsDict',
-    'ObjectTypeFieldMapArgs',
-    'ObjectTypeFieldMapArgsDict',
     'ObjectTypeFieldArgs',
     'ObjectTypeFieldArgsDict',
-    'ObjectTypeKeyMapArgs',
-    'ObjectTypeKeyMapArgsDict',
+    'ObjectTypeFieldMapArgs',
+    'ObjectTypeFieldMapArgsDict',
     'ObjectTypeKeyArgs',
     'ObjectTypeKeyArgsDict',
+    'ObjectTypeKeyMapArgs',
+    'ObjectTypeKeyMapArgsDict',
     'RecommenderConfigArgs',
     'RecommenderConfigArgsDict',
     'RecommenderEventParametersArgs',
@@ -227,15 +227,15 @@ class CalculatedAttributeDefinitionConditionsArgsDict(TypedDict):
     """
     The conditions including range, object count, and threshold for the calculated attribute.
     """
-    object_count: NotRequired[pulumi.Input[_builtins.int]]
+    object_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of profile objects used for the calculated attribute.
     """
-    range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionRangeArgsDict']]
+    range: NotRequired[pulumi.Input[Optional['CalculatedAttributeDefinitionRangeArgsDict']]]
     """
     The relative time period over which data is included in the aggregation.
     """
-    threshold: NotRequired[pulumi.Input['CalculatedAttributeDefinitionThresholdArgsDict']]
+    threshold: NotRequired[pulumi.Input[Optional['CalculatedAttributeDefinitionThresholdArgsDict']]]
     """
     The threshold for the calculated attribute.
     """
@@ -243,9 +243,9 @@ class CalculatedAttributeDefinitionConditionsArgsDict(TypedDict):
 @pulumi.input_type
 class CalculatedAttributeDefinitionConditionsArgs:
     def __init__(__self__, *,
-                 object_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 range: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']] = None,
-                 threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None):
+                 object_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 range: pulumi.Input[Optional['CalculatedAttributeDefinitionRangeArgs']] = None,
+                 threshold: pulumi.Input[Optional['CalculatedAttributeDefinitionThresholdArgs']] = None):
         """
         The conditions including range, object count, and threshold for the calculated attribute.
 
@@ -262,38 +262,38 @@ class CalculatedAttributeDefinitionConditionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectCount")
-    def object_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def object_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of profile objects used for the calculated attribute.
         """
         return pulumi.get(self, "object_count")
 
     @object_count.setter
-    def object_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def object_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "object_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']]:
+    def range(self) -> pulumi.Input[Optional['CalculatedAttributeDefinitionRangeArgs']]:
         """
         The relative time period over which data is included in the aggregation.
         """
         return pulumi.get(self, "range")
 
     @range.setter
-    def range(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']]):
+    def range(self, value: pulumi.Input[Optional['CalculatedAttributeDefinitionRangeArgs']]):
         pulumi.set(self, "range", value)
 
     @_builtins.property
     @pulumi.getter
-    def threshold(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']]:
+    def threshold(self) -> pulumi.Input[Optional['CalculatedAttributeDefinitionThresholdArgs']]:
         """
         The threshold for the calculated attribute.
         """
         return pulumi.get(self, "threshold")
 
     @threshold.setter
-    def threshold(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']]):
+    def threshold(self, value: pulumi.Input[Optional['CalculatedAttributeDefinitionThresholdArgs']]):
         pulumi.set(self, "threshold", value)
 
 
@@ -305,19 +305,19 @@ class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
     """
     The unit of time.
     """
-    timestamp_format: NotRequired[pulumi.Input[_builtins.str]]
+    timestamp_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
     """
-    timestamp_source: NotRequired[pulumi.Input[_builtins.str]]
+    timestamp_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
     """
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time of the specified unit.
     """
-    value_range: NotRequired[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgsDict']]
+    value_range: NotRequired[pulumi.Input[Optional['CalculatedAttributeDefinitionValueRangeArgsDict']]]
     """
     A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
     """
@@ -326,10 +326,10 @@ class CalculatedAttributeDefinitionRangeArgsDict(TypedDict):
 class CalculatedAttributeDefinitionRangeArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
-                 timestamp_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 timestamp_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None,
-                 value_range: Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']] = None):
+                 timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 timestamp_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None,
+                 value_range: pulumi.Input[Optional['CalculatedAttributeDefinitionValueRangeArgs']] = None):
         """
         The relative time period over which data is included in the aggregation.
 
@@ -363,50 +363,50 @@ class CalculatedAttributeDefinitionRangeArgs:
 
     @_builtins.property
     @pulumi.getter(name="timestampFormat")
-    def timestamp_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
         """
         return pulumi.get(self, "timestamp_format")
 
     @timestamp_format.setter
-    def timestamp_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_format", value)
 
     @_builtins.property
     @pulumi.getter(name="timestampSource")
-    def timestamp_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timestamp_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \\"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
         """
         return pulumi.get(self, "timestamp_source")
 
     @timestamp_source.setter
-    def timestamp_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timestamp_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timestamp_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time of the specified unit.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter(name="valueRange")
-    def value_range(self) -> Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']]:
+    def value_range(self) -> pulumi.Input[Optional['CalculatedAttributeDefinitionValueRangeArgs']]:
         """
         A structure letting customers specify a relative time window over which over which data is included in the Calculated Attribute. Use positive numbers to indicate that the endpoint is in the past, and negative numbers to indicate it is in the future. ValueRange overrides Value.
         """
         return pulumi.get(self, "value_range")
 
     @value_range.setter
-    def value_range(self, value: Optional[pulumi.Input['CalculatedAttributeDefinitionValueRangeArgs']]):
+    def value_range(self, value: pulumi.Input[Optional['CalculatedAttributeDefinitionValueRangeArgs']]):
         pulumi.set(self, "value_range", value)
 
 
@@ -522,15 +522,15 @@ class DomainAttributeTypesSelectorArgsDict(TypedDict):
     """
     Configures the AttributeMatchingModel, you can either choose ONE_TO_ONE or MANY_TO_MANY.
     """
-    address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    address: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
     """
-    email_address: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    email_address: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
     """
-    phone_number: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    phone_number: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
     """
@@ -539,9 +539,9 @@ class DomainAttributeTypesSelectorArgsDict(TypedDict):
 class DomainAttributeTypesSelectorArgs:
     def __init__(__self__, *,
                  attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'],
-                 address: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_address: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 phone_number: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 email_address: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 phone_number: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures information about the AttributeTypesSelector where the rule-based identity resolution uses to match profiles.
 
@@ -572,38 +572,38 @@ class DomainAttributeTypesSelectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Address type. You can choose from Address, BusinessAddress, MaillingAddress, and ShippingAddress. You only can use the Address type in the MatchingRule. For example, if you want to match profile based on BusinessAddress.City or MaillingAddress.City, you need to choose the BusinessAddress and the MaillingAddress to represent the Address type and specify the Address.City on the matching rule.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def email_address(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def email_address(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def phone_number(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def phone_number(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "phone_number", value)
 
 
@@ -615,15 +615,15 @@ class DomainAutoMergingArgsDict(TypedDict):
     """
     The flag that enables the auto-merging of duplicate profiles.
     """
-    conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
+    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainConflictResolutionArgsDict']]]
     """
     Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
     """
-    consolidation: NotRequired[pulumi.Input['DomainConsolidationArgsDict']]
+    consolidation: NotRequired[pulumi.Input[Optional['DomainConsolidationArgsDict']]]
     """
     A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
     """
-    min_allowed_confidence_score_for_merging: NotRequired[pulumi.Input[_builtins.float]]
+    min_allowed_confidence_score_for_merging: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
     """
@@ -632,9 +632,9 @@ class DomainAutoMergingArgsDict(TypedDict):
 class DomainAutoMergingArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
-                 consolidation: Optional[pulumi.Input['DomainConsolidationArgs']] = None,
-                 min_allowed_confidence_score_for_merging: Optional[pulumi.Input[_builtins.float]] = None):
+                 conflict_resolution: pulumi.Input[Optional['DomainConflictResolutionArgs']] = None,
+                 consolidation: pulumi.Input[Optional['DomainConsolidationArgs']] = None,
+                 min_allowed_confidence_score_for_merging: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Configuration information about the auto-merging process.
 
@@ -665,50 +665,50 @@ class DomainAutoMergingArgs:
 
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
-    def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+    def conflict_resolution(self) -> pulumi.Input[Optional['DomainConflictResolutionArgs']]:
         """
         Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
         """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
-    def conflict_resolution(self, value: Optional[pulumi.Input['DomainConflictResolutionArgs']]):
+    def conflict_resolution(self, value: pulumi.Input[Optional['DomainConflictResolutionArgs']]):
         pulumi.set(self, "conflict_resolution", value)
 
     @_builtins.property
     @pulumi.getter
-    def consolidation(self) -> Optional[pulumi.Input['DomainConsolidationArgs']]:
+    def consolidation(self) -> pulumi.Input[Optional['DomainConsolidationArgs']]:
         """
         A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
         """
         return pulumi.get(self, "consolidation")
 
     @consolidation.setter
-    def consolidation(self, value: Optional[pulumi.Input['DomainConsolidationArgs']]):
+    def consolidation(self, value: pulumi.Input[Optional['DomainConsolidationArgs']]):
         pulumi.set(self, "consolidation", value)
 
     @_builtins.property
     @pulumi.getter(name="minAllowedConfidenceScoreForMerging")
-    def min_allowed_confidence_score_for_merging(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_allowed_confidence_score_for_merging(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
         """
         return pulumi.get(self, "min_allowed_confidence_score_for_merging")
 
     @min_allowed_confidence_score_for_merging.setter
-    def min_allowed_confidence_score_for_merging(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_allowed_confidence_score_for_merging(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_allowed_confidence_score_for_merging", value)
 
 
 class DomainConflictResolutionArgsDict(TypedDict):
     """
-    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
     """
     conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel']
     """
     How the auto-merging process should resolve conflicts between different profiles.
     """
-    source_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
     """
@@ -717,9 +717,9 @@ class DomainConflictResolutionArgsDict(TypedDict):
 class DomainConflictResolutionArgs:
     def __init__(__self__, *,
                  conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel'],
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
 
         :param pulumi.Input['DomainConflictResolutionConflictResolvingModel'] conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
         :param pulumi.Input[_builtins.str] source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
@@ -742,14 +742,14 @@ class DomainConflictResolutionArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
         """
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
 
@@ -790,17 +790,17 @@ class DomainDataStoreArgsDict(TypedDict):
     """
     Configuration and status of the data store for the domain.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the data store is enabled.
     """
-    readiness: NotRequired[pulumi.Input['DomainReadinessArgsDict']]
+    readiness: NotRequired[pulumi.Input[Optional['DomainReadinessArgsDict']]]
 
 @pulumi.input_type
 class DomainDataStoreArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 readiness: Optional[pulumi.Input['DomainReadinessArgs']] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 readiness: pulumi.Input[Optional['DomainReadinessArgs']] = None):
         """
         Configuration and status of the data store for the domain.
 
@@ -813,23 +813,23 @@ class DomainDataStoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the data store is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def readiness(self) -> Optional[pulumi.Input['DomainReadinessArgs']]:
+    def readiness(self) -> pulumi.Input[Optional['DomainReadinessArgs']]:
         return pulumi.get(self, "readiness")
 
     @readiness.setter
-    def readiness(self, value: Optional[pulumi.Input['DomainReadinessArgs']]):
+    def readiness(self, value: pulumi.Input[Optional['DomainReadinessArgs']]):
         pulumi.set(self, "readiness", value)
 
 
@@ -837,12 +837,12 @@ class DomainExportingConfigArgsDict(TypedDict):
     """
     Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
     """
-    s3_exporting: NotRequired[pulumi.Input['DomainS3ExportingConfigArgsDict']]
+    s3_exporting: NotRequired[pulumi.Input[Optional['DomainS3ExportingConfigArgsDict']]]
 
 @pulumi.input_type
 class DomainExportingConfigArgs:
     def __init__(__self__, *,
-                 s3_exporting: Optional[pulumi.Input['DomainS3ExportingConfigArgs']] = None):
+                 s3_exporting: pulumi.Input[Optional['DomainS3ExportingConfigArgs']] = None):
         """
         Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
         """
@@ -851,11 +851,11 @@ class DomainExportingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Exporting")
-    def s3_exporting(self) -> Optional[pulumi.Input['DomainS3ExportingConfigArgs']]:
+    def s3_exporting(self) -> pulumi.Input[Optional['DomainS3ExportingConfigArgs']]:
         return pulumi.get(self, "s3_exporting")
 
     @s3_exporting.setter
-    def s3_exporting(self, value: Optional[pulumi.Input['DomainS3ExportingConfigArgs']]):
+    def s3_exporting(self, value: pulumi.Input[Optional['DomainS3ExportingConfigArgs']]):
         pulumi.set(self, "s3_exporting", value)
 
 
@@ -911,6 +911,99 @@ class DomainJobScheduleArgs:
         pulumi.set(self, "time", value)
 
 
+class DomainMatchingArgsDict(TypedDict):
+    """
+    The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    The flag that enables the matching process of duplicate profiles.
+    """
+    auto_merging: NotRequired[pulumi.Input[Optional['DomainAutoMergingArgsDict']]]
+    """
+    Configuration information about the auto-merging process.
+    """
+    exporting_config: NotRequired[pulumi.Input[Optional['DomainExportingConfigArgsDict']]]
+    """
+    The S3 location where Identity Resolution Jobs write result files.
+    """
+    job_schedule: NotRequired[pulumi.Input[Optional['DomainJobScheduleArgsDict']]]
+    """
+    The day and time when do you want to start the Identity Resolution Job every week.
+    """
+
+@pulumi.input_type
+class DomainMatchingArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 auto_merging: pulumi.Input[Optional['DomainAutoMergingArgs']] = None,
+                 exporting_config: pulumi.Input[Optional['DomainExportingConfigArgs']] = None,
+                 job_schedule: pulumi.Input[Optional['DomainJobScheduleArgs']] = None):
+        """
+        The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
+
+        :param pulumi.Input[_builtins.bool] enabled: The flag that enables the matching process of duplicate profiles.
+        :param pulumi.Input['DomainAutoMergingArgs'] auto_merging: Configuration information about the auto-merging process.
+        :param pulumi.Input['DomainExportingConfigArgs'] exporting_config: The S3 location where Identity Resolution Jobs write result files.
+        :param pulumi.Input['DomainJobScheduleArgs'] job_schedule: The day and time when do you want to start the Identity Resolution Job every week.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if auto_merging is not None:
+            pulumi.set(__self__, "auto_merging", auto_merging)
+        if exporting_config is not None:
+            pulumi.set(__self__, "exporting_config", exporting_config)
+        if job_schedule is not None:
+            pulumi.set(__self__, "job_schedule", job_schedule)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        The flag that enables the matching process of duplicate profiles.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoMerging")
+    def auto_merging(self) -> pulumi.Input[Optional['DomainAutoMergingArgs']]:
+        """
+        Configuration information about the auto-merging process.
+        """
+        return pulumi.get(self, "auto_merging")
+
+    @auto_merging.setter
+    def auto_merging(self, value: pulumi.Input[Optional['DomainAutoMergingArgs']]):
+        pulumi.set(self, "auto_merging", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportingConfig")
+    def exporting_config(self) -> pulumi.Input[Optional['DomainExportingConfigArgs']]:
+        """
+        The S3 location where Identity Resolution Jobs write result files.
+        """
+        return pulumi.get(self, "exporting_config")
+
+    @exporting_config.setter
+    def exporting_config(self, value: pulumi.Input[Optional['DomainExportingConfigArgs']]):
+        pulumi.set(self, "exporting_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobSchedule")
+    def job_schedule(self) -> pulumi.Input[Optional['DomainJobScheduleArgs']]:
+        """
+        The day and time when do you want to start the Identity Resolution Job every week.
+        """
+        return pulumi.get(self, "job_schedule")
+
+    @job_schedule.setter
+    def job_schedule(self, value: pulumi.Input[Optional['DomainJobScheduleArgs']]):
+        pulumi.set(self, "job_schedule", value)
+
+
 class DomainMatchingRuleArgsDict(TypedDict):
     """
     Specifies how does the rule-based matching process should match profiles.
@@ -944,99 +1037,6 @@ class DomainMatchingRuleArgs:
         pulumi.set(self, "rule", value)
 
 
-class DomainMatchingArgsDict(TypedDict):
-    """
-    The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
-    """
-    enabled: pulumi.Input[_builtins.bool]
-    """
-    The flag that enables the matching process of duplicate profiles.
-    """
-    auto_merging: NotRequired[pulumi.Input['DomainAutoMergingArgsDict']]
-    """
-    Configuration information about the auto-merging process.
-    """
-    exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
-    """
-    The S3 location where Identity Resolution Jobs write result files.
-    """
-    job_schedule: NotRequired[pulumi.Input['DomainJobScheduleArgsDict']]
-    """
-    The day and time when do you want to start the Identity Resolution Job every week.
-    """
-
-@pulumi.input_type
-class DomainMatchingArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 auto_merging: Optional[pulumi.Input['DomainAutoMergingArgs']] = None,
-                 exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
-                 job_schedule: Optional[pulumi.Input['DomainJobScheduleArgs']] = None):
-        """
-        The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
-
-        :param pulumi.Input[_builtins.bool] enabled: The flag that enables the matching process of duplicate profiles.
-        :param pulumi.Input['DomainAutoMergingArgs'] auto_merging: Configuration information about the auto-merging process.
-        :param pulumi.Input['DomainExportingConfigArgs'] exporting_config: The S3 location where Identity Resolution Jobs write result files.
-        :param pulumi.Input['DomainJobScheduleArgs'] job_schedule: The day and time when do you want to start the Identity Resolution Job every week.
-        """
-        pulumi.set(__self__, "enabled", enabled)
-        if auto_merging is not None:
-            pulumi.set(__self__, "auto_merging", auto_merging)
-        if exporting_config is not None:
-            pulumi.set(__self__, "exporting_config", exporting_config)
-        if job_schedule is not None:
-            pulumi.set(__self__, "job_schedule", job_schedule)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        """
-        The flag that enables the matching process of duplicate profiles.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="autoMerging")
-    def auto_merging(self) -> Optional[pulumi.Input['DomainAutoMergingArgs']]:
-        """
-        Configuration information about the auto-merging process.
-        """
-        return pulumi.get(self, "auto_merging")
-
-    @auto_merging.setter
-    def auto_merging(self, value: Optional[pulumi.Input['DomainAutoMergingArgs']]):
-        pulumi.set(self, "auto_merging", value)
-
-    @_builtins.property
-    @pulumi.getter(name="exportingConfig")
-    def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
-        """
-        The S3 location where Identity Resolution Jobs write result files.
-        """
-        return pulumi.get(self, "exporting_config")
-
-    @exporting_config.setter
-    def exporting_config(self, value: Optional[pulumi.Input['DomainExportingConfigArgs']]):
-        pulumi.set(self, "exporting_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobSchedule")
-    def job_schedule(self) -> Optional[pulumi.Input['DomainJobScheduleArgs']]:
-        """
-        The day and time when do you want to start the Identity Resolution Job every week.
-        """
-        return pulumi.get(self, "job_schedule")
-
-    @job_schedule.setter
-    def job_schedule(self, value: Optional[pulumi.Input['DomainJobScheduleArgs']]):
-        pulumi.set(self, "job_schedule", value)
-
-
 class DomainObjectTypeFieldArgsDict(TypedDict):
     """
     Represents a field in a DomainObjectType.
@@ -1049,11 +1049,11 @@ class DomainObjectTypeFieldArgsDict(TypedDict):
     """
     The target field name.
     """
-    content_type: NotRequired[pulumi.Input['DomainObjectTypeFieldContentType']]
+    content_type: NotRequired[pulumi.Input[Optional['DomainObjectTypeFieldContentType']]]
     """
     The content type of the field.
     """
-    feature_type: NotRequired[pulumi.Input['DomainObjectTypeFieldFeatureType']]
+    feature_type: NotRequired[pulumi.Input[Optional['DomainObjectTypeFieldFeatureType']]]
     """
     The feature type of the field.
     """
@@ -1063,8 +1063,8 @@ class DomainObjectTypeFieldArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 content_type: Optional[pulumi.Input['DomainObjectTypeFieldContentType']] = None,
-                 feature_type: Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']] = None):
+                 content_type: pulumi.Input[Optional['DomainObjectTypeFieldContentType']] = None,
+                 feature_type: pulumi.Input[Optional['DomainObjectTypeFieldFeatureType']] = None):
         """
         Represents a field in a DomainObjectType.
 
@@ -1106,26 +1106,26 @@ class DomainObjectTypeFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input['DomainObjectTypeFieldContentType']]:
+    def content_type(self) -> pulumi.Input[Optional['DomainObjectTypeFieldContentType']]:
         """
         The content type of the field.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input['DomainObjectTypeFieldContentType']]):
+    def content_type(self, value: pulumi.Input[Optional['DomainObjectTypeFieldContentType']]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter(name="featureType")
-    def feature_type(self) -> Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']]:
+    def feature_type(self) -> pulumi.Input[Optional['DomainObjectTypeFieldFeatureType']]:
         """
         The feature type of the field.
         """
         return pulumi.get(self, "feature_type")
 
     @feature_type.setter
-    def feature_type(self, value: Optional[pulumi.Input['DomainObjectTypeFieldFeatureType']]):
+    def feature_type(self, value: pulumi.Input[Optional['DomainObjectTypeFieldFeatureType']]):
         pulumi.set(self, "feature_type", value)
 
 
@@ -1133,11 +1133,11 @@ class DomainReadinessArgsDict(TypedDict):
     """
     Progress information for data store setup.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message describing the current progress.
     """
-    progress_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    progress_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage of progress completed.
     """
@@ -1145,8 +1145,8 @@ class DomainReadinessArgsDict(TypedDict):
 @pulumi.input_type
 class DomainReadinessArgs:
     def __init__(__self__, *,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 progress_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 progress_percentage: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Progress information for data store setup.
 
@@ -1160,26 +1160,26 @@ class DomainReadinessArgs:
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message describing the current progress.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="progressPercentage")
-    def progress_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def progress_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage of progress completed.
         """
         return pulumi.get(self, "progress_percentage")
 
     @progress_percentage.setter
-    def progress_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def progress_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "progress_percentage", value)
 
 
@@ -1191,31 +1191,31 @@ class DomainRuleBasedMatchingArgsDict(TypedDict):
     """
     The flag that enables the rule-based matching process of duplicate profiles.
     """
-    attribute_types_selector: NotRequired[pulumi.Input['DomainAttributeTypesSelectorArgsDict']]
+    attribute_types_selector: NotRequired[pulumi.Input[Optional['DomainAttributeTypesSelectorArgsDict']]]
     """
     Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
     """
-    conflict_resolution: NotRequired[pulumi.Input['DomainConflictResolutionArgsDict']]
+    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainConflictResolutionArgsDict']]]
     """
     Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
     """
-    exporting_config: NotRequired[pulumi.Input['DomainExportingConfigArgsDict']]
+    exporting_config: NotRequired[pulumi.Input[Optional['DomainExportingConfigArgsDict']]]
     """
     The S3 location where Identity Resolution Jobs write result files.
     """
-    matching_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgsDict']]]]
+    matching_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainMatchingRuleArgsDict']]]]]
     """
     Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
     """
-    max_allowed_rule_level_for_matching: NotRequired[pulumi.Input[_builtins.int]]
+    max_allowed_rule_level_for_matching: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates the maximum allowed rule level for matching.
     """
-    max_allowed_rule_level_for_merging: NotRequired[pulumi.Input[_builtins.int]]
+    max_allowed_rule_level_for_merging: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates the maximum allowed rule level for merging.
     """
-    status: NotRequired[pulumi.Input['DomainRuleBasedMatchingStatus']]
+    status: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingStatus']]]
     """
     The status of rule-based matching rule.
     """
@@ -1224,13 +1224,13 @@ class DomainRuleBasedMatchingArgsDict(TypedDict):
 class DomainRuleBasedMatchingArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 attribute_types_selector: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']] = None,
-                 conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
-                 exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
-                 matching_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]] = None,
-                 max_allowed_rule_level_for_matching: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_allowed_rule_level_for_merging: Optional[pulumi.Input[_builtins.int]] = None,
-                 status: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']] = None):
+                 attribute_types_selector: pulumi.Input[Optional['DomainAttributeTypesSelectorArgs']] = None,
+                 conflict_resolution: pulumi.Input[Optional['DomainConflictResolutionArgs']] = None,
+                 exporting_config: pulumi.Input[Optional['DomainExportingConfigArgs']] = None,
+                 matching_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]] = None,
+                 max_allowed_rule_level_for_matching: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_allowed_rule_level_for_merging: pulumi.Input[Optional[_builtins.int]] = None,
+                 status: pulumi.Input[Optional['DomainRuleBasedMatchingStatus']] = None):
         """
         The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
 
@@ -1273,86 +1273,86 @@ class DomainRuleBasedMatchingArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributeTypesSelector")
-    def attribute_types_selector(self) -> Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']]:
+    def attribute_types_selector(self) -> pulumi.Input[Optional['DomainAttributeTypesSelectorArgs']]:
         """
         Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         """
         return pulumi.get(self, "attribute_types_selector")
 
     @attribute_types_selector.setter
-    def attribute_types_selector(self, value: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']]):
+    def attribute_types_selector(self, value: pulumi.Input[Optional['DomainAttributeTypesSelectorArgs']]):
         pulumi.set(self, "attribute_types_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="conflictResolution")
-    def conflict_resolution(self) -> Optional[pulumi.Input['DomainConflictResolutionArgs']]:
+    def conflict_resolution(self) -> pulumi.Input[Optional['DomainConflictResolutionArgs']]:
         """
         Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
         """
         return pulumi.get(self, "conflict_resolution")
 
     @conflict_resolution.setter
-    def conflict_resolution(self, value: Optional[pulumi.Input['DomainConflictResolutionArgs']]):
+    def conflict_resolution(self, value: pulumi.Input[Optional['DomainConflictResolutionArgs']]):
         pulumi.set(self, "conflict_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="exportingConfig")
-    def exporting_config(self) -> Optional[pulumi.Input['DomainExportingConfigArgs']]:
+    def exporting_config(self) -> pulumi.Input[Optional['DomainExportingConfigArgs']]:
         """
         The S3 location where Identity Resolution Jobs write result files.
         """
         return pulumi.get(self, "exporting_config")
 
     @exporting_config.setter
-    def exporting_config(self, value: Optional[pulumi.Input['DomainExportingConfigArgs']]):
+    def exporting_config(self, value: pulumi.Input[Optional['DomainExportingConfigArgs']]):
         pulumi.set(self, "exporting_config", value)
 
     @_builtins.property
     @pulumi.getter(name="matchingRules")
-    def matching_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]:
+    def matching_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]:
         """
         Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
         """
         return pulumi.get(self, "matching_rules")
 
     @matching_rules.setter
-    def matching_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]):
+    def matching_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainMatchingRuleArgs']]]]):
         pulumi.set(self, "matching_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMatching")
-    def max_allowed_rule_level_for_matching(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_allowed_rule_level_for_matching(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the maximum allowed rule level for matching.
         """
         return pulumi.get(self, "max_allowed_rule_level_for_matching")
 
     @max_allowed_rule_level_for_matching.setter
-    def max_allowed_rule_level_for_matching(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_allowed_rule_level_for_matching(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_allowed_rule_level_for_matching", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAllowedRuleLevelForMerging")
-    def max_allowed_rule_level_for_merging(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_allowed_rule_level_for_merging(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the maximum allowed rule level for merging.
         """
         return pulumi.get(self, "max_allowed_rule_level_for_merging")
 
     @max_allowed_rule_level_for_merging.setter
-    def max_allowed_rule_level_for_merging(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_allowed_rule_level_for_merging(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_allowed_rule_level_for_merging", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['DomainRuleBasedMatchingStatus']]:
+    def status(self) -> pulumi.Input[Optional['DomainRuleBasedMatchingStatus']]:
         """
         The status of rule-based matching rule.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']]):
+    def status(self, value: pulumi.Input[Optional['DomainRuleBasedMatchingStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -1364,7 +1364,7 @@ class DomainS3ExportingConfigArgsDict(TypedDict):
     """
     The name of the S3 bucket where Identity Resolution Jobs write result files.
     """
-    s3_key_name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 key name of the location where Identity Resolution Jobs write result files.
     """
@@ -1373,7 +1373,7 @@ class DomainS3ExportingConfigArgsDict(TypedDict):
 class DomainS3ExportingConfigArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[_builtins.str],
-                 s3_key_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_key_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The S3 location where Identity Resolution Jobs write result files.
 
@@ -1398,14 +1398,14 @@ class DomainS3ExportingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3KeyName")
-    def s3_key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 key name of the location where Identity Resolution Jobs write result files.
         """
         return pulumi.get(self, "s3_key_name")
 
     @s3_key_name.setter
-    def s3_key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_name", value)
 
 
@@ -1475,11 +1475,11 @@ class EventTriggerLimitsArgsDict(TypedDict):
     """
     Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
     """
-    event_expiration: NotRequired[pulumi.Input[_builtins.int]]
+    event_expiration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies that an event will only trigger the destination if it is processed within a certain latency period.
     """
-    periods: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]
+    periods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]]
     """
     A list of time periods during which the limits apply.
     """
@@ -1487,8 +1487,8 @@ class EventTriggerLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class EventTriggerLimitsArgs:
     def __init__(__self__, *,
-                 event_expiration: Optional[pulumi.Input[_builtins.int]] = None,
-                 periods: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]] = None):
+                 event_expiration: pulumi.Input[Optional[_builtins.int]] = None,
+                 periods: pulumi.Input[Optional[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]] = None):
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 
@@ -1502,26 +1502,26 @@ class EventTriggerLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventExpiration")
-    def event_expiration(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def event_expiration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies that an event will only trigger the destination if it is processed within a certain latency period.
         """
         return pulumi.get(self, "event_expiration")
 
     @event_expiration.setter
-    def event_expiration(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def event_expiration(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "event_expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def periods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]:
+    def periods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]:
         """
         A list of time periods during which the limits apply.
         """
         return pulumi.get(self, "periods")
 
     @periods.setter
-    def periods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]):
+    def periods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]):
         pulumi.set(self, "periods", value)
 
 
@@ -1537,11 +1537,11 @@ class EventTriggerObjectAttributeArgsDict(TypedDict):
     """
     A list of attribute values used for comparison.
     """
-    field_name: NotRequired[pulumi.Input[_builtins.str]]
+    field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field defined within an object type.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An attribute contained within a source object.
     """
@@ -1551,8 +1551,8 @@ class EventTriggerObjectAttributeArgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input['EventTriggerObjectAttributeComparisonOperator'],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 field_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None):
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The criteria that a specific object attribute must meet to trigger the destination.
 
@@ -1594,26 +1594,26 @@ class EventTriggerObjectAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldName")
-    def field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field defined within an object type.
         """
         return pulumi.get(self, "field_name")
 
     @field_name.setter
-    def field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An attribute contained within a source object.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
 
@@ -1629,11 +1629,11 @@ class EventTriggerPeriodArgsDict(TypedDict):
     """
     The amount of time of the specified unit.
     """
-    max_invocations_per_profile: NotRequired[pulumi.Input[_builtins.int]]
+    max_invocations_per_profile: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum allowed number of destination invocations per profile.
     """
-    unlimited: NotRequired[pulumi.Input[_builtins.bool]]
+    unlimited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, there is no limit on the number of destination invocations per profile. The default is false.
     """
@@ -1643,8 +1643,8 @@ class EventTriggerPeriodArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input['EventTriggerPeriodUnit'],
                  value: pulumi.Input[_builtins.int],
-                 max_invocations_per_profile: Optional[pulumi.Input[_builtins.int]] = None,
-                 unlimited: Optional[pulumi.Input[_builtins.bool]] = None):
+                 max_invocations_per_profile: pulumi.Input[Optional[_builtins.int]] = None,
+                 unlimited: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Defines a limit and the time period during which it is enforced.
 
@@ -1686,47 +1686,47 @@ class EventTriggerPeriodArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxInvocationsPerProfile")
-    def max_invocations_per_profile(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_invocations_per_profile(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum allowed number of destination invocations per profile.
         """
         return pulumi.get(self, "max_invocations_per_profile")
 
     @max_invocations_per_profile.setter
-    def max_invocations_per_profile(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_invocations_per_profile(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_invocations_per_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def unlimited(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def unlimited(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, there is no limit on the number of destination invocations per profile. The default is false.
         """
         return pulumi.get(self, "unlimited")
 
     @unlimited.setter
-    def unlimited(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def unlimited(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "unlimited", value)
 
 
 class IntegrationConnectorOperatorArgsDict(TypedDict):
-    marketo: NotRequired[pulumi.Input['IntegrationMarketoConnectorOperator']]
+    marketo: NotRequired[pulumi.Input[Optional['IntegrationMarketoConnectorOperator']]]
     """
     The operation to be performed on the provided Marketo source fields.
     """
-    s3: NotRequired[pulumi.Input['IntegrationS3ConnectorOperator']]
+    s3: NotRequired[pulumi.Input[Optional['IntegrationS3ConnectorOperator']]]
     """
     The operation to be performed on the provided Amazon S3 source fields.
     """
-    salesforce: NotRequired[pulumi.Input['IntegrationSalesforceConnectorOperator']]
+    salesforce: NotRequired[pulumi.Input[Optional['IntegrationSalesforceConnectorOperator']]]
     """
     The operation to be performed on the provided Salesforce source fields.
     """
-    service_now: NotRequired[pulumi.Input['IntegrationServiceNowConnectorOperator']]
+    service_now: NotRequired[pulumi.Input[Optional['IntegrationServiceNowConnectorOperator']]]
     """
     The operation to be performed on the provided ServiceNow source fields.
     """
-    zendesk: NotRequired[pulumi.Input['IntegrationZendeskConnectorOperator']]
+    zendesk: NotRequired[pulumi.Input[Optional['IntegrationZendeskConnectorOperator']]]
     """
     The operation to be performed on the provided Zendesk source fields.
     """
@@ -1734,11 +1734,11 @@ class IntegrationConnectorOperatorArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationConnectorOperatorArgs:
     def __init__(__self__, *,
-                 marketo: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']] = None,
-                 s3: Optional[pulumi.Input['IntegrationS3ConnectorOperator']] = None,
-                 salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
-                 service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
-                 zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None):
+                 marketo: pulumi.Input[Optional['IntegrationMarketoConnectorOperator']] = None,
+                 s3: pulumi.Input[Optional['IntegrationS3ConnectorOperator']] = None,
+                 salesforce: pulumi.Input[Optional['IntegrationSalesforceConnectorOperator']] = None,
+                 service_now: pulumi.Input[Optional['IntegrationServiceNowConnectorOperator']] = None,
+                 zendesk: pulumi.Input[Optional['IntegrationZendeskConnectorOperator']] = None):
         """
         :param pulumi.Input['IntegrationMarketoConnectorOperator'] marketo: The operation to be performed on the provided Marketo source fields.
         :param pulumi.Input['IntegrationS3ConnectorOperator'] s3: The operation to be performed on the provided Amazon S3 source fields.
@@ -1759,62 +1759,62 @@ class IntegrationConnectorOperatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoConnectorOperator']]:
+    def marketo(self) -> pulumi.Input[Optional['IntegrationMarketoConnectorOperator']]:
         """
         The operation to be performed on the provided Marketo source fields.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']]):
+    def marketo(self, value: pulumi.Input[Optional['IntegrationMarketoConnectorOperator']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['IntegrationS3ConnectorOperator']]:
+    def s3(self) -> pulumi.Input[Optional['IntegrationS3ConnectorOperator']]:
         """
         The operation to be performed on the provided Amazon S3 source fields.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['IntegrationS3ConnectorOperator']]):
+    def s3(self, value: pulumi.Input[Optional['IntegrationS3ConnectorOperator']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']]:
+    def salesforce(self) -> pulumi.Input[Optional['IntegrationSalesforceConnectorOperator']]:
         """
         The operation to be performed on the provided Salesforce source fields.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']]):
+    def salesforce(self, value: pulumi.Input[Optional['IntegrationSalesforceConnectorOperator']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']]:
+    def service_now(self) -> pulumi.Input[Optional['IntegrationServiceNowConnectorOperator']]:
         """
         The operation to be performed on the provided ServiceNow source fields.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']]):
+    def service_now(self, value: pulumi.Input[Optional['IntegrationServiceNowConnectorOperator']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskConnectorOperator']]:
+    def zendesk(self) -> pulumi.Input[Optional['IntegrationZendeskConnectorOperator']]:
         """
         The operation to be performed on the provided Zendesk source fields.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']]):
+    def zendesk(self, value: pulumi.Input[Optional['IntegrationZendeskConnectorOperator']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -1839,7 +1839,7 @@ class IntegrationFlowDefinitionArgsDict(TypedDict):
     """
     The trigger settings that determine how and when the flow runs.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the flow you want to create.
     """
@@ -1852,7 +1852,7 @@ class IntegrationFlowDefinitionArgs:
                  source_flow_config: pulumi.Input['IntegrationSourceFlowConfigArgs'],
                  tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
                  trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] flow_name: The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
         :param pulumi.Input[_builtins.str] kms_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
@@ -1931,19 +1931,19 @@ class IntegrationFlowDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the flow you want to create.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
 class IntegrationIncrementalPullConfigArgsDict(TypedDict):
-    datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    datetime_type_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
     """
@@ -1951,7 +1951,7 @@ class IntegrationIncrementalPullConfigArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationIncrementalPullConfigArgs:
     def __init__(__self__, *,
-                 datetime_type_field_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 datetime_type_field_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] datetime_type_field_name: A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
@@ -1960,14 +1960,14 @@ class IntegrationIncrementalPullConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="datetimeTypeFieldName")
-    def datetime_type_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datetime_type_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
         return pulumi.get(self, "datetime_type_field_name")
 
     @datetime_type_field_name.setter
-    def datetime_type_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datetime_type_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datetime_type_field_name", value)
 
 
@@ -2051,7 +2051,7 @@ class IntegrationS3SourcePropertiesArgsDict(TypedDict):
     """
     The Amazon S3 bucket name where the source files are stored.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the Amazon S3 bucket in which the source files are stored.
     """
@@ -2060,7 +2060,7 @@ class IntegrationS3SourcePropertiesArgsDict(TypedDict):
 class IntegrationS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name where the source files are stored.
         :param pulumi.Input[_builtins.str] bucket_prefix: The object key for the Amazon S3 bucket in which the source files are stored.
@@ -2083,14 +2083,14 @@ class IntegrationS3SourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the Amazon S3 bucket in which the source files are stored.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
 
@@ -2099,11 +2099,11 @@ class IntegrationSalesforceSourcePropertiesArgsDict(TypedDict):
     """
     The object specified in the Salesforce flow source.
     """
-    enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_dynamic_field_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
     """
-    include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
+    include_deleted_records: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether Amazon AppFlow includes deleted files in the flow run.
     """
@@ -2112,8 +2112,8 @@ class IntegrationSalesforceSourcePropertiesArgsDict(TypedDict):
 class IntegrationSalesforceSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 enable_dynamic_field_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_deleted_records: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_dynamic_field_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_deleted_records: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Salesforce flow source.
         :param pulumi.Input[_builtins.bool] enable_dynamic_field_update: The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
@@ -2139,26 +2139,26 @@ class IntegrationSalesforceSourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableDynamicFieldUpdate")
-    def enable_dynamic_field_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_dynamic_field_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         """
         return pulumi.get(self, "enable_dynamic_field_update")
 
     @enable_dynamic_field_update.setter
-    def enable_dynamic_field_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_dynamic_field_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_dynamic_field_update", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDeletedRecords")
-    def include_deleted_records(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_deleted_records(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Amazon AppFlow includes deleted files in the flow run.
         """
         return pulumi.get(self, "include_deleted_records")
 
     @include_deleted_records.setter
-    def include_deleted_records(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_deleted_records(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_deleted_records", value)
 
 
@@ -2167,27 +2167,27 @@ class IntegrationScheduledTriggerPropertiesArgsDict(TypedDict):
     """
     The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
     """
-    data_pull_mode: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]
+    data_pull_mode: NotRequired[pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesDataPullMode']]]
     """
     Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
     """
-    first_execution_from: NotRequired[pulumi.Input[_builtins.float]]
+    first_execution_from: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the date range for the records to import from the connector in the first flow run.
     """
-    schedule_end_time: NotRequired[pulumi.Input[_builtins.float]]
+    schedule_end_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the scheduled end time for a scheduled-trigger flow.
     """
-    schedule_offset: NotRequired[pulumi.Input[_builtins.int]]
+    schedule_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
     """
-    schedule_start_time: NotRequired[pulumi.Input[_builtins.float]]
+    schedule_start_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
     """
-    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
     """
@@ -2196,12 +2196,12 @@ class IntegrationScheduledTriggerPropertiesArgsDict(TypedDict):
 class IntegrationScheduledTriggerPropertiesArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[_builtins.str],
-                 data_pull_mode: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']] = None,
-                 first_execution_from: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_end_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_start_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 timezone: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_pull_mode: pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesDataPullMode']] = None,
+                 first_execution_from: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_end_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] schedule_expression: The scheduling expression that determines the rate at which the schedule will run, for example rate (5 minutes).
         :param pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode'] data_pull_mode: Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
@@ -2239,74 +2239,74 @@ class IntegrationScheduledTriggerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]:
+    def data_pull_mode(self) -> pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesDataPullMode']]:
         """
         Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
         """
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
-    def data_pull_mode(self, value: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]):
+    def data_pull_mode(self, value: pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesDataPullMode']]):
         pulumi.set(self, "data_pull_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="firstExecutionFrom")
-    def first_execution_from(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def first_execution_from(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the date range for the records to import from the connector in the first flow run.
         """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
-    def first_execution_from(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def first_execution_from(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "first_execution_from", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleEndTime")
-    def schedule_end_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_end_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the scheduled end time for a scheduled-trigger flow.
         """
         return pulumi.get(self, "schedule_end_time")
 
     @schedule_end_time.setter
-    def schedule_end_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_end_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleOffset")
-    def schedule_offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def schedule_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
         """
         return pulumi.get(self, "schedule_offset")
 
     @schedule_offset.setter
-    def schedule_offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def schedule_offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "schedule_offset", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleStartTime")
-    def schedule_start_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_start_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
         """
         return pulumi.get(self, "schedule_start_time")
 
     @schedule_start_time.setter
-    def schedule_start_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_start_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_start_time", value)
 
     @_builtins.property
     @pulumi.getter
-    def timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
         """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
-    def timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "timezone", value)
 
 
@@ -2339,23 +2339,23 @@ class IntegrationServiceNowSourcePropertiesArgs:
 
 
 class IntegrationSourceConnectorPropertiesArgsDict(TypedDict):
-    marketo: NotRequired[pulumi.Input['IntegrationMarketoSourcePropertiesArgsDict']]
+    marketo: NotRequired[pulumi.Input[Optional['IntegrationMarketoSourcePropertiesArgsDict']]]
     """
     The properties that are applied when Marketo is being used as a source.
     """
-    s3: NotRequired[pulumi.Input['IntegrationS3SourcePropertiesArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['IntegrationS3SourcePropertiesArgsDict']]]
     """
     The properties that are applied when Amazon S3 is being used as the flow source.
     """
-    salesforce: NotRequired[pulumi.Input['IntegrationSalesforceSourcePropertiesArgsDict']]
+    salesforce: NotRequired[pulumi.Input[Optional['IntegrationSalesforceSourcePropertiesArgsDict']]]
     """
     The properties that are applied when Salesforce is being used as a source.
     """
-    service_now: NotRequired[pulumi.Input['IntegrationServiceNowSourcePropertiesArgsDict']]
+    service_now: NotRequired[pulumi.Input[Optional['IntegrationServiceNowSourcePropertiesArgsDict']]]
     """
     The properties that are applied when ServiceNow is being used as a source.
     """
-    zendesk: NotRequired[pulumi.Input['IntegrationZendeskSourcePropertiesArgsDict']]
+    zendesk: NotRequired[pulumi.Input[Optional['IntegrationZendeskSourcePropertiesArgsDict']]]
     """
     The properties that are applied when using Zendesk as a flow source.
     """
@@ -2363,11 +2363,11 @@ class IntegrationSourceConnectorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationSourceConnectorPropertiesArgs:
     def __init__(__self__, *,
-                 marketo: Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']] = None,
-                 s3: Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']] = None,
-                 salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
-                 service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
-                 zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None):
+                 marketo: pulumi.Input[Optional['IntegrationMarketoSourcePropertiesArgs']] = None,
+                 s3: pulumi.Input[Optional['IntegrationS3SourcePropertiesArgs']] = None,
+                 salesforce: pulumi.Input[Optional['IntegrationSalesforceSourcePropertiesArgs']] = None,
+                 service_now: pulumi.Input[Optional['IntegrationServiceNowSourcePropertiesArgs']] = None,
+                 zendesk: pulumi.Input[Optional['IntegrationZendeskSourcePropertiesArgs']] = None):
         """
         :param pulumi.Input['IntegrationMarketoSourcePropertiesArgs'] marketo: The properties that are applied when Marketo is being used as a source.
         :param pulumi.Input['IntegrationS3SourcePropertiesArgs'] s3: The properties that are applied when Amazon S3 is being used as the flow source.
@@ -2388,62 +2388,62 @@ class IntegrationSourceConnectorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']]:
+    def marketo(self) -> pulumi.Input[Optional['IntegrationMarketoSourcePropertiesArgs']]:
         """
         The properties that are applied when Marketo is being used as a source.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']]):
+    def marketo(self, value: pulumi.Input[Optional['IntegrationMarketoSourcePropertiesArgs']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']]:
+    def s3(self) -> pulumi.Input[Optional['IntegrationS3SourcePropertiesArgs']]:
         """
         The properties that are applied when Amazon S3 is being used as the flow source.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']]):
+    def s3(self, value: pulumi.Input[Optional['IntegrationS3SourcePropertiesArgs']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']]:
+    def salesforce(self) -> pulumi.Input[Optional['IntegrationSalesforceSourcePropertiesArgs']]:
         """
         The properties that are applied when Salesforce is being used as a source.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']]):
+    def salesforce(self, value: pulumi.Input[Optional['IntegrationSalesforceSourcePropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']]:
+    def service_now(self) -> pulumi.Input[Optional['IntegrationServiceNowSourcePropertiesArgs']]:
         """
         The properties that are applied when ServiceNow is being used as a source.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']]):
+    def service_now(self, value: pulumi.Input[Optional['IntegrationServiceNowSourcePropertiesArgs']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']]:
+    def zendesk(self) -> pulumi.Input[Optional['IntegrationZendeskSourcePropertiesArgs']]:
         """
         The properties that are applied when using Zendesk as a flow source.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']]):
+    def zendesk(self, value: pulumi.Input[Optional['IntegrationZendeskSourcePropertiesArgs']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -2456,11 +2456,11 @@ class IntegrationSourceFlowConfigArgsDict(TypedDict):
     """
     Specifies the information that is required to query a particular source connector.
     """
-    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    connector_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
     """
-    incremental_pull_config: NotRequired[pulumi.Input['IntegrationIncrementalPullConfigArgsDict']]
+    incremental_pull_config: NotRequired[pulumi.Input[Optional['IntegrationIncrementalPullConfigArgsDict']]]
     """
     Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
     """
@@ -2470,8 +2470,8 @@ class IntegrationSourceFlowConfigArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input['IntegrationConnectorType'],
                  source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
-                 connector_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None):
+                 connector_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_pull_config: pulumi.Input[Optional['IntegrationIncrementalPullConfigArgs']] = None):
         """
         :param pulumi.Input['IntegrationConnectorType'] connector_type: The type of connector, such as Salesforce, Marketo, and so on.
         :param pulumi.Input['IntegrationSourceConnectorPropertiesArgs'] source_connector_properties: Specifies the information that is required to query a particular source connector.
@@ -2511,27 +2511,134 @@ class IntegrationSourceFlowConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileName")
-    def connector_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
         """
         return pulumi.get(self, "connector_profile_name")
 
     @connector_profile_name.setter
-    def connector_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalPullConfig")
-    def incremental_pull_config(self) -> Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']]:
+    def incremental_pull_config(self) -> pulumi.Input[Optional['IntegrationIncrementalPullConfigArgs']]:
         """
         Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
         """
         return pulumi.get(self, "incremental_pull_config")
 
     @incremental_pull_config.setter
-    def incremental_pull_config(self, value: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']]):
+    def incremental_pull_config(self, value: pulumi.Input[Optional['IntegrationIncrementalPullConfigArgs']]):
         pulumi.set(self, "incremental_pull_config", value)
+
+
+class IntegrationTaskArgsDict(TypedDict):
+    source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The source fields to which a particular task is applied.
+    """
+    task_type: pulumi.Input['IntegrationTaskType']
+    """
+    Specifies the particular task implementation that Amazon AppFlow performs.
+    """
+    connector_operator: NotRequired[pulumi.Input[Optional['IntegrationConnectorOperatorArgsDict']]]
+    """
+    The operation to be performed on the provided source fields.
+    """
+    destination_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+    """
+    task_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgsDict']]]]]
+    """
+    A map used to store task-related information. The service looks for particular information based on the TaskType.
+    """
+
+@pulumi.input_type
+class IntegrationTaskArgs:
+    def __init__(__self__, *,
+                 source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 task_type: pulumi.Input['IntegrationTaskType'],
+                 connector_operator: pulumi.Input[Optional['IntegrationConnectorOperatorArgs']] = None,
+                 destination_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_properties: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_fields: The source fields to which a particular task is applied.
+        :param pulumi.Input['IntegrationTaskType'] task_type: Specifies the particular task implementation that Amazon AppFlow performs.
+        :param pulumi.Input['IntegrationConnectorOperatorArgs'] connector_operator: The operation to be performed on the provided source fields.
+        :param pulumi.Input[_builtins.str] destination_field: A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]] task_properties: A map used to store task-related information. The service looks for particular information based on the TaskType.
+        """
+        pulumi.set(__self__, "source_fields", source_fields)
+        pulumi.set(__self__, "task_type", task_type)
+        if connector_operator is not None:
+            pulumi.set(__self__, "connector_operator", connector_operator)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if task_properties is not None:
+            pulumi.set(__self__, "task_properties", task_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The source fields to which a particular task is applied.
+        """
+        return pulumi.get(self, "source_fields")
+
+    @source_fields.setter
+    def source_fields(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "source_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input['IntegrationTaskType']:
+        """
+        Specifies the particular task implementation that Amazon AppFlow performs.
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input['IntegrationTaskType']):
+        pulumi.set(self, "task_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorOperator")
+    def connector_operator(self) -> pulumi.Input[Optional['IntegrationConnectorOperatorArgs']]:
+        """
+        The operation to be performed on the provided source fields.
+        """
+        return pulumi.get(self, "connector_operator")
+
+    @connector_operator.setter
+    def connector_operator(self, value: pulumi.Input[Optional['IntegrationConnectorOperatorArgs']]):
+        pulumi.set(self, "connector_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+        """
+        return pulumi.get(self, "destination_field")
+
+    @destination_field.setter
+    def destination_field(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskProperties")
+    def task_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]:
+        """
+        A map used to store task-related information. The service looks for particular information based on the TaskType.
+        """
+        return pulumi.get(self, "task_properties")
+
+    @task_properties.setter
+    def task_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]):
+        pulumi.set(self, "task_properties", value)
 
 
 class IntegrationTaskPropertiesMapArgsDict(TypedDict):
@@ -2581,119 +2688,12 @@ class IntegrationTaskPropertiesMapArgs:
         pulumi.set(self, "property", value)
 
 
-class IntegrationTaskArgsDict(TypedDict):
-    source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    The source fields to which a particular task is applied.
-    """
-    task_type: pulumi.Input['IntegrationTaskType']
-    """
-    Specifies the particular task implementation that Amazon AppFlow performs.
-    """
-    connector_operator: NotRequired[pulumi.Input['IntegrationConnectorOperatorArgsDict']]
-    """
-    The operation to be performed on the provided source fields.
-    """
-    destination_field: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-    """
-    task_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgsDict']]]]
-    """
-    A map used to store task-related information. The service looks for particular information based on the TaskType.
-    """
-
-@pulumi.input_type
-class IntegrationTaskArgs:
-    def __init__(__self__, *,
-                 source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 task_type: pulumi.Input['IntegrationTaskType'],
-                 connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
-                 destination_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_fields: The source fields to which a particular task is applied.
-        :param pulumi.Input['IntegrationTaskType'] task_type: Specifies the particular task implementation that Amazon AppFlow performs.
-        :param pulumi.Input['IntegrationConnectorOperatorArgs'] connector_operator: The operation to be performed on the provided source fields.
-        :param pulumi.Input[_builtins.str] destination_field: A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]] task_properties: A map used to store task-related information. The service looks for particular information based on the TaskType.
-        """
-        pulumi.set(__self__, "source_fields", source_fields)
-        pulumi.set(__self__, "task_type", task_type)
-        if connector_operator is not None:
-            pulumi.set(__self__, "connector_operator", connector_operator)
-        if destination_field is not None:
-            pulumi.set(__self__, "destination_field", destination_field)
-        if task_properties is not None:
-            pulumi.set(__self__, "task_properties", task_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceFields")
-    def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        The source fields to which a particular task is applied.
-        """
-        return pulumi.get(self, "source_fields")
-
-    @source_fields.setter
-    def source_fields(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "source_fields", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskType")
-    def task_type(self) -> pulumi.Input['IntegrationTaskType']:
-        """
-        Specifies the particular task implementation that Amazon AppFlow performs.
-        """
-        return pulumi.get(self, "task_type")
-
-    @task_type.setter
-    def task_type(self, value: pulumi.Input['IntegrationTaskType']):
-        pulumi.set(self, "task_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorOperator")
-    def connector_operator(self) -> Optional[pulumi.Input['IntegrationConnectorOperatorArgs']]:
-        """
-        The operation to be performed on the provided source fields.
-        """
-        return pulumi.get(self, "connector_operator")
-
-    @connector_operator.setter
-    def connector_operator(self, value: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']]):
-        pulumi.set(self, "connector_operator", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destinationField")
-    def destination_field(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-        """
-        return pulumi.get(self, "destination_field")
-
-    @destination_field.setter
-    def destination_field(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "destination_field", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskProperties")
-    def task_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]:
-        """
-        A map used to store task-related information. The service looks for particular information based on the TaskType.
-        """
-        return pulumi.get(self, "task_properties")
-
-    @task_properties.setter
-    def task_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]):
-        pulumi.set(self, "task_properties", value)
-
-
 class IntegrationTriggerConfigArgsDict(TypedDict):
     trigger_type: pulumi.Input['IntegrationTriggerType']
     """
     Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
     """
-    trigger_properties: NotRequired[pulumi.Input['IntegrationTriggerPropertiesArgsDict']]
+    trigger_properties: NotRequired[pulumi.Input[Optional['IntegrationTriggerPropertiesArgsDict']]]
     """
     Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
     """
@@ -2702,7 +2702,7 @@ class IntegrationTriggerConfigArgsDict(TypedDict):
 class IntegrationTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['IntegrationTriggerType'],
-                 trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None):
+                 trigger_properties: pulumi.Input[Optional['IntegrationTriggerPropertiesArgs']] = None):
         """
         :param pulumi.Input['IntegrationTriggerType'] trigger_type: Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
         :param pulumi.Input['IntegrationTriggerPropertiesArgs'] trigger_properties: Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
@@ -2725,19 +2725,19 @@ class IntegrationTriggerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerProperties")
-    def trigger_properties(self) -> Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']]:
+    def trigger_properties(self) -> pulumi.Input[Optional['IntegrationTriggerPropertiesArgs']]:
         """
         Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
         """
         return pulumi.get(self, "trigger_properties")
 
     @trigger_properties.setter
-    def trigger_properties(self, value: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']]):
+    def trigger_properties(self, value: pulumi.Input[Optional['IntegrationTriggerPropertiesArgs']]):
         pulumi.set(self, "trigger_properties", value)
 
 
 class IntegrationTriggerPropertiesArgsDict(TypedDict):
-    scheduled: NotRequired[pulumi.Input['IntegrationScheduledTriggerPropertiesArgsDict']]
+    scheduled: NotRequired[pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesArgsDict']]]
     """
     Specifies the configuration details of a schedule-triggered flow that you define.
     """
@@ -2745,7 +2745,7 @@ class IntegrationTriggerPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IntegrationTriggerPropertiesArgs:
     def __init__(__self__, *,
-                 scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None):
+                 scheduled: pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesArgs']] = None):
         """
         :param pulumi.Input['IntegrationScheduledTriggerPropertiesArgs'] scheduled: Specifies the configuration details of a schedule-triggered flow that you define.
         """
@@ -2754,14 +2754,14 @@ class IntegrationTriggerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scheduled(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']]:
+    def scheduled(self) -> pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesArgs']]:
         """
         Specifies the configuration details of a schedule-triggered flow that you define.
         """
         return pulumi.get(self, "scheduled")
 
     @scheduled.setter
-    def scheduled(self, value: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']]):
+    def scheduled(self, value: pulumi.Input[Optional['IntegrationScheduledTriggerPropertiesArgs']]):
         pulumi.set(self, "scheduled", value)
 
 
@@ -2793,68 +2793,19 @@ class IntegrationZendeskSourcePropertiesArgs:
         pulumi.set(self, "object", value)
 
 
-class ObjectTypeFieldMapArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Name of the field.
-    """
-    object_type_field: NotRequired[pulumi.Input['ObjectTypeFieldArgsDict']]
-    """
-    Represents a field in a ProfileObjectType.
-    """
-
-@pulumi.input_type
-class ObjectTypeFieldMapArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Name of the field.
-        :param pulumi.Input['ObjectTypeFieldArgs'] object_type_field: Represents a field in a ProfileObjectType.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if object_type_field is not None:
-            pulumi.set(__self__, "object_type_field", object_type_field)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Name of the field.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="objectTypeField")
-    def object_type_field(self) -> Optional[pulumi.Input['ObjectTypeFieldArgs']]:
-        """
-        Represents a field in a ProfileObjectType.
-        """
-        return pulumi.get(self, "object_type_field")
-
-    @object_type_field.setter
-    def object_type_field(self, value: Optional[pulumi.Input['ObjectTypeFieldArgs']]):
-        pulumi.set(self, "object_type_field", value)
-
-
 class ObjectTypeFieldArgsDict(TypedDict):
     """
     Represents a field in a ProfileObjectType.
     """
-    content_type: NotRequired[pulumi.Input['ObjectTypeFieldContentType']]
+    content_type: NotRequired[pulumi.Input[Optional['ObjectTypeFieldContentType']]]
     """
     The content type of the field. Used for determining equality when searching.
     """
-    source: NotRequired[pulumi.Input[_builtins.str]]
+    source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
     """
-    target: NotRequired[pulumi.Input[_builtins.str]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
     """
@@ -2862,9 +2813,9 @@ class ObjectTypeFieldArgsDict(TypedDict):
 @pulumi.input_type
 class ObjectTypeFieldArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input['ObjectTypeFieldContentType']] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None):
+                 content_type: pulumi.Input[Optional['ObjectTypeFieldContentType']] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents a field in a ProfileObjectType.
 
@@ -2881,47 +2832,150 @@ class ObjectTypeFieldArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input['ObjectTypeFieldContentType']]:
+    def content_type(self) -> pulumi.Input[Optional['ObjectTypeFieldContentType']]:
         """
         The content type of the field. Used for determining equality when searching.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input['ObjectTypeFieldContentType']]):
+    def content_type(self, value: pulumi.Input[Optional['ObjectTypeFieldContentType']]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
+class ObjectTypeFieldMapArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the field.
+    """
+    object_type_field: NotRequired[pulumi.Input[Optional['ObjectTypeFieldArgsDict']]]
+    """
+    Represents a field in a ProfileObjectType.
+    """
+
+@pulumi.input_type
+class ObjectTypeFieldMapArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_field: pulumi.Input[Optional['ObjectTypeFieldArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the field.
+        :param pulumi.Input['ObjectTypeFieldArgs'] object_type_field: Represents a field in a ProfileObjectType.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_type_field is not None:
+            pulumi.set(__self__, "object_type_field", object_type_field)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectTypeField")
+    def object_type_field(self) -> pulumi.Input[Optional['ObjectTypeFieldArgs']]:
+        """
+        Represents a field in a ProfileObjectType.
+        """
+        return pulumi.get(self, "object_type_field")
+
+    @object_type_field.setter
+    def object_type_field(self, value: pulumi.Input[Optional['ObjectTypeFieldArgs']]):
+        pulumi.set(self, "object_type_field", value)
+
+
+class ObjectTypeKeyArgsDict(TypedDict):
+    """
+    An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+    """
+    field_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The reference for the key name of the fields map.
+    """
+    standard_identifiers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]]
+    """
+    The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+    """
+
+@pulumi.input_type
+class ObjectTypeKeyArgs:
+    def __init__(__self__, *,
+                 field_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 standard_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None):
+        """
+        An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] field_names: The reference for the key name of the fields map.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        """
+        if field_names is not None:
+            pulumi.set(__self__, "field_names", field_names)
+        if standard_identifiers is not None:
+            pulumi.set(__self__, "standard_identifiers", standard_identifiers)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldNames")
+    def field_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The reference for the key name of the fields map.
+        """
+        return pulumi.get(self, "field_names")
+
+    @field_names.setter
+    def field_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "field_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standardIdentifiers")
+    def standard_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]:
+        """
+        The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        """
+        return pulumi.get(self, "standard_identifiers")
+
+    @standard_identifiers.setter
+    def standard_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]):
+        pulumi.set(self, "standard_identifiers", value)
+
+
 class ObjectTypeKeyMapArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the key.
     """
-    object_type_key_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgsDict']]]]
+    object_type_key_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyArgsDict']]]]]
     """
     A list of ObjectTypeKey.
     """
@@ -2929,8 +2983,8 @@ class ObjectTypeKeyMapArgsDict(TypedDict):
 @pulumi.input_type
 class ObjectTypeKeyMapArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type_key_list: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the key.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]] object_type_key_list: A list of ObjectTypeKey.
@@ -2942,93 +2996,39 @@ class ObjectTypeKeyMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the key.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectTypeKeyList")
-    def object_type_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]:
+    def object_type_key_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]:
         """
         A list of ObjectTypeKey.
         """
         return pulumi.get(self, "object_type_key_list")
 
     @object_type_key_list.setter
-    def object_type_key_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]):
+    def object_type_key_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]]):
         pulumi.set(self, "object_type_key_list", value)
-
-
-class ObjectTypeKeyArgsDict(TypedDict):
-    """
-    An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-    """
-    field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The reference for the key name of the fields map. 
-    """
-    standard_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]
-    """
-    The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-    """
-
-@pulumi.input_type
-class ObjectTypeKeyArgs:
-    def __init__(__self__, *,
-                 field_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None):
-        """
-        An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] field_names: The reference for the key name of the fields map. 
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-        """
-        if field_names is not None:
-            pulumi.set(__self__, "field_names", field_names)
-        if standard_identifiers is not None:
-            pulumi.set(__self__, "standard_identifiers", standard_identifiers)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldNames")
-    def field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The reference for the key name of the fields map. 
-        """
-        return pulumi.get(self, "field_names")
-
-    @field_names.setter
-    def field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "field_names", value)
-
-    @_builtins.property
-    @pulumi.getter(name="standardIdentifiers")
-    def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]:
-        """
-        The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
-        """
-        return pulumi.get(self, "standard_identifiers")
-
-    @standard_identifiers.setter
-    def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]]):
-        pulumi.set(self, "standard_identifiers", value)
 
 
 class RecommenderConfigArgsDict(TypedDict):
     """
     Configuration for the recommender
     """
-    events_config: NotRequired[pulumi.Input['RecommenderEventsConfigArgsDict']]
+    events_config: NotRequired[pulumi.Input[Optional['RecommenderEventsConfigArgsDict']]]
 
 @pulumi.input_type
 class RecommenderConfigArgs:
     def __init__(__self__, *,
-                 events_config: Optional[pulumi.Input['RecommenderEventsConfigArgs']] = None):
+                 events_config: pulumi.Input[Optional['RecommenderEventsConfigArgs']] = None):
         """
         Configuration for the recommender
         """
@@ -3037,11 +3037,11 @@ class RecommenderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventsConfig")
-    def events_config(self) -> Optional[pulumi.Input['RecommenderEventsConfigArgs']]:
+    def events_config(self) -> pulumi.Input[Optional['RecommenderEventsConfigArgs']]:
         return pulumi.get(self, "events_config")
 
     @events_config.setter
-    def events_config(self, value: Optional[pulumi.Input['RecommenderEventsConfigArgs']]):
+    def events_config(self, value: pulumi.Input[Optional['RecommenderEventsConfigArgs']]):
         pulumi.set(self, "events_config", value)
 
 
@@ -3053,7 +3053,7 @@ class RecommenderEventParametersArgsDict(TypedDict):
     """
     The type of event
     """
-    event_value_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    event_value_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
     """
@@ -3062,7 +3062,7 @@ class RecommenderEventParametersArgsDict(TypedDict):
 class RecommenderEventParametersArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input[_builtins.str],
-                 event_value_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 event_value_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Event parameters with type and value threshold
 
@@ -3087,14 +3087,14 @@ class RecommenderEventParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventValueThreshold")
-    def event_value_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def event_value_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The threshold of the event type. Only events with a value greater or equal to this threshold will be considered for solution creation.
         """
         return pulumi.get(self, "event_value_threshold")
 
     @event_value_threshold.setter
-    def event_value_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def event_value_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "event_value_threshold", value)
 
 
@@ -3135,22 +3135,22 @@ class SegmentDefinitionAddressDimensionArgsDict(TypedDict):
     """
     The address based criteria for the segment.
     """
-    city: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    country: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    county: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    postal_code: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    province: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    state: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
+    city: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    country: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    county: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    postal_code: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    province: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    state: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
 
 @pulumi.input_type
 class SegmentDefinitionAddressDimensionArgs:
     def __init__(__self__, *,
-                 city: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 country: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 county: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 postal_code: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 province: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 state: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None):
+                 city: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 country: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 county: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 postal_code: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 province: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 state: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None):
         """
         The address based criteria for the segment.
         """
@@ -3169,56 +3169,56 @@ class SegmentDefinitionAddressDimensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def city(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def city(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "city")
 
     @city.setter
-    def city(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def city(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "city", value)
 
     @_builtins.property
     @pulumi.getter
-    def country(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def country(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "country")
 
     @country.setter
-    def country(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def country(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "country", value)
 
     @_builtins.property
     @pulumi.getter
-    def county(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def county(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "county")
 
     @county.setter
-    def county(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def county(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "county", value)
 
     @_builtins.property
     @pulumi.getter(name="postalCode")
-    def postal_code(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def postal_code(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "postal_code")
 
     @postal_code.setter
-    def postal_code(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def postal_code(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "postal_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def province(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def province(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "province")
 
     @province.setter
-    def province(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def province(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "province", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def state(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def state(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "state", value)
 
 
@@ -3265,14 +3265,14 @@ class SegmentDefinitionCalculatedAttributeDimensionArgsDict(TypedDict):
     """
     dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType']
     values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    condition_overrides: NotRequired[pulumi.Input['SegmentDefinitionConditionOverridesArgsDict']]
+    condition_overrides: NotRequired[pulumi.Input[Optional['SegmentDefinitionConditionOverridesArgsDict']]]
 
 @pulumi.input_type
 class SegmentDefinitionCalculatedAttributeDimensionArgs:
     def __init__(__self__, *,
                  dimension_type: pulumi.Input['SegmentDefinitionAttributeDimensionType'],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 condition_overrides: Optional[pulumi.Input['SegmentDefinitionConditionOverridesArgs']] = None):
+                 condition_overrides: pulumi.Input[Optional['SegmentDefinitionConditionOverridesArgs']] = None):
         """
         Specifies calculated attribute based criteria for a segment.
         """
@@ -3301,11 +3301,11 @@ class SegmentDefinitionCalculatedAttributeDimensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="conditionOverrides")
-    def condition_overrides(self) -> Optional[pulumi.Input['SegmentDefinitionConditionOverridesArgs']]:
+    def condition_overrides(self) -> pulumi.Input[Optional['SegmentDefinitionConditionOverridesArgs']]:
         return pulumi.get(self, "condition_overrides")
 
     @condition_overrides.setter
-    def condition_overrides(self, value: Optional[pulumi.Input['SegmentDefinitionConditionOverridesArgs']]):
+    def condition_overrides(self, value: pulumi.Input[Optional['SegmentDefinitionConditionOverridesArgs']]):
         pulumi.set(self, "condition_overrides", value)
 
 
@@ -3313,12 +3313,12 @@ class SegmentDefinitionConditionOverridesArgsDict(TypedDict):
     """
     Overrides the condition block within the original calculated attribute definition.
     """
-    range: NotRequired[pulumi.Input['SegmentDefinitionRangeOverrideArgsDict']]
+    range: NotRequired[pulumi.Input[Optional['SegmentDefinitionRangeOverrideArgsDict']]]
 
 @pulumi.input_type
 class SegmentDefinitionConditionOverridesArgs:
     def __init__(__self__, *,
-                 range: Optional[pulumi.Input['SegmentDefinitionRangeOverrideArgs']] = None):
+                 range: pulumi.Input[Optional['SegmentDefinitionRangeOverrideArgs']] = None):
         """
         Overrides the condition block within the original calculated attribute definition.
         """
@@ -3327,11 +3327,11 @@ class SegmentDefinitionConditionOverridesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def range(self) -> Optional[pulumi.Input['SegmentDefinitionRangeOverrideArgs']]:
+    def range(self) -> pulumi.Input[Optional['SegmentDefinitionRangeOverrideArgs']]:
         return pulumi.get(self, "range")
 
     @range.setter
-    def range(self, value: Optional[pulumi.Input['SegmentDefinitionRangeOverrideArgs']]):
+    def range(self, value: pulumi.Input[Optional['SegmentDefinitionRangeOverrideArgs']]):
         pulumi.set(self, "range", value)
 
 
@@ -3401,12 +3401,12 @@ class SegmentDefinitionDimension1PropertiesArgsDict(TypedDict):
     """
     The criteria that define the dimensions for the segment.
     """
-    calculated_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgsDict']]]]
+    calculated_attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgsDict']]]]]
 
 @pulumi.input_type
 class SegmentDefinitionDimension1PropertiesArgs:
     def __init__(__self__, *,
-                 calculated_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]] = None):
+                 calculated_attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]] = None):
         """
         The criteria that define the dimensions for the segment.
         """
@@ -3415,11 +3415,11 @@ class SegmentDefinitionDimension1PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="calculatedAttributes")
-    def calculated_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]]:
+    def calculated_attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]]:
         return pulumi.get(self, "calculated_attributes")
 
     @calculated_attributes.setter
-    def calculated_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]]):
+    def calculated_attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionCalculatedAttributeDimensionArgs']]]]):
         pulumi.set(self, "calculated_attributes", value)
 
 
@@ -3464,19 +3464,19 @@ class SegmentDefinitionGroupArgsDict(TypedDict):
     """
     An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
     """
-    dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgsDict', 'SegmentDefinitionDimension1PropertiesArgsDict']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgsDict', 'SegmentDefinitionDimension1PropertiesArgsDict']]]]]]
     """
     Defines the attributes to segment on.
     """
-    source_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgsDict']]]]
+    source_segments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgsDict']]]]]
     """
     Defines the starting source of data.
     """
-    source_type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    source_type: NotRequired[pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]]
     """
     Defines how to interact with the source data.
     """
-    type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    type: NotRequired[pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]]
     """
     Defines how to interact with the profiles found in the current filtering.
     """
@@ -3484,10 +3484,10 @@ class SegmentDefinitionGroupArgsDict(TypedDict):
 @pulumi.input_type
 class SegmentDefinitionGroupArgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]] = None,
-                 source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]] = None,
-                 source_type: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None,
-                 type: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None):
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]] = None,
+                 source_segments: pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]] = None,
+                 source_type: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']] = None,
+                 type: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']] = None):
         """
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 
@@ -3507,50 +3507,50 @@ class SegmentDefinitionGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]]:
+    def dimensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]]:
         """
         Defines the attributes to segment on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]]):
+    def dimensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSegments")
-    def source_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]]:
+    def source_segments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]]:
         """
         Defines the starting source of data.
         """
         return pulumi.get(self, "source_segments")
 
     @source_segments.setter
-    def source_segments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]]):
+    def source_segments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]]):
         pulumi.set(self, "source_segments", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+    def source_type(self) -> pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]:
         """
         Defines how to interact with the source data.
         """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]):
+    def source_type(self, value: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]):
         pulumi.set(self, "source_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+    def type(self) -> pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]:
         """
         Defines how to interact with the profiles found in the current filtering.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]):
+    def type(self, value: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]):
         pulumi.set(self, "type", value)
 
 
@@ -3558,54 +3558,54 @@ class SegmentDefinitionProfileAttributesArgsDict(TypedDict):
     """
     Specifies the dimension settings within profile attributes for a segment.
     """
-    account_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    additional_information: NotRequired[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgsDict']]
-    address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgsDict']]]]
-    billing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-    birth_date: NotRequired[pulumi.Input['SegmentDefinitionDateDimensionArgsDict']]
-    business_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    business_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    business_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    first_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    gender_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    home_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    last_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    mailing_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
-    middle_name: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    mobile_phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    party_type_string: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    personal_email_address: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    phone_number: NotRequired[pulumi.Input['SegmentDefinitionProfileDimensionArgsDict']]
-    profile_type: NotRequired[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgsDict']]
-    shipping_address: NotRequired[pulumi.Input['SegmentDefinitionAddressDimensionArgsDict']]
+    account_number: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    additional_information: NotRequired[pulumi.Input[Optional['SegmentDefinitionExtraLengthValueProfileDimensionArgsDict']]]
+    address: NotRequired[pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgsDict']]]
+    attributes: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgsDict']]]]]
+    billing_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgsDict']]]
+    birth_date: NotRequired[pulumi.Input[Optional['SegmentDefinitionDateDimensionArgsDict']]]
+    business_email_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    business_name: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    business_phone_number: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    email_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    first_name: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    gender_string: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    home_phone_number: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    last_name: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    mailing_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgsDict']]]
+    middle_name: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    mobile_phone_number: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    party_type_string: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    personal_email_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    phone_number: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgsDict']]]
+    profile_type: NotRequired[pulumi.Input[Optional['SegmentDefinitionProfileTypeDimensionArgsDict']]]
+    shipping_address: NotRequired[pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgsDict']]]
 
 @pulumi.input_type
 class SegmentDefinitionProfileAttributesArgs:
     def __init__(__self__, *,
-                 account_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 additional_information: Optional[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgs']] = None,
-                 address: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]] = None,
-                 billing_address: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']] = None,
-                 birth_date: Optional[pulumi.Input['SegmentDefinitionDateDimensionArgs']] = None,
-                 business_email_address: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 business_name: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 business_phone_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 email_address: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 first_name: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 gender_string: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 home_phone_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 last_name: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 mailing_address: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']] = None,
-                 middle_name: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 mobile_phone_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 party_type_string: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 personal_email_address: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 phone_number: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']] = None,
-                 profile_type: Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']] = None):
+                 account_number: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 additional_information: pulumi.Input[Optional['SegmentDefinitionExtraLengthValueProfileDimensionArgs']] = None,
+                 address: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]] = None,
+                 billing_address: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']] = None,
+                 birth_date: pulumi.Input[Optional['SegmentDefinitionDateDimensionArgs']] = None,
+                 business_email_address: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 business_name: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 business_phone_number: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 email_address: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 first_name: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 gender_string: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 home_phone_number: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 last_name: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 mailing_address: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']] = None,
+                 middle_name: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 mobile_phone_number: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 party_type_string: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 personal_email_address: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 phone_number: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']] = None,
+                 profile_type: pulumi.Input[Optional['SegmentDefinitionProfileTypeDimensionArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']] = None):
         """
         Specifies the dimension settings within profile attributes for a segment.
         """
@@ -3656,200 +3656,200 @@ class SegmentDefinitionProfileAttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountNumber")
-    def account_number(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def account_number(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "account_number")
 
     @account_number.setter
-    def account_number(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def account_number(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "account_number", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalInformation")
-    def additional_information(self) -> Optional[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgs']]:
+    def additional_information(self) -> pulumi.Input[Optional['SegmentDefinitionExtraLengthValueProfileDimensionArgs']]:
         return pulumi.get(self, "additional_information")
 
     @additional_information.setter
-    def additional_information(self, value: Optional[pulumi.Input['SegmentDefinitionExtraLengthValueProfileDimensionArgs']]):
+    def additional_information(self, value: pulumi.Input[Optional['SegmentDefinitionExtraLengthValueProfileDimensionArgs']]):
         pulumi.set(self, "additional_information", value)
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]:
+    def address(self) -> pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]:
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]):
+    def address(self, value: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]]:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['SegmentDefinitionAttributeDimensionArgs']]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAddress")
-    def billing_address(self) -> Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]:
+    def billing_address(self) -> pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]:
         return pulumi.get(self, "billing_address")
 
     @billing_address.setter
-    def billing_address(self, value: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]):
+    def billing_address(self, value: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]):
         pulumi.set(self, "billing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="birthDate")
-    def birth_date(self) -> Optional[pulumi.Input['SegmentDefinitionDateDimensionArgs']]:
+    def birth_date(self) -> pulumi.Input[Optional['SegmentDefinitionDateDimensionArgs']]:
         return pulumi.get(self, "birth_date")
 
     @birth_date.setter
-    def birth_date(self, value: Optional[pulumi.Input['SegmentDefinitionDateDimensionArgs']]):
+    def birth_date(self, value: pulumi.Input[Optional['SegmentDefinitionDateDimensionArgs']]):
         pulumi.set(self, "birth_date", value)
 
     @_builtins.property
     @pulumi.getter(name="businessEmailAddress")
-    def business_email_address(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def business_email_address(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "business_email_address")
 
     @business_email_address.setter
-    def business_email_address(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def business_email_address(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "business_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="businessName")
-    def business_name(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def business_name(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "business_name")
 
     @business_name.setter
-    def business_name(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def business_name(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "business_name", value)
 
     @_builtins.property
     @pulumi.getter(name="businessPhoneNumber")
-    def business_phone_number(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def business_phone_number(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "business_phone_number")
 
     @business_phone_number.setter
-    def business_phone_number(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def business_phone_number(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "business_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def email_address(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def email_address(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def first_name(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def first_name(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="genderString")
-    def gender_string(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def gender_string(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "gender_string")
 
     @gender_string.setter
-    def gender_string(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def gender_string(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "gender_string", value)
 
     @_builtins.property
     @pulumi.getter(name="homePhoneNumber")
-    def home_phone_number(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def home_phone_number(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "home_phone_number")
 
     @home_phone_number.setter
-    def home_phone_number(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def home_phone_number(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "home_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def last_name(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def last_name(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mailingAddress")
-    def mailing_address(self) -> Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]:
+    def mailing_address(self) -> pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]:
         return pulumi.get(self, "mailing_address")
 
     @mailing_address.setter
-    def mailing_address(self, value: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]):
+    def mailing_address(self, value: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]):
         pulumi.set(self, "mailing_address", value)
 
     @_builtins.property
     @pulumi.getter(name="middleName")
-    def middle_name(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def middle_name(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "middle_name")
 
     @middle_name.setter
-    def middle_name(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def middle_name(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "middle_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mobilePhoneNumber")
-    def mobile_phone_number(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def mobile_phone_number(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "mobile_phone_number")
 
     @mobile_phone_number.setter
-    def mobile_phone_number(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def mobile_phone_number(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "mobile_phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="partyTypeString")
-    def party_type_string(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def party_type_string(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "party_type_string")
 
     @party_type_string.setter
-    def party_type_string(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def party_type_string(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "party_type_string", value)
 
     @_builtins.property
     @pulumi.getter(name="personalEmailAddress")
-    def personal_email_address(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def personal_email_address(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "personal_email_address")
 
     @personal_email_address.setter
-    def personal_email_address(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def personal_email_address(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "personal_email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]:
+    def phone_number(self) -> pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]:
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input['SegmentDefinitionProfileDimensionArgs']]):
+    def phone_number(self, value: pulumi.Input[Optional['SegmentDefinitionProfileDimensionArgs']]):
         pulumi.set(self, "phone_number", value)
 
     @_builtins.property
     @pulumi.getter(name="profileType")
-    def profile_type(self) -> Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']]:
+    def profile_type(self) -> pulumi.Input[Optional['SegmentDefinitionProfileTypeDimensionArgs']]:
         return pulumi.get(self, "profile_type")
 
     @profile_type.setter
-    def profile_type(self, value: Optional[pulumi.Input['SegmentDefinitionProfileTypeDimensionArgs']]):
+    def profile_type(self, value: pulumi.Input[Optional['SegmentDefinitionProfileTypeDimensionArgs']]):
         pulumi.set(self, "profile_type", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]:
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['SegmentDefinitionAddressDimensionArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['SegmentDefinitionAddressDimensionArgs']]):
         pulumi.set(self, "shipping_address", value)
 
 
@@ -3939,7 +3939,7 @@ class SegmentDefinitionRangeOverrideArgsDict(TypedDict):
     """
     The unit to be applied to the range.
     """
-    end: NotRequired[pulumi.Input[_builtins.int]]
+    end: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
     """
@@ -3949,7 +3949,7 @@ class SegmentDefinitionRangeOverrideArgs:
     def __init__(__self__, *,
                  start: pulumi.Input[_builtins.int],
                  unit: pulumi.Input['SegmentDefinitionRangeOverrideUnit'],
-                 end: Optional[pulumi.Input[_builtins.int]] = None):
+                 end: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Defines the range to be applied to the calculated attribute definition.
 
@@ -3988,23 +3988,23 @@ class SegmentDefinitionRangeOverrideArgs:
 
     @_builtins.property
     @pulumi.getter
-    def end(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def end(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
         """
         return pulumi.get(self, "end")
 
     @end.setter
-    def end(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def end(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "end", value)
 
 
 class SegmentDefinitionSegmentGroupArgsDict(TypedDict):
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgsDict']]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionGroupArgsDict']]]]]
     """
     Holds the list of groups within the segment definition.
     """
-    include: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+    include: NotRequired[pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]]
     """
     Defines whether to include or exclude the profiles that fit the segment criteria.
     """
@@ -4012,8 +4012,8 @@ class SegmentDefinitionSegmentGroupArgsDict(TypedDict):
 @pulumi.input_type
 class SegmentDefinitionSegmentGroupArgs:
     def __init__(__self__, *,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]] = None,
-                 include: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None):
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]] = None,
+                 include: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]] groups: Holds the list of groups within the segment definition.
         :param pulumi.Input['SegmentDefinitionIncludeOptions'] include: Defines whether to include or exclude the profiles that fit the segment criteria.
@@ -4025,26 +4025,26 @@ class SegmentDefinitionSegmentGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]]:
         """
         Holds the list of groups within the segment definition.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def include(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+    def include(self) -> pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]:
         """
         Defines whether to include or exclude the profiles that fit the segment criteria.
         """
         return pulumi.get(self, "include")
 
     @include.setter
-    def include(self, value: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]):
+    def include(self, value: pulumi.Input[Optional['SegmentDefinitionIncludeOptions']]):
         pulumi.set(self, "include", value)
 
 
@@ -4090,16 +4090,16 @@ class SegmentDefinitionSortAttributeArgsDict(TypedDict):
     The name of the attribute to sort by.
     """
     order: pulumi.Input['SegmentDefinitionSegmentSortOrder']
-    data_type: NotRequired[pulumi.Input['SegmentDefinitionSegmentSortDataType']]
-    type: NotRequired[pulumi.Input['SegmentDefinitionSortAttributeType']]
+    data_type: NotRequired[pulumi.Input[Optional['SegmentDefinitionSegmentSortDataType']]]
+    type: NotRequired[pulumi.Input[Optional['SegmentDefinitionSortAttributeType']]]
 
 @pulumi.input_type
 class SegmentDefinitionSortAttributeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  order: pulumi.Input['SegmentDefinitionSegmentSortOrder'],
-                 data_type: Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']] = None,
-                 type: Optional[pulumi.Input['SegmentDefinitionSortAttributeType']] = None):
+                 data_type: pulumi.Input[Optional['SegmentDefinitionSegmentSortDataType']] = None,
+                 type: pulumi.Input[Optional['SegmentDefinitionSortAttributeType']] = None):
         """
         Defines the characteristics and rules for sorting by a specific attribute.
 
@@ -4135,20 +4135,20 @@ class SegmentDefinitionSortAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']]:
+    def data_type(self) -> pulumi.Input[Optional['SegmentDefinitionSegmentSortDataType']]:
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['SegmentDefinitionSegmentSortDataType']]):
+    def data_type(self, value: pulumi.Input[Optional['SegmentDefinitionSegmentSortDataType']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SegmentDefinitionSortAttributeType']]:
+    def type(self) -> pulumi.Input[Optional['SegmentDefinitionSortAttributeType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['SegmentDefinitionSortAttributeType']]):
+    def type(self, value: pulumi.Input[Optional['SegmentDefinitionSortAttributeType']]):
         pulumi.set(self, "type", value)
 
 
@@ -4156,7 +4156,7 @@ class SegmentDefinitionSourceSegmentArgsDict(TypedDict):
     """
     The base segment to build the segment on.
     """
-    segment_definition_name: NotRequired[pulumi.Input[_builtins.str]]
+    segment_definition_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the source segment.
     """
@@ -4164,7 +4164,7 @@ class SegmentDefinitionSourceSegmentArgsDict(TypedDict):
 @pulumi.input_type
 class SegmentDefinitionSourceSegmentArgs:
     def __init__(__self__, *,
-                 segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 segment_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The base segment to build the segment on.
 
@@ -4175,14 +4175,14 @@ class SegmentDefinitionSourceSegmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="segmentDefinitionName")
-    def segment_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def segment_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source segment.
         """
         return pulumi.get(self, "segment_definition_name")
 
     @segment_definition_name.setter
-    def segment_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def segment_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "segment_definition_name", value)
 
 

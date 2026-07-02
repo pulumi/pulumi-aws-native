@@ -22,8 +22,8 @@ __all__ = ['MultiRegionAccessPointArgs', 'MultiRegionAccessPoint']
 class MultiRegionAccessPointArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_access_block_configuration: pulumi.Input[Optional['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None):
         """
         The set of arguments for constructing a MultiRegionAccessPoint resource.
 
@@ -51,26 +51,26 @@ class MultiRegionAccessPointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you want to assign to this Multi Region Access Point.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccessBlockConfiguration")
-    def public_access_block_configuration(self) -> Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']]:
+    def public_access_block_configuration(self) -> pulumi.Input[Optional['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']]:
         """
         The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
         return pulumi.get(self, "public_access_block_configuration")
 
     @public_access_block_configuration.setter
-    def public_access_block_configuration(self, value: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']]):
+    def public_access_block_configuration(self, value: pulumi.Input[Optional['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']]):
         pulumi.set(self, "public_access_block_configuration", value)
 
 
@@ -80,13 +80,12 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[Union['MultiRegionAccessPointPublicAccessBlockConfigurationArgs', 'MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRegionArgs', 'MultiRegionAccessPointRegionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_access_block_configuration: pulumi.Input[Optional[Union['MultiRegionAccessPointPublicAccessBlockConfigurationArgs', 'MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRegionArgs', 'MultiRegionAccessPointRegionArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         """
         AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
 
-
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[Union['MultiRegionAccessPointPublicAccessBlockConfigurationArgs', 'MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MultiRegionAccessPointRegionArgs', 'MultiRegionAccessPointRegionArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_access_block_configuration: pulumi.Input[Optional[Union['MultiRegionAccessPointPublicAccessBlockConfigurationArgs', 'MultiRegionAccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MultiRegionAccessPointRegionArgs', 'MultiRegionAccessPointRegionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

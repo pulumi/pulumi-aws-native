@@ -24,8 +24,8 @@ class LandingZoneArgs:
     def __init__(__self__, *,
                  manifest: Any,
                  version: pulumi.Input[_builtins.str],
-                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
 
@@ -71,26 +71,26 @@ class LandingZoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="remediationTypes")
-    def remediation_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]:
+    def remediation_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]:
         """
         The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
         """
         return pulumi.get(self, "remediation_types")
 
     @remediation_types.setter
-    def remediation_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]):
+    def remediation_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]):
         pulumi.set(self, "remediation_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to be applied to the landing zone.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -101,13 +101,12 @@ class LandingZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
-                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::ControlTower::LandingZone Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +126,6 @@ class LandingZone(pulumi.CustomResource):
         """
         Definition of AWS::ControlTower::LandingZone Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param LandingZoneArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,9 +142,9 @@ class LandingZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
-                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
+                 remediation_types: pulumi.Input[Optional[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

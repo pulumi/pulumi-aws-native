@@ -100,7 +100,6 @@ def get_user_journey(system_identifier: Optional[_builtins.str] = None,
     """
     Creates a user journey within a Resilience Hub system.
 
-
     :param _builtins.str system_identifier: The system ARN or system ID that owns this user journey.
     :param _builtins.str user_journey_id: The server-generated user journey ID.
     """
@@ -116,12 +115,11 @@ def get_user_journey(system_identifier: Optional[_builtins.str] = None,
         policy_arn=pulumi.get(__ret__, 'policy_arn'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         user_journey_id=pulumi.get(__ret__, 'user_journey_id'))
-def get_user_journey_output(system_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                            user_journey_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_journey_output(system_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                            user_journey_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserJourneyResult]:
     """
     Creates a user journey within a Resilience Hub system.
-
 
     :param _builtins.str system_identifier: The system ARN or system ID that owns this user journey.
     :param _builtins.str user_journey_id: The server-generated user journey ID.

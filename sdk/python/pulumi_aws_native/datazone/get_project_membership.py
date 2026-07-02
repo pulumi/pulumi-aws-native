@@ -61,7 +61,6 @@ def get_project_membership(domain_identifier: Optional[_builtins.str] = None,
     """
     Definition of AWS::DataZone::ProjectMembership Resource Type
 
-
     :param _builtins.str domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
     :param _builtins.str project_identifier: The ID of the project for which this project membership was created.
     """
@@ -76,14 +75,13 @@ def get_project_membership(domain_identifier: Optional[_builtins.str] = None,
     return AwaitableGetProjectMembershipResult(
         member_identifier=pulumi.get(__ret__, 'member_identifier'),
         member_identifier_type=pulumi.get(__ret__, 'member_identifier_type'))
-def get_project_membership_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                  member_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                  member_identifier_type: Optional[pulumi.Input['ProjectMembershipMemberIdentifierType']] = None,
-                                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_membership_output(domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                  member_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                  member_identifier_type: pulumi.Input[Optional['ProjectMembershipMemberIdentifierType']] = None,
+                                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectMembershipResult]:
     """
     Definition of AWS::DataZone::ProjectMembership Resource Type
-
 
     :param _builtins.str domain_identifier: The ID of the Amazon DataZone domain in which project membership is created.
     :param _builtins.str project_identifier: The ID of the project for which this project membership was created.

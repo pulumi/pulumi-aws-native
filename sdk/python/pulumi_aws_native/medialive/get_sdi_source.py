@@ -128,7 +128,6 @@ def get_sdi_source(id: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaLive::SdiSource Resource Type
 
-
     :param _builtins.str id: The unique identifier of the SdiSource.
     """
     __args__ = dict()
@@ -145,11 +144,10 @@ def get_sdi_source(id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sdi_source_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sdi_source_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSdiSourceResult]:
     """
     Definition of AWS::MediaLive::SdiSource Resource Type
-
 
     :param _builtins.str id: The unique identifier of the SdiSource.
     """

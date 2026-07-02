@@ -63,7 +63,6 @@ def get_simulation_application_version(arn: Optional[_builtins.str] = None,
     """
     AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the simulation application version.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_simulation_application_version(arn: Optional[_builtins.str] = None,
     return AwaitableGetSimulationApplicationVersionResult(
         application_version=pulumi.get(__ret__, 'application_version'),
         arn=pulumi.get(__ret__, 'arn'))
-def get_simulation_application_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_simulation_application_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationApplicationVersionResult]:
     """
     AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the simulation application version.
     """

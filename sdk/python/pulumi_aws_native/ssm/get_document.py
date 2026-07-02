@@ -116,7 +116,6 @@ def get_document(name: Optional[_builtins.str] = None,
     """
     The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
 
-
     :param _builtins.str name: A name for the Systems Manager document.
     """
     __args__ = dict()
@@ -131,11 +130,10 @@ def get_document(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_type=pulumi.get(__ret__, 'target_type'),
         version_name=pulumi.get(__ret__, 'version_name'))
-def get_document_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_document_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
     """
     The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
-
 
     :param _builtins.str name: A name for the Systems Manager document.
     """

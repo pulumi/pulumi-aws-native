@@ -68,7 +68,6 @@ def get_instance_profile(instance_profile_name: Optional[_builtins.str] = None,
     Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
       For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
 
-
     :param _builtins.str instance_profile_name: The name of the instance profile to create.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
     """
@@ -80,12 +79,11 @@ def get_instance_profile(instance_profile_name: Optional[_builtins.str] = None,
     return AwaitableGetInstanceProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         roles=pulumi.get(__ret__, 'roles'))
-def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_profile_output(instance_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
       For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
-
 
     :param _builtins.str instance_profile_name: The name of the instance profile to create.
             This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-

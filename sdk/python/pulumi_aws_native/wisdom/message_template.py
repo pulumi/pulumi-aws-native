@@ -27,13 +27,13 @@ class MessageTemplateArgs:
                  channel_subtype: pulumi.Input['MessageTemplateChannelSubtype'],
                  content: pulumi.Input['MessageTemplateContentArgs'],
                  knowledge_base_arn: pulumi.Input[_builtins.str],
-                 default_attributes: Optional[pulumi.Input['MessageTemplateAttributesArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input['MessageTemplateGroupingConfigurationArgs']] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 default_attributes: pulumi.Input[Optional['MessageTemplateAttributesArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional['MessageTemplateGroupingConfigurationArgs']] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_template_attachments: pulumi.Input[Optional[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MessageTemplate resource.
 
@@ -104,86 +104,86 @@ class MessageTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultAttributes")
-    def default_attributes(self) -> Optional[pulumi.Input['MessageTemplateAttributesArgs']]:
+    def default_attributes(self) -> pulumi.Input[Optional['MessageTemplateAttributesArgs']]:
         """
         An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
         """
         return pulumi.get(self, "default_attributes")
 
     @default_attributes.setter
-    def default_attributes(self, value: Optional[pulumi.Input['MessageTemplateAttributesArgs']]):
+    def default_attributes(self, value: pulumi.Input[Optional['MessageTemplateAttributesArgs']]):
         pulumi.set(self, "default_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the message template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingConfiguration")
-    def grouping_configuration(self) -> Optional[pulumi.Input['MessageTemplateGroupingConfigurationArgs']]:
+    def grouping_configuration(self) -> pulumi.Input[Optional['MessageTemplateGroupingConfigurationArgs']]:
         """
         The configuration information of the external data source.
         """
         return pulumi.get(self, "grouping_configuration")
 
     @grouping_configuration.setter
-    def grouping_configuration(self, value: Optional[pulumi.Input['MessageTemplateGroupingConfigurationArgs']]):
+    def grouping_configuration(self, value: pulumi.Input[Optional['MessageTemplateGroupingConfigurationArgs']]):
         pulumi.set(self, "grouping_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         """
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter(name="messageTemplateAttachments")
-    def message_template_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]:
+    def message_template_attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]:
         """
         List of message template attachments
         """
         return pulumi.get(self, "message_template_attachments")
 
     @message_template_attachments.setter
-    def message_template_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]):
+    def message_template_attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MessageTemplateAttachmentArgs']]]]):
         pulumi.set(self, "message_template_attachments", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the message template.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,20 +193,19 @@ class MessageTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_subtype: Optional[pulumi.Input['MessageTemplateChannelSubtype']] = None,
-                 content: Optional[pulumi.Input[Union['MessageTemplateContentArgs', 'MessageTemplateContentArgsDict']]] = None,
-                 default_attributes: Optional[pulumi.Input[Union['MessageTemplateAttributesArgs', 'MessageTemplateAttributesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
-                 knowledge_base_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_subtype: pulumi.Input[Optional['MessageTemplateChannelSubtype']] = None,
+                 content: pulumi.Input[Optional[Union['MessageTemplateContentArgs', 'MessageTemplateContentArgsDict']]] = None,
+                 default_attributes: pulumi.Input[Optional[Union['MessageTemplateAttributesArgs', 'MessageTemplateAttributesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
+                 knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_template_attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::MessageTemplate Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +229,6 @@ class MessageTemplate(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::MessageTemplate Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param MessageTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,16 +244,16 @@ class MessageTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_subtype: Optional[pulumi.Input['MessageTemplateChannelSubtype']] = None,
-                 content: Optional[pulumi.Input[Union['MessageTemplateContentArgs', 'MessageTemplateContentArgsDict']]] = None,
-                 default_attributes: Optional[pulumi.Input[Union['MessageTemplateAttributesArgs', 'MessageTemplateAttributesArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
-                 knowledge_base_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_template_attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_subtype: pulumi.Input[Optional['MessageTemplateChannelSubtype']] = None,
+                 content: pulumi.Input[Optional[Union['MessageTemplateContentArgs', 'MessageTemplateContentArgsDict']]] = None,
+                 default_attributes: pulumi.Input[Optional[Union['MessageTemplateAttributesArgs', 'MessageTemplateAttributesArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']]] = None,
+                 knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_template_attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MessageTemplateAttachmentArgs', 'MessageTemplateAttachmentArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

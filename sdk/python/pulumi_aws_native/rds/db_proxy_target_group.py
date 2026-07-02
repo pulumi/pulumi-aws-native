@@ -24,9 +24,9 @@ class DbProxyTargetGroupArgs:
     def __init__(__self__, *,
                  db_proxy_name: pulumi.Input[_builtins.str],
                  target_group_name: pulumi.Input['DbProxyTargetGroupTargetGroupName'],
-                 connection_pool_configuration_info: Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
-                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 connection_pool_configuration_info: pulumi.Input[Optional['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
+                 db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxyTargetGroup resource.
 
@@ -71,38 +71,38 @@ class DbProxyTargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionPoolConfigurationInfo")
-    def connection_pool_configuration_info(self) -> Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]:
+    def connection_pool_configuration_info(self) -> pulumi.Input[Optional['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]:
         """
         Displays the settings that control the size and behavior of the connection pool associated with a `DBProxyTarget` .
         """
         return pulumi.get(self, "connection_pool_configuration_info")
 
     @connection_pool_configuration_info.setter
-    def connection_pool_configuration_info(self, value: Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]):
+    def connection_pool_configuration_info(self, value: pulumi.Input[Optional['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']]):
         pulumi.set(self, "connection_pool_configuration_info", value)
 
     @_builtins.property
     @pulumi.getter(name="dbClusterIdentifiers")
-    def db_cluster_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def db_cluster_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more DB cluster identifiers.
         """
         return pulumi.get(self, "db_cluster_identifiers")
 
     @db_cluster_identifiers.setter
-    def db_cluster_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def db_cluster_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_cluster_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="dbInstanceIdentifiers")
-    def db_instance_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def db_instance_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more DB instance identifiers.
         """
         return pulumi.get(self, "db_instance_identifiers")
 
     @db_instance_identifiers.setter
-    def db_instance_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def db_instance_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "db_instance_identifiers", value)
 
 
@@ -112,15 +112,14 @@ class DbProxyTargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_configuration_info: Optional[pulumi.Input[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
-                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input['DbProxyTargetGroupTargetGroupName']] = None,
+                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
+                 db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         """
         Resource schema for AWS::RDS::DBProxyTargetGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +138,6 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         """
         Resource schema for AWS::RDS::DBProxyTargetGroup
 
-
         :param str resource_name: The name of the resource.
         :param DbProxyTargetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +153,11 @@ class DbProxyTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_configuration_info: Optional[pulumi.Input[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
-                 db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_group_name: Optional[pulumi.Input['DbProxyTargetGroupTargetGroupName']] = None,
+                 connection_pool_configuration_info: pulumi.Input[Optional[Union['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs', 'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict']]] = None,
+                 db_cluster_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_instance_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_group_name: pulumi.Input[Optional['DbProxyTargetGroupTargetGroupName']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

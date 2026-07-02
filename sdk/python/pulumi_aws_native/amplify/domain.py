@@ -24,11 +24,11 @@ class DomainArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[_builtins.str],
                  sub_domain_settings: pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]],
-                 auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_sub_domain_iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input['DomainCertificateSettingsArgs']] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None):
+                 auto_sub_domain_creation_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_sub_domain_iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional['DomainCertificateSettingsArgs']] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
 
@@ -79,62 +79,62 @@ class DomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoSubDomainCreationPatterns")
-    def auto_sub_domain_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_sub_domain_creation_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Sets the branch patterns for automatic subdomain creation.
         """
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @auto_sub_domain_creation_patterns.setter
-    def auto_sub_domain_creation_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_sub_domain_creation_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_sub_domain_creation_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSubDomainIamRole")
-    def auto_sub_domain_iam_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_sub_domain_iam_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
         """
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @auto_sub_domain_iam_role.setter
-    def auto_sub_domain_iam_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_sub_domain_iam_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_sub_domain_iam_role", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateSettings")
-    def certificate_settings(self) -> Optional[pulumi.Input['DomainCertificateSettingsArgs']]:
+    def certificate_settings(self) -> pulumi.Input[Optional['DomainCertificateSettingsArgs']]:
         """
         The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """
         return pulumi.get(self, "certificate_settings")
 
     @certificate_settings.setter
-    def certificate_settings(self, value: Optional[pulumi.Input['DomainCertificateSettingsArgs']]):
+    def certificate_settings(self, value: pulumi.Input[Optional['DomainCertificateSettingsArgs']]):
         pulumi.set(self, "certificate_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The domain name for the domain association.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoSubDomain")
-    def enable_auto_sub_domain(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_sub_domain(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the automated creation of subdomains for branches.
         """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
-    def enable_auto_sub_domain(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_sub_domain(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_sub_domain", value)
 
 
@@ -144,17 +144,16 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_sub_domain_iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input[Union['DomainCertificateSettingsArgs', 'DomainCertificateSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainSubDomainSettingArgs', 'DomainSubDomainSettingArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_sub_domain_creation_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_sub_domain_iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional[Union['DomainCertificateSettingsArgs', 'DomainCertificateSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_domain_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainSubDomainSettingArgs', 'DomainSubDomainSettingArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class Domain(pulumi.CustomResource):
         """
         The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 
-
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 auto_sub_domain_iam_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_settings: Optional[pulumi.Input[Union['DomainCertificateSettingsArgs', 'DomainCertificateSettingsArgsDict']]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_sub_domain: Optional[pulumi.Input[_builtins.bool]] = None,
-                 sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainSubDomainSettingArgs', 'DomainSubDomainSettingArgsDict']]]]] = None,
+                 app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_sub_domain_creation_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_sub_domain_iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_settings: pulumi.Input[Optional[Union['DomainCertificateSettingsArgs', 'DomainCertificateSettingsArgsDict']]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_sub_domain: pulumi.Input[Optional[_builtins.bool]] = None,
+                 sub_domain_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainSubDomainSettingArgs', 'DomainSubDomainSettingArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

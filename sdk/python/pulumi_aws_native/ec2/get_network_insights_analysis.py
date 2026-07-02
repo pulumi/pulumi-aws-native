@@ -198,7 +198,6 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[_builti
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis
 
-
     :param _builtins.str network_insights_analysis_id: The ID of the network insights analysis.
     """
     __args__ = dict()
@@ -220,11 +219,10 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[_builti
         status_message=pulumi.get(__ret__, 'status_message'),
         suggested_accounts=pulumi.get(__ret__, 'suggested_accounts'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_insights_analysis_output(network_insights_analysis_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_insights_analysis_output(network_insights_analysis_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis
-
 
     :param _builtins.str network_insights_analysis_id: The ID of the network insights analysis.
     """

@@ -123,8 +123,8 @@ class CustomActionTypeConfigurationProperties(dict):
         :param _builtins.str name: The name of the action configuration property.
         :param _builtins.bool required: Whether the configuration property is a required value.
         :param _builtins.bool secret: Whether the configuration property is secret. Secrets are hidden from all calls except for GetJobDetails, GetThirdPartyJobDetails, PollForJobs, and PollForThirdPartyJobs.
-        :param _builtins.str description: The description of the action configuration property that is displayed to users. 
-        :param _builtins.bool queryable: Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+        :param _builtins.str description: The description of the action configuration property that is displayed to users.
+        :param _builtins.bool queryable: Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
         :param _builtins.str type: The type of the configuration property.
         """
         pulumi.set(__self__, "key", key)
@@ -174,7 +174,7 @@ class CustomActionTypeConfigurationProperties(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        The description of the action configuration property that is displayed to users. 
+        The description of the action configuration property that is displayed to users.
         """
         return pulumi.get(self, "description")
 
@@ -182,7 +182,7 @@ class CustomActionTypeConfigurationProperties(dict):
     @pulumi.getter
     def queryable(self) -> Optional[_builtins.bool]:
         """
-        Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
+        Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens.
         """
         return pulumi.get(self, "queryable")
 
@@ -198,7 +198,7 @@ class CustomActionTypeConfigurationProperties(dict):
 @pulumi.output_type
 class CustomActionTypeSettings(dict):
     """
-    Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+    Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -229,11 +229,11 @@ class CustomActionTypeSettings(dict):
                  revision_url_template: Optional[_builtins.str] = None,
                  third_party_configuration_url: Optional[_builtins.str] = None):
         """
-        Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action. 
+        Settings is a property of the AWS::CodePipeline::CustomActionType resource that provides URLs that users can access to view information about the CodePipeline custom action.
 
-        :param _builtins.str entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
-        :param _builtins.str execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
-        :param _builtins.str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+        :param _builtins.str entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
+        :param _builtins.str execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
+        :param _builtins.str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
         :param _builtins.str third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         """
         if entity_url_template is not None:
@@ -249,7 +249,7 @@ class CustomActionTypeSettings(dict):
     @pulumi.getter(name="entityUrlTemplate")
     def entity_url_template(self) -> Optional[_builtins.str]:
         """
-        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline. 
+        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system, such as the configuration page for an AWS CodeDeploy deployment group. This link is provided as part of the action display in the pipeline.
         """
         return pulumi.get(self, "entity_url_template")
 
@@ -257,7 +257,7 @@ class CustomActionTypeSettings(dict):
     @pulumi.getter(name="executionUrlTemplate")
     def execution_url_template(self) -> Optional[_builtins.str]:
         """
-        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action. 
+        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system, such as the console page for AWS CodeDeploy. This link is shown on the pipeline view page in the AWS CodePipeline console and provides a link to the execution entity of the external action.
         """
         return pulumi.get(self, "execution_url_template")
 
@@ -265,7 +265,7 @@ class CustomActionTypeSettings(dict):
     @pulumi.getter(name="revisionUrlTemplate")
     def revision_url_template(self) -> Optional[_builtins.str]:
         """
-        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
+        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
         """
         return pulumi.get(self, "revision_url_template")
 

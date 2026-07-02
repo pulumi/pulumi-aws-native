@@ -21,9 +21,9 @@ __all__ = ['RecoveryGroupArgs', 'RecoveryGroup']
 @pulumi.input_type
 class RecoveryGroupArgs:
     def __init__(__self__, *,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recovery_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
 
@@ -40,38 +40,38 @@ class RecoveryGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cells(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         """
         return pulumi.get(self, "cells")
 
     @cells.setter
-    def cells(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cells(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cells", value)
 
     @_builtins.property
     @pulumi.getter(name="recoveryGroupName")
-    def recovery_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recovery_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the recovery group to create.
         """
         return pulumi.get(self, "recovery_group_name")
 
     @recovery_group_name.setter
-    def recovery_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recovery_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,13 +81,12 @@ class RecoveryGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recovery_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class RecoveryGroup(pulumi.CustomResource):
         """
         AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
-
         :param str resource_name: The name of the resource.
         :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class RecoveryGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recovery_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 recovery_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

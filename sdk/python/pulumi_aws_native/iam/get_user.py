@@ -111,7 +111,7 @@ class GetUserResult:
     def policies(self) -> Optional[Sequence['outputs.UserPolicy']]:
         """
         Adds or updates an inline policy document that is embedded in the specified IAM user. To view AWS::IAM::User snippets, see [Declaring an User Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-user).
-          The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail. 
+          The name of each policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
           For information about limits on the number of inline policies that you can embed in a user, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
         """
         return pulumi.get(self, "policies")
@@ -148,7 +148,6 @@ def get_user(user_name: Optional[_builtins.str] = None,
     Creates a new IAM user for your AWS-account.
       For information about quotas for the number of IAM users you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
 
-
     :param _builtins.str user_name: The name of the user to create. Do not include the path in this value.
             This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The user name must be unique within the account. User names are not distinguished by case. For example, you cannot create users named both "John" and "john".
             If you don't specify a name, CFN generates a unique physical ID and uses that ID for the user name.
@@ -169,12 +168,11 @@ def get_user(user_name: Optional[_builtins.str] = None,
         permissions_boundary=pulumi.get(__ret__, 'permissions_boundary'),
         policies=pulumi.get(__ret__, 'policies'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_user_output(user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Creates a new IAM user for your AWS-account.
       For information about quotas for the number of IAM users you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
-
 
     :param _builtins.str user_name: The name of the user to create. Do not include the path in this value.
             This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The user name must be unique within the account. User names are not distinguished by case. For example, you cannot create users named both "John" and "john".

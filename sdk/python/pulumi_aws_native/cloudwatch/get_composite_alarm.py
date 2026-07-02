@@ -71,7 +71,7 @@ class GetCompositeAlarmResult:
     @pulumi.getter(name="actionsSuppressor")
     def actions_suppressor(self) -> Optional[_builtins.str]:
         """
-        Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+        Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
         """
         return pulumi.get(self, "actions_suppressor")
 
@@ -172,7 +172,6 @@ def get_composite_alarm(alarm_name: Optional[_builtins.str] = None,
     """
     The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
-
     :param _builtins.str alarm_name: The name of the Composite Alarm
     """
     __args__ = dict()
@@ -192,11 +191,10 @@ def get_composite_alarm(alarm_name: Optional[_builtins.str] = None,
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
         ok_actions=pulumi.get(__ret__, 'ok_actions'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_composite_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_composite_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCompositeAlarmResult]:
     """
     The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
-
 
     :param _builtins.str alarm_name: The name of the Composite Alarm
     """

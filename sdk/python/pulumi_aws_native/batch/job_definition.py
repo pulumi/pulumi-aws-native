@@ -22,20 +22,20 @@ __all__ = ['JobDefinitionArgs', 'JobDefinition']
 class JobDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 consumable_resource_properties: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']] = None,
-                 container_properties: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
-                 ecs_properties: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']] = None,
-                 eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_properties: Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_retention_policy: Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']] = None,
-                 retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
-                 scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']] = None):
+                 consumable_resource_properties: pulumi.Input[Optional['JobDefinitionConsumableResourcePropertiesArgs']] = None,
+                 container_properties: pulumi.Input[Optional['JobDefinitionContainerPropertiesArgs']] = None,
+                 ecs_properties: pulumi.Input[Optional['JobDefinitionEcsPropertiesArgs']] = None,
+                 eks_properties: pulumi.Input[Optional['JobDefinitionEksPropertiesArgs']] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_properties: pulumi.Input[Optional['JobDefinitionNodePropertiesArgs']] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 platform_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_retention_policy: pulumi.Input[Optional['JobDefinitionResourceRetentionPolicyArgs']] = None,
+                 retry_strategy: pulumi.Input[Optional['JobDefinitionRetryStrategyArgs']] = None,
+                 scheduling_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional['JobDefinitionJobTimeoutArgs']] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
 
@@ -111,67 +111,67 @@ class JobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumableResourceProperties")
-    def consumable_resource_properties(self) -> Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]:
+    def consumable_resource_properties(self) -> pulumi.Input[Optional['JobDefinitionConsumableResourcePropertiesArgs']]:
         """
         Contains a list of consumable resources required by the job.
         """
         return pulumi.get(self, "consumable_resource_properties")
 
     @consumable_resource_properties.setter
-    def consumable_resource_properties(self, value: Optional[pulumi.Input['JobDefinitionConsumableResourcePropertiesArgs']]):
+    def consumable_resource_properties(self, value: pulumi.Input[Optional['JobDefinitionConsumableResourcePropertiesArgs']]):
         pulumi.set(self, "consumable_resource_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="containerProperties")
-    def container_properties(self) -> Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]:
+    def container_properties(self) -> pulumi.Input[Optional['JobDefinitionContainerPropertiesArgs']]:
         """
         An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
         """
         return pulumi.get(self, "container_properties")
 
     @container_properties.setter
-    def container_properties(self, value: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]):
+    def container_properties(self, value: pulumi.Input[Optional['JobDefinitionContainerPropertiesArgs']]):
         pulumi.set(self, "container_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ecsProperties")
-    def ecs_properties(self) -> Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]:
+    def ecs_properties(self) -> pulumi.Input[Optional['JobDefinitionEcsPropertiesArgs']]:
         """
         An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
         """
         return pulumi.get(self, "ecs_properties")
 
     @ecs_properties.setter
-    def ecs_properties(self, value: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]):
+    def ecs_properties(self, value: pulumi.Input[Optional['JobDefinitionEcsPropertiesArgs']]):
         pulumi.set(self, "ecs_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="eksProperties")
-    def eks_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]:
+    def eks_properties(self) -> pulumi.Input[Optional['JobDefinitionEksPropertiesArgs']]:
         """
         An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         """
         return pulumi.get(self, "eks_properties")
 
     @eks_properties.setter
-    def eks_properties(self, value: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']]):
+    def eks_properties(self, value: pulumi.Input[Optional['JobDefinitionEksPropertiesArgs']]):
         pulumi.set(self, "eks_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="jobDefinitionName")
-    def job_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the job definition.
         """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
-    def job_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeProperties")
-    def node_properties(self) -> Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']]:
+    def node_properties(self) -> pulumi.Input[Optional['JobDefinitionNodePropertiesArgs']]:
         """
         An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 
@@ -180,103 +180,103 @@ class JobDefinitionArgs:
         return pulumi.get(self, "node_properties")
 
     @node_properties.setter
-    def node_properties(self, value: Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']]):
+    def node_properties(self, value: pulumi.Input[Optional['JobDefinitionNodePropertiesArgs']]):
         pulumi.set(self, "node_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="platformCapabilities")
-    def platform_capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def platform_capabilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
         """
         return pulumi.get(self, "platform_capabilities")
 
     @platform_capabilities.setter
-    def platform_capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def platform_capabilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "platform_capabilities", value)
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def propagate_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
         """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def propagate_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceRetentionPolicy")
-    def resource_retention_policy(self) -> Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']]:
+    def resource_retention_policy(self) -> pulumi.Input[Optional['JobDefinitionResourceRetentionPolicyArgs']]:
         """
         Specifies the resource retention policy settings for the job definition.
         """
         return pulumi.get(self, "resource_retention_policy")
 
     @resource_retention_policy.setter
-    def resource_retention_policy(self, value: Optional[pulumi.Input['JobDefinitionResourceRetentionPolicyArgs']]):
+    def resource_retention_policy(self, value: pulumi.Input[Optional['JobDefinitionResourceRetentionPolicyArgs']]):
         pulumi.set(self, "resource_retention_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="retryStrategy")
-    def retry_strategy(self) -> Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]:
+    def retry_strategy(self) -> pulumi.Input[Optional['JobDefinitionRetryStrategyArgs']]:
         """
         The retry strategy to use for failed jobs that are submitted with this job definition.
         """
         return pulumi.get(self, "retry_strategy")
 
     @retry_strategy.setter
-    def retry_strategy(self, value: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']]):
+    def retry_strategy(self, value: pulumi.Input[Optional['JobDefinitionRetryStrategyArgs']]):
         pulumi.set(self, "retry_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingPriority")
-    def scheduling_priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scheduling_priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         """
         return pulumi.get(self, "scheduling_priority")
 
     @scheduling_priority.setter
-    def scheduling_priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scheduling_priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scheduling_priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']]:
+    def timeout(self) -> pulumi.Input[Optional['JobDefinitionJobTimeoutArgs']]:
         """
         The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input['JobDefinitionJobTimeoutArgs']]):
+    def timeout(self, value: pulumi.Input[Optional['JobDefinitionJobTimeoutArgs']]):
         pulumi.set(self, "timeout", value)
 
 
@@ -286,25 +286,24 @@ class JobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumable_resource_properties: Optional[pulumi.Input[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
-                 container_properties: Optional[pulumi.Input[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
-                 ecs_properties: Optional[pulumi.Input[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
-                 eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_properties: Optional[pulumi.Input[Union['JobDefinitionNodePropertiesArgs', 'JobDefinitionNodePropertiesArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_retention_policy: Optional[pulumi.Input[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
-                 retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
-                 scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[Union['JobDefinitionJobTimeoutArgs', 'JobDefinitionJobTimeoutArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumable_resource_properties: pulumi.Input[Optional[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
+                 container_properties: pulumi.Input[Optional[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
+                 ecs_properties: pulumi.Input[Optional[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
+                 eks_properties: pulumi.Input[Optional[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_properties: pulumi.Input[Optional[Union['JobDefinitionNodePropertiesArgs', 'JobDefinitionNodePropertiesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 platform_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_retention_policy: pulumi.Input[Optional[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
+                 retry_strategy: pulumi.Input[Optional[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
+                 scheduling_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[Union['JobDefinitionJobTimeoutArgs', 'JobDefinitionJobTimeoutArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::JobDefinition
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,7 +339,6 @@ class JobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::JobDefinition
 
-
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,21 +354,21 @@ class JobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumable_resource_properties: Optional[pulumi.Input[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
-                 container_properties: Optional[pulumi.Input[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
-                 ecs_properties: Optional[pulumi.Input[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
-                 eks_properties: Optional[pulumi.Input[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 node_properties: Optional[pulumi.Input[Union['JobDefinitionNodePropertiesArgs', 'JobDefinitionNodePropertiesArgsDict']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 propagate_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_retention_policy: Optional[pulumi.Input[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
-                 retry_strategy: Optional[pulumi.Input[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
-                 scheduling_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeout: Optional[pulumi.Input[Union['JobDefinitionJobTimeoutArgs', 'JobDefinitionJobTimeoutArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 consumable_resource_properties: pulumi.Input[Optional[Union['JobDefinitionConsumableResourcePropertiesArgs', 'JobDefinitionConsumableResourcePropertiesArgsDict']]] = None,
+                 container_properties: pulumi.Input[Optional[Union['JobDefinitionContainerPropertiesArgs', 'JobDefinitionContainerPropertiesArgsDict']]] = None,
+                 ecs_properties: pulumi.Input[Optional[Union['JobDefinitionEcsPropertiesArgs', 'JobDefinitionEcsPropertiesArgsDict']]] = None,
+                 eks_properties: pulumi.Input[Optional[Union['JobDefinitionEksPropertiesArgs', 'JobDefinitionEksPropertiesArgsDict']]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_properties: pulumi.Input[Optional[Union['JobDefinitionNodePropertiesArgs', 'JobDefinitionNodePropertiesArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 platform_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 propagate_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_retention_policy: pulumi.Input[Optional[Union['JobDefinitionResourceRetentionPolicyArgs', 'JobDefinitionResourceRetentionPolicyArgsDict']]] = None,
+                 retry_strategy: pulumi.Input[Optional[Union['JobDefinitionRetryStrategyArgs', 'JobDefinitionRetryStrategyArgsDict']]] = None,
+                 scheduling_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 timeout: pulumi.Input[Optional[Union['JobDefinitionJobTimeoutArgs', 'JobDefinitionJobTimeoutArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

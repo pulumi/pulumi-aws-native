@@ -23,9 +23,9 @@ __all__ = ['DatasetGroupArgs', 'DatasetGroup']
 class DatasetGroupArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input['DatasetGroupDomain'],
-                 dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dataset_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 dataset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dataset_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetGroup resource.
 
@@ -56,38 +56,38 @@ class DatasetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetArns")
-    def dataset_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dataset_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
         """
         return pulumi.get(self, "dataset_arns")
 
     @dataset_arns.setter
-    def dataset_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dataset_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dataset_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetGroupName")
-    def dataset_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the dataset group.
         """
         return pulumi.get(self, "dataset_group_name")
 
     @dataset_group_name.setter
-    def dataset_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags of Application Insights application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,14 +97,13 @@ class DatasetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dataset_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input['DatasetGroupDomain']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dataset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dataset_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['DatasetGroupDomain']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a dataset group that holds a collection of related datasets
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +121,6 @@ class DatasetGroup(pulumi.CustomResource):
         """
         Represents a dataset group that holds a collection of related datasets
 
-
         :param str resource_name: The name of the resource.
         :param DatasetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,10 +136,10 @@ class DatasetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dataset_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input['DatasetGroupDomain']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 dataset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dataset_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['DatasetGroupDomain']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

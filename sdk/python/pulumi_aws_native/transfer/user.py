@@ -26,14 +26,14 @@ class UserArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[_builtins.str],
                  server_id: pulumi.Input[_builtins.str],
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]] = None,
-                 home_directory_type: Optional[pulumi.Input['UserHomeDirectoryType']] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_profile: Optional[pulumi.Input['UserPosixProfileArgs']] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]] = None,
+                 home_directory_type: pulumi.Input[Optional['UserHomeDirectoryType']] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_profile: pulumi.Input[Optional['UserPosixProfileArgs']] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -115,7 +115,7 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="homeDirectory")
-    def home_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The landing directory (folder) for a user when they log in to the server using the client.
 
@@ -126,12 +126,12 @@ class UserArgs:
         return pulumi.get(self, "home_directory")
 
     @home_directory.setter
-    def home_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_directory", value)
 
     @_builtins.property
     @pulumi.getter(name="homeDirectoryMappings")
-    def home_directory_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]]:
+    def home_directory_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]]:
         """
         Logical directory mappings that specify what Amazon S3 or Amazon EFS paths and keys should be visible to your user and how you want to make them visible. You must specify the `Entry` and `Target` pair, where `Entry` shows how the path is made visible and `Target` is the actual Amazon S3 or Amazon EFS path. If you only specify a target, it is displayed as is. You also must ensure that your AWS Identity and Access Management (IAM) role provides access to paths in `Target` . This value can be set only when `HomeDirectoryType` is set to *LOGICAL* .
 
@@ -148,12 +148,12 @@ class UserArgs:
         return pulumi.get(self, "home_directory_mappings")
 
     @home_directory_mappings.setter
-    def home_directory_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]]):
+    def home_directory_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]]):
         pulumi.set(self, "home_directory_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="homeDirectoryType")
-    def home_directory_type(self) -> Optional[pulumi.Input['UserHomeDirectoryType']]:
+    def home_directory_type(self) -> pulumi.Input[Optional['UserHomeDirectoryType']]:
         """
         The type of landing directory (folder) that you want your users' home directory to be when they log in to the server. If you set it to `PATH` , the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer protocol clients. If you set it to `LOGICAL` , you need to provide mappings in the `HomeDirectoryMappings` for how you want to make Amazon S3 or Amazon EFS paths visible to your users.
 
@@ -162,12 +162,12 @@ class UserArgs:
         return pulumi.get(self, "home_directory_type")
 
     @home_directory_type.setter
-    def home_directory_type(self, value: Optional[pulumi.Input['UserHomeDirectoryType']]):
+    def home_directory_type(self, value: pulumi.Input[Optional['UserHomeDirectoryType']]):
         pulumi.set(self, "home_directory_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A session policy for your user so you can use the same IAM role across multiple users. This policy restricts user access to portions of their Amazon S3 bucket. Variables that you can use inside this policy include `${Transfer:UserName}` , `${Transfer:HomeDirectory}` , and `${Transfer:HomeBucket}` .
 
@@ -180,55 +180,55 @@ class UserArgs:
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy", value)
 
     @_builtins.property
     @pulumi.getter(name="posixProfile")
-    def posix_profile(self) -> Optional[pulumi.Input['UserPosixProfileArgs']]:
+    def posix_profile(self) -> pulumi.Input[Optional['UserPosixProfileArgs']]:
         """
         Specifies the full POSIX identity, including user ID ( `Uid` ), group ID ( `Gid` ), and any secondary groups IDs ( `SecondaryGids` ), that controls your users' access to your Amazon Elastic File System (Amazon EFS) file systems. The POSIX permissions that are set on files and directories in your file system determine the level of access your users get when transferring files into and out of your Amazon EFS file systems.
         """
         return pulumi.get(self, "posix_profile")
 
     @posix_profile.setter
-    def posix_profile(self, value: Optional[pulumi.Input['UserPosixProfileArgs']]):
+    def posix_profile(self, value: pulumi.Input[Optional['UserPosixProfileArgs']]):
         pulumi.set(self, "posix_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="sshPublicKeys")
-    def ssh_public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ssh_public_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         This represents the SSH User Public Keys for CloudFormation resource
         """
         return pulumi.get(self, "ssh_public_keys")
 
     @ssh_public_keys.setter
-    def ssh_public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ssh_public_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ssh_public_keys", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for users. Tags are metadata attached to users for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique string that identifies a user and is associated with a `ServerId` . This user name must be a minimum of 3 and a maximum of 100 characters long. The following are valid characters: a-z, A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't start with a hyphen, period, or at sign.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -238,20 +238,19 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
-                 home_directory_type: Optional[pulumi.Input['UserHomeDirectoryType']] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_profile: Optional[pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
+                 home_directory_type: pulumi.Input[Optional['UserHomeDirectoryType']] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::Transfer::User Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +296,6 @@ class User(pulumi.CustomResource):
         """
         Definition of AWS::Transfer::User Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,16 +311,16 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 home_directory: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
-                 home_directory_type: Optional[pulumi.Input['UserHomeDirectoryType']] = None,
-                 policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_profile: Optional[pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 home_directory: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_directory_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserHomeDirectoryMapEntryArgs', 'UserHomeDirectoryMapEntryArgsDict']]]]] = None,
+                 home_directory_type: pulumi.Input[Optional['UserHomeDirectoryType']] = None,
+                 policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_profile: pulumi.Input[Optional[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssh_public_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

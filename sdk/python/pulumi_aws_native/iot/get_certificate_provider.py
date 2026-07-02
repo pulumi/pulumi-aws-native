@@ -95,7 +95,6 @@ def get_certificate_provider(certificate_provider_name: Optional[_builtins.str] 
     """
     Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
 
-
     :param _builtins.str certificate_provider_name: The name of the certificate provider.
     """
     __args__ = dict()
@@ -108,11 +107,10 @@ def get_certificate_provider(certificate_provider_name: Optional[_builtins.str] 
         arn=pulumi.get(__ret__, 'arn'),
         lambda_function_arn=pulumi.get(__ret__, 'lambda_function_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_provider_output(certificate_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateProviderResult]:
     """
     Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
-
 
     :param _builtins.str certificate_provider_name: The name of the certificate provider.
     """

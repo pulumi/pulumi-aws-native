@@ -52,11 +52,10 @@ class ResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
+                 resource_group_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +72,6 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Inspector::ResourceGroup
 
-
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,7 +87,7 @@ class ResourceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
+                 resource_group_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupTagArgs', 'ResourceGroupTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

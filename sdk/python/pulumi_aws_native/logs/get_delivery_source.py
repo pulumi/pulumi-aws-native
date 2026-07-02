@@ -139,7 +139,6 @@ def get_delivery_source(name: Optional[_builtins.str] = None,
 
     Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
-
     :param _builtins.str name: The unique name of the Log source.
     """
     __args__ = dict()
@@ -156,13 +155,12 @@ def get_delivery_source(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_delivery_source_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delivery_source_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliverySourceResult]:
     """
      A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 
     Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
-
 
     :param _builtins.str name: The unique name of the Log source.
     """

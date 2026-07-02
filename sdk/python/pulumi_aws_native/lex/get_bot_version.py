@@ -64,7 +64,6 @@ def get_bot_version(bot_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 
-
     :param _builtins.str bot_id: The unique identifier of the bot.
     :param _builtins.str bot_version: The version of the bot.
     """
@@ -77,12 +76,11 @@ def get_bot_version(bot_id: Optional[_builtins.str] = None,
     return AwaitableGetBotVersionResult(
         bot_version=pulumi.get(__ret__, 'bot_version'),
         description=pulumi.get(__ret__, 'description'))
-def get_bot_version_output(bot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           bot_version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bot_version_output(bot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           bot_version: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotVersionResult]:
     """
     Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
-
 
     :param _builtins.str bot_id: The unique identifier of the bot.
     :param _builtins.str bot_version: The version of the bot.

@@ -152,7 +152,6 @@ def get_asset(asset_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::Asset
 
-
     :param _builtins.str asset_id: The ID of the asset
     """
     __args__ = dict()
@@ -170,11 +169,10 @@ def get_asset(asset_id: Optional[_builtins.str] = None,
         asset_name=pulumi.get(__ret__, 'asset_name'),
         asset_properties=pulumi.get(__ret__, 'asset_properties'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_asset_output(asset_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_asset_output(asset_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Resource schema for AWS::IoTSiteWise::Asset
-
 
     :param _builtins.str asset_id: The ID of the asset
     """

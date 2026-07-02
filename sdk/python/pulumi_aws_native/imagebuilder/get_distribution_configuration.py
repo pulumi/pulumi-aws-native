@@ -89,7 +89,6 @@ def get_distribution_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::ImageBuilder::DistributionConfiguration
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the distribution configuration.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_distribution_configuration(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         distributions=pulumi.get(__ret__, 'distributions'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_distribution_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_distribution_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
     Resource schema for AWS::ImageBuilder::DistributionConfiguration
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the distribution configuration.
     """

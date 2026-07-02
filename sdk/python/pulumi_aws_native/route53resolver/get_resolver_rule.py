@@ -138,7 +138,6 @@ def get_resolver_rule(resolver_rule_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Route53Resolver::ResolverRule
 
-
     :param _builtins.str resolver_rule_id: The ID of the endpoint that the rule is associated with.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_resolver_rule(resolver_rule_id: Optional[_builtins.str] = None,
         resolver_rule_id=pulumi.get(__ret__, 'resolver_rule_id'),
         tags=pulumi.get(__ret__, 'tags'),
         target_ips=pulumi.get(__ret__, 'target_ips'))
-def get_resolver_rule_output(resolver_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_rule_output(resolver_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleResult]:
     """
     Resource Type definition for AWS::Route53Resolver::ResolverRule
-
 
     :param _builtins.str resolver_rule_id: The ID of the endpoint that the rule is associated with.
     """

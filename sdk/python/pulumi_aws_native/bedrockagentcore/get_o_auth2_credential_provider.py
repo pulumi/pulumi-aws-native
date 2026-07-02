@@ -150,7 +150,6 @@ def get_o_auth2_credential_provider(credential_provider_arn: Optional[_builtins.
     """
     Resource Type definition for AWS::BedrockAgentCore::OAuth2CredentialProvider
 
-
     :param _builtins.str credential_provider_arn: The Amazon Resource Name (ARN) of the OAuth2 credential provider
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_o_auth2_credential_provider(credential_provider_arn: Optional[_builtins.
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         oauth2_provider_config_output=pulumi.get(__ret__, 'oauth2_provider_config_output'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_o_auth2_credential_provider_output(credential_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_o_auth2_credential_provider_output(credential_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOAuth2CredentialProviderResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::OAuth2CredentialProvider
-
 
     :param _builtins.str credential_provider_arn: The Amazon Resource Name (ARN) of the OAuth2 credential provider
     """

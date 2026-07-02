@@ -255,7 +255,7 @@ class ResolverRuleRuleType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:route53resolver:ResolverRuleTargetAddressProtocol")
 class ResolverRuleTargetAddressProtocol(_builtins.str, Enum):
     """
-    The protocol that you want to use to forward DNS queries. 
+    The protocol that you want to use to forward DNS queries.
     """
     DO53 = "Do53"
     DO_H = "DoH"

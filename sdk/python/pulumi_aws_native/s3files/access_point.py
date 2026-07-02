@@ -25,10 +25,10 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[_builtins.str],
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
-                 root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_user: pulumi.Input[Optional['AccessPointPosixUserArgs']] = None,
+                 root_directory: pulumi.Input[Optional['AccessPointRootDirectoryArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
 
@@ -61,47 +61,47 @@ class AccessPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
         """
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter(name="posixUser")
-    def posix_user(self) -> Optional[pulumi.Input['AccessPointPosixUserArgs']]:
+    def posix_user(self) -> pulumi.Input[Optional['AccessPointPosixUserArgs']]:
         """
         The operating system user and group applied to all compute drive requests made using the access point.
         """
         return pulumi.get(self, "posix_user")
 
     @posix_user.setter
-    def posix_user(self, value: Optional[pulumi.Input['AccessPointPosixUserArgs']]):
+    def posix_user(self, value: pulumi.Input[Optional['AccessPointPosixUserArgs']]):
         pulumi.set(self, "posix_user", value)
 
     @_builtins.property
     @pulumi.getter(name="rootDirectory")
-    def root_directory(self) -> Optional[pulumi.Input['AccessPointRootDirectoryArgs']]:
+    def root_directory(self) -> pulumi.Input[Optional['AccessPointRootDirectoryArgs']]:
         """
         Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationPermissions settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationPermissions is optional.
         """
         return pulumi.get(self, "root_directory")
 
     @root_directory.setter
-    def root_directory(self, value: Optional[pulumi.Input['AccessPointRootDirectoryArgs']]):
+    def root_directory(self, value: pulumi.Input[Optional['AccessPointRootDirectoryArgs']]):
         pulumi.set(self, "root_directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,15 +111,14 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_user: Optional[pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
-                 root_directory: Optional[pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Files::AccessPoint
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +136,6 @@ class AccessPoint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Files::AccessPoint
 
-
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,11 +151,11 @@ class AccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 posix_user: Optional[pulumi.Input[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
-                 root_directory: Optional[pulumi.Input[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 posix_user: pulumi.Input[Optional[Union['AccessPointPosixUserArgs', 'AccessPointPosixUserArgsDict']]] = None,
+                 root_directory: pulumi.Input[Optional[Union['AccessPointRootDirectoryArgs', 'AccessPointRootDirectoryArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

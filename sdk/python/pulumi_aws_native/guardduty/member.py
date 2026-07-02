@@ -20,11 +20,11 @@ __all__ = ['MemberArgs', 'Member']
 class MemberArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[_builtins.str],
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
 
@@ -61,62 +61,62 @@ class MemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the detector associated with the GuardDuty service to add the member to.
         """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="disableEmailNotification")
-    def disable_email_notification(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_email_notification(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether or not to disable email notification for the member account that you invite.
         """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
-    def disable_email_notification(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_email_notification(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="memberId")
-    def member_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def member_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the account to designate as a member.
         """
         return pulumi.get(self, "member_id")
 
     @member_id.setter
-    def member_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def member_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "member_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The invitation message that you want to send to the accounts that you're inviting to GuardDuty as members.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -126,16 +126,15 @@ class Member(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Member
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +154,6 @@ class Member(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::Member
 
-
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,12 +169,12 @@ class Member(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_email_notification: Optional[pulumi.Input[_builtins.bool]] = None,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_email_notification: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

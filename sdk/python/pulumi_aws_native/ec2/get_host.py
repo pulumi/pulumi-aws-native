@@ -101,7 +101,6 @@ def get_host(host_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::Host
 
-
     :param _builtins.str host_id: ID of the host created.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_host(host_id: Optional[_builtins.str] = None,
         host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
         host_recovery=pulumi.get(__ret__, 'host_recovery'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_host_output(host_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_host_output(host_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostResult]:
     """
     Resource Type definition for AWS::EC2::Host
-
 
     :param _builtins.str host_id: ID of the host created.
     """

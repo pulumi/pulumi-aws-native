@@ -24,18 +24,18 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  engine_type: pulumi.Input['EnvironmentEngineType'],
                  instance_type: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_config: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_config: pulumi.Input[Optional['EnvironmentHighAvailabilityConfigArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['EnvironmentNetworkType']] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -43,7 +43,7 @@ class EnvironmentArgs:
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input[_builtins.str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+        :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
                
                Defines the details of a high availability configuration.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
@@ -109,148 +109,148 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the environment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the runtime engine for the environment.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityConfig")
-    def high_availability_config(self) -> Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']]:
+    def high_availability_config(self) -> pulumi.Input[Optional['EnvironmentHighAvailabilityConfigArgs']]:
         """
-        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
 
         Defines the details of a high availability configuration.
         """
         return pulumi.get(self, "high_availability_config")
 
     @high_availability_config.setter
-    def high_availability_config(self, value: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']]):
+    def high_availability_config(self, value: pulumi.Input[Optional['EnvironmentHighAvailabilityConfigArgs']]):
         pulumi.set(self, "high_availability_config", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the environment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkType")
-    def network_type(self) -> Optional[pulumi.Input['EnvironmentNetworkType']]:
+    def network_type(self) -> pulumi.Input[Optional['EnvironmentNetworkType']]:
         """
         The network type supported by the runtime environment.
         """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
-    def network_type(self, value: Optional[pulumi.Input['EnvironmentNetworkType']]):
+    def network_type(self, value: pulumi.Input[Optional['EnvironmentNetworkType']]):
         pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the environment is publicly accessible.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of security groups for the VPC associated with this environment.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="storageConfigurations")
-    def storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]]:
+    def storage_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]]:
         """
         The storage configurations defined for the runtime environment.
         """
         return pulumi.get(self, "storage_configurations")
 
     @storage_configurations.setter
-    def storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]]):
+    def storage_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]]):
         pulumi.set(self, "storage_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The unique identifiers of the subnets assigned to this runtime environment.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags associated to this environment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -260,31 +260,30 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_type: Optional[pulumi.Input['EnvironmentEngineType']] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_type: pulumi.Input[Optional['EnvironmentEngineType']] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['EnvironmentNetworkType']] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a runtime environment that can run migrated mainframe applications.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the environment.
         :param pulumi.Input['EnvironmentEngineType'] engine_type: The target platform for the runtime environment.
         :param pulumi.Input[_builtins.str] engine_version: The version of the runtime engine for the environment.
-        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+        :param pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']] high_availability_config: > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
                
                Defines the details of a high availability configuration.
         :param pulumi.Input[_builtins.str] instance_type: The type of instance underlying the environment.
@@ -307,7 +306,6 @@ class Environment(pulumi.CustomResource):
         """
         Represents a runtime environment that can run migrated mainframe applications.
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,20 +321,20 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_type: Optional[pulumi.Input['EnvironmentEngineType']] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_type: pulumi.Input[Optional['EnvironmentEngineType']] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_config: pulumi.Input[Optional[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional['EnvironmentNetworkType']] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -452,7 +450,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> pulumi.Output[Optional['outputs.EnvironmentHighAvailabilityConfig']]:
         """
-        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
 
         Defines the details of a high availability configuration.
         """

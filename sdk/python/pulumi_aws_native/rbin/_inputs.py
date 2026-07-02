@@ -129,11 +129,11 @@ class RuleRetentionPeriodArgs:
 
 
 class RuleUnlockDelayArgsDict(TypedDict):
-    unlock_delay_unit: NotRequired[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']]
+    unlock_delay_unit: NotRequired[pulumi.Input[Optional['RuleUnlockDelayUnlockDelayUnit']]]
     """
     The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
     """
-    unlock_delay_value: NotRequired[pulumi.Input[_builtins.int]]
+    unlock_delay_value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The unlock delay period, measured in the unit specified for UnlockDelayUnit.
     """
@@ -141,8 +141,8 @@ class RuleUnlockDelayArgsDict(TypedDict):
 @pulumi.input_type
 class RuleUnlockDelayArgs:
     def __init__(__self__, *,
-                 unlock_delay_unit: Optional[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']] = None,
-                 unlock_delay_value: Optional[pulumi.Input[_builtins.int]] = None):
+                 unlock_delay_unit: pulumi.Input[Optional['RuleUnlockDelayUnlockDelayUnit']] = None,
+                 unlock_delay_value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['RuleUnlockDelayUnlockDelayUnit'] unlock_delay_unit: The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         :param pulumi.Input[_builtins.int] unlock_delay_value: The unlock delay period, measured in the unit specified for UnlockDelayUnit.
@@ -154,26 +154,26 @@ class RuleUnlockDelayArgs:
 
     @_builtins.property
     @pulumi.getter(name="unlockDelayUnit")
-    def unlock_delay_unit(self) -> Optional[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']]:
+    def unlock_delay_unit(self) -> pulumi.Input[Optional['RuleUnlockDelayUnlockDelayUnit']]:
         """
         The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
         """
         return pulumi.get(self, "unlock_delay_unit")
 
     @unlock_delay_unit.setter
-    def unlock_delay_unit(self, value: Optional[pulumi.Input['RuleUnlockDelayUnlockDelayUnit']]):
+    def unlock_delay_unit(self, value: pulumi.Input[Optional['RuleUnlockDelayUnlockDelayUnit']]):
         pulumi.set(self, "unlock_delay_unit", value)
 
     @_builtins.property
     @pulumi.getter(name="unlockDelayValue")
-    def unlock_delay_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unlock_delay_value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The unlock delay period, measured in the unit specified for UnlockDelayUnit.
         """
         return pulumi.get(self, "unlock_delay_value")
 
     @unlock_delay_value.setter
-    def unlock_delay_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unlock_delay_value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unlock_delay_value", value)
 
 

@@ -77,13 +77,12 @@ def get_db_subnet_group(db_subnet_group_name: Optional[_builtins.str] = None,
     The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
      For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
 
-
     :param _builtins.str db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
             Constraints:
              +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
              +  Must not be default.
              +  First character must be a letter.
-             
+           
             Example: ``mydbsubnetgroup``
     """
     __args__ = dict()
@@ -95,19 +94,18 @@ def get_db_subnet_group(db_subnet_group_name: Optional[_builtins.str] = None,
         db_subnet_group_description=pulumi.get(__ret__, 'db_subnet_group_description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_subnet_group_output(db_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
     """
     The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
      For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
-
 
     :param _builtins.str db_subnet_group_name: The name for the DB subnet group. This value is stored as a lowercase string.
             Constraints:
              +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
              +  Must not be default.
              +  First character must be a letter.
-             
+           
             Example: ``mydbsubnetgroup``
     """
     __args__ = dict()

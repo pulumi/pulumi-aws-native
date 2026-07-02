@@ -23,7 +23,7 @@ class ProfilePermissionArgs:
                  principal: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  statement_id: pulumi.Input[_builtins.str],
-                 profile_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 profile_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfilePermission resource.
 
@@ -90,14 +90,14 @@ class ProfilePermissionArgs:
 
     @_builtins.property
     @pulumi.getter(name="profileVersion")
-    def profile_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the signing profile.
         """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
-    def profile_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile_version", value)
 
 
@@ -107,15 +107,14 @@ class ProfilePermission(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Signer::ProfilePermission
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +133,6 @@ class ProfilePermission(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Signer::ProfilePermission
 
-
         :param str resource_name: The name of the resource.
         :param ProfilePermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +148,11 @@ class ProfilePermission(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

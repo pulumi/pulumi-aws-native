@@ -27,7 +27,7 @@ class AssistantAssociationArgs:
                  assistant_id: pulumi.Input[_builtins.str],
                  association: pulumi.Input[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgs']],
                  association_type: pulumi.Input['AssistantAssociationAssociationType'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AssistantAssociation resource.
 
@@ -80,14 +80,14 @@ class AssistantAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,14 +97,13 @@ class AssistantAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association: Optional[pulumi.Input[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
-                 association_type: Optional[pulumi.Input['AssistantAssociationAssociationType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
+                 association_type: pulumi.Input[Optional['AssistantAssociationAssociationType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +121,6 @@ class AssistantAssociation(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AssistantAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,10 +136,10 @@ class AssistantAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 association: Optional[pulumi.Input[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
-                 association_type: Optional[pulumi.Input['AssistantAssociationAssociationType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
+                 association_type: pulumi.Input[Optional['AssistantAssociationAssociationType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

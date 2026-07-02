@@ -173,7 +173,6 @@ def get_server(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::OpsWorksCM::Server
 
-
     :param _builtins.str id: The ID of the server.
     """
     __args__ = dict()
@@ -191,11 +190,10 @@ def get_server(id: Optional[_builtins.str] = None,
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_server_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
-
 
     :param _builtins.str id: The ID of the server.
     """

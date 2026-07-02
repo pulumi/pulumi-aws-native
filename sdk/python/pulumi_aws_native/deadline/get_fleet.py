@@ -213,7 +213,6 @@ def get_fleet(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Deadline::Fleet
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the fleet.
     """
     __args__ = dict()
@@ -236,11 +235,10 @@ def get_fleet(arn: Optional[_builtins.str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'))
-def get_fleet_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fleet_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Resource Type definition for AWS::Deadline::Fleet
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) assigned to the fleet.
     """

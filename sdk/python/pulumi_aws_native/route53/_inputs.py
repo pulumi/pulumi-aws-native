@@ -139,7 +139,7 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
     """
     The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
 
-    > You can't change the value of `Type` after you create a health check. 
+    > You can't change the value of `Type` after you create a health check.
 
     You can create the following types of health checks:
 
@@ -153,7 +153,6 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
     - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
 
     > Route 53 supports CloudWatch alarms with the following features:
-    > 
     > - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
     > - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
     - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .
@@ -161,15 +160,15 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     For more information, see [How Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
     """
-    alarm_identifier: NotRequired[pulumi.Input['HealthCheckAlarmIdentifierArgsDict']]
+    alarm_identifier: NotRequired[pulumi.Input[Optional['HealthCheckAlarmIdentifierArgsDict']]]
     """
     A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
     """
-    child_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    child_health_checks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     (CALCULATED Health Checks Only) A complex type that contains one `ChildHealthCheck` element for each health check that you want to associate with a `CALCULATED` health check.
     """
-    enable_sni: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_sni: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify whether you want Amazon Route 53 to send the value of `FullyQualifiedDomainName` to the endpoint in the `client_hello` message during TLS negotiation. This allows the endpoint to respond to `HTTPS` health check requests with the applicable SSL/TLS certificate.
 
@@ -177,7 +176,7 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     The SSL/TLS certificate on your endpoint includes a domain name in the `Common Name` field and possibly several more in the `Subject Alternative Names` field. One of the domain names in the certificate should match the value that you specify for `FullyQualifiedDomainName` . If the endpoint responds to the `client_hello` message with a certificate that does not include the domain name that you specified in `FullyQualifiedDomainName` , a health checker will retry the handshake. In the second attempt, the health checker will omit `FullyQualifiedDomainName` from the `client_hello` message.
     """
-    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    failure_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 
@@ -185,7 +184,7 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     Otherwise, if you don't specify a value for `FailureThreshold` , the default value is three health checks.
     """
-    fully_qualified_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    fully_qualified_domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
 
@@ -205,15 +204,15 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
 
-    > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+    > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
 
     If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
 
-    > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+    > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
 
     In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
     """
-    health_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    health_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
 
@@ -222,7 +221,7 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
     - If you specify a number greater than the number of child health checks, Route 53 always considers this health check to be unhealthy.
     - If you specify `0` , Route 53 always considers this health check to be healthy.
     """
-    insufficient_data_health_status: NotRequired[pulumi.Input['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]
+    insufficient_data_health_status: NotRequired[pulumi.Input[Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]]
     """
     When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:
 
@@ -230,11 +229,11 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
     - `Unhealthy` : Route 53 considers the health check to be unhealthy.
     - `LastKnownStatus` : Route 53 uses the status of the health check from the last time that CloudWatch had sufficient data to determine the alarm state. For new health checks that have no last known status, the default status for the health check is healthy.
     """
-    inverted: NotRequired[pulumi.Input[_builtins.bool]]
+    inverted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.
     """
-    ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for `IPAddress` , Route 53 sends a DNS request to resolve the domain name that you specify in `FullyQualifiedDomainName` at the interval that you specify in `RequestInterval` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
 
@@ -255,7 +254,7 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     When the value of `Type` is `CALCULATED` or `CLOUDWATCH_METRIC` , omit `IPAddress` .
     """
-    measure_latency: NotRequired[pulumi.Input[_builtins.bool]]
+    measure_latency: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 
@@ -263,13 +262,13 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     > You can't change the value of `MeasureLatency` after you create a health check.
     """
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port on the endpoint that you want Amazon Route 53 to perform health checks on.
 
     > Don't specify a value for `Port` when you specify a value for [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-type) of `CLOUDWATCH_METRIC` or `CALCULATED` .
     """
-    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A complex type that contains one `Region` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
 
@@ -277,27 +276,27 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 
     If you update a health check to remove a region that has been performing health checks, Route 53 will briefly continue to perform checks from that region to ensure that some health checkers are always checking the endpoint (for example, if you replace three regions with four different regions).
     """
-    request_interval: NotRequired[pulumi.Input[_builtins.int]]
+    request_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
 
     `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 
-    > You can't change the value of `RequestInterval` after you create a health check. 
+    > You can't change the value of `RequestInterval` after you create a health check.
 
     If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
     """
-    resource_path: NotRequired[pulumi.Input[_builtins.str]]
+    resource_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
     """
-    routing_control_arn: NotRequired[pulumi.Input[_builtins.str]]
+    routing_control_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control.
 
     For more information about Route 53 Application Recovery Controller, see [Route 53 Application Recovery Controller Developer Guide.](https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route-53-recovery.html) .
     """
-    search_string: NotRequired[pulumi.Input[_builtins.str]]
+    search_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the value of Type is `HTTP_STR_MATCH` or `HTTPS_STR_MATCH` , the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy.
 
@@ -308,28 +307,28 @@ class HealthCheckConfigPropertiesArgsDict(TypedDict):
 class HealthCheckConfigPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['HealthCheckConfigPropertiesType'],
-                 alarm_identifier: Optional[pulumi.Input['HealthCheckAlarmIdentifierArgs']] = None,
-                 child_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_sni: Optional[pulumi.Input[_builtins.bool]] = None,
-                 failure_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 insufficient_data_health_status: Optional[pulumi.Input['HealthCheckConfigPropertiesInsufficientDataHealthStatus']] = None,
-                 inverted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 measure_latency: Optional[pulumi.Input[_builtins.bool]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 request_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 search_string: Optional[pulumi.Input[_builtins.str]] = None):
+                 alarm_identifier: pulumi.Input[Optional['HealthCheckAlarmIdentifierArgs']] = None,
+                 child_health_checks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 enable_sni: pulumi.Input[Optional[_builtins.bool]] = None,
+                 failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 insufficient_data_health_status: pulumi.Input[Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']] = None,
+                 inverted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 measure_latency: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 request_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 search_string: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A complex type that contains information about the health check.
 
         :param pulumi.Input['HealthCheckConfigPropertiesType'] type: The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
                
-               > You can't change the value of `Type` after you create a health check. 
+               > You can't change the value of `Type` after you create a health check.
                
                You can create the following types of health checks:
                
@@ -343,7 +342,6 @@ class HealthCheckConfigPropertiesArgs:
                - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
                
                > Route 53 supports CloudWatch alarms with the following features:
-               > 
                > - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
                > - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
                - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .
@@ -380,11 +378,11 @@ class HealthCheckConfigPropertiesArgs:
                
                Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
                
-               > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+               > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
                
                If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
                
-               > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+               > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
                
                In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         :param pulumi.Input[_builtins.int] health_threshold: The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
@@ -434,7 +432,7 @@ class HealthCheckConfigPropertiesArgs:
                
                `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
                
-               > You can't change the value of `RequestInterval` after you create a health check. 
+               > You can't change the value of `RequestInterval` after you create a health check.
                
                If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
         :param pulumi.Input[_builtins.str] resource_path: The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
@@ -485,7 +483,7 @@ class HealthCheckConfigPropertiesArgs:
         """
         The type of health check that you want to create, which indicates how Amazon Route 53 determines whether an endpoint is healthy.
 
-        > You can't change the value of `Type` after you create a health check. 
+        > You can't change the value of `Type` after you create a health check.
 
         You can create the following types of health checks:
 
@@ -499,7 +497,6 @@ class HealthCheckConfigPropertiesArgs:
         - *CLOUDWATCH_METRIC* : The health check is associated with a CloudWatch alarm. If the state of the alarm is `OK` , the health check is considered healthy. If the state is `ALARM` , the health check is considered unhealthy. If CloudWatch doesn't have sufficient data to determine whether the state is `OK` or `ALARM` , the health check status depends on the setting for `InsufficientDataHealthStatus` : `Healthy` , `Unhealthy` , or `LastKnownStatus` .
 
         > Route 53 supports CloudWatch alarms with the following features:
-        > 
         > - Standard-resolution metrics. High-resolution metrics aren't supported. For more information, see [High-Resolution Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics) in the *Amazon CloudWatch User Guide* .
         > - Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't supported.
         - *CALCULATED* : For health checks that monitor the status of other health checks, Route 53 adds up the number of health checks that Route 53 health checkers consider to be healthy and compares that number with the value of `HealthThreshold` .
@@ -515,31 +512,31 @@ class HealthCheckConfigPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="alarmIdentifier")
-    def alarm_identifier(self) -> Optional[pulumi.Input['HealthCheckAlarmIdentifierArgs']]:
+    def alarm_identifier(self) -> pulumi.Input[Optional['HealthCheckAlarmIdentifierArgs']]:
         """
         A complex type that identifies the CloudWatch alarm that you want Amazon Route 53 health checkers to use to determine whether the specified health check is healthy.
         """
         return pulumi.get(self, "alarm_identifier")
 
     @alarm_identifier.setter
-    def alarm_identifier(self, value: Optional[pulumi.Input['HealthCheckAlarmIdentifierArgs']]):
+    def alarm_identifier(self, value: pulumi.Input[Optional['HealthCheckAlarmIdentifierArgs']]):
         pulumi.set(self, "alarm_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="childHealthChecks")
-    def child_health_checks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def child_health_checks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         (CALCULATED Health Checks Only) A complex type that contains one `ChildHealthCheck` element for each health check that you want to associate with a `CALCULATED` health check.
         """
         return pulumi.get(self, "child_health_checks")
 
     @child_health_checks.setter
-    def child_health_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def child_health_checks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "child_health_checks", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSni")
-    def enable_sni(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_sni(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether you want Amazon Route 53 to send the value of `FullyQualifiedDomainName` to the endpoint in the `client_hello` message during TLS negotiation. This allows the endpoint to respond to `HTTPS` health check requests with the applicable SSL/TLS certificate.
 
@@ -550,12 +547,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "enable_sni")
 
     @enable_sni.setter
-    def enable_sni(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_sni(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_sni", value)
 
     @_builtins.property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def failure_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health checks that an endpoint must pass or fail for Amazon Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa. For more information, see [How Amazon Route 53 Determines Whether an Endpoint Is Healthy](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html) in the *Amazon Route 53 Developer Guide* .
 
@@ -566,12 +563,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "failure_threshold")
 
     @failure_threshold.setter
-    def failure_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def failure_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "failure_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedDomainName")
-    def fully_qualified_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Amazon Route 53 behavior depends on whether you specify a value for `IPAddress` .
 
@@ -591,23 +588,23 @@ class HealthCheckConfigPropertiesArgs:
 
         Route 53 sends a DNS request to the domain that you specify for `FullyQualifiedDomainName` at the interval that you specify for `RequestInterval` . Using an IPv4 address that DNS returns, Route 53 then checks the health of the endpoint.
 
-        > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error. 
+        > If you don't specify a value for `IPAddress` , Route 53 uses only IPv4 to send health checks to the endpoint. If there's no record with a type of A for the name that you specify for `FullyQualifiedDomainName` , the health check fails with a "DNS resolution failed" error.
 
         If you want to check the health of multiple records that have the same name and type, such as multiple weighted records, and if you choose to specify the endpoint only by `FullyQualifiedDomainName` , we recommend that you create a separate health check for each endpoint. For example, create a health check for each HTTP server that is serving content for www.example.com. For the value of `FullyQualifiedDomainName` , specify the domain name of the server (such as us-east-2-www.example.com), not the name of the records (www.example.com).
 
-        > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable. 
+        > In this configuration, if you create a health check for which the value of `FullyQualifiedDomainName` matches the name of the records and you then associate the health check with those records, health check results will be unpredictable.
 
         In addition, if the value that you specify for `Type` is `HTTP` , `HTTPS` , `HTTP_STR_MATCH` , or `HTTPS_STR_MATCH` , Route 53 passes the value of `FullyQualifiedDomainName` in the `Host` header, as it does when you specify a value for `IPAddress` . If the value of `Type` is `TCP` , Route 53 doesn't pass a `Host` header.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
     @fully_qualified_domain_name.setter
-    def fully_qualified_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthThreshold")
-    def health_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of child health checks that are associated with a `CALCULATED` health check that Amazon Route 53 must consider healthy for the `CALCULATED` health check to be considered healthy. To specify the child health checks that you want to associate with a `CALCULATED` health check, use the [ChildHealthChecks](https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks) element.
 
@@ -619,12 +616,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "health_threshold")
 
     @health_threshold.setter
-    def health_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="insufficientDataHealthStatus")
-    def insufficient_data_health_status(self) -> Optional[pulumi.Input['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]:
+    def insufficient_data_health_status(self) -> pulumi.Input[Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]:
         """
         When CloudWatch has insufficient data about the metric to determine the alarm state, the status that you want Amazon Route 53 to assign to the health check:
 
@@ -635,24 +632,24 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "insufficient_data_health_status")
 
     @insufficient_data_health_status.setter
-    def insufficient_data_health_status(self, value: Optional[pulumi.Input['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]):
+    def insufficient_data_health_status(self, value: pulumi.Input[Optional['HealthCheckConfigPropertiesInsufficientDataHealthStatus']]):
         pulumi.set(self, "insufficient_data_health_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def inverted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def inverted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether you want Amazon Route 53 to invert the status of a health check, for example, to consider a health check unhealthy when it otherwise would be considered healthy.
         """
         return pulumi.get(self, "inverted")
 
     @inverted.setter
-    def inverted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def inverted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "inverted", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 or IPv6 IP address of the endpoint that you want Amazon Route 53 to perform health checks on. If you don't specify a value for `IPAddress` , Route 53 sends a DNS request to resolve the domain name that you specify in `FullyQualifiedDomainName` at the interval that you specify in `RequestInterval` . Using an IP address returned by DNS, Route 53 then checks the health of the endpoint.
 
@@ -676,12 +673,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="measureLatency")
-    def measure_latency(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def measure_latency(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specify whether you want Amazon Route 53 to measure the latency between health checkers in multiple AWS regions and your endpoint, and to display CloudWatch latency graphs on the *Health Checks* page in the Route 53 console.
 
@@ -692,12 +689,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "measure_latency")
 
     @measure_latency.setter
-    def measure_latency(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def measure_latency(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "measure_latency", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port on the endpoint that you want Amazon Route 53 to perform health checks on.
 
@@ -706,12 +703,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A complex type that contains one `Region` element for each region from which you want Amazon Route 53 health checkers to check the specified endpoint.
 
@@ -722,42 +719,42 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "regions", value)
 
     @_builtins.property
     @pulumi.getter(name="requestInterval")
-    def request_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def request_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health check request. Each Route 53 health checker makes requests at this interval.
 
         `RequestInterval` is not supported when you specify a value for `Type` of `RECOVERY_CONTROL` .
 
-        > You can't change the value of `RequestInterval` after you create a health check. 
+        > You can't change the value of `RequestInterval` after you create a health check.
 
         If you don't specify a value for `RequestInterval` , the default value is `30` seconds.
         """
         return pulumi.get(self, "request_interval")
 
     @request_interval.setter
-    def request_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def request_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePath")
-    def resource_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path, if any, that you want Amazon Route 53 to request when performing health checks. The path can be any value for which your endpoint will return an HTTP status code of 2xx or 3xx when the endpoint is healthy, for example, the file /docs/route53-health-check.html. You can also include query string parameters, for example, `/welcome.html?language=jp&login=y` .
         """
         return pulumi.get(self, "resource_path")
 
     @resource_path.setter
-    def resource_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_path", value)
 
     @_builtins.property
     @pulumi.getter(name="routingControlArn")
-    def routing_control_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def routing_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control.
 
@@ -766,12 +763,12 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "routing_control_arn")
 
     @routing_control_arn.setter
-    def routing_control_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def routing_control_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "routing_control_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="searchString")
-    def search_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def search_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the value of Type is `HTTP_STR_MATCH` or `HTTPS_STR_MATCH` , the string that you want Amazon Route 53 to search for in the response body from the specified resource. If the string appears in the response body, Route 53 considers the resource healthy.
 
@@ -780,7 +777,7 @@ class HealthCheckConfigPropertiesArgs:
         return pulumi.get(self, "search_string")
 
     @search_string.setter
-    def search_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def search_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "search_string", value)
 
 
@@ -788,7 +785,7 @@ class HostedZoneConfigArgsDict(TypedDict):
     """
     A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
     """
-    comment: NotRequired[pulumi.Input[_builtins.str]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Any comments that you want to include about the hosted zone.
     """
@@ -796,7 +793,7 @@ class HostedZoneConfigArgsDict(TypedDict):
 @pulumi.input_type
 class HostedZoneConfigArgs:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A complex type that contains an optional comment about your hosted zone. If you don't want to specify a comment, omit both the ``HostedZoneConfig`` and ``Comment`` elements.
 
@@ -807,14 +804,14 @@ class HostedZoneConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Any comments that you want to include about the hosted zone.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
 
@@ -822,12 +819,12 @@ class HostedZoneFeaturesArgsDict(TypedDict):
     """
     Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
     """
-    enable_accelerated_recovery: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_accelerated_recovery: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class HostedZoneFeaturesArgs:
     def __init__(__self__, *,
-                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_accelerated_recovery: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
         """
@@ -836,11 +833,11 @@ class HostedZoneFeaturesArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
-    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_accelerated_recovery(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_accelerated_recovery")
 
     @enable_accelerated_recovery.setter
-    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_accelerated_recovery(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_accelerated_recovery", value)
 
 
@@ -879,7 +876,7 @@ class HostedZoneQueryLoggingConfigArgs:
 
 class HostedZoneVpcArgsDict(TypedDict):
     """
-    *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+    *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
       For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
     """
     vpc_id: pulumi.Input[_builtins.str]
@@ -899,7 +896,7 @@ class HostedZoneVpcArgs:
                  vpc_id: pulumi.Input[_builtins.str],
                  vpc_region: pulumi.Input[_builtins.str]):
         """
-        *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC. 
+        *Private hosted zones only:* A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
           For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
 
         :param pulumi.Input[_builtins.str] vpc_id: *Private hosted zones only:* The ID of an Amazon VPC.

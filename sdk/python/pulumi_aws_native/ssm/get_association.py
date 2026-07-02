@@ -278,7 +278,6 @@ def get_association(association_id: Optional[_builtins.str] = None,
     """
     The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
 
-
     :param _builtins.str association_id: Unique identifier of the association.
     """
     __args__ = dict()
@@ -306,11 +305,10 @@ def get_association(association_id: Optional[_builtins.str] = None,
         sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_association_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_association_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
     """
     The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
-
 
     :param _builtins.str association_id: Unique identifier of the association.
     """

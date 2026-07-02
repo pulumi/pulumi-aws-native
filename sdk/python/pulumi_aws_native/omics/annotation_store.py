@@ -23,12 +23,12 @@ __all__ = ['AnnotationStoreArgs', 'AnnotationStore']
 class AnnotationStoreArgs:
     def __init__(__self__, *,
                  store_format: pulumi.Input['AnnotationStoreStoreFormat'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']] = None,
-                 sse_config: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']] = None,
-                 store_options: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional['AnnotationStoreReferenceItemArgs']] = None,
+                 sse_config: pulumi.Input[Optional['AnnotationStoreSseConfigArgs']] = None,
+                 store_options: pulumi.Input[Optional['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AnnotationStore resource.
 
@@ -68,74 +68,74 @@ class AnnotationStoreArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the store.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Annotation Store.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def reference(self) -> Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']]:
+    def reference(self) -> pulumi.Input[Optional['AnnotationStoreReferenceItemArgs']]:
         """
         The genome reference for the store's annotations.
         """
         return pulumi.get(self, "reference")
 
     @reference.setter
-    def reference(self, value: Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']]):
+    def reference(self, value: pulumi.Input[Optional['AnnotationStoreReferenceItemArgs']]):
         pulumi.set(self, "reference", value)
 
     @_builtins.property
     @pulumi.getter(name="sseConfig")
-    def sse_config(self) -> Optional[pulumi.Input['AnnotationStoreSseConfigArgs']]:
+    def sse_config(self) -> pulumi.Input[Optional['AnnotationStoreSseConfigArgs']]:
         """
         The store's server-side encryption (SSE) settings.
         """
         return pulumi.get(self, "sse_config")
 
     @sse_config.setter
-    def sse_config(self, value: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']]):
+    def sse_config(self, value: pulumi.Input[Optional['AnnotationStoreSseConfigArgs']]):
         pulumi.set(self, "sse_config", value)
 
     @_builtins.property
     @pulumi.getter(name="storeOptions")
-    def store_options(self) -> Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]:
+    def store_options(self) -> pulumi.Input[Optional['AnnotationStoreStoreOptionsPropertiesArgs']]:
         """
         File parsing options for the annotation store.
         """
         return pulumi.get(self, "store_options")
 
     @store_options.setter
-    def store_options(self, value: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]):
+    def store_options(self, value: pulumi.Input[Optional['AnnotationStoreStoreOptionsPropertiesArgs']]):
         pulumi.set(self, "store_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the store.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,17 +145,16 @@ class AnnotationStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
-                 sse_config: Optional[pulumi.Input[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
-                 store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
+                 store_format: pulumi.Input[Optional['AnnotationStoreStoreFormat']] = None,
+                 store_options: pulumi.Input[Optional[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::AnnotationStore Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +175,6 @@ class AnnotationStore(pulumi.CustomResource):
         """
         Definition of AWS::Omics::AnnotationStore Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AnnotationStoreArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,13 +190,13 @@ class AnnotationStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reference: Optional[pulumi.Input[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
-                 sse_config: Optional[pulumi.Input[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
-                 store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
-                 store_options: Optional[pulumi.Input[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reference: pulumi.Input[Optional[Union['AnnotationStoreReferenceItemArgs', 'AnnotationStoreReferenceItemArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['AnnotationStoreSseConfigArgs', 'AnnotationStoreSseConfigArgsDict']]] = None,
+                 store_format: pulumi.Input[Optional['AnnotationStoreStoreFormat']] = None,
+                 store_options: pulumi.Input[Optional[Union['AnnotationStoreStoreOptionsPropertiesArgs', 'AnnotationStoreStoreOptionsPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

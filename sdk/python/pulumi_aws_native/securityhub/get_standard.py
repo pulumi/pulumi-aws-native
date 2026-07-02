@@ -36,7 +36,7 @@ class GetStandardResult:
     @pulumi.getter(name="disabledStandardsControls")
     def disabled_standards_controls(self) -> Optional[Sequence['outputs.StandardsControl']]:
         """
-        Specifies which controls are to be disabled in a standard. 
+        Specifies which controls are to be disabled in a standard.
          *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")
@@ -67,7 +67,6 @@ def get_standard(standards_subscription_arn: Optional[_builtins.str] = None,
      You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
      For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
 
-
     :param _builtins.str standards_subscription_arn: The ARN of a resource that represents your subscription to a supported standard.
     """
     __args__ = dict()
@@ -78,13 +77,12 @@ def get_standard(standards_subscription_arn: Optional[_builtins.str] = None,
     return AwaitableGetStandardResult(
         disabled_standards_controls=pulumi.get(__ret__, 'disabled_standards_controls'),
         standards_subscription_arn=pulumi.get(__ret__, 'standards_subscription_arn'))
-def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_standard_output(standards_subscription_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardResult]:
     """
     The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
      For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
-
 
     :param _builtins.str standards_subscription_arn: The ARN of a resource that represents your subscription to a supported standard.
     """

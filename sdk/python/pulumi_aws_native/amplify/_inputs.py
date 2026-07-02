@@ -41,33 +41,33 @@ __all__ = [
 ]
 
 class AppAutoBranchCreationConfigArgsDict(TypedDict):
-    auto_branch_creation_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    auto_branch_creation_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Automated branch creation glob patterns for the Amplify app.
     """
-    basic_auth_config: NotRequired[pulumi.Input['AppBasicAuthConfigArgsDict']]
+    basic_auth_config: NotRequired[pulumi.Input[Optional['AppBasicAuthConfigArgsDict']]]
     """
     Sets password protection for your auto created branch.
     """
-    build_spec: NotRequired[pulumi.Input[_builtins.str]]
+    build_spec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The build specification (build spec) for the autocreated branch.
     """
-    enable_auto_branch_creation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_branch_creation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables automated branch creation for the Amplify app.
     """
-    enable_auto_build: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_build: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables auto building for the auto created branch.
     """
-    enable_performance_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_performance_mode: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables performance mode for the branch.
 
     Performance mode optimizes for faster hosting performance by keeping content cached at the edge for a longer interval. When performance mode is enabled, hosting configuration or code changes can take up to 10 minutes to roll out.
     """
-    enable_pull_request_preview: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_pull_request_preview: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
 
@@ -75,15 +75,15 @@ class AppAutoBranchCreationConfigArgsDict(TypedDict):
 
     For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
     """
-    environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgsDict']]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppEnvironmentVariableArgsDict']]]]]
     """
     The environment variables for the autocreated branch.
     """
-    framework: NotRequired[pulumi.Input[_builtins.str]]
+    framework: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The framework for the autocreated branch.
     """
-    pull_request_environment_name: NotRequired[pulumi.Input[_builtins.str]]
+    pull_request_environment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
 
@@ -93,7 +93,7 @@ class AppAutoBranchCreationConfigArgsDict(TypedDict):
 
     For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
     """
-    stage: NotRequired[pulumi.Input['AppAutoBranchCreationConfigStage']]
+    stage: NotRequired[pulumi.Input[Optional['AppAutoBranchCreationConfigStage']]]
     """
     Stage for the auto created branch.
     """
@@ -101,17 +101,17 @@ class AppAutoBranchCreationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppAutoBranchCreationConfigArgs:
     def __init__(__self__, *,
-                 auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 basic_auth_config: Optional[pulumi.Input['AppBasicAuthConfigArgs']] = None,
-                 build_spec: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_auto_branch_creation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_auto_build: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_performance_mode: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_pull_request_preview: Optional[pulumi.Input[_builtins.bool]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
-                 framework: Optional[pulumi.Input[_builtins.str]] = None,
-                 pull_request_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input['AppAutoBranchCreationConfigStage']] = None):
+                 auto_branch_creation_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 basic_auth_config: pulumi.Input[Optional['AppBasicAuthConfigArgs']] = None,
+                 build_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_auto_branch_creation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_auto_build: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
+                 framework: pulumi.Input[Optional[_builtins.str]] = None,
+                 pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional['AppAutoBranchCreationConfigStage']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for the Amplify app.
         :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: Sets password protection for your auto created branch.
@@ -162,67 +162,67 @@ class AppAutoBranchCreationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoBranchCreationPatterns")
-    def auto_branch_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def auto_branch_creation_patterns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Automated branch creation glob patterns for the Amplify app.
         """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
     @auto_branch_creation_patterns.setter
-    def auto_branch_creation_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def auto_branch_creation_patterns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "auto_branch_creation_patterns", value)
 
     @_builtins.property
     @pulumi.getter(name="basicAuthConfig")
-    def basic_auth_config(self) -> Optional[pulumi.Input['AppBasicAuthConfigArgs']]:
+    def basic_auth_config(self) -> pulumi.Input[Optional['AppBasicAuthConfigArgs']]:
         """
         Sets password protection for your auto created branch.
         """
         return pulumi.get(self, "basic_auth_config")
 
     @basic_auth_config.setter
-    def basic_auth_config(self, value: Optional[pulumi.Input['AppBasicAuthConfigArgs']]):
+    def basic_auth_config(self, value: pulumi.Input[Optional['AppBasicAuthConfigArgs']]):
         pulumi.set(self, "basic_auth_config", value)
 
     @_builtins.property
     @pulumi.getter(name="buildSpec")
-    def build_spec(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The build specification (build spec) for the autocreated branch.
         """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
-    def build_spec(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoBranchCreation")
-    def enable_auto_branch_creation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_branch_creation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables automated branch creation for the Amplify app.
         """
         return pulumi.get(self, "enable_auto_branch_creation")
 
     @enable_auto_branch_creation.setter
-    def enable_auto_branch_creation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_branch_creation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_branch_creation", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoBuild")
-    def enable_auto_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_build(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables auto building for the auto created branch.
         """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
-    def enable_auto_build(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_build(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_build", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePerformanceMode")
-    def enable_performance_mode(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_performance_mode(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables performance mode for the branch.
 
@@ -231,12 +231,12 @@ class AppAutoBranchCreationConfigArgs:
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
-    def enable_performance_mode(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_performance_mode(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_performance_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePullRequestPreview")
-    def enable_pull_request_preview(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_pull_request_preview(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Sets whether pull request previews are enabled for each branch that Amplify Hosting automatically creates for your app. Amplify creates previews by deploying your app to a unique URL whenever a pull request is opened for the branch. Development and QA teams can use this preview to test the pull request before it's merged into a production or integration branch.
 
@@ -247,36 +247,36 @@ class AppAutoBranchCreationConfigArgs:
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
-    def enable_pull_request_preview(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_pull_request_preview(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]:
         """
         The environment variables for the autocreated branch.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def framework(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The framework for the autocreated branch.
         """
         return pulumi.get(self, "framework")
 
     @framework.setter
-    def framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def framework(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "framework", value)
 
     @_builtins.property
     @pulumi.getter(name="pullRequestEnvironmentName")
-    def pull_request_environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pull_request_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
 
@@ -289,32 +289,32 @@ class AppAutoBranchCreationConfigArgs:
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
-    def pull_request_environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pull_request_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigStage']]:
+    def stage(self) -> pulumi.Input[Optional['AppAutoBranchCreationConfigStage']]:
         """
         Stage for the auto created branch.
         """
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input['AppAutoBranchCreationConfigStage']]):
+    def stage(self, value: pulumi.Input[Optional['AppAutoBranchCreationConfigStage']]):
         pulumi.set(self, "stage", value)
 
 
 class AppBasicAuthConfigArgsDict(TypedDict):
-    enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_basic_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables basic authorization for the Amplify app's branches.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password for basic authorization.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The user name for basic authorization.
     """
@@ -322,9 +322,9 @@ class AppBasicAuthConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppBasicAuthConfigArgs:
     def __init__(__self__, *,
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enable_basic_auth: Enables basic authorization for the Amplify app's branches.
         :param pulumi.Input[_builtins.str] password: The password for basic authorization.
@@ -339,43 +339,43 @@ class AppBasicAuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
-    def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables basic authorization for the Amplify app's branches.
         """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
-    def enable_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_basic_auth", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for basic authorization.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user name for basic authorization.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
 class AppCacheConfigArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['AppCacheConfigType']]
+    type: NotRequired[pulumi.Input[Optional['AppCacheConfigType']]]
     """
     The type of cache configuration to use for an Amplify app.
 
@@ -387,7 +387,7 @@ class AppCacheConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppCacheConfigArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['AppCacheConfigType']] = None):
+                 type: pulumi.Input[Optional['AppCacheConfigType']] = None):
         """
         :param pulumi.Input['AppCacheConfigType'] type: The type of cache configuration to use for an Amplify app.
                
@@ -400,7 +400,7 @@ class AppCacheConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AppCacheConfigType']]:
+    def type(self) -> pulumi.Input[Optional['AppCacheConfigType']]:
         """
         The type of cache configuration to use for an Amplify app.
 
@@ -411,7 +411,7 @@ class AppCacheConfigArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AppCacheConfigType']]):
+    def type(self, value: pulumi.Input[Optional['AppCacheConfigType']]):
         pulumi.set(self, "type", value)
 
 
@@ -424,11 +424,11 @@ class AppCustomRuleArgsDict(TypedDict):
     """
     The target pattern for a URL rewrite or redirect rule.
     """
-    condition: NotRequired[pulumi.Input[_builtins.str]]
+    condition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The condition for a URL rewrite or redirect rule, such as a country code.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status code for a URL rewrite or redirect rule.
 
@@ -444,8 +444,8 @@ class AppCustomRuleArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source: The source pattern for a URL rewrite or redirect rule.
         :param pulumi.Input[_builtins.str] target: The target pattern for a URL rewrite or redirect rule.
@@ -491,19 +491,19 @@ class AppCustomRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The condition for a URL rewrite or redirect rule, such as a country code.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status code for a URL rewrite or redirect rule.
 
@@ -516,7 +516,7 @@ class AppCustomRuleArgs:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -632,7 +632,7 @@ class AppJobConfigArgs:
 
 
 class BranchBackendArgsDict(TypedDict):
-    stack_arn: NotRequired[pulumi.Input[_builtins.str]]
+    stack_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) for the CloudFormation stack.
     """
@@ -640,7 +640,7 @@ class BranchBackendArgsDict(TypedDict):
 @pulumi.input_type
 class BranchBackendArgs:
     def __init__(__self__, *,
-                 stack_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 stack_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] stack_arn: The Amazon Resource Name (ARN) for the CloudFormation stack.
         """
@@ -649,14 +649,14 @@ class BranchBackendArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackArn")
-    def stack_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stack_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the CloudFormation stack.
         """
         return pulumi.get(self, "stack_arn")
 
     @stack_arn.setter
-    def stack_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stack_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stack_arn", value)
 
 
@@ -666,7 +666,7 @@ class BranchBasicAuthConfigArgsDict(TypedDict):
     The password for basic authorization.
     """
     username: pulumi.Input[_builtins.str]
-    enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_basic_auth: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables basic authorization for the branch.
     """
@@ -676,7 +676,7 @@ class BranchBasicAuthConfigArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 enable_basic_auth: Optional[pulumi.Input[_builtins.bool]] = None):
+                 enable_basic_auth: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] password: The password for basic authorization.
         :param pulumi.Input[_builtins.bool] enable_basic_auth: Enables basic authorization for the branch.
@@ -709,14 +709,14 @@ class BranchBasicAuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableBasicAuth")
-    def enable_basic_auth(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_basic_auth(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables basic authorization for the branch.
         """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
-    def enable_basic_auth(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_basic_auth(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_basic_auth", value)
 
 
@@ -768,7 +768,7 @@ class BranchEnvironmentVariableArgs:
 
 
 class DomainCertificateSettingsArgsDict(TypedDict):
-    certificate_type: NotRequired[pulumi.Input['DomainCertificateSettingsCertificateType']]
+    certificate_type: NotRequired[pulumi.Input[Optional['DomainCertificateSettingsCertificateType']]]
     """
     The certificate type.
 
@@ -776,7 +776,7 @@ class DomainCertificateSettingsArgsDict(TypedDict):
 
     Specify `CUSTOM` to use your own certificate that you have already added to Certificate Manager in your AWS account . Make sure you request (or import) the certificate in the US East (N. Virginia) Region (us-east-1). For more information about using ACM, see [Importing certificates into Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *ACM User guide* .
     """
-    custom_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    custom_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 
@@ -786,8 +786,8 @@ class DomainCertificateSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class DomainCertificateSettingsArgs:
     def __init__(__self__, *,
-                 certificate_type: Optional[pulumi.Input['DomainCertificateSettingsCertificateType']] = None,
-                 custom_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_type: pulumi.Input[Optional['DomainCertificateSettingsCertificateType']] = None,
+                 custom_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['DomainCertificateSettingsCertificateType'] certificate_type: The certificate type.
                
@@ -805,7 +805,7 @@ class DomainCertificateSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateType")
-    def certificate_type(self) -> Optional[pulumi.Input['DomainCertificateSettingsCertificateType']]:
+    def certificate_type(self) -> pulumi.Input[Optional['DomainCertificateSettingsCertificateType']]:
         """
         The certificate type.
 
@@ -816,12 +816,12 @@ class DomainCertificateSettingsArgs:
         return pulumi.get(self, "certificate_type")
 
     @certificate_type.setter
-    def certificate_type(self, value: Optional[pulumi.Input['DomainCertificateSettingsCertificateType']]):
+    def certificate_type(self, value: pulumi.Input[Optional['DomainCertificateSettingsCertificateType']]):
         pulumi.set(self, "certificate_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customCertificateArn")
-    def custom_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon resource name (ARN) for the custom certificate that you have already added to Certificate Manager in your AWS account .
 
@@ -830,7 +830,7 @@ class DomainCertificateSettingsArgs:
         return pulumi.get(self, "custom_certificate_arn")
 
     @custom_certificate_arn.setter
-    def custom_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_certificate_arn", value)
 
 

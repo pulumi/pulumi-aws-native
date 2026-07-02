@@ -649,10 +649,10 @@ class AppMonitorMetricDestination(dict):
         An structure which defines the destination and the metrics that you want to send.
 
         :param 'AppMonitorMetricDestinationDestination' destination: Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
-        :param _builtins.str destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        :param _builtins.str destination_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
                
                This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param _builtins.str iam_role_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        :param _builtins.str iam_role_arn: Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
                
                This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         :param Sequence['AppMonitorMetricDefinition'] metric_definitions: An array of structures which define the metrics that you want to send.
@@ -677,7 +677,7 @@ class AppMonitorMetricDestination(dict):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[_builtins.str]:
         """
-        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
 
         This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         """
@@ -687,7 +687,7 @@ class AppMonitorMetricDestination(dict):
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[_builtins.str]:
         """
-        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter. 
+        Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
 
         This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
         """
@@ -732,8 +732,8 @@ class AppMonitorResourcePolicy(dict):
         """
         A structure that defines resource policy attached to your app monitor.
 
-        :param _builtins.str policy_document: The JSON to use as the resource policy. The document can be up to 4 KB in size. 
-        :param _builtins.str policy_revision_id: A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+        :param _builtins.str policy_document: The JSON to use as the resource policy. The document can be up to 4 KB in size.
+        :param _builtins.str policy_revision_id: A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
                
                 When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
         """
@@ -745,7 +745,7 @@ class AppMonitorResourcePolicy(dict):
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> _builtins.str:
         """
-        The JSON to use as the resource policy. The document can be up to 4 KB in size. 
+        The JSON to use as the resource policy. The document can be up to 4 KB in size.
         """
         return pulumi.get(self, "policy_document")
 
@@ -753,7 +753,7 @@ class AppMonitorResourcePolicy(dict):
     @pulumi.getter(name="policyRevisionId")
     def policy_revision_id(self) -> Optional[_builtins.str]:
         """
-        A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. 
+        A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.
 
          When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.
         """

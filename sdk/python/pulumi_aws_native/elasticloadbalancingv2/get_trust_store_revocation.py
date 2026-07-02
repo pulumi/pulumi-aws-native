@@ -65,7 +65,6 @@ def get_trust_store_revocation(revocation_id: Optional[_builtins.int] = None,
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 
-
     :param _builtins.int revocation_id: The ID associated with the revocation.
     :param _builtins.str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
     """
@@ -78,12 +77,11 @@ def get_trust_store_revocation(revocation_id: Optional[_builtins.int] = None,
     return AwaitableGetTrustStoreRevocationResult(
         revocation_id=pulumi.get(__ret__, 'revocation_id'),
         trust_store_revocations=pulumi.get(__ret__, 'trust_store_revocations'))
-def get_trust_store_revocation_output(revocation_id: Optional[pulumi.Input[_builtins.int]] = None,
-                                      trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_revocation_output(revocation_id: pulumi.Input[Optional[_builtins.int]] = None,
+                                      trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreRevocationResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
-
 
     :param _builtins.int revocation_id: The ID associated with the revocation.
     :param _builtins.str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.

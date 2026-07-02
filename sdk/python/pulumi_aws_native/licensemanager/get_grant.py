@@ -112,7 +112,6 @@ def get_grant(grant_arn: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str grant_arn: Arn of the grant.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_grant(grant_arn: Optional[_builtins.str] = None,
         license_arn=pulumi.get(__ret__, 'license_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_grant_output(grant_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_grant_output(grant_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str grant_arn: Arn of the grant.
     """

@@ -150,7 +150,6 @@ def get_game_session_queue(name: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
 
-
     :param _builtins.str name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_game_session_queue(name: Optional[_builtins.str] = None,
         priority_configuration=pulumi.get(__ret__, 'priority_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'))
-def get_game_session_queue_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_game_session_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGameSessionQueueResult]:
     """
     The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
-
 
     :param _builtins.str name: A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
     """

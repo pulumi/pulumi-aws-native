@@ -65,7 +65,6 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
     """
     This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 
-
     :param 'ResourceCollectionType' resource_collection_type: The type of ResourceCollection
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
     return AwaitableGetResourceCollectionResult(
         resource_collection_filter=pulumi.get(__ret__, 'resource_collection_filter'),
         resource_collection_type=pulumi.get(__ret__, 'resource_collection_type'))
-def get_resource_collection_output(resource_collection_type: Optional[pulumi.Input['ResourceCollectionType']] = None,
+def get_resource_collection_output(resource_collection_type: pulumi.Input[Optional['ResourceCollectionType']] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
     This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
-
 
     :param 'ResourceCollectionType' resource_collection_type: The type of ResourceCollection
     """

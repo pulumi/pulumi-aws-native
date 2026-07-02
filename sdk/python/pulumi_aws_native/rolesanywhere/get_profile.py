@@ -174,7 +174,6 @@ def get_profile(profile_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::RolesAnywhere::Profile Resource Type
 
-
     :param _builtins.str profile_id: The unique primary identifier of the Profile
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_profile(profile_id: Optional[_builtins.str] = None,
         role_arns=pulumi.get(__ret__, 'role_arns'),
         session_policy=pulumi.get(__ret__, 'session_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_profile_output(profile_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_output(profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::RolesAnywhere::Profile Resource Type
-
 
     :param _builtins.str profile_id: The unique primary identifier of the Profile
     """

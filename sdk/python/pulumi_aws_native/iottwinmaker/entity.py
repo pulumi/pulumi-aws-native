@@ -23,13 +23,13 @@ __all__ = ['EntityArgs', 'Entity']
 class EntityArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityComponentArgs']]]] = None,
-                 composite_components: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityComponentArgs']]]] = None,
+                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Entity resource.
 
@@ -72,86 +72,86 @@ class EntityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityComponentArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityComponentArgs']]]]:
         """
         A map that sets information about a component type.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityComponentArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityComponentArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter(name="compositeComponents")
-    def composite_components(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]]:
+    def composite_components(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]]:
         """
         A map that sets information about a composite component.
         """
         return pulumi.get(self, "composite_components")
 
     @composite_components.setter
-    def composite_components(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]]):
+    def composite_components(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['EntityCompositeComponentArgs']]]]):
         pulumi.set(self, "composite_components", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the entity.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entityId")
-    def entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the entity.
         """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
-    def entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_id", value)
 
     @_builtins.property
     @pulumi.getter(name="entityName")
-    def entity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the entity.
         """
         return pulumi.get(self, "entity_name")
 
     @entity_name.setter
-    def entity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentEntityId")
-    def parent_entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the parent entity.
         """
         return pulumi.get(self, "parent_entity_id")
 
     @parent_entity_id.setter
-    def parent_entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_entity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,18 +161,17 @@ class Entity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
-                 composite_components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
+                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTTwinMaker::Entity
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +193,6 @@ class Entity(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::Entity
 
-
         :param str resource_name: The name of the resource.
         :param EntityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,14 +208,14 @@ class Entity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
-                 composite_components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityComponentArgs', 'EntityComponentArgsDict']]]]] = None,
+                 composite_components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['EntityCompositeComponentArgs', 'EntityCompositeComponentArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

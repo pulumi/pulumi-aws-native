@@ -26,17 +26,17 @@ class FlowLogArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input['FlowLogResourceType'],
-                 deliver_cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 deliver_logs_permission_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
-                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None):
+                 deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 deliver_logs_permission_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_options: pulumi.Input[Optional['DestinationOptionsPropertiesArgs']] = None,
+                 log_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional['FlowLogLogDestinationType']] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_aggregation_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 traffic_type: pulumi.Input[Optional['FlowLogTrafficType']] = None):
         """
         The set of arguments for constructing a FlowLog resource.
 
@@ -105,134 +105,134 @@ class FlowLogArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliverCrossAccountRole")
-    def deliver_cross_account_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deliver_cross_account_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
         """
         return pulumi.get(self, "deliver_cross_account_role")
 
     @deliver_cross_account_role.setter
-    def deliver_cross_account_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deliver_cross_account_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deliver_cross_account_role", value)
 
     @_builtins.property
     @pulumi.getter(name="deliverLogsPermissionArn")
-    def deliver_logs_permission_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deliver_logs_permission_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         """
         return pulumi.get(self, "deliver_logs_permission_arn")
 
     @deliver_logs_permission_arn.setter
-    def deliver_logs_permission_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deliver_logs_permission_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deliver_logs_permission_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationOptions")
-    def destination_options(self) -> Optional[pulumi.Input['DestinationOptionsPropertiesArgs']]:
+    def destination_options(self) -> pulumi.Input[Optional['DestinationOptionsPropertiesArgs']]:
         """
         The destination options.
         """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
-    def destination_options(self, value: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']]):
+    def destination_options(self, value: pulumi.Input[Optional['DestinationOptionsPropertiesArgs']]):
         pulumi.set(self, "destination_options", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestination")
-    def log_destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group, an Amazon S3 bucket, or a Kinesis Firehose stream. The value specified for this parameter depends on the value specified for LogDestinationType.
         """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
-    def log_destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[pulumi.Input['FlowLogLogDestinationType']]:
+    def log_destination_type(self) -> pulumi.Input[Optional['FlowLogLogDestinationType']]:
         """
         Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: Optional[pulumi.Input['FlowLogLogDestinationType']]):
+    def log_destination_type(self, value: pulumi.Input[Optional['FlowLogLogDestinationType']]):
         pulumi.set(self, "log_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fields to include in the flow log record, in the order in which they should appear.
         """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
-    def log_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_format", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupName")
-    def log_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3 or kinesis-data-firehose, do not specify DeliverLogsPermissionArn or LogGroupName.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
-    def log_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAggregationInterval")
-    def max_aggregation_interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_aggregation_interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
         """
         return pulumi.get(self, "max_aggregation_interval")
 
     @max_aggregation_interval.setter
-    def max_aggregation_interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_aggregation_interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_aggregation_interval", value)
 
     @_builtins.property
     @pulumi.getter(name="tagFieldSpecifications")
-    def tag_field_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]:
+    def tag_field_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]:
         """
         The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
         """
         return pulumi.get(self, "tag_field_specifications")
 
     @tag_field_specifications.setter
-    def tag_field_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]):
+    def tag_field_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowLogTagFieldSpecificationArgs']]]]):
         pulumi.set(self, "tag_field_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to apply to the flow logs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> Optional[pulumi.Input['FlowLogTrafficType']]:
+    def traffic_type(self) -> pulumi.Input[Optional['FlowLogTrafficType']]:
         """
         The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
         return pulumi.get(self, "traffic_type")
 
     @traffic_type.setter
-    def traffic_type(self, value: Optional[pulumi.Input['FlowLogTrafficType']]):
+    def traffic_type(self, value: pulumi.Input[Optional['FlowLogTrafficType']]):
         pulumi.set(self, "traffic_type", value)
 
 
@@ -242,23 +242,22 @@ class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deliver_cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 deliver_logs_permission_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_options: Optional[pulumi.Input[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
-                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
-                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
+                 deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 deliver_logs_permission_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_options: pulumi.Input[Optional[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
+                 log_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional['FlowLogLogDestinationType']] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_aggregation_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['FlowLogResourceType']] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_type: pulumi.Input[Optional['FlowLogTrafficType']] = None,
                  __props__=None):
         """
         Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,7 +284,6 @@ class FlowLog(pulumi.CustomResource):
         """
         Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
 
-
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,19 +299,19 @@ class FlowLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deliver_cross_account_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 deliver_logs_permission_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_options: Optional[pulumi.Input[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
-                 log_destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
-                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_aggregation_interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
-                 tag_field_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
+                 deliver_cross_account_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 deliver_logs_permission_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_options: pulumi.Input[Optional[Union['DestinationOptionsPropertiesArgs', 'DestinationOptionsPropertiesArgsDict']]] = None,
+                 log_destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional['FlowLogLogDestinationType']] = None,
+                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_aggregation_interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['FlowLogResourceType']] = None,
+                 tag_field_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowLogTagFieldSpecificationArgs', 'FlowLogTagFieldSpecificationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 traffic_type: pulumi.Input[Optional['FlowLogTrafficType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

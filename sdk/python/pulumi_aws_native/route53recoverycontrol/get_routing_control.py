@@ -76,7 +76,6 @@ def get_routing_control(routing_control_arn: Optional[_builtins.str] = None,
     """
     AWS Route53 Recovery Control Routing Control resource schema .
 
-
     :param _builtins.str routing_control_arn: The Amazon Resource Name (ARN) of the routing control.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_routing_control(routing_control_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_control_arn=pulumi.get(__ret__, 'routing_control_arn'),
         status=pulumi.get(__ret__, 'status'))
-def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_routing_control_output(routing_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingControlResult]:
     """
     AWS Route53 Recovery Control Routing Control resource schema .
-
 
     :param _builtins.str routing_control_arn: The Amazon Resource Name (ARN) of the routing control.
     """

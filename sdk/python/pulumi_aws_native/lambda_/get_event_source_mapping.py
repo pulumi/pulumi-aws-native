@@ -189,7 +189,7 @@ class GetEventSourceMappingResult:
           +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction``.
           +  *Version or Alias ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD``.
           +  *Partial ARN* – ``123456789012:function:MyFunction``.
-          
+
          The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
         """
         return pulumi.get(self, "function_name")
@@ -384,7 +384,6 @@ def get_event_source_mapping(id: Optional[_builtins.str] = None,
       +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
       +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
 
-
     :param _builtins.str id: The event source mapping's ID.
     """
     __args__ = dict()
@@ -419,7 +418,7 @@ def get_event_source_mapping(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topics=pulumi.get(__ret__, 'topics'),
         tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
-def get_event_source_mapping_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_source_mapping_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
     The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
@@ -431,7 +430,6 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[_builtins.str]] = 
       +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
       +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
       +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
-
 
     :param _builtins.str id: The event source mapping's ID.
     """

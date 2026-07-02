@@ -139,7 +139,6 @@ def get_job_queue(job_queue_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Batch::JobQueue
 
-
     :param _builtins.str job_queue_arn: Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
     """
     __args__ = dict()
@@ -156,11 +155,10 @@ def get_job_queue(job_queue_arn: Optional[_builtins.str] = None,
         service_environment_order=pulumi.get(__ret__, 'service_environment_order'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_job_queue_output(job_queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_queue_output(job_queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobQueueResult]:
     """
     Resource Type definition for AWS::Batch::JobQueue
-
 
     :param _builtins.str job_queue_arn: Returns the job queue ARN, such as `batch: *us-east-1* : *111122223333* :job-queue/ *JobQueueName*` .
     """

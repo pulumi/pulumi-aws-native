@@ -77,7 +77,6 @@ def get_key_pair(key_name: Optional[_builtins.str] = None,
      When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
      When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
 
-
     :param _builtins.str key_name: A unique name for the key pair.
             Constraints: Up to 255 ASCII characters
     """
@@ -89,7 +88,7 @@ def get_key_pair(key_name: Optional[_builtins.str] = None,
     return AwaitableGetKeyPairResult(
         key_fingerprint=pulumi.get(__ret__, 'key_fingerprint'),
         key_pair_id=pulumi.get(__ret__, 'key_pair_id'))
-def get_key_pair_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_pair_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Specifies a key pair for use with an EC2long instance as follows:
@@ -99,7 +98,6 @@ def get_key_pair_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
      When you import an existing key pair, you specify the public key material for the key. We assume that you have the private key material for the key. CFNlong does not create or return the private key material when you import a key pair.
      When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
      When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
-
 
     :param _builtins.str key_name: A unique name for the key pair.
             Constraints: Up to 255 ASCII characters

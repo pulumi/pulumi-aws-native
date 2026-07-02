@@ -65,7 +65,6 @@ def get_code_security_scan_configuration(arn: Optional[_builtins.str] = None,
     """
     Inspector CodeSecurityScanConfiguration resource schema
 
-
     :param _builtins.str arn: Code Security Scan Configuration ARN
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_code_security_scan_configuration(arn: Optional[_builtins.str] = None,
     return AwaitableGetCodeSecurityScanConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
         configuration=pulumi.get(__ret__, 'configuration'))
-def get_code_security_scan_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_code_security_scan_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSecurityScanConfigurationResult]:
     """
     Inspector CodeSecurityScanConfiguration resource schema
-
 
     :param _builtins.str arn: Code Security Scan Configuration ARN
     """

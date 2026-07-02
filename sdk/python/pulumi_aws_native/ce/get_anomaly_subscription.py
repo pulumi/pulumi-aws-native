@@ -63,7 +63,7 @@ class GetAnomalySubscriptionResult:
     @pulumi.getter
     def frequency(self) -> Optional['AnomalySubscriptionFrequency']:
         """
-        The frequency at which anomaly reports are sent over email. 
+        The frequency at which anomaly reports are sent over email.
         """
         return pulumi.get(self, "frequency")
 
@@ -103,7 +103,7 @@ class GetAnomalySubscriptionResult:
     @pulumi.getter
     def threshold(self) -> Optional[_builtins.float]:
         """
-        The dollar value that triggers a notification if the threshold is exceeded. 
+        The dollar value that triggers a notification if the threshold is exceeded.
         """
         return pulumi.get(self, "threshold")
 
@@ -137,7 +137,6 @@ def get_anomaly_subscription(subscription_arn: Optional[_builtins.str] = None,
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
 
-
     :param _builtins.str subscription_arn: The `AnomalySubscription` Amazon Resource Name (ARN).
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_anomaly_subscription(subscription_arn: Optional[_builtins.str] = None,
         subscription_name=pulumi.get(__ret__, 'subscription_name'),
         threshold=pulumi.get(__ret__, 'threshold'),
         threshold_expression=pulumi.get(__ret__, 'threshold_expression'))
-def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_anomaly_subscription_output(subscription_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalySubscriptionResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
-
 
     :param _builtins.str subscription_arn: The `AnomalySubscription` Amazon Resource Name (ARN).
     """

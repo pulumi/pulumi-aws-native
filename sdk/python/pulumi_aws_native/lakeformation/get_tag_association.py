@@ -64,7 +64,6 @@ def get_tag_association(resource_identifier: Optional[_builtins.str] = None,
     """
     A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
 
-
     :param _builtins.str resource_identifier: Unique string identifying the resource. Used as primary identifier, which ideally should be a string
     :param _builtins.str tags_identifier: Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string
     """
@@ -77,12 +76,11 @@ def get_tag_association(resource_identifier: Optional[_builtins.str] = None,
     return AwaitableGetTagAssociationResult(
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
         tags_identifier=pulumi.get(__ret__, 'tags_identifier'))
-def get_tag_association_output(resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                               tags_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_association_output(resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                               tags_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagAssociationResult]:
     """
     A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
-
 
     :param _builtins.str resource_identifier: Unique string identifying the resource. Used as primary identifier, which ideally should be a string
     :param _builtins.str tags_identifier: Unique string identifying the resource's tags. Used as primary identifier, which ideally should be a string

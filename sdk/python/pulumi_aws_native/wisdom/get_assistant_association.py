@@ -76,7 +76,6 @@ def get_assistant_association(assistant_association_id: Optional[_builtins.str] 
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type
 
-
     :param _builtins.str assistant_association_id: The ID of the association.
     :param _builtins.str assistant_id: The identifier of the Wisdom assistant.
     """
@@ -90,12 +89,11 @@ def get_assistant_association(assistant_association_id: Optional[_builtins.str] 
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         assistant_association_arn=pulumi.get(__ret__, 'assistant_association_arn'),
         assistant_association_id=pulumi.get(__ret__, 'assistant_association_id'))
-def get_assistant_association_output(assistant_association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                     assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assistant_association_output(assistant_association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                     assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssistantAssociationResult]:
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type
-
 
     :param _builtins.str assistant_association_id: The ID of the association.
     :param _builtins.str assistant_id: The identifier of the Wisdom assistant.

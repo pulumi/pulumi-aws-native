@@ -52,7 +52,6 @@ def get_member_invitation(graph_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Detective::MemberInvitation
 
-
     :param _builtins.str graph_arn: The ARN of the graph to which the member account will be invited
     :param _builtins.str member_id: The AWS account ID to be invited to join the graph as a member
     """
@@ -64,12 +63,11 @@ def get_member_invitation(graph_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetMemberInvitationResult(
         member_email_address=pulumi.get(__ret__, 'member_email_address'))
-def get_member_invitation_output(graph_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                 member_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_member_invitation_output(graph_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                 member_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMemberInvitationResult]:
     """
     Resource schema for AWS::Detective::MemberInvitation
-
 
     :param _builtins.str graph_arn: The ARN of the graph to which the member account will be invited
     :param _builtins.str member_id: The AWS account ID to be invited to join the graph as a member

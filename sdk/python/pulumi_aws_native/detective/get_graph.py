@@ -76,7 +76,6 @@ def get_graph(arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Detective::Graph
 
-
     :param _builtins.str arn: The Detective graph ARN
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_graph(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         auto_enable_members=pulumi.get(__ret__, 'auto_enable_members'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_graph_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_graph_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResult]:
     """
     Resource schema for AWS::Detective::Graph
-
 
     :param _builtins.str arn: The Detective graph ARN
     """

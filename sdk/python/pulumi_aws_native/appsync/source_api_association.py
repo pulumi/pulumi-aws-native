@@ -22,10 +22,10 @@ __all__ = ['SourceApiAssociationArgs', 'SourceApiAssociation']
 @pulumi.input_type
 class SourceApiAssociationArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 merged_api_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_api_association_config: Optional[pulumi.Input['SourceApiAssociationConfigArgs']] = None,
-                 source_api_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 merged_api_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_api_association_config: pulumi.Input[Optional['SourceApiAssociationConfigArgs']] = None,
+                 source_api_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceApiAssociation resource.
 
@@ -45,50 +45,50 @@ class SourceApiAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the SourceApiAssociation.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="mergedApiIdentifier")
-    def merged_api_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def merged_api_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Merged GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
         """
         return pulumi.get(self, "merged_api_identifier")
 
     @merged_api_identifier.setter
-    def merged_api_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def merged_api_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "merged_api_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceApiAssociationConfig")
-    def source_api_association_config(self) -> Optional[pulumi.Input['SourceApiAssociationConfigArgs']]:
+    def source_api_association_config(self) -> pulumi.Input[Optional['SourceApiAssociationConfigArgs']]:
         """
         Customized configuration for SourceApiAssociation.
         """
         return pulumi.get(self, "source_api_association_config")
 
     @source_api_association_config.setter
-    def source_api_association_config(self, value: Optional[pulumi.Input['SourceApiAssociationConfigArgs']]):
+    def source_api_association_config(self, value: pulumi.Input[Optional['SourceApiAssociationConfigArgs']]):
         pulumi.set(self, "source_api_association_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceApiIdentifier")
-    def source_api_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_api_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the Source GraphQLApi to associate. It could be either GraphQLApi ApiId or ARN
         """
         return pulumi.get(self, "source_api_identifier")
 
     @source_api_identifier.setter
-    def source_api_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_api_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_api_identifier", value)
 
 
@@ -98,14 +98,13 @@ class SourceApiAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 merged_api_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_api_association_config: Optional[pulumi.Input[Union['SourceApiAssociationConfigArgs', 'SourceApiAssociationConfigArgsDict']]] = None,
-                 source_api_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 merged_api_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_api_association_config: pulumi.Input[Optional[Union['SourceApiAssociationConfigArgs', 'SourceApiAssociationConfigArgsDict']]] = None,
+                 source_api_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppSync::SourceApiAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class SourceApiAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppSync::SourceApiAssociation
 
-
         :param str resource_name: The name of the resource.
         :param SourceApiAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,10 +137,10 @@ class SourceApiAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 merged_api_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_api_association_config: Optional[pulumi.Input[Union['SourceApiAssociationConfigArgs', 'SourceApiAssociationConfigArgsDict']]] = None,
-                 source_api_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 merged_api_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_api_association_config: pulumi.Input[Optional[Union['SourceApiAssociationConfigArgs', 'SourceApiAssociationConfigArgsDict']]] = None,
+                 source_api_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

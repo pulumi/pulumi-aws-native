@@ -132,7 +132,6 @@ def get_subscription_filter(filter_name: Optional[_builtins.str] = None,
 
      There can be as many as two subscription filters associated with a log group.
 
-
     :param _builtins.str filter_name: The name of the subscription filter.
     :param _builtins.str log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
     """
@@ -150,8 +149,8 @@ def get_subscription_filter(filter_name: Optional[_builtins.str] = None,
         field_selection_criteria=pulumi.get(__ret__, 'field_selection_criteria'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_subscription_filter_output(filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   log_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_filter_output(filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   log_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionFilterResult]:
     """
     The ``AWS::Logs::SubscriptionFilter`` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:
@@ -161,7 +160,6 @@ def get_subscription_filter_output(filter_name: Optional[pulumi.Input[_builtins.
       +  An LAMlong function that belongs to the same account as the subscription filter, for same-account delivery.
 
      There can be as many as two subscription filters associated with a log group.
-
 
     :param _builtins.str filter_name: The name of the subscription filter.
     :param _builtins.str log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.

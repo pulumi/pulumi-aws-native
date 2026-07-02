@@ -114,7 +114,6 @@ def get_environment_actions(domain_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::DataZone::EnvironmentActions Resource Type
 
-
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the environment is created.
     :param _builtins.str environment_id: The identifier of the Amazon DataZone environment in which the action is taking place
     :param _builtins.str id: The ID of the Amazon DataZone environment action.
@@ -133,13 +132,12 @@ def get_environment_actions(domain_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         parameters=pulumi.get(__ret__, 'parameters'))
-def get_environment_actions_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_actions_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentActionsResult]:
     """
     Definition of AWS::DataZone::EnvironmentActions Resource Type
-
 
     :param _builtins.str domain_id: The identifier of the Amazon DataZone domain in which the environment is created.
     :param _builtins.str environment_id: The identifier of the Amazon DataZone environment in which the action is taking place

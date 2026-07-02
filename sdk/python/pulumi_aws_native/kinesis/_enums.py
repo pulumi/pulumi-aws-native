@@ -16,7 +16,7 @@ __all__ = [
 @pulumi.type_token("aws-native:kinesis:StreamEncryptionEncryptionType")
 class StreamEncryptionEncryptionType(_builtins.str, Enum):
     """
-    The encryption type to use. The only valid value is KMS. 
+    The encryption type to use. The only valid value is KMS.
     """
     KMS = "KMS"
 

@@ -18,7 +18,7 @@ class KeyOrigin(_builtins.str, Enum):
     """
     The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
      To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
-     You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
+     You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
        +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
       +  ``EXTERNAL`` is not supported for ML-DSA keys.
     """
@@ -36,34 +36,33 @@ class KeySpec(_builtins.str, Enum):
       KMS supports the following key specs for KMS keys:
       +  Symmetric encryption key (default)
       +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)
-      
+
       +  HMAC keys (symmetric)
-      +   ``HMAC_224`` 
-      +   ``HMAC_256`` 
-      +   ``HMAC_384`` 
-      +   ``HMAC_512`` 
-      
+      +   ``HMAC_224``
+      +   ``HMAC_256``
+      +   ``HMAC_384``
+      +   ``HMAC_512``
+
       +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
-      +   ``RSA_2048`` 
-      +   ``RSA_3072`` 
-      +   ``RSA_4096`` 
-      
+      +   ``RSA_2048``
+      +   ``RSA_3072``
+      +   ``RSA_4096``
+
       +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
       +  ``ECC_NIST_P256`` (secp256r1)
       +  ``ECC_NIST_P384`` (secp384r1)
       +  ``ECC_NIST_P521`` (secp521r1)
       +  ``ECC_NIST_EDWARDS25519`` (ed25519) - signing and verification only
       +  *Note:* For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires [MessageType:RAW](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType), while ED25519_PH_SHA_512 requires [MessageType:DIGEST](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType). These message types cannot be used interchangeably.
-      
-      
+
       +  Other asymmetric elliptic curve key pairs (signing and verification)
       +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
-      
+
       +  Asymmetric ML-DSA key pairs (signing and verification)
-      +   ``ML_DSA_44`` 
-      +   ``ML_DSA_65`` 
-      +   ``ML_DSA_87`` 
-      
+      +   ``ML_DSA_44``
+      +   ``ML_DSA_65``
+      +   ``ML_DSA_87``
+
       +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
       +  ``SM2`` (China Regions only)
     """

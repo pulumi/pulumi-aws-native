@@ -76,13 +76,12 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_part: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_part: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +98,6 @@ class Resource(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
-
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +113,9 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 path_part: Optional[pulumi.Input[_builtins.str]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 path_part: pulumi.Input[Optional[_builtins.str]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

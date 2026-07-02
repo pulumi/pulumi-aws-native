@@ -69,11 +69,11 @@ class ExperimentMetricGoalObjectArgsDict(TypedDict):
     """
     The JSON path to reference the numerical metric value in the event.
     """
-    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
     """
-    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    unit_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A label for the units that the metric is measuring.
     """
@@ -85,8 +85,8 @@ class ExperimentMetricGoalObjectArgs:
                  entity_id_key: pulumi.Input[_builtins.str],
                  metric_name: pulumi.Input[_builtins.str],
                  value_key: pulumi.Input[_builtins.str],
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ExperimentMetricGoalObjectDesiredChange'] desired_change: `INCREASE` means that a variation with a higher number for this metric is performing better.
                
@@ -158,35 +158,35 @@ class ExperimentMetricGoalObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="unitLabel")
-    def unit_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A label for the units that the metric is measuring.
         """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
-    def unit_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_label", value)
 
 
 class ExperimentOnlineAbConfigObjectArgsDict(TypedDict):
-    control_treatment_name: NotRequired[pulumi.Input[_builtins.str]]
+    control_treatment_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the variation that is to be the default variation that the other variations are compared to.
     """
-    treatment_weights: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgsDict']]]]
+    treatment_weights: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgsDict']]]]]
     """
     A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
     """
@@ -194,8 +194,8 @@ class ExperimentOnlineAbConfigObjectArgsDict(TypedDict):
 @pulumi.input_type
 class ExperimentOnlineAbConfigObjectArgs:
     def __init__(__self__, *,
-                 control_treatment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 treatment_weights: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]] = None):
+                 control_treatment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 treatment_weights: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] control_treatment_name: The name of the variation that is to be the default variation that the other variations are compared to.
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]] treatment_weights: A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
@@ -207,43 +207,43 @@ class ExperimentOnlineAbConfigObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="controlTreatmentName")
-    def control_treatment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_treatment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variation that is to be the default variation that the other variations are compared to.
         """
         return pulumi.get(self, "control_treatment_name")
 
     @control_treatment_name.setter
-    def control_treatment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_treatment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_treatment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="treatmentWeights")
-    def treatment_weights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]:
+    def treatment_weights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]:
         """
         A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
         """
         return pulumi.get(self, "treatment_weights")
 
     @treatment_weights.setter
-    def treatment_weights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]):
+    def treatment_weights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]]):
         pulumi.set(self, "treatment_weights", value)
 
 
 class ExperimentRunningStatusObjectArgsDict(TypedDict):
-    analysis_complete_time: NotRequired[pulumi.Input[_builtins.str]]
+    analysis_complete_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provide the analysis Completion time for an experiment
     """
-    desired_state: NotRequired[pulumi.Input[_builtins.str]]
+    desired_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provide CANCELLED or COMPLETED desired state when stopping an experiment
     """
-    reason: NotRequired[pulumi.Input[_builtins.str]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reason is a required input for stopping the experiment
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provide START or STOP action to apply on an experiment
     """
@@ -251,10 +251,10 @@ class ExperimentRunningStatusObjectArgsDict(TypedDict):
 @pulumi.input_type
 class ExperimentRunningStatusObjectArgs:
     def __init__(__self__, *,
-                 analysis_complete_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 analysis_complete_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] analysis_complete_time: Provide the analysis Completion time for an experiment
         :param pulumi.Input[_builtins.str] desired_state: Provide CANCELLED or COMPLETED desired state when stopping an experiment
@@ -272,50 +272,50 @@ class ExperimentRunningStatusObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="analysisCompleteTime")
-    def analysis_complete_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def analysis_complete_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide the analysis Completion time for an experiment
         """
         return pulumi.get(self, "analysis_complete_time")
 
     @analysis_complete_time.setter
-    def analysis_complete_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def analysis_complete_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "analysis_complete_time", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredState")
-    def desired_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide CANCELLED or COMPLETED desired state when stopping an experiment
         """
         return pulumi.get(self, "desired_state")
 
     @desired_state.setter
-    def desired_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reason is a required input for stopping the experiment
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide START or STOP action to apply on an experiment
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -332,7 +332,7 @@ class ExperimentTreatmentObjectArgsDict(TypedDict):
     """
     The name of the variation to use for this treatment.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the treatment.
     """
@@ -343,7 +343,7 @@ class ExperimentTreatmentObjectArgs:
                  feature: pulumi.Input[_builtins.str],
                  treatment_name: pulumi.Input[_builtins.str],
                  variation: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] feature: The name of the feature for this experiment.
         :param pulumi.Input[_builtins.str] treatment_name: A name for this treatment. It can include up to 127 characters.
@@ -394,14 +394,14 @@ class ExperimentTreatmentObjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the treatment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -453,11 +453,11 @@ class ExperimentTreatmentToWeightArgs:
 
 
 class FeatureEntityOverrideArgsDict(TypedDict):
-    entity_id: NotRequired[pulumi.Input[_builtins.str]]
+    entity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The entity ID to be served the variation specified in `Variation` .
     """
-    variation: NotRequired[pulumi.Input[_builtins.str]]
+    variation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the variation to serve to the user session that matches the `EntityId` .
     """
@@ -465,8 +465,8 @@ class FeatureEntityOverrideArgsDict(TypedDict):
 @pulumi.input_type
 class FeatureEntityOverrideArgs:
     def __init__(__self__, *,
-                 entity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 variation: Optional[pulumi.Input[_builtins.str]] = None):
+                 entity_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 variation: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] entity_id: The entity ID to be served the variation specified in `Variation` .
         :param pulumi.Input[_builtins.str] variation: The name of the variation to serve to the user session that matches the `EntityId` .
@@ -478,47 +478,47 @@ class FeatureEntityOverrideArgs:
 
     @_builtins.property
     @pulumi.getter(name="entityId")
-    def entity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The entity ID to be served the variation specified in `Variation` .
         """
         return pulumi.get(self, "entity_id")
 
     @entity_id.setter
-    def entity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def variation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variation to serve to the user session that matches the `EntityId` .
         """
         return pulumi.get(self, "variation")
 
     @variation.setter
-    def variation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variation", value)
 
 
 class FeatureVariationObjectArgsDict(TypedDict):
-    boolean_value: NotRequired[pulumi.Input[_builtins.bool]]
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The value assigned to this variation, if the variation type is boolean.
     """
-    double_value: NotRequired[pulumi.Input[_builtins.float]]
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value assigned to this variation, if the variation type is a double.
     """
-    long_value: NotRequired[pulumi.Input[_builtins.float]]
+    long_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value assigned to this variation, if the variation type is a long.
     """
-    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value assigned to this variation, if the variation type is a string.
     """
-    variation_name: NotRequired[pulumi.Input[_builtins.str]]
+    variation_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A name for the variation. It can include up to 127 characters.
     """
@@ -526,11 +526,11 @@ class FeatureVariationObjectArgsDict(TypedDict):
 @pulumi.input_type
 class FeatureVariationObjectArgs:
     def __init__(__self__, *,
-                 boolean_value: Optional[pulumi.Input[_builtins.bool]] = None,
-                 double_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 long_value: Optional[pulumi.Input[_builtins.float]] = None,
-                 string_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 variation_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 long_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 variation_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] boolean_value: The value assigned to this variation, if the variation type is boolean.
         :param pulumi.Input[_builtins.float] double_value: The value assigned to this variation, if the variation type is a double.
@@ -551,62 +551,62 @@ class FeatureVariationObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="booleanValue")
-    def boolean_value(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The value assigned to this variation, if the variation type is boolean.
         """
         return pulumi.get(self, "boolean_value")
 
     @boolean_value.setter
-    def boolean_value(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "boolean_value", value)
 
     @_builtins.property
     @pulumi.getter(name="doubleValue")
-    def double_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value assigned to this variation, if the variation type is a double.
         """
         return pulumi.get(self, "double_value")
 
     @double_value.setter
-    def double_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "double_value", value)
 
     @_builtins.property
     @pulumi.getter(name="longValue")
-    def long_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def long_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value assigned to this variation, if the variation type is a long.
         """
         return pulumi.get(self, "long_value")
 
     @long_value.setter
-    def long_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def long_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "long_value", value)
 
     @_builtins.property
     @pulumi.getter(name="stringValue")
-    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value assigned to this variation, if the variation type is a string.
         """
         return pulumi.get(self, "string_value")
 
     @string_value.setter
-    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "string_value", value)
 
     @_builtins.property
     @pulumi.getter(name="variationName")
-    def variation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the variation. It can include up to 127 characters.
         """
         return pulumi.get(self, "variation_name")
 
     @variation_name.setter
-    def variation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variation_name", value)
 
 
@@ -615,11 +615,11 @@ class LaunchExecutionStatusObjectArgsDict(TypedDict):
     """
     Provide START or STOP action to apply on a launch
     """
-    desired_state: NotRequired[pulumi.Input[_builtins.str]]
+    desired_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
     """
-    reason: NotRequired[pulumi.Input[_builtins.str]]
+    reason: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provide a reason for stopping the launch. Defaults to empty if not provided.
     """
@@ -628,8 +628,8 @@ class LaunchExecutionStatusObjectArgsDict(TypedDict):
 class LaunchExecutionStatusObjectArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[_builtins.str],
-                 desired_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 reason: Optional[pulumi.Input[_builtins.str]] = None):
+                 desired_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 reason: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] status: Provide START or STOP action to apply on a launch
         :param pulumi.Input[_builtins.str] desired_state: Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
@@ -655,26 +655,26 @@ class LaunchExecutionStatusObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredState")
-    def desired_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def desired_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
         """
         return pulumi.get(self, "desired_state")
 
     @desired_state.setter
-    def desired_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def desired_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "desired_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provide a reason for stopping the launch. Defaults to empty if not provided.
         """
         return pulumi.get(self, "reason")
 
     @reason.setter
-    def reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reason", value)
 
 
@@ -691,7 +691,7 @@ class LaunchGroupObjectArgsDict(TypedDict):
     """
     The feature variation to use for this launch group.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the launch group.
     """
@@ -702,7 +702,7 @@ class LaunchGroupObjectArgs:
                  feature: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  variation: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] feature: The feature that this launch is using.
         :param pulumi.Input[_builtins.str] group_name: A name for this launch group. It can include up to 127 characters.
@@ -753,14 +753,14 @@ class LaunchGroupObjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the launch group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -830,11 +830,11 @@ class LaunchMetricDefinitionObjectArgsDict(TypedDict):
     """
     The JSON path to reference the numerical metric value in the event.
     """
-    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    event_pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
     """
-    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    unit_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A label for the units that the metric is measuring.
     """
@@ -845,8 +845,8 @@ class LaunchMetricDefinitionObjectArgs:
                  entity_id_key: pulumi.Input[_builtins.str],
                  metric_name: pulumi.Input[_builtins.str],
                  value_key: pulumi.Input[_builtins.str],
-                 event_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 unit_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 event_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 unit_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] entity_id_key: The JSON path to reference the entity id in the event.
         :param pulumi.Input[_builtins.str] metric_name: A name for the metric. It can include up to 255 characters.
@@ -900,26 +900,26 @@ class LaunchMetricDefinitionObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def event_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def event_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "event_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="unitLabel")
-    def unit_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unit_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A label for the units that the metric is measuring.
         """
         return pulumi.get(self, "unit_label")
 
     @unit_label.setter
-    def unit_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unit_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit_label", value)
 
 
@@ -998,7 +998,7 @@ class LaunchStepConfigArgsDict(TypedDict):
     """
     The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
     """
-    segment_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgsDict']]]]
+    segment_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LaunchSegmentOverrideArgsDict']]]]]
     """
     An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 
@@ -1010,7 +1010,7 @@ class LaunchStepConfigArgs:
     def __init__(__self__, *,
                  group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
                  start_time: pulumi.Input[_builtins.str],
-                 segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None):
+                 segment_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]] group_weights: An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
         :param pulumi.Input[_builtins.str] start_time: The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
@@ -1049,7 +1049,7 @@ class LaunchStepConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="segmentOverrides")
-    def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]:
+    def segment_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]:
         """
         An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 
@@ -1058,7 +1058,7 @@ class LaunchStepConfigArgs:
         return pulumi.get(self, "segment_overrides")
 
     @segment_overrides.setter
-    def segment_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]):
+    def segment_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]]):
         pulumi.set(self, "segment_overrides", value)
 
 
@@ -1113,11 +1113,11 @@ class ProjectDataDeliveryObjectArgsDict(TypedDict):
     """
     Destinations for data.
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
     """
-    s3: NotRequired[pulumi.Input['ProjectS3DestinationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['ProjectS3DestinationArgsDict']]]
     """
     If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
     """
@@ -1125,8 +1125,8 @@ class ProjectDataDeliveryObjectArgsDict(TypedDict):
 @pulumi.input_type
 class ProjectDataDeliveryObjectArgs:
     def __init__(__self__, *,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3: Optional[pulumi.Input['ProjectS3DestinationArgs']] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3: pulumi.Input[Optional['ProjectS3DestinationArgs']] = None):
         """
         Destinations for data.
 
@@ -1140,26 +1140,26 @@ class ProjectDataDeliveryObjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the project stores evaluation events in CloudWatch Logs , this structure stores the log group name.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ProjectS3DestinationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['ProjectS3DestinationArgs']]:
         """
         If the project stores evaluation events in an Amazon S3 bucket, this structure stores the bucket name and bucket prefix.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ProjectS3DestinationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['ProjectS3DestinationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -1168,7 +1168,7 @@ class ProjectS3DestinationArgsDict(TypedDict):
     """
     The name of the bucket in which Evidently stores evaluation events.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bucket prefix in which Evidently stores evaluation events.
     """
@@ -1177,7 +1177,7 @@ class ProjectS3DestinationArgsDict(TypedDict):
 class ProjectS3DestinationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket in which Evidently stores evaluation events.
         :param pulumi.Input[_builtins.str] prefix: The bucket prefix in which Evidently stores evaluation events.
@@ -1200,14 +1200,14 @@ class ProjectS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket prefix in which Evidently stores evaluation events.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 

@@ -20,11 +20,11 @@ __all__ = ['ArchiveArgs', 'Archive']
 class ArchiveArgs:
     def __init__(__self__, *,
                  source_arn: pulumi.Input[_builtins.str],
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Archive resource.
 
@@ -71,26 +71,26 @@ class ArchiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="archiveName")
-    def archive_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def archive_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the archive to create.
         """
         return pulumi.get(self, "archive_name")
 
     @archive_name.setter
-    def archive_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def archive_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "archive_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the archive.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
@@ -109,7 +109,7 @@ class ArchiveArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 
@@ -124,19 +124,19 @@ class ArchiveArgs:
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
-    def retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain events for. Default value is 0. If set to 0, events are retained indefinitely
         """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
-    def retention_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
 
 
@@ -146,16 +146,15 @@ class Archive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Events::Archive
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +184,6 @@ class Archive(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Events::Archive
 
-
         :param str resource_name: The name of the resource.
         :param ArchiveArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,12 +199,12 @@ class Archive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archive_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  event_pattern: Optional[Any] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

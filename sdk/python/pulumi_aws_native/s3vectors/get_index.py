@@ -80,7 +80,6 @@ def get_index(index_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::S3Vectors::Index
 
-
     :param _builtins.str index_arn: Returns the Amazon Resource Name (ARN) of the specified index.
            
            Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
@@ -94,11 +93,10 @@ def get_index(index_arn: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         index_arn=pulumi.get(__ret__, 'index_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_index_output(index_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(index_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Resource Type definition for AWS::S3Vectors::Index
-
 
     :param _builtins.str index_arn: Returns the Amazon Resource Name (ARN) of the specified index.
            

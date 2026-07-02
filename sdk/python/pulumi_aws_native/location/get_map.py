@@ -131,7 +131,6 @@ def get_map(map_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Location::Map Resource Type
 
-
     :param _builtins.str map_name: The name for the map resource.
            
            Requirements:
@@ -153,11 +152,10 @@ def get_map(map_name: Optional[_builtins.str] = None,
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_map_output(map_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_map_output(map_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
     Definition of AWS::Location::Map Resource Type
-
 
     :param _builtins.str map_name: The name for the map resource.
            

@@ -160,7 +160,6 @@ def get_application(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AppStream::Application
 
-
     :param _builtins.str arn: The ARN of the application.
     """
     __args__ = dict()
@@ -179,11 +178,10 @@ def get_application(arn: Optional[_builtins.str] = None,
         launch_path=pulumi.get(__ret__, 'launch_path'),
         tags=pulumi.get(__ret__, 'tags'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
-def get_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Type definition for AWS::AppStream::Application
-
 
     :param _builtins.str arn: The ARN of the application.
     """

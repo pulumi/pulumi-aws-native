@@ -866,7 +866,7 @@ class ClusterKubernetesNetworkConfig(dict):
 
         :param 'ClusterElasticLoadBalancing' elastic_load_balancing: Todo: add description
         :param 'ClusterKubernetesNetworkConfigIpFamily' ip_family: Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
-        :param _builtins.str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+        :param _builtins.str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
         :param _builtins.str service_ipv6_cidr: The CIDR block to assign Kubernetes service IP addresses from.
         """
         if elastic_load_balancing is not None:
@@ -898,7 +898,7 @@ class ClusterKubernetesNetworkConfig(dict):
     @pulumi.getter(name="serviceIpv4Cidr")
     def service_ipv4_cidr(self) -> Optional[_builtins.str]:
         """
-        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
+        The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
         """
         return pulumi.get(self, "service_ipv4_cidr")
 
@@ -914,7 +914,7 @@ class ClusterKubernetesNetworkConfig(dict):
 @pulumi.output_type
 class ClusterLoggingEnabledTypes(dict):
     """
-    The cluster control plane logging configuration for your cluster. 
+    The cluster control plane logging configuration for your cluster.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -936,7 +936,7 @@ class ClusterLoggingEnabledTypes(dict):
     def __init__(__self__, *,
                  enabled_types: Optional[Sequence['outputs.ClusterLoggingTypeConfig']] = None):
         """
-        The cluster control plane logging configuration for your cluster. 
+        The cluster control plane logging configuration for your cluster.
 
         :param Sequence['ClusterLoggingTypeConfig'] enabled_types: The enabled control plane logs for your cluster. All log types are disabled if the array is empty.
                
@@ -1440,7 +1440,7 @@ class FargateProfileLabel(dict):
         A key-value pair to associate with a pod.
 
         :param _builtins.str key: The key name of the label.
-        :param _builtins.str value: The value for the label. 
+        :param _builtins.str value: The value for the label.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -1457,7 +1457,7 @@ class FargateProfileLabel(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value for the label. 
+        The value for the label.
         """
         return pulumi.get(self, "value")
 
@@ -1676,7 +1676,7 @@ class Logging(dict):
         """
         Enable exporting the Kubernetes control plane logs for your cluster to CloudWatch Logs based on log types. By default, cluster control plane logs aren't exported to CloudWatch Logs.
 
-        :param 'ClusterLoggingEnabledTypes' cluster_logging: The cluster control plane logging configuration for your cluster. 
+        :param 'ClusterLoggingEnabledTypes' cluster_logging: The cluster control plane logging configuration for your cluster.
         """
         if cluster_logging is not None:
             pulumi.set(__self__, "cluster_logging", cluster_logging)
@@ -1685,7 +1685,7 @@ class Logging(dict):
     @pulumi.getter(name="clusterLogging")
     def cluster_logging(self) -> Optional['outputs.ClusterLoggingEnabledTypes']:
         """
-        The cluster control plane logging configuration for your cluster. 
+        The cluster control plane logging configuration for your cluster.
         """
         return pulumi.get(self, "cluster_logging")
 
@@ -2050,7 +2050,7 @@ class NodegroupScalingConfig(dict):
 
         :param _builtins.int desired_size: The current number of nodes that the managed node group should maintain.
                
-               > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down. 
+               > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
                
                Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
                
@@ -2071,7 +2071,7 @@ class NodegroupScalingConfig(dict):
         """
         The current number of nodes that the managed node group should maintain.
 
-        > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down. 
+        > If you use the Kubernetes [Cluster Autoscaler](https://docs.aws.amazon.com/https://github.com/kubernetes/autoscaler#kubernetes-autoscaler) , you shouldn't change the `desiredSize` value directly, as this can cause the Cluster Autoscaler to suddenly scale up or scale down.
 
         Whenever this parameter changes, the number of worker nodes in the node group is updated to the specified size. If this parameter is given a value that is smaller than the current number of running worker nodes, the necessary number of worker nodes are terminated to match the given value. When using CloudFormation, no action occurs if you remove this parameter from your CFN template.
 
@@ -2177,7 +2177,7 @@ class NodegroupUpdateConfig(dict):
         """
         The node group update configuration.
 
-        :param _builtins.float max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+        :param _builtins.float max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
         :param _builtins.float max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         :param _builtins.str update_strategy: The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
         """
@@ -2192,7 +2192,7 @@ class NodegroupUpdateConfig(dict):
     @pulumi.getter(name="maxUnavailable")
     def max_unavailable(self) -> Optional[_builtins.float]:
         """
-        The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
+        The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100.
         """
         return pulumi.get(self, "max_unavailable")
 

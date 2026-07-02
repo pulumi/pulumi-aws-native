@@ -114,7 +114,6 @@ def get_dataset(name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DataBrew::Dataset.
 
-
     :param _builtins.str name: Dataset name
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_dataset(name: Optional[_builtins.str] = None,
         path_options=pulumi.get(__ret__, 'path_options'),
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataset_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::DataBrew::Dataset.
-
 
     :param _builtins.str name: Dataset name
     """

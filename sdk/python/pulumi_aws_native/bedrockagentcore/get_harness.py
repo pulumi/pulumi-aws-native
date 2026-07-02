@@ -306,7 +306,6 @@ def get_harness(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the harness.
     """
     __args__ = dict()
@@ -337,11 +336,10 @@ def get_harness(arn: Optional[_builtins.str] = None,
         truncation=pulumi.get(__ret__, 'truncation'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         version=pulumi.get(__ret__, 'version'))
-def get_harness_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_harness_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHarnessResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the harness.
     """

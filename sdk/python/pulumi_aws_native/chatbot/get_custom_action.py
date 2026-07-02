@@ -102,7 +102,6 @@ def get_custom_action(custom_action_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Chatbot::CustomAction Resource Type
 
-
     :param _builtins.str custom_action_arn: The fully defined ARN of the custom action.
     """
     __args__ = dict()
@@ -116,11 +115,10 @@ def get_custom_action(custom_action_arn: Optional[_builtins.str] = None,
         custom_action_arn=pulumi.get(__ret__, 'custom_action_arn'),
         definition=pulumi.get(__ret__, 'definition'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_action_output(custom_action_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_action_output(custom_action_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomActionResult]:
     """
     Definition of AWS::Chatbot::CustomAction Resource Type
-
 
     :param _builtins.str custom_action_arn: The fully defined ARN of the custom action.
     """

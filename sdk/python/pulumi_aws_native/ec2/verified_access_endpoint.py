@@ -26,19 +26,19 @@ class VerifiedAccessEndpointArgs:
                  attachment_type: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
                  verified_access_group_id: pulumi.Input[_builtins.str],
-                 application_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_options: Optional[pulumi.Input['VerifiedAccessEndpointCidrOptionsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_domain_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_options: Optional[pulumi.Input['VerifiedAccessEndpointLoadBalancerOptionsArgs']] = None,
-                 network_interface_options: Optional[pulumi.Input['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rds_options: Optional[pulumi.Input['VerifiedAccessEndpointRdsOptionsArgs']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 application_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_options: pulumi.Input[Optional['VerifiedAccessEndpointCidrOptionsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_options: pulumi.Input[Optional['VerifiedAccessEndpointLoadBalancerOptionsArgs']] = None,
+                 network_interface_options: pulumi.Input[Optional['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rds_options: pulumi.Input[Optional['VerifiedAccessEndpointRdsOptionsArgs']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sse_specification: pulumi.Input[Optional['VerifiedAccessEndpointSseSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessEndpoint resource.
 
@@ -127,158 +127,158 @@ class VerifiedAccessEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationDomain")
-    def application_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS name for users to reach your application.
         """
         return pulumi.get(self, "application_domain")
 
     @application_domain.setter
-    def application_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrOptions")
-    def cidr_options(self) -> Optional[pulumi.Input['VerifiedAccessEndpointCidrOptionsArgs']]:
+    def cidr_options(self) -> pulumi.Input[Optional['VerifiedAccessEndpointCidrOptionsArgs']]:
         """
         The options for cidr type endpoint.
         """
         return pulumi.get(self, "cidr_options")
 
     @cidr_options.setter
-    def cidr_options(self, value: Optional[pulumi.Input['VerifiedAccessEndpointCidrOptionsArgs']]):
+    def cidr_options(self, value: pulumi.Input[Optional['VerifiedAccessEndpointCidrOptionsArgs']]):
         pulumi.set(self, "cidr_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the AWS Verified Access endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainCertificateArn")
-    def domain_certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a public TLS/SSL certificate imported into or created with ACM.
         """
         return pulumi.get(self, "domain_certificate_arn")
 
     @domain_certificate_arn.setter
-    def domain_certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointDomainPrefix")
-    def endpoint_domain_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_domain_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
         """
         return pulumi.get(self, "endpoint_domain_prefix")
 
     @endpoint_domain_prefix.setter
-    def endpoint_domain_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_domain_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_domain_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerOptions")
-    def load_balancer_options(self) -> Optional[pulumi.Input['VerifiedAccessEndpointLoadBalancerOptionsArgs']]:
+    def load_balancer_options(self) -> pulumi.Input[Optional['VerifiedAccessEndpointLoadBalancerOptionsArgs']]:
         """
         The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
         """
         return pulumi.get(self, "load_balancer_options")
 
     @load_balancer_options.setter
-    def load_balancer_options(self, value: Optional[pulumi.Input['VerifiedAccessEndpointLoadBalancerOptionsArgs']]):
+    def load_balancer_options(self, value: pulumi.Input[Optional['VerifiedAccessEndpointLoadBalancerOptionsArgs']]):
         pulumi.set(self, "load_balancer_options", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceOptions")
-    def network_interface_options(self) -> Optional[pulumi.Input['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']]:
+    def network_interface_options(self) -> pulumi.Input[Optional['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']]:
         """
         The options for network-interface type endpoint.
         """
         return pulumi.get(self, "network_interface_options")
 
     @network_interface_options.setter
-    def network_interface_options(self, value: Optional[pulumi.Input['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']]):
+    def network_interface_options(self, value: pulumi.Input[Optional['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']]):
         pulumi.set(self, "network_interface_options", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Verified Access policy document.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="policyEnabled")
-    def policy_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The status of the Verified Access policy.
         """
         return pulumi.get(self, "policy_enabled")
 
     @policy_enabled.setter
-    def policy_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsOptions")
-    def rds_options(self) -> Optional[pulumi.Input['VerifiedAccessEndpointRdsOptionsArgs']]:
+    def rds_options(self) -> pulumi.Input[Optional['VerifiedAccessEndpointRdsOptionsArgs']]:
         """
         The options for rds type endpoint.
         """
         return pulumi.get(self, "rds_options")
 
     @rds_options.setter
-    def rds_options(self, value: Optional[pulumi.Input['VerifiedAccessEndpointRdsOptionsArgs']]):
+    def rds_options(self, value: pulumi.Input[Optional['VerifiedAccessEndpointRdsOptionsArgs']]):
         pulumi.set(self, "rds_options", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the security groups for the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']]:
+    def sse_specification(self) -> pulumi.Input[Optional['VerifiedAccessEndpointSseSpecificationArgs']]:
         """
         The configuration options for customer provided KMS encryption.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']]):
+    def sse_specification(self, value: pulumi.Input[Optional['VerifiedAccessEndpointSseSpecificationArgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -288,26 +288,25 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_domain_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rds_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,7 +336,6 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
         """
         The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
 
-
         :param str resource_name: The name of the resource.
         :param VerifiedAccessEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -353,22 +351,22 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_domain_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rds_options: Optional[pulumi.Input[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 verified_access_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

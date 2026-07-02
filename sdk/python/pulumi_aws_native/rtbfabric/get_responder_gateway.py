@@ -278,7 +278,7 @@ def get_responder_gateway(arn: Optional[_builtins.str] = None,
         trust_store_configuration=pulumi.get(__ret__, 'trust_store_configuration'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_responder_gateway_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_responder_gateway_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponderGatewayResult]:
     """
     Resource Type definition for AWS::RTBFabric::ResponderGateway Resource Type

@@ -63,12 +63,11 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class ResourcePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
-
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['ResourcePolicyPolicyArgs', 'ResourcePolicyPolicyArgsDict']]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

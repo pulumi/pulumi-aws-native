@@ -89,7 +89,6 @@ def get_gateway(gateway_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::Gateway
 
-
     :param _builtins.str gateway_id: The ID of the gateway device.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_gateway(gateway_id: Optional[_builtins.str] = None,
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
         gateway_name=pulumi.get(__ret__, 'gateway_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_gateway_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Resource schema for AWS::IoTSiteWise::Gateway
-
 
     :param _builtins.str gateway_id: The ID of the gateway device.
     """

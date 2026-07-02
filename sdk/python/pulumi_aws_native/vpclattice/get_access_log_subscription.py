@@ -125,7 +125,6 @@ def get_access_log_subscription(arn: Optional[_builtins.str] = None,
     """
     Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the access log subscription.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_access_log_subscription(arn: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         service_network_log_type=pulumi.get(__ret__, 'service_network_log_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_log_subscription_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_log_subscription_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
     """
     Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the access log subscription.
     """

@@ -162,7 +162,6 @@ def get_model_card(model_card_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::ModelCard.
 
-
     :param _builtins.str model_card_name: The unique name of the model card.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_model_card(model_card_name: Optional[_builtins.str] = None,
         model_card_status=pulumi.get(__ret__, 'model_card_status'),
         model_card_version=pulumi.get(__ret__, 'model_card_version'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_model_card_output(model_card_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_card_output(model_card_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelCardResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelCard.
-
 
     :param _builtins.str model_card_name: The unique name of the model card.
     """

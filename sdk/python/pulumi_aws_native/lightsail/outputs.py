@@ -1434,7 +1434,7 @@ class InstancePort(dict):
                The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
         :param Sequence[_builtins.str] cidrs: The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
                
-               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
                
                Examples:
                
@@ -1509,7 +1509,7 @@ class InstancePort(dict):
         """
         The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 
-        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
 
         Examples:
 

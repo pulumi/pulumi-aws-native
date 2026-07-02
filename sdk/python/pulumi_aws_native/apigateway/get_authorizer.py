@@ -160,7 +160,6 @@ def get_authorizer(authorizer_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
 
-
     :param _builtins.str authorizer_id: The ID for the authorizer. For example: `abc123` .
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
     """
@@ -181,12 +180,11 @@ def get_authorizer(authorizer_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provider_arns=pulumi.get(__ret__, 'provider_arns'),
         type=pulumi.get(__ret__, 'type'))
-def get_authorizer_output(authorizer_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorizer_output(authorizer_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
-
 
     :param _builtins.str authorizer_id: The ID for the authorizer. For example: `abc123` .
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.

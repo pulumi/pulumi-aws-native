@@ -137,7 +137,6 @@ def get_vpc_endpoint_service(service_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
 
-
     :param _builtins.str service_id: The ID of the endpoint service.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_vpc_endpoint_service(service_id: Optional[_builtins.str] = None,
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         supported_regions=pulumi.get(__ret__, 'supported_regions'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_endpoint_service_output(service_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
-
 
     :param _builtins.str service_id: The ID of the endpoint service.
     """

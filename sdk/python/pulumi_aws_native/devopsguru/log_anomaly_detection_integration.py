@@ -35,7 +35,6 @@ class LogAnomalyDetectionIntegration(pulumi.CustomResource):
         """
         This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -47,7 +46,6 @@ class LogAnomalyDetectionIntegration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
-
 
         :param str resource_name: The name of the resource.
         :param LogAnomalyDetectionIntegrationArgs args: The arguments to use to populate this resource's properties.

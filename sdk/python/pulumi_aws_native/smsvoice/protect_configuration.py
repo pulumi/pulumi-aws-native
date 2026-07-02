@@ -24,9 +24,9 @@ __all__ = ['ProtectConfigurationArgs', 'ProtectConfiguration']
 @pulumi.input_type
 class ProtectConfigurationArgs:
     def __init__(__self__, *,
-                 country_rule_set: Optional[pulumi.Input['ProtectConfigurationCountryRuleSetArgs']] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 country_rule_set: pulumi.Input[Optional['ProtectConfigurationCountryRuleSetArgs']] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ProtectConfiguration resource.
 
@@ -43,38 +43,38 @@ class ProtectConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="countryRuleSet")
-    def country_rule_set(self) -> Optional[pulumi.Input['ProtectConfigurationCountryRuleSetArgs']]:
+    def country_rule_set(self) -> pulumi.Input[Optional['ProtectConfigurationCountryRuleSetArgs']]:
         """
         An array of CountryRule containing the rules for the NumberCapability.
         """
         return pulumi.get(self, "country_rule_set")
 
     @country_rule_set.setter
-    def country_rule_set(self, value: Optional[pulumi.Input['ProtectConfigurationCountryRuleSetArgs']]):
+    def country_rule_set(self, value: pulumi.Input[Optional['ProtectConfigurationCountryRuleSetArgs']]):
         pulumi.set(self, "country_rule_set", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionEnabled")
-    def deletion_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deletion_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When set to true deletion protection is enabled and protect configuration cannot be deleted. By default this is set to false.
         """
         return pulumi.get(self, "deletion_protection_enabled")
 
     @deletion_protection_enabled.setter
-    def deletion_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deletion_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deletion_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -84,13 +84,12 @@ class ProtectConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 country_rule_set: Optional[pulumi.Input[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -107,7 +106,6 @@ class ProtectConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param ProtectConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,9 +121,9 @@ class ProtectConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 country_rule_set: Optional[pulumi.Input[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
-                 deletion_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
+                 deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -114,7 +114,6 @@ def get_application(application_name: Optional[_builtins.str] = None,
     """
     Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
-
     :param _builtins.str application_name: The name of the application.
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_application(application_name: Optional[_builtins.str] = None,
         runtime_environment=pulumi.get(__ret__, 'runtime_environment'),
         service_execution_role=pulumi.get(__ret__, 'service_execution_role'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
-
 
     :param _builtins.str application_name: The name of the application.
     """

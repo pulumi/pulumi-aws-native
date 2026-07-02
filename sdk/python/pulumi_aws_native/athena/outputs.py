@@ -456,7 +456,7 @@ class WorkGroupConfiguration(dict):
 @pulumi.output_type
 class WorkGroupConfigurationUpdates(dict):
     """
-    The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
+    The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -517,7 +517,7 @@ class WorkGroupConfigurationUpdates(dict):
                  requester_pays_enabled: Optional[_builtins.bool] = None,
                  result_configuration_updates: Optional['outputs.WorkGroupResultConfigurationUpdates'] = None):
         """
-        The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
+        The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
         """
         if additional_configuration is not None:
             pulumi.set(__self__, "additional_configuration", additional_configuration)
@@ -1183,7 +1183,7 @@ class WorkGroupResultConfiguration(dict):
 @pulumi.output_type
 class WorkGroupResultConfigurationUpdates(dict):
     """
-    The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
+    The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1226,7 +1226,7 @@ class WorkGroupResultConfigurationUpdates(dict):
                  remove_expected_bucket_owner: Optional[_builtins.bool] = None,
                  remove_output_location: Optional[_builtins.bool] = None):
         """
-        The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
+        The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 
         :param 'WorkGroupAclConfiguration' acl_configuration: The ACL configuration for the query results.
         :param 'WorkGroupEncryptionConfiguration' encryption_configuration: The encryption configuration for the query results.

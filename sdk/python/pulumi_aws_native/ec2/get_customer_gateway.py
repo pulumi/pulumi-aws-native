@@ -64,7 +64,6 @@ def get_customer_gateway(customer_gateway_id: Optional[_builtins.str] = None,
     """
     Specifies a customer gateway.
 
-
     :param _builtins.str customer_gateway_id: The ID of the customer gateway.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_customer_gateway(customer_gateway_id: Optional[_builtins.str] = None,
     return AwaitableGetCustomerGatewayResult(
         customer_gateway_id=pulumi.get(__ret__, 'customer_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_customer_gateway_output(customer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
     Specifies a customer gateway.
-
 
     :param _builtins.str customer_gateway_id: The ID of the customer gateway.
     """

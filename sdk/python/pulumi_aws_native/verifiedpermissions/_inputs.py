@@ -77,15 +77,15 @@ class IdentitySourceCognitoGroupConfigurationArgs:
 
 class IdentitySourceCognitoUserPoolConfigurationArgsDict(TypedDict):
     user_pool_arn: pulumi.Input[_builtins.str]
-    client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    group_configuration: NotRequired[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgsDict']]
+    client_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceCognitoGroupConfigurationArgsDict']]]
 
 @pulumi.input_type
 class IdentitySourceCognitoUserPoolConfigurationArgs:
     def __init__(__self__, *,
                  user_pool_arn: pulumi.Input[_builtins.str],
-                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 group_configuration: Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']] = None):
+                 client_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 group_configuration: pulumi.Input[Optional['IdentitySourceCognitoGroupConfigurationArgs']] = None):
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -103,20 +103,20 @@ class IdentitySourceCognitoUserPoolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientIds")
-    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "client_ids")
 
     @client_ids.setter
-    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="groupConfiguration")
-    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']]:
+    def group_configuration(self) -> pulumi.Input[Optional['IdentitySourceCognitoGroupConfigurationArgs']]:
         return pulumi.get(self, "group_configuration")
 
     @group_configuration.setter
-    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceCognitoGroupConfigurationArgs']]):
+    def group_configuration(self, value: pulumi.Input[Optional['IdentitySourceCognitoGroupConfigurationArgs']]):
         pulumi.set(self, "group_configuration", value)
 
 
@@ -159,14 +159,14 @@ class IdentitySourceConfiguration1PropertiesArgs:
 
 
 class IdentitySourceOpenIdConnectAccessTokenConfigurationArgsDict(TypedDict):
-    audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
+    audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    principal_id_claim: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectAccessTokenConfigurationArgs:
     def __init__(__self__, *,
-                 audiences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id_claim: Optional[pulumi.Input[_builtins.str]] = None):
+                 audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id_claim: pulumi.Input[Optional[_builtins.str]] = None):
         if audiences is not None:
             pulumi.set(__self__, "audiences", audiences)
         if principal_id_claim is not None:
@@ -174,36 +174,36 @@ class IdentitySourceOpenIdConnectAccessTokenConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "audiences")
 
     @audiences.setter
-    def audiences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "audiences", value)
 
     @_builtins.property
     @pulumi.getter(name="principalIdClaim")
-    def principal_id_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id_claim")
 
     @principal_id_claim.setter
-    def principal_id_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id_claim", value)
 
 
 class IdentitySourceOpenIdConnectConfigurationArgsDict(TypedDict):
     issuer: pulumi.Input[_builtins.str]
     token_selection: pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgsDict', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgsDict']]
-    entity_id_prefix: NotRequired[pulumi.Input[_builtins.str]]
-    group_configuration: NotRequired[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgsDict']]
+    entity_id_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceOpenIdConnectGroupConfigurationArgsDict']]]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectConfigurationArgs:
     def __init__(__self__, *,
                  issuer: pulumi.Input[_builtins.str],
                  token_selection: pulumi.Input[Union['IdentitySourceOpenIdConnectTokenSelection0PropertiesArgs', 'IdentitySourceOpenIdConnectTokenSelection1PropertiesArgs']],
-                 entity_id_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_configuration: Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']] = None):
+                 entity_id_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_configuration: pulumi.Input[Optional['IdentitySourceOpenIdConnectGroupConfigurationArgs']] = None):
         pulumi.set(__self__, "issuer", issuer)
         pulumi.set(__self__, "token_selection", token_selection)
         if entity_id_prefix is not None:
@@ -231,20 +231,20 @@ class IdentitySourceOpenIdConnectConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="entityIdPrefix")
-    def entity_id_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entity_id_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "entity_id_prefix")
 
     @entity_id_prefix.setter
-    def entity_id_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entity_id_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_id_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="groupConfiguration")
-    def group_configuration(self) -> Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']]:
+    def group_configuration(self) -> pulumi.Input[Optional['IdentitySourceOpenIdConnectGroupConfigurationArgs']]:
         return pulumi.get(self, "group_configuration")
 
     @group_configuration.setter
-    def group_configuration(self, value: Optional[pulumi.Input['IdentitySourceOpenIdConnectGroupConfigurationArgs']]):
+    def group_configuration(self, value: pulumi.Input[Optional['IdentitySourceOpenIdConnectGroupConfigurationArgs']]):
         pulumi.set(self, "group_configuration", value)
 
 
@@ -280,14 +280,14 @@ class IdentitySourceOpenIdConnectGroupConfigurationArgs:
 
 
 class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgsDict(TypedDict):
-    client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
+    client_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    principal_id_claim: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs:
     def __init__(__self__, *,
-                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id_claim: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id_claim: pulumi.Input[Optional[_builtins.str]] = None):
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
         if principal_id_claim is not None:
@@ -295,20 +295,20 @@ class IdentitySourceOpenIdConnectIdentityTokenConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientIds")
-    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "client_ids")
 
     @client_ids.setter
-    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="principalIdClaim")
-    def principal_id_claim(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id_claim(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "principal_id_claim")
 
     @principal_id_claim.setter
-    def principal_id_claim(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id_claim(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id_claim", value)
 
 
@@ -421,13 +421,13 @@ class PolicyEntityIdentifierArgs:
 
 class PolicyStaticPolicyDefinitionArgsDict(TypedDict):
     statement: pulumi.Input[_builtins.str]
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PolicyStaticPolicyDefinitionArgs:
     def __init__(__self__, *,
                  statement: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "statement", statement)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -443,11 +443,11 @@ class PolicyStaticPolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -495,7 +495,7 @@ class PolicyStoreEncryptionSettingsArgs:
 
 
 class PolicyStoreSchemaDefinitionArgsDict(TypedDict):
-    cedar_json: NotRequired[pulumi.Input[_builtins.str]]
+    cedar_json: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
     """
@@ -503,7 +503,7 @@ class PolicyStoreSchemaDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyStoreSchemaDefinitionArgs:
     def __init__(__self__, *,
-                 cedar_json: Optional[pulumi.Input[_builtins.str]] = None):
+                 cedar_json: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cedar_json: A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
         """
@@ -512,14 +512,14 @@ class PolicyStoreSchemaDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="cedarJson")
-    def cedar_json(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cedar_json(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON string representation of the schema supported by applications that use this policy store. For more information, see [Policy store schema](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html) in the AVP User Guide.
         """
         return pulumi.get(self, "cedar_json")
 
     @cedar_json.setter
-    def cedar_json(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cedar_json(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cedar_json", value)
 
 
@@ -574,15 +574,15 @@ class PolicyStoreValidationSettingsArgs:
 
 class PolicyTemplateLinkedPolicyDefinitionArgsDict(TypedDict):
     policy_template_id: pulumi.Input[_builtins.str]
-    principal: NotRequired[pulumi.Input['PolicyEntityIdentifierArgsDict']]
-    resource: NotRequired[pulumi.Input['PolicyEntityIdentifierArgsDict']]
+    principal: NotRequired[pulumi.Input[Optional['PolicyEntityIdentifierArgsDict']]]
+    resource: NotRequired[pulumi.Input[Optional['PolicyEntityIdentifierArgsDict']]]
 
 @pulumi.input_type
 class PolicyTemplateLinkedPolicyDefinitionArgs:
     def __init__(__self__, *,
                  policy_template_id: pulumi.Input[_builtins.str],
-                 principal: Optional[pulumi.Input['PolicyEntityIdentifierArgs']] = None,
-                 resource: Optional[pulumi.Input['PolicyEntityIdentifierArgs']] = None):
+                 principal: pulumi.Input[Optional['PolicyEntityIdentifierArgs']] = None,
+                 resource: pulumi.Input[Optional['PolicyEntityIdentifierArgs']] = None):
         pulumi.set(__self__, "policy_template_id", policy_template_id)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
@@ -600,20 +600,20 @@ class PolicyTemplateLinkedPolicyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['PolicyEntityIdentifierArgs']]:
+    def principal(self) -> pulumi.Input[Optional['PolicyEntityIdentifierArgs']]:
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['PolicyEntityIdentifierArgs']]):
+    def principal(self, value: pulumi.Input[Optional['PolicyEntityIdentifierArgs']]):
         pulumi.set(self, "principal", value)
 
     @_builtins.property
     @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input['PolicyEntityIdentifierArgs']]:
+    def resource(self) -> pulumi.Input[Optional['PolicyEntityIdentifierArgs']]:
         return pulumi.get(self, "resource")
 
     @resource.setter
-    def resource(self, value: Optional[pulumi.Input['PolicyEntityIdentifierArgs']]):
+    def resource(self, value: pulumi.Input[Optional['PolicyEntityIdentifierArgs']]):
         pulumi.set(self, "resource", value)
 
 

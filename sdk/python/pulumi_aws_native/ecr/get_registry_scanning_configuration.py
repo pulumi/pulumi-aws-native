@@ -77,7 +77,6 @@ def get_registry_scanning_configuration(registry_id: Optional[_builtins.str] = N
     """
     The scanning configuration for a private registry.
 
-
     :param _builtins.str registry_id: The account ID of the destination registry.
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_registry_scanning_configuration(registry_id: Optional[_builtins.str] = N
         registry_id=pulumi.get(__ret__, 'registry_id'),
         rules=pulumi.get(__ret__, 'rules'),
         scan_type=pulumi.get(__ret__, 'scan_type'))
-def get_registry_scanning_configuration_output(registry_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_scanning_configuration_output(registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryScanningConfigurationResult]:
     """
     The scanning configuration for a private registry.
-
 
     :param _builtins.str registry_id: The account ID of the destination registry.
     """

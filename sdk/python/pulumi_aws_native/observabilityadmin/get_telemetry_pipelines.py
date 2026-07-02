@@ -120,7 +120,6 @@ def get_telemetry_pipelines(pipeline_identifier: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
 
-
     :param _builtins.str pipeline_identifier: The Amazon Resource Name (ARN) of the telemetry pipeline.
     """
     __args__ = dict()
@@ -136,11 +135,10 @@ def get_telemetry_pipelines(pipeline_identifier: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_telemetry_pipelines_output(pipeline_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_telemetry_pipelines_output(pipeline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTelemetryPipelinesResult]:
     """
     Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
-
 
     :param _builtins.str pipeline_identifier: The Amazon Resource Name (ARN) of the telemetry pipeline.
     """

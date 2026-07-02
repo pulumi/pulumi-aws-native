@@ -129,7 +129,6 @@ def get_service_network(arn: Optional[_builtins.str] = None,
     """
     A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the service network.
     """
     __args__ = dict()
@@ -145,11 +144,10 @@ def get_service_network(arn: Optional[_builtins.str] = None,
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         sharing_config=pulumi.get(__ret__, 'sharing_config'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_network_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_network_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
     A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the service network.
     """

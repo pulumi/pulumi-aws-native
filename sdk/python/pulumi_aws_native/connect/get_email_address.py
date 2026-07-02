@@ -113,7 +113,6 @@ def get_email_address(email_address_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::EmailAddress
 
-
     :param _builtins.str email_address_arn: The identifier of the email address.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_email_address(email_address_arn: Optional[_builtins.str] = None,
         email_address_arn=pulumi.get(__ret__, 'email_address_arn'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_email_address_output(email_address_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_email_address_output(email_address_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailAddressResult]:
     """
     Resource Type definition for AWS::Connect::EmailAddress
-
 
     :param _builtins.str email_address_arn: The identifier of the email address.
     """

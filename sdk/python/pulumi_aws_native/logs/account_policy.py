@@ -22,9 +22,9 @@ class AccountPolicyArgs:
     def __init__(__self__, *,
                  policy_document: pulumi.Input[_builtins.str],
                  policy_type: pulumi.Input['AccountPolicyPolicyType'],
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
-                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional['AccountPolicyScope']] = None,
+                 selection_criteria: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccountPolicy resource.
 
@@ -81,38 +81,38 @@ class AccountPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the account policy
         """
         return pulumi.get(self, "policy_name")
 
     @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AccountPolicyScope']]:
+    def scope(self) -> pulumi.Input[Optional['AccountPolicyScope']]:
         """
         Scope for policy application
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AccountPolicyScope']]):
+    def scope(self, value: pulumi.Input[Optional['AccountPolicyScope']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="selectionCriteria")
-    def selection_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def selection_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
         """
         return pulumi.get(self, "selection_criteria")
 
     @selection_criteria.setter
-    def selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def selection_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "selection_criteria", value)
 
 
@@ -122,11 +122,11 @@ class AccountPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
-                 scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
-                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional['AccountPolicyPolicyType']] = None,
+                 scope: pulumi.Input[Optional['AccountPolicyScope']] = None,
+                 selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
@@ -227,11 +227,11 @@ class AccountPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
-                 scope: Optional[pulumi.Input['AccountPolicyScope']] = None,
-                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_type: pulumi.Input[Optional['AccountPolicyPolicyType']] = None,
+                 scope: pulumi.Input[Optional['AccountPolicyScope']] = None,
+                 selection_criteria: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

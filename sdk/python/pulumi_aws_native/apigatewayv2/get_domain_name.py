@@ -126,7 +126,6 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
     The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
     """
     __args__ = dict()
@@ -142,12 +141,11 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
         routing_mode=pulumi.get(__ret__, 'routing_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
     """

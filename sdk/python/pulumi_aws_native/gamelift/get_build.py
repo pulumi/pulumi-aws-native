@@ -100,7 +100,6 @@ def get_build(build_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GameLift::Build
 
-
     :param _builtins.str build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_build(build_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_build_output(build_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_build_output(build_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
     """
     Resource Type definition for AWS::GameLift::Build
-
 
     :param _builtins.str build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
     """

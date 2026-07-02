@@ -101,7 +101,6 @@ def get_report_plan(report_plan_arn: Optional[_builtins.str] = None,
     """
     Contains detailed information about a report plan in AWS Backup Audit Manager.
 
-
     :param _builtins.str report_plan_arn: An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_report_plan(report_plan_arn: Optional[_builtins.str] = None,
         report_plan_description=pulumi.get(__ret__, 'report_plan_description'),
         report_plan_tags=pulumi.get(__ret__, 'report_plan_tags'),
         report_setting=pulumi.get(__ret__, 'report_setting'))
-def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_report_plan_output(report_plan_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportPlanResult]:
     """
     Contains detailed information about a report plan in AWS Backup Audit Manager.
-
 
     :param _builtins.str report_plan_arn: An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the resource type.
     """

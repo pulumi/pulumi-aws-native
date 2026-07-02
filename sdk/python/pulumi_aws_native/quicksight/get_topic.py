@@ -123,7 +123,6 @@ def get_topic(aws_account_id: Optional[_builtins.str] = None,
     """
     Definition of the AWS::QuickSight::Topic Resource Type.
 
-
     :param _builtins.str aws_account_id: The ID of the AWS account that you want to create a topic in.
     :param _builtins.str topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
     """
@@ -141,12 +140,11 @@ def get_topic(aws_account_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         user_experience_version=pulumi.get(__ret__, 'user_experience_version'))
-def get_topic_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Definition of the AWS::QuickSight::Topic Resource Type.
-
 
     :param _builtins.str aws_account_id: The ID of the AWS account that you want to create a topic in.
     :param _builtins.str topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.

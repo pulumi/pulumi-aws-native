@@ -136,7 +136,6 @@ def get_workflow_version(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Omics::WorkflowVersion Resource Type.
 
-
     :param _builtins.str arn: ARN of the workflow version.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_workflow_version(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_workflow_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workflow_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowVersionResult]:
     """
     Definition of AWS::Omics::WorkflowVersion Resource Type.
-
 
     :param _builtins.str arn: ARN of the workflow version.
     """

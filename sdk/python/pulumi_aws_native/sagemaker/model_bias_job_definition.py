@@ -29,12 +29,12 @@ class ModelBiasJobDefinitionArgs:
                  model_bias_job_input: pulumi.Input['ModelBiasJobDefinitionModelBiasJobInputArgs'],
                  model_bias_job_output_config: pulumi.Input['ModelBiasJobDefinitionMonitoringOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_bias_baseline_config: Optional[pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] = None,
-                 network_config: Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']] = None,
-                 stopping_condition: Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_bias_baseline_config: pulumi.Input[Optional['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']] = None,
+                 network_config: pulumi.Input[Optional['ModelBiasJobDefinitionNetworkConfigArgs']] = None,
+                 stopping_condition: pulumi.Input[Optional['ModelBiasJobDefinitionStoppingConditionArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelBiasJobDefinition resource.
 
@@ -129,71 +129,71 @@ class ModelBiasJobDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobDefinitionName")
-    def job_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def job_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bias job definition. The name must be unique within an AWS Region in the AWS account.
         """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
-    def job_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def job_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelBiasBaselineConfig")
-    def model_bias_baseline_config(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]:
+    def model_bias_baseline_config(self) -> pulumi.Input[Optional['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]:
         """
         The baseline configuration for a model bias job.
         """
         return pulumi.get(self, "model_bias_baseline_config")
 
     @model_bias_baseline_config.setter
-    def model_bias_baseline_config(self, value: Optional[pulumi.Input['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]):
+    def model_bias_baseline_config(self, value: pulumi.Input[Optional['ModelBiasJobDefinitionModelBiasBaselineConfigArgs']]):
         pulumi.set(self, "model_bias_baseline_config", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfig")
-    def network_config(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']]:
+    def network_config(self) -> pulumi.Input[Optional['ModelBiasJobDefinitionNetworkConfigArgs']]:
         """
         Networking options for a model bias job.
         """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
-    def network_config(self, value: Optional[pulumi.Input['ModelBiasJobDefinitionNetworkConfigArgs']]):
+    def network_config(self, value: pulumi.Input[Optional['ModelBiasJobDefinitionNetworkConfigArgs']]):
         pulumi.set(self, "network_config", value)
 
     @_builtins.property
     @pulumi.getter(name="stoppingCondition")
-    def stopping_condition(self) -> Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']]:
+    def stopping_condition(self) -> pulumi.Input[Optional['ModelBiasJobDefinitionStoppingConditionArgs']]:
         """
         A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
-    def stopping_condition(self, value: Optional[pulumi.Input['ModelBiasJobDefinitionStoppingConditionArgs']]):
+    def stopping_condition(self, value: pulumi.Input[Optional['ModelBiasJobDefinitionStoppingConditionArgs']]):
         pulumi.set(self, "stopping_condition", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -203,21 +203,20 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_resources: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
-                 model_bias_app_specification: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
-                 model_bias_baseline_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
-                 model_bias_job_input: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
-                 model_bias_job_output_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_resources: pulumi.Input[Optional[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_bias_app_specification: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
+                 model_bias_baseline_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
+                 model_bias_job_input: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
+                 model_bias_job_output_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,7 +240,6 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
 
-
         :param str resource_name: The name of the resource.
         :param ModelBiasJobDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,17 +255,17 @@ class ModelBiasJobDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_resources: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
-                 model_bias_app_specification: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
-                 model_bias_baseline_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
-                 model_bias_job_input: Optional[pulumi.Input[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
-                 model_bias_job_output_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
-                 network_config: Optional[pulumi.Input[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stopping_condition: Optional[pulumi.Input[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_resources: pulumi.Input[Optional[Union['ModelBiasJobDefinitionMonitoringResourcesArgs', 'ModelBiasJobDefinitionMonitoringResourcesArgsDict']]] = None,
+                 model_bias_app_specification: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasAppSpecificationArgs', 'ModelBiasJobDefinitionModelBiasAppSpecificationArgsDict']]] = None,
+                 model_bias_baseline_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasBaselineConfigArgs', 'ModelBiasJobDefinitionModelBiasBaselineConfigArgsDict']]] = None,
+                 model_bias_job_input: pulumi.Input[Optional[Union['ModelBiasJobDefinitionModelBiasJobInputArgs', 'ModelBiasJobDefinitionModelBiasJobInputArgsDict']]] = None,
+                 model_bias_job_output_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionMonitoringOutputConfigArgs', 'ModelBiasJobDefinitionMonitoringOutputConfigArgsDict']]] = None,
+                 network_config: pulumi.Input[Optional[Union['ModelBiasJobDefinitionNetworkConfigArgs', 'ModelBiasJobDefinitionNetworkConfigArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stopping_condition: pulumi.Input[Optional[Union['ModelBiasJobDefinitionStoppingConditionArgs', 'ModelBiasJobDefinitionStoppingConditionArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

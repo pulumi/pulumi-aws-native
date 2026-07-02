@@ -26,13 +26,13 @@ class MissionProfileArgs:
                  dataflow_edges: pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]],
                  minimum_viable_contact_duration_seconds: pulumi.Input[_builtins.int],
                  tracking_config_arn: pulumi.Input[_builtins.str],
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
-                 streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams_kms_key: pulumi.Input[Optional['MissionProfileStreamsKmsKeyArgs']] = None,
+                 streams_kms_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 telemetry_sink_config_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
 
@@ -103,86 +103,86 @@ class MissionProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactPostPassDurationSeconds")
-    def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def contact_post_pass_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Post-pass time needed after the contact.
         """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @contact_post_pass_duration_seconds.setter
-    def contact_post_pass_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def contact_post_pass_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "contact_post_pass_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="contactPrePassDurationSeconds")
-    def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def contact_pre_pass_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Pre-pass time needed before the contact.
         """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @contact_pre_pass_duration_seconds.setter
-    def contact_pre_pass_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def contact_pre_pass_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "contact_pre_pass_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name used to identify a mission profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamsKmsKey")
-    def streams_kms_key(self) -> Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']]:
+    def streams_kms_key(self) -> pulumi.Input[Optional['MissionProfileStreamsKmsKeyArgs']]:
         """
         The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
         """
         return pulumi.get(self, "streams_kms_key")
 
     @streams_kms_key.setter
-    def streams_kms_key(self, value: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']]):
+    def streams_kms_key(self, value: pulumi.Input[Optional['MissionProfileStreamsKmsKeyArgs']]):
         pulumi.set(self, "streams_kms_key", value)
 
     @_builtins.property
     @pulumi.getter(name="streamsKmsRole")
-    def streams_kms_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def streams_kms_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS Key or Alias Key role used to define permissions on KMS Key usage.
         """
         return pulumi.get(self, "streams_kms_role")
 
     @streams_kms_role.setter
-    def streams_kms_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def streams_kms_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "streams_kms_role", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags assigned to the mission profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="telemetrySinkConfigArn")
-    def telemetry_sink_config_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def telemetry_sink_config_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
         """
         return pulumi.get(self, "telemetry_sink_config_arn")
 
     @telemetry_sink_config_arn.setter
-    def telemetry_sink_config_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def telemetry_sink_config_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "telemetry_sink_config_arn", value)
 
 
@@ -192,16 +192,16 @@ class MissionProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
-                 minimum_viable_contact_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
-                 streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
+                 minimum_viable_contact_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
+                 streams_kms_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 telemetry_sink_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS Ground Station Mission Profile resource type for CloudFormation.
@@ -345,16 +345,16 @@ class MissionProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
-                 minimum_viable_contact_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 streams_kms_key: Optional[pulumi.Input[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
-                 streams_kms_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 telemetry_sink_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracking_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 dataflow_edges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MissionProfileDataflowEdgeArgs', 'MissionProfileDataflowEdgeArgsDict']]]]] = None,
+                 minimum_viable_contact_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 streams_kms_key: pulumi.Input[Optional[Union['MissionProfileStreamsKmsKeyArgs', 'MissionProfileStreamsKmsKeyArgsDict']]] = None,
+                 streams_kms_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 telemetry_sink_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracking_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

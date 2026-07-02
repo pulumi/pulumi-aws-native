@@ -23,14 +23,14 @@ __all__ = [
 ]
 
 class EnabledBaselineParameterArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    value: NotRequired[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]]
 
 @pulumi.input_type
 class EnabledBaselineParameterArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]] = None):
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -38,20 +38,20 @@ class EnabledBaselineParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]:
+    def value(self) -> pulumi.Input[Optional[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]):
+    def value(self, value: pulumi.Input[Optional[Union[_builtins.str, Any, _builtins.float, Sequence[pulumi.Input[Union[_builtins.bool, _builtins.float, Any, _builtins.str]]], _builtins.bool]]]):
         pulumi.set(self, "value", value)
 
 

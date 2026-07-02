@@ -51,7 +51,6 @@ def get_simulation(name: Optional[_builtins.str] = None,
     """
     AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
 
-
     :param _builtins.str name: The name of the simulation.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_simulation(name: Optional[_builtins.str] = None,
 
     return AwaitableGetSimulationResult(
         describe_payload=pulumi.get(__ret__, 'describe_payload'))
-def get_simulation_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_simulation_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationResult]:
     """
     AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
-
 
     :param _builtins.str name: The name of the simulation.
     """

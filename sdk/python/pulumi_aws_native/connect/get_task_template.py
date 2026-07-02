@@ -186,7 +186,6 @@ def get_task_template(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::TaskTemplate.
 
-
     :param _builtins.str arn: The identifier (arn) of the task template.
     """
     __args__ = dict()
@@ -207,11 +206,10 @@ def get_task_template(arn: Optional[_builtins.str] = None,
         self_assign_contact_flow_arn=pulumi.get(__ret__, 'self_assign_contact_flow_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_task_template_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_template_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskTemplateResult]:
     """
     Resource Type definition for AWS::Connect::TaskTemplate.
-
 
     :param _builtins.str arn: The identifier (arn) of the task template.
     """

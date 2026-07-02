@@ -86,7 +86,7 @@ def get_sql_ha_standby_detected_instance(instance_id: Optional[_builtins.str] = 
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         sql_server_credentials=pulumi.get(__ret__, 'sql_server_credentials'),
         sql_server_license_usage=pulumi.get(__ret__, 'sql_server_license_usage'))
-def get_sql_ha_standby_detected_instance_output(instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_ha_standby_detected_instance_output(instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlHaStandbyDetectedInstanceResult]:
     """
     Resource Type definition for AWS::EC2::SqlHaStandbyDetectedInstance

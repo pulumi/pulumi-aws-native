@@ -24,12 +24,12 @@ class CertificateArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[_builtins.str],
                  usage: pulumi.Input['CertificateUsage'],
-                 active_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inactive_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 active_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inactive_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -83,74 +83,74 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDate")
-    def active_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def active_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the active date for the certificate.
         """
         return pulumi.get(self, "active_date")
 
     @active_date.setter
-    def active_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def active_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "active_date", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChain")
-    def certificate_chain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_chain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the certificate chain to be imported.
         """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
-    def certificate_chain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_chain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_chain", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A textual description for the certificate.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="inactiveDate")
-    def inactive_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inactive_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the inactive date for the certificate.
         """
         return pulumi.get(self, "inactive_date")
 
     @inactive_date.setter
-    def inactive_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inactive_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inactive_date", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the private key for the certificate.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -160,18 +160,17 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inactive_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 usage: Optional[pulumi.Input['CertificateUsage']] = None,
+                 active_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inactive_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 usage: pulumi.Input[Optional['CertificateUsage']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Certificate
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +192,6 @@ class Certificate(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Certificate
 
-
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,14 +207,14 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_chain: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inactive_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 usage: Optional[pulumi.Input['CertificateUsage']] = None,
+                 active_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_chain: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inactive_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 usage: pulumi.Input[Optional['CertificateUsage']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

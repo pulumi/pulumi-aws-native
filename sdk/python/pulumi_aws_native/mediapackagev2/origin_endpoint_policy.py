@@ -25,7 +25,7 @@ class OriginEndpointPolicyArgs:
                  channel_name: pulumi.Input[_builtins.str],
                  origin_endpoint_name: pulumi.Input[_builtins.str],
                  policy: Any,
-                 cdn_auth_configuration: Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']] = None):
+                 cdn_auth_configuration: pulumi.Input[Optional['OriginEndpointPolicyCdnAuthConfigurationArgs']] = None):
         """
         The set of arguments for constructing a OriginEndpointPolicy resource.
 
@@ -96,14 +96,14 @@ class OriginEndpointPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="cdnAuthConfiguration")
-    def cdn_auth_configuration(self) -> Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']]:
+    def cdn_auth_configuration(self) -> pulumi.Input[Optional['OriginEndpointPolicyCdnAuthConfigurationArgs']]:
         """
         The settings to enable CDN authorization headers in MediaPackage.
         """
         return pulumi.get(self, "cdn_auth_configuration")
 
     @cdn_auth_configuration.setter
-    def cdn_auth_configuration(self, value: Optional[pulumi.Input['OriginEndpointPolicyCdnAuthConfigurationArgs']]):
+    def cdn_auth_configuration(self, value: pulumi.Input[Optional['OriginEndpointPolicyCdnAuthConfigurationArgs']]):
         pulumi.set(self, "cdn_auth_configuration", value)
 
 
@@ -113,15 +113,14 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_auth_configuration: Optional[pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         """
         <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class OriginEndpointPolicy(pulumi.CustomResource):
         """
         <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
 
-
         :param str resource_name: The name of the resource.
         :param OriginEndpointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,10 +156,10 @@ class OriginEndpointPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cdn_auth_configuration: Optional[pulumi.Input[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
-                 channel_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 origin_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cdn_auth_configuration: pulumi.Input[Optional[Union['OriginEndpointPolicyCdnAuthConfigurationArgs', 'OriginEndpointPolicyCdnAuthConfigurationArgsDict']]] = None,
+                 channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

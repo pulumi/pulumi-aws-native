@@ -134,7 +134,6 @@ def get_spending_limit(spending_limit_arn: Optional[_builtins.str] = None,
     """
     Creates a spending limit for a specified quantum device. Spending limits help you control costs by setting maximum amounts that can be spent on quantum computing tasks within a specified time period.
 
-
     :param _builtins.str spending_limit_arn: The Amazon Resource Name (ARN) that uniquely identifies the spending limit.
     """
     __args__ = dict()
@@ -151,11 +150,10 @@ def get_spending_limit(spending_limit_arn: Optional[_builtins.str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         total_spend=pulumi.get(__ret__, 'total_spend'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_spending_limit_output(spending_limit_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_spending_limit_output(spending_limit_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpendingLimitResult]:
     """
     Creates a spending limit for a specified quantum device. Spending limits help you control costs by setting maximum amounts that can be spent on quantum computing tasks within a specified time period.
-
 
     :param _builtins.str spending_limit_arn: The Amazon Resource Name (ARN) that uniquely identifies the spending limit.
     """

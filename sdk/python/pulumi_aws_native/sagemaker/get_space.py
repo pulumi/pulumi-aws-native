@@ -95,7 +95,6 @@ def get_space(domain_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::Space
 
-
     :param _builtins.str domain_id: The ID of the associated Domain.
     :param _builtins.str space_name: A name for the Space.
     """
@@ -110,12 +109,11 @@ def get_space(domain_id: Optional[_builtins.str] = None,
         space_display_name=pulumi.get(__ret__, 'space_display_name'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_space_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     space_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_space_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     space_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpaceResult]:
     """
     Resource Type definition for AWS::SageMaker::Space
-
 
     :param _builtins.str domain_id: The ID of the associated Domain.
     :param _builtins.str space_name: A name for the Space.

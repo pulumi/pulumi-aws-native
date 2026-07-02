@@ -100,7 +100,6 @@ def get_phone_number(phone_number_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::PhoneNumber
 
-
     :param _builtins.str phone_number_arn: The phone number ARN
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_phone_number(phone_number_arn: Optional[_builtins.str] = None,
         phone_number_arn=pulumi.get(__ret__, 'phone_number_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
-def get_phone_number_output(phone_number_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_phone_number_output(phone_number_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPhoneNumberResult]:
     """
     Resource Type definition for AWS::Connect::PhoneNumber
-
 
     :param _builtins.str phone_number_arn: The phone number ARN
     """

@@ -51,7 +51,6 @@ def get_layer_version(layer_version_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lambda::LayerVersion
 
-
     :param _builtins.str layer_version_arn: The ARN of the layer version.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_layer_version(layer_version_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetLayerVersionResult(
         layer_version_arn=pulumi.get(__ret__, 'layer_version_arn'))
-def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_layer_version_output(layer_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
-
 
     :param _builtins.str layer_version_arn: The ARN of the layer version.
     """

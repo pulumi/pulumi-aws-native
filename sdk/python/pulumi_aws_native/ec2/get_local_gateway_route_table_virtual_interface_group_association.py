@@ -112,7 +112,6 @@ def get_local_gateway_route_table_virtual_interface_group_association(local_gate
     """
     Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
 
-
     :param _builtins.str local_gateway_route_table_virtual_interface_group_association_id: The ID of the local gateway route table virtual interface group association.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_local_gateway_route_table_virtual_interface_group_association(local_gate
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_route_table_virtual_interface_group_association_output(local_gateway_route_table_virtual_interface_group_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_route_table_virtual_interface_group_association_output(local_gateway_route_table_virtual_interface_group_association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult]:
     """
     Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
-
 
     :param _builtins.str local_gateway_route_table_virtual_interface_group_association_id: The ID of the local gateway route table virtual interface group association.
     """

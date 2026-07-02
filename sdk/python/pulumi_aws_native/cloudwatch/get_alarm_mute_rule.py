@@ -102,7 +102,7 @@ class GetAlarmMuteRuleResult:
     @pulumi.getter(name="muteType")
     def mute_type(self) -> Optional[_builtins.str]:
         """
-        The mute type of the alarm mute 
+        The mute type of the alarm mute
         """
         return pulumi.get(self, "mute_type")
 
@@ -162,7 +162,6 @@ def get_alarm_mute_rule(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
 
-
     :param _builtins.str arn: Amazon Resource Name (ARN) of the AlarmMuteRule
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_alarm_mute_rule(arn: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_alarm_mute_rule_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_mute_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmMuteRuleResult]:
     """
     Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
-
 
     :param _builtins.str arn: Amazon Resource Name (ARN) of the AlarmMuteRule
     """

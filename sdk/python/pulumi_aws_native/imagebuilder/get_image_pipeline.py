@@ -233,7 +233,6 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::ImageBuilder::ImagePipeline
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the image pipeline.
     """
     __args__ = dict()
@@ -258,11 +257,10 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workflows=pulumi.get(__ret__, 'workflows'))
-def get_image_pipeline_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_image_pipeline_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
     Resource schema for AWS::ImageBuilder::ImagePipeline
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the image pipeline.
     """

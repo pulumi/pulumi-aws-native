@@ -25,15 +25,15 @@ __all__ = ['DocumentArgs', 'Document']
 class DocumentArgs:
     def __init__(__self__, *,
                  content: Any,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
-                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
+                 document_format: pulumi.Input[Optional['DocumentFormat']] = None,
+                 document_type: pulumi.Input[Optional['DocumentType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentRequiresArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_method: pulumi.Input[Optional['DocumentUpdateMethod']] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Document resource.
 
@@ -86,110 +86,110 @@ class DocumentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
+    def attachments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]:
         """
         A list of key and value pairs that describe attachments to a version of a document.
         """
         return pulumi.get(self, "attachments")
 
     @attachments.setter
-    def attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
+    def attachments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]]):
         pulumi.set(self, "attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="documentFormat")
-    def document_format(self) -> Optional[pulumi.Input['DocumentFormat']]:
+    def document_format(self) -> pulumi.Input[Optional['DocumentFormat']]:
         """
         Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         """
         return pulumi.get(self, "document_format")
 
     @document_format.setter
-    def document_format(self, value: Optional[pulumi.Input['DocumentFormat']]):
+    def document_format(self, value: pulumi.Input[Optional['DocumentFormat']]):
         pulumi.set(self, "document_format", value)
 
     @_builtins.property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> Optional[pulumi.Input['DocumentType']]:
+    def document_type(self) -> pulumi.Input[Optional['DocumentType']]:
         """
         The type of document to create.
         """
         return pulumi.get(self, "document_type")
 
     @document_type.setter
-    def document_type(self, value: Optional[pulumi.Input['DocumentType']]):
+    def document_type(self, value: pulumi.Input[Optional['DocumentType']]):
         pulumi.set(self, "document_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the Systems Manager document.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]]:
+    def requires(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DocumentRequiresArgs']]]]:
         """
         A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         """
         return pulumi.get(self, "requires")
 
     @requires.setter
-    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentRequiresArgs']]]]):
+    def requires(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DocumentRequiresArgs']]]]):
         pulumi.set(self, "requires", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify a target type to define the kinds of resources the document can run on.
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter(name="updateMethod")
-    def update_method(self) -> Optional[pulumi.Input['DocumentUpdateMethod']]:
+    def update_method(self) -> pulumi.Input[Optional['DocumentUpdateMethod']]:
         """
         Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         """
         return pulumi.get(self, "update_method")
 
     @update_method.setter
-    def update_method(self, value: Optional[pulumi.Input['DocumentUpdateMethod']]):
+    def update_method(self, value: pulumi.Input[Optional['DocumentUpdateMethod']]):
         pulumi.set(self, "update_method", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
 
@@ -199,16 +199,16 @@ class Document(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[Any] = None,
-                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 document_format: pulumi.Input[Optional['DocumentFormat']] = None,
+                 document_type: pulumi.Input[Optional['DocumentType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_method: pulumi.Input[Optional['DocumentUpdateMethod']] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
@@ -544,16 +544,16 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[Any] = None,
-                 document_format: Optional[pulumi.Input['DocumentFormat']] = None,
-                 document_type: Optional[pulumi.Input['DocumentType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 document_format: pulumi.Input[Optional['DocumentFormat']] = None,
+                 document_type: pulumi.Input[Optional['DocumentType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_method: pulumi.Input[Optional['DocumentUpdateMethod']] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

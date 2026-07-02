@@ -131,7 +131,7 @@ class GetManagedPolicyResult:
         The JSON policy document that you want to use as the content for the new policy.
          You must provide policies in JSON format in IAM. However, for CFN templates formatted in YAML, you can provide the policy in JSON or YAML format. CFN always converts a YAML policy to JSON format before submitting it to IAM.
          The maximum length of the policy document that you can pass in this operation, including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see [IAM and character quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length).
-         To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*. 
+         To learn more about JSON policy grammar, see [Grammar of the IAM JSON policy language](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_grammar.html) in the *IAM User Guide*.
          The [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) used to validate this parameter is a string of characters consisting of the following:
           +  Any printable ASCII character ranging from the space character (``\\u0020``) through the end of the ASCII character range
           +  The printable characters in the Basic Latin and Latin-1 Supplement character set (through ``\\u00FF``)
@@ -209,7 +209,6 @@ def get_managed_policy(policy_arn: Optional[_builtins.str] = None,
      As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
      For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
 
-
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the managed policy that you want information about.
            
            For more information about ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *AWS General Reference* .
@@ -232,14 +231,13 @@ def get_managed_policy(policy_arn: Optional[_builtins.str] = None,
         roles=pulumi.get(__ret__, 'roles'),
         update_date=pulumi.get(__ret__, 'update_date'),
         users=pulumi.get(__ret__, 'users'))
-def get_managed_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPolicyResult]:
     """
     Creates a new managed policy for your AWS-account.
      This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
      As a best practice, you can validate your IAM policies. To learn more, see [Validating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) in the *IAM User Guide*.
      For more information about managed policies in general, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
-
 
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the managed policy that you want information about.
            

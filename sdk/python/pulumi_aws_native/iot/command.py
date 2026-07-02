@@ -25,19 +25,19 @@ __all__ = ['CommandArgs', 'Command']
 class CommandArgs:
     def __init__(__self__, *,
                  command_id: pulumi.Input[_builtins.str],
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterArgs']]]] = None,
-                 namespace: Optional[pulumi.Input['CommandNamespace']] = None,
-                 payload: Optional[pulumi.Input['CommandPayloadArgs']] = None,
-                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preprocessor: Optional[pulumi.Input['CommandPreprocessorArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterArgs']]]] = None,
+                 namespace: pulumi.Input[Optional['CommandNamespace']] = None,
+                 payload: pulumi.Input[Optional['CommandPayloadArgs']] = None,
+                 payload_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 pending_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preprocessor: pulumi.Input[Optional['CommandPreprocessorArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Command resource.
 
@@ -98,158 +98,158 @@ class CommandArgs:
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the command was created.
         """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def deprecated(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deprecated(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether the command is deprecated.
         """
         return pulumi.get(self, "deprecated")
 
     @deprecated.setter
-    def deprecated(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deprecated(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deprecated", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the command.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the command.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
-    def last_updated_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the command was last updated.
         """
         return pulumi.get(self, "last_updated_at")
 
     @last_updated_at.setter
-    def last_updated_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_at", value)
 
     @_builtins.property
     @pulumi.getter(name="mandatoryParameters")
-    def mandatory_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterArgs']]]]:
+    def mandatory_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterArgs']]]]:
         """
         The list of mandatory parameters for the command.
         """
         return pulumi.get(self, "mandatory_parameters")
 
     @mandatory_parameters.setter
-    def mandatory_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommandParameterArgs']]]]):
+    def mandatory_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CommandParameterArgs']]]]):
         pulumi.set(self, "mandatory_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input['CommandNamespace']]:
+    def namespace(self) -> pulumi.Input[Optional['CommandNamespace']]:
         """
         The namespace to which the command belongs.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input['CommandNamespace']]):
+    def namespace(self, value: pulumi.Input[Optional['CommandNamespace']]):
         pulumi.set(self, "namespace", value)
 
     @_builtins.property
     @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input['CommandPayloadArgs']]:
+    def payload(self) -> pulumi.Input[Optional['CommandPayloadArgs']]:
         """
         The payload associated with the command.
         """
         return pulumi.get(self, "payload")
 
     @payload.setter
-    def payload(self, value: Optional[pulumi.Input['CommandPayloadArgs']]):
+    def payload(self, value: pulumi.Input[Optional['CommandPayloadArgs']]):
         pulumi.set(self, "payload", value)
 
     @_builtins.property
     @pulumi.getter(name="payloadTemplate")
-    def payload_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def payload_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The payload template associated with the command.
         """
         return pulumi.get(self, "payload_template")
 
     @payload_template.setter
-    def payload_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def payload_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "payload_template", value)
 
     @_builtins.property
     @pulumi.getter(name="pendingDeletion")
-    def pending_deletion(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pending_deletion(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether the command is pending deletion.
         """
         return pulumi.get(self, "pending_deletion")
 
     @pending_deletion.setter
-    def pending_deletion(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pending_deletion(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pending_deletion", value)
 
     @_builtins.property
     @pulumi.getter
-    def preprocessor(self) -> Optional[pulumi.Input['CommandPreprocessorArgs']]:
+    def preprocessor(self) -> pulumi.Input[Optional['CommandPreprocessorArgs']]:
         """
         The command preprocessor configuration.
         """
         return pulumi.get(self, "preprocessor")
 
     @preprocessor.setter
-    def preprocessor(self, value: Optional[pulumi.Input['CommandPreprocessorArgs']]):
+    def preprocessor(self, value: pulumi.Input[Optional['CommandPreprocessorArgs']]):
         pulumi.set(self, "preprocessor", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer role associated with the command.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to be associated with the command.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -259,24 +259,23 @@ class Command(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
-                 namespace: Optional[pulumi.Input['CommandNamespace']] = None,
-                 payload: Optional[pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
-                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preprocessor: Optional[pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 command_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
+                 namespace: pulumi.Input[Optional['CommandNamespace']] = None,
+                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 pending_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents the resource definition of AWS IoT Command.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,7 +303,6 @@ class Command(pulumi.CustomResource):
         """
         Represents the resource definition of AWS IoT Command.
 
-
         :param str resource_name: The name of the resource.
         :param CommandArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -320,20 +318,20 @@ class Command(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 deprecated: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_updated_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 mandatory_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
-                 namespace: Optional[pulumi.Input['CommandNamespace']] = None,
-                 payload: Optional[pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
-                 payload_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 pending_deletion: Optional[pulumi.Input[_builtins.bool]] = None,
-                 preprocessor: Optional[pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 command_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 deprecated: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
+                 namespace: pulumi.Input[Optional['CommandNamespace']] = None,
+                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 pending_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

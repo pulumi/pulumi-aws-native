@@ -25,9 +25,9 @@ class FirewallRuleGroupAssociationArgs:
                  firewall_rule_group_id: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
                  vpc_id: pulumi.Input[_builtins.str],
-                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 mutation_protection: pulumi.Input[Optional['FirewallRuleGroupAssociationMutationProtection']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallRuleGroupAssociation resource.
 
@@ -86,38 +86,38 @@ class FirewallRuleGroupAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mutationProtection")
-    def mutation_protection(self) -> Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']]:
+    def mutation_protection(self) -> pulumi.Input[Optional['FirewallRuleGroupAssociationMutationProtection']]:
         """
         MutationProtectionStatus
         """
         return pulumi.get(self, "mutation_protection")
 
     @mutation_protection.setter
-    def mutation_protection(self, value: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']]):
+    def mutation_protection(self, value: pulumi.Input[Optional['FirewallRuleGroupAssociationMutationProtection']]):
         pulumi.set(self, "mutation_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         FirewallRuleGroupAssociationName
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,16 +127,15 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutation_protection: pulumi.Input[Optional['FirewallRuleGroupAssociationMutationProtection']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +155,6 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         """
         Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 
-
         :param str resource_name: The name of the resource.
         :param FirewallRuleGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,12 +170,12 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 firewall_rule_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 mutation_protection: pulumi.Input[Optional['FirewallRuleGroupAssociationMutationProtection']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

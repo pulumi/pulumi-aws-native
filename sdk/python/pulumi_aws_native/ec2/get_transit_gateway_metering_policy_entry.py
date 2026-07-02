@@ -64,7 +64,6 @@ def get_transit_gateway_metering_policy_entry(policy_rule_number: Optional[_buil
     """
     AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition
 
-
     :param _builtins.int policy_rule_number: The rule number of the metering policy entry
     :param _builtins.str transit_gateway_metering_policy_id: The ID of the transit gateway metering policy for which the entry is being created
     """
@@ -77,12 +76,11 @@ def get_transit_gateway_metering_policy_entry(policy_rule_number: Optional[_buil
     return AwaitableGetTransitGatewayMeteringPolicyEntryResult(
         state=pulumi.get(__ret__, 'state'),
         update_effective_at=pulumi.get(__ret__, 'update_effective_at'))
-def get_transit_gateway_metering_policy_entry_output(policy_rule_number: Optional[pulumi.Input[_builtins.int]] = None,
-                                                     transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_metering_policy_entry_output(policy_rule_number: pulumi.Input[Optional[_builtins.int]] = None,
+                                                     transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMeteringPolicyEntryResult]:
     """
     AWS::EC2::TransitGatewayMeteringPolicyEntry Resource Definition
-
 
     :param _builtins.int policy_rule_number: The rule number of the metering policy entry
     :param _builtins.str transit_gateway_metering_policy_id: The ID of the transit gateway metering policy for which the entry is being created

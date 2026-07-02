@@ -1258,7 +1258,7 @@ class ApplicationWindowsEvent(dict):
         """
         A Windows Event to be monitored for the component.
 
-        :param Sequence['ApplicationEventLevel'] event_levels: The levels of event to log. 
+        :param Sequence['ApplicationEventLevel'] event_levels: The levels of event to log.
         :param _builtins.str event_name: The type of Windows Events to log.
         :param _builtins.str log_group_name: The CloudWatch log group name to be associated to the monitored log.
         :param _builtins.str pattern_set: The name of the log pattern set.
@@ -1273,7 +1273,7 @@ class ApplicationWindowsEvent(dict):
     @pulumi.getter(name="eventLevels")
     def event_levels(self) -> Sequence['ApplicationEventLevel']:
         """
-        The levels of event to log. 
+        The levels of event to log.
         """
         return pulumi.get(self, "event_levels")
 

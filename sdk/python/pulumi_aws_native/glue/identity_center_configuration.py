@@ -20,8 +20,8 @@ __all__ = ['IdentityCenterConfigurationArgs', 'IdentityCenterConfiguration']
 class IdentityCenterConfigurationArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_background_sessions_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_background_sessions_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a IdentityCenterConfiguration resource.
 
@@ -49,26 +49,26 @@ class IdentityCenterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The downstream scopes that Glue identity center configuration can access
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="userBackgroundSessionsEnabled")
-    def user_background_sessions_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_background_sessions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable or disable user background sessions for Glue Identity Center
         """
         return pulumi.get(self, "user_background_sessions_enabled")
 
     @user_background_sessions_enabled.setter
-    def user_background_sessions_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_background_sessions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_background_sessions_enabled", value)
 
 
@@ -78,13 +78,12 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_background_sessions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_background_sessions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::IdentityCenterConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,7 +100,6 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::IdentityCenterConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param IdentityCenterConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,9 +115,9 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 user_background_sessions_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 user_background_sessions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

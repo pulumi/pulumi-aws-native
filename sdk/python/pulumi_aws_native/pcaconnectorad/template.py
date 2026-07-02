@@ -24,9 +24,9 @@ class TemplateArgs:
     def __init__(__self__, *,
                  connector_arn: pulumi.Input[_builtins.str],
                  definition: pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reenroll_all_certificate_holders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reenroll_all_certificate_holders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
 
@@ -71,38 +71,38 @@ class TemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the templates. Template names must be unique.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reenrollAllCertificateHolders")
-    def reenroll_all_certificate_holders(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reenroll_all_certificate_holders(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
         """
         return pulumi.get(self, "reenroll_all_certificate_holders")
 
     @reenroll_all_certificate_holders.setter
-    def reenroll_all_certificate_holders(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reenroll_all_certificate_holders(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reenroll_all_certificate_holders", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata assigned to a template consisting of a key-value pair.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,15 +112,14 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reenroll_all_certificate_holders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reenroll_all_certificate_holders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a template that defines certificate configurations, both for issuance and client handling
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,7 +138,6 @@ class Template(pulumi.CustomResource):
         """
         Represents a template that defines certificate configurations, both for issuance and client handling
 
-
         :param str resource_name: The name of the resource.
         :param TemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,11 +153,11 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reenroll_all_certificate_holders: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition0PropertiesArgsDict'], Union['TemplateDefinition1PropertiesArgs', 'TemplateDefinition1PropertiesArgsDict'], Union['TemplateDefinition2PropertiesArgs', 'TemplateDefinition2PropertiesArgsDict']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reenroll_all_certificate_holders: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -28,7 +28,7 @@ class StreamEncryptionArgsDict(TypedDict):
     """
     encryption_type: pulumi.Input['StreamEncryptionEncryptionType']
     """
-    The encryption type to use. The only valid value is KMS. 
+    The encryption type to use. The only valid value is KMS.
     """
     key_id: pulumi.Input[_builtins.str]
     """
@@ -43,7 +43,7 @@ class StreamEncryptionArgs:
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 
-        :param pulumi.Input['StreamEncryptionEncryptionType'] encryption_type: The encryption type to use. The only valid value is KMS. 
+        :param pulumi.Input['StreamEncryptionEncryptionType'] encryption_type: The encryption type to use. The only valid value is KMS.
         :param pulumi.Input[_builtins.str] key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -53,7 +53,7 @@ class StreamEncryptionArgs:
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input['StreamEncryptionEncryptionType']:
         """
-        The encryption type to use. The only valid value is KMS. 
+        The encryption type to use. The only valid value is KMS.
         """
         return pulumi.get(self, "encryption_type")
 

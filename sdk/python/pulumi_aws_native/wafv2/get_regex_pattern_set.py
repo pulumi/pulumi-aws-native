@@ -105,7 +105,6 @@ def get_regex_pattern_set(id: Optional[_builtins.str] = None,
     """
     Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
 
-
     :param _builtins.str id: Id of the RegexPatternSet
     :param _builtins.str name: Name of the RegexPatternSet.
     :param 'RegexPatternSetScope' scope: Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
@@ -123,13 +122,12 @@ def get_regex_pattern_set(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         regular_expression_list=pulumi.get(__ret__, 'regular_expression_list'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_regex_pattern_set_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
+def get_regex_pattern_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 scope: pulumi.Input[Optional['RegexPatternSetScope']] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegexPatternSetResult]:
     """
     Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
-
 
     :param _builtins.str id: Id of the RegexPatternSet
     :param _builtins.str name: Name of the RegexPatternSet.

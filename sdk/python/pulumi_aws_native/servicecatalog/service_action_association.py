@@ -76,13 +76,12 @@ class ServiceActionAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_action_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_action_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +98,6 @@ class ServiceActionAssociation(pulumi.CustomResource):
         """
         Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
 
-
         :param str resource_name: The name of the resource.
         :param ServiceActionAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +113,9 @@ class ServiceActionAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 provisioning_artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_action_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 provisioning_artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_action_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

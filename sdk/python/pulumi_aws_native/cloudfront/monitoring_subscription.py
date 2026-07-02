@@ -64,12 +64,11 @@ class MonitoringSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
+                 distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
                  __props__=None):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +83,6 @@ class MonitoringSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-
 
         :param str resource_name: The name of the resource.
         :param MonitoringSubscriptionInitArgs args: The arguments to use to populate this resource's properties.
@@ -101,8 +99,8 @@ class MonitoringSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distribution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
+                 distribution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitoring_subscription: pulumi.Input[Optional[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

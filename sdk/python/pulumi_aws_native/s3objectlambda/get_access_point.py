@@ -106,7 +106,6 @@ def get_access_point(name: Optional[_builtins.str] = None,
     """
     The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 
-
     :param _builtins.str name: The name you want to assign to this Object lambda Access Point.
     """
     __args__ = dict()
@@ -121,11 +120,10 @@ def get_access_point(name: Optional[_builtins.str] = None,
         object_lambda_configuration=pulumi.get(__ret__, 'object_lambda_configuration'),
         policy_status=pulumi.get(__ret__, 'policy_status'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'))
-def get_access_point_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
-
 
     :param _builtins.str name: The name you want to assign to this Object lambda Access Point.
     """

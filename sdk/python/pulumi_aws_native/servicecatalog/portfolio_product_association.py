@@ -19,10 +19,10 @@ __all__ = ['PortfolioProductAssociationArgs', 'PortfolioProductAssociation']
 @pulumi.input_type
 class PortfolioProductAssociationArgs:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PortfolioProductAssociation resource.
 
@@ -42,50 +42,50 @@ class PortfolioProductAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="portfolioId")
-    def portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The portfolio identifier.
         """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
-    def portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portfolio_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The product identifier.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourcePortfolioId")
-    def source_portfolio_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_portfolio_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the source portfolio. The source portfolio must be a portfolio imported from a different account than the one creating the association. This account must have previously shared this portfolio with the account creating the association.
         """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
-    def source_portfolio_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_portfolio_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_portfolio_id", value)
 
 
@@ -95,14 +95,13 @@ class PortfolioProductAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,7 +119,6 @@ class PortfolioProductAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation
 
-
         :param str resource_name: The name of the resource.
         :param PortfolioProductAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,10 +134,10 @@ class PortfolioProductAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_portfolio_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_portfolio_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

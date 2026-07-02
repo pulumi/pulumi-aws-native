@@ -24,10 +24,10 @@ __all__ = ['DataflowEndpointGroupV2Args', 'DataflowEndpointGroupV2']
 @pulumi.input_type
 class DataflowEndpointGroupV2Args:
     def __init__(__self__, *,
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataflowEndpointGroupV2 resource.
 
@@ -47,50 +47,50 @@ class DataflowEndpointGroupV2Args:
 
     @_builtins.property
     @pulumi.getter(name="contactPostPassDurationSeconds")
-    def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def contact_post_pass_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
     @contact_post_pass_duration_seconds.setter
-    def contact_post_pass_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def contact_post_pass_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "contact_post_pass_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="contactPrePassDurationSeconds")
-    def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def contact_pre_pass_duration_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
         """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @contact_pre_pass_duration_seconds.setter
-    def contact_pre_pass_duration_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def contact_pre_pass_duration_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "contact_pre_pass_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]]:
         """
         List of endpoints for the dataflow endpoint group.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataflowEndpointGroupV2CreateEndpointDetailsArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags assigned to a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,14 +100,13 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS Ground Station DataflowEndpointGroupV2
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
         """
         Resource Type definition for AWS Ground Station DataflowEndpointGroupV2
 
-
         :param str resource_name: The name of the resource.
         :param DataflowEndpointGroupV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_post_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 contact_pre_pass_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

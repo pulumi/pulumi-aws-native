@@ -25,9 +25,9 @@ class FormTypeArgs:
                  domain_identifier: pulumi.Input[_builtins.str],
                  model: pulumi.Input['FormTypeModelArgs'],
                  owning_project_identifier: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['FormTypeStatus']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['FormTypeStatus']] = None):
         """
         The set of arguments for constructing a FormType resource.
 
@@ -86,38 +86,38 @@ class FormTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of this Amazon DataZone metadata form type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of this Amazon DataZone metadata form type.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['FormTypeStatus']]:
+    def status(self) -> pulumi.Input[Optional['FormTypeStatus']]:
         """
         The status of this Amazon DataZone metadata form type.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['FormTypeStatus']]):
+    def status(self, value: pulumi.Input[Optional['FormTypeStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -127,16 +127,15 @@ class FormType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['FormTypeStatus']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['FormTypeStatus']] = None,
                  __props__=None):
         """
         Create and manage form types in Amazon Datazone
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +155,6 @@ class FormType(pulumi.CustomResource):
         """
         Create and manage form types in Amazon Datazone
 
-
         :param str resource_name: The name of the resource.
         :param FormTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,12 +170,12 @@ class FormType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owning_project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['FormTypeStatus']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 model: pulumi.Input[Optional[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owning_project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['FormTypeStatus']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

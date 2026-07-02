@@ -29,11 +29,11 @@ class ScheduledQueryArgs:
                  query_string: pulumi.Input[_builtins.str],
                  schedule_configuration: pulumi.Input['ScheduledQueryScheduleConfigurationArgs'],
                  scheduled_query_execution_role_arn: pulumi.Input[_builtins.str],
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']] = None):
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_configuration: pulumi.Input[Optional['ScheduledQueryTargetConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
 
@@ -135,7 +135,7 @@ class ScheduledQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
 
@@ -145,12 +145,12 @@ class ScheduledQueryArgs:
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
 
@@ -159,43 +159,43 @@ class ScheduledQueryArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledQueryName")
-    def scheduled_query_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduled_query_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the query. Scheduled query names must be unique within each Region.
         """
         return pulumi.get(self, "scheduled_query_name")
 
     @scheduled_query_name.setter
-    def scheduled_query_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduled_query_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduled_query_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs to label the scheduled query.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']]:
+    def target_configuration(self) -> pulumi.Input[Optional['ScheduledQueryTargetConfigurationArgs']]:
         """
         Scheduled query target store configuration.
         """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
-    def target_configuration(self, value: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']]):
+    def target_configuration(self, value: pulumi.Input[Optional['ScheduledQueryTargetConfigurationArgs']]):
         pulumi.set(self, "target_configuration", value)
 
 
@@ -205,20 +205,19 @@ class ScheduledQuery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_report_configuration: Optional[pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_configuration: Optional[pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
-                 scheduled_query_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
+                 scheduled_query_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +248,6 @@ class ScheduledQuery(pulumi.CustomResource):
         """
         The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduledQueryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,16 +263,16 @@ class ScheduledQuery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_report_configuration: Optional[pulumi.Input[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_configuration: Optional[pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_configuration: Optional[pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
-                 scheduled_query_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_query_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_report_configuration: pulumi.Input[Optional[Union['ScheduledQueryErrorReportConfigurationArgs', 'ScheduledQueryErrorReportConfigurationArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_configuration: pulumi.Input[Optional[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_configuration: pulumi.Input[Optional[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
+                 scheduled_query_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_query_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -89,7 +89,6 @@ def get_replication_set(arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::SSMIncidents::ReplicationSet
 
-
     :param _builtins.str arn: The ARN of the ReplicationSet.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_replication_set(arn: Optional[_builtins.str] = None,
         deletion_protected=pulumi.get(__ret__, 'deletion_protected'),
         regions=pulumi.get(__ret__, 'regions'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_replication_set_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_replication_set_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
     Resource type definition for AWS::SSMIncidents::ReplicationSet
-
 
     :param _builtins.str arn: The ARN of the ReplicationSet.
     """

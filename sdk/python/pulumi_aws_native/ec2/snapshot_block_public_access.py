@@ -47,11 +47,10 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 state: Optional[pulumi.Input['SnapshotBlockPublicAccessState']] = None,
+                 state: pulumi.Input[Optional['SnapshotBlockPublicAccessState']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -65,7 +64,6 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
-
 
         :param str resource_name: The name of the resource.
         :param SnapshotBlockPublicAccessArgs args: The arguments to use to populate this resource's properties.
@@ -82,7 +80,7 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 state: Optional[pulumi.Input['SnapshotBlockPublicAccessState']] = None,
+                 state: pulumi.Input[Optional['SnapshotBlockPublicAccessState']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

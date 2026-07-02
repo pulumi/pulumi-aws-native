@@ -96,7 +96,7 @@ def get_dictionary(id: Optional[_builtins.str] = None,
         language=pulumi.get(__ret__, 'language'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dictionary_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dictionary_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDictionaryResult]:
     """
     Represents a custom dictionary for improving transcription accuracy

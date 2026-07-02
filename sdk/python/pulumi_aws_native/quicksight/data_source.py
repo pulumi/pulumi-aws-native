@@ -25,18 +25,18 @@ __all__ = ['DataSourceArgs', 'DataSource']
 class DataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataSourceType'],
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['DataSourceCredentialsArgs']] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
-                 error_info: Optional[pulumi.Input['DataSourceErrorInfoArgs']] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
-                 ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
+                 alternate_data_source_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceParametersArgs']]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['DataSourceCredentialsArgs']] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_parameters: pulumi.Input[Optional['DataSourceParametersArgs']] = None,
+                 error_info: pulumi.Input[Optional['DataSourceErrorInfoArgs']] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
+                 ssl_properties: pulumi.Input[Optional['DataSourceSslPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_connection_properties: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
@@ -105,7 +105,7 @@ class DataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="alternateDataSourceParameters")
-    def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]:
+    def alternate_data_source_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceParametersArgs']]]]:
         """
         <p>A set of alternate data source parameters that you want to share for the credentials
                     stored with this data source. The credentials are applied in tandem with the data source
@@ -120,136 +120,136 @@ class DataSourceArgs:
         return pulumi.get(self, "alternate_data_source_parameters")
 
     @alternate_data_source_parameters.setter
-    def alternate_data_source_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceParametersArgs']]]]):
+    def alternate_data_source_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceParametersArgs']]]]):
         pulumi.set(self, "alternate_data_source_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['DataSourceCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['DataSourceCredentialsArgs']]:
         """
         The credentials Amazon Quick Sight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['DataSourceCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['DataSourceCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceId")
-    def data_source_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_source_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ID for the data source. This ID is unique per AWS Region for each AWS account.
         """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
-    def data_source_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_source_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_source_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceParameters")
-    def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceParametersArgs']]:
+    def data_source_parameters(self) -> pulumi.Input[Optional['DataSourceParametersArgs']]:
         """
         The parameters that Amazon Quick Sight uses to connect to your underlying source.
         """
         return pulumi.get(self, "data_source_parameters")
 
     @data_source_parameters.setter
-    def data_source_parameters(self, value: Optional[pulumi.Input['DataSourceParametersArgs']]):
+    def data_source_parameters(self, value: pulumi.Input[Optional['DataSourceParametersArgs']]):
         pulumi.set(self, "data_source_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="errorInfo")
-    def error_info(self) -> Optional[pulumi.Input['DataSourceErrorInfoArgs']]:
+    def error_info(self) -> pulumi.Input[Optional['DataSourceErrorInfoArgs']]:
         """
         Error information from the last update or the creation of the data source.
         """
         return pulumi.get(self, "error_info")
 
     @error_info.setter
-    def error_info(self, value: Optional[pulumi.Input['DataSourceErrorInfoArgs']]):
+    def error_info(self, value: pulumi.Input[Optional['DataSourceErrorInfoArgs']]):
         pulumi.set(self, "error_info", value)
 
     @_builtins.property
     @pulumi.getter(name="folderArns")
-    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def folder_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "folder_arns")
 
     @folder_arns.setter
-    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def folder_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "folder_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A display name for the data source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]:
         """
         A list of resource permissions on the data source.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter(name="sslProperties")
-    def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
+    def ssl_properties(self) -> pulumi.Input[Optional['DataSourceSslPropertiesArgs']]:
         """
         Secure Socket Layer (SSL) properties that apply when Amazon Quick Sight connects to your underlying source.
         """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
-    def ssl_properties(self, value: Optional[pulumi.Input['DataSourceSslPropertiesArgs']]):
+    def ssl_properties(self, value: pulumi.Input[Optional['DataSourceSslPropertiesArgs']]):
         pulumi.set(self, "ssl_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionProperties")
-    def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
+    def vpc_connection_properties(self) -> pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]:
         """
         Use this parameter only when you want Amazon Quick Sight to use a VPC connection when connecting to your underlying source.
         """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
-    def vpc_connection_properties(self, value: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]):
+    def vpc_connection_properties(self, value: pulumi.Input[Optional['DataSourceVpcConnectionPropertiesArgs']]):
         pulumi.set(self, "vpc_connection_properties", value)
 
 
@@ -259,23 +259,22 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]]]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
-                 error_info: Optional[pulumi.Input[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
-                 ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['DataSourceType']] = None,
-                 vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
+                 alternate_data_source_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
+                 error_info: pulumi.Input[Optional[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
+                 ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['DataSourceType']] = None,
+                 vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::DataSource Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,7 +310,6 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::DataSource Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,19 +325,19 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]]]] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
-                 data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
-                 error_info: Optional[pulumi.Input[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
-                 ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['DataSourceType']] = None,
-                 vpc_connection_properties: Optional[pulumi.Input[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
+                 alternate_data_source_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]]]] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']]] = None,
+                 data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_parameters: pulumi.Input[Optional[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
+                 error_info: pulumi.Input[Optional[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
+                 ssl_properties: pulumi.Input[Optional[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['DataSourceType']] = None,
+                 vpc_connection_properties: pulumi.Input[Optional[Union['DataSourceVpcConnectionPropertiesArgs', 'DataSourceVpcConnectionPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

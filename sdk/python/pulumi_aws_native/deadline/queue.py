@@ -26,15 +26,15 @@ class QueueArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  farm_id: pulumi.Input[_builtins.str],
-                 allowed_storage_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_budget_action: Optional[pulumi.Input['QueueDefaultQueueBudgetAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_attachment_settings: Optional[pulumi.Input['QueueJobAttachmentSettingsArgs']] = None,
-                 job_run_as_user: Optional[pulumi.Input['QueueJobRunAsUserArgs']] = None,
-                 required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_configuration: Optional[pulumi.Input['QueueSchedulingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 allowed_storage_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_budget_action: pulumi.Input[Optional['QueueDefaultQueueBudgetAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_attachment_settings: pulumi.Input[Optional['QueueJobAttachmentSettingsArgs']] = None,
+                 job_run_as_user: pulumi.Input[Optional['QueueJobRunAsUserArgs']] = None,
+                 required_file_system_location_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_configuration: pulumi.Input[Optional['QueueSchedulingConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
@@ -102,31 +102,31 @@ class QueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedStorageProfileIds")
-    def allowed_storage_profile_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_storage_profile_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
         """
         return pulumi.get(self, "allowed_storage_profile_ids")
 
     @allowed_storage_profile_ids.setter
-    def allowed_storage_profile_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_storage_profile_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_storage_profile_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultBudgetAction")
-    def default_budget_action(self) -> Optional[pulumi.Input['QueueDefaultQueueBudgetAction']]:
+    def default_budget_action(self) -> pulumi.Input[Optional['QueueDefaultQueueBudgetAction']]:
         """
         The default action taken on a queue summary if a budget wasn't configured.
         """
         return pulumi.get(self, "default_budget_action")
 
     @default_budget_action.setter
-    def default_budget_action(self, value: Optional[pulumi.Input['QueueDefaultQueueBudgetAction']]):
+    def default_budget_action(self, value: pulumi.Input[Optional['QueueDefaultQueueBudgetAction']]):
         pulumi.set(self, "default_budget_action", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the queue that helps identify what the queue is used for.
 
@@ -135,76 +135,76 @@ class QueueArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="jobAttachmentSettings")
-    def job_attachment_settings(self) -> Optional[pulumi.Input['QueueJobAttachmentSettingsArgs']]:
+    def job_attachment_settings(self) -> pulumi.Input[Optional['QueueJobAttachmentSettingsArgs']]:
         """
         The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
         """
         return pulumi.get(self, "job_attachment_settings")
 
     @job_attachment_settings.setter
-    def job_attachment_settings(self, value: Optional[pulumi.Input['QueueJobAttachmentSettingsArgs']]):
+    def job_attachment_settings(self, value: pulumi.Input[Optional['QueueJobAttachmentSettingsArgs']]):
         pulumi.set(self, "job_attachment_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="jobRunAsUser")
-    def job_run_as_user(self) -> Optional[pulumi.Input['QueueJobRunAsUserArgs']]:
+    def job_run_as_user(self) -> pulumi.Input[Optional['QueueJobRunAsUserArgs']]:
         """
         Identifies the user for a job.
         """
         return pulumi.get(self, "job_run_as_user")
 
     @job_run_as_user.setter
-    def job_run_as_user(self, value: Optional[pulumi.Input['QueueJobRunAsUserArgs']]):
+    def job_run_as_user(self, value: pulumi.Input[Optional['QueueJobRunAsUserArgs']]):
         pulumi.set(self, "job_run_as_user", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredFileSystemLocationNames")
-    def required_file_system_location_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def required_file_system_location_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The file system location that the queue uses.
         """
         return pulumi.get(self, "required_file_system_location_names")
 
     @required_file_system_location_names.setter
-    def required_file_system_location_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def required_file_system_location_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "required_file_system_location_names", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingConfiguration")
-    def scheduling_configuration(self) -> Optional[pulumi.Input['QueueSchedulingConfigurationArgs']]:
+    def scheduling_configuration(self) -> pulumi.Input[Optional['QueueSchedulingConfigurationArgs']]:
         return pulumi.get(self, "scheduling_configuration")
 
     @scheduling_configuration.setter
-    def scheduling_configuration(self, value: Optional[pulumi.Input['QueueSchedulingConfigurationArgs']]):
+    def scheduling_configuration(self, value: pulumi.Input[Optional['QueueSchedulingConfigurationArgs']]):
         pulumi.set(self, "scheduling_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -214,21 +214,20 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_storage_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_budget_action: Optional[pulumi.Input['QueueDefaultQueueBudgetAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_attachment_settings: Optional[pulumi.Input[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
-                 job_run_as_user: Optional[pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
-                 required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_configuration: Optional[pulumi.Input[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_storage_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_budget_action: pulumi.Input[Optional['QueueDefaultQueueBudgetAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
+                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
+                 required_file_system_location_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::Queue
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,7 +255,6 @@ class Queue(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Deadline::Queue
 
-
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,17 +270,17 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_storage_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_budget_action: Optional[pulumi.Input['QueueDefaultQueueBudgetAction']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_attachment_settings: Optional[pulumi.Input[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
-                 job_run_as_user: Optional[pulumi.Input[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
-                 required_file_system_location_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_configuration: Optional[pulumi.Input[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_storage_profile_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_budget_action: pulumi.Input[Optional['QueueDefaultQueueBudgetAction']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_attachment_settings: pulumi.Input[Optional[Union['QueueJobAttachmentSettingsArgs', 'QueueJobAttachmentSettingsArgsDict']]] = None,
+                 job_run_as_user: pulumi.Input[Optional[Union['QueueJobRunAsUserArgs', 'QueueJobRunAsUserArgsDict']]] = None,
+                 required_file_system_location_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_configuration: pulumi.Input[Optional[Union['QueueSchedulingConfigurationArgs', 'QueueSchedulingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

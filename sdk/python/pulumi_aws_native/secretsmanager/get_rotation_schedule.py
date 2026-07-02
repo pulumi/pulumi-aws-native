@@ -100,7 +100,6 @@ def get_rotation_schedule(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecretsManager::RotationSchedule
 
-
     :param _builtins.str id: The ARN of the secret.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_rotation_schedule(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'))
-def get_rotation_schedule_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rotation_schedule_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRotationScheduleResult]:
     """
     Resource Type definition for AWS::SecretsManager::RotationSchedule
-
 
     :param _builtins.str id: The ARN of the secret.
     """

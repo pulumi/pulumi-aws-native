@@ -222,7 +222,6 @@ def get_ipam(ipam_id: Optional[_builtins.str] = None,
     """
     Resource Schema of AWS::EC2::IPAM Type
 
-
     :param _builtins.str ipam_id: Id of the IPAM.
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_ipam(ipam_id: Optional[_builtins.str] = None,
         scope_count=pulumi.get(__ret__, 'scope_count'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
-def get_ipam_output(ipam_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_output(ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamResult]:
     """
     Resource Schema of AWS::EC2::IPAM Type
-
 
     :param _builtins.str ipam_id: Id of the IPAM.
     """

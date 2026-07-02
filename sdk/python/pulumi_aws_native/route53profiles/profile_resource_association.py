@@ -21,8 +21,8 @@ class ProfileResourceAssociationArgs:
     def __init__(__self__, *,
                  profile_id: pulumi.Input[_builtins.str],
                  resource_arn: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_properties: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_properties: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProfileResourceAssociation resource.
 
@@ -64,26 +64,26 @@ class ProfileResourceAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an association between the  Profile and resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_properties(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A JSON-formatted string with key-value pairs specifying the properties of the associated resource.
         """
         return pulumi.get(self, "resource_properties")
 
     @resource_properties.setter
-    def resource_properties(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_properties(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_properties", value)
 
 
@@ -93,14 +93,13 @@ class ProfileResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_properties: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +117,6 @@ class ProfileResourceAssociation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
 
-
         :param str resource_name: The name of the resource.
         :param ProfileResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,10 +132,10 @@ class ProfileResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_properties: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

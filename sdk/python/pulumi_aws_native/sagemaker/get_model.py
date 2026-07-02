@@ -64,7 +64,6 @@ def get_model(model_arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::SageMaker::Model
 
-
     :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_model(model_arn: Optional[_builtins.str] = None,
     return AwaitableGetModelResult(
         model_arn=pulumi.get(__ret__, 'model_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_model_output(model_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_output(model_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     Resource type definition for AWS::SageMaker::Model
-
 
     :param _builtins.str model_arn: The Amazon Resource Name (ARN) of the model.
     """

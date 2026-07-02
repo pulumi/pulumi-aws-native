@@ -225,7 +225,7 @@ class ContainerRecipeComponentParameter(dict):
 @pulumi.output_type
 class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
     """
-    Amazon EBS-specific block device mapping specifications. 
+    Amazon EBS-specific block device mapping specifications.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -262,7 +262,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_size: Optional[_builtins.int] = None,
                  volume_type: Optional['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
-        Amazon EBS-specific block device mapping specifications. 
+        Amazon EBS-specific block device mapping specifications.
 
         :param _builtins.bool delete_on_termination: Use to configure delete on termination of the associated device.
         :param _builtins.bool encrypted: Use to configure device encryption.
@@ -358,7 +358,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecification(dict):
 @pulumi.output_type
 class ContainerRecipeInstanceBlockDeviceMapping(dict):
     """
-    Defines block device mappings for the instance used to configure your image. 
+    Defines block device mappings for the instance used to configure your image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -387,7 +387,7 @@ class ContainerRecipeInstanceBlockDeviceMapping(dict):
                  no_device: Optional[_builtins.str] = None,
                  virtual_name: Optional[_builtins.str] = None):
         """
-        Defines block device mappings for the instance used to configure your image. 
+        Defines block device mappings for the instance used to configure your image.
 
         :param _builtins.str device_name: The device to which these mappings apply.
         :param 'ContainerRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
@@ -2218,7 +2218,7 @@ class ImageRecipeComponentParameter(dict):
 @pulumi.output_type
 class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
     """
-    Amazon EBS-specific block device mapping specifications. 
+    Amazon EBS-specific block device mapping specifications.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2255,7 +2255,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
                  volume_size: Optional[_builtins.int] = None,
                  volume_type: Optional['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] = None):
         """
-        Amazon EBS-specific block device mapping specifications. 
+        Amazon EBS-specific block device mapping specifications.
 
         :param _builtins.bool delete_on_termination: Use to configure delete on termination of the associated device.
         :param _builtins.bool encrypted: Use to configure device encryption.
@@ -2351,7 +2351,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecification(dict):
 @pulumi.output_type
 class ImageRecipeInstanceBlockDeviceMapping(dict):
     """
-    Defines block device mappings for the instance used to configure your image. 
+    Defines block device mappings for the instance used to configure your image.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2380,7 +2380,7 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
                  no_device: Optional[_builtins.str] = None,
                  virtual_name: Optional[_builtins.str] = None):
         """
-        Defines block device mappings for the instance used to configure your image. 
+        Defines block device mappings for the instance used to configure your image.
 
         :param _builtins.str device_name: The device to which these mappings apply.
         :param 'ImageRecipeEbsInstanceBlockDeviceSpecification' ebs: Use to manage Amazon EBS-specific configuration for this mapping.
@@ -2788,7 +2788,7 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
         The instance metadata option settings for the infrastructure configuration.
 
         :param _builtins.int http_put_response_hop_limit: Limit the number of hops that an instance metadata request can traverse to reach its destination.
-        :param 'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens' http_tokens: Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        :param 'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens' http_tokens: Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
         """
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
@@ -2807,7 +2807,7 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
     @pulumi.getter(name="httpTokens")
     def http_tokens(self) -> Optional['InfrastructureConfigurationInstanceMetadataOptionsHttpTokens']:
         """
-        Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+        Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
         """
         return pulumi.get(self, "http_tokens")
 

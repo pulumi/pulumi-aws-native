@@ -53,7 +53,6 @@ def get_key_signing_key(hosted_zone_id: Optional[_builtins.str] = None,
     """
     Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 
-
     :param _builtins.str hosted_zone_id: The unique string (ID) used to identify a hosted zone.
     :param _builtins.str name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
     """
@@ -65,12 +64,11 @@ def get_key_signing_key(hosted_zone_id: Optional[_builtins.str] = None,
 
     return AwaitableGetKeySigningKeyResult(
         status=pulumi.get(__ret__, 'status'))
-def get_key_signing_key_output(hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_signing_key_output(hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeySigningKeyResult]:
     """
     Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
-
 
     :param _builtins.str hosted_zone_id: The unique string (ID) used to identify a hosted zone.
     :param _builtins.str name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.

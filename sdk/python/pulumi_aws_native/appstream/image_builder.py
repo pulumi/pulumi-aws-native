@@ -24,21 +24,21 @@ __all__ = ['ImageBuilderArgs', 'ImageBuilder']
 class ImageBuilderArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[_builtins.str],
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_volume_config: Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']] = None,
-                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_volume_config: pulumi.Input[Optional['ImageBuilderVolumeConfigArgs']] = None,
+                 softwares_to_install: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_config: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
 
@@ -206,79 +206,79 @@ class ImageBuilderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
         """
         The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="appstreamAgentVersion")
-    def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def appstream_agent_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         """
         return pulumi.get(self, "appstream_agent_version")
 
     @appstream_agent_version.setter
-    def appstream_agent_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def appstream_agent_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "appstream_agent_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description to display.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The image builder name to display.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+    def domain_join_info(self) -> pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]:
         """
         The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
         """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
-    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]):
+    def domain_join_info(self, value: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']]):
         pulumi.set(self, "domain_join_info", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDefaultInternetAccess")
-    def enable_default_internet_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_default_internet_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables or disables default internet access for the image builder.
         """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
-    def enable_default_internet_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_default_internet_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_default_internet_access", value)
 
     @_builtins.property
     @pulumi.getter(name="iamRoleArn")
-    def iam_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def iam_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role that is applied to the image builder. To assume a role, the image builder calls the Security Token Service `AssumeRole` API operation and passes the ARN of the role to use. The operation creates a new session with temporary credentials. AppStream 2.0 retrieves the temporary credentials and creates the *appstream_machine_role* credential profile on the instance.
 
@@ -287,94 +287,94 @@ class ImageBuilderArgs:
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
-    def iam_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def iam_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "iam_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageArn")
-    def image_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the public, private, or shared image to use.
         """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
-    def image_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageName")
-    def image_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the image used to create the image builder.
         """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
-    def image_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name for the image builder.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rootVolumeConfig")
-    def root_volume_config(self) -> Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']]:
+    def root_volume_config(self) -> pulumi.Input[Optional['ImageBuilderVolumeConfigArgs']]:
         return pulumi.get(self, "root_volume_config")
 
     @root_volume_config.setter
-    def root_volume_config(self, value: Optional[pulumi.Input['ImageBuilderVolumeConfigArgs']]):
+    def root_volume_config(self, value: pulumi.Input[Optional['ImageBuilderVolumeConfigArgs']]):
         pulumi.set(self, "root_volume_config", value)
 
     @_builtins.property
     @pulumi.getter(name="softwaresToInstall")
-    def softwares_to_install(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def softwares_to_install(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "softwares_to_install")
 
     @softwares_to_install.setter
-    def softwares_to_install(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def softwares_to_install(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "softwares_to_install", value)
 
     @_builtins.property
     @pulumi.getter(name="softwaresToUninstall")
-    def softwares_to_uninstall(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def softwares_to_uninstall(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "softwares_to_uninstall")
 
     @softwares_to_uninstall.setter
-    def softwares_to_uninstall(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def softwares_to_uninstall(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "softwares_to_uninstall", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]:
         """
         The VPC configuration for the image builder. You can specify only one subnet.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ImageBuilderVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -384,26 +384,25 @@ class ImageBuilder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_volume_config: Optional[pulumi.Input[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
-                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_volume_config: pulumi.Input[Optional[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
+                 softwares_to_install: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::ImageBuilder
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,7 +482,6 @@ class ImageBuilder(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::ImageBuilder
 
-
         :param str resource_name: The name of the resource.
         :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,22 +497,22 @@ class ImageBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
-                 appstream_agent_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_join_info: Optional[pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
-                 enable_default_internet_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 root_volume_config: Optional[pulumi.Input[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
-                 softwares_to_install: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 softwares_to_uninstall: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
+                 access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
+                 appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
+                 enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 root_volume_config: pulumi.Input[Optional[Union['ImageBuilderVolumeConfigArgs', 'ImageBuilderVolumeConfigArgsDict']]] = None,
+                 softwares_to_install: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 softwares_to_uninstall: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ImageBuilderVpcConfigArgs', 'ImageBuilderVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,8 +26,8 @@ class S3TableIntegrationArgs:
     def __init__(__self__, *,
                  encryption: pulumi.Input['S3TableIntegrationEncryptionConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 log_sources: Optional[pulumi.Input[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 log_sources: pulumi.Input[Optional[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a S3TableIntegration resource.
 
@@ -69,26 +69,26 @@ class S3TableIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logSources")
-    def log_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]]:
+    def log_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]]:
         """
         The CloudWatch Logs data sources to associate with the S3 Table Integration
         """
         return pulumi.get(self, "log_sources")
 
     @log_sources.setter
-    def log_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]]):
+    def log_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['S3TableIntegrationLogSourceArgs']]]]):
         pulumi.set(self, "log_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -98,14 +98,13 @@ class S3TableIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['S3TableIntegrationEncryptionConfigArgs', 'S3TableIntegrationEncryptionConfigArgsDict']]] = None,
-                 log_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['S3TableIntegrationLogSourceArgs', 'S3TableIntegrationLogSourceArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['S3TableIntegrationEncryptionConfigArgs', 'S3TableIntegrationEncryptionConfigArgsDict']]] = None,
+                 log_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['S3TableIntegrationLogSourceArgs', 'S3TableIntegrationLogSourceArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class S3TableIntegration(pulumi.CustomResource):
         """
         Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
 
-
         :param str resource_name: The name of the resource.
         :param S3TableIntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,10 +137,10 @@ class S3TableIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption: Optional[pulumi.Input[Union['S3TableIntegrationEncryptionConfigArgs', 'S3TableIntegrationEncryptionConfigArgsDict']]] = None,
-                 log_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['S3TableIntegrationLogSourceArgs', 'S3TableIntegrationLogSourceArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 encryption: pulumi.Input[Optional[Union['S3TableIntegrationEncryptionConfigArgs', 'S3TableIntegrationEncryptionConfigArgsDict']]] = None,
+                 log_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['S3TableIntegrationLogSourceArgs', 'S3TableIntegrationLogSourceArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

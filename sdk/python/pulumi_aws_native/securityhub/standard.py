@@ -22,12 +22,12 @@ __all__ = ['StandardArgs', 'Standard']
 class StandardArgs:
     def __init__(__self__, *,
                  standards_arn: pulumi.Input[_builtins.str],
-                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]] = None):
+                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input['StandardsControlArgs']]]] = None):
         """
         The set of arguments for constructing a Standard resource.
 
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
+        :param pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]] disabled_standards_controls: Specifies which controls are to be disabled in a standard.
                 *Maximum*: ``100``
         """
         pulumi.set(__self__, "standards_arn", standards_arn)
@@ -48,15 +48,15 @@ class StandardArgs:
 
     @_builtins.property
     @pulumi.getter(name="disabledStandardsControls")
-    def disabled_standards_controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]]:
+    def disabled_standards_controls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StandardsControlArgs']]]]:
         """
-        Specifies which controls are to be disabled in a standard. 
+        Specifies which controls are to be disabled in a standard.
          *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")
 
     @disabled_standards_controls.setter
-    def disabled_standards_controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]]):
+    def disabled_standards_controls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StandardsControlArgs']]]]):
         pulumi.set(self, "disabled_standards_controls", value)
 
 
@@ -66,18 +66,17 @@ class Standard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
-                 standards_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
+                 standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
          You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
          For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]] disabled_standards_controls: Specifies which controls are to be disabled in a standard.
                 *Maximum*: ``100``
         :param pulumi.Input[_builtins.str] standards_arn: The ARN of the standard that you want to enable. To view a list of available ASH standards and their ARNs, use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
         """
@@ -91,7 +90,6 @@ class Standard(pulumi.CustomResource):
         The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
          You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
          For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.
@@ -108,8 +106,8 @@ class Standard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
-                 standards_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 disabled_standards_controls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardsControlArgs', 'StandardsControlArgsDict']]]]] = None,
+                 standards_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -157,7 +155,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="disabledStandardsControls")
     def disabled_standards_controls(self) -> pulumi.Output[Optional[Sequence['outputs.StandardsControl']]]:
         """
-        Specifies which controls are to be disabled in a standard. 
+        Specifies which controls are to be disabled in a standard.
          *Maximum*: ``100``
         """
         return pulumi.get(self, "disabled_standards_controls")

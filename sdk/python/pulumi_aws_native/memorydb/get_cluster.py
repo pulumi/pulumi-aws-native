@@ -296,7 +296,6 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
     """
     The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
 
-
     :param _builtins.str cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
     """
     __args__ = dict()
@@ -326,11 +325,10 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         sns_topic_status=pulumi.get(__ret__, 'sns_topic_status'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
-
 
     :param _builtins.str cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
     """

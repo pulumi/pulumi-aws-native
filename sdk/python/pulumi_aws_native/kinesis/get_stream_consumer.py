@@ -75,7 +75,6 @@ def get_stream_consumer(consumer_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Kinesis::StreamConsumer
 
-
     :param _builtins.str consumer_arn: The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_stream_consumer(consumer_arn: Optional[_builtins.str] = None,
         consumer_arn=pulumi.get(__ret__, 'consumer_arn'),
         consumer_creation_timestamp=pulumi.get(__ret__, 'consumer_creation_timestamp'),
         consumer_status=pulumi.get(__ret__, 'consumer_status'))
-def get_stream_consumer_output(consumer_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_consumer_output(consumer_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Resource Type definition for AWS::Kinesis::StreamConsumer
-
 
     :param _builtins.str consumer_arn: The ARN returned by Kinesis Data Streams when you registered the consumer. If you don't know the ARN of the consumer that you want to deregister, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream. The description of a consumer contains its ARN.
     """

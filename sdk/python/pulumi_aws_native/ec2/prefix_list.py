@@ -25,10 +25,10 @@ __all__ = ['PrefixListArgs', 'PrefixList']
 class PrefixListArgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input['PrefixListAddressFamily'],
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefix_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrefixList resource.
 
@@ -62,50 +62,50 @@ class PrefixListArgs:
 
     @_builtins.property
     @pulumi.getter
-    def entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]:
+    def entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrefixListEntryArgs']]]]:
         """
         Entries of Prefix List.
         """
         return pulumi.get(self, "entries")
 
     @entries.setter
-    def entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]]):
+    def entries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrefixListEntryArgs']]]]):
         pulumi.set(self, "entries", value)
 
     @_builtins.property
     @pulumi.getter(name="maxEntries")
-    def max_entries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_entries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max Entries of Prefix List.
         """
         return pulumi.get(self, "max_entries")
 
     @max_entries.setter
-    def max_entries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_entries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_entries", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixListName")
-    def prefix_list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of Prefix List.
         """
         return pulumi.get(self, "prefix_list_name")
 
     @prefix_list_name.setter
-    def prefix_list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix_list_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for Prefix List
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,11 +115,11 @@ class PrefixList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefix_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 address_family: pulumi.Input[Optional['PrefixListAddressFamily']] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema of AWS::EC2::PrefixList Type
@@ -266,11 +266,11 @@ class PrefixList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
-                 max_entries: Optional[pulumi.Input[_builtins.int]] = None,
-                 prefix_list_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 address_family: pulumi.Input[Optional['PrefixListAddressFamily']] = None,
+                 entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrefixListEntryArgs', 'PrefixListEntryArgsDict']]]]] = None,
+                 max_entries: pulumi.Input[Optional[_builtins.int]] = None,
+                 prefix_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

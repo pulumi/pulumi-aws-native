@@ -137,7 +137,6 @@ def get_vpc_origin(id: Optional[_builtins.str] = None,
     """
     An Amazon CloudFront VPC origin.
 
-
     :param _builtins.str id: The VPC origin ID.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_vpc_origin(id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_origin_endpoint_config=pulumi.get(__ret__, 'vpc_origin_endpoint_config'))
-def get_vpc_origin_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_origin_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcOriginResult]:
     """
     An Amazon CloudFront VPC origin.
-
 
     :param _builtins.str id: The VPC origin ID.
     """

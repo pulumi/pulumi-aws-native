@@ -106,7 +106,7 @@ class GetWebAclResult:
 
         Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
 
-        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 
         For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         """
@@ -275,12 +275,11 @@ def get_web_acl(id: Optional[_builtins.str] = None,
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
-
     :param _builtins.str id: The ID of the web ACL.
     :param _builtins.str name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
     :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
            
-           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
            
            For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
     """
@@ -310,19 +309,18 @@ def get_web_acl(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         token_domains=pulumi.get(__ret__, 'token_domains'),
         visibility_config=pulumi.get(__ret__, 'visibility_config'))
-def get_web_acl_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                       name: Optional[pulumi.Input[_builtins.str]] = None,
-                       scope: Optional[pulumi.Input['WebAclScope']] = None,
+def get_web_acl_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                       name: pulumi.Input[Optional[_builtins.str]] = None,
+                       scope: pulumi.Input[Optional['WebAclScope']] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
-
 
     :param _builtins.str id: The ID of the web ACL.
     :param _builtins.str name: The name of the web ACL. You cannot change the name of a web ACL after you create it.
     :param 'WebAclScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
            
-           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+           > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
            
            For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
     """

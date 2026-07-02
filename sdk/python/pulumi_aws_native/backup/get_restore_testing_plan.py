@@ -116,7 +116,6 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[_builtins.str] 
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
 
-
     :param _builtins.str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """
     __args__ = dict()
@@ -131,11 +130,10 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[_builtins.str] 
         schedule_expression_timezone=pulumi.get(__ret__, 'schedule_expression_timezone'),
         start_window_hours=pulumi.get(__ret__, 'start_window_hours'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_restore_testing_plan_output(restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
-
 
     :param _builtins.str restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
     """

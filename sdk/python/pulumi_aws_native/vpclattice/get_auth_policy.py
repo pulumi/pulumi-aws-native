@@ -66,7 +66,6 @@ def get_auth_policy(resource_identifier: Optional[_builtins.str] = None,
     """
     Creates or updates the auth policy.
 
-
     :param _builtins.str resource_identifier: The ID or ARN of the service network or service for which the policy is created.
     """
     __args__ = dict()
@@ -77,11 +76,10 @@ def get_auth_policy(resource_identifier: Optional[_builtins.str] = None,
     return AwaitableGetAuthPolicyResult(
         policy=pulumi.get(__ret__, 'policy'),
         state=pulumi.get(__ret__, 'state'))
-def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auth_policy_output(resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
     Creates or updates the auth policy.
-
 
     :param _builtins.str resource_identifier: The ID or ARN of the service network or service for which the policy is created.
     """

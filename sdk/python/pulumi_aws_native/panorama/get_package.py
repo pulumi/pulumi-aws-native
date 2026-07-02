@@ -101,7 +101,6 @@ def get_package(package_id: Optional[_builtins.str] = None,
     """
     Creates a package and storage location in an Amazon S3 access point.
 
-
     :param _builtins.str package_id: The package's ID.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_package(package_id: Optional[_builtins.str] = None,
         package_id=pulumi.get(__ret__, 'package_id'),
         storage_location=pulumi.get(__ret__, 'storage_location'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_package_output(package_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_package_output(package_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Creates a package and storage location in an Amazon S3 access point.
-
 
     :param _builtins.str package_id: The package's ID.
     """

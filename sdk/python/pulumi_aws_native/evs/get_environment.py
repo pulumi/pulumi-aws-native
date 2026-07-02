@@ -154,7 +154,6 @@ def get_environment(environment_id: Optional[_builtins.str] = None,
     """
     An environment created within the EVS service
 
-
     :param _builtins.str environment_id: The unique ID for the environment. For example: `env-1234567890` .
     """
     __args__ = dict()
@@ -172,11 +171,10 @@ def get_environment(environment_id: Optional[_builtins.str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         state_details=pulumi.get(__ret__, 'state_details'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_output(environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     An environment created within the EVS service
-
 
     :param _builtins.str environment_id: The unique ID for the environment. For example: `env-1234567890` .
     """

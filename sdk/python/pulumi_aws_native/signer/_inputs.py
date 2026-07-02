@@ -21,11 +21,11 @@ __all__ = [
 ]
 
 class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input['SigningProfileSignatureValidityPeriodType']]
+    type: NotRequired[pulumi.Input[Optional['SigningProfileSignatureValidityPeriodType']]]
     """
     The time unit for signature validity: DAYS | MONTHS | YEARS.
     """
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The numerical value of the time unit for signature validity.
     """
@@ -33,8 +33,8 @@ class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
 @pulumi.input_type
 class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None):
+                 type: pulumi.Input[Optional['SigningProfileSignatureValidityPeriodType']] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['SigningProfileSignatureValidityPeriodType'] type: The time unit for signature validity: DAYS | MONTHS | YEARS.
         :param pulumi.Input[_builtins.int] value: The numerical value of the time unit for signature validity.
@@ -46,26 +46,26 @@ class SigningProfileSignatureValidityPeriodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']]:
+    def type(self) -> pulumi.Input[Optional['SigningProfileSignatureValidityPeriodType']]:
         """
         The time unit for signature validity: DAYS | MONTHS | YEARS.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodType']]):
+    def type(self, value: pulumi.Input[Optional['SigningProfileSignatureValidityPeriodType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The numerical value of the time unit for signature validity.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
 

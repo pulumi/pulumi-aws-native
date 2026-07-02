@@ -170,7 +170,6 @@ def get_index(id: Optional[_builtins.str] = None,
     """
     A Kendra index
 
-
     :param _builtins.str id: The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
     """
     __args__ = dict()
@@ -189,11 +188,10 @@ def get_index(id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
-def get_index_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     A Kendra index
-
 
     :param _builtins.str id: The identifier for the index. For example: `f4aeaa10-8056-4b2c-a343-522ca0f41234` .
     """

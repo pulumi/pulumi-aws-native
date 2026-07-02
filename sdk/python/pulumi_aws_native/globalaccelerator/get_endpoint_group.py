@@ -149,7 +149,6 @@ def get_endpoint_group(endpoint_group_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 
-
     :param _builtins.str endpoint_group_arn: The Amazon Resource Name (ARN) of the endpoint group
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_endpoint_group(endpoint_group_arn: Optional[_builtins.str] = None,
         port_overrides=pulumi.get(__ret__, 'port_overrides'),
         threshold_count=pulumi.get(__ret__, 'threshold_count'),
         traffic_dial_percentage=pulumi.get(__ret__, 'traffic_dial_percentage'))
-def get_endpoint_group_output(endpoint_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_group_output(endpoint_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointGroupResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
-
 
     :param _builtins.str endpoint_group_arn: The Amazon Resource Name (ARN) of the endpoint group
     """

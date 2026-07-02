@@ -101,7 +101,6 @@ def get_url(function_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lambda::Url
 
-
     :param _builtins.str function_arn: The full Amazon Resource Name (ARN) of the function associated with the Function URL.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_url(function_arn: Optional[_builtins.str] = None,
         function_arn=pulumi.get(__ret__, 'function_arn'),
         function_url=pulumi.get(__ret__, 'function_url'),
         invoke_mode=pulumi.get(__ret__, 'invoke_mode'))
-def get_url_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_url_output(function_arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUrlResult]:
     """
     Resource Type definition for AWS::Lambda::Url
-
 
     :param _builtins.str function_arn: The full Amazon Resource Name (ARN) of the function associated with the Function URL.
     """

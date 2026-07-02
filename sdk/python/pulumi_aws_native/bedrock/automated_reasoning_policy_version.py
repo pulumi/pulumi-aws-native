@@ -22,8 +22,8 @@ __all__ = ['AutomatedReasoningPolicyVersionArgs', 'AutomatedReasoningPolicyVersi
 class AutomatedReasoningPolicyVersionArgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[_builtins.str],
-                 last_updated_definition_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 last_updated_definition_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AutomatedReasoningPolicyVersion resource.
 
@@ -51,26 +51,26 @@ class AutomatedReasoningPolicyVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedDefinitionHash")
-    def last_updated_definition_hash(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_updated_definition_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The hash of the policy definition that was last updated.
         """
         return pulumi.get(self, "last_updated_definition_hash")
 
     @last_updated_definition_hash.setter
-    def last_updated_definition_hash(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_updated_definition_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_updated_definition_hash", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The tags associated with the Automated Reasoning policy version.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -80,13 +80,12 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 last_updated_definition_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 last_updated_definition_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::AutomatedReasoningPolicyVersion Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::AutomatedReasoningPolicyVersion Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AutomatedReasoningPolicyVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class AutomatedReasoningPolicyVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 last_updated_definition_hash: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 last_updated_definition_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

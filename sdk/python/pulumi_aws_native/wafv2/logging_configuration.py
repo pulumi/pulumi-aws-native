@@ -24,8 +24,8 @@ class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_arn: pulumi.Input[_builtins.str],
-                 logging_filter: Optional[pulumi.Input['LoggingFilterPropertiesArgs']] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None):
+                 logging_filter: pulumi.Input[Optional['LoggingFilterPropertiesArgs']] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
 
@@ -67,26 +67,26 @@ class LoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input['LoggingFilterPropertiesArgs']]:
+    def logging_filter(self) -> pulumi.Input[Optional['LoggingFilterPropertiesArgs']]:
         """
         Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input['LoggingFilterPropertiesArgs']]):
+    def logging_filter(self, value: pulumi.Input[Optional['LoggingFilterPropertiesArgs']]):
         pulumi.set(self, "logging_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]]:
+    def redacted_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]]:
         """
         The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]]):
+    def redacted_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]]):
         pulumi.set(self, "redacted_fields", value)
 
 
@@ -96,14 +96,13 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A WAFv2 Logging Configuration Resource Provider
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +120,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         A WAFv2 Logging Configuration Resource Provider
 
-
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,10 +135,10 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
-                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
-                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_destination_configs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_filter: pulumi.Input[Optional[Union['LoggingFilterPropertiesArgs', 'LoggingFilterPropertiesArgsDict']]] = None,
+                 redacted_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingConfigurationFieldToMatchArgs', 'LoggingConfigurationFieldToMatchArgsDict']]]]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

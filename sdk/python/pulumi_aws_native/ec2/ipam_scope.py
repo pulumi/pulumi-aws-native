@@ -25,9 +25,9 @@ __all__ = ['IpamScopeArgs', 'IpamScope']
 class IpamScopeArgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_authority_configuration: Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_authority_configuration: pulumi.Input[Optional['IpamScopeExternalAuthorityConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamScope resource.
 
@@ -60,19 +60,19 @@ class IpamScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the scope.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAuthorityConfiguration")
-    def external_authority_configuration(self) -> Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']]:
+    def external_authority_configuration(self) -> pulumi.Input[Optional['IpamScopeExternalAuthorityConfigurationArgs']]:
         """
         The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
 
@@ -81,19 +81,19 @@ class IpamScopeArgs:
         return pulumi.get(self, "external_authority_configuration")
 
     @external_authority_configuration.setter
-    def external_authority_configuration(self, value: Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']]):
+    def external_authority_configuration(self, value: pulumi.Input[Optional['IpamScopeExternalAuthorityConfigurationArgs']]):
         pulumi.set(self, "external_authority_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -103,14 +103,13 @@ class IpamScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_authority_configuration: Optional[pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
-                 ipam_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
+                 ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +129,6 @@ class IpamScope(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMScope Type
 
-
         :param str resource_name: The name of the resource.
         :param IpamScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,10 +144,10 @@ class IpamScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_authority_configuration: Optional[pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
-                 ipam_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_authority_configuration: pulumi.Input[Optional[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
+                 ipam_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

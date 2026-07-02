@@ -58,7 +58,7 @@ class ServiceDnsConfig(dict):
                The ID of the namespace to use for DNS configuration.
         :param _builtins.str routing_policy: The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
                
-               > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy. 
+               > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
                
                You can specify the following values:
                
@@ -109,7 +109,7 @@ class ServiceDnsConfig(dict):
         """
         The routing policy that you want to apply to all Route 53 DNS records that AWS Cloud Map creates when you register an instance and specify this service.
 
-        > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy. 
+        > If you want to use this service to register instances that create alias records, specify `WEIGHTED` for the routing policy.
 
         You can specify the following values:
 
@@ -270,7 +270,7 @@ class ServiceHealthCheckConfig(dict):
         """
         :param _builtins.str type: The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
                
-               > You can't change the value of `Type` after you create a health check. 
+               > You can't change the value of `Type` after you create a health check.
                
                You can create the following types of health checks:
                
@@ -300,7 +300,7 @@ class ServiceHealthCheckConfig(dict):
         """
         The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy.
 
-        > You can't change the value of `Type` after you create a health check. 
+        > You can't change the value of `Type` after you create a health check.
 
         You can create the following types of health checks:
 
@@ -357,7 +357,7 @@ class ServiceHealthCheckCustomConfig(dict):
     def __init__(__self__, *,
                  failure_threshold: Optional[_builtins.float] = None):
         """
-        :param _builtins.float failure_threshold: > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
+        :param _builtins.float failure_threshold: > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
                
                The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
                
@@ -370,7 +370,7 @@ class ServiceHealthCheckCustomConfig(dict):
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[_builtins.float]:
         """
-        > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance. 
+        > This parameter is no longer supported and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an `UpdateInstanceCustomHealthStatus` request before changing the status of the service instance.
 
         The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an `UpdateInstanceCustomHealthStatus` request before it changes the health status of a service instance.
 

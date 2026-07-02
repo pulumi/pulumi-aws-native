@@ -93,7 +93,6 @@ def get_policy_statement(arn: Optional[_builtins.str] = None,
     """
     Policy Statement defined in AWS Entity Resolution Service
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
     :param _builtins.str statement_id: A statement identifier that differentiates the statement from others in the same policy.
     """
@@ -108,12 +107,11 @@ def get_policy_statement(arn: Optional[_builtins.str] = None,
         condition=pulumi.get(__ret__, 'condition'),
         effect=pulumi.get(__ret__, 'effect'),
         principal=pulumi.get(__ret__, 'principal'))
-def get_policy_statement_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_statement_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStatementResult]:
     """
     Policy Statement defined in AWS Entity Resolution Service
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource that will be accessed by the principal.
     :param _builtins.str statement_id: A statement identifier that differentiates the statement from others in the same policy.

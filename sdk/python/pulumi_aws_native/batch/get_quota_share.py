@@ -113,7 +113,6 @@ def get_quota_share(quota_share_arn: Optional[_builtins.str] = None,
     """
     Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
 
-
     :param _builtins.str quota_share_arn: The Amazon Resource Name (ARN) of the quota share.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_quota_share(quota_share_arn: Optional[_builtins.str] = None,
         resource_sharing_configuration=pulumi.get(__ret__, 'resource_sharing_configuration'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_quota_share_output(quota_share_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_quota_share_output(quota_share_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuotaShareResult]:
     """
     Creates an AWS Batch quota share. Each quota share operates as a virtual queue with a configured compute capacity, resource sharing strategy, and borrow limits.
-
 
     :param _builtins.str quota_share_arn: The Amazon Resource Name (ARN) of the quota share.
     """

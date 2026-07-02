@@ -125,7 +125,6 @@ def get_ip_access_settings(ip_access_settings_arn: Optional[_builtins.str] = Non
     """
     Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
 
-
     :param _builtins.str ip_access_settings_arn: The ARN of the IP access settings resource.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_ip_access_settings(ip_access_settings_arn: Optional[_builtins.str] = Non
         ip_access_settings_arn=pulumi.get(__ret__, 'ip_access_settings_arn'),
         ip_rules=pulumi.get(__ret__, 'ip_rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ip_access_settings_output(ip_access_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ip_access_settings_output(ip_access_settings_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAccessSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
-
 
     :param _builtins.str ip_access_settings_arn: The ARN of the IP access settings resource.
     """

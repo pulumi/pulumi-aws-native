@@ -22,7 +22,7 @@ class ApiMappingArgs:
                  api_id: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
                  stage: pulumi.Input[_builtins.str],
-                 api_mapping_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_mapping_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiMapping resource.
 
@@ -75,14 +75,14 @@ class ApiMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiMappingKey")
-    def api_mapping_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_mapping_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API mapping key.
         """
         return pulumi.get(self, "api_mapping_key")
 
     @api_mapping_key.setter
-    def api_mapping_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_mapping_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_mapping_key", value)
 
 
@@ -92,14 +92,13 @@ class ApiMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_mapping_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_mapping_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +116,6 @@ class ApiMapping(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
-
         :param str resource_name: The name of the resource.
         :param ApiMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,10 +131,10 @@ class ApiMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_mapping_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_mapping_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

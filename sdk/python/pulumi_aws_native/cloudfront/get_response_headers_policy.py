@@ -79,7 +79,6 @@ def get_response_headers_policy(id: Optional[_builtins.str] = None,
      After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
      For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
 
-
     :param _builtins.str id: The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
     """
     __args__ = dict()
@@ -91,14 +90,13 @@ def get_response_headers_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         response_headers_policy_config=pulumi.get(__ret__, 'response_headers_policy_config'))
-def get_response_headers_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_response_headers_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
     """
     A response headers policy.
      A response headers policy contains information about a set of HTTP response headers.
      After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
      For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
-
 
     :param _builtins.str id: The unique identifier for the response headers policy. For example: `57f99797-3b20-4e1b-a728-27972a74082a` .
     """

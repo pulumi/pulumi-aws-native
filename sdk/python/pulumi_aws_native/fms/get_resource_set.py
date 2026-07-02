@@ -106,7 +106,6 @@ def get_resource_set(id: Optional[_builtins.str] = None,
     """
     Creates an AWS Firewall Manager resource set.
 
-
     :param _builtins.str id: A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
     """
     __args__ = dict()
@@ -121,11 +120,10 @@ def get_resource_set(id: Optional[_builtins.str] = None,
         resource_type_list=pulumi.get(__ret__, 'resource_type_list'),
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_set_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSetResult]:
     """
     Creates an AWS Firewall Manager resource set.
-
 
     :param _builtins.str id: A unique identifier for the resource set. This ID is returned in the responses to create and list commands. You provide it to operations like update and delete.
     """

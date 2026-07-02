@@ -90,7 +90,6 @@ def get_role_alias(role_alias: Optional[_builtins.str] = None,
     """
     Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
 
-
     :param _builtins.str role_alias: The role alias.
     """
     __args__ = dict()
@@ -103,11 +102,10 @@ def get_role_alias(role_alias: Optional[_builtins.str] = None,
         role_alias_arn=pulumi.get(__ret__, 'role_alias_arn'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_role_alias_output(role_alias: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_alias_output(role_alias: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAliasResult]:
     """
     Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
-
 
     :param _builtins.str role_alias: The role alias.
     """

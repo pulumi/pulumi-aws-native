@@ -159,7 +159,6 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lightsail::Alarm
 
-
     :param _builtins.str alarm_name: The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
     """
     __args__ = dict()
@@ -178,11 +177,10 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
-def get_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
     Resource Type definition for AWS::Lightsail::Alarm
-
 
     :param _builtins.str alarm_name: The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
     """

@@ -22,9 +22,9 @@ __all__ = ['LocalGatewayVirtualInterfaceGroupArgs', 'LocalGatewayVirtualInterfac
 class LocalGatewayVirtualInterfaceGroupArgs:
     def __init__(__self__, *,
                  local_gateway_id: pulumi.Input[_builtins.str],
-                 local_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 local_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocalGatewayVirtualInterfaceGroup resource.
 
@@ -55,38 +55,38 @@ class LocalGatewayVirtualInterfaceGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="localBgpAsn")
-    def local_bgp_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def local_bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
         """
         return pulumi.get(self, "local_bgp_asn")
 
     @local_bgp_asn.setter
-    def local_bgp_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def local_bgp_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "local_bgp_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="localBgpAsnExtended")
-    def local_bgp_asn_extended(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def local_bgp_asn_extended(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The extended 32-bit ASN for the local BGP configuration
         """
         return pulumi.get(self, "local_bgp_asn_extended")
 
     @local_bgp_asn_extended.setter
-    def local_bgp_asn_extended(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def local_bgp_asn_extended(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "local_bgp_asn_extended", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags assigned to the virtual interface group
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -96,14 +96,13 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 local_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +120,6 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
         """
         Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces
 
-
         :param str resource_name: The name of the resource.
         :param LocalGatewayVirtualInterfaceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,10 +135,10 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 local_bgp_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_bgp_asn_extended: Optional[pulumi.Input[_builtins.int]] = None,
-                 local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 local_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
+                 local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

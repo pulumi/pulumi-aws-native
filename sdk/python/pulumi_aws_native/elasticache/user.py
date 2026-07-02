@@ -26,12 +26,12 @@ class UserArgs:
     def __init__(__self__, *,
                  engine: pulumi.Input['UserEngine'],
                  user_id: pulumi.Input[_builtins.str],
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
-                 no_password_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional['AuthenticationModePropertiesArgs']] = None,
+                 no_password_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -90,19 +90,19 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessString")
-    def access_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access permissions string used for this user account.
         """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
-    def access_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_string", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input['AuthenticationModePropertiesArgs']]:
+    def authentication_mode(self) -> pulumi.Input[Optional['AuthenticationModePropertiesArgs']]:
         """
         Specifies the authentication mode to use. Below is an example of the possible JSON values:
 
@@ -114,55 +114,55 @@ class UserArgs:
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input['AuthenticationModePropertiesArgs']]):
+    def authentication_mode(self, value: pulumi.Input[Optional['AuthenticationModePropertiesArgs']]):
         pulumi.set(self, "authentication_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="noPasswordRequired")
-    def no_password_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_password_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates a password is not required for this user account.
         """
         return pulumi.get(self, "no_password_required")
 
     @no_password_required.setter
-    def no_password_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_password_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_password_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "passwords", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this user.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The username of the user.
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -172,18 +172,17 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
-                 engine: Optional[pulumi.Input['UserEngine']] = None,
-                 no_password_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 engine: pulumi.Input[Optional['UserEngine']] = None,
+                 no_password_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElastiCache::User
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +209,6 @@ class User(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElastiCache::User
 
-
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,14 +224,14 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 authentication_mode: Optional[pulumi.Input[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
-                 engine: Optional[pulumi.Input['UserEngine']] = None,
-                 no_password_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_mode: pulumi.Input[Optional[Union['AuthenticationModePropertiesArgs', 'AuthenticationModePropertiesArgsDict']]] = None,
+                 engine: pulumi.Input[Optional['UserEngine']] = None,
+                 no_password_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

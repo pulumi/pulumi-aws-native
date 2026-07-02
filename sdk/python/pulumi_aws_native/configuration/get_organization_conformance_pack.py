@@ -88,7 +88,6 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
     """
     Resource Type definition for AWS::Config::OrganizationConformancePack.
 
-
     :param _builtins.str organization_conformance_pack_name: The name of the organization conformance pack.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
         excluded_accounts=pulumi.get(__ret__, 'excluded_accounts'))
-def get_organization_conformance_pack_output(organization_conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_organization_conformance_pack_output(organization_conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
     """
     Resource Type definition for AWS::Config::OrganizationConformancePack.
-
 
     :param _builtins.str organization_conformance_pack_name: The name of the organization conformance pack.
     """

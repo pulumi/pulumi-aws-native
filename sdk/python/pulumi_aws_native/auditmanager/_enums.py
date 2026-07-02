@@ -44,7 +44,7 @@ class AssessmentRoleType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:auditmanager:AssessmentStatus")
 class AssessmentStatus(_builtins.str, Enum):
     """
-    The status of the specified assessment. 
+    The status of the specified assessment.
     """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"

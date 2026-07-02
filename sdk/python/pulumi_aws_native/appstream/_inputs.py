@@ -111,11 +111,11 @@ class AppBlockBuilderAccessEndpointArgs:
 
 
 class AppBlockBuilderVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identifiers of the security groups for the fleet or image builder.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
     """
@@ -123,8 +123,8 @@ class AppBlockBuilderVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppBlockBuilderVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifiers of the security groups for the fleet or image builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
@@ -136,26 +136,26 @@ class AppBlockBuilderVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the security groups for the fleet or image builder.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance. Fleet instances use one or more subnets. Image builder instances use one subnet.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -164,7 +164,7 @@ class AppBlockS3LocationArgsDict(TypedDict):
     """
     The S3 bucket of the app block.
     """
-    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The S3 key of the S3 object of the virtual hard disk.
 
@@ -175,7 +175,7 @@ class AppBlockS3LocationArgsDict(TypedDict):
 class AppBlockS3LocationArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[_builtins.str],
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: The S3 bucket of the app block.
         :param pulumi.Input[_builtins.str] s3_key: The S3 key of the S3 object of the virtual hard disk.
@@ -200,7 +200,7 @@ class AppBlockS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 key of the S3 object of the virtual hard disk.
 
@@ -209,7 +209,7 @@ class AppBlockS3LocationArgs:
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
 
@@ -226,7 +226,7 @@ class AppBlockScriptDetailsArgsDict(TypedDict):
     """
     The run timeout, in seconds, for the script.
     """
-    executable_parameters: NotRequired[pulumi.Input[_builtins.str]]
+    executable_parameters: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The parameters used in the run path for the script.
     """
@@ -237,7 +237,7 @@ class AppBlockScriptDetailsArgs:
                  executable_path: pulumi.Input[_builtins.str],
                  script_s3_location: pulumi.Input['AppBlockS3LocationArgs'],
                  timeout_in_seconds: pulumi.Input[_builtins.int],
-                 executable_parameters: Optional[pulumi.Input[_builtins.str]] = None):
+                 executable_parameters: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] executable_path: The run path for the script.
         :param pulumi.Input['AppBlockS3LocationArgs'] script_s3_location: The S3 object location of the script.
@@ -288,14 +288,14 @@ class AppBlockScriptDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="executableParameters")
-    def executable_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def executable_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parameters used in the run path for the script.
         """
         return pulumi.get(self, "executable_parameters")
 
     @executable_parameters.setter
-    def executable_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def executable_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "executable_parameters", value)
 
 
@@ -471,11 +471,11 @@ class ApplicationTag1PropertiesArgs:
 
 
 class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
-    certificate_authority_arn: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_authority_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the AWS Certificate Manager Private CA resource.
     """
-    status: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
     """
@@ -483,8 +483,8 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DirectoryConfigCertificateBasedAuthPropertiesArgs:
     def __init__(__self__, *,
-                 certificate_authority_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The ARN of the AWS Certificate Manager Private CA resource.
         :param pulumi.Input[_builtins.str] status: The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
@@ -496,26 +496,26 @@ class DirectoryConfigCertificateBasedAuthPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityArn")
-    def certificate_authority_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS Certificate Manager Private CA resource.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
-    def certificate_authority_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_authority_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_authority_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the certificate-based authentication properties. Fallback is turned on by default when certificate-based authentication is *Enabled* . Fallback allows users to log in using their AD domain password if certificate-based authentication is unsuccessful, or to unlock a desktop lock screen. *Enabled_no_directory_login_fallback* enables certificate-based authentication, but does not allow users to log in using their AD domain password. Users will be disconnected to re-authenticate using certificates.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -691,11 +691,11 @@ class ImageBuilderAccessEndpointArgs:
 
 
 class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
-    directory_name: NotRequired[pulumi.Input[_builtins.str]]
+    directory_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The fully qualified name of the directory (for example, corp.example.com).
     """
-    organizational_unit_distinguished_name: NotRequired[pulumi.Input[_builtins.str]]
+    organizational_unit_distinguished_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The distinguished name of the organizational unit for computer accounts.
     """
@@ -703,8 +703,8 @@ class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ImageBuilderDomainJoinInfoArgs:
     def __init__(__self__, *,
-                 directory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organizational_unit_distinguished_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 directory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organizational_unit_distinguished_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] directory_name: The fully qualified name of the directory (for example, corp.example.com).
         :param pulumi.Input[_builtins.str] organizational_unit_distinguished_name: The distinguished name of the organizational unit for computer accounts.
@@ -716,55 +716,55 @@ class ImageBuilderDomainJoinInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="directoryName")
-    def directory_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def directory_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the directory (for example, corp.example.com).
         """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
-    def directory_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def directory_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "directory_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
-    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def organizational_unit_distinguished_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distinguished name of the organizational unit for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
     @organizational_unit_distinguished_name.setter
-    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def organizational_unit_distinguished_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
 class ImageBuilderVolumeConfigArgsDict(TypedDict):
-    volume_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    volume_size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class ImageBuilderVolumeConfigArgs:
     def __init__(__self__, *,
-                 volume_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+                 volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
         if volume_size_in_gb is not None:
             pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
 
     @_builtins.property
     @pulumi.getter(name="volumeSizeInGb")
-    def volume_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def volume_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "volume_size_in_gb")
 
     @volume_size_in_gb.setter
-    def volume_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def volume_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size_in_gb", value)
 
 
 class ImageBuilderVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identifiers of the security groups for the image builder.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
     """
@@ -772,8 +772,8 @@ class ImageBuilderVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ImageBuilderVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The identifiers of the security groups for the image builder.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
@@ -785,26 +785,26 @@ class ImageBuilderVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifiers of the security groups for the image builder.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The identifier of the subnet to which a network interface is attached from the image builder instance. An image builder instance can use one subnet.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
@@ -868,7 +868,7 @@ class StackApplicationSettingsArgsDict(TypedDict):
     """
     Enables or disables persistent application settings for users during their streaming sessions.
     """
-    settings_group: NotRequired[pulumi.Input[_builtins.str]]
+    settings_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
     """
@@ -877,7 +877,7 @@ class StackApplicationSettingsArgsDict(TypedDict):
 class StackApplicationSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 settings_group: Optional[pulumi.Input[_builtins.str]] = None):
+                 settings_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The persistent application settings for users of a stack.
 
@@ -902,14 +902,14 @@ class StackApplicationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="settingsGroup")
-    def settings_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
         """
         return pulumi.get(self, "settings_group")
 
     @settings_group.setter
-    def settings_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_group", value)
 
 
@@ -917,7 +917,7 @@ class StackContentRedirectionArgsDict(TypedDict):
     """
     The content redirection settings for the stack.
     """
-    host_to_client: NotRequired[pulumi.Input['StackUrlRedirectionConfigArgsDict']]
+    host_to_client: NotRequired[pulumi.Input[Optional['StackUrlRedirectionConfigArgsDict']]]
     """
     The URL redirection configuration from the streaming session host to the client.
     """
@@ -925,7 +925,7 @@ class StackContentRedirectionArgsDict(TypedDict):
 @pulumi.input_type
 class StackContentRedirectionArgs:
     def __init__(__self__, *,
-                 host_to_client: Optional[pulumi.Input['StackUrlRedirectionConfigArgs']] = None):
+                 host_to_client: pulumi.Input[Optional['StackUrlRedirectionConfigArgs']] = None):
         """
         The content redirection settings for the stack.
 
@@ -936,14 +936,14 @@ class StackContentRedirectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="hostToClient")
-    def host_to_client(self) -> Optional[pulumi.Input['StackUrlRedirectionConfigArgs']]:
+    def host_to_client(self) -> pulumi.Input[Optional['StackUrlRedirectionConfigArgs']]:
         """
         The URL redirection configuration from the streaming session host to the client.
         """
         return pulumi.get(self, "host_to_client")
 
     @host_to_client.setter
-    def host_to_client(self, value: Optional[pulumi.Input['StackUrlRedirectionConfigArgs']]):
+    def host_to_client(self, value: pulumi.Input[Optional['StackUrlRedirectionConfigArgs']]):
         pulumi.set(self, "host_to_client", value)
 
 
@@ -955,11 +955,11 @@ class StackStorageConnectorArgsDict(TypedDict):
     """
     The type of storage connector.
     """
-    domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The names of the domains for the account.
     """
-    resource_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    resource_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the storage connector.
     """
@@ -968,8 +968,8 @@ class StackStorageConnectorArgsDict(TypedDict):
 class StackStorageConnectorArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input[_builtins.str],
-                 domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A connector that enables persistent storage for users.
 
@@ -997,26 +997,26 @@ class StackStorageConnectorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the domains for the account.
         """
         return pulumi.get(self, "domains")
 
     @domains.setter
-    def domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domains", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the storage connector.
         """
         return pulumi.get(self, "resource_identifier")
 
     @resource_identifier.setter
-    def resource_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_identifier", value)
 
 
@@ -1024,7 +1024,7 @@ class StackStreamingExperienceSettingsArgsDict(TypedDict):
     """
     The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
     """
-    preferred_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    preferred_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The preferred protocol that you want to use while streaming your application.
     """
@@ -1032,7 +1032,7 @@ class StackStreamingExperienceSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class StackStreamingExperienceSettingsArgs:
     def __init__(__self__, *,
-                 preferred_protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 preferred_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
 
@@ -1043,14 +1043,14 @@ class StackStreamingExperienceSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="preferredProtocol")
-    def preferred_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The preferred protocol that you want to use while streaming your application.
         """
         return pulumi.get(self, "preferred_protocol")
 
     @preferred_protocol.setter
-    def preferred_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_protocol", value)
 
 
@@ -1062,11 +1062,11 @@ class StackUrlRedirectionConfigArgsDict(TypedDict):
     """
     Specifies whether URL redirection is enabled or disabled.
     """
-    allowed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The URLs that are allowed for redirection.
     """
-    denied_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    denied_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The URLs that are denied for redirection.
     """
@@ -1075,8 +1075,8 @@ class StackUrlRedirectionConfigArgsDict(TypedDict):
 class StackUrlRedirectionConfigArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 allowed_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 denied_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 denied_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration for URL redirection.
 
@@ -1104,26 +1104,26 @@ class StackUrlRedirectionConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedUrls")
-    def allowed_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The URLs that are allowed for redirection.
         """
         return pulumi.get(self, "allowed_urls")
 
     @allowed_urls.setter
-    def allowed_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_urls", value)
 
     @_builtins.property
     @pulumi.getter(name="deniedUrls")
-    def denied_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def denied_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The URLs that are denied for redirection.
         """
         return pulumi.get(self, "denied_urls")
 
     @denied_urls.setter
-    def denied_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def denied_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "denied_urls", value)
 
 
@@ -1139,7 +1139,7 @@ class StackUserSettingArgsDict(TypedDict):
     """
     Indicates whether the action is enabled or disabled.
     """
-    maximum_length: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
     """
@@ -1149,7 +1149,7 @@ class StackUserSettingArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
                  permission: pulumi.Input[_builtins.str],
-                 maximum_length: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum_length: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies an action and whether the action is enabled or disabled for users during their streaming sessions.
 
@@ -1188,14 +1188,14 @@ class StackUserSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumLength")
-    def maximum_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of characters that can be copied by end users from the local device to the remote session, and to the local device from the remote session. This can be specified only for the CLIPBOARD_COPY_FROM_LOCAL_DEVICE and CLIPBOARD_COPY_TO_LOCAL_DEVICE actions. This defaults to 20,971,520 (20 MB) when unspecified and the permission is ENABLED. This can't be specified when the permission is DISABLED. The value can be between 1 and 20,971,520 (20 MB).
         """
         return pulumi.get(self, "maximum_length")
 
     @maximum_length.setter
-    def maximum_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_length", value)
 
 

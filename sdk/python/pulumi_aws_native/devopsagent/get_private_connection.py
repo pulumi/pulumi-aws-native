@@ -89,7 +89,6 @@ def get_private_connection(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DevOpsAgent::PrivateConnection
 
-
     :param _builtins.str name: Unique name for this Private Connection within the account.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_private_connection(name: Optional[_builtins.str] = None,
         certificate_expiry_time=pulumi.get(__ret__, 'certificate_expiry_time'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_private_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateConnectionResult]:
     """
     Resource Type definition for AWS::DevOpsAgent::PrivateConnection
-
 
     :param _builtins.str name: Unique name for this Private Connection within the account.
     """

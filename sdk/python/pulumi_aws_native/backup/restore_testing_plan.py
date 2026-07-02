@@ -26,10 +26,10 @@ class RestoreTestingPlanArgs:
     def __init__(__self__, *,
                  recovery_point_selection: pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs'],
                  schedule_expression: pulumi.Input[_builtins.str],
-                 restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RestoreTestingPlan resource.
 
@@ -79,31 +79,31 @@ class RestoreTestingPlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="restoreTestingPlanName")
-    def restore_testing_plan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_testing_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         """
         return pulumi.get(self, "restore_testing_plan_name")
 
     @restore_testing_plan_name.setter
-    def restore_testing_plan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_testing_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_testing_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpressionTimezone")
-    def schedule_expression_timezone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schedule_expression_timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
         """
         return pulumi.get(self, "schedule_expression_timezone")
 
     @schedule_expression_timezone.setter
-    def schedule_expression_timezone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schedule_expression_timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression_timezone", value)
 
     @_builtins.property
     @pulumi.getter(name="startWindowHours")
-    def start_window_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def start_window_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defaults to 24 hours.
 
@@ -112,19 +112,19 @@ class RestoreTestingPlanArgs:
         return pulumi.get(self, "start_window_hours")
 
     @start_window_hours.setter
-    def start_window_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def start_window_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "start_window_hours", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Optional tags to include. A tag is a key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces, and the following characters: `+ - = . _ : /.`
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -134,16 +134,15 @@ class RestoreTestingPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 recovery_point_selection: Optional[pulumi.Input[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']]] = None,
-                 restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']]] = None,
+                 restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Backup::RestoreTestingPlan Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +164,6 @@ class RestoreTestingPlan(pulumi.CustomResource):
         """
         Definition of AWS::Backup::RestoreTestingPlan Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param RestoreTestingPlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,12 +179,12 @@ class RestoreTestingPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 recovery_point_selection: Optional[pulumi.Input[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']]] = None,
-                 restore_testing_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_window_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs', 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgsDict']]] = None,
+                 restore_testing_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_expression_timezone: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_window_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

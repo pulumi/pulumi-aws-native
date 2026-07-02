@@ -21,13 +21,13 @@ __all__ = ['DhcpOptionsArgs', 'DhcpOptions']
 @pulumi.input_type
 class DhcpOptionsArgs:
     def __init__(__self__, *,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 netbios_node_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_preferred_lease_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 netbios_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 netbios_node_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ntp_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DhcpOptions resource.
 
@@ -56,86 +56,86 @@ class DhcpOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainName")
-    def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This value is used to complete unqualified DNS hostnames.
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
-    def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNameServers")
-    def domain_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain_name_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         """
         return pulumi.get(self, "domain_name_servers")
 
     @domain_name_servers.setter
-    def domain_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain_name_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6AddressPreferredLeaseTime")
-    def ipv6_address_preferred_lease_time(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ipv6_address_preferred_lease_time(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The preferred Lease Time for ipV6 address in seconds.
         """
         return pulumi.get(self, "ipv6_address_preferred_lease_time")
 
     @ipv6_address_preferred_lease_time.setter
-    def ipv6_address_preferred_lease_time(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ipv6_address_preferred_lease_time(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ipv6_address_preferred_lease_time", value)
 
     @_builtins.property
     @pulumi.getter(name="netbiosNameServers")
-    def netbios_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def netbios_name_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IPv4 addresses of up to four NetBIOS name servers.
         """
         return pulumi.get(self, "netbios_name_servers")
 
     @netbios_name_servers.setter
-    def netbios_name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def netbios_name_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "netbios_name_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="netbiosNodeType")
-    def netbios_node_type(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def netbios_node_type(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The NetBIOS node type (1, 2, 4, or 8).
         """
         return pulumi.get(self, "netbios_node_type")
 
     @netbios_node_type.setter
-    def netbios_node_type(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def netbios_node_type(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "netbios_node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ntpServers")
-    def ntp_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ntp_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         """
         return pulumi.get(self, "ntp_servers")
 
     @ntp_servers.setter
-    def ntp_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ntp_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ntp_servers", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the DHCP options set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,17 +145,16 @@ class DhcpOptions(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 netbios_node_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_preferred_lease_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 netbios_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 netbios_node_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ntp_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +175,6 @@ class DhcpOptions(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::DHCPOptions
 
-
         :param str resource_name: The name of the resource.
         :param DhcpOptionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,13 +190,13 @@ class DhcpOptions(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ipv6_address_preferred_lease_time: Optional[pulumi.Input[_builtins.int]] = None,
-                 netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 netbios_node_type: Optional[pulumi.Input[_builtins.int]] = None,
-                 ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ipv6_address_preferred_lease_time: pulumi.Input[Optional[_builtins.int]] = None,
+                 netbios_name_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 netbios_node_type: pulumi.Input[Optional[_builtins.int]] = None,
+                 ntp_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

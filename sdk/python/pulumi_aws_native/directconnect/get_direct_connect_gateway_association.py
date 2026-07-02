@@ -63,7 +63,6 @@ def get_direct_connect_gateway_association(association_id: Optional[_builtins.st
     """
     Resource Type definition for AWS::DirectConnect::DirectConnectGatewayAssociation
 
-
     :param _builtins.str association_id: The ID of the Direct Connect gateway association.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_direct_connect_gateway_association(association_id: Optional[_builtins.st
     return AwaitableGetDirectConnectGatewayAssociationResult(
         allowed_prefixes_to_direct_connect_gateway=pulumi.get(__ret__, 'allowed_prefixes_to_direct_connect_gateway'),
         association_id=pulumi.get(__ret__, 'association_id'))
-def get_direct_connect_gateway_association_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_direct_connect_gateway_association_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAssociationResult]:
     """
     Resource Type definition for AWS::DirectConnect::DirectConnectGatewayAssociation
-
 
     :param _builtins.str association_id: The ID of the Direct Connect gateway association.
     """

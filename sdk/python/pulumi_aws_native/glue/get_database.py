@@ -64,7 +64,6 @@ def get_database(database_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Glue::Database
 
-
     :param _builtins.str database_name: The name of the database. For hive compatibility, this is folded to lowercase when it is store.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_database(database_name: Optional[_builtins.str] = None,
     return AwaitableGetDatabaseResult(
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         database_input=pulumi.get(__ret__, 'database_input'))
-def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Resource Type definition for AWS::Glue::Database
-
 
     :param _builtins.str database_name: The name of the database. For hive compatibility, this is folded to lowercase when it is store.
     """

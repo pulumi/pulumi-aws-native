@@ -135,7 +135,6 @@ def get_network(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaLive::Network.
 
-
     :param _builtins.str id: The unique ID of the Network.
     """
     __args__ = dict()
@@ -152,11 +151,10 @@ def get_network(id: Optional[_builtins.str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkResult]:
     """
     Resource schema for AWS::MediaLive::Network.
-
 
     :param _builtins.str id: The unique ID of the Network.
     """

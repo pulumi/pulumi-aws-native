@@ -82,9 +82,9 @@ class BrokerEncryptionOptionsArgsDict(TypedDict):
     """
     Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The customer master key (CMK) to use for the A KMS (KMS). 
+    The customer master key (CMK) to use for the A KMS (KMS).
     This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
     The Key ARN is recommended so that drift can be detected,
     but a key ID or key alias will also be accepted for API compatibility reasons.
@@ -94,10 +94,10 @@ class BrokerEncryptionOptionsArgsDict(TypedDict):
 class BrokerEncryptionOptionsArgs:
     def __init__(__self__, *,
                  use_aws_owned_key: pulumi.Input[_builtins.bool],
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] use_aws_owned_key: Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
-        :param pulumi.Input[_builtins.str] kms_key_id: The customer master key (CMK) to use for the A KMS (KMS). 
+        :param pulumi.Input[_builtins.str] kms_key_id: The customer master key (CMK) to use for the A KMS (KMS).
                This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
                The Key ARN is recommended so that drift can be detected,
                but a key ID or key alias will also be accepted for API compatibility reasons.
@@ -120,9 +120,9 @@ class BrokerEncryptionOptionsArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The customer master key (CMK) to use for the A KMS (KMS). 
+        The customer master key (CMK) to use for the A KMS (KMS).
         This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
         The Key ARN is recommended so that drift can be detected,
         but a key ID or key alias will also be accepted for API compatibility reasons.
@@ -130,7 +130,7 @@ class BrokerEncryptionOptionsArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
@@ -141,11 +141,11 @@ class BrokerLdapServerMetadataArgsDict(TypedDict):
     service_account_username: pulumi.Input[_builtins.str]
     user_base: pulumi.Input[_builtins.str]
     user_search_matching: pulumi.Input[_builtins.str]
-    role_name: NotRequired[pulumi.Input[_builtins.str]]
-    role_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
-    service_account_password: NotRequired[pulumi.Input[_builtins.str]]
-    user_role_name: NotRequired[pulumi.Input[_builtins.str]]
-    user_search_subtree: NotRequired[pulumi.Input[_builtins.bool]]
+    role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    role_search_subtree: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    service_account_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_role_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_search_subtree: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class BrokerLdapServerMetadataArgs:
@@ -156,11 +156,11 @@ class BrokerLdapServerMetadataArgs:
                  service_account_username: pulumi.Input[_builtins.str],
                  user_base: pulumi.Input[_builtins.str],
                  user_search_matching: pulumi.Input[_builtins.str],
-                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_search_subtree: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_account_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_search_subtree: Optional[pulumi.Input[_builtins.bool]] = None):
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_search_subtree: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_account_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_search_subtree: pulumi.Input[Optional[_builtins.bool]] = None):
         pulumi.set(__self__, "hosts", hosts)
         pulumi.set(__self__, "role_base", role_base)
         pulumi.set(__self__, "role_search_matching", role_search_matching)
@@ -234,56 +234,56 @@ class BrokerLdapServerMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleSearchSubtree")
-    def role_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def role_search_subtree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "role_search_subtree")
 
     @role_search_subtree.setter
-    def role_search_subtree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def role_search_subtree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "role_search_subtree", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountPassword")
-    def service_account_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_account_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "service_account_password")
 
     @service_account_password.setter
-    def service_account_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_account_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account_password", value)
 
     @_builtins.property
     @pulumi.getter(name="userRoleName")
-    def user_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "user_role_name")
 
     @user_role_name.setter
-    def user_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userSearchSubtree")
-    def user_search_subtree(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_search_subtree(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "user_search_subtree")
 
     @user_search_subtree.setter
-    def user_search_subtree(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_search_subtree(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_search_subtree", value)
 
 
 class BrokerLogListArgsDict(TypedDict):
-    audit: NotRequired[pulumi.Input[_builtins.bool]]
+    audit: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
     """
-    general: NotRequired[pulumi.Input[_builtins.bool]]
+    general: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables general logging.
     """
@@ -291,8 +291,8 @@ class BrokerLogListArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerLogListArgs:
     def __init__(__self__, *,
-                 audit: Optional[pulumi.Input[_builtins.bool]] = None,
-                 general: Optional[pulumi.Input[_builtins.bool]] = None):
+                 audit: pulumi.Input[Optional[_builtins.bool]] = None,
+                 general: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] audit: Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
         :param pulumi.Input[_builtins.bool] general: Enables general logging.
@@ -304,26 +304,26 @@ class BrokerLogListArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def audit(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.
         """
         return pulumi.get(self, "audit")
 
     @audit.setter
-    def audit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def audit(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "audit", value)
 
     @_builtins.property
     @pulumi.getter
-    def general(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def general(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables general logging.
         """
         return pulumi.get(self, "general")
 
     @general.setter
-    def general(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def general(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "general", value)
 
 
@@ -410,15 +410,15 @@ class BrokerUserArgsDict(TypedDict):
 
     > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker usernames. Broker usernames are accessible to other AWS services, including CloudWatch Logs . Broker usernames are not intended to be used for private or sensitive data.
     """
-    console_access: NotRequired[pulumi.Input[_builtins.bool]]
+    console_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
     """
-    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
     """
-    replication_user: NotRequired[pulumi.Input[_builtins.bool]]
+    replication_user: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Defines if this user is intended for CRDR replication purposes.
     """
@@ -428,9 +428,9 @@ class BrokerUserArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 console_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replication_user: Optional[pulumi.Input[_builtins.bool]] = None):
+                 console_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replication_user: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] password: Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).
         :param pulumi.Input[_builtins.str] username: The username of the broker user. The following restrictions apply to broker usernames:
@@ -483,38 +483,38 @@ class BrokerUserArgs:
 
     @_builtins.property
     @pulumi.getter(name="consoleAccess")
-    def console_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def console_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.
         """
         return pulumi.get(self, "console_access")
 
     @console_access.setter
-    def console_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def console_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "console_access", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationUser")
-    def replication_user(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replication_user(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines if this user is intended for CRDR replication purposes.
         """
         return pulumi.get(self, "replication_user")
 
     @replication_user.setter
-    def replication_user(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replication_user(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replication_user", value)
 
 

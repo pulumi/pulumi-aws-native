@@ -114,7 +114,6 @@ def get_code_signing_config(code_signing_config_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
-
     :param _builtins.str code_signing_config_arn: A unique Arn for CodeSigningConfig resource
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_code_signing_config(code_signing_config_arn: Optional[_builtins.str] = N
         code_signing_policies=pulumi.get(__ret__, 'code_signing_policies'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_code_signing_config_output(code_signing_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Resource Type definition for AWS::Lambda::CodeSigningConfig.
-
 
     :param _builtins.str code_signing_config_arn: A unique Arn for CodeSigningConfig resource
     """

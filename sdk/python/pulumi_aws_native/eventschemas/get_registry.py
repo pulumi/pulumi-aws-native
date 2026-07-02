@@ -76,7 +76,6 @@ def get_registry(registry_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EventSchemas::Registry
 
-
     :param _builtins.str registry_arn: The ARN of the registry.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_registry(registry_arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         registry_arn=pulumi.get(__ret__, 'registry_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_registry_output(registry_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_output(registry_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Resource Type definition for AWS::EventSchemas::Registry
-
 
     :param _builtins.str registry_arn: The ARN of the registry.
     """

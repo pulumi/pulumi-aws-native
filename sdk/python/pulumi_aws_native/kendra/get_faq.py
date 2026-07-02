@@ -91,7 +91,6 @@ def get_faq(id: Optional[_builtins.str] = None,
     """
     A Kendra FAQ resource
 
-
     :param _builtins.str id: The identifier for the FAQ. For example:
            
            `f61995a6-cd5c-4e99-9cfc-58816d8bfaa7`
@@ -108,12 +107,11 @@ def get_faq(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         language_code=pulumi.get(__ret__, 'language_code'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_faq_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                   index_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_faq_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                   index_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFaqResult]:
     """
     A Kendra FAQ resource
-
 
     :param _builtins.str id: The identifier for the FAQ. For example:
            

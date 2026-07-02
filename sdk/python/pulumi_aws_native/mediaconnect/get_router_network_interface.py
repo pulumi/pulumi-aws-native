@@ -171,7 +171,6 @@ def get_router_network_interface(arn: Optional[_builtins.str] = None,
     """
     Represents a router network interface in AWS Elemental MediaConnect that is used to define a network boundary for router resources
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router network interface.
     """
     __args__ = dict()
@@ -191,11 +190,10 @@ def get_router_network_interface(arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_router_network_interface_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_router_network_interface_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouterNetworkInterfaceResult]:
     """
     Represents a router network interface in AWS Elemental MediaConnect that is used to define a network boundary for router resources
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router network interface.
     """

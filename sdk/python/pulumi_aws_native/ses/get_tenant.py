@@ -77,7 +77,6 @@ def get_tenant(tenant_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SES::Tenant
 
-
     :param _builtins.str tenant_name: The name of the tenant.
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_tenant(tenant_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         resource_associations=pulumi.get(__ret__, 'resource_associations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_tenant_output(tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tenant_output(tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantResult]:
     """
     Resource Type definition for AWS::SES::Tenant
-
 
     :param _builtins.str tenant_name: The name of the tenant.
     """

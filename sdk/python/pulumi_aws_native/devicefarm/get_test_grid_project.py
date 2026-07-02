@@ -90,7 +90,6 @@ def get_test_grid_project(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for a Device Farm TestGrid Project
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """
     __args__ = dict()
@@ -103,11 +102,10 @@ def get_test_grid_project(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_test_grid_project_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_grid_project_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGridProjectResult]:
     """
     Resource Type definition for a Device Farm TestGrid Project
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the `TestGrid` project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
     """

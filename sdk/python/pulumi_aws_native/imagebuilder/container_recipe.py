@@ -22,21 +22,21 @@ __all__ = ['ContainerRecipeArgs', 'ContainerRecipe']
 @pulumi.input_type
 class ContainerRecipeArgs:
     def __init__(__self__, *,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]] = None,
-                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_os_version_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_configuration: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]] = None,
+                 container_type: pulumi.Input[Optional['ContainerRecipeContainerType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_os_version_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_configuration: pulumi.Input[Optional['ContainerRecipeInstanceConfigurationArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_override: pulumi.Input[Optional['ContainerRecipePlatformOverride']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_repository: pulumi.Input[Optional['ContainerRecipeTargetContainerRepositoryArgs']] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
 
@@ -89,182 +89,182 @@ class ContainerRecipeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]:
         """
         Components for build and test that are included in the container recipe.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[pulumi.Input['ContainerRecipeContainerType']]:
+    def container_type(self) -> pulumi.Input[Optional['ContainerRecipeContainerType']]:
         """
         Specifies the type of container, such as Docker.
         """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
-    def container_type(self, value: Optional[pulumi.Input['ContainerRecipeContainerType']]):
+    def container_type(self, value: pulumi.Input[Optional['ContainerRecipeContainerType']]):
         pulumi.set(self, "container_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the container recipe.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateData")
-    def dockerfile_template_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dockerfile_template_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         """
         return pulumi.get(self, "dockerfile_template_data")
 
     @dockerfile_template_data.setter
-    def dockerfile_template_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dockerfile_template_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dockerfile_template_data", value)
 
     @_builtins.property
     @pulumi.getter(name="dockerfileTemplateUri")
-    def dockerfile_template_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dockerfile_template_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 URI for the Dockerfile that will be used to build your container image.
         """
         return pulumi.get(self, "dockerfile_template_uri")
 
     @dockerfile_template_uri.setter
-    def dockerfile_template_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dockerfile_template_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dockerfile_template_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="imageOsVersionOverride")
-    def image_os_version_override(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_os_version_override(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the operating system version for the source image.
         """
         return pulumi.get(self, "image_os_version_override")
 
     @image_os_version_override.setter
-    def image_os_version_override(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_os_version_override(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_os_version_override", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceConfiguration")
-    def instance_configuration(self) -> Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']]:
+    def instance_configuration(self) -> pulumi.Input[Optional['ContainerRecipeInstanceConfigurationArgs']]:
         """
         A group of options that can be used to configure an instance for building and testing container images.
         """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
-    def instance_configuration(self, value: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']]):
+    def instance_configuration(self, value: pulumi.Input[Optional['ContainerRecipeInstanceConfigurationArgs']]):
         pulumi.set(self, "instance_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies which KMS key is used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container recipe.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentImage")
-    def parent_image(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_image(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The source image for the container recipe.
         """
         return pulumi.get(self, "parent_image")
 
     @parent_image.setter
-    def parent_image(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_image(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_image", value)
 
     @_builtins.property
     @pulumi.getter(name="platformOverride")
-    def platform_override(self) -> Optional[pulumi.Input['ContainerRecipePlatformOverride']]:
+    def platform_override(self) -> pulumi.Input[Optional['ContainerRecipePlatformOverride']]:
         """
         Specifies the operating system platform when you use a custom source image.
         """
         return pulumi.get(self, "platform_override")
 
     @platform_override.setter
-    def platform_override(self, value: Optional[pulumi.Input['ContainerRecipePlatformOverride']]):
+    def platform_override(self, value: pulumi.Input[Optional['ContainerRecipePlatformOverride']]):
         pulumi.set(self, "platform_override", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags that are attached to the container recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']]:
+    def target_repository(self) -> pulumi.Input[Optional['ContainerRecipeTargetContainerRepositoryArgs']]:
         """
         The destination repository for the container image.
         """
         return pulumi.get(self, "target_repository")
 
     @target_repository.setter
-    def target_repository(self, value: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']]):
+    def target_repository(self, value: pulumi.Input[Optional['ContainerRecipeTargetContainerRepositoryArgs']]):
         pulumi.set(self, "target_repository", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The semantic version of the container recipe (<major>.<minor>.<patch>).
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def working_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
-    def working_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def working_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "working_directory", value)
 
 
@@ -274,25 +274,24 @@ class ContainerRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentConfigurationArgs', 'ContainerRecipeComponentConfigurationArgsDict']]]]] = None,
-                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_os_version_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_configuration: Optional[pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetContainerRepositoryArgs', 'ContainerRecipeTargetContainerRepositoryArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentConfigurationArgs', 'ContainerRecipeComponentConfigurationArgsDict']]]]] = None,
+                 container_type: pulumi.Input[Optional['ContainerRecipeContainerType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_os_version_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_override: pulumi.Input[Optional['ContainerRecipePlatformOverride']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetContainerRepositoryArgs', 'ContainerRecipeTargetContainerRepositoryArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::ImageBuilder::ContainerRecipe
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,7 +320,6 @@ class ContainerRecipe(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ContainerRecipe
 
-
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,21 +335,21 @@ class ContainerRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentConfigurationArgs', 'ContainerRecipeComponentConfigurationArgsDict']]]]] = None,
-                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_data: Optional[pulumi.Input[_builtins.str]] = None,
-                 dockerfile_template_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_os_version_override: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_configuration: Optional[pulumi.Input[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetContainerRepositoryArgs', 'ContainerRecipeTargetContainerRepositoryArgsDict']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerRecipeComponentConfigurationArgs', 'ContainerRecipeComponentConfigurationArgsDict']]]]] = None,
+                 container_type: pulumi.Input[Optional['ContainerRecipeContainerType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 dockerfile_template_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_os_version_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_configuration: pulumi.Input[Optional[Union['ContainerRecipeInstanceConfigurationArgs', 'ContainerRecipeInstanceConfigurationArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 platform_override: pulumi.Input[Optional['ContainerRecipePlatformOverride']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_repository: pulumi.Input[Optional[Union['ContainerRecipeTargetContainerRepositoryArgs', 'ContainerRecipeTargetContainerRepositoryArgsDict']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

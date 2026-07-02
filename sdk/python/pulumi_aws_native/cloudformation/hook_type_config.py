@@ -20,10 +20,10 @@ __all__ = ['HookTypeConfigArgs', 'HookTypeConfig']
 @pulumi.input_type
 class HookTypeConfigArgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_alias: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']] = None,
-                 type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_alias: pulumi.Input[Optional['HookTypeConfigConfigurationAlias']] = None,
+                 type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HookTypeConfig resource.
 
@@ -45,43 +45,43 @@ class HookTypeConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The configuration data for the extension, in this account and region.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationAlias")
-    def configuration_alias(self) -> Optional[pulumi.Input['HookTypeConfigConfigurationAlias']]:
+    def configuration_alias(self) -> pulumi.Input[Optional['HookTypeConfigConfigurationAlias']]:
         """
         An alias by which to refer to this extension configuration data.
         """
         return pulumi.get(self, "configuration_alias")
 
     @configuration_alias.setter
-    def configuration_alias(self, value: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']]):
+    def configuration_alias(self, value: pulumi.Input[Optional['HookTypeConfigConfigurationAlias']]):
         pulumi.set(self, "configuration_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="typeArn")
-    def type_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the type without version number.
         """
         return pulumi.get(self, "type_arn")
 
     @type_arn.setter
-    def type_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the type being registered.
 
@@ -90,7 +90,7 @@ class HookTypeConfigArgs:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
 
@@ -100,10 +100,10 @@ class HookTypeConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_alias: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']] = None,
-                 type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_alias: pulumi.Input[Optional['HookTypeConfigConfigurationAlias']] = None,
+                 type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies the configuration data for a registered hook in CloudFormation Registry.
@@ -235,10 +235,10 @@ class HookTypeConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 configuration_alias: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']] = None,
-                 type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_alias: pulumi.Input[Optional['HookTypeConfigConfigurationAlias']] = None,
+                 type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,9 +24,9 @@ __all__ = ['VirtualClusterArgs', 'VirtualCluster']
 class VirtualClusterArgs:
     def __init__(__self__, *,
                  container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualCluster resource.
 
@@ -57,38 +57,38 @@ class VirtualClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the virtual cluster.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityConfigurationId")
-    def security_configuration_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security configuration.
         """
         return pulumi.get(self, "security_configuration_id")
 
     @security_configuration_id.setter
-    def security_configuration_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_configuration_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this virtual cluster.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -98,10 +98,10 @@ class VirtualCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EMRContainers::VirtualCluster Type
@@ -239,10 +239,10 @@ class VirtualCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 container_provider: pulumi.Input[Optional[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

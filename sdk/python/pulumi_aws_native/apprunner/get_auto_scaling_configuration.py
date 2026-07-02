@@ -75,7 +75,6 @@ def get_auto_scaling_configuration(auto_scaling_configuration_arn: Optional[_bui
     """
     Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
 
-
     :param _builtins.str auto_scaling_configuration_arn: The Amazon Resource Name (ARN) of this auto scaling configuration.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_auto_scaling_configuration(auto_scaling_configuration_arn: Optional[_bui
         auto_scaling_configuration_arn=pulumi.get(__ret__, 'auto_scaling_configuration_arn'),
         auto_scaling_configuration_revision=pulumi.get(__ret__, 'auto_scaling_configuration_revision'),
         latest=pulumi.get(__ret__, 'latest'))
-def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScalingConfigurationResult]:
     """
     Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
-
 
     :param _builtins.str auto_scaling_configuration_arn: The Amazon Resource Name (ARN) of this auto scaling configuration.
     """

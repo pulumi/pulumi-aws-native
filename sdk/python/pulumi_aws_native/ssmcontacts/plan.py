@@ -21,9 +21,9 @@ __all__ = ['PlanArgs', 'Plan']
 @pulumi.input_type
 class PlanArgs:
     def __init__(__self__, *,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None):
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input['PlanStageArgs']]]] = None):
         """
         The set of arguments for constructing a Plan resource.
 
@@ -40,38 +40,38 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Contact ID for the AWS SSM Incident Manager Contact to associate the plan.
         """
         return pulumi.get(self, "contact_id")
 
     @contact_id.setter
-    def contact_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_id", value)
 
     @_builtins.property
     @pulumi.getter(name="rotationIds")
-    def rotation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def rotation_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Rotation Ids to associate with Oncall Contact for engagement.
         """
         return pulumi.get(self, "rotation_ids")
 
     @rotation_ids.setter
-    def rotation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def rotation_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "rotation_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]]:
+    def stages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanStageArgs']]]]:
         """
         The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         return pulumi.get(self, "stages")
 
     @stages.setter
-    def stages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]]):
+    def stages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanStageArgs']]]]):
         pulumi.set(self, "stages", value)
 
 
@@ -81,13 +81,12 @@ class Plan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Engagement Plan for a SSM Incident Manager Contact.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class Plan(pulumi.CustomResource):
         """
         Engagement Plan for a SSM Incident Manager Contact.
 
-
         :param str resource_name: The name of the resource.
         :param PlanArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class Plan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
+                 contact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rotation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

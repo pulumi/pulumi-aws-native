@@ -22,20 +22,20 @@ __all__ = ['TransitGatewayArgs', 'TransitGateway']
 @pulumi.input_type
 class TransitGatewayArgs:
     def __init__(__self__, *,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 association_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_accept_shared_attachments: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_association: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
-                 multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None):
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 association_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_accept_shared_attachments: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_association: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_support: pulumi.Input[Optional['TransitGatewayEncryptionSupport']] = None,
+                 multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
 
@@ -87,127 +87,127 @@ class TransitGatewayArgs:
 
     @_builtins.property
     @pulumi.getter(name="amazonSideAsn")
-    def amazon_side_asn(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def amazon_side_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is 64512 to 65534 for 16-bit ASNs. The default is 64512.
         """
         return pulumi.get(self, "amazon_side_asn")
 
     @amazon_side_asn.setter
-    def amazon_side_asn(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def amazon_side_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "amazon_side_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="associationDefaultRouteTableId")
-    def association_default_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def association_default_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the default association route table.
         """
         return pulumi.get(self, "association_default_route_table_id")
 
     @association_default_route_table_id.setter
-    def association_default_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def association_default_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "association_default_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="autoAcceptSharedAttachments")
-    def auto_accept_shared_attachments(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_accept_shared_attachments(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable automatic acceptance of attachment requests. Disabled by default.
         """
         return pulumi.get(self, "auto_accept_shared_attachments")
 
     @auto_accept_shared_attachments.setter
-    def auto_accept_shared_attachments(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_accept_shared_attachments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_accept_shared_attachments", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteTableAssociation")
-    def default_route_table_association(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_route_table_association(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable automatic association with the default association route table. Enabled by default. If `DefaultRouteTableAssociation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_association")
 
     @default_route_table_association.setter
-    def default_route_table_association(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_route_table_association(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_route_table_association", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRouteTablePropagation")
-    def default_route_table_propagation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_route_table_propagation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         """
         return pulumi.get(self, "default_route_table_propagation")
 
     @default_route_table_propagation.setter
-    def default_route_table_propagation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_route_table_propagation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_route_table_propagation", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the transit gateway.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSupport")
-    def dns_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dns_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable DNS support. Enabled by default.
         """
         return pulumi.get(self, "dns_support")
 
     @dns_support.setter
-    def dns_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dns_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_support", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSupport")
-    def encryption_support(self) -> Optional[pulumi.Input['TransitGatewayEncryptionSupport']]:
+    def encryption_support(self) -> pulumi.Input[Optional['TransitGatewayEncryptionSupport']]:
         """
         Enable or disable encryption support. Disabled by default.
         """
         return pulumi.get(self, "encryption_support")
 
     @encryption_support.setter
-    def encryption_support(self, value: Optional[pulumi.Input['TransitGatewayEncryptionSupport']]):
+    def encryption_support(self, value: pulumi.Input[Optional['TransitGatewayEncryptionSupport']]):
         pulumi.set(self, "encryption_support", value)
 
     @_builtins.property
     @pulumi.getter(name="multicastSupport")
-    def multicast_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multicast_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates whether multicast is enabled on the transit gateway
         """
         return pulumi.get(self, "multicast_support")
 
     @multicast_support.setter
-    def multicast_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multicast_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multicast_support", value)
 
     @_builtins.property
     @pulumi.getter(name="propagationDefaultRouteTableId")
-    def propagation_default_route_table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def propagation_default_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the default propagation route table.
         """
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @propagation_default_route_table_id.setter
-    def propagation_default_route_table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def propagation_default_route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "propagation_default_route_table_id", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupReferencingSupport")
-    def security_group_referencing_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_group_referencing_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
 
@@ -216,43 +216,43 @@ class TransitGatewayArgs:
         return pulumi.get(self, "security_group_referencing_support")
 
     @security_group_referencing_support.setter
-    def security_group_referencing_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_group_referencing_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_group_referencing_support", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the transit gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayCidrBlocks")
-    def transit_gateway_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def transit_gateway_cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The transit gateway CIDR blocks.
         """
         return pulumi.get(self, "transit_gateway_cidr_blocks")
 
     @transit_gateway_cidr_blocks.setter
-    def transit_gateway_cidr_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def transit_gateway_cidr_blocks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "transit_gateway_cidr_blocks", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnEcmpSupport")
-    def vpn_ecmp_support(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_ecmp_support(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
         return pulumi.get(self, "vpn_ecmp_support")
 
     @vpn_ecmp_support.setter
-    def vpn_ecmp_support(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_ecmp_support(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_ecmp_support", value)
 
 
@@ -262,24 +262,23 @@ class TransitGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 association_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_accept_shared_attachments: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_association: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
-                 multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 association_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_accept_shared_attachments: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_association: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_support: pulumi.Input[Optional['TransitGatewayEncryptionSupport']] = None,
+                 multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::TransitGateway
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,7 +308,6 @@ class TransitGateway(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGateway
 
-
         :param str resource_name: The name of the resource.
         :param TransitGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,20 +323,20 @@ class TransitGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amazon_side_asn: Optional[pulumi.Input[_builtins.int]] = None,
-                 association_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_accept_shared_attachments: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_association: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
-                 multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpn_ecmp_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 amazon_side_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 association_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_accept_shared_attachments: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_association: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_route_table_propagation: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_support: pulumi.Input[Optional['TransitGatewayEncryptionSupport']] = None,
+                 multicast_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagation_default_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_referencing_support: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_cidr_blocks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpn_ecmp_support: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -115,7 +115,7 @@ def get_hub(arn: Optional[_builtins.str] = None,
         control_finding_generator=pulumi.get(__ret__, 'control_finding_generator'),
         subscribed_at=pulumi.get(__ret__, 'subscribed_at'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_hub_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hub_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubResult]:
     """
     The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.

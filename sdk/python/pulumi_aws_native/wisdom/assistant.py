@@ -25,10 +25,10 @@ __all__ = ['AssistantArgs', 'Assistant']
 class AssistantArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AssistantType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['AssistantServerSideEncryptionConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assistant resource.
 
@@ -62,50 +62,50 @@ class AssistantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the assistant.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assistant.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['AssistantServerSideEncryptionConfigurationArgs']]:
         """
         The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['AssistantServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,15 +115,14 @@ class Assistant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['AssistantType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['AssistantType']] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::Assistant Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class Assistant(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::Assistant Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param AssistantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class Assistant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['AssistantType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['AssistantServerSideEncryptionConfigurationArgs', 'AssistantServerSideEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['AssistantType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

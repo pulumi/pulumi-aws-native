@@ -24,7 +24,7 @@ class StreamStorageConfigurationArgsDict(TypedDict):
     """
     Configuration for the storage tier of the Kinesis Video Stream.
     """
-    default_storage_tier: NotRequired[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']]
+    default_storage_tier: NotRequired[pulumi.Input[Optional['StreamStorageConfigurationDefaultStorageTier']]]
     """
     The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
     """
@@ -32,7 +32,7 @@ class StreamStorageConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class StreamStorageConfigurationArgs:
     def __init__(__self__, *,
-                 default_storage_tier: Optional[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']] = None):
+                 default_storage_tier: pulumi.Input[Optional['StreamStorageConfigurationDefaultStorageTier']] = None):
         """
         Configuration for the storage tier of the Kinesis Video Stream.
 
@@ -43,14 +43,14 @@ class StreamStorageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultStorageTier")
-    def default_storage_tier(self) -> Optional[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']]:
+    def default_storage_tier(self) -> pulumi.Input[Optional['StreamStorageConfigurationDefaultStorageTier']]:
         """
         The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
         """
         return pulumi.get(self, "default_storage_tier")
 
     @default_storage_tier.setter
-    def default_storage_tier(self, value: Optional[pulumi.Input['StreamStorageConfigurationDefaultStorageTier']]):
+    def default_storage_tier(self, value: pulumi.Input[Optional['StreamStorageConfigurationDefaultStorageTier']]):
         pulumi.set(self, "default_storage_tier", value)
 
 

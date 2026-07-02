@@ -109,7 +109,6 @@ def get_archive(archive_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Events::Archive
 
-
     :param _builtins.str archive_name: The name for the archive to create.
     """
     __args__ = dict()
@@ -123,11 +122,10 @@ def get_archive(archive_name: Optional[_builtins.str] = None,
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         retention_days=pulumi.get(__ret__, 'retention_days'))
-def get_archive_output(archive_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_archive_output(archive_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchiveResult]:
     """
     Resource Type definition for AWS::Events::Archive
-
 
     :param _builtins.str archive_name: The name for the archive to create.
     """

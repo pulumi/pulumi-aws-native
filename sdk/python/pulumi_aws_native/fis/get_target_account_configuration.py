@@ -64,7 +64,6 @@ def get_target_account_configuration(account_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::FIS::TargetAccountConfiguration
 
-
     :param _builtins.str account_id: The AWS account ID of the target account.
     :param _builtins.str experiment_template_id: The ID of the experiment template.
     """
@@ -77,12 +76,11 @@ def get_target_account_configuration(account_id: Optional[_builtins.str] = None,
     return AwaitableGetTargetAccountConfigurationResult(
         description=pulumi.get(__ret__, 'description'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_target_account_configuration_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            experiment_template_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_target_account_configuration_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            experiment_template_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetAccountConfigurationResult]:
     """
     Resource schema for AWS::FIS::TargetAccountConfiguration
-
 
     :param _builtins.str account_id: The AWS account ID of the target account.
     :param _builtins.str experiment_template_id: The ID of the experiment template.

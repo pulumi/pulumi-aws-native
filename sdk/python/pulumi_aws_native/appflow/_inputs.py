@@ -74,10 +74,10 @@ __all__ = [
     'ConnectorProfileSalesforceConnectorProfileCredentialsArgsDict',
     'ConnectorProfileSalesforceConnectorProfilePropertiesArgs',
     'ConnectorProfileSalesforceConnectorProfilePropertiesArgsDict',
-    'ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs',
-    'ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgsDict',
     'ConnectorProfileSapoDataConnectorProfileCredentialsArgs',
     'ConnectorProfileSapoDataConnectorProfileCredentialsArgsDict',
+    'ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs',
+    'ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgsDict',
     'ConnectorProfileSapoDataConnectorProfilePropertiesArgs',
     'ConnectorProfileSapoDataConnectorProfilePropertiesArgsDict',
     'ConnectorProfileServiceNowConnectorProfileCredentialsArgs',
@@ -114,10 +114,10 @@ __all__ = [
     'FlowConnectorOperatorArgsDict',
     'FlowCustomConnectorDestinationPropertiesArgs',
     'FlowCustomConnectorDestinationPropertiesArgsDict',
-    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs',
-    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgsDict',
     'FlowCustomConnectorSourcePropertiesArgs',
     'FlowCustomConnectorSourcePropertiesArgsDict',
+    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs',
+    'FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgsDict',
     'FlowDatadogSourcePropertiesArgs',
     'FlowDatadogSourcePropertiesArgsDict',
     'FlowDestinationConnectorPropertiesArgs',
@@ -188,10 +188,10 @@ __all__ = [
     'FlowSourceFlowConfigArgsDict',
     'FlowSuccessResponseHandlingConfigArgs',
     'FlowSuccessResponseHandlingConfigArgsDict',
-    'FlowTaskPropertiesObjectArgs',
-    'FlowTaskPropertiesObjectArgsDict',
     'FlowTaskArgs',
     'FlowTaskArgsDict',
+    'FlowTaskPropertiesObjectArgs',
+    'FlowTaskPropertiesObjectArgsDict',
     'FlowTrendmicroSourcePropertiesArgs',
     'FlowTrendmicroSourcePropertiesArgsDict',
     'FlowTriggerConfigArgs',
@@ -293,7 +293,7 @@ class ConnectorProfileApiKeyCredentialsArgsDict(TypedDict):
     """
     The API key required for API key authentication.
     """
-    api_secret_key: NotRequired[pulumi.Input[_builtins.str]]
+    api_secret_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API secret key required for API key authentication.
     """
@@ -302,7 +302,7 @@ class ConnectorProfileApiKeyCredentialsArgsDict(TypedDict):
 class ConnectorProfileApiKeyCredentialsArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[_builtins.str],
-                 api_secret_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_secret_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: The API key required for API key authentication.
         :param pulumi.Input[_builtins.str] api_secret_key: The API secret key required for API key authentication.
@@ -325,14 +325,14 @@ class ConnectorProfileApiKeyCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiSecretKey")
-    def api_secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API secret key required for API key authentication.
         """
         return pulumi.get(self, "api_secret_key")
 
     @api_secret_key.setter
-    def api_secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_secret_key", value)
 
 
@@ -387,11 +387,11 @@ class ConnectorProfileConfigArgsDict(TypedDict):
     """
     Connector specific configurations needed to create connector profile
     """
-    connector_profile_credentials: NotRequired[pulumi.Input['ConnectorProfileCredentialsArgsDict']]
+    connector_profile_credentials: NotRequired[pulumi.Input[Optional['ConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required by each connector.
     """
-    connector_profile_properties: NotRequired[pulumi.Input['ConnectorProfilePropertiesArgsDict']]
+    connector_profile_properties: NotRequired[pulumi.Input[Optional['ConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties of the profile configuration.
     """
@@ -399,8 +399,8 @@ class ConnectorProfileConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileConfigArgs:
     def __init__(__self__, *,
-                 connector_profile_credentials: Optional[pulumi.Input['ConnectorProfileCredentialsArgs']] = None,
-                 connector_profile_properties: Optional[pulumi.Input['ConnectorProfilePropertiesArgs']] = None):
+                 connector_profile_credentials: pulumi.Input[Optional['ConnectorProfileCredentialsArgs']] = None,
+                 connector_profile_properties: pulumi.Input[Optional['ConnectorProfilePropertiesArgs']] = None):
         """
         Connector specific configurations needed to create connector profile
 
@@ -414,35 +414,35 @@ class ConnectorProfileConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileCredentials")
-    def connector_profile_credentials(self) -> Optional[pulumi.Input['ConnectorProfileCredentialsArgs']]:
+    def connector_profile_credentials(self) -> pulumi.Input[Optional['ConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required by each connector.
         """
         return pulumi.get(self, "connector_profile_credentials")
 
     @connector_profile_credentials.setter
-    def connector_profile_credentials(self, value: Optional[pulumi.Input['ConnectorProfileCredentialsArgs']]):
+    def connector_profile_credentials(self, value: pulumi.Input[Optional['ConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "connector_profile_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileProperties")
-    def connector_profile_properties(self) -> Optional[pulumi.Input['ConnectorProfilePropertiesArgs']]:
+    def connector_profile_properties(self) -> pulumi.Input[Optional['ConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties of the profile configuration.
         """
         return pulumi.get(self, "connector_profile_properties")
 
     @connector_profile_properties.setter
-    def connector_profile_properties(self, value: Optional[pulumi.Input['ConnectorProfilePropertiesArgs']]):
+    def connector_profile_properties(self, value: pulumi.Input[Optional['ConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "connector_profile_properties", value)
 
 
 class ConnectorProfileConnectorOAuthRequestArgsDict(TypedDict):
-    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    auth_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The code provided by the connector when it has been authenticated via the connected app.
     """
-    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL to which the authentication server redirects the browser after authorization has been
     granted.
@@ -451,8 +451,8 @@ class ConnectorProfileConnectorOAuthRequestArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileConnectorOAuthRequestArgs:
     def __init__(__self__, *,
-                 auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_code: The code provided by the connector when it has been authenticated via the connected app.
         :param pulumi.Input[_builtins.str] redirect_uri: The URL to which the authentication server redirects the browser after authorization has been
@@ -465,19 +465,19 @@ class ConnectorProfileConnectorOAuthRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="authCode")
-    def auth_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The code provided by the connector when it has been authenticated via the connected app.
         """
         return pulumi.get(self, "auth_code")
 
     @auth_code.setter
-    def auth_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_code", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL to which the authentication server redirects the browser after authorization has been
         granted.
@@ -485,7 +485,7 @@ class ConnectorProfileConnectorOAuthRequestArgs:
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
-    def redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_uri", value)
 
 
@@ -493,75 +493,75 @@ class ConnectorProfileCredentialsArgsDict(TypedDict):
     """
     Connector specific configuration needed to create connector profile based on Authentication mechanism
     """
-    amplitude: NotRequired[pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgsDict']]
+    amplitude: NotRequired[pulumi.Input[Optional['ConnectorProfileAmplitudeConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Amplitude.
     """
-    custom_connector: NotRequired[pulumi.Input['ConnectorProfileCustomConnectorProfileCredentialsArgsDict']]
+    custom_connector: NotRequired[pulumi.Input[Optional['ConnectorProfileCustomConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific profile credentials that are required when using the custom connector.
     """
-    datadog: NotRequired[pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgsDict']]
+    datadog: NotRequired[pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Datadog.
     """
-    dynatrace: NotRequired[pulumi.Input['ConnectorProfileDynatraceConnectorProfileCredentialsArgsDict']]
+    dynatrace: NotRequired[pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Dynatrace.
     """
-    google_analytics: NotRequired[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgsDict']]
+    google_analytics: NotRequired[pulumi.Input[Optional['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Google Analytics.
     """
-    infor_nexus: NotRequired[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgsDict']]
+    infor_nexus: NotRequired[pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Infor Nexus.
     """
-    marketo: NotRequired[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgsDict']]
+    marketo: NotRequired[pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Marketo.
     """
-    pardot: NotRequired[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgsDict']]
+    pardot: NotRequired[pulumi.Input[Optional['ConnectorProfilePardotConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Salesforce Pardot.
     """
-    redshift: NotRequired[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgsDict']]
+    redshift: NotRequired[pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Amazon Redshift.
     """
-    salesforce: NotRequired[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgsDict']]
+    salesforce: NotRequired[pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Salesforce.
     """
-    sapo_data: NotRequired[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsArgsDict']]
+    sapo_data: NotRequired[pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific profile credentials required when using SAPOData.
     """
-    service_now: NotRequired[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgsDict']]
+    service_now: NotRequired[pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using ServiceNow.
     """
-    singular: NotRequired[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgsDict']]
+    singular: NotRequired[pulumi.Input[Optional['ConnectorProfileSingularConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Singular.
     """
-    slack: NotRequired[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgsDict']]
+    slack: NotRequired[pulumi.Input[Optional['ConnectorProfileSlackConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Slack.
     """
-    snowflake: NotRequired[pulumi.Input['ConnectorProfileSnowflakeConnectorProfileCredentialsArgsDict']]
+    snowflake: NotRequired[pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Snowflake.
     """
-    trendmicro: NotRequired[pulumi.Input['ConnectorProfileTrendmicroConnectorProfileCredentialsArgsDict']]
+    trendmicro: NotRequired[pulumi.Input[Optional['ConnectorProfileTrendmicroConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Trend Micro.
     """
-    veeva: NotRequired[pulumi.Input['ConnectorProfileVeevaConnectorProfileCredentialsArgsDict']]
+    veeva: NotRequired[pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Veeva.
     """
-    zendesk: NotRequired[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgsDict']]
+    zendesk: NotRequired[pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfileCredentialsArgsDict']]]
     """
     The connector-specific credentials required when using Zendesk.
     """
@@ -569,24 +569,24 @@ class ConnectorProfileCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 amplitude: Optional[pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']] = None,
-                 custom_connector: Optional[pulumi.Input['ConnectorProfileCustomConnectorProfileCredentialsArgs']] = None,
-                 datadog: Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgs']] = None,
-                 dynatrace: Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']] = None,
-                 google_analytics: Optional[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']] = None,
-                 infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']] = None,
-                 marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']] = None,
-                 pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']] = None,
-                 redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']] = None,
-                 salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']] = None,
-                 sapo_data: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']] = None,
-                 service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']] = None,
-                 singular: Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']] = None,
-                 slack: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgs']] = None,
-                 snowflake: Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']] = None,
-                 trendmicro: Optional[pulumi.Input['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']] = None,
-                 veeva: Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfileCredentialsArgs']] = None,
-                 zendesk: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgs']] = None):
+                 amplitude: pulumi.Input[Optional['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']] = None,
+                 custom_connector: pulumi.Input[Optional['ConnectorProfileCustomConnectorProfileCredentialsArgs']] = None,
+                 datadog: pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfileCredentialsArgs']] = None,
+                 dynatrace: pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']] = None,
+                 google_analytics: pulumi.Input[Optional['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']] = None,
+                 infor_nexus: pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']] = None,
+                 marketo: pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfileCredentialsArgs']] = None,
+                 pardot: pulumi.Input[Optional['ConnectorProfilePardotConnectorProfileCredentialsArgs']] = None,
+                 redshift: pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']] = None,
+                 salesforce: pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']] = None,
+                 sapo_data: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']] = None,
+                 service_now: pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']] = None,
+                 singular: pulumi.Input[Optional['ConnectorProfileSingularConnectorProfileCredentialsArgs']] = None,
+                 slack: pulumi.Input[Optional['ConnectorProfileSlackConnectorProfileCredentialsArgs']] = None,
+                 snowflake: pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']] = None,
+                 trendmicro: pulumi.Input[Optional['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']] = None,
+                 veeva: pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfileCredentialsArgs']] = None,
+                 zendesk: pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfileCredentialsArgs']] = None):
         """
         Connector specific configuration needed to create connector profile based on Authentication mechanism
 
@@ -648,218 +648,218 @@ class ConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def amplitude(self) -> Optional[pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']]:
+    def amplitude(self) -> pulumi.Input[Optional['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Amplitude.
         """
         return pulumi.get(self, "amplitude")
 
     @amplitude.setter
-    def amplitude(self, value: Optional[pulumi.Input['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']]):
+    def amplitude(self, value: pulumi.Input[Optional['ConnectorProfileAmplitudeConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "amplitude", value)
 
     @_builtins.property
     @pulumi.getter(name="customConnector")
-    def custom_connector(self) -> Optional[pulumi.Input['ConnectorProfileCustomConnectorProfileCredentialsArgs']]:
+    def custom_connector(self) -> pulumi.Input[Optional['ConnectorProfileCustomConnectorProfileCredentialsArgs']]:
         """
         The connector-specific profile credentials that are required when using the custom connector.
         """
         return pulumi.get(self, "custom_connector")
 
     @custom_connector.setter
-    def custom_connector(self, value: Optional[pulumi.Input['ConnectorProfileCustomConnectorProfileCredentialsArgs']]):
+    def custom_connector(self, value: pulumi.Input[Optional['ConnectorProfileCustomConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "custom_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def datadog(self) -> Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgs']]:
+    def datadog(self) -> pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Datadog.
         """
         return pulumi.get(self, "datadog")
 
     @datadog.setter
-    def datadog(self, value: Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfileCredentialsArgs']]):
+    def datadog(self, value: pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "datadog", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynatrace(self) -> Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']]:
+    def dynatrace(self) -> pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Dynatrace.
         """
         return pulumi.get(self, "dynatrace")
 
     @dynatrace.setter
-    def dynatrace(self, value: Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']]):
+    def dynatrace(self, value: pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "dynatrace", value)
 
     @_builtins.property
     @pulumi.getter(name="googleAnalytics")
-    def google_analytics(self) -> Optional[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']]:
+    def google_analytics(self) -> pulumi.Input[Optional['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Google Analytics.
         """
         return pulumi.get(self, "google_analytics")
 
     @google_analytics.setter
-    def google_analytics(self, value: Optional[pulumi.Input['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']]):
+    def google_analytics(self, value: pulumi.Input[Optional['ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "google_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']]:
+    def infor_nexus(self) -> pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Infor Nexus.
         """
         return pulumi.get(self, "infor_nexus")
 
     @infor_nexus.setter
-    def infor_nexus(self, value: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']]):
+    def infor_nexus(self, value: pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "infor_nexus", value)
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]:
+    def marketo(self) -> pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Marketo.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]):
+    def marketo(self, value: pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def pardot(self) -> Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']]:
+    def pardot(self) -> pulumi.Input[Optional['ConnectorProfilePardotConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Salesforce Pardot.
         """
         return pulumi.get(self, "pardot")
 
     @pardot.setter
-    def pardot(self, value: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfileCredentialsArgs']]):
+    def pardot(self, value: pulumi.Input[Optional['ConnectorProfilePardotConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "pardot", value)
 
     @_builtins.property
     @pulumi.getter
-    def redshift(self) -> Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]:
+    def redshift(self) -> pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Amazon Redshift.
         """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
-    def redshift(self, value: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]):
+    def redshift(self, value: pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "redshift", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]:
+    def salesforce(self) -> pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Salesforce.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]):
+    def salesforce(self, value: pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']]:
+    def sapo_data(self) -> pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']]:
         """
         The connector-specific profile credentials required when using SAPOData.
         """
         return pulumi.get(self, "sapo_data")
 
     @sapo_data.setter
-    def sapo_data(self, value: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']]):
+    def sapo_data(self, value: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "sapo_data", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']]:
+    def service_now(self) -> pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using ServiceNow.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']]):
+    def service_now(self, value: pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def singular(self) -> Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']]:
+    def singular(self) -> pulumi.Input[Optional['ConnectorProfileSingularConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Singular.
         """
         return pulumi.get(self, "singular")
 
     @singular.setter
-    def singular(self, value: Optional[pulumi.Input['ConnectorProfileSingularConnectorProfileCredentialsArgs']]):
+    def singular(self, value: pulumi.Input[Optional['ConnectorProfileSingularConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "singular", value)
 
     @_builtins.property
     @pulumi.getter
-    def slack(self) -> Optional[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgs']]:
+    def slack(self) -> pulumi.Input[Optional['ConnectorProfileSlackConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Slack.
         """
         return pulumi.get(self, "slack")
 
     @slack.setter
-    def slack(self, value: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfileCredentialsArgs']]):
+    def slack(self, value: pulumi.Input[Optional['ConnectorProfileSlackConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "slack", value)
 
     @_builtins.property
     @pulumi.getter
-    def snowflake(self) -> Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']]:
+    def snowflake(self) -> pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Snowflake.
         """
         return pulumi.get(self, "snowflake")
 
     @snowflake.setter
-    def snowflake(self, value: Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']]):
+    def snowflake(self, value: pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "snowflake", value)
 
     @_builtins.property
     @pulumi.getter
-    def trendmicro(self) -> Optional[pulumi.Input['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']]:
+    def trendmicro(self) -> pulumi.Input[Optional['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Trend Micro.
         """
         return pulumi.get(self, "trendmicro")
 
     @trendmicro.setter
-    def trendmicro(self, value: Optional[pulumi.Input['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']]):
+    def trendmicro(self, value: pulumi.Input[Optional['ConnectorProfileTrendmicroConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "trendmicro", value)
 
     @_builtins.property
     @pulumi.getter
-    def veeva(self) -> Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfileCredentialsArgs']]:
+    def veeva(self) -> pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Veeva.
         """
         return pulumi.get(self, "veeva")
 
     @veeva.setter
-    def veeva(self, value: Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfileCredentialsArgs']]):
+    def veeva(self, value: pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "veeva", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgs']]:
+    def zendesk(self) -> pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfileCredentialsArgs']]:
         """
         The connector-specific credentials required when using Zendesk.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfileCredentialsArgs']]):
+    def zendesk(self, value: pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfileCredentialsArgs']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -868,7 +868,7 @@ class ConnectorProfileCustomAuthCredentialsArgsDict(TypedDict):
     """
     The custom authentication type that the connector uses.
     """
-    credentials_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    credentials_map: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map that holds custom authentication credentials.
     """
@@ -877,7 +877,7 @@ class ConnectorProfileCustomAuthCredentialsArgsDict(TypedDict):
 class ConnectorProfileCustomAuthCredentialsArgs:
     def __init__(__self__, *,
                  custom_authentication_type: pulumi.Input[_builtins.str],
-                 credentials_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 credentials_map: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] custom_authentication_type: The custom authentication type that the connector uses.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] credentials_map: A map that holds custom authentication credentials.
@@ -900,14 +900,14 @@ class ConnectorProfileCustomAuthCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialsMap")
-    def credentials_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def credentials_map(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map that holds custom authentication credentials.
         """
         return pulumi.get(self, "credentials_map")
 
     @credentials_map.setter
-    def credentials_map(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def credentials_map(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "credentials_map", value)
 
 
@@ -916,19 +916,19 @@ class ConnectorProfileCustomConnectorProfileCredentialsArgsDict(TypedDict):
     """
     The authentication type that the custom connector uses for authenticating while creating a connector profile.
     """
-    api_key: NotRequired[pulumi.Input['ConnectorProfileApiKeyCredentialsArgsDict']]
+    api_key: NotRequired[pulumi.Input[Optional['ConnectorProfileApiKeyCredentialsArgsDict']]]
     """
     The API keys required for the authentication of the user.
     """
-    basic: NotRequired[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgsDict']]
+    basic: NotRequired[pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgsDict']]]
     """
     The basic credentials that are required for the authentication of the user.
     """
-    custom: NotRequired[pulumi.Input['ConnectorProfileCustomAuthCredentialsArgsDict']]
+    custom: NotRequired[pulumi.Input[Optional['ConnectorProfileCustomAuthCredentialsArgsDict']]]
     """
     If the connector uses the custom authentication mechanism, this holds the required credentials.
     """
-    oauth2: NotRequired[pulumi.Input['ConnectorProfileOAuth2CredentialsArgsDict']]
+    oauth2: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgsDict']]]
     """
     The OAuth 2.0 credentials required for the authentication of the user.
     """
@@ -937,10 +937,10 @@ class ConnectorProfileCustomConnectorProfileCredentialsArgsDict(TypedDict):
 class ConnectorProfileCustomConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input['ConnectorProfileAuthenticationType'],
-                 api_key: Optional[pulumi.Input['ConnectorProfileApiKeyCredentialsArgs']] = None,
-                 basic: Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']] = None,
-                 custom: Optional[pulumi.Input['ConnectorProfileCustomAuthCredentialsArgs']] = None,
-                 oauth2: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']] = None):
+                 api_key: pulumi.Input[Optional['ConnectorProfileApiKeyCredentialsArgs']] = None,
+                 basic: pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']] = None,
+                 custom: pulumi.Input[Optional['ConnectorProfileCustomAuthCredentialsArgs']] = None,
+                 oauth2: pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']] = None):
         """
         :param pulumi.Input['ConnectorProfileAuthenticationType'] authentication_type: The authentication type that the custom connector uses for authenticating while creating a connector profile.
         :param pulumi.Input['ConnectorProfileApiKeyCredentialsArgs'] api_key: The API keys required for the authentication of the user.
@@ -972,59 +972,59 @@ class ConnectorProfileCustomConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input['ConnectorProfileApiKeyCredentialsArgs']]:
+    def api_key(self) -> pulumi.Input[Optional['ConnectorProfileApiKeyCredentialsArgs']]:
         """
         The API keys required for the authentication of the user.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input['ConnectorProfileApiKeyCredentialsArgs']]):
+    def api_key(self, value: pulumi.Input[Optional['ConnectorProfileApiKeyCredentialsArgs']]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def basic(self) -> Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']]:
+    def basic(self) -> pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']]:
         """
         The basic credentials that are required for the authentication of the user.
         """
         return pulumi.get(self, "basic")
 
     @basic.setter
-    def basic(self, value: Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']]):
+    def basic(self, value: pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']]):
         pulumi.set(self, "basic", value)
 
     @_builtins.property
     @pulumi.getter
-    def custom(self) -> Optional[pulumi.Input['ConnectorProfileCustomAuthCredentialsArgs']]:
+    def custom(self) -> pulumi.Input[Optional['ConnectorProfileCustomAuthCredentialsArgs']]:
         """
         If the connector uses the custom authentication mechanism, this holds the required credentials.
         """
         return pulumi.get(self, "custom")
 
     @custom.setter
-    def custom(self, value: Optional[pulumi.Input['ConnectorProfileCustomAuthCredentialsArgs']]):
+    def custom(self, value: pulumi.Input[Optional['ConnectorProfileCustomAuthCredentialsArgs']]):
         pulumi.set(self, "custom", value)
 
     @_builtins.property
     @pulumi.getter
-    def oauth2(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]:
+    def oauth2(self) -> pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']]:
         """
         The OAuth 2.0 credentials required for the authentication of the user.
         """
         return pulumi.get(self, "oauth2")
 
     @oauth2.setter
-    def oauth2(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]):
+    def oauth2(self, value: pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']]):
         pulumi.set(self, "oauth2", value)
 
 
 class ConnectorProfileCustomConnectorProfilePropertiesArgsDict(TypedDict):
-    o_auth2_properties: NotRequired[pulumi.Input['ConnectorProfileOAuth2PropertiesArgsDict']]
+    o_auth2_properties: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuth2PropertiesArgsDict']]]
     """
     The OAuth 2.0 properties required for OAuth 2.0 authentication.
     """
-    profile_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    profile_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     A map of properties that are required to create a profile for the custom connector.
     """
@@ -1032,8 +1032,8 @@ class ConnectorProfileCustomConnectorProfilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileCustomConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
-                 o_auth2_properties: Optional[pulumi.Input['ConnectorProfileOAuth2PropertiesArgs']] = None,
-                 profile_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 o_auth2_properties: pulumi.Input[Optional['ConnectorProfileOAuth2PropertiesArgs']] = None,
+                 profile_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['ConnectorProfileOAuth2PropertiesArgs'] o_auth2_properties: The OAuth 2.0 properties required for OAuth 2.0 authentication.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] profile_properties: A map of properties that are required to create a profile for the custom connector.
@@ -1045,26 +1045,26 @@ class ConnectorProfileCustomConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="oAuth2Properties")
-    def o_auth2_properties(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2PropertiesArgs']]:
+    def o_auth2_properties(self) -> pulumi.Input[Optional['ConnectorProfileOAuth2PropertiesArgs']]:
         """
         The OAuth 2.0 properties required for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "o_auth2_properties")
 
     @o_auth2_properties.setter
-    def o_auth2_properties(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2PropertiesArgs']]):
+    def o_auth2_properties(self, value: pulumi.Input[Optional['ConnectorProfileOAuth2PropertiesArgs']]):
         pulumi.set(self, "o_auth2_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="profileProperties")
-    def profile_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def profile_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of properties that are required to create a profile for the custom connector.
         """
         return pulumi.get(self, "profile_properties")
 
     @profile_properties.setter
-    def profile_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def profile_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "profile_properties", value)
 
 
@@ -1208,15 +1208,15 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgsDict(TypedDi
     """
     The client secret used by the oauth client to authenticate to the authorization server.
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to acquire new access tokens.
     """
@@ -1226,9 +1226,9 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The identiﬁer for the desired client.
         :param pulumi.Input[_builtins.str] client_secret: The client secret used by the oauth client to authenticate to the authorization server.
@@ -1271,38 +1271,38 @@ class ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to acquire new access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 
@@ -1428,11 +1428,11 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgsDict(TypedDict):
     """
     The client secret used by the oauth client to authenticate to the authorization server.
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
@@ -1442,8 +1442,8 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The identiﬁer for the desired client.
         :param pulumi.Input[_builtins.str] client_secret: The client secret used by the oauth client to authenticate to the authorization server.
@@ -1483,26 +1483,26 @@ class ConnectorProfileMarketoConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
 
@@ -1535,20 +1535,20 @@ class ConnectorProfileMarketoConnectorProfilePropertiesArgs:
 
 
 class ConnectorProfileOAuth2CredentialsArgsDict(TypedDict):
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The access token used to access the connector on your behalf.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the desired client.
     """
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client secret used by the OAuth client to authenticate to the authorization server.
     """
-    o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The refresh token used to refresh an expired access token.
     """
@@ -1556,11 +1556,11 @@ class ConnectorProfileOAuth2CredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileOAuth2CredentialsArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] access_token: The access token used to access the connector on your behalf.
         :param pulumi.Input[_builtins.str] client_id: The identifier for the desired client.
@@ -1580,72 +1580,72 @@ class ConnectorProfileOAuth2CredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access token used to access the connector on your behalf.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the desired client.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client secret used by the OAuth client to authenticate to the authorization server.
         """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthRequest")
-    def o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         return pulumi.get(self, "o_auth_request")
 
     @o_auth_request.setter
-    def o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "o_auth_request", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The refresh token used to refresh an expired access token.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 
 class ConnectorProfileOAuth2PropertiesArgsDict(TypedDict):
-    o_auth2_grant_type: NotRequired[pulumi.Input['ConnectorProfileOAuth2GrantType']]
+    o_auth2_grant_type: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]]
     """
     The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.
     """
-    token_url: NotRequired[pulumi.Input[_builtins.str]]
+    token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The token URL required for OAuth 2.0 authentication.
     """
-    token_url_custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    token_url_custom_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
     """
@@ -1653,9 +1653,9 @@ class ConnectorProfileOAuth2PropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileOAuth2PropertiesArgs:
     def __init__(__self__, *,
-                 o_auth2_grant_type: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 token_url_custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 o_auth2_grant_type: pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url_custom_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input['ConnectorProfileOAuth2GrantType'] o_auth2_grant_type: The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.
         :param pulumi.Input[_builtins.str] token_url: The token URL required for OAuth 2.0 authentication.
@@ -1670,51 +1670,51 @@ class ConnectorProfileOAuth2PropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="oAuth2GrantType")
-    def o_auth2_grant_type(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]:
+    def o_auth2_grant_type(self) -> pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]:
         """
         The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "o_auth2_grant_type")
 
     @o_auth2_grant_type.setter
-    def o_auth2_grant_type(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]):
+    def o_auth2_grant_type(self, value: pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]):
         pulumi.set(self, "o_auth2_grant_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The token URL required for OAuth 2.0 authentication.
         """
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrlCustomProperties")
-    def token_url_custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def token_url_custom_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
         """
         return pulumi.get(self, "token_url_custom_properties")
 
     @token_url_custom_properties.setter
-    def token_url_custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def token_url_custom_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "token_url_custom_properties", value)
 
 
 class ConnectorProfileOAuthPropertiesArgsDict(TypedDict):
-    auth_code_url: NotRequired[pulumi.Input[_builtins.str]]
+    auth_code_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
     """
-    o_auth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    o_auth_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The OAuth scopes required for OAuth type authentication.
     """
-    token_url: NotRequired[pulumi.Input[_builtins.str]]
+    token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
     """
@@ -1722,9 +1722,9 @@ class ConnectorProfileOAuthPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileOAuthPropertiesArgs:
     def __init__(__self__, *,
-                 auth_code_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 token_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 auth_code_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_code_url: The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] o_auth_scopes: The OAuth scopes required for OAuth type authentication.
@@ -1739,55 +1739,55 @@ class ConnectorProfileOAuthPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authCodeUrl")
-    def auth_code_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_code_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
         """
         return pulumi.get(self, "auth_code_url")
 
     @auth_code_url.setter
-    def auth_code_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_code_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_code_url", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthScopes")
-    def o_auth_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def o_auth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The OAuth scopes required for OAuth type authentication.
         """
         return pulumi.get(self, "o_auth_scopes")
 
     @o_auth_scopes.setter
-    def o_auth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def o_auth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenUrl")
-    def token_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
         """
         return pulumi.get(self, "token_url")
 
     @token_url.setter
-    def token_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token_url", value)
 
 
 class ConnectorProfilePardotConnectorProfileCredentialsArgsDict(TypedDict):
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    client_credentials_arn: NotRequired[pulumi.Input[_builtins.str]]
+    client_credentials_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client credentials to fetch access token and refresh token.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to acquire new access tokens.
     """
@@ -1795,10 +1795,10 @@ class ConnectorProfilePardotConnectorProfileCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfilePardotConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] access_token: The credentials used to access protected resources.
         :param pulumi.Input[_builtins.str] client_credentials_arn: The client credentials to fetch access token and refresh token.
@@ -1816,50 +1816,50 @@ class ConnectorProfilePardotConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCredentialsArn")
-    def client_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client credentials to fetch access token and refresh token.
         """
         return pulumi.get(self, "client_credentials_arn")
 
     @client_credentials_arn.setter
-    def client_credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to acquire new access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 
@@ -1868,11 +1868,11 @@ class ConnectorProfilePardotConnectorProfilePropertiesArgsDict(TypedDict):
     """
     The Business unit id of Salesforce Pardot instance to be connected
     """
-    instance_url: NotRequired[pulumi.Input[_builtins.str]]
+    instance_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the Salesforce Pardot resource
     """
-    is_sandbox_environment: NotRequired[pulumi.Input[_builtins.bool]]
+    is_sandbox_environment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the connector profile applies to a demo or production environment
     """
@@ -1881,8 +1881,8 @@ class ConnectorProfilePardotConnectorProfilePropertiesArgsDict(TypedDict):
 class ConnectorProfilePardotConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
                  business_unit_id: pulumi.Input[_builtins.str],
-                 instance_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_sandbox_environment: Optional[pulumi.Input[_builtins.bool]] = None):
+                 instance_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_sandbox_environment: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] business_unit_id: The Business unit id of Salesforce Pardot instance to be connected
         :param pulumi.Input[_builtins.str] instance_url: The location of the Salesforce Pardot resource
@@ -1908,26 +1908,26 @@ class ConnectorProfilePardotConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceUrl")
-    def instance_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Salesforce Pardot resource
         """
         return pulumi.get(self, "instance_url")
 
     @instance_url.setter
-    def instance_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_url", value)
 
     @_builtins.property
     @pulumi.getter(name="isSandboxEnvironment")
-    def is_sandbox_environment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_sandbox_environment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the connector profile applies to a demo or production environment
         """
         return pulumi.get(self, "is_sandbox_environment")
 
     @is_sandbox_environment.setter
-    def is_sandbox_environment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_sandbox_environment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_sandbox_environment", value)
 
 
@@ -1935,59 +1935,59 @@ class ConnectorProfilePropertiesArgsDict(TypedDict):
     """
     Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
     """
-    custom_connector: NotRequired[pulumi.Input['ConnectorProfileCustomConnectorProfilePropertiesArgsDict']]
+    custom_connector: NotRequired[pulumi.Input[Optional['ConnectorProfileCustomConnectorProfilePropertiesArgsDict']]]
     """
     The properties required by the custom connector.
     """
-    datadog: NotRequired[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgsDict']]
+    datadog: NotRequired[pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Datadog.
     """
-    dynatrace: NotRequired[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgsDict']]
+    dynatrace: NotRequired[pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Dynatrace.
     """
-    infor_nexus: NotRequired[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgsDict']]
+    infor_nexus: NotRequired[pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Infor Nexus.
     """
-    marketo: NotRequired[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgsDict']]
+    marketo: NotRequired[pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Marketo.
     """
-    pardot: NotRequired[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgsDict']]
+    pardot: NotRequired[pulumi.Input[Optional['ConnectorProfilePardotConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Salesforce Pardot.
     """
-    redshift: NotRequired[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgsDict']]
+    redshift: NotRequired[pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Amazon Redshift.
     """
-    salesforce: NotRequired[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgsDict']]
+    salesforce: NotRequired[pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Salesforce.
     """
-    sapo_data: NotRequired[pulumi.Input['ConnectorProfileSapoDataConnectorProfilePropertiesArgsDict']]
+    sapo_data: NotRequired[pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific profile properties required when using SAPOData.
     """
-    service_now: NotRequired[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgsDict']]
+    service_now: NotRequired[pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by serviceNow.
     """
-    slack: NotRequired[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgsDict']]
+    slack: NotRequired[pulumi.Input[Optional['ConnectorProfileSlackConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Slack.
     """
-    snowflake: NotRequired[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgsDict']]
+    snowflake: NotRequired[pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Snowflake.
     """
-    veeva: NotRequired[pulumi.Input['ConnectorProfileVeevaConnectorProfilePropertiesArgsDict']]
+    veeva: NotRequired[pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Veeva.
     """
-    zendesk: NotRequired[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgsDict']]
+    zendesk: NotRequired[pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfilePropertiesArgsDict']]]
     """
     The connector-specific properties required by Zendesk.
     """
@@ -1995,20 +1995,20 @@ class ConnectorProfilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
-                 custom_connector: Optional[pulumi.Input['ConnectorProfileCustomConnectorProfilePropertiesArgs']] = None,
-                 datadog: Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs']] = None,
-                 dynatrace: Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']] = None,
-                 infor_nexus: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']] = None,
-                 marketo: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']] = None,
-                 pardot: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']] = None,
-                 redshift: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']] = None,
-                 salesforce: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']] = None,
-                 sapo_data: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']] = None,
-                 service_now: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']] = None,
-                 slack: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']] = None,
-                 snowflake: Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']] = None,
-                 veeva: Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfilePropertiesArgs']] = None,
-                 zendesk: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgs']] = None):
+                 custom_connector: pulumi.Input[Optional['ConnectorProfileCustomConnectorProfilePropertiesArgs']] = None,
+                 datadog: pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfilePropertiesArgs']] = None,
+                 dynatrace: pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']] = None,
+                 infor_nexus: pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']] = None,
+                 marketo: pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfilePropertiesArgs']] = None,
+                 pardot: pulumi.Input[Optional['ConnectorProfilePardotConnectorProfilePropertiesArgs']] = None,
+                 redshift: pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']] = None,
+                 salesforce: pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']] = None,
+                 sapo_data: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']] = None,
+                 service_now: pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']] = None,
+                 slack: pulumi.Input[Optional['ConnectorProfileSlackConnectorProfilePropertiesArgs']] = None,
+                 snowflake: pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']] = None,
+                 veeva: pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfilePropertiesArgs']] = None,
+                 zendesk: pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfilePropertiesArgs']] = None):
         """
         Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 
@@ -2058,179 +2058,179 @@ class ConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customConnector")
-    def custom_connector(self) -> Optional[pulumi.Input['ConnectorProfileCustomConnectorProfilePropertiesArgs']]:
+    def custom_connector(self) -> pulumi.Input[Optional['ConnectorProfileCustomConnectorProfilePropertiesArgs']]:
         """
         The properties required by the custom connector.
         """
         return pulumi.get(self, "custom_connector")
 
     @custom_connector.setter
-    def custom_connector(self, value: Optional[pulumi.Input['ConnectorProfileCustomConnectorProfilePropertiesArgs']]):
+    def custom_connector(self, value: pulumi.Input[Optional['ConnectorProfileCustomConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "custom_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def datadog(self) -> Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs']]:
+    def datadog(self) -> pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Datadog.
         """
         return pulumi.get(self, "datadog")
 
     @datadog.setter
-    def datadog(self, value: Optional[pulumi.Input['ConnectorProfileDatadogConnectorProfilePropertiesArgs']]):
+    def datadog(self, value: pulumi.Input[Optional['ConnectorProfileDatadogConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "datadog", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynatrace(self) -> Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']]:
+    def dynatrace(self) -> pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Dynatrace.
         """
         return pulumi.get(self, "dynatrace")
 
     @dynatrace.setter
-    def dynatrace(self, value: Optional[pulumi.Input['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']]):
+    def dynatrace(self, value: pulumi.Input[Optional['ConnectorProfileDynatraceConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "dynatrace", value)
 
     @_builtins.property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']]:
+    def infor_nexus(self) -> pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Infor Nexus.
         """
         return pulumi.get(self, "infor_nexus")
 
     @infor_nexus.setter
-    def infor_nexus(self, value: Optional[pulumi.Input['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']]):
+    def infor_nexus(self, value: pulumi.Input[Optional['ConnectorProfileInforNexusConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "infor_nexus", value)
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]:
+    def marketo(self) -> pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Marketo.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]):
+    def marketo(self, value: pulumi.Input[Optional['ConnectorProfileMarketoConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def pardot(self) -> Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']]:
+    def pardot(self) -> pulumi.Input[Optional['ConnectorProfilePardotConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Salesforce Pardot.
         """
         return pulumi.get(self, "pardot")
 
     @pardot.setter
-    def pardot(self, value: Optional[pulumi.Input['ConnectorProfilePardotConnectorProfilePropertiesArgs']]):
+    def pardot(self, value: pulumi.Input[Optional['ConnectorProfilePardotConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "pardot", value)
 
     @_builtins.property
     @pulumi.getter
-    def redshift(self) -> Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]:
+    def redshift(self) -> pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Amazon Redshift.
         """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
-    def redshift(self, value: Optional[pulumi.Input['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]):
+    def redshift(self, value: pulumi.Input[Optional['ConnectorProfileRedshiftConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "redshift", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]:
+    def salesforce(self) -> pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Salesforce.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]):
+    def salesforce(self, value: pulumi.Input[Optional['ConnectorProfileSalesforceConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']]:
+    def sapo_data(self) -> pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']]:
         """
         The connector-specific profile properties required when using SAPOData.
         """
         return pulumi.get(self, "sapo_data")
 
     @sapo_data.setter
-    def sapo_data(self, value: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']]):
+    def sapo_data(self, value: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "sapo_data", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']]:
+    def service_now(self) -> pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by serviceNow.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']]):
+    def service_now(self, value: pulumi.Input[Optional['ConnectorProfileServiceNowConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def slack(self) -> Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']]:
+    def slack(self) -> pulumi.Input[Optional['ConnectorProfileSlackConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Slack.
         """
         return pulumi.get(self, "slack")
 
     @slack.setter
-    def slack(self, value: Optional[pulumi.Input['ConnectorProfileSlackConnectorProfilePropertiesArgs']]):
+    def slack(self, value: pulumi.Input[Optional['ConnectorProfileSlackConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "slack", value)
 
     @_builtins.property
     @pulumi.getter
-    def snowflake(self) -> Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']]:
+    def snowflake(self) -> pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Snowflake.
         """
         return pulumi.get(self, "snowflake")
 
     @snowflake.setter
-    def snowflake(self, value: Optional[pulumi.Input['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']]):
+    def snowflake(self, value: pulumi.Input[Optional['ConnectorProfileSnowflakeConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "snowflake", value)
 
     @_builtins.property
     @pulumi.getter
-    def veeva(self) -> Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfilePropertiesArgs']]:
+    def veeva(self) -> pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Veeva.
         """
         return pulumi.get(self, "veeva")
 
     @veeva.setter
-    def veeva(self, value: Optional[pulumi.Input['ConnectorProfileVeevaConnectorProfilePropertiesArgs']]):
+    def veeva(self, value: pulumi.Input[Optional['ConnectorProfileVeevaConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "veeva", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgs']]:
+    def zendesk(self) -> pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfilePropertiesArgs']]:
         """
         The connector-specific properties required by Zendesk.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['ConnectorProfileZendeskConnectorProfilePropertiesArgs']]):
+    def zendesk(self, value: pulumi.Input[Optional['ConnectorProfileZendeskConnectorProfilePropertiesArgs']]):
         pulumi.set(self, "zendesk", value)
 
 
 class ConnectorProfileRedshiftConnectorProfileCredentialsArgsDict(TypedDict):
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password that corresponds to the username.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user.
     """
@@ -2238,8 +2238,8 @@ class ConnectorProfileRedshiftConnectorProfileCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] password: The password that corresponds to the username.
         :param pulumi.Input[_builtins.str] username: The name of the user.
@@ -2251,26 +2251,26 @@ class ConnectorProfileRedshiftConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password that corresponds to the username.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -2283,31 +2283,31 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the IAM role.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
     """
-    cluster_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of the Amazon Redshift cluster.
     """
-    data_api_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    data_api_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon Redshift database that will store the transferred data.
     """
-    database_url: NotRequired[pulumi.Input[_builtins.str]]
+    database_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JDBC URL of the Amazon Redshift cluster.
     """
-    is_redshift_serverless: NotRequired[pulumi.Input[_builtins.bool]]
+    is_redshift_serverless: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
     """
-    workgroup_name: NotRequired[pulumi.Input[_builtins.str]]
+    workgroup_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon Redshift serverless workgroup
     """
@@ -2317,13 +2317,13 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_api_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_redshift_serverless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 workgroup_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_api_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_redshift_serverless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 workgroup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the Amazon S3 bucket associated with Redshift.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role.
@@ -2378,111 +2378,111 @@ class ConnectorProfileRedshiftConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Amazon Redshift cluster.
         """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
-    def cluster_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="dataApiRoleArn")
-    def data_api_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_api_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM role that grants Amazon AppFlow access to the data through the Amazon Redshift Data API.
         """
         return pulumi.get(self, "data_api_role_arn")
 
     @data_api_role_arn.setter
-    def data_api_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_api_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_api_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Redshift database that will store the transferred data.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseUrl")
-    def database_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JDBC URL of the Amazon Redshift cluster.
         """
         return pulumi.get(self, "database_url")
 
     @database_url.setter
-    def database_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_url", value)
 
     @_builtins.property
     @pulumi.getter(name="isRedshiftServerless")
-    def is_redshift_serverless(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_redshift_serverless(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If Amazon AppFlow will connect to Amazon Redshift Serverless or Amazon Redshift cluster.
         """
         return pulumi.get(self, "is_redshift_serverless")
 
     @is_redshift_serverless.setter
-    def is_redshift_serverless(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_redshift_serverless(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_redshift_serverless", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupName")
-    def workgroup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workgroup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Redshift serverless workgroup
         """
         return pulumi.get(self, "workgroup_name")
 
     @workgroup_name.setter
-    def workgroup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workgroup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workgroup_name", value)
 
 
 class ConnectorProfileSalesforceConnectorProfileCredentialsArgsDict(TypedDict):
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    client_credentials_arn: NotRequired[pulumi.Input[_builtins.str]]
+    client_credentials_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client credentials to fetch access token and refresh token.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
-    jwt_token: NotRequired[pulumi.Input[_builtins.str]]
+    jwt_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access your Salesforce records
     """
-    o_auth2_grant_type: NotRequired[pulumi.Input['ConnectorProfileOAuth2GrantType']]
+    o_auth2_grant_type: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]]
     """
     The grant types to fetch an access token
     """
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to acquire new access tokens.
     """
@@ -2490,12 +2490,12 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_credentials_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
-                 jwt_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth2_grant_type: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_credentials_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 jwt_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] access_token: The credentials used to access protected resources.
         :param pulumi.Input[_builtins.str] client_credentials_arn: The client credentials to fetch access token and refresh token.
@@ -2519,87 +2519,87 @@ class ConnectorProfileSalesforceConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCredentialsArn")
-    def client_credentials_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_credentials_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client credentials to fetch access token and refresh token.
         """
         return pulumi.get(self, "client_credentials_arn")
 
     @client_credentials_arn.setter
-    def client_credentials_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_credentials_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_credentials_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
     @_builtins.property
     @pulumi.getter(name="jwtToken")
-    def jwt_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def jwt_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access your Salesforce records
         """
         return pulumi.get(self, "jwt_token")
 
     @jwt_token.setter
-    def jwt_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def jwt_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "jwt_token", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuth2GrantType")
-    def o_auth2_grant_type(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]:
+    def o_auth2_grant_type(self) -> pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]:
         """
         The grant types to fetch an access token
         """
         return pulumi.get(self, "o_auth2_grant_type")
 
     @o_auth2_grant_type.setter
-    def o_auth2_grant_type(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2GrantType']]):
+    def o_auth2_grant_type(self, value: pulumi.Input[Optional['ConnectorProfileOAuth2GrantType']]):
         pulumi.set(self, "o_auth2_grant_type", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to acquire new access tokens.
         """
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 
 class ConnectorProfileSalesforceConnectorProfilePropertiesArgsDict(TypedDict):
-    instance_url: NotRequired[pulumi.Input[_builtins.str]]
+    instance_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the Salesforce resource
     """
-    is_sandbox_environment: NotRequired[pulumi.Input[_builtins.bool]]
+    is_sandbox_environment: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the connector profile applies to a sandbox or production environment
     """
-    use_private_link_for_metadata_and_authorization: NotRequired[pulumi.Input[_builtins.bool]]
+    use_private_link_for_metadata_and_authorization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether to make Metadata And Authorization calls over Pivate Network
     """
@@ -2607,9 +2607,9 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
-                 instance_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_sandbox_environment: Optional[pulumi.Input[_builtins.bool]] = None,
-                 use_private_link_for_metadata_and_authorization: Optional[pulumi.Input[_builtins.bool]] = None):
+                 instance_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_sandbox_environment: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_private_link_for_metadata_and_authorization: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] instance_url: The location of the Salesforce resource
         :param pulumi.Input[_builtins.bool] is_sandbox_environment: Indicates whether the connector profile applies to a sandbox or production environment
@@ -2624,59 +2624,108 @@ class ConnectorProfileSalesforceConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="instanceUrl")
-    def instance_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the Salesforce resource
         """
         return pulumi.get(self, "instance_url")
 
     @instance_url.setter
-    def instance_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_url", value)
 
     @_builtins.property
     @pulumi.getter(name="isSandboxEnvironment")
-    def is_sandbox_environment(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_sandbox_environment(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the connector profile applies to a sandbox or production environment
         """
         return pulumi.get(self, "is_sandbox_environment")
 
     @is_sandbox_environment.setter
-    def is_sandbox_environment(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_sandbox_environment(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_sandbox_environment", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivateLinkForMetadataAndAuthorization")
-    def use_private_link_for_metadata_and_authorization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_private_link_for_metadata_and_authorization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to make Metadata And Authorization calls over Pivate Network
         """
         return pulumi.get(self, "use_private_link_for_metadata_and_authorization")
 
     @use_private_link_for_metadata_and_authorization.setter
-    def use_private_link_for_metadata_and_authorization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_private_link_for_metadata_and_authorization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_private_link_for_metadata_and_authorization", value)
+
+
+class ConnectorProfileSapoDataConnectorProfileCredentialsArgsDict(TypedDict):
+    basic_auth_credentials: NotRequired[pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgsDict']]]
+    """
+    The SAPOData basic authentication credentials.
+    """
+    o_auth_credentials: NotRequired[pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgsDict']]]
+    """
+    The SAPOData OAuth type authentication credentials.
+    """
+
+@pulumi.input_type
+class ConnectorProfileSapoDataConnectorProfileCredentialsArgs:
+    def __init__(__self__, *,
+                 basic_auth_credentials: pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']] = None,
+                 o_auth_credentials: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs'] basic_auth_credentials: The SAPOData basic authentication credentials.
+        :param pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs'] o_auth_credentials: The SAPOData OAuth type authentication credentials.
+        """
+        if basic_auth_credentials is not None:
+            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
+        if o_auth_credentials is not None:
+            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuthCredentials")
+    def basic_auth_credentials(self) -> pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']]:
+        """
+        The SAPOData basic authentication credentials.
+        """
+        return pulumi.get(self, "basic_auth_credentials")
+
+    @basic_auth_credentials.setter
+    def basic_auth_credentials(self, value: pulumi.Input[Optional['ConnectorProfileBasicAuthCredentialsArgs']]):
+        pulumi.set(self, "basic_auth_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuthCredentials")
+    def o_auth_credentials(self) -> pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]:
+        """
+        The SAPOData OAuth type authentication credentials.
+        """
+        return pulumi.get(self, "o_auth_credentials")
+
+    @o_auth_credentials.setter
+    def o_auth_credentials(self, value: pulumi.Input[Optional['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]):
+        pulumi.set(self, "o_auth_credentials", value)
 
 
 class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgsDict(TypedDict):
     """
     The SAPOData OAuth type authentication credentials.
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
-    client_secret: NotRequired[pulumi.Input[_builtins.str]]
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
-    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs:
     def __init__(__self__, *,
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None,
-                 refresh_token: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The SAPOData OAuth type authentication credentials.
         """
@@ -2693,129 +2742,80 @@ class ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropert
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshToken")
-    def refresh_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "refresh_token")
 
     @refresh_token.setter
-    def refresh_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_token", value)
 
 
-class ConnectorProfileSapoDataConnectorProfileCredentialsArgsDict(TypedDict):
-    basic_auth_credentials: NotRequired[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgsDict']]
-    """
-    The SAPOData basic authentication credentials.
-    """
-    o_auth_credentials: NotRequired[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgsDict']]
-    """
-    The SAPOData OAuth type authentication credentials.
-    """
-
-@pulumi.input_type
-class ConnectorProfileSapoDataConnectorProfileCredentialsArgs:
-    def __init__(__self__, *,
-                 basic_auth_credentials: Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']] = None,
-                 o_auth_credentials: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']] = None):
-        """
-        :param pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs'] basic_auth_credentials: The SAPOData basic authentication credentials.
-        :param pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs'] o_auth_credentials: The SAPOData OAuth type authentication credentials.
-        """
-        if basic_auth_credentials is not None:
-            pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
-        if o_auth_credentials is not None:
-            pulumi.set(__self__, "o_auth_credentials", o_auth_credentials)
-
-    @_builtins.property
-    @pulumi.getter(name="basicAuthCredentials")
-    def basic_auth_credentials(self) -> Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']]:
-        """
-        The SAPOData basic authentication credentials.
-        """
-        return pulumi.get(self, "basic_auth_credentials")
-
-    @basic_auth_credentials.setter
-    def basic_auth_credentials(self, value: Optional[pulumi.Input['ConnectorProfileBasicAuthCredentialsArgs']]):
-        pulumi.set(self, "basic_auth_credentials", value)
-
-    @_builtins.property
-    @pulumi.getter(name="oAuthCredentials")
-    def o_auth_credentials(self) -> Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]:
-        """
-        The SAPOData OAuth type authentication credentials.
-        """
-        return pulumi.get(self, "o_auth_credentials")
-
-    @o_auth_credentials.setter
-    def o_auth_credentials(self, value: Optional[pulumi.Input['ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs']]):
-        pulumi.set(self, "o_auth_credentials", value)
-
-
 class ConnectorProfileSapoDataConnectorProfilePropertiesArgsDict(TypedDict):
-    application_host_url: NotRequired[pulumi.Input[_builtins.str]]
+    application_host_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The location of the SAPOData resource.
     """
-    application_service_path: NotRequired[pulumi.Input[_builtins.str]]
+    application_service_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The application path to catalog service.
     """
-    client_number: NotRequired[pulumi.Input[_builtins.str]]
+    client_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client number for the client creating the connection.
     """
-    disable_sso: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_sso: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
     """
-    logon_language: NotRequired[pulumi.Input[_builtins.str]]
+    logon_language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The logon language of SAPOData instance.
     """
-    o_auth_properties: NotRequired[pulumi.Input['ConnectorProfileOAuthPropertiesArgsDict']]
+    o_auth_properties: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuthPropertiesArgsDict']]]
     """
     The SAPOData OAuth properties required for OAuth type authentication.
     """
-    port_number: NotRequired[pulumi.Input[_builtins.int]]
+    port_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port number of the SAPOData instance.
     """
-    private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SAPOData Private Link service name to be used for private data transfers.
     """
@@ -2823,14 +2823,14 @@ class ConnectorProfileSapoDataConnectorProfilePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileSapoDataConnectorProfilePropertiesArgs:
     def __init__(__self__, *,
-                 application_host_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_service_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_number: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_sso: Optional[pulumi.Input[_builtins.bool]] = None,
-                 logon_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_properties: Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']] = None,
-                 port_number: Optional[pulumi.Input[_builtins.int]] = None,
-                 private_link_service_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_host_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_service_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_number: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_sso: pulumi.Input[Optional[_builtins.bool]] = None,
+                 logon_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_properties: pulumi.Input[Optional['ConnectorProfileOAuthPropertiesArgs']] = None,
+                 port_number: pulumi.Input[Optional[_builtins.int]] = None,
+                 private_link_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] application_host_url: The location of the SAPOData resource.
         :param pulumi.Input[_builtins.str] application_service_path: The application path to catalog service.
@@ -2860,111 +2860,111 @@ class ConnectorProfileSapoDataConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationHostUrl")
-    def application_host_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_host_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The location of the SAPOData resource.
         """
         return pulumi.get(self, "application_host_url")
 
     @application_host_url.setter
-    def application_host_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_host_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_host_url", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationServicePath")
-    def application_service_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_service_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application path to catalog service.
         """
         return pulumi.get(self, "application_service_path")
 
     @application_service_path.setter
-    def application_service_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_service_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_service_path", value)
 
     @_builtins.property
     @pulumi.getter(name="clientNumber")
-    def client_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client number for the client creating the connection.
         """
         return pulumi.get(self, "client_number")
 
     @client_number.setter
-    def client_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_number", value)
 
     @_builtins.property
     @pulumi.getter(name="disableSso")
-    def disable_sso(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_sso(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you set this parameter to true, Amazon AppFlow bypasses the single sign-on (SSO) settings in your SAP account when it accesses your SAP OData instance.
         """
         return pulumi.get(self, "disable_sso")
 
     @disable_sso.setter
-    def disable_sso(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_sso(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_sso", value)
 
     @_builtins.property
     @pulumi.getter(name="logonLanguage")
-    def logon_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logon_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The logon language of SAPOData instance.
         """
         return pulumi.get(self, "logon_language")
 
     @logon_language.setter
-    def logon_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logon_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logon_language", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthProperties")
-    def o_auth_properties(self) -> Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']]:
+    def o_auth_properties(self) -> pulumi.Input[Optional['ConnectorProfileOAuthPropertiesArgs']]:
         """
         The SAPOData OAuth properties required for OAuth type authentication.
         """
         return pulumi.get(self, "o_auth_properties")
 
     @o_auth_properties.setter
-    def o_auth_properties(self, value: Optional[pulumi.Input['ConnectorProfileOAuthPropertiesArgs']]):
+    def o_auth_properties(self, value: pulumi.Input[Optional['ConnectorProfileOAuthPropertiesArgs']]):
         pulumi.set(self, "o_auth_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="portNumber")
-    def port_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port number of the SAPOData instance.
         """
         return pulumi.get(self, "port_number")
 
     @port_number.setter
-    def port_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port_number(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port_number", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceName")
-    def private_link_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SAPOData Private Link service name to be used for private data transfers.
         """
         return pulumi.get(self, "private_link_service_name")
 
     @private_link_service_name.setter
-    def private_link_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_name", value)
 
 
 class ConnectorProfileServiceNowConnectorProfileCredentialsArgsDict(TypedDict):
-    o_auth2_credentials: NotRequired[pulumi.Input['ConnectorProfileOAuth2CredentialsArgsDict']]
+    o_auth2_credentials: NotRequired[pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgsDict']]]
     """
     The OAuth 2.0 credentials required to authenticate the user.
     """
-    password: NotRequired[pulumi.Input[_builtins.str]]
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The password that corresponds to the username.
     """
-    username: NotRequired[pulumi.Input[_builtins.str]]
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the user.
     """
@@ -2972,9 +2972,9 @@ class ConnectorProfileServiceNowConnectorProfileCredentialsArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProfileServiceNowConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
-                 o_auth2_credentials: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 username: Optional[pulumi.Input[_builtins.str]] = None):
+                 o_auth2_credentials: pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input['ConnectorProfileOAuth2CredentialsArgs'] o_auth2_credentials: The OAuth 2.0 credentials required to authenticate the user.
         :param pulumi.Input[_builtins.str] password: The password that corresponds to the username.
@@ -2989,38 +2989,38 @@ class ConnectorProfileServiceNowConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="oAuth2Credentials")
-    def o_auth2_credentials(self) -> Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]:
+    def o_auth2_credentials(self) -> pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']]:
         """
         The OAuth 2.0 credentials required to authenticate the user.
         """
         return pulumi.get(self, "o_auth2_credentials")
 
     @o_auth2_credentials.setter
-    def o_auth2_credentials(self, value: Optional[pulumi.Input['ConnectorProfileOAuth2CredentialsArgs']]):
+    def o_auth2_credentials(self, value: pulumi.Input[Optional['ConnectorProfileOAuth2CredentialsArgs']]):
         pulumi.set(self, "o_auth2_credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password that corresponds to the username.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -3089,11 +3089,11 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgsDict(TypedDict):
     """
     The client secret used by the oauth client to authenticate to the authorization server.
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
@@ -3103,8 +3103,8 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The identiﬁer for the desired client.
         :param pulumi.Input[_builtins.str] client_secret: The client secret used by the oauth client to authenticate to the authorization server.
@@ -3144,26 +3144,26 @@ class ConnectorProfileSlackConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
 
@@ -3256,19 +3256,19 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgsDict(TypedDict):
     """
     The name of the Snowﬂake warehouse.
     """
-    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    account_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the account.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
     """
-    private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Snowﬂake Private Link service name to be used for private data transfers.
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The region of the Snowﬂake account.
     """
@@ -3279,10 +3279,10 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
                  bucket_name: pulumi.Input[_builtins.str],
                  stage: pulumi.Input[_builtins.str],
                  warehouse: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_link_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the Amazon S3 bucket associated with Snowﬂake.
         :param pulumi.Input[_builtins.str] stage: The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the
@@ -3344,50 +3344,50 @@ class ConnectorProfileSnowflakeConnectorProfilePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the account.
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceName")
-    def private_link_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_link_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Snowﬂake Private Link service name to be used for private data transfers.
         """
         return pulumi.get(self, "private_link_service_name")
 
     @private_link_service_name.setter
-    def private_link_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_link_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The region of the Snowﬂake account.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
 
@@ -3503,11 +3503,11 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgsDict(TypedDict):
     """
     The client secret used by the oauth client to authenticate to the authorization server.
     """
-    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The credentials used to access protected resources.
     """
-    connector_o_auth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgsDict']]
+    connector_o_auth_request: NotRequired[pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgsDict']]]
     """
     The oauth needed to request security tokens from the connector endpoint.
     """
@@ -3517,8 +3517,8 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[_builtins.str],
                  client_secret: pulumi.Input[_builtins.str],
-                 access_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_o_auth_request: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_o_auth_request: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] client_id: The identiﬁer for the desired client.
         :param pulumi.Input[_builtins.str] client_secret: The client secret used by the oauth client to authenticate to the authorization server.
@@ -3558,26 +3558,26 @@ class ConnectorProfileZendeskConnectorProfileCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
-    def access_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The credentials used to access protected resources.
         """
         return pulumi.get(self, "access_token")
 
     @access_token.setter
-    def access_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorOAuthRequest")
-    def connector_o_auth_request(self) -> Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]:
+    def connector_o_auth_request(self) -> pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]:
         """
         The oauth needed to request security tokens from the connector endpoint.
         """
         return pulumi.get(self, "connector_o_auth_request")
 
     @connector_o_auth_request.setter
-    def connector_o_auth_request(self, value: Optional[pulumi.Input['ConnectorProfileConnectorOAuthRequestArgs']]):
+    def connector_o_auth_request(self, value: pulumi.Input[Optional['ConnectorProfileConnectorOAuthRequestArgs']]):
         pulumi.set(self, "connector_o_auth_request", value)
 
 
@@ -3613,7 +3613,7 @@ class ConnectorProvisioningConfigArgsDict(TypedDict):
     """
     Contains information about the configuration of the connector being registered.
     """
-    lambda_: NotRequired[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgsDict']]
+    lambda_: NotRequired[pulumi.Input[Optional['ConnectorLambdaConnectorProvisioningConfigArgsDict']]]
     """
     Contains information about the configuration of the lambda which is being registered as the connector.
     """
@@ -3621,7 +3621,7 @@ class ConnectorProvisioningConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorProvisioningConfigArgs:
     def __init__(__self__, *,
-                 lambda_: Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']] = None):
+                 lambda_: pulumi.Input[Optional['ConnectorLambdaConnectorProvisioningConfigArgs']] = None):
         """
         Contains information about the configuration of the connector being registered.
 
@@ -3632,23 +3632,23 @@ class ConnectorProvisioningConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="lambda")
-    def lambda_(self) -> Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']]:
+    def lambda_(self) -> pulumi.Input[Optional['ConnectorLambdaConnectorProvisioningConfigArgs']]:
         """
         Contains information about the configuration of the lambda which is being registered as the connector.
         """
         return pulumi.get(self, "lambda_")
 
     @lambda_.setter
-    def lambda_(self, value: Optional[pulumi.Input['ConnectorLambdaConnectorProvisioningConfigArgs']]):
+    def lambda_(self, value: pulumi.Input[Optional['ConnectorLambdaConnectorProvisioningConfigArgs']]):
         pulumi.set(self, "lambda_", value)
 
 
 class FlowAggregationConfigArgsDict(TypedDict):
-    aggregation_type: NotRequired[pulumi.Input['FlowAggregationType']]
+    aggregation_type: NotRequired[pulumi.Input[Optional['FlowAggregationType']]]
     """
     Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
     """
-    target_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    target_file_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. For each file, Amazon AppFlow attempts to achieve the size that you specify. The actual file sizes might differ from this target based on the number and size of the records that each file contains.
     """
@@ -3656,8 +3656,8 @@ class FlowAggregationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowAggregationConfigArgs:
     def __init__(__self__, *,
-                 aggregation_type: Optional[pulumi.Input['FlowAggregationType']] = None,
-                 target_file_size: Optional[pulumi.Input[_builtins.int]] = None):
+                 aggregation_type: pulumi.Input[Optional['FlowAggregationType']] = None,
+                 target_file_size: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['FlowAggregationType'] aggregation_type: Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
         :param pulumi.Input[_builtins.int] target_file_size: The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. For each file, Amazon AppFlow attempts to achieve the size that you specify. The actual file sizes might differ from this target based on the number and size of the records that each file contains.
@@ -3669,26 +3669,26 @@ class FlowAggregationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[pulumi.Input['FlowAggregationType']]:
+    def aggregation_type(self) -> pulumi.Input[Optional['FlowAggregationType']]:
         """
         Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated.
         """
         return pulumi.get(self, "aggregation_type")
 
     @aggregation_type.setter
-    def aggregation_type(self, value: Optional[pulumi.Input['FlowAggregationType']]):
+    def aggregation_type(self, value: pulumi.Input[Optional['FlowAggregationType']]):
         pulumi.set(self, "aggregation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFileSize")
-    def target_file_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_file_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. For each file, Amazon AppFlow attempts to achieve the size that you specify. The actual file sizes might differ from this target based on the number and size of the records that each file contains.
         """
         return pulumi.get(self, "target_file_size")
 
     @target_file_size.setter
-    def target_file_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_file_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_file_size", value)
 
 
@@ -3724,71 +3724,71 @@ class FlowConnectorOperatorArgsDict(TypedDict):
     """
     Operation to be performed on provided source fields
     """
-    amplitude: NotRequired[pulumi.Input['FlowAmplitudeConnectorOperator']]
+    amplitude: NotRequired[pulumi.Input[Optional['FlowAmplitudeConnectorOperator']]]
     """
     The operation to be performed on the provided Amplitude source fields.
     """
-    custom_connector: NotRequired[pulumi.Input['FlowOperator']]
+    custom_connector: NotRequired[pulumi.Input[Optional['FlowOperator']]]
     """
     Operators supported by the custom connector.
     """
-    datadog: NotRequired[pulumi.Input['FlowDatadogConnectorOperator']]
+    datadog: NotRequired[pulumi.Input[Optional['FlowDatadogConnectorOperator']]]
     """
     The operation to be performed on the provided Datadog source fields.
     """
-    dynatrace: NotRequired[pulumi.Input['FlowDynatraceConnectorOperator']]
+    dynatrace: NotRequired[pulumi.Input[Optional['FlowDynatraceConnectorOperator']]]
     """
     The operation to be performed on the provided Dynatrace source fields.
     """
-    google_analytics: NotRequired[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']]
+    google_analytics: NotRequired[pulumi.Input[Optional['FlowGoogleAnalyticsConnectorOperator']]]
     """
     The operation to be performed on the provided Google Analytics source fields.
     """
-    infor_nexus: NotRequired[pulumi.Input['FlowInforNexusConnectorOperator']]
+    infor_nexus: NotRequired[pulumi.Input[Optional['FlowInforNexusConnectorOperator']]]
     """
     The operation to be performed on the provided Infor Nexus source fields.
     """
-    marketo: NotRequired[pulumi.Input['FlowMarketoConnectorOperator']]
+    marketo: NotRequired[pulumi.Input[Optional['FlowMarketoConnectorOperator']]]
     """
     The operation to be performed on the provided Marketo source fields.
     """
-    pardot: NotRequired[pulumi.Input['FlowPardotConnectorOperator']]
+    pardot: NotRequired[pulumi.Input[Optional['FlowPardotConnectorOperator']]]
     """
     The operation to be performed on the provided Salesforce Pardot source fields.
     """
-    s3: NotRequired[pulumi.Input['FlowS3ConnectorOperator']]
+    s3: NotRequired[pulumi.Input[Optional['FlowS3ConnectorOperator']]]
     """
     The operation to be performed on the provided Amazon S3 source fields.
     """
-    salesforce: NotRequired[pulumi.Input['FlowSalesforceConnectorOperator']]
+    salesforce: NotRequired[pulumi.Input[Optional['FlowSalesforceConnectorOperator']]]
     """
     The operation to be performed on the provided Salesforce source fields.
     """
-    sapo_data: NotRequired[pulumi.Input['FlowSapoDataConnectorOperator']]
+    sapo_data: NotRequired[pulumi.Input[Optional['FlowSapoDataConnectorOperator']]]
     """
     The operation to be performed on the provided SAPOData source fields.
     """
-    service_now: NotRequired[pulumi.Input['FlowServiceNowConnectorOperator']]
+    service_now: NotRequired[pulumi.Input[Optional['FlowServiceNowConnectorOperator']]]
     """
     The operation to be performed on the provided ServiceNow source fields.
     """
-    singular: NotRequired[pulumi.Input['FlowSingularConnectorOperator']]
+    singular: NotRequired[pulumi.Input[Optional['FlowSingularConnectorOperator']]]
     """
     The operation to be performed on the provided Singular source fields.
     """
-    slack: NotRequired[pulumi.Input['FlowSlackConnectorOperator']]
+    slack: NotRequired[pulumi.Input[Optional['FlowSlackConnectorOperator']]]
     """
     The operation to be performed on the provided Slack source fields.
     """
-    trendmicro: NotRequired[pulumi.Input['FlowTrendmicroConnectorOperator']]
+    trendmicro: NotRequired[pulumi.Input[Optional['FlowTrendmicroConnectorOperator']]]
     """
     The operation to be performed on the provided Trend Micro source fields.
     """
-    veeva: NotRequired[pulumi.Input['FlowVeevaConnectorOperator']]
+    veeva: NotRequired[pulumi.Input[Optional['FlowVeevaConnectorOperator']]]
     """
     The operation to be performed on the provided Veeva source fields.
     """
-    zendesk: NotRequired[pulumi.Input['FlowZendeskConnectorOperator']]
+    zendesk: NotRequired[pulumi.Input[Optional['FlowZendeskConnectorOperator']]]
     """
     The operation to be performed on the provided Zendesk source fields.
     """
@@ -3796,23 +3796,23 @@ class FlowConnectorOperatorArgsDict(TypedDict):
 @pulumi.input_type
 class FlowConnectorOperatorArgs:
     def __init__(__self__, *,
-                 amplitude: Optional[pulumi.Input['FlowAmplitudeConnectorOperator']] = None,
-                 custom_connector: Optional[pulumi.Input['FlowOperator']] = None,
-                 datadog: Optional[pulumi.Input['FlowDatadogConnectorOperator']] = None,
-                 dynatrace: Optional[pulumi.Input['FlowDynatraceConnectorOperator']] = None,
-                 google_analytics: Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']] = None,
-                 infor_nexus: Optional[pulumi.Input['FlowInforNexusConnectorOperator']] = None,
-                 marketo: Optional[pulumi.Input['FlowMarketoConnectorOperator']] = None,
-                 pardot: Optional[pulumi.Input['FlowPardotConnectorOperator']] = None,
-                 s3: Optional[pulumi.Input['FlowS3ConnectorOperator']] = None,
-                 salesforce: Optional[pulumi.Input['FlowSalesforceConnectorOperator']] = None,
-                 sapo_data: Optional[pulumi.Input['FlowSapoDataConnectorOperator']] = None,
-                 service_now: Optional[pulumi.Input['FlowServiceNowConnectorOperator']] = None,
-                 singular: Optional[pulumi.Input['FlowSingularConnectorOperator']] = None,
-                 slack: Optional[pulumi.Input['FlowSlackConnectorOperator']] = None,
-                 trendmicro: Optional[pulumi.Input['FlowTrendmicroConnectorOperator']] = None,
-                 veeva: Optional[pulumi.Input['FlowVeevaConnectorOperator']] = None,
-                 zendesk: Optional[pulumi.Input['FlowZendeskConnectorOperator']] = None):
+                 amplitude: pulumi.Input[Optional['FlowAmplitudeConnectorOperator']] = None,
+                 custom_connector: pulumi.Input[Optional['FlowOperator']] = None,
+                 datadog: pulumi.Input[Optional['FlowDatadogConnectorOperator']] = None,
+                 dynatrace: pulumi.Input[Optional['FlowDynatraceConnectorOperator']] = None,
+                 google_analytics: pulumi.Input[Optional['FlowGoogleAnalyticsConnectorOperator']] = None,
+                 infor_nexus: pulumi.Input[Optional['FlowInforNexusConnectorOperator']] = None,
+                 marketo: pulumi.Input[Optional['FlowMarketoConnectorOperator']] = None,
+                 pardot: pulumi.Input[Optional['FlowPardotConnectorOperator']] = None,
+                 s3: pulumi.Input[Optional['FlowS3ConnectorOperator']] = None,
+                 salesforce: pulumi.Input[Optional['FlowSalesforceConnectorOperator']] = None,
+                 sapo_data: pulumi.Input[Optional['FlowSapoDataConnectorOperator']] = None,
+                 service_now: pulumi.Input[Optional['FlowServiceNowConnectorOperator']] = None,
+                 singular: pulumi.Input[Optional['FlowSingularConnectorOperator']] = None,
+                 slack: pulumi.Input[Optional['FlowSlackConnectorOperator']] = None,
+                 trendmicro: pulumi.Input[Optional['FlowTrendmicroConnectorOperator']] = None,
+                 veeva: pulumi.Input[Optional['FlowVeevaConnectorOperator']] = None,
+                 zendesk: pulumi.Input[Optional['FlowZendeskConnectorOperator']] = None):
         """
         Operation to be performed on provided source fields
 
@@ -3871,206 +3871,206 @@ class FlowConnectorOperatorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def amplitude(self) -> Optional[pulumi.Input['FlowAmplitudeConnectorOperator']]:
+    def amplitude(self) -> pulumi.Input[Optional['FlowAmplitudeConnectorOperator']]:
         """
         The operation to be performed on the provided Amplitude source fields.
         """
         return pulumi.get(self, "amplitude")
 
     @amplitude.setter
-    def amplitude(self, value: Optional[pulumi.Input['FlowAmplitudeConnectorOperator']]):
+    def amplitude(self, value: pulumi.Input[Optional['FlowAmplitudeConnectorOperator']]):
         pulumi.set(self, "amplitude", value)
 
     @_builtins.property
     @pulumi.getter(name="customConnector")
-    def custom_connector(self) -> Optional[pulumi.Input['FlowOperator']]:
+    def custom_connector(self) -> pulumi.Input[Optional['FlowOperator']]:
         """
         Operators supported by the custom connector.
         """
         return pulumi.get(self, "custom_connector")
 
     @custom_connector.setter
-    def custom_connector(self, value: Optional[pulumi.Input['FlowOperator']]):
+    def custom_connector(self, value: pulumi.Input[Optional['FlowOperator']]):
         pulumi.set(self, "custom_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def datadog(self) -> Optional[pulumi.Input['FlowDatadogConnectorOperator']]:
+    def datadog(self) -> pulumi.Input[Optional['FlowDatadogConnectorOperator']]:
         """
         The operation to be performed on the provided Datadog source fields.
         """
         return pulumi.get(self, "datadog")
 
     @datadog.setter
-    def datadog(self, value: Optional[pulumi.Input['FlowDatadogConnectorOperator']]):
+    def datadog(self, value: pulumi.Input[Optional['FlowDatadogConnectorOperator']]):
         pulumi.set(self, "datadog", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynatrace(self) -> Optional[pulumi.Input['FlowDynatraceConnectorOperator']]:
+    def dynatrace(self) -> pulumi.Input[Optional['FlowDynatraceConnectorOperator']]:
         """
         The operation to be performed on the provided Dynatrace source fields.
         """
         return pulumi.get(self, "dynatrace")
 
     @dynatrace.setter
-    def dynatrace(self, value: Optional[pulumi.Input['FlowDynatraceConnectorOperator']]):
+    def dynatrace(self, value: pulumi.Input[Optional['FlowDynatraceConnectorOperator']]):
         pulumi.set(self, "dynatrace", value)
 
     @_builtins.property
     @pulumi.getter(name="googleAnalytics")
-    def google_analytics(self) -> Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']]:
+    def google_analytics(self) -> pulumi.Input[Optional['FlowGoogleAnalyticsConnectorOperator']]:
         """
         The operation to be performed on the provided Google Analytics source fields.
         """
         return pulumi.get(self, "google_analytics")
 
     @google_analytics.setter
-    def google_analytics(self, value: Optional[pulumi.Input['FlowGoogleAnalyticsConnectorOperator']]):
+    def google_analytics(self, value: pulumi.Input[Optional['FlowGoogleAnalyticsConnectorOperator']]):
         pulumi.set(self, "google_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[pulumi.Input['FlowInforNexusConnectorOperator']]:
+    def infor_nexus(self) -> pulumi.Input[Optional['FlowInforNexusConnectorOperator']]:
         """
         The operation to be performed on the provided Infor Nexus source fields.
         """
         return pulumi.get(self, "infor_nexus")
 
     @infor_nexus.setter
-    def infor_nexus(self, value: Optional[pulumi.Input['FlowInforNexusConnectorOperator']]):
+    def infor_nexus(self, value: pulumi.Input[Optional['FlowInforNexusConnectorOperator']]):
         pulumi.set(self, "infor_nexus", value)
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['FlowMarketoConnectorOperator']]:
+    def marketo(self) -> pulumi.Input[Optional['FlowMarketoConnectorOperator']]:
         """
         The operation to be performed on the provided Marketo source fields.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['FlowMarketoConnectorOperator']]):
+    def marketo(self, value: pulumi.Input[Optional['FlowMarketoConnectorOperator']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def pardot(self) -> Optional[pulumi.Input['FlowPardotConnectorOperator']]:
+    def pardot(self) -> pulumi.Input[Optional['FlowPardotConnectorOperator']]:
         """
         The operation to be performed on the provided Salesforce Pardot source fields.
         """
         return pulumi.get(self, "pardot")
 
     @pardot.setter
-    def pardot(self, value: Optional[pulumi.Input['FlowPardotConnectorOperator']]):
+    def pardot(self, value: pulumi.Input[Optional['FlowPardotConnectorOperator']]):
         pulumi.set(self, "pardot", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['FlowS3ConnectorOperator']]:
+    def s3(self) -> pulumi.Input[Optional['FlowS3ConnectorOperator']]:
         """
         The operation to be performed on the provided Amazon S3 source fields.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['FlowS3ConnectorOperator']]):
+    def s3(self, value: pulumi.Input[Optional['FlowS3ConnectorOperator']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceConnectorOperator']]:
+    def salesforce(self) -> pulumi.Input[Optional['FlowSalesforceConnectorOperator']]:
         """
         The operation to be performed on the provided Salesforce source fields.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceConnectorOperator']]):
+    def salesforce(self, value: pulumi.Input[Optional['FlowSalesforceConnectorOperator']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional[pulumi.Input['FlowSapoDataConnectorOperator']]:
+    def sapo_data(self) -> pulumi.Input[Optional['FlowSapoDataConnectorOperator']]:
         """
         The operation to be performed on the provided SAPOData source fields.
         """
         return pulumi.get(self, "sapo_data")
 
     @sapo_data.setter
-    def sapo_data(self, value: Optional[pulumi.Input['FlowSapoDataConnectorOperator']]):
+    def sapo_data(self, value: pulumi.Input[Optional['FlowSapoDataConnectorOperator']]):
         pulumi.set(self, "sapo_data", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['FlowServiceNowConnectorOperator']]:
+    def service_now(self) -> pulumi.Input[Optional['FlowServiceNowConnectorOperator']]:
         """
         The operation to be performed on the provided ServiceNow source fields.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['FlowServiceNowConnectorOperator']]):
+    def service_now(self, value: pulumi.Input[Optional['FlowServiceNowConnectorOperator']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def singular(self) -> Optional[pulumi.Input['FlowSingularConnectorOperator']]:
+    def singular(self) -> pulumi.Input[Optional['FlowSingularConnectorOperator']]:
         """
         The operation to be performed on the provided Singular source fields.
         """
         return pulumi.get(self, "singular")
 
     @singular.setter
-    def singular(self, value: Optional[pulumi.Input['FlowSingularConnectorOperator']]):
+    def singular(self, value: pulumi.Input[Optional['FlowSingularConnectorOperator']]):
         pulumi.set(self, "singular", value)
 
     @_builtins.property
     @pulumi.getter
-    def slack(self) -> Optional[pulumi.Input['FlowSlackConnectorOperator']]:
+    def slack(self) -> pulumi.Input[Optional['FlowSlackConnectorOperator']]:
         """
         The operation to be performed on the provided Slack source fields.
         """
         return pulumi.get(self, "slack")
 
     @slack.setter
-    def slack(self, value: Optional[pulumi.Input['FlowSlackConnectorOperator']]):
+    def slack(self, value: pulumi.Input[Optional['FlowSlackConnectorOperator']]):
         pulumi.set(self, "slack", value)
 
     @_builtins.property
     @pulumi.getter
-    def trendmicro(self) -> Optional[pulumi.Input['FlowTrendmicroConnectorOperator']]:
+    def trendmicro(self) -> pulumi.Input[Optional['FlowTrendmicroConnectorOperator']]:
         """
         The operation to be performed on the provided Trend Micro source fields.
         """
         return pulumi.get(self, "trendmicro")
 
     @trendmicro.setter
-    def trendmicro(self, value: Optional[pulumi.Input['FlowTrendmicroConnectorOperator']]):
+    def trendmicro(self, value: pulumi.Input[Optional['FlowTrendmicroConnectorOperator']]):
         pulumi.set(self, "trendmicro", value)
 
     @_builtins.property
     @pulumi.getter
-    def veeva(self) -> Optional[pulumi.Input['FlowVeevaConnectorOperator']]:
+    def veeva(self) -> pulumi.Input[Optional['FlowVeevaConnectorOperator']]:
         """
         The operation to be performed on the provided Veeva source fields.
         """
         return pulumi.get(self, "veeva")
 
     @veeva.setter
-    def veeva(self, value: Optional[pulumi.Input['FlowVeevaConnectorOperator']]):
+    def veeva(self, value: pulumi.Input[Optional['FlowVeevaConnectorOperator']]):
         pulumi.set(self, "veeva", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['FlowZendeskConnectorOperator']]:
+    def zendesk(self) -> pulumi.Input[Optional['FlowZendeskConnectorOperator']]:
         """
         The operation to be performed on the provided Zendesk source fields.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['FlowZendeskConnectorOperator']]):
+    def zendesk(self, value: pulumi.Input[Optional['FlowZendeskConnectorOperator']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -4079,19 +4079,19 @@ class FlowCustomConnectorDestinationPropertiesArgsDict(TypedDict):
     """
     The entity specified in the custom connector as a destination in the flow.
     """
-    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    custom_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     The custom properties that are specific to the connector when it's used as a destination in the flow.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
     """
-    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    id_field_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of fields used as ID when performing a write operation.
     """
-    write_operation_type: NotRequired[pulumi.Input['FlowWriteOperationType']]
+    write_operation_type: NotRequired[pulumi.Input[Optional['FlowWriteOperationType']]]
     """
     Specifies the type of write operation to be performed in the custom connector when it's used as destination.
     """
@@ -4100,10 +4100,10 @@ class FlowCustomConnectorDestinationPropertiesArgsDict(TypedDict):
 class FlowCustomConnectorDestinationPropertiesArgs:
     def __init__(__self__, *,
                  entity_name: pulumi.Input[_builtins.str],
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
-                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
+                 custom_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_operation_type: pulumi.Input[Optional['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[_builtins.str] entity_name: The entity specified in the custom connector as a destination in the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: The custom properties that are specific to the connector when it's used as a destination in the flow.
@@ -4135,51 +4135,119 @@ class FlowCustomConnectorDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def custom_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The custom properties that are specific to the connector when it's used as a destination in the flow.
         """
         return pulumi.get(self, "custom_properties")
 
     @custom_properties.setter
-    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def custom_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="idFieldNames")
-    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def id_field_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of fields used as ID when performing a write operation.
         """
         return pulumi.get(self, "id_field_names")
 
     @id_field_names.setter
-    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def id_field_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "id_field_names", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
+    def write_operation_type(self) -> pulumi.Input[Optional['FlowWriteOperationType']]:
         """
         Specifies the type of write operation to be performed in the custom connector when it's used as destination.
         """
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
+    def write_operation_type(self, value: pulumi.Input[Optional['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
+
+
+class FlowCustomConnectorSourcePropertiesArgsDict(TypedDict):
+    entity_name: pulumi.Input[_builtins.str]
+    """
+    The entity specified in the custom connector as a source in the flow.
+    """
+    custom_properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Custom properties that are required to use the custom connector as a source.
+    """
+    data_transfer_api: NotRequired[pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgsDict']]]
+    """
+    The API of the connector application that Amazon AppFlow uses to transfer your data.
+    """
+
+@pulumi.input_type
+class FlowCustomConnectorSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 entity_name: pulumi.Input[_builtins.str],
+                 custom_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 data_transfer_api: pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] entity_name: The entity specified in the custom connector as a source in the flow.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Custom properties that are required to use the custom connector as a source.
+        :param pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs'] data_transfer_api: The API of the connector application that Amazon AppFlow uses to transfer your data.
+        """
+        pulumi.set(__self__, "entity_name", entity_name)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+        if data_transfer_api is not None:
+            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
+
+    @_builtins.property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The entity specified in the custom connector as a source in the flow.
+        """
+        return pulumi.get(self, "entity_name")
+
+    @entity_name.setter
+    def entity_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "entity_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Custom properties that are required to use the custom connector as a source.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTransferApi")
+    def data_transfer_api(self) -> pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]:
+        """
+        The API of the connector application that Amazon AppFlow uses to transfer your data.
+        """
+        return pulumi.get(self, "data_transfer_api")
+
+    @data_transfer_api.setter
+    def data_transfer_api(self, value: pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]):
+        pulumi.set(self, "data_transfer_api", value)
 
 
 class FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgsDict(TypedDict):
@@ -4219,74 +4287,6 @@ class FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs:
         pulumi.set(self, "type", value)
 
 
-class FlowCustomConnectorSourcePropertiesArgsDict(TypedDict):
-    entity_name: pulumi.Input[_builtins.str]
-    """
-    The entity specified in the custom connector as a source in the flow.
-    """
-    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-    """
-    Custom properties that are required to use the custom connector as a source.
-    """
-    data_transfer_api: NotRequired[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgsDict']]
-    """
-    The API of the connector application that Amazon AppFlow uses to transfer your data.
-    """
-
-@pulumi.input_type
-class FlowCustomConnectorSourcePropertiesArgs:
-    def __init__(__self__, *,
-                 entity_name: pulumi.Input[_builtins.str],
-                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 data_transfer_api: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']] = None):
-        """
-        :param pulumi.Input[_builtins.str] entity_name: The entity specified in the custom connector as a source in the flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_properties: Custom properties that are required to use the custom connector as a source.
-        :param pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs'] data_transfer_api: The API of the connector application that Amazon AppFlow uses to transfer your data.
-        """
-        pulumi.set(__self__, "entity_name", entity_name)
-        if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
-        if data_transfer_api is not None:
-            pulumi.set(__self__, "data_transfer_api", data_transfer_api)
-
-    @_builtins.property
-    @pulumi.getter(name="entityName")
-    def entity_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The entity specified in the custom connector as a source in the flow.
-        """
-        return pulumi.get(self, "entity_name")
-
-    @entity_name.setter
-    def entity_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "entity_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="customProperties")
-    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
-        """
-        Custom properties that are required to use the custom connector as a source.
-        """
-        return pulumi.get(self, "custom_properties")
-
-    @custom_properties.setter
-    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "custom_properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataTransferApi")
-    def data_transfer_api(self) -> Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]:
-        """
-        The API of the connector application that Amazon AppFlow uses to transfer your data.
-        """
-        return pulumi.get(self, "data_transfer_api")
-
-    @data_transfer_api.setter
-    def data_transfer_api(self, value: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesDataTransferApiPropertiesArgs']]):
-        pulumi.set(self, "data_transfer_api", value)
-
-
 class FlowDatadogSourcePropertiesArgsDict(TypedDict):
     object: pulumi.Input[_builtins.str]
     """
@@ -4319,47 +4319,47 @@ class FlowDestinationConnectorPropertiesArgsDict(TypedDict):
     """
     Destination connector details
     """
-    custom_connector: NotRequired[pulumi.Input['FlowCustomConnectorDestinationPropertiesArgsDict']]
+    custom_connector: NotRequired[pulumi.Input[Optional['FlowCustomConnectorDestinationPropertiesArgsDict']]]
     """
     The properties that are required to query the custom Connector.
     """
-    event_bridge: NotRequired[pulumi.Input['FlowEventBridgeDestinationPropertiesArgsDict']]
+    event_bridge: NotRequired[pulumi.Input[Optional['FlowEventBridgeDestinationPropertiesArgsDict']]]
     """
     The properties required to query Amazon EventBridge.
     """
-    lookout_metrics: NotRequired[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgsDict']]
+    lookout_metrics: NotRequired[pulumi.Input[Optional['FlowLookoutMetricsDestinationPropertiesArgsDict']]]
     """
     The properties required to query Amazon Lookout for Metrics.
     """
-    marketo: NotRequired[pulumi.Input['FlowMarketoDestinationPropertiesArgsDict']]
+    marketo: NotRequired[pulumi.Input[Optional['FlowMarketoDestinationPropertiesArgsDict']]]
     """
     The properties required to query Marketo.
     """
-    redshift: NotRequired[pulumi.Input['FlowRedshiftDestinationPropertiesArgsDict']]
+    redshift: NotRequired[pulumi.Input[Optional['FlowRedshiftDestinationPropertiesArgsDict']]]
     """
     The properties required to query Amazon Redshift.
     """
-    s3: NotRequired[pulumi.Input['FlowS3DestinationPropertiesArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['FlowS3DestinationPropertiesArgsDict']]]
     """
     The properties required to query Amazon S3.
     """
-    salesforce: NotRequired[pulumi.Input['FlowSalesforceDestinationPropertiesArgsDict']]
+    salesforce: NotRequired[pulumi.Input[Optional['FlowSalesforceDestinationPropertiesArgsDict']]]
     """
     The properties required to query Salesforce.
     """
-    sapo_data: NotRequired[pulumi.Input['FlowSapoDataDestinationPropertiesArgsDict']]
+    sapo_data: NotRequired[pulumi.Input[Optional['FlowSapoDataDestinationPropertiesArgsDict']]]
     """
     The properties required to query SAPOData.
     """
-    snowflake: NotRequired[pulumi.Input['FlowSnowflakeDestinationPropertiesArgsDict']]
+    snowflake: NotRequired[pulumi.Input[Optional['FlowSnowflakeDestinationPropertiesArgsDict']]]
     """
     The properties required to query Snowflake.
     """
-    upsolver: NotRequired[pulumi.Input['FlowUpsolverDestinationPropertiesArgsDict']]
+    upsolver: NotRequired[pulumi.Input[Optional['FlowUpsolverDestinationPropertiesArgsDict']]]
     """
     The properties required to query Upsolver.
     """
-    zendesk: NotRequired[pulumi.Input['FlowZendeskDestinationPropertiesArgsDict']]
+    zendesk: NotRequired[pulumi.Input[Optional['FlowZendeskDestinationPropertiesArgsDict']]]
     """
     The properties required to query Zendesk.
     """
@@ -4367,17 +4367,17 @@ class FlowDestinationConnectorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowDestinationConnectorPropertiesArgs:
     def __init__(__self__, *,
-                 custom_connector: Optional[pulumi.Input['FlowCustomConnectorDestinationPropertiesArgs']] = None,
-                 event_bridge: Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']] = None,
-                 lookout_metrics: Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']] = None,
-                 marketo: Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']] = None,
-                 redshift: Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']] = None,
-                 s3: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']] = None,
-                 salesforce: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']] = None,
-                 sapo_data: Optional[pulumi.Input['FlowSapoDataDestinationPropertiesArgs']] = None,
-                 snowflake: Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']] = None,
-                 upsolver: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']] = None,
-                 zendesk: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']] = None):
+                 custom_connector: pulumi.Input[Optional['FlowCustomConnectorDestinationPropertiesArgs']] = None,
+                 event_bridge: pulumi.Input[Optional['FlowEventBridgeDestinationPropertiesArgs']] = None,
+                 lookout_metrics: pulumi.Input[Optional['FlowLookoutMetricsDestinationPropertiesArgs']] = None,
+                 marketo: pulumi.Input[Optional['FlowMarketoDestinationPropertiesArgs']] = None,
+                 redshift: pulumi.Input[Optional['FlowRedshiftDestinationPropertiesArgs']] = None,
+                 s3: pulumi.Input[Optional['FlowS3DestinationPropertiesArgs']] = None,
+                 salesforce: pulumi.Input[Optional['FlowSalesforceDestinationPropertiesArgs']] = None,
+                 sapo_data: pulumi.Input[Optional['FlowSapoDataDestinationPropertiesArgs']] = None,
+                 snowflake: pulumi.Input[Optional['FlowSnowflakeDestinationPropertiesArgs']] = None,
+                 upsolver: pulumi.Input[Optional['FlowUpsolverDestinationPropertiesArgs']] = None,
+                 zendesk: pulumi.Input[Optional['FlowZendeskDestinationPropertiesArgs']] = None):
         """
         Destination connector details
 
@@ -4418,134 +4418,134 @@ class FlowDestinationConnectorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="customConnector")
-    def custom_connector(self) -> Optional[pulumi.Input['FlowCustomConnectorDestinationPropertiesArgs']]:
+    def custom_connector(self) -> pulumi.Input[Optional['FlowCustomConnectorDestinationPropertiesArgs']]:
         """
         The properties that are required to query the custom Connector.
         """
         return pulumi.get(self, "custom_connector")
 
     @custom_connector.setter
-    def custom_connector(self, value: Optional[pulumi.Input['FlowCustomConnectorDestinationPropertiesArgs']]):
+    def custom_connector(self, value: pulumi.Input[Optional['FlowCustomConnectorDestinationPropertiesArgs']]):
         pulumi.set(self, "custom_connector", value)
 
     @_builtins.property
     @pulumi.getter(name="eventBridge")
-    def event_bridge(self) -> Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']]:
+    def event_bridge(self) -> pulumi.Input[Optional['FlowEventBridgeDestinationPropertiesArgs']]:
         """
         The properties required to query Amazon EventBridge.
         """
         return pulumi.get(self, "event_bridge")
 
     @event_bridge.setter
-    def event_bridge(self, value: Optional[pulumi.Input['FlowEventBridgeDestinationPropertiesArgs']]):
+    def event_bridge(self, value: pulumi.Input[Optional['FlowEventBridgeDestinationPropertiesArgs']]):
         pulumi.set(self, "event_bridge", value)
 
     @_builtins.property
     @pulumi.getter(name="lookoutMetrics")
-    def lookout_metrics(self) -> Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']]:
+    def lookout_metrics(self) -> pulumi.Input[Optional['FlowLookoutMetricsDestinationPropertiesArgs']]:
         """
         The properties required to query Amazon Lookout for Metrics.
         """
         return pulumi.get(self, "lookout_metrics")
 
     @lookout_metrics.setter
-    def lookout_metrics(self, value: Optional[pulumi.Input['FlowLookoutMetricsDestinationPropertiesArgs']]):
+    def lookout_metrics(self, value: pulumi.Input[Optional['FlowLookoutMetricsDestinationPropertiesArgs']]):
         pulumi.set(self, "lookout_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']]:
+    def marketo(self) -> pulumi.Input[Optional['FlowMarketoDestinationPropertiesArgs']]:
         """
         The properties required to query Marketo.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['FlowMarketoDestinationPropertiesArgs']]):
+    def marketo(self, value: pulumi.Input[Optional['FlowMarketoDestinationPropertiesArgs']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def redshift(self) -> Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']]:
+    def redshift(self) -> pulumi.Input[Optional['FlowRedshiftDestinationPropertiesArgs']]:
         """
         The properties required to query Amazon Redshift.
         """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
-    def redshift(self, value: Optional[pulumi.Input['FlowRedshiftDestinationPropertiesArgs']]):
+    def redshift(self, value: pulumi.Input[Optional['FlowRedshiftDestinationPropertiesArgs']]):
         pulumi.set(self, "redshift", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']]:
+    def s3(self) -> pulumi.Input[Optional['FlowS3DestinationPropertiesArgs']]:
         """
         The properties required to query Amazon S3.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['FlowS3DestinationPropertiesArgs']]):
+    def s3(self, value: pulumi.Input[Optional['FlowS3DestinationPropertiesArgs']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']]:
+    def salesforce(self) -> pulumi.Input[Optional['FlowSalesforceDestinationPropertiesArgs']]:
         """
         The properties required to query Salesforce.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceDestinationPropertiesArgs']]):
+    def salesforce(self, value: pulumi.Input[Optional['FlowSalesforceDestinationPropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional[pulumi.Input['FlowSapoDataDestinationPropertiesArgs']]:
+    def sapo_data(self) -> pulumi.Input[Optional['FlowSapoDataDestinationPropertiesArgs']]:
         """
         The properties required to query SAPOData.
         """
         return pulumi.get(self, "sapo_data")
 
     @sapo_data.setter
-    def sapo_data(self, value: Optional[pulumi.Input['FlowSapoDataDestinationPropertiesArgs']]):
+    def sapo_data(self, value: pulumi.Input[Optional['FlowSapoDataDestinationPropertiesArgs']]):
         pulumi.set(self, "sapo_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def snowflake(self) -> Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']]:
+    def snowflake(self) -> pulumi.Input[Optional['FlowSnowflakeDestinationPropertiesArgs']]:
         """
         The properties required to query Snowflake.
         """
         return pulumi.get(self, "snowflake")
 
     @snowflake.setter
-    def snowflake(self, value: Optional[pulumi.Input['FlowSnowflakeDestinationPropertiesArgs']]):
+    def snowflake(self, value: pulumi.Input[Optional['FlowSnowflakeDestinationPropertiesArgs']]):
         pulumi.set(self, "snowflake", value)
 
     @_builtins.property
     @pulumi.getter
-    def upsolver(self) -> Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']]:
+    def upsolver(self) -> pulumi.Input[Optional['FlowUpsolverDestinationPropertiesArgs']]:
         """
         The properties required to query Upsolver.
         """
         return pulumi.get(self, "upsolver")
 
     @upsolver.setter
-    def upsolver(self, value: Optional[pulumi.Input['FlowUpsolverDestinationPropertiesArgs']]):
+    def upsolver(self, value: pulumi.Input[Optional['FlowUpsolverDestinationPropertiesArgs']]):
         pulumi.set(self, "upsolver", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']]:
+    def zendesk(self) -> pulumi.Input[Optional['FlowZendeskDestinationPropertiesArgs']]:
         """
         The properties required to query Zendesk.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['FlowZendeskDestinationPropertiesArgs']]):
+    def zendesk(self, value: pulumi.Input[Optional['FlowZendeskDestinationPropertiesArgs']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -4561,11 +4561,11 @@ class FlowDestinationFlowConfigArgsDict(TypedDict):
     """
     Destination connector details
     """
-    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API version that the destination connector uses.
     """
-    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    connector_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of destination connector profile
     """
@@ -4575,8 +4575,8 @@ class FlowDestinationFlowConfigArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input['FlowConnectorType'],
                  destination_connector_properties: pulumi.Input['FlowDestinationConnectorPropertiesArgs'],
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configurations of destination connector.
 
@@ -4618,26 +4618,26 @@ class FlowDestinationFlowConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API version that the destination connector uses.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileName")
-    def connector_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of destination connector profile
         """
         return pulumi.get(self, "connector_profile_name")
 
     @connector_profile_name.setter
-    def connector_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_profile_name", value)
 
 
@@ -4670,15 +4670,15 @@ class FlowDynatraceSourcePropertiesArgs:
 
 
 class FlowErrorHandlingConfigArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the Amazon S3 bucket.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the Amazon S3 bucket prefix.
     """
-    fail_on_first_error: NotRequired[pulumi.Input[_builtins.bool]]
+    fail_on_first_error: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
     """
@@ -4686,9 +4686,9 @@ class FlowErrorHandlingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowErrorHandlingConfigArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 fail_on_first_error: Optional[pulumi.Input[_builtins.bool]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 fail_on_first_error: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Specifies the name of the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] bucket_prefix: Specifies the Amazon S3 bucket prefix.
@@ -4703,38 +4703,38 @@ class FlowErrorHandlingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="failOnFirstError")
-    def fail_on_first_error(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fail_on_first_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
         """
         return pulumi.get(self, "fail_on_first_error")
 
     @fail_on_first_error.setter
-    def fail_on_first_error(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fail_on_first_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fail_on_first_error", value)
 
 
@@ -4743,7 +4743,7 @@ class FlowEventBridgeDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Amazon EventBridge flow destination.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The object specified in the Amplitude flow source.
     """
@@ -4752,7 +4752,7 @@ class FlowEventBridgeDestinationPropertiesArgsDict(TypedDict):
 class FlowEventBridgeDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Amazon EventBridge flow destination.
         :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: The object specified in the Amplitude flow source.
@@ -4775,14 +4775,14 @@ class FlowEventBridgeDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The object specified in the Amplitude flow source.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
 
@@ -4889,7 +4889,7 @@ class FlowIncrementalPullConfigArgsDict(TypedDict):
     """
     Configuration for scheduled incremental data pull
     """
-    datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    datetime_type_field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
     """
@@ -4897,7 +4897,7 @@ class FlowIncrementalPullConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowIncrementalPullConfigArgs:
     def __init__(__self__, *,
-                 datetime_type_field_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 datetime_type_field_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for scheduled incremental data pull
 
@@ -4908,14 +4908,14 @@ class FlowIncrementalPullConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="datetimeTypeFieldName")
-    def datetime_type_field_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datetime_type_field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
         """
         return pulumi.get(self, "datetime_type_field_name")
 
     @datetime_type_field_name.setter
-    def datetime_type_field_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datetime_type_field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datetime_type_field_name", value)
 
 
@@ -4948,7 +4948,7 @@ class FlowInforNexusSourcePropertiesArgs:
 
 
 class FlowLookoutMetricsDestinationPropertiesArgsDict(TypedDict):
-    object: NotRequired[pulumi.Input[_builtins.str]]
+    object: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object specified in the Amazon Lookout for Metrics flow destination.
     """
@@ -4956,7 +4956,7 @@ class FlowLookoutMetricsDestinationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowLookoutMetricsDestinationPropertiesArgs:
     def __init__(__self__, *,
-                 object: Optional[pulumi.Input[_builtins.str]] = None):
+                 object: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Amazon Lookout for Metrics flow destination.
         """
@@ -4965,14 +4965,14 @@ class FlowLookoutMetricsDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object specified in the Amazon Lookout for Metrics flow destination.
         """
         return pulumi.get(self, "object")
 
     @object.setter
-    def object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object", value)
 
 
@@ -4981,7 +4981,7 @@ class FlowMarketoDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Marketo flow destination.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
@@ -4990,7 +4990,7 @@ class FlowMarketoDestinationPropertiesArgsDict(TypedDict):
 class FlowMarketoDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Marketo flow destination.
         :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
@@ -5013,14 +5013,14 @@ class FlowMarketoDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
 
@@ -5056,7 +5056,7 @@ class FlowMetadataCatalogConfigArgsDict(TypedDict):
     """
     Configurations of metadata catalog of the flow.
     """
-    glue_data_catalog: NotRequired[pulumi.Input['FlowGlueDataCatalogArgsDict']]
+    glue_data_catalog: NotRequired[pulumi.Input[Optional['FlowGlueDataCatalogArgsDict']]]
     """
     Configurations of glue data catalog of the flow.
     """
@@ -5064,7 +5064,7 @@ class FlowMetadataCatalogConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowMetadataCatalogConfigArgs:
     def __init__(__self__, *,
-                 glue_data_catalog: Optional[pulumi.Input['FlowGlueDataCatalogArgs']] = None):
+                 glue_data_catalog: pulumi.Input[Optional['FlowGlueDataCatalogArgs']] = None):
         """
         Configurations of metadata catalog of the flow.
 
@@ -5075,14 +5075,14 @@ class FlowMetadataCatalogConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="glueDataCatalog")
-    def glue_data_catalog(self) -> Optional[pulumi.Input['FlowGlueDataCatalogArgs']]:
+    def glue_data_catalog(self) -> pulumi.Input[Optional['FlowGlueDataCatalogArgs']]:
         """
         Configurations of glue data catalog of the flow.
         """
         return pulumi.get(self, "glue_data_catalog")
 
     @glue_data_catalog.setter
-    def glue_data_catalog(self, value: Optional[pulumi.Input['FlowGlueDataCatalogArgs']]):
+    def glue_data_catalog(self, value: pulumi.Input[Optional['FlowGlueDataCatalogArgs']]):
         pulumi.set(self, "glue_data_catalog", value)
 
 
@@ -5115,7 +5115,7 @@ class FlowPardotSourcePropertiesArgs:
 
 
 class FlowPrefixConfigArgsDict(TypedDict):
-    path_prefix_hierarchy: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]]
+    path_prefix_hierarchy: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowPathPrefix']]]]]
     """
     Specifies whether the destination file path includes either or both of the following elements:
 
@@ -5126,11 +5126,11 @@ class FlowPrefixConfigArgsDict(TypedDict):
     - Field data types
     - Partition keys
     """
-    prefix_format: NotRequired[pulumi.Input['FlowPrefixFormat']]
+    prefix_format: NotRequired[pulumi.Input[Optional['FlowPrefixFormat']]]
     """
     Determines the level of granularity for the date and time that's included in the prefix.
     """
-    prefix_type: NotRequired[pulumi.Input['FlowPrefixType']]
+    prefix_type: NotRequired[pulumi.Input[Optional['FlowPrefixType']]]
     """
     Determines the format of the prefix, and whether it applies to the file name, file path, or both.
     """
@@ -5138,9 +5138,9 @@ class FlowPrefixConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowPrefixConfigArgs:
     def __init__(__self__, *,
-                 path_prefix_hierarchy: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]] = None,
-                 prefix_format: Optional[pulumi.Input['FlowPrefixFormat']] = None,
-                 prefix_type: Optional[pulumi.Input['FlowPrefixType']] = None):
+                 path_prefix_hierarchy: pulumi.Input[Optional[Sequence[pulumi.Input['FlowPathPrefix']]]] = None,
+                 prefix_format: pulumi.Input[Optional['FlowPrefixFormat']] = None,
+                 prefix_type: pulumi.Input[Optional['FlowPrefixType']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]] path_prefix_hierarchy: Specifies whether the destination file path includes either or both of the following elements:
                
@@ -5162,7 +5162,7 @@ class FlowPrefixConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="pathPrefixHierarchy")
-    def path_prefix_hierarchy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]]:
+    def path_prefix_hierarchy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowPathPrefix']]]]:
         """
         Specifies whether the destination file path includes either or both of the following elements:
 
@@ -5176,31 +5176,31 @@ class FlowPrefixConfigArgs:
         return pulumi.get(self, "path_prefix_hierarchy")
 
     @path_prefix_hierarchy.setter
-    def path_prefix_hierarchy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPathPrefix']]]]):
+    def path_prefix_hierarchy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowPathPrefix']]]]):
         pulumi.set(self, "path_prefix_hierarchy", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixFormat")
-    def prefix_format(self) -> Optional[pulumi.Input['FlowPrefixFormat']]:
+    def prefix_format(self) -> pulumi.Input[Optional['FlowPrefixFormat']]:
         """
         Determines the level of granularity for the date and time that's included in the prefix.
         """
         return pulumi.get(self, "prefix_format")
 
     @prefix_format.setter
-    def prefix_format(self, value: Optional[pulumi.Input['FlowPrefixFormat']]):
+    def prefix_format(self, value: pulumi.Input[Optional['FlowPrefixFormat']]):
         pulumi.set(self, "prefix_format", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[pulumi.Input['FlowPrefixType']]:
+    def prefix_type(self) -> pulumi.Input[Optional['FlowPrefixType']]:
         """
         Determines the format of the prefix, and whether it applies to the file name, file path, or both.
         """
         return pulumi.get(self, "prefix_type")
 
     @prefix_type.setter
-    def prefix_type(self, value: Optional[pulumi.Input['FlowPrefixType']]):
+    def prefix_type(self, value: pulumi.Input[Optional['FlowPrefixType']]):
         pulumi.set(self, "prefix_type", value)
 
 
@@ -5213,11 +5213,11 @@ class FlowRedshiftDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Amazon Redshift flow destination.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the bucket in which Amazon AppFlow places the destination files.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
@@ -5227,8 +5227,8 @@ class FlowRedshiftDestinationPropertiesArgs:
     def __init__(__self__, *,
                  intermediate_bucket_name: pulumi.Input[_builtins.str],
                  object: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] intermediate_bucket_name: The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
         :param pulumi.Input[_builtins.str] object: The object specified in the Amazon Redshift flow destination.
@@ -5268,26 +5268,26 @@ class FlowRedshiftDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the bucket in which Amazon AppFlow places the destination files.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
 
@@ -5296,11 +5296,11 @@ class FlowS3DestinationPropertiesArgsDict(TypedDict):
     """
     The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the destination bucket in which Amazon AppFlow places the files.
     """
-    s3_output_format_config: NotRequired[pulumi.Input['FlowS3OutputFormatConfigArgsDict']]
+    s3_output_format_config: NotRequired[pulumi.Input[Optional['FlowS3OutputFormatConfigArgsDict']]]
     """
     The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
     """
@@ -5309,8 +5309,8 @@ class FlowS3DestinationPropertiesArgsDict(TypedDict):
 class FlowS3DestinationPropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_output_format_config: Optional[pulumi.Input['FlowS3OutputFormatConfigArgs']] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_output_format_config: pulumi.Input[Optional['FlowS3OutputFormatConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         :param pulumi.Input[_builtins.str] bucket_prefix: The object key for the destination bucket in which Amazon AppFlow places the files.
@@ -5336,31 +5336,31 @@ class FlowS3DestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the destination bucket in which Amazon AppFlow places the files.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="s3OutputFormatConfig")
-    def s3_output_format_config(self) -> Optional[pulumi.Input['FlowS3OutputFormatConfigArgs']]:
+    def s3_output_format_config(self) -> pulumi.Input[Optional['FlowS3OutputFormatConfigArgs']]:
         """
         The configuration that determines how Amazon AppFlow should format the flow output data when Amazon S3 is used as the destination.
         """
         return pulumi.get(self, "s3_output_format_config")
 
     @s3_output_format_config.setter
-    def s3_output_format_config(self, value: Optional[pulumi.Input['FlowS3OutputFormatConfigArgs']]):
+    def s3_output_format_config(self, value: pulumi.Input[Optional['FlowS3OutputFormatConfigArgs']]):
         pulumi.set(self, "s3_output_format_config", value)
 
 
 class FlowS3InputFormatConfigArgsDict(TypedDict):
-    s3_input_file_type: NotRequired[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']]
+    s3_input_file_type: NotRequired[pulumi.Input[Optional['FlowS3InputFormatConfigS3InputFileType']]]
     """
     The file type that Amazon AppFlow gets from your Amazon S3 bucket.
     """
@@ -5368,7 +5368,7 @@ class FlowS3InputFormatConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowS3InputFormatConfigArgs:
     def __init__(__self__, *,
-                 s3_input_file_type: Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']] = None):
+                 s3_input_file_type: pulumi.Input[Optional['FlowS3InputFormatConfigS3InputFileType']] = None):
         """
         :param pulumi.Input['FlowS3InputFormatConfigS3InputFileType'] s3_input_file_type: The file type that Amazon AppFlow gets from your Amazon S3 bucket.
         """
@@ -5377,31 +5377,31 @@ class FlowS3InputFormatConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3InputFileType")
-    def s3_input_file_type(self) -> Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']]:
+    def s3_input_file_type(self) -> pulumi.Input[Optional['FlowS3InputFormatConfigS3InputFileType']]:
         """
         The file type that Amazon AppFlow gets from your Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_input_file_type")
 
     @s3_input_file_type.setter
-    def s3_input_file_type(self, value: Optional[pulumi.Input['FlowS3InputFormatConfigS3InputFileType']]):
+    def s3_input_file_type(self, value: pulumi.Input[Optional['FlowS3InputFormatConfigS3InputFileType']]):
         pulumi.set(self, "s3_input_file_type", value)
 
 
 class FlowS3OutputFormatConfigArgsDict(TypedDict):
-    aggregation_config: NotRequired[pulumi.Input['FlowAggregationConfigArgsDict']]
+    aggregation_config: NotRequired[pulumi.Input[Optional['FlowAggregationConfigArgsDict']]]
     """
     The aggregation settings that you can use to customize the output format of your flow data.
     """
-    file_type: NotRequired[pulumi.Input['FlowFileType']]
+    file_type: NotRequired[pulumi.Input[Optional['FlowFileType']]]
     """
     Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
     """
-    prefix_config: NotRequired[pulumi.Input['FlowPrefixConfigArgsDict']]
+    prefix_config: NotRequired[pulumi.Input[Optional['FlowPrefixConfigArgsDict']]]
     """
     Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
     """
-    preserve_source_data_typing: NotRequired[pulumi.Input[_builtins.bool]]
+    preserve_source_data_typing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3.
 
@@ -5412,10 +5412,10 @@ class FlowS3OutputFormatConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowS3OutputFormatConfigArgs:
     def __init__(__self__, *,
-                 aggregation_config: Optional[pulumi.Input['FlowAggregationConfigArgs']] = None,
-                 file_type: Optional[pulumi.Input['FlowFileType']] = None,
-                 prefix_config: Optional[pulumi.Input['FlowPrefixConfigArgs']] = None,
-                 preserve_source_data_typing: Optional[pulumi.Input[_builtins.bool]] = None):
+                 aggregation_config: pulumi.Input[Optional['FlowAggregationConfigArgs']] = None,
+                 file_type: pulumi.Input[Optional['FlowFileType']] = None,
+                 prefix_config: pulumi.Input[Optional['FlowPrefixConfigArgs']] = None,
+                 preserve_source_data_typing: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input['FlowAggregationConfigArgs'] aggregation_config: The aggregation settings that you can use to customize the output format of your flow data.
         :param pulumi.Input['FlowFileType'] file_type: Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
@@ -5436,43 +5436,43 @@ class FlowS3OutputFormatConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationConfig")
-    def aggregation_config(self) -> Optional[pulumi.Input['FlowAggregationConfigArgs']]:
+    def aggregation_config(self) -> pulumi.Input[Optional['FlowAggregationConfigArgs']]:
         """
         The aggregation settings that you can use to customize the output format of your flow data.
         """
         return pulumi.get(self, "aggregation_config")
 
     @aggregation_config.setter
-    def aggregation_config(self, value: Optional[pulumi.Input['FlowAggregationConfigArgs']]):
+    def aggregation_config(self, value: pulumi.Input[Optional['FlowAggregationConfigArgs']]):
         pulumi.set(self, "aggregation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[pulumi.Input['FlowFileType']]:
+    def file_type(self) -> pulumi.Input[Optional['FlowFileType']]:
         """
         Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
         """
         return pulumi.get(self, "file_type")
 
     @file_type.setter
-    def file_type(self, value: Optional[pulumi.Input['FlowFileType']]):
+    def file_type(self, value: pulumi.Input[Optional['FlowFileType']]):
         pulumi.set(self, "file_type", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixConfig")
-    def prefix_config(self) -> Optional[pulumi.Input['FlowPrefixConfigArgs']]:
+    def prefix_config(self) -> pulumi.Input[Optional['FlowPrefixConfigArgs']]:
         """
         Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
         """
         return pulumi.get(self, "prefix_config")
 
     @prefix_config.setter
-    def prefix_config(self, value: Optional[pulumi.Input['FlowPrefixConfigArgs']]):
+    def prefix_config(self, value: pulumi.Input[Optional['FlowPrefixConfigArgs']]):
         pulumi.set(self, "prefix_config", value)
 
     @_builtins.property
     @pulumi.getter(name="preserveSourceDataTyping")
-    def preserve_source_data_typing(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def preserve_source_data_typing(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3.
 
@@ -5482,7 +5482,7 @@ class FlowS3OutputFormatConfigArgs:
         return pulumi.get(self, "preserve_source_data_typing")
 
     @preserve_source_data_typing.setter
-    def preserve_source_data_typing(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def preserve_source_data_typing(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "preserve_source_data_typing", value)
 
 
@@ -5495,7 +5495,7 @@ class FlowS3SourcePropertiesArgsDict(TypedDict):
     """
     The object key for the Amazon S3 bucket in which the source files are stored.
     """
-    s3_input_format_config: NotRequired[pulumi.Input['FlowS3InputFormatConfigArgsDict']]
+    s3_input_format_config: NotRequired[pulumi.Input[Optional['FlowS3InputFormatConfigArgsDict']]]
     """
     When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
     """
@@ -5505,7 +5505,7 @@ class FlowS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  bucket_prefix: pulumi.Input[_builtins.str],
-                 s3_input_format_config: Optional[pulumi.Input['FlowS3InputFormatConfigArgs']] = None):
+                 s3_input_format_config: pulumi.Input[Optional['FlowS3InputFormatConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Amazon S3 bucket name where the source files are stored.
         :param pulumi.Input[_builtins.str] bucket_prefix: The object key for the Amazon S3 bucket in which the source files are stored.
@@ -5542,14 +5542,14 @@ class FlowS3SourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3InputFormatConfig")
-    def s3_input_format_config(self) -> Optional[pulumi.Input['FlowS3InputFormatConfigArgs']]:
+    def s3_input_format_config(self) -> pulumi.Input[Optional['FlowS3InputFormatConfigArgs']]:
         """
         When you use Amazon S3 as the source, the configuration format that you provide the flow input data.
         """
         return pulumi.get(self, "s3_input_format_config")
 
     @s3_input_format_config.setter
-    def s3_input_format_config(self, value: Optional[pulumi.Input['FlowS3InputFormatConfigArgs']]):
+    def s3_input_format_config(self, value: pulumi.Input[Optional['FlowS3InputFormatConfigArgs']]):
         pulumi.set(self, "s3_input_format_config", value)
 
 
@@ -5558,7 +5558,7 @@ class FlowSalesforceDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Salesforce flow destination.
     """
-    data_transfer_api: NotRequired[pulumi.Input['FlowDataTransferApi']]
+    data_transfer_api: NotRequired[pulumi.Input[Optional['FlowDataTransferApi']]]
     """
     Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 
@@ -5572,15 +5572,15 @@ class FlowSalesforceDestinationPropertiesArgsDict(TypedDict):
     Note that Bulk API 2.0 does not transfer Salesforce compound fields.
     - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
-    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    id_field_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of fields used as ID when performing a write operation.
     """
-    write_operation_type: NotRequired[pulumi.Input['FlowWriteOperationType']]
+    write_operation_type: NotRequired[pulumi.Input[Optional['FlowWriteOperationType']]]
     """
     This specifies the type of write operation to be performed in Salesforce. When the value is `UPSERT` , then `idFieldNames` is required.
     """
@@ -5589,10 +5589,10 @@ class FlowSalesforceDestinationPropertiesArgsDict(TypedDict):
 class FlowSalesforceDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 data_transfer_api: Optional[pulumi.Input['FlowDataTransferApi']] = None,
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
-                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
+                 data_transfer_api: pulumi.Input[Optional['FlowDataTransferApi']] = None,
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_operation_type: pulumi.Input[Optional['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Salesforce flow destination.
         :param pulumi.Input['FlowDataTransferApi'] data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
@@ -5634,7 +5634,7 @@ class FlowSalesforceDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTransferApi")
-    def data_transfer_api(self) -> Optional[pulumi.Input['FlowDataTransferApi']]:
+    def data_transfer_api(self) -> pulumi.Input[Optional['FlowDataTransferApi']]:
         """
         Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
 
@@ -5651,43 +5651,43 @@ class FlowSalesforceDestinationPropertiesArgs:
         return pulumi.get(self, "data_transfer_api")
 
     @data_transfer_api.setter
-    def data_transfer_api(self, value: Optional[pulumi.Input['FlowDataTransferApi']]):
+    def data_transfer_api(self, value: pulumi.Input[Optional['FlowDataTransferApi']]):
         pulumi.set(self, "data_transfer_api", value)
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="idFieldNames")
-    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def id_field_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of fields used as ID when performing a write operation.
         """
         return pulumi.get(self, "id_field_names")
 
     @id_field_names.setter
-    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def id_field_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "id_field_names", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
+    def write_operation_type(self) -> pulumi.Input[Optional['FlowWriteOperationType']]:
         """
         This specifies the type of write operation to be performed in Salesforce. When the value is `UPSERT` , then `idFieldNames` is required.
         """
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
+    def write_operation_type(self, value: pulumi.Input[Optional['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
 
 
@@ -5696,7 +5696,7 @@ class FlowSalesforceSourcePropertiesArgsDict(TypedDict):
     """
     The object specified in the Salesforce flow source.
     """
-    data_transfer_api: NotRequired[pulumi.Input['FlowDataTransferApi']]
+    data_transfer_api: NotRequired[pulumi.Input[Optional['FlowDataTransferApi']]]
     """
     Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
 
@@ -5710,11 +5710,11 @@ class FlowSalesforceSourcePropertiesArgsDict(TypedDict):
     Note that Bulk API 2.0 does not transfer Salesforce compound fields.
     - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
     """
-    enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_dynamic_field_update: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
     """
-    include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
+    include_deleted_records: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether Amazon AppFlow includes deleted files in the flow run.
     """
@@ -5723,9 +5723,9 @@ class FlowSalesforceSourcePropertiesArgsDict(TypedDict):
 class FlowSalesforceSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 data_transfer_api: Optional[pulumi.Input['FlowDataTransferApi']] = None,
-                 enable_dynamic_field_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_deleted_records: Optional[pulumi.Input[_builtins.bool]] = None):
+                 data_transfer_api: pulumi.Input[Optional['FlowDataTransferApi']] = None,
+                 enable_dynamic_field_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_deleted_records: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Salesforce flow source.
         :param pulumi.Input['FlowDataTransferApi'] data_transfer_api: Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
@@ -5764,7 +5764,7 @@ class FlowSalesforceSourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTransferApi")
-    def data_transfer_api(self) -> Optional[pulumi.Input['FlowDataTransferApi']]:
+    def data_transfer_api(self) -> pulumi.Input[Optional['FlowDataTransferApi']]:
         """
         Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
 
@@ -5781,31 +5781,31 @@ class FlowSalesforceSourcePropertiesArgs:
         return pulumi.get(self, "data_transfer_api")
 
     @data_transfer_api.setter
-    def data_transfer_api(self, value: Optional[pulumi.Input['FlowDataTransferApi']]):
+    def data_transfer_api(self, value: pulumi.Input[Optional['FlowDataTransferApi']]):
         pulumi.set(self, "data_transfer_api", value)
 
     @_builtins.property
     @pulumi.getter(name="enableDynamicFieldUpdate")
-    def enable_dynamic_field_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_dynamic_field_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
         """
         return pulumi.get(self, "enable_dynamic_field_update")
 
     @enable_dynamic_field_update.setter
-    def enable_dynamic_field_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_dynamic_field_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_dynamic_field_update", value)
 
     @_builtins.property
     @pulumi.getter(name="includeDeletedRecords")
-    def include_deleted_records(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_deleted_records(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether Amazon AppFlow includes deleted files in the flow run.
         """
         return pulumi.get(self, "include_deleted_records")
 
     @include_deleted_records.setter
-    def include_deleted_records(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_deleted_records(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_deleted_records", value)
 
 
@@ -5814,21 +5814,21 @@ class FlowSapoDataDestinationPropertiesArgsDict(TypedDict):
     """
     The object path specified in the SAPOData flow destination.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
-    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    id_field_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of fields used as ID when performing a write operation.
     """
-    success_response_handling_config: NotRequired[pulumi.Input['FlowSuccessResponseHandlingConfigArgsDict']]
+    success_response_handling_config: NotRequired[pulumi.Input[Optional['FlowSuccessResponseHandlingConfigArgsDict']]]
     """
     Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 
     For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
     """
-    write_operation_type: NotRequired[pulumi.Input['FlowWriteOperationType']]
+    write_operation_type: NotRequired[pulumi.Input[Optional['FlowWriteOperationType']]]
     """
     The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
     """
@@ -5837,10 +5837,10 @@ class FlowSapoDataDestinationPropertiesArgsDict(TypedDict):
 class FlowSapoDataDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object_path: pulumi.Input[_builtins.str],
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
-                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 success_response_handling_config: Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']] = None,
-                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 success_response_handling_config: pulumi.Input[Optional['FlowSuccessResponseHandlingConfigArgs']] = None,
+                 write_operation_type: pulumi.Input[Optional['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[_builtins.str] object_path: The object path specified in the SAPOData flow destination.
         :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
@@ -5874,31 +5874,31 @@ class FlowSapoDataDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="idFieldNames")
-    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def id_field_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of fields used as ID when performing a write operation.
         """
         return pulumi.get(self, "id_field_names")
 
     @id_field_names.setter
-    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def id_field_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "id_field_names", value)
 
     @_builtins.property
     @pulumi.getter(name="successResponseHandlingConfig")
-    def success_response_handling_config(self) -> Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']]:
+    def success_response_handling_config(self) -> pulumi.Input[Optional['FlowSuccessResponseHandlingConfigArgs']]:
         """
         Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 
@@ -5907,19 +5907,19 @@ class FlowSapoDataDestinationPropertiesArgs:
         return pulumi.get(self, "success_response_handling_config")
 
     @success_response_handling_config.setter
-    def success_response_handling_config(self, value: Optional[pulumi.Input['FlowSuccessResponseHandlingConfigArgs']]):
+    def success_response_handling_config(self, value: pulumi.Input[Optional['FlowSuccessResponseHandlingConfigArgs']]):
         pulumi.set(self, "success_response_handling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
+    def write_operation_type(self) -> pulumi.Input[Optional['FlowWriteOperationType']]:
         """
         The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
         """
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
+    def write_operation_type(self, value: pulumi.Input[Optional['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
 
 
@@ -5994,11 +5994,11 @@ class FlowSapoDataSourcePropertiesArgsDict(TypedDict):
     """
     The object path specified in the SAPOData flow source.
     """
-    pagination_config: NotRequired[pulumi.Input['FlowSapoDataPaginationConfigArgsDict']]
+    pagination_config: NotRequired[pulumi.Input[Optional['FlowSapoDataPaginationConfigArgsDict']]]
     """
     Sets the page size for each concurrent process that transfers OData records from your SAP instance.
     """
-    parallelism_config: NotRequired[pulumi.Input['FlowSapoDataParallelismConfigArgsDict']]
+    parallelism_config: NotRequired[pulumi.Input[Optional['FlowSapoDataParallelismConfigArgsDict']]]
     """
     Sets the number of concurrent processes that transfers OData records from your SAP instance.
     """
@@ -6007,8 +6007,8 @@ class FlowSapoDataSourcePropertiesArgsDict(TypedDict):
 class FlowSapoDataSourcePropertiesArgs:
     def __init__(__self__, *,
                  object_path: pulumi.Input[_builtins.str],
-                 pagination_config: Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']] = None,
-                 parallelism_config: Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']] = None):
+                 pagination_config: pulumi.Input[Optional['FlowSapoDataPaginationConfigArgs']] = None,
+                 parallelism_config: pulumi.Input[Optional['FlowSapoDataParallelismConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] object_path: The object path specified in the SAPOData flow source.
         :param pulumi.Input['FlowSapoDataPaginationConfigArgs'] pagination_config: Sets the page size for each concurrent process that transfers OData records from your SAP instance.
@@ -6034,26 +6034,26 @@ class FlowSapoDataSourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="paginationConfig")
-    def pagination_config(self) -> Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']]:
+    def pagination_config(self) -> pulumi.Input[Optional['FlowSapoDataPaginationConfigArgs']]:
         """
         Sets the page size for each concurrent process that transfers OData records from your SAP instance.
         """
         return pulumi.get(self, "pagination_config")
 
     @pagination_config.setter
-    def pagination_config(self, value: Optional[pulumi.Input['FlowSapoDataPaginationConfigArgs']]):
+    def pagination_config(self, value: pulumi.Input[Optional['FlowSapoDataPaginationConfigArgs']]):
         pulumi.set(self, "pagination_config", value)
 
     @_builtins.property
     @pulumi.getter(name="parallelismConfig")
-    def parallelism_config(self) -> Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']]:
+    def parallelism_config(self) -> pulumi.Input[Optional['FlowSapoDataParallelismConfigArgs']]:
         """
         Sets the number of concurrent processes that transfers OData records from your SAP instance.
         """
         return pulumi.get(self, "parallelism_config")
 
     @parallelism_config.setter
-    def parallelism_config(self, value: Optional[pulumi.Input['FlowSapoDataParallelismConfigArgs']]):
+    def parallelism_config(self, value: pulumi.Input[Optional['FlowSapoDataParallelismConfigArgs']]):
         pulumi.set(self, "parallelism_config", value)
 
 
@@ -6065,31 +6065,31 @@ class FlowScheduledTriggerPropertiesArgsDict(TypedDict):
     """
     The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)` .
     """
-    data_pull_mode: NotRequired[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']]
+    data_pull_mode: NotRequired[pulumi.Input[Optional['FlowScheduledTriggerPropertiesDataPullMode']]]
     """
     Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
     """
-    first_execution_from: NotRequired[pulumi.Input[_builtins.float]]
+    first_execution_from: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the date range for the records to import from the connector in the first flow run.
     """
-    flow_error_deactivation_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    flow_error_deactivation_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Defines how many times a scheduled flow fails consecutively before Amazon AppFlow deactivates it.
     """
-    schedule_end_time: NotRequired[pulumi.Input[_builtins.float]]
+    schedule_end_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The time at which the scheduled flow ends. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-27T13:00:00-07:00` .
     """
-    schedule_offset: NotRequired[pulumi.Input[_builtins.float]]
+    schedule_offset: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
     """
-    schedule_start_time: NotRequired[pulumi.Input[_builtins.float]]
+    schedule_start_time: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The time at which the scheduled flow starts. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-26T13:00:00-07:00` .
     """
-    time_zone: NotRequired[pulumi.Input[_builtins.str]]
+    time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the time zone used when referring to the dates and times of a scheduled flow, such as `America/New_York` . This time zone is only a descriptive label. It doesn't affect how Amazon AppFlow interprets the timestamps that you specify to schedule the flow.
 
@@ -6100,13 +6100,13 @@ class FlowScheduledTriggerPropertiesArgsDict(TypedDict):
 class FlowScheduledTriggerPropertiesArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[_builtins.str],
-                 data_pull_mode: Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']] = None,
-                 first_execution_from: Optional[pulumi.Input[_builtins.float]] = None,
-                 flow_error_deactivation_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 schedule_end_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_offset: Optional[pulumi.Input[_builtins.float]] = None,
-                 schedule_start_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 time_zone: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_pull_mode: pulumi.Input[Optional['FlowScheduledTriggerPropertiesDataPullMode']] = None,
+                 first_execution_from: pulumi.Input[Optional[_builtins.float]] = None,
+                 flow_error_deactivation_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 schedule_end_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_offset: pulumi.Input[Optional[_builtins.float]] = None,
+                 schedule_start_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 time_zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details required for scheduled trigger type
 
@@ -6151,79 +6151,79 @@ class FlowScheduledTriggerPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']]:
+    def data_pull_mode(self) -> pulumi.Input[Optional['FlowScheduledTriggerPropertiesDataPullMode']]:
         """
         Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
         """
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
-    def data_pull_mode(self, value: Optional[pulumi.Input['FlowScheduledTriggerPropertiesDataPullMode']]):
+    def data_pull_mode(self, value: pulumi.Input[Optional['FlowScheduledTriggerPropertiesDataPullMode']]):
         pulumi.set(self, "data_pull_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="firstExecutionFrom")
-    def first_execution_from(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def first_execution_from(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the date range for the records to import from the connector in the first flow run.
         """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
-    def first_execution_from(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def first_execution_from(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "first_execution_from", value)
 
     @_builtins.property
     @pulumi.getter(name="flowErrorDeactivationThreshold")
-    def flow_error_deactivation_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def flow_error_deactivation_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines how many times a scheduled flow fails consecutively before Amazon AppFlow deactivates it.
         """
         return pulumi.get(self, "flow_error_deactivation_threshold")
 
     @flow_error_deactivation_threshold.setter
-    def flow_error_deactivation_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def flow_error_deactivation_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "flow_error_deactivation_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleEndTime")
-    def schedule_end_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_end_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time at which the scheduled flow ends. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-27T13:00:00-07:00` .
         """
         return pulumi.get(self, "schedule_end_time")
 
     @schedule_end_time.setter
-    def schedule_end_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_end_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_end_time", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleOffset")
-    def schedule_offset(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_offset(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
         """
         return pulumi.get(self, "schedule_offset")
 
     @schedule_offset.setter
-    def schedule_offset(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_offset(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_offset", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleStartTime")
-    def schedule_start_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def schedule_start_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The time at which the scheduled flow starts. The time is formatted as a timestamp that follows the ISO 8601 standard, such as `2022-04-26T13:00:00-07:00` .
         """
         return pulumi.get(self, "schedule_start_time")
 
     @schedule_start_time.setter
-    def schedule_start_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def schedule_start_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "schedule_start_time", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZone")
-    def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the time zone used when referring to the dates and times of a scheduled flow, such as `America/New_York` . This time zone is only a descriptive label. It doesn't affect how Amazon AppFlow interprets the timestamps that you specify to schedule the flow.
 
@@ -6232,7 +6232,7 @@ class FlowScheduledTriggerPropertiesArgs:
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
-    def time_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def time_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_zone", value)
 
 
@@ -6329,11 +6329,11 @@ class FlowSnowflakeDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Snowflake flow destination.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the destination bucket in which Amazon AppFlow places the files.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
@@ -6343,8 +6343,8 @@ class FlowSnowflakeDestinationPropertiesArgs:
     def __init__(__self__, *,
                  intermediate_bucket_name: pulumi.Input[_builtins.str],
                  object: pulumi.Input[_builtins.str],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] intermediate_bucket_name: The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
         :param pulumi.Input[_builtins.str] object: The object specified in the Snowflake flow destination.
@@ -6384,26 +6384,26 @@ class FlowSnowflakeDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the destination bucket in which Amazon AppFlow places the files.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
 
@@ -6411,71 +6411,71 @@ class FlowSourceConnectorPropertiesArgsDict(TypedDict):
     """
     Source connector details required to query a connector
     """
-    amplitude: NotRequired[pulumi.Input['FlowAmplitudeSourcePropertiesArgsDict']]
+    amplitude: NotRequired[pulumi.Input[Optional['FlowAmplitudeSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Amplitude.
     """
-    custom_connector: NotRequired[pulumi.Input['FlowCustomConnectorSourcePropertiesArgsDict']]
+    custom_connector: NotRequired[pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesArgsDict']]]
     """
     The properties that are applied when the custom connector is being used as a source.
     """
-    datadog: NotRequired[pulumi.Input['FlowDatadogSourcePropertiesArgsDict']]
+    datadog: NotRequired[pulumi.Input[Optional['FlowDatadogSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Datadog.
     """
-    dynatrace: NotRequired[pulumi.Input['FlowDynatraceSourcePropertiesArgsDict']]
+    dynatrace: NotRequired[pulumi.Input[Optional['FlowDynatraceSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Dynatrace.
     """
-    google_analytics: NotRequired[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgsDict']]
+    google_analytics: NotRequired[pulumi.Input[Optional['FlowGoogleAnalyticsSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Google Analytics.
     """
-    infor_nexus: NotRequired[pulumi.Input['FlowInforNexusSourcePropertiesArgsDict']]
+    infor_nexus: NotRequired[pulumi.Input[Optional['FlowInforNexusSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Infor Nexus.
     """
-    marketo: NotRequired[pulumi.Input['FlowMarketoSourcePropertiesArgsDict']]
+    marketo: NotRequired[pulumi.Input[Optional['FlowMarketoSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Marketo.
     """
-    pardot: NotRequired[pulumi.Input['FlowPardotSourcePropertiesArgsDict']]
+    pardot: NotRequired[pulumi.Input[Optional['FlowPardotSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Salesforce Pardot.
     """
-    s3: NotRequired[pulumi.Input['FlowS3SourcePropertiesArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['FlowS3SourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Amazon S3.
     """
-    salesforce: NotRequired[pulumi.Input['FlowSalesforceSourcePropertiesArgsDict']]
+    salesforce: NotRequired[pulumi.Input[Optional['FlowSalesforceSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Salesforce.
     """
-    sapo_data: NotRequired[pulumi.Input['FlowSapoDataSourcePropertiesArgsDict']]
+    sapo_data: NotRequired[pulumi.Input[Optional['FlowSapoDataSourcePropertiesArgsDict']]]
     """
     The properties that are applied when using SAPOData as a flow source.
     """
-    service_now: NotRequired[pulumi.Input['FlowServiceNowSourcePropertiesArgsDict']]
+    service_now: NotRequired[pulumi.Input[Optional['FlowServiceNowSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying ServiceNow.
     """
-    singular: NotRequired[pulumi.Input['FlowSingularSourcePropertiesArgsDict']]
+    singular: NotRequired[pulumi.Input[Optional['FlowSingularSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Singular.
     """
-    slack: NotRequired[pulumi.Input['FlowSlackSourcePropertiesArgsDict']]
+    slack: NotRequired[pulumi.Input[Optional['FlowSlackSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Slack.
     """
-    trendmicro: NotRequired[pulumi.Input['FlowTrendmicroSourcePropertiesArgsDict']]
+    trendmicro: NotRequired[pulumi.Input[Optional['FlowTrendmicroSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Trend Micro.
     """
-    veeva: NotRequired[pulumi.Input['FlowVeevaSourcePropertiesArgsDict']]
+    veeva: NotRequired[pulumi.Input[Optional['FlowVeevaSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Veeva.
     """
-    zendesk: NotRequired[pulumi.Input['FlowZendeskSourcePropertiesArgsDict']]
+    zendesk: NotRequired[pulumi.Input[Optional['FlowZendeskSourcePropertiesArgsDict']]]
     """
     Specifies the information that is required for querying Zendesk.
     """
@@ -6483,23 +6483,23 @@ class FlowSourceConnectorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowSourceConnectorPropertiesArgs:
     def __init__(__self__, *,
-                 amplitude: Optional[pulumi.Input['FlowAmplitudeSourcePropertiesArgs']] = None,
-                 custom_connector: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesArgs']] = None,
-                 datadog: Optional[pulumi.Input['FlowDatadogSourcePropertiesArgs']] = None,
-                 dynatrace: Optional[pulumi.Input['FlowDynatraceSourcePropertiesArgs']] = None,
-                 google_analytics: Optional[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgs']] = None,
-                 infor_nexus: Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']] = None,
-                 marketo: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']] = None,
-                 pardot: Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']] = None,
-                 s3: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']] = None,
-                 salesforce: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']] = None,
-                 sapo_data: Optional[pulumi.Input['FlowSapoDataSourcePropertiesArgs']] = None,
-                 service_now: Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']] = None,
-                 singular: Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']] = None,
-                 slack: Optional[pulumi.Input['FlowSlackSourcePropertiesArgs']] = None,
-                 trendmicro: Optional[pulumi.Input['FlowTrendmicroSourcePropertiesArgs']] = None,
-                 veeva: Optional[pulumi.Input['FlowVeevaSourcePropertiesArgs']] = None,
-                 zendesk: Optional[pulumi.Input['FlowZendeskSourcePropertiesArgs']] = None):
+                 amplitude: pulumi.Input[Optional['FlowAmplitudeSourcePropertiesArgs']] = None,
+                 custom_connector: pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesArgs']] = None,
+                 datadog: pulumi.Input[Optional['FlowDatadogSourcePropertiesArgs']] = None,
+                 dynatrace: pulumi.Input[Optional['FlowDynatraceSourcePropertiesArgs']] = None,
+                 google_analytics: pulumi.Input[Optional['FlowGoogleAnalyticsSourcePropertiesArgs']] = None,
+                 infor_nexus: pulumi.Input[Optional['FlowInforNexusSourcePropertiesArgs']] = None,
+                 marketo: pulumi.Input[Optional['FlowMarketoSourcePropertiesArgs']] = None,
+                 pardot: pulumi.Input[Optional['FlowPardotSourcePropertiesArgs']] = None,
+                 s3: pulumi.Input[Optional['FlowS3SourcePropertiesArgs']] = None,
+                 salesforce: pulumi.Input[Optional['FlowSalesforceSourcePropertiesArgs']] = None,
+                 sapo_data: pulumi.Input[Optional['FlowSapoDataSourcePropertiesArgs']] = None,
+                 service_now: pulumi.Input[Optional['FlowServiceNowSourcePropertiesArgs']] = None,
+                 singular: pulumi.Input[Optional['FlowSingularSourcePropertiesArgs']] = None,
+                 slack: pulumi.Input[Optional['FlowSlackSourcePropertiesArgs']] = None,
+                 trendmicro: pulumi.Input[Optional['FlowTrendmicroSourcePropertiesArgs']] = None,
+                 veeva: pulumi.Input[Optional['FlowVeevaSourcePropertiesArgs']] = None,
+                 zendesk: pulumi.Input[Optional['FlowZendeskSourcePropertiesArgs']] = None):
         """
         Source connector details required to query a connector
 
@@ -6558,206 +6558,206 @@ class FlowSourceConnectorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def amplitude(self) -> Optional[pulumi.Input['FlowAmplitudeSourcePropertiesArgs']]:
+    def amplitude(self) -> pulumi.Input[Optional['FlowAmplitudeSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Amplitude.
         """
         return pulumi.get(self, "amplitude")
 
     @amplitude.setter
-    def amplitude(self, value: Optional[pulumi.Input['FlowAmplitudeSourcePropertiesArgs']]):
+    def amplitude(self, value: pulumi.Input[Optional['FlowAmplitudeSourcePropertiesArgs']]):
         pulumi.set(self, "amplitude", value)
 
     @_builtins.property
     @pulumi.getter(name="customConnector")
-    def custom_connector(self) -> Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesArgs']]:
+    def custom_connector(self) -> pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesArgs']]:
         """
         The properties that are applied when the custom connector is being used as a source.
         """
         return pulumi.get(self, "custom_connector")
 
     @custom_connector.setter
-    def custom_connector(self, value: Optional[pulumi.Input['FlowCustomConnectorSourcePropertiesArgs']]):
+    def custom_connector(self, value: pulumi.Input[Optional['FlowCustomConnectorSourcePropertiesArgs']]):
         pulumi.set(self, "custom_connector", value)
 
     @_builtins.property
     @pulumi.getter
-    def datadog(self) -> Optional[pulumi.Input['FlowDatadogSourcePropertiesArgs']]:
+    def datadog(self) -> pulumi.Input[Optional['FlowDatadogSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Datadog.
         """
         return pulumi.get(self, "datadog")
 
     @datadog.setter
-    def datadog(self, value: Optional[pulumi.Input['FlowDatadogSourcePropertiesArgs']]):
+    def datadog(self, value: pulumi.Input[Optional['FlowDatadogSourcePropertiesArgs']]):
         pulumi.set(self, "datadog", value)
 
     @_builtins.property
     @pulumi.getter
-    def dynatrace(self) -> Optional[pulumi.Input['FlowDynatraceSourcePropertiesArgs']]:
+    def dynatrace(self) -> pulumi.Input[Optional['FlowDynatraceSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Dynatrace.
         """
         return pulumi.get(self, "dynatrace")
 
     @dynatrace.setter
-    def dynatrace(self, value: Optional[pulumi.Input['FlowDynatraceSourcePropertiesArgs']]):
+    def dynatrace(self, value: pulumi.Input[Optional['FlowDynatraceSourcePropertiesArgs']]):
         pulumi.set(self, "dynatrace", value)
 
     @_builtins.property
     @pulumi.getter(name="googleAnalytics")
-    def google_analytics(self) -> Optional[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgs']]:
+    def google_analytics(self) -> pulumi.Input[Optional['FlowGoogleAnalyticsSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Google Analytics.
         """
         return pulumi.get(self, "google_analytics")
 
     @google_analytics.setter
-    def google_analytics(self, value: Optional[pulumi.Input['FlowGoogleAnalyticsSourcePropertiesArgs']]):
+    def google_analytics(self, value: pulumi.Input[Optional['FlowGoogleAnalyticsSourcePropertiesArgs']]):
         pulumi.set(self, "google_analytics", value)
 
     @_builtins.property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']]:
+    def infor_nexus(self) -> pulumi.Input[Optional['FlowInforNexusSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Infor Nexus.
         """
         return pulumi.get(self, "infor_nexus")
 
     @infor_nexus.setter
-    def infor_nexus(self, value: Optional[pulumi.Input['FlowInforNexusSourcePropertiesArgs']]):
+    def infor_nexus(self, value: pulumi.Input[Optional['FlowInforNexusSourcePropertiesArgs']]):
         pulumi.set(self, "infor_nexus", value)
 
     @_builtins.property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']]:
+    def marketo(self) -> pulumi.Input[Optional['FlowMarketoSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Marketo.
         """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input['FlowMarketoSourcePropertiesArgs']]):
+    def marketo(self, value: pulumi.Input[Optional['FlowMarketoSourcePropertiesArgs']]):
         pulumi.set(self, "marketo", value)
 
     @_builtins.property
     @pulumi.getter
-    def pardot(self) -> Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']]:
+    def pardot(self) -> pulumi.Input[Optional['FlowPardotSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Salesforce Pardot.
         """
         return pulumi.get(self, "pardot")
 
     @pardot.setter
-    def pardot(self, value: Optional[pulumi.Input['FlowPardotSourcePropertiesArgs']]):
+    def pardot(self, value: pulumi.Input[Optional['FlowPardotSourcePropertiesArgs']]):
         pulumi.set(self, "pardot", value)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['FlowS3SourcePropertiesArgs']]:
+    def s3(self) -> pulumi.Input[Optional['FlowS3SourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Amazon S3.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['FlowS3SourcePropertiesArgs']]):
+    def s3(self, value: pulumi.Input[Optional['FlowS3SourcePropertiesArgs']]):
         pulumi.set(self, "s3", value)
 
     @_builtins.property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']]:
+    def salesforce(self) -> pulumi.Input[Optional['FlowSalesforceSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Salesforce.
         """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input['FlowSalesforceSourcePropertiesArgs']]):
+    def salesforce(self, value: pulumi.Input[Optional['FlowSalesforceSourcePropertiesArgs']]):
         pulumi.set(self, "salesforce", value)
 
     @_builtins.property
     @pulumi.getter(name="sapoData")
-    def sapo_data(self) -> Optional[pulumi.Input['FlowSapoDataSourcePropertiesArgs']]:
+    def sapo_data(self) -> pulumi.Input[Optional['FlowSapoDataSourcePropertiesArgs']]:
         """
         The properties that are applied when using SAPOData as a flow source.
         """
         return pulumi.get(self, "sapo_data")
 
     @sapo_data.setter
-    def sapo_data(self, value: Optional[pulumi.Input['FlowSapoDataSourcePropertiesArgs']]):
+    def sapo_data(self, value: pulumi.Input[Optional['FlowSapoDataSourcePropertiesArgs']]):
         pulumi.set(self, "sapo_data", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']]:
+    def service_now(self) -> pulumi.Input[Optional['FlowServiceNowSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying ServiceNow.
         """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input['FlowServiceNowSourcePropertiesArgs']]):
+    def service_now(self, value: pulumi.Input[Optional['FlowServiceNowSourcePropertiesArgs']]):
         pulumi.set(self, "service_now", value)
 
     @_builtins.property
     @pulumi.getter
-    def singular(self) -> Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']]:
+    def singular(self) -> pulumi.Input[Optional['FlowSingularSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Singular.
         """
         return pulumi.get(self, "singular")
 
     @singular.setter
-    def singular(self, value: Optional[pulumi.Input['FlowSingularSourcePropertiesArgs']]):
+    def singular(self, value: pulumi.Input[Optional['FlowSingularSourcePropertiesArgs']]):
         pulumi.set(self, "singular", value)
 
     @_builtins.property
     @pulumi.getter
-    def slack(self) -> Optional[pulumi.Input['FlowSlackSourcePropertiesArgs']]:
+    def slack(self) -> pulumi.Input[Optional['FlowSlackSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Slack.
         """
         return pulumi.get(self, "slack")
 
     @slack.setter
-    def slack(self, value: Optional[pulumi.Input['FlowSlackSourcePropertiesArgs']]):
+    def slack(self, value: pulumi.Input[Optional['FlowSlackSourcePropertiesArgs']]):
         pulumi.set(self, "slack", value)
 
     @_builtins.property
     @pulumi.getter
-    def trendmicro(self) -> Optional[pulumi.Input['FlowTrendmicroSourcePropertiesArgs']]:
+    def trendmicro(self) -> pulumi.Input[Optional['FlowTrendmicroSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Trend Micro.
         """
         return pulumi.get(self, "trendmicro")
 
     @trendmicro.setter
-    def trendmicro(self, value: Optional[pulumi.Input['FlowTrendmicroSourcePropertiesArgs']]):
+    def trendmicro(self, value: pulumi.Input[Optional['FlowTrendmicroSourcePropertiesArgs']]):
         pulumi.set(self, "trendmicro", value)
 
     @_builtins.property
     @pulumi.getter
-    def veeva(self) -> Optional[pulumi.Input['FlowVeevaSourcePropertiesArgs']]:
+    def veeva(self) -> pulumi.Input[Optional['FlowVeevaSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Veeva.
         """
         return pulumi.get(self, "veeva")
 
     @veeva.setter
-    def veeva(self, value: Optional[pulumi.Input['FlowVeevaSourcePropertiesArgs']]):
+    def veeva(self, value: pulumi.Input[Optional['FlowVeevaSourcePropertiesArgs']]):
         pulumi.set(self, "veeva", value)
 
     @_builtins.property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input['FlowZendeskSourcePropertiesArgs']]:
+    def zendesk(self) -> pulumi.Input[Optional['FlowZendeskSourcePropertiesArgs']]:
         """
         Specifies the information that is required for querying Zendesk.
         """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input['FlowZendeskSourcePropertiesArgs']]):
+    def zendesk(self, value: pulumi.Input[Optional['FlowZendeskSourcePropertiesArgs']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -6773,15 +6773,15 @@ class FlowSourceFlowConfigArgsDict(TypedDict):
     """
     Source connector details required to query a connector
     """
-    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    api_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The API version that the destination connector uses.
     """
-    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    connector_profile_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of source connector profile
     """
-    incremental_pull_config: NotRequired[pulumi.Input['FlowIncrementalPullConfigArgsDict']]
+    incremental_pull_config: NotRequired[pulumi.Input[Optional['FlowIncrementalPullConfigArgsDict']]]
     """
     Configuration for scheduled incremental data pull
     """
@@ -6791,9 +6791,9 @@ class FlowSourceFlowConfigArgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input['FlowConnectorType'],
                  source_connector_properties: pulumi.Input['FlowSourceConnectorPropertiesArgs'],
-                 api_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 incremental_pull_config: Optional[pulumi.Input['FlowIncrementalPullConfigArgs']] = None):
+                 api_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 incremental_pull_config: pulumi.Input[Optional['FlowIncrementalPullConfigArgs']] = None):
         """
         Configurations of Source connector of the flow.
 
@@ -6838,47 +6838,47 @@ class FlowSourceFlowConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API version that the destination connector uses.
         """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_version", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorProfileName")
-    def connector_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of source connector profile
         """
         return pulumi.get(self, "connector_profile_name")
 
     @connector_profile_name.setter
-    def connector_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="incrementalPullConfig")
-    def incremental_pull_config(self) -> Optional[pulumi.Input['FlowIncrementalPullConfigArgs']]:
+    def incremental_pull_config(self) -> pulumi.Input[Optional['FlowIncrementalPullConfigArgs']]:
         """
         Configuration for scheduled incremental data pull
         """
         return pulumi.get(self, "incremental_pull_config")
 
     @incremental_pull_config.setter
-    def incremental_pull_config(self, value: Optional[pulumi.Input['FlowIncrementalPullConfigArgs']]):
+    def incremental_pull_config(self, value: pulumi.Input[Optional['FlowIncrementalPullConfigArgs']]):
         pulumi.set(self, "incremental_pull_config", value)
 
 
 class FlowSuccessResponseHandlingConfigArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon S3 bucket.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 bucket prefix.
     """
@@ -6886,8 +6886,8 @@ class FlowSuccessResponseHandlingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowSuccessResponseHandlingConfigArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] bucket_prefix: The Amazon S3 bucket prefix.
@@ -6899,27 +6899,134 @@ class FlowSuccessResponseHandlingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 bucket prefix.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
+
+
+class FlowTaskArgsDict(TypedDict):
+    source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Source fields on which particular task will be applied
+    """
+    task_type: pulumi.Input['FlowTaskType']
+    """
+    Type of task
+    """
+    connector_operator: NotRequired[pulumi.Input[Optional['FlowConnectorOperatorArgsDict']]]
+    """
+    Operation to be performed on provided source fields
+    """
+    destination_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A field value on which source field should be validated
+    """
+    task_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgsDict']]]]]
+    """
+    A Map used to store task related info
+    """
+
+@pulumi.input_type
+class FlowTaskArgs:
+    def __init__(__self__, *,
+                 source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 task_type: pulumi.Input['FlowTaskType'],
+                 connector_operator: pulumi.Input[Optional['FlowConnectorOperatorArgs']] = None,
+                 destination_field: pulumi.Input[Optional[_builtins.str]] = None,
+                 task_properties: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_fields: Source fields on which particular task will be applied
+        :param pulumi.Input['FlowTaskType'] task_type: Type of task
+        :param pulumi.Input['FlowConnectorOperatorArgs'] connector_operator: Operation to be performed on provided source fields
+        :param pulumi.Input[_builtins.str] destination_field: A field value on which source field should be validated
+        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]] task_properties: A Map used to store task related info
+        """
+        pulumi.set(__self__, "source_fields", source_fields)
+        pulumi.set(__self__, "task_type", task_type)
+        if connector_operator is not None:
+            pulumi.set(__self__, "connector_operator", connector_operator)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if task_properties is not None:
+            pulumi.set(__self__, "task_properties", task_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Source fields on which particular task will be applied
+        """
+        return pulumi.get(self, "source_fields")
+
+    @source_fields.setter
+    def source_fields(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "source_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> pulumi.Input['FlowTaskType']:
+        """
+        Type of task
+        """
+        return pulumi.get(self, "task_type")
+
+    @task_type.setter
+    def task_type(self, value: pulumi.Input['FlowTaskType']):
+        pulumi.set(self, "task_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorOperator")
+    def connector_operator(self) -> pulumi.Input[Optional['FlowConnectorOperatorArgs']]:
+        """
+        Operation to be performed on provided source fields
+        """
+        return pulumi.get(self, "connector_operator")
+
+    @connector_operator.setter
+    def connector_operator(self, value: pulumi.Input[Optional['FlowConnectorOperatorArgs']]):
+        pulumi.set(self, "connector_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A field value on which source field should be validated
+        """
+        return pulumi.get(self, "destination_field")
+
+    @destination_field.setter
+    def destination_field(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskProperties")
+    def task_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]]:
+        """
+        A Map used to store task related info
+        """
+        return pulumi.get(self, "task_properties")
+
+    @task_properties.setter
+    def task_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]]):
+        pulumi.set(self, "task_properties", value)
 
 
 class FlowTaskPropertiesObjectArgsDict(TypedDict):
@@ -6974,113 +7081,6 @@ class FlowTaskPropertiesObjectArgs:
         pulumi.set(self, "value", value)
 
 
-class FlowTaskArgsDict(TypedDict):
-    source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    """
-    Source fields on which particular task will be applied
-    """
-    task_type: pulumi.Input['FlowTaskType']
-    """
-    Type of task
-    """
-    connector_operator: NotRequired[pulumi.Input['FlowConnectorOperatorArgsDict']]
-    """
-    Operation to be performed on provided source fields
-    """
-    destination_field: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A field value on which source field should be validated
-    """
-    task_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgsDict']]]]
-    """
-    A Map used to store task related info
-    """
-
-@pulumi.input_type
-class FlowTaskArgs:
-    def __init__(__self__, *,
-                 source_fields: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 task_type: pulumi.Input['FlowTaskType'],
-                 connector_operator: Optional[pulumi.Input['FlowConnectorOperatorArgs']] = None,
-                 destination_field: Optional[pulumi.Input[_builtins.str]] = None,
-                 task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_fields: Source fields on which particular task will be applied
-        :param pulumi.Input['FlowTaskType'] task_type: Type of task
-        :param pulumi.Input['FlowConnectorOperatorArgs'] connector_operator: Operation to be performed on provided source fields
-        :param pulumi.Input[_builtins.str] destination_field: A field value on which source field should be validated
-        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]] task_properties: A Map used to store task related info
-        """
-        pulumi.set(__self__, "source_fields", source_fields)
-        pulumi.set(__self__, "task_type", task_type)
-        if connector_operator is not None:
-            pulumi.set(__self__, "connector_operator", connector_operator)
-        if destination_field is not None:
-            pulumi.set(__self__, "destination_field", destination_field)
-        if task_properties is not None:
-            pulumi.set(__self__, "task_properties", task_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceFields")
-    def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Source fields on which particular task will be applied
-        """
-        return pulumi.get(self, "source_fields")
-
-    @source_fields.setter
-    def source_fields(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "source_fields", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskType")
-    def task_type(self) -> pulumi.Input['FlowTaskType']:
-        """
-        Type of task
-        """
-        return pulumi.get(self, "task_type")
-
-    @task_type.setter
-    def task_type(self, value: pulumi.Input['FlowTaskType']):
-        pulumi.set(self, "task_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorOperator")
-    def connector_operator(self) -> Optional[pulumi.Input['FlowConnectorOperatorArgs']]:
-        """
-        Operation to be performed on provided source fields
-        """
-        return pulumi.get(self, "connector_operator")
-
-    @connector_operator.setter
-    def connector_operator(self, value: Optional[pulumi.Input['FlowConnectorOperatorArgs']]):
-        pulumi.set(self, "connector_operator", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destinationField")
-    def destination_field(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A field value on which source field should be validated
-        """
-        return pulumi.get(self, "destination_field")
-
-    @destination_field.setter
-    def destination_field(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "destination_field", value)
-
-    @_builtins.property
-    @pulumi.getter(name="taskProperties")
-    def task_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]]:
-        """
-        A Map used to store task related info
-        """
-        return pulumi.get(self, "task_properties")
-
-    @task_properties.setter
-    def task_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTaskPropertiesObjectArgs']]]]):
-        pulumi.set(self, "task_properties", value)
-
-
 class FlowTrendmicroSourcePropertiesArgsDict(TypedDict):
     object: pulumi.Input[_builtins.str]
     """
@@ -7117,7 +7117,7 @@ class FlowTriggerConfigArgsDict(TypedDict):
     """
     Trigger type of the flow
     """
-    trigger_properties: NotRequired[pulumi.Input['FlowScheduledTriggerPropertiesArgsDict']]
+    trigger_properties: NotRequired[pulumi.Input[Optional['FlowScheduledTriggerPropertiesArgsDict']]]
     """
     Details required based on the type of trigger
     """
@@ -7126,7 +7126,7 @@ class FlowTriggerConfigArgsDict(TypedDict):
 class FlowTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input['FlowTriggerType'],
-                 trigger_properties: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']] = None):
+                 trigger_properties: pulumi.Input[Optional['FlowScheduledTriggerPropertiesArgs']] = None):
         """
         Trigger settings of the flow.
 
@@ -7151,14 +7151,14 @@ class FlowTriggerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerProperties")
-    def trigger_properties(self) -> Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']]:
+    def trigger_properties(self) -> pulumi.Input[Optional['FlowScheduledTriggerPropertiesArgs']]:
         """
         Details required based on the type of trigger
         """
         return pulumi.get(self, "trigger_properties")
 
     @trigger_properties.setter
-    def trigger_properties(self, value: Optional[pulumi.Input['FlowScheduledTriggerPropertiesArgs']]):
+    def trigger_properties(self, value: pulumi.Input[Optional['FlowScheduledTriggerPropertiesArgs']]):
         pulumi.set(self, "trigger_properties", value)
 
 
@@ -7171,7 +7171,7 @@ class FlowUpsolverDestinationPropertiesArgsDict(TypedDict):
     """
     The configuration that determines how data is formatted when Upsolver is used as the flow destination.
     """
-    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
     """
@@ -7181,7 +7181,7 @@ class FlowUpsolverDestinationPropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  s3_output_format_config: pulumi.Input['FlowUpsolverS3OutputFormatConfigArgs'],
-                 bucket_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The Upsolver Amazon S3 bucket name in which Amazon AppFlow places the transferred data.
         :param pulumi.Input['FlowUpsolverS3OutputFormatConfigArgs'] s3_output_format_config: The configuration that determines how data is formatted when Upsolver is used as the flow destination.
@@ -7218,14 +7218,14 @@ class FlowUpsolverDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketPrefix")
-    def bucket_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
         """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
-    def bucket_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_prefix", value)
 
 
@@ -7234,11 +7234,11 @@ class FlowUpsolverS3OutputFormatConfigArgsDict(TypedDict):
     """
     Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
     """
-    aggregation_config: NotRequired[pulumi.Input['FlowAggregationConfigArgsDict']]
+    aggregation_config: NotRequired[pulumi.Input[Optional['FlowAggregationConfigArgsDict']]]
     """
     The aggregation settings that you can use to customize the output format of your flow data.
     """
-    file_type: NotRequired[pulumi.Input['FlowFileType']]
+    file_type: NotRequired[pulumi.Input[Optional['FlowFileType']]]
     """
     Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
     """
@@ -7247,8 +7247,8 @@ class FlowUpsolverS3OutputFormatConfigArgsDict(TypedDict):
 class FlowUpsolverS3OutputFormatConfigArgs:
     def __init__(__self__, *,
                  prefix_config: pulumi.Input['FlowPrefixConfigArgs'],
-                 aggregation_config: Optional[pulumi.Input['FlowAggregationConfigArgs']] = None,
-                 file_type: Optional[pulumi.Input['FlowFileType']] = None):
+                 aggregation_config: pulumi.Input[Optional['FlowAggregationConfigArgs']] = None,
+                 file_type: pulumi.Input[Optional['FlowFileType']] = None):
         """
         :param pulumi.Input['FlowPrefixConfigArgs'] prefix_config: Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
         :param pulumi.Input['FlowAggregationConfigArgs'] aggregation_config: The aggregation settings that you can use to customize the output format of your flow data.
@@ -7274,26 +7274,26 @@ class FlowUpsolverS3OutputFormatConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="aggregationConfig")
-    def aggregation_config(self) -> Optional[pulumi.Input['FlowAggregationConfigArgs']]:
+    def aggregation_config(self) -> pulumi.Input[Optional['FlowAggregationConfigArgs']]:
         """
         The aggregation settings that you can use to customize the output format of your flow data.
         """
         return pulumi.get(self, "aggregation_config")
 
     @aggregation_config.setter
-    def aggregation_config(self, value: Optional[pulumi.Input['FlowAggregationConfigArgs']]):
+    def aggregation_config(self, value: pulumi.Input[Optional['FlowAggregationConfigArgs']]):
         pulumi.set(self, "aggregation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[pulumi.Input['FlowFileType']]:
+    def file_type(self) -> pulumi.Input[Optional['FlowFileType']]:
         """
         Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
         """
         return pulumi.get(self, "file_type")
 
     @file_type.setter
-    def file_type(self, value: Optional[pulumi.Input['FlowFileType']]):
+    def file_type(self, value: pulumi.Input[Optional['FlowFileType']]):
         pulumi.set(self, "file_type", value)
 
 
@@ -7302,19 +7302,19 @@ class FlowVeevaSourcePropertiesArgsDict(TypedDict):
     """
     The object specified in the Veeva flow source.
     """
-    document_type: NotRequired[pulumi.Input[_builtins.str]]
+    document_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The document type specified in the Veeva document extract flow.
     """
-    include_all_versions: NotRequired[pulumi.Input[_builtins.bool]]
+    include_all_versions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean value to include All Versions of files in Veeva document extract flow.
     """
-    include_renditions: NotRequired[pulumi.Input[_builtins.bool]]
+    include_renditions: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean value to include file renditions in Veeva document extract flow.
     """
-    include_source_files: NotRequired[pulumi.Input[_builtins.bool]]
+    include_source_files: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Boolean value to include source files in Veeva document extract flow.
     """
@@ -7323,10 +7323,10 @@ class FlowVeevaSourcePropertiesArgsDict(TypedDict):
 class FlowVeevaSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 document_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_all_versions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_renditions: Optional[pulumi.Input[_builtins.bool]] = None,
-                 include_source_files: Optional[pulumi.Input[_builtins.bool]] = None):
+                 document_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_all_versions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_renditions: pulumi.Input[Optional[_builtins.bool]] = None,
+                 include_source_files: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Veeva flow source.
         :param pulumi.Input[_builtins.str] document_type: The document type specified in the Veeva document extract flow.
@@ -7358,50 +7358,50 @@ class FlowVeevaSourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentType")
-    def document_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The document type specified in the Veeva document extract flow.
         """
         return pulumi.get(self, "document_type")
 
     @document_type.setter
-    def document_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_type", value)
 
     @_builtins.property
     @pulumi.getter(name="includeAllVersions")
-    def include_all_versions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_all_versions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value to include All Versions of files in Veeva document extract flow.
         """
         return pulumi.get(self, "include_all_versions")
 
     @include_all_versions.setter
-    def include_all_versions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_all_versions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_all_versions", value)
 
     @_builtins.property
     @pulumi.getter(name="includeRenditions")
-    def include_renditions(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_renditions(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value to include file renditions in Veeva document extract flow.
         """
         return pulumi.get(self, "include_renditions")
 
     @include_renditions.setter
-    def include_renditions(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_renditions(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_renditions", value)
 
     @_builtins.property
     @pulumi.getter(name="includeSourceFiles")
-    def include_source_files(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_source_files(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value to include source files in Veeva document extract flow.
         """
         return pulumi.get(self, "include_source_files")
 
     @include_source_files.setter
-    def include_source_files(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_source_files(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_source_files", value)
 
 
@@ -7410,15 +7410,15 @@ class FlowZendeskDestinationPropertiesArgsDict(TypedDict):
     """
     The object specified in the Zendesk flow destination.
     """
-    error_handling_config: NotRequired[pulumi.Input['FlowErrorHandlingConfigArgsDict']]
+    error_handling_config: NotRequired[pulumi.Input[Optional['FlowErrorHandlingConfigArgsDict']]]
     """
     The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
     """
-    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    id_field_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of fields used as ID when performing a write operation.
     """
-    write_operation_type: NotRequired[pulumi.Input['FlowWriteOperationType']]
+    write_operation_type: NotRequired[pulumi.Input[Optional['FlowWriteOperationType']]]
     """
     The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
     """
@@ -7427,9 +7427,9 @@ class FlowZendeskDestinationPropertiesArgsDict(TypedDict):
 class FlowZendeskDestinationPropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[_builtins.str],
-                 error_handling_config: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']] = None,
-                 id_field_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 write_operation_type: Optional[pulumi.Input['FlowWriteOperationType']] = None):
+                 error_handling_config: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']] = None,
+                 id_field_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 write_operation_type: pulumi.Input[Optional['FlowWriteOperationType']] = None):
         """
         :param pulumi.Input[_builtins.str] object: The object specified in the Zendesk flow destination.
         :param pulumi.Input['FlowErrorHandlingConfigArgs'] error_handling_config: The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
@@ -7458,38 +7458,38 @@ class FlowZendeskDestinationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorHandlingConfig")
-    def error_handling_config(self) -> Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]:
+    def error_handling_config(self) -> pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]:
         """
         The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
         """
         return pulumi.get(self, "error_handling_config")
 
     @error_handling_config.setter
-    def error_handling_config(self, value: Optional[pulumi.Input['FlowErrorHandlingConfigArgs']]):
+    def error_handling_config(self, value: pulumi.Input[Optional['FlowErrorHandlingConfigArgs']]):
         pulumi.set(self, "error_handling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="idFieldNames")
-    def id_field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def id_field_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of fields used as ID when performing a write operation.
         """
         return pulumi.get(self, "id_field_names")
 
     @id_field_names.setter
-    def id_field_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def id_field_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "id_field_names", value)
 
     @_builtins.property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[pulumi.Input['FlowWriteOperationType']]:
+    def write_operation_type(self) -> pulumi.Input[Optional['FlowWriteOperationType']]:
         """
         The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
         """
         return pulumi.get(self, "write_operation_type")
 
     @write_operation_type.setter
-    def write_operation_type(self, value: Optional[pulumi.Input['FlowWriteOperationType']]):
+    def write_operation_type(self, value: pulumi.Input[Optional['FlowWriteOperationType']]):
         pulumi.set(self, "write_operation_type", value)
 
 

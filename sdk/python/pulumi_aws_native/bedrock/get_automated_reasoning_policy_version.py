@@ -124,7 +124,6 @@ def get_automated_reasoning_policy_version(policy_arn: Optional[_builtins.str] =
     """
     Definition of AWS::Bedrock::AutomatedReasoningPolicyVersion Resource Type
 
-
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the policy.
     :param _builtins.str version: The version number of the policy version.
     """
@@ -142,12 +141,11 @@ def get_automated_reasoning_policy_version(policy_arn: Optional[_builtins.str] =
         policy_id=pulumi.get(__ret__, 'policy_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         version=pulumi.get(__ret__, 'version'))
-def get_automated_reasoning_policy_version_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automated_reasoning_policy_version_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  version: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomatedReasoningPolicyVersionResult]:
     """
     Definition of AWS::Bedrock::AutomatedReasoningPolicyVersion Resource Type
-
 
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the policy.
     :param _builtins.str version: The version number of the policy version.

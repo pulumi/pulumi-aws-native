@@ -25,13 +25,13 @@ __all__ = ['AccessPointArgs', 'AccessPoint']
 class AccessPointArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
-                 bucket_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
-                 scope: Optional[pulumi.Input['AccessPointScopeArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None):
+                 public_access_block_configuration: pulumi.Input[Optional['AccessPointPublicAccessBlockConfigurationArgs']] = None,
+                 scope: pulumi.Input[Optional['AccessPointScopeArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_configuration: pulumi.Input[Optional['AccessPointVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
 
@@ -76,26 +76,26 @@ class AccessPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketAccountId")
-    def bucket_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID associated with the S3 bucket associated with this access point.
         """
         return pulumi.get(self, "bucket_account_id")
 
     @bucket_account_id.setter
-    def bucket_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
@@ -114,50 +114,50 @@ class AccessPointArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicAccessBlockConfiguration")
-    def public_access_block_configuration(self) -> Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']]:
+    def public_access_block_configuration(self) -> pulumi.Input[Optional['AccessPointPublicAccessBlockConfigurationArgs']]:
         """
         The PublicAccessBlock configuration that you want to apply to this Access Point.
         """
         return pulumi.get(self, "public_access_block_configuration")
 
     @public_access_block_configuration.setter
-    def public_access_block_configuration(self, value: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']]):
+    def public_access_block_configuration(self, value: pulumi.Input[Optional['AccessPointPublicAccessBlockConfigurationArgs']]):
         pulumi.set(self, "public_access_block_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['AccessPointScopeArgs']]:
+    def scope(self) -> pulumi.Input[Optional['AccessPointScopeArgs']]:
         """
         For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['AccessPointScopeArgs']]):
+    def scope(self, value: pulumi.Input[Optional['AccessPointScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['AccessPointVpcConfigurationArgs']]:
         """
         If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['AccessPointVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -167,18 +167,17 @@ class AccessPoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 public_access_block_configuration: pulumi.Input[Optional[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class AccessPoint(pulumi.CustomResource):
         """
         The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
 
-
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,14 +216,14 @@ class AccessPoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 bucket_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
-                 public_access_block_configuration: Optional[pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
+                 public_access_block_configuration: pulumi.Input[Optional[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[Union['AccessPointScopeArgs', 'AccessPointScopeArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

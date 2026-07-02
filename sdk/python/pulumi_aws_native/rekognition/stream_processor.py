@@ -25,17 +25,17 @@ class StreamProcessorArgs:
     def __init__(__self__, *,
                  kinesis_video_stream: pulumi.Input['StreamProcessorKinesisVideoStreamArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 bounding_box_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]] = None,
-                 connected_home_settings: Optional[pulumi.Input['StreamProcessorConnectedHomeSettingsArgs']] = None,
-                 data_sharing_preference: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']] = None,
-                 face_search_settings: Optional[pulumi.Input['StreamProcessorFaceSearchSettingsArgs']] = None,
-                 kinesis_data_stream: Optional[pulumi.Input['StreamProcessorKinesisDataStreamArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
-                 polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
-                 s3_destination: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 bounding_box_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]] = None,
+                 connected_home_settings: pulumi.Input[Optional['StreamProcessorConnectedHomeSettingsArgs']] = None,
+                 data_sharing_preference: pulumi.Input[Optional['StreamProcessorDataSharingPreferenceArgs']] = None,
+                 face_search_settings: pulumi.Input[Optional['StreamProcessorFaceSearchSettingsArgs']] = None,
+                 kinesis_data_stream: pulumi.Input[Optional['StreamProcessorKinesisDataStreamArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional['StreamProcessorNotificationChannelArgs']] = None,
+                 polygon_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
+                 s3_destination: pulumi.Input[Optional['StreamProcessorS3DestinationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamProcessor resource.
 
@@ -104,134 +104,134 @@ class StreamProcessorArgs:
 
     @_builtins.property
     @pulumi.getter(name="boundingBoxRegionsOfInterest")
-    def bounding_box_regions_of_interest(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]]:
+    def bounding_box_regions_of_interest(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]]:
         """
         The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
         """
         return pulumi.get(self, "bounding_box_regions_of_interest")
 
     @bounding_box_regions_of_interest.setter
-    def bounding_box_regions_of_interest(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]]):
+    def bounding_box_regions_of_interest(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]]):
         pulumi.set(self, "bounding_box_regions_of_interest", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedHomeSettings")
-    def connected_home_settings(self) -> Optional[pulumi.Input['StreamProcessorConnectedHomeSettingsArgs']]:
+    def connected_home_settings(self) -> pulumi.Input[Optional['StreamProcessorConnectedHomeSettingsArgs']]:
         """
         Connected home settings to use on a streaming video. You can use a stream processor for connected home features and select what you want the stream processor to detect, such as people or pets. When the stream processor has started, one notification is sent for each object class specified. For more information, see the ConnectedHome section of [StreamProcessorSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorSettings) .
         """
         return pulumi.get(self, "connected_home_settings")
 
     @connected_home_settings.setter
-    def connected_home_settings(self, value: Optional[pulumi.Input['StreamProcessorConnectedHomeSettingsArgs']]):
+    def connected_home_settings(self, value: pulumi.Input[Optional['StreamProcessorConnectedHomeSettingsArgs']]):
         pulumi.set(self, "connected_home_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSharingPreference")
-    def data_sharing_preference(self) -> Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']]:
+    def data_sharing_preference(self) -> pulumi.Input[Optional['StreamProcessorDataSharingPreferenceArgs']]:
         """
         Allows you to opt in or opt out to share data with Rekognition to improve model performance. You can choose this option at the account level or on a per-stream basis. Note that if you opt out at the account level this setting is ignored on individual streams. For more information, see [StreamProcessorDataSharingPreference](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorDataSharingPreference) .
         """
         return pulumi.get(self, "data_sharing_preference")
 
     @data_sharing_preference.setter
-    def data_sharing_preference(self, value: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']]):
+    def data_sharing_preference(self, value: pulumi.Input[Optional['StreamProcessorDataSharingPreferenceArgs']]):
         pulumi.set(self, "data_sharing_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="faceSearchSettings")
-    def face_search_settings(self) -> Optional[pulumi.Input['StreamProcessorFaceSearchSettingsArgs']]:
+    def face_search_settings(self) -> pulumi.Input[Optional['StreamProcessorFaceSearchSettingsArgs']]:
         """
         The input parameters used to recognize faces in a streaming video analyzed by an Amazon Rekognition stream processor. For more information regarding the contents of the parameters, see [FaceSearchSettings](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_FaceSearchSettings) .
         """
         return pulumi.get(self, "face_search_settings")
 
     @face_search_settings.setter
-    def face_search_settings(self, value: Optional[pulumi.Input['StreamProcessorFaceSearchSettingsArgs']]):
+    def face_search_settings(self, value: pulumi.Input[Optional['StreamProcessorFaceSearchSettingsArgs']]):
         pulumi.set(self, "face_search_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisDataStream")
-    def kinesis_data_stream(self) -> Optional[pulumi.Input['StreamProcessorKinesisDataStreamArgs']]:
+    def kinesis_data_stream(self) -> pulumi.Input[Optional['StreamProcessorKinesisDataStreamArgs']]:
         """
         Amazon Rekognition's Video Stream Processor takes a Kinesis video stream as input. This is the Amazon Kinesis Data Streams instance to which the Amazon Rekognition stream processor streams the analysis results. This must be created within the constraints specified at [KinesisDataStream](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_KinesisDataStream) .
         """
         return pulumi.get(self, "kinesis_data_stream")
 
     @kinesis_data_stream.setter
-    def kinesis_data_stream(self, value: Optional[pulumi.Input['StreamProcessorKinesisDataStreamArgs']]):
+    def kinesis_data_stream(self, value: pulumi.Input[Optional['StreamProcessorKinesisDataStreamArgs']]):
         pulumi.set(self, "kinesis_data_stream", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key that is used by Rekognition to encrypt any intermediate customer metadata and store in the customer's S3 bucket.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the stream processor. It's an identifier you assign to the stream processor. You can use it to manage the stream processor.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationChannel")
-    def notification_channel(self) -> Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']]:
+    def notification_channel(self) -> pulumi.Input[Optional['StreamProcessorNotificationChannelArgs']]:
         """
         The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation. Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. Amazon Rekognition also publishes an end-of-session notification with a summary when the stream processing session is complete. For more information, see [StreamProcessorNotificationChannel](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorNotificationChannel) .
         """
         return pulumi.get(self, "notification_channel")
 
     @notification_channel.setter
-    def notification_channel(self, value: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']]):
+    def notification_channel(self, value: pulumi.Input[Optional['StreamProcessorNotificationChannelArgs']]):
         pulumi.set(self, "notification_channel", value)
 
     @_builtins.property
     @pulumi.getter(name="polygonRegionsOfInterest")
-    def polygon_regions_of_interest(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]]:
+    def polygon_regions_of_interest(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]]:
         """
         The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
         """
         return pulumi.get(self, "polygon_regions_of_interest")
 
     @polygon_regions_of_interest.setter
-    def polygon_regions_of_interest(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]]):
+    def polygon_regions_of_interest(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]]):
         pulumi.set(self, "polygon_regions_of_interest", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['StreamProcessorS3DestinationArgs']]:
+    def s3_destination(self) -> pulumi.Input[Optional['StreamProcessorS3DestinationArgs']]:
         """
         The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. For more information, see the S3Destination section of [StreamProcessorOutput](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StreamProcessorOutput) .
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']]):
+    def s3_destination(self, value: pulumi.Input[Optional['StreamProcessorS3DestinationArgs']]):
         pulumi.set(self, "s3_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -241,19 +241,19 @@ class StreamProcessor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bounding_box_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorBoundingBoxArgs', 'StreamProcessorBoundingBoxArgsDict']]]]] = None,
-                 connected_home_settings: Optional[pulumi.Input[Union['StreamProcessorConnectedHomeSettingsArgs', 'StreamProcessorConnectedHomeSettingsArgsDict']]] = None,
-                 data_sharing_preference: Optional[pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
-                 face_search_settings: Optional[pulumi.Input[Union['StreamProcessorFaceSearchSettingsArgs', 'StreamProcessorFaceSearchSettingsArgsDict']]] = None,
-                 kinesis_data_stream: Optional[pulumi.Input[Union['StreamProcessorKinesisDataStreamArgs', 'StreamProcessorKinesisDataStreamArgsDict']]] = None,
-                 kinesis_video_stream: Optional[pulumi.Input[Union['StreamProcessorKinesisVideoStreamArgs', 'StreamProcessorKinesisVideoStreamArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_channel: Optional[pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
-                 polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorPointArgs', 'StreamProcessorPointArgsDict']]]]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['StreamProcessorS3DestinationArgs', 'StreamProcessorS3DestinationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bounding_box_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorBoundingBoxArgs', 'StreamProcessorBoundingBoxArgsDict']]]]] = None,
+                 connected_home_settings: pulumi.Input[Optional[Union['StreamProcessorConnectedHomeSettingsArgs', 'StreamProcessorConnectedHomeSettingsArgsDict']]] = None,
+                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
+                 face_search_settings: pulumi.Input[Optional[Union['StreamProcessorFaceSearchSettingsArgs', 'StreamProcessorFaceSearchSettingsArgsDict']]] = None,
+                 kinesis_data_stream: pulumi.Input[Optional[Union['StreamProcessorKinesisDataStreamArgs', 'StreamProcessorKinesisDataStreamArgsDict']]] = None,
+                 kinesis_video_stream: pulumi.Input[Optional[Union['StreamProcessorKinesisVideoStreamArgs', 'StreamProcessorKinesisVideoStreamArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
+                 polygon_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorPointArgs', 'StreamProcessorPointArgsDict']]]]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['StreamProcessorS3DestinationArgs', 'StreamProcessorS3DestinationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
@@ -300,19 +300,19 @@ class StreamProcessor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bounding_box_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorBoundingBoxArgs', 'StreamProcessorBoundingBoxArgsDict']]]]] = None,
-                 connected_home_settings: Optional[pulumi.Input[Union['StreamProcessorConnectedHomeSettingsArgs', 'StreamProcessorConnectedHomeSettingsArgsDict']]] = None,
-                 data_sharing_preference: Optional[pulumi.Input[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
-                 face_search_settings: Optional[pulumi.Input[Union['StreamProcessorFaceSearchSettingsArgs', 'StreamProcessorFaceSearchSettingsArgsDict']]] = None,
-                 kinesis_data_stream: Optional[pulumi.Input[Union['StreamProcessorKinesisDataStreamArgs', 'StreamProcessorKinesisDataStreamArgsDict']]] = None,
-                 kinesis_video_stream: Optional[pulumi.Input[Union['StreamProcessorKinesisVideoStreamArgs', 'StreamProcessorKinesisVideoStreamArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_channel: Optional[pulumi.Input[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
-                 polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorPointArgs', 'StreamProcessorPointArgsDict']]]]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_destination: Optional[pulumi.Input[Union['StreamProcessorS3DestinationArgs', 'StreamProcessorS3DestinationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 bounding_box_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamProcessorBoundingBoxArgs', 'StreamProcessorBoundingBoxArgsDict']]]]] = None,
+                 connected_home_settings: pulumi.Input[Optional[Union['StreamProcessorConnectedHomeSettingsArgs', 'StreamProcessorConnectedHomeSettingsArgsDict']]] = None,
+                 data_sharing_preference: pulumi.Input[Optional[Union['StreamProcessorDataSharingPreferenceArgs', 'StreamProcessorDataSharingPreferenceArgsDict']]] = None,
+                 face_search_settings: pulumi.Input[Optional[Union['StreamProcessorFaceSearchSettingsArgs', 'StreamProcessorFaceSearchSettingsArgsDict']]] = None,
+                 kinesis_data_stream: pulumi.Input[Optional[Union['StreamProcessorKinesisDataStreamArgs', 'StreamProcessorKinesisDataStreamArgsDict']]] = None,
+                 kinesis_video_stream: pulumi.Input[Optional[Union['StreamProcessorKinesisVideoStreamArgs', 'StreamProcessorKinesisVideoStreamArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_channel: pulumi.Input[Optional[Union['StreamProcessorNotificationChannelArgs', 'StreamProcessorNotificationChannelArgsDict']]] = None,
+                 polygon_regions_of_interest: pulumi.Input[Optional[Sequence[pulumi.Input[Sequence[pulumi.Input[Union['StreamProcessorPointArgs', 'StreamProcessorPointArgsDict']]]]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_destination: pulumi.Input[Optional[Union['StreamProcessorS3DestinationArgs', 'StreamProcessorS3DestinationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
