@@ -191,7 +191,7 @@ export interface DeploymentGroupArgs {
     /**
      * Information about the Amazon CloudWatch alarms that are associated with the deployment group.
      */
-    alarmConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAlarmConfigurationArgs>;
+    alarmConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAlarmConfigurationArgs | undefined>;
     /**
      * The name of an existing CodeDeploy application to associate this deployment group with.
      */
@@ -199,59 +199,59 @@ export interface DeploymentGroupArgs {
     /**
      * Information about the automatic rollback configuration that is associated with the deployment group. If you specify this property, don't specify the Deployment property.
      */
-    autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs>;
+    autoRollbackConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs | undefined>;
     /**
      * A list of associated Auto Scaling groups that CodeDeploy automatically deploys revisions to when new instances are created. Duplicates are not allowed.
      */
-    autoScalingGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    autoScalingGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Information about blue/green deployment options for a deployment group.
      */
-    blueGreenDeploymentConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigurationArgs>;
+    blueGreenDeploymentConfiguration?: pulumi.Input<inputs.codedeploy.DeploymentGroupBlueGreenDeploymentConfigurationArgs | undefined>;
     /**
      * The application revision to deploy to this deployment group. If you specify this property, your target application revision is deployed as soon as the provisioning process is complete. If you specify this property, don't specify the AutoRollbackConfiguration property.
      */
-    deployment?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentArgs>;
+    deployment?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentArgs | undefined>;
     /**
      * A deployment configuration name or a predefined configuration name. With predefined configurations, you can deploy application revisions to one instance at a time (CodeDeployDefault.OneAtATime), half of the instances at a time (CodeDeployDefault.HalfAtATime), or all the instances at once (CodeDeployDefault.AllAtOnce).
      */
-    deploymentConfigName?: pulumi.Input<string>;
+    deploymentConfigName?: pulumi.Input<string | undefined>;
     /**
      * A name for the deployment group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the deployment group name.
      */
-    deploymentGroupName?: pulumi.Input<string>;
+    deploymentGroupName?: pulumi.Input<string | undefined>;
     /**
      * Attributes that determine the type of deployment to run and whether to route deployment traffic behind a load balancer. If you specify this property with a blue/green deployment type, don't specify the AutoScalingGroups, LoadBalancerInfo, or Deployment properties.
      */
-    deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyleArgs>;
+    deploymentStyle?: pulumi.Input<inputs.codedeploy.DeploymentGroupDeploymentStyleArgs | undefined>;
     /**
      * The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify EC2TagFilters or Ec2TagSet, but not both.
      */
-    ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagFilterArgs>[]>;
+    ec2TagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagFilterArgs>[] | undefined>;
     /**
      * Information about groups of tags applied to Amazon EC2 instances. Use when the deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same call as ec2TagFilter.
      */
-    ec2TagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagSetArgs>;
+    ec2TagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupEc2TagSetArgs | undefined>;
     /**
      * The target Amazon ECS services in the deployment group. This applies only to deployment groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified as an Amazon ECS cluster and service name pair using the format <clustername>:<servicename>.
      */
-    ecsServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEcsServiceArgs>[]>;
+    ecsServices?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupEcsServiceArgs>[] | undefined>;
     /**
      * Information about the load balancer to use in a deployment.
      */
-    loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfoArgs>;
+    loadBalancerInfo?: pulumi.Input<inputs.codedeploy.DeploymentGroupLoadBalancerInfoArgs | undefined>;
     /**
      * The on-premises instance tags already applied to on-premises instances that you want to include in the deployment group. CodeDeploy includes all on-premises instances identified by any of the tags you specify in this deployment group. Duplicates are not allowed. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
      */
-    onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagFilterArgs>[]>;
+    onPremisesInstanceTagFilters?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagFilterArgs>[] | undefined>;
     /**
      * Information about groups of tags applied to on-premises instances. The deployment group includes only on-premises instances identified by all the tag groups. You can specify OnPremisesInstanceTagFilters or OnPremisesInstanceTagSet, but not both.
      */
-    onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs>;
+    onPremisesTagSet?: pulumi.Input<inputs.codedeploy.DeploymentGroupOnPremisesTagSetArgs | undefined>;
     /**
      * Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. If this option is set to UPDATE or is unspecified, CodeDeploy initiates one or more 'auto-update outdated instances' deployments to apply the deployed application revision to the new Amazon EC2 instances. If this option is set to IGNORE, CodeDeploy does not initiate a deployment to update the new Amazon EC2 instances. This may result in instances having different revisions.
      */
-    outdatedInstancesStrategy?: pulumi.Input<string>;
+    outdatedInstancesStrategy?: pulumi.Input<string | undefined>;
     /**
      * A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make calls to AWS services on your behalf. For more information, see 'Create a Service Role for AWS CodeDeploy' in the AWS CodeDeploy User Guide.
      */
@@ -259,13 +259,13 @@ export interface DeploymentGroupArgs {
     /**
      * The metadata that you apply to CodeDeploy deployment groups to help you organize and categorize them. Each tag consists of a key and an optional value, both of which you define.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates whether the deployment group was configured to have CodeDeploy install a termination hook into an Auto Scaling group.
      */
-    terminationHookEnabled?: pulumi.Input<boolean>;
+    terminationHookEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Information about triggers associated with the deployment group. Duplicates are not allowed.
      */
-    triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfigArgs>[]>;
+    triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfigArgs>[] | undefined>;
 }

@@ -103,5 +103,5 @@ export interface AggregationAuthorizationArgs {
     /**
      * The tags for the AggregationAuthorization.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

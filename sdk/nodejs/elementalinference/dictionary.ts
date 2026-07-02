@@ -81,8 +81,8 @@ export class Dictionary extends pulumi.CustomResource {
  * The set of arguments for constructing a Dictionary resource.
  */
 export interface DictionaryArgs {
-    entries?: pulumi.Input<string>;
+    entries?: pulumi.Input<string | undefined>;
     language: pulumi.Input<enums.elementalinference.DictionaryLanguage>;
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

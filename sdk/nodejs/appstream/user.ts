@@ -105,17 +105,17 @@ export interface UserArgs {
     /**
      * The first name, or given name, of the user.
      */
-    firstName?: pulumi.Input<string>;
+    firstName?: pulumi.Input<string | undefined>;
     /**
      * The last name, or surname, of the user.
      */
-    lastName?: pulumi.Input<string>;
+    lastName?: pulumi.Input<string | undefined>;
     /**
      * The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
      */
-    messageAction?: pulumi.Input<string>;
+    messageAction?: pulumi.Input<string | undefined>;
     /**
      * The email address of the user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

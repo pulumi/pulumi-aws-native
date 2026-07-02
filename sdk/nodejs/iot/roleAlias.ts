@@ -100,11 +100,11 @@ export interface RoleAliasArgs {
     /**
      * The number of seconds for which the credential is valid.
      */
-    credentialDurationSeconds?: pulumi.Input<number>;
+    credentialDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * The role alias.
      */
-    roleAlias?: pulumi.Input<string>;
+    roleAlias?: pulumi.Input<string | undefined>;
     /**
      * The role ARN.
      */
@@ -114,5 +114,5 @@ export interface RoleAliasArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

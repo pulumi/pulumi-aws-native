@@ -139,25 +139,25 @@ export interface AgentArgs {
     /**
      * Activation key of the Agent.
      */
-    activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string | undefined>;
     /**
      * The name configured for the agent. Text reference used to identify the agent in the console.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * The ARNs of the security group used to protect your data transfer task subnets.
      */
-    securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
-    subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC endpoint that the agent has access to.
      */
-    vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string | undefined>;
 }

@@ -68,6 +68,6 @@ export class PolicyStoreAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyStoreAlias resource.
  */
 export interface PolicyStoreAliasArgs {
-    aliasName?: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     policyStoreId: pulumi.Input<string>;
 }

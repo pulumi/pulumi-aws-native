@@ -222,19 +222,19 @@ export interface PipeArgs {
     /**
      * A description of the pipe.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The state the pipe should be in.
      */
-    desiredState?: pulumi.Input<enums.pipes.PipeRequestedPipeState>;
+    desiredState?: pulumi.Input<enums.pipes.PipeRequestedPipeState | undefined>;
     /**
      * The ARN of the enrichment resource.
      */
-    enrichment?: pulumi.Input<string>;
+    enrichment?: pulumi.Input<string | undefined>;
     /**
      * The parameters required to set up enrichment on your pipe.
      */
-    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersArgs>;
+    enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersArgs | undefined>;
     /**
      * The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
      *
@@ -244,15 +244,15 @@ export interface PipeArgs {
      *
      * For more information, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the *AWS Key Management Service Developer Guide* .
      */
-    kmsKeyIdentifier?: pulumi.Input<string>;
+    kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The logging configuration settings for the pipe.
      */
-    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfigurationArgs>;
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfigurationArgs | undefined>;
     /**
      * The name of the pipe.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role that allows the pipe to send data to the target.
      */
@@ -264,11 +264,11 @@ export interface PipeArgs {
     /**
      * The parameters required to set up a source for your pipe.
      */
-    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersArgs>;
+    sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParametersArgs | undefined>;
     /**
      * The list of key-value pairs to associate with the pipe.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the target resource.
      */
@@ -278,5 +278,5 @@ export interface PipeArgs {
      *
      * For more information about pipe target parameters, including how to use dynamic path parameters, see [Target parameters](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-target.html) in the *Amazon EventBridge User Guide* .
      */
-    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersArgs>;
+    targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParametersArgs | undefined>;
 }

@@ -98,7 +98,7 @@ export interface TopicRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * Metadata which can be used to manage the topic rule.
      *
@@ -108,7 +108,7 @@ export interface TopicRuleArgs {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The rule payload.
      */

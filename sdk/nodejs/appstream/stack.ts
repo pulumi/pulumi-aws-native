@@ -155,61 +155,61 @@ export interface StackArgs {
     /**
      * The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      */
-    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpointArgs>[]>;
+    accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpointArgs>[] | undefined>;
     /**
      * The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
      */
-    applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettingsArgs>;
+    applicationSettings?: pulumi.Input<inputs.appstream.StackApplicationSettingsArgs | undefined>;
     /**
      * The stack attributes to delete.
      */
-    attributesToDelete?: pulumi.Input<pulumi.Input<string>[]>;
+    attributesToDelete?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
      */
-    contentRedirection?: pulumi.Input<inputs.appstream.StackContentRedirectionArgs>;
+    contentRedirection?: pulumi.Input<inputs.appstream.StackContentRedirectionArgs | undefined>;
     /**
      * This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
      */
-    deleteStorageConnectors?: pulumi.Input<boolean>;
+    deleteStorageConnectors?: pulumi.Input<boolean | undefined>;
     /**
      * The description to display.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The stack name to display.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
      */
-    embedHostDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    embedHostDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The URL that users are redirected to after they click the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
      */
-    feedbackUrl?: pulumi.Input<string>;
+    feedbackUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the stack.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The URL that users are redirected to after their streaming session ends.
      */
-    redirectUrl?: pulumi.Input<string>;
+    redirectUrl?: pulumi.Input<string | undefined>;
     /**
      * The storage connectors to enable.
      */
-    storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnectorArgs>[]>;
+    storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnectorArgs>[] | undefined>;
     /**
      * The streaming protocol that you want your stack to prefer. This can be UDP or TCP. Currently, UDP is only supported in the Windows native client.
      */
-    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettingsArgs>;
+    streamingExperienceSettings?: pulumi.Input<inputs.appstream.StackStreamingExperienceSettingsArgs | undefined>;
     /**
      * An array of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
      */
-    userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSettingArgs>[]>;
+    userSettings?: pulumi.Input<pulumi.Input<inputs.appstream.StackUserSettingArgs>[] | undefined>;
 }

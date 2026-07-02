@@ -197,41 +197,41 @@ export interface ChannelArgs {
     /**
      * Whether the channel is authorized.
      */
-    authorized?: pulumi.Input<boolean>;
+    authorized?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
      */
-    containerFormat?: pulumi.Input<enums.ivs.ChannelContainerFormat>;
+    containerFormat?: pulumi.Input<enums.ivs.ChannelContainerFormat | undefined>;
     /**
      * Whether the channel allows insecure ingest.
      */
-    insecureIngest?: pulumi.Input<boolean>;
+    insecureIngest?: pulumi.Input<boolean | undefined>;
     /**
      * Channel latency mode.
      */
-    latencyMode?: pulumi.Input<enums.ivs.ChannelLatencyMode>;
+    latencyMode?: pulumi.Input<enums.ivs.ChannelLatencyMode | undefined>;
     /**
      * Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
      */
-    multitrackInputConfiguration?: pulumi.Input<inputs.ivs.ChannelMultitrackInputConfigurationArgs>;
+    multitrackInputConfiguration?: pulumi.Input<inputs.ivs.ChannelMultitrackInputConfigurationArgs | undefined>;
     /**
      * Channel
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
      */
-    preset?: pulumi.Input<enums.ivs.ChannelPreset>;
+    preset?: pulumi.Input<enums.ivs.ChannelPreset | undefined>;
     /**
      * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
      */
-    recordingConfigurationArn?: pulumi.Input<string>;
+    recordingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */
-    type?: pulumi.Input<enums.ivs.ChannelType>;
+    type?: pulumi.Input<enums.ivs.ChannelType | undefined>;
 }

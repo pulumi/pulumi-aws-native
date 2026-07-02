@@ -17,7 +17,7 @@ export function getApplicationVersion(args: GetApplicationVersionArgs, opts?: pu
 
 export interface GetApplicationVersionArgs {
     /**
-     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     * The name of the Elastic Beanstalk application that is associated with this application version.
      */
     applicationName: string;
     id: string;
@@ -43,7 +43,7 @@ export function getApplicationVersionOutput(args: GetApplicationVersionOutputArg
 
 export interface GetApplicationVersionOutputArgs {
     /**
-     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     * The name of the Elastic Beanstalk application that is associated with this application version.
      */
     applicationName: pulumi.Input<string>;
     id: pulumi.Input<string>;

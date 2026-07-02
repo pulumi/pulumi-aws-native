@@ -23,7 +23,7 @@ export interface GetAnomalyMonitorArgs {
 
 export interface GetAnomalyMonitorResult {
     /**
-     * The date when the monitor was created. 
+     * The date when the monitor was created.
      */
     readonly creationDate?: string;
     /**

@@ -19,14 +19,14 @@ export function getClusterSubnetGroup(args: GetClusterSubnetGroupArgs, opts?: pu
 
 export interface GetClusterSubnetGroupArgs {
     /**
-     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
      */
     clusterSubnetGroupName: string;
 }
 
 export interface GetClusterSubnetGroupResult {
     /**
-     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
      */
     readonly clusterSubnetGroupName?: string;
     /**
@@ -54,7 +54,7 @@ export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArg
 
 export interface GetClusterSubnetGroupOutputArgs {
     /**
-     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
      */
     clusterSubnetGroupName: pulumi.Input<string>;
 }

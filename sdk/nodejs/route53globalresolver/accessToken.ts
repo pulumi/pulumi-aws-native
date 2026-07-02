@@ -101,9 +101,9 @@ export class AccessToken extends pulumi.CustomResource {
  * The set of arguments for constructing a AccessToken resource.
  */
 export interface AccessTokenArgs {
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     dnsViewId: pulumi.Input<string>;
-    expiresAt?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    expiresAt?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -160,15 +160,15 @@ export interface CalculatedAttributeDefinitionArgs {
     /**
      * The conditions including range, object count, and threshold for the calculated attribute.
      */
-    conditions?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionConditionsArgs>;
+    conditions?: pulumi.Input<inputs.customerprofiles.CalculatedAttributeDefinitionConditionsArgs | undefined>;
     /**
      * The description of the calculated attribute.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the calculated attribute.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the domain.
      */
@@ -180,9 +180,9 @@ export interface CalculatedAttributeDefinitionArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Whether to use historical data for the calculated attribute.
      */
-    useHistoricalData?: pulumi.Input<boolean>;
+    useHistoricalData?: pulumi.Input<boolean | undefined>;
 }

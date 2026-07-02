@@ -188,7 +188,7 @@ export interface EnvironmentArgs {
     /**
      * The ID of the software set to apply.
      */
-    desiredSoftwareSetId?: pulumi.Input<string>;
+    desiredSoftwareSetId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the desktop to stream from Amazon WorkSpaces, WorkSpaces Web, or AppStream 2.0.
      */
@@ -196,33 +196,33 @@ export interface EnvironmentArgs {
     /**
      * The URL for the identity provider login (only for environments that use AppStream 2.0).
      */
-    desktopEndpoint?: pulumi.Input<string>;
+    desktopEndpoint?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to the newly created devices for this environment.
      */
-    deviceCreationTags?: pulumi.Input<pulumi.Input<inputs.workspacesthinclient.EnvironmentTagArgs>[]>;
+    deviceCreationTags?: pulumi.Input<pulumi.Input<inputs.workspacesthinclient.EnvironmentTagArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * A specification for a time window to apply software updates.
      */
-    maintenanceWindow?: pulumi.Input<inputs.workspacesthinclient.EnvironmentMaintenanceWindowArgs>;
+    maintenanceWindow?: pulumi.Input<inputs.workspacesthinclient.EnvironmentMaintenanceWindowArgs | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An option to define which software updates to apply.
      */
-    softwareSetUpdateMode?: pulumi.Input<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateMode>;
+    softwareSetUpdateMode?: pulumi.Input<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateMode | undefined>;
     /**
      * An option to define if software updates should be applied within a maintenance window.
      */
-    softwareSetUpdateSchedule?: pulumi.Input<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateSchedule>;
+    softwareSetUpdateSchedule?: pulumi.Input<enums.workspacesthinclient.EnvironmentSoftwareSetUpdateSchedule | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

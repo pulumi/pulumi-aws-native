@@ -317,61 +317,61 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline.
      */
-    approvalRules?: pulumi.Input<inputs.ssm.PatchBaselineRuleGroupArgs>;
+    approvalRules?: pulumi.Input<inputs.ssm.PatchBaselineRuleGroupArgs | undefined>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    approvedPatches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
      */
-    approvedPatchesComplianceLevel?: pulumi.Input<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel>;
+    approvedPatchesComplianceLevel?: pulumi.Input<enums.ssm.PatchBaselineApprovedPatchesComplianceLevel | undefined>;
     /**
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
      */
-    approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    approvedPatchesEnableNonSecurity?: pulumi.Input<boolean | undefined>;
     /**
      * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
      */
-    availableSecurityUpdatesComplianceStatus?: pulumi.Input<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus>;
+    availableSecurityUpdatesComplianceStatus?: pulumi.Input<enums.ssm.PatchBaselineAvailableSecurityUpdatesComplianceStatus | undefined>;
     /**
      * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
      */
-    defaultBaseline?: pulumi.Input<boolean>;
+    defaultBaseline?: pulumi.Input<boolean | undefined>;
     /**
      * The description of the patch baseline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A set of global filters used to include patches in the baseline.
      */
-    globalFilters?: pulumi.Input<inputs.ssm.PatchBaselinePatchFilterGroupArgs>;
+    globalFilters?: pulumi.Input<inputs.ssm.PatchBaselinePatchFilterGroupArgs | undefined>;
     /**
      * The name of the patch baseline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
      */
-    operatingSystem?: pulumi.Input<enums.ssm.PatchBaselineOperatingSystem>;
+    operatingSystem?: pulumi.Input<enums.ssm.PatchBaselineOperatingSystem | undefined>;
     /**
      * PatchGroups is used to associate instances with a specific patch baseline
      */
-    patchGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    patchGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of explicitly rejected patches for the baseline.
      */
-    rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    rejectedPatches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The action for Patch Manager to take on patches included in the RejectedPackages list.
      */
-    rejectedPatchesAction?: pulumi.Input<enums.ssm.PatchBaselineRejectedPatchesAction>;
+    rejectedPatchesAction?: pulumi.Input<enums.ssm.PatchBaselineRejectedPatchesAction | undefined>;
     /**
      * Information about the patches to use to update the instances, including target operating systems and source repository. Applies to Linux instances only.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselinePatchSourceArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselinePatchSourceArgs>[] | undefined>;
     /**
      * Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

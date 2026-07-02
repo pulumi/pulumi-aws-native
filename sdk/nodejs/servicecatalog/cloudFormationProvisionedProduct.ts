@@ -180,29 +180,29 @@ export interface CloudFormationProvisionedProductArgs {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    acceptLanguage?: pulumi.Input<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage>;
+    acceptLanguage?: pulumi.Input<enums.servicecatalog.CloudFormationProvisionedProductAcceptLanguage | undefined>;
     /**
      * Passed to AWS CloudFormation . The SNS topic ARNs to which to publish stack-related events.
      */
-    notificationArns?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
      *
      * > You must provide the name or ID, but not both.
      */
-    pathId?: pulumi.Input<string>;
+    pathId?: pulumi.Input<string | undefined>;
     /**
      * The name of the path. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use [ListLaunchPaths](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ListLaunchPaths.html) .
      *
      * > You must provide the name or ID, but not both.
      */
-    pathName?: pulumi.Input<string>;
+    pathName?: pulumi.Input<string | undefined>;
     /**
      * The product identifier.
      *
      * > You must specify either the ID or the name of the product, but not both.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Service Catalog product.
      *
@@ -210,35 +210,35 @@ export interface CloudFormationProvisionedProductArgs {
      *
      * > You must specify either the name or the ID of the product, but not both.
      */
-    productName?: pulumi.Input<string>;
+    productName?: pulumi.Input<string | undefined>;
     /**
      * A user-friendly name for the provisioned product. This value must be unique for the AWS account and cannot be updated after the product is provisioned.
      */
-    provisionedProductName?: pulumi.Input<string>;
+    provisionedProductName?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the provisioning artifact (also known as a version).
      *
      * > You must specify either the ID or the name of the provisioning artifact, but not both.
      */
-    provisioningArtifactId?: pulumi.Input<string>;
+    provisioningArtifactId?: pulumi.Input<string | undefined>;
     /**
      * The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
      *
      * > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
      */
-    provisioningArtifactName?: pulumi.Input<string>;
+    provisioningArtifactName?: pulumi.Input<string | undefined>;
     /**
      * Parameters specified by the administrator that are required for provisioning the product.
      */
-    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
+    provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[] | undefined>;
     /**
      * StackSet preferences that are required for provisioning the product or updating a provisioned product.
      */
-    provisioningPreferences?: pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
+    provisioningPreferences?: pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs | undefined>;
     /**
      * One or more tags.
      *
      * > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

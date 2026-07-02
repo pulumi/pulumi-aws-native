@@ -42,7 +42,7 @@ export class CompositeAlarm extends pulumi.CustomResource {
      */
     declare public readonly actionsEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
      */
     declare public readonly actionsSuppressor: pulumi.Output<string | undefined>;
     /**
@@ -140,31 +140,31 @@ export interface CompositeAlarmArgs {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm. 
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state. ActionsSuppressor can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
      */
-    actionsSuppressor?: pulumi.Input<string>;
+    actionsSuppressor?: pulumi.Input<string | undefined>;
     /**
      * Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
      */
-    actionsSuppressorExtensionPeriod?: pulumi.Input<number>;
+    actionsSuppressorExtensionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
      */
-    actionsSuppressorWaitPeriod?: pulumi.Input<number>;
+    actionsSuppressorWaitPeriod?: pulumi.Input<number | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the alarm
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the Composite Alarm
      */
-    alarmName?: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string | undefined>;
     /**
      * Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
      */
@@ -172,13 +172,13 @@ export interface CompositeAlarmArgs {
     /**
      * The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
      */
-    okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

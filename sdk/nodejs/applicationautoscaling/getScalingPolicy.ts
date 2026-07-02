@@ -61,7 +61,7 @@ export interface GetScalingPolicyResult {
     readonly arn?: string;
     /**
      * The scaling policy type.
-     *  The following policy types are supported: 
+     *  The following policy types are supported:
      *  ``TargetTrackingScaling``—Not supported for Amazon EMR
      *  ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      *  ``PredictiveScaling``—Only supported for Amazon ECS

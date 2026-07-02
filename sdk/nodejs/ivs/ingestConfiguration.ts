@@ -125,25 +125,25 @@ export interface IngestConfigurationArgs {
     /**
      * Ingest Protocol.
      */
-    ingestProtocol?: pulumi.Input<enums.ivs.IngestConfigurationIngestProtocol>;
+    ingestProtocol?: pulumi.Input<enums.ivs.IngestConfigurationIngestProtocol | undefined>;
     /**
      * Whether ingest configuration allows insecure ingest.
      */
-    insecureIngest?: pulumi.Input<boolean>;
+    insecureIngest?: pulumi.Input<boolean | undefined>;
     /**
      * IngestConfiguration
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Stage ARN. A value other than an empty string indicates that stage is linked to IngestConfiguration. Default: "" (recording is disabled).
      */
-    stageArn?: pulumi.Input<string>;
+    stageArn?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * User defined indentifier for participant associated with IngestConfiguration.
      */
-    userId?: pulumi.Input<string>;
+    userId?: pulumi.Input<string | undefined>;
 }

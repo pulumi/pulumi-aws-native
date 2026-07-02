@@ -120,21 +120,21 @@ export interface TableArgs {
     /**
      * The properties that determine whether magnetic store writes are enabled.
      */
-    magneticStoreWriteProperties?: pulumi.Input<inputs.timestream.MagneticStoreWritePropertiesPropertiesArgs>;
+    magneticStoreWriteProperties?: pulumi.Input<inputs.timestream.MagneticStoreWritePropertiesPropertiesArgs | undefined>;
     /**
      * The retention duration of the memory store and the magnetic store.
      */
-    retentionProperties?: pulumi.Input<inputs.timestream.RetentionPropertiesPropertiesArgs>;
+    retentionProperties?: pulumi.Input<inputs.timestream.RetentionPropertiesPropertiesArgs | undefined>;
     /**
      * A Schema specifies the expected data model of the table.
      */
-    schema?: pulumi.Input<inputs.timestream.SchemaPropertiesArgs>;
+    schema?: pulumi.Input<inputs.timestream.SchemaPropertiesArgs | undefined>;
     /**
      * The name for the table. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name.
      */
-    tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

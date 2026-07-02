@@ -35,6 +35,6 @@ export const RotationDayOfWeek = {
 } as const;
 
 /**
- * The day of the week when weekly recurring on-call shift rotations begin. 
+ * The day of the week when weekly recurring on-call shift rotations begin.
  */
 export type RotationDayOfWeek = (typeof RotationDayOfWeek)[keyof typeof RotationDayOfWeek];

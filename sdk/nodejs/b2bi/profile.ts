@@ -135,7 +135,7 @@ export interface ProfileArgs {
      * Returns the name for the business associated with this profile.
      */
     businessName: pulumi.Input<string>;
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether or not logging is enabled for this profile.
      */
@@ -143,7 +143,7 @@ export interface ProfileArgs {
     /**
      * Returns the display name for profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the phone number associated with the profile.
      */
@@ -151,5 +151,5 @@ export interface ProfileArgs {
     /**
      * A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

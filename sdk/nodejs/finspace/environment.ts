@@ -183,33 +183,33 @@ export interface EnvironmentArgs {
     /**
      * ARNs of FinSpace Data Bundles to install
      */
-    dataBundles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataBundles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Description of the Environment
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Federation mode used with the Environment
      */
-    federationMode?: pulumi.Input<enums.finspace.EnvironmentFederationMode>;
+    federationMode?: pulumi.Input<enums.finspace.EnvironmentFederationMode | undefined>;
     /**
      * Configuration information when authentication mode is FEDERATED.
      */
-    federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs>;
+    federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs | undefined>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Environment
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configuration information for the superuser.
      */
-    superuserParameters?: pulumi.Input<inputs.finspace.EnvironmentSuperuserParametersArgs>;
+    superuserParameters?: pulumi.Input<inputs.finspace.EnvironmentSuperuserParametersArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

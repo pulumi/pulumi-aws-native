@@ -107,7 +107,7 @@ export interface AccessPointArgs {
     /**
      * (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * The ID of the S3 Files file system that the access point provides access to.
      */
@@ -115,10 +115,10 @@ export interface AccessPointArgs {
     /**
      * The operating system user and group applied to all compute drive requests made using the access point.
      */
-    posixUser?: pulumi.Input<inputs.s3files.AccessPointPosixUserArgs>;
+    posixUser?: pulumi.Input<inputs.s3files.AccessPointPosixUserArgs | undefined>;
     /**
      * Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationPermissions settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationPermissions is optional.
      */
-    rootDirectory?: pulumi.Input<inputs.s3files.AccessPointRootDirectoryArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    rootDirectory?: pulumi.Input<inputs.s3files.AccessPointRootDirectoryArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

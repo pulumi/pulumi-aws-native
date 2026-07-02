@@ -149,41 +149,41 @@ export interface FleetMetricArgs {
     /**
      * The aggregation field to perform aggregation and metric emission
      */
-    aggregationField?: pulumi.Input<string>;
+    aggregationField?: pulumi.Input<string | undefined>;
     /**
      * The type of the aggregation query.
      */
-    aggregationType?: pulumi.Input<inputs.iot.FleetMetricAggregationTypeArgs>;
+    aggregationType?: pulumi.Input<inputs.iot.FleetMetricAggregationTypeArgs | undefined>;
     /**
      * The description of a fleet metric
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The index name of a fleet metric
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * The name of the fleet metric
      */
-    metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string | undefined>;
     /**
      * The period of metric emission in seconds
      */
-    period?: pulumi.Input<number>;
+    period?: pulumi.Input<number | undefined>;
     /**
      * The Fleet Indexing query used by a fleet metric
      */
-    queryString?: pulumi.Input<string>;
+    queryString?: pulumi.Input<string | undefined>;
     /**
      * The version of a Fleet Indexing query used by a fleet metric
      */
-    queryVersion?: pulumi.Input<string>;
+    queryVersion?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unit of data points emitted by a fleet metric
      */
-    unit?: pulumi.Input<string>;
+    unit?: pulumi.Input<string | undefined>;
 }

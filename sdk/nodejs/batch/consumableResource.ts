@@ -122,7 +122,7 @@ export interface ConsumableResourceArgs {
     /**
      * Name of ConsumableResource.
      */
-    consumableResourceName?: pulumi.Input<string>;
+    consumableResourceName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the resource is available to be re-used after a job completes. Can be one of:
      *
@@ -133,7 +133,7 @@ export interface ConsumableResourceArgs {
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Total Quantity of ConsumableResource.
      */

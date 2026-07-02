@@ -101,7 +101,7 @@ export interface VpnConcentratorArgs {
     /**
      * Any tags assigned to the VPN concentrator.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the transit gateway associated with the VPN concentrator.
      */

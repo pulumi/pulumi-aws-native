@@ -131,7 +131,7 @@ export interface LifecyclePolicyArgs {
     /**
      * The description of the lifecycle policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The execution role of the lifecycle policy.
      */
@@ -139,7 +139,7 @@ export interface LifecyclePolicyArgs {
     /**
      * The name of the lifecycle policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The policy details of the lifecycle policy.
      */
@@ -155,9 +155,9 @@ export interface LifecyclePolicyArgs {
     /**
      * The status of the lifecycle policy.
      */
-    status?: pulumi.Input<enums.imagebuilder.LifecyclePolicyStatus>;
+    status?: pulumi.Input<enums.imagebuilder.LifecyclePolicyStatus | undefined>;
     /**
      * The tags associated with the lifecycle policy.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -101,13 +101,13 @@ export interface ObservabilityConfigurationArgs {
     /**
      * A name for the observability configuration. When you use it for the first time in an AWS Region, App Runner creates revision number 1 of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.
      */
-    observabilityConfigurationName?: pulumi.Input<string>;
+    observabilityConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing.
      */
-    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfigurationArgs>;
+    traceConfiguration?: pulumi.Input<inputs.apprunner.ObservabilityConfigurationTraceConfigurationArgs | undefined>;
 }

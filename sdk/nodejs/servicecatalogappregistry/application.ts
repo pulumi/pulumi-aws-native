@@ -35,7 +35,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the application. 
+     * The name of the application.
      */
     declare public /*out*/ readonly applicationName: pulumi.Output<string>;
     /**
@@ -43,7 +43,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly applicationTagKey: pulumi.Output<string>;
     /**
-     * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+     * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
      */
     declare public /*out*/ readonly applicationTagValue: pulumi.Output<string>;
     /**
@@ -55,11 +55,11 @@ export class Application extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * The description of the application. 
+     * The description of the application.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The name of the application. 
+     * The name of the application.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -106,15 +106,15 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * The description of the application. 
+     * The description of the application.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the application. 
+     * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs you can use to associate with the application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

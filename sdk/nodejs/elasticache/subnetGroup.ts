@@ -95,7 +95,7 @@ export interface SubnetGroupArgs {
     /**
      * The name for the cache subnet group. This value is stored as a lowercase string.
      */
-    cacheSubnetGroupName?: pulumi.Input<string>;
+    cacheSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The description for the cache subnet group.
      */
@@ -107,5 +107,5 @@ export interface SubnetGroupArgs {
     /**
      * A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

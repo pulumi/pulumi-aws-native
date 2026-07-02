@@ -160,7 +160,7 @@ export interface QuickResponseArgs {
     /**
      * The Amazon Connect contact channels this quick response applies to.
      */
-    channels?: pulumi.Input<pulumi.Input<enums.wisdom.QuickResponseChannelType>[]>;
+    channels?: pulumi.Input<pulumi.Input<enums.wisdom.QuickResponseChannelType>[] | undefined>;
     /**
      * The content of the quick response.
      */
@@ -170,19 +170,19 @@ export interface QuickResponseArgs {
      * - Use application/x.quickresponse;format=plain for quick response written in plain text.
      * - Use application/x.quickresponse;format=markdown for quick response written in richtext.
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The description of the quick response.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration information of the user groups that the quick response is accessible to.
      */
-    groupingConfiguration?: pulumi.Input<inputs.wisdom.QuickResponseGroupingConfigurationArgs>;
+    groupingConfiguration?: pulumi.Input<inputs.wisdom.QuickResponseGroupingConfigurationArgs | undefined>;
     /**
      * Whether the quick response is active.
      */
-    isActive?: pulumi.Input<boolean>;
+    isActive?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base.
      */
@@ -190,17 +190,17 @@ export interface QuickResponseArgs {
     /**
      * The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * The name of the quick response.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The shortcut key of the quick response. The value should be unique across the knowledge base.
      */
-    shortcutKey?: pulumi.Input<string>;
+    shortcutKey?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

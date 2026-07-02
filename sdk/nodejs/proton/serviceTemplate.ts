@@ -109,27 +109,27 @@ export interface ServiceTemplateArgs {
     /**
      * <p>A description of the service template.</p>
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * <p>The name of the service template as displayed in the developer interface.</p>
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * <p>A customer provided encryption key that's used to encrypt data.</p>
      */
-    encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The name of the service template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * If `pipelineProvisioning` is `true` , a service pipeline is included in the service template. Otherwise, a service pipeline *isn't* included in the service template.
      */
-    pipelineProvisioning?: pulumi.Input<enums.proton.ServiceTemplateProvisioning>;
+    pipelineProvisioning?: pulumi.Input<enums.proton.ServiceTemplateProvisioning | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

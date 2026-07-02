@@ -37,7 +37,7 @@ export const AnomalySubscriptionFrequency = {
 } as const;
 
 /**
- * The frequency at which anomaly reports are sent over email. 
+ * The frequency at which anomaly reports are sent over email.
  */
 export type AnomalySubscriptionFrequency = (typeof AnomalySubscriptionFrequency)[keyof typeof AnomalySubscriptionFrequency];
 

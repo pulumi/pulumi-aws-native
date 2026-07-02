@@ -146,7 +146,7 @@ export interface FormTypeArgs {
     /**
      * The description of this Amazon DataZone metadata form type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain in which this metadata form type is created.
      */
@@ -158,7 +158,7 @@ export interface FormTypeArgs {
     /**
      * The name of this Amazon DataZone metadata form type.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone project that owns this metadata form type.
      */
@@ -166,5 +166,5 @@ export interface FormTypeArgs {
     /**
      * The status of this Amazon DataZone metadata form type.
      */
-    status?: pulumi.Input<enums.datazone.FormTypeStatus>;
+    status?: pulumi.Input<enums.datazone.FormTypeStatus | undefined>;
 }

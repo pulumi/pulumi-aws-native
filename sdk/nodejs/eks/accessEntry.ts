@@ -119,7 +119,7 @@ export interface AccessEntryArgs {
     /**
      * An array of access policies that are associated with the access entry.
      */
-    accessPolicies?: pulumi.Input<pulumi.Input<inputs.eks.AccessEntryAccessPolicyArgs>[]>;
+    accessPolicies?: pulumi.Input<pulumi.Input<inputs.eks.AccessEntryAccessPolicyArgs>[] | undefined>;
     /**
      * The cluster that the access entry is created for.
      */
@@ -127,7 +127,7 @@ export interface AccessEntryArgs {
     /**
      * The Kubernetes groups that the access entry is associated with.
      */
-    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    kubernetesGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The principal ARN that the access entry is created for.
      */
@@ -135,13 +135,13 @@ export interface AccessEntryArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The node type to associate with the access entry.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * The Kubernetes user that the access entry is associated with.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

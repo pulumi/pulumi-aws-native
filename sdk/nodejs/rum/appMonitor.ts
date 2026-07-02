@@ -140,36 +140,36 @@ export interface AppMonitorArgs {
      *
      * If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
      */
-    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorConfigurationArgs>;
+    appMonitorConfiguration?: pulumi.Input<inputs.rum.AppMonitorConfigurationArgs | undefined>;
     /**
      * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
      */
-    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEventsArgs>;
+    customEvents?: pulumi.Input<inputs.rum.AppMonitorCustomEventsArgs | undefined>;
     /**
      * Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
      */
-    cwLogEnabled?: pulumi.Input<boolean>;
+    cwLogEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
      */
-    deobfuscationConfiguration?: pulumi.Input<inputs.rum.AppMonitorDeobfuscationConfigurationArgs>;
+    deobfuscationConfiguration?: pulumi.Input<inputs.rum.AppMonitorDeobfuscationConfigurationArgs | undefined>;
     /**
      * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
      */
-    domainList?: pulumi.Input<pulumi.Input<string>[]>;
+    domainList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name for the app monitor
      */
-    name?: pulumi.Input<string>;
-    platform?: pulumi.Input<enums.rum.AppMonitorPlatform>;
+    name?: pulumi.Input<string | undefined>;
+    platform?: pulumi.Input<enums.rum.AppMonitorPlatform | undefined>;
     /**
      * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
      */
-    resourcePolicy?: pulumi.Input<inputs.rum.AppMonitorResourcePolicyArgs>;
+    resourcePolicy?: pulumi.Input<inputs.rum.AppMonitorResourcePolicyArgs | undefined>;
     /**
      * Assigns one or more tags (key-value pairs) to the app monitor.
      *
@@ -181,5 +181,5 @@ export interface AppMonitorArgs {
      *
      * For more information, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

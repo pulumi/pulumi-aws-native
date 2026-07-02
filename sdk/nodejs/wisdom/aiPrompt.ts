@@ -177,11 +177,11 @@ export interface AiPromptArgs {
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
      */
-    assistantId?: pulumi.Input<string>;
+    assistantId?: pulumi.Input<string | undefined>;
     /**
      * The description of the AI Prompt.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the model used for this AI Prompt. The following model Ids are supported:
      *
@@ -207,11 +207,11 @@ export interface AiPromptArgs {
     /**
      * The name of the AI Prompt
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The configuration of the prompt template for this AI Prompt.
      */

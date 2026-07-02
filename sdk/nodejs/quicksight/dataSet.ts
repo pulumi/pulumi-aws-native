@@ -222,82 +222,82 @@ export interface DataSetArgs {
     /**
      * The AWS account ID.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
      */
-    columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[]>;
+    columnGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnGroupArgs>[] | undefined>;
     /**
      * <p>A set of one or more definitions of a <code>
      *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
      *             </code>.</p>
      */
-    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
+    columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[] | undefined>;
     /**
      * The data preparation configuration associated with this dataset.
      */
-    dataPrepConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataPrepConfigurationArgs>;
+    dataPrepConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataPrepConfigurationArgs | undefined>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
      */
-    dataSetId?: pulumi.Input<string>;
+    dataSetId?: pulumi.Input<string | undefined>;
     /**
      * The refresh properties of a dataset.
      */
-    dataSetRefreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesArgs>;
+    dataSetRefreshProperties?: pulumi.Input<inputs.quicksight.DataSetRefreshPropertiesArgs | undefined>;
     /**
      * The usage configuration to apply to child datasets that reference this dataset as a source.
      */
-    dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetUsageConfigurationArgs>;
+    dataSetUsageConfiguration?: pulumi.Input<inputs.quicksight.DataSetUsageConfigurationArgs | undefined>;
     /**
      * <p>The parameter declarations of the dataset.</p>
      */
-    datasetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetDatasetParameterArgs>[]>;
+    datasetParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetDatasetParameterArgs>[] | undefined>;
     /**
      * The folder that contains fields and nested subfolders for your dataset.
      */
-    fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>}>;
+    fieldFolders?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetFieldFolderArgs>} | undefined>;
     /**
      * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
      */
-    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Indicates whether you want to import the data into SPICE.
      */
-    importMode?: pulumi.Input<enums.quicksight.DataSetImportMode>;
+    importMode?: pulumi.Input<enums.quicksight.DataSetImportMode | undefined>;
     /**
      * The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
      */
-    ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
-    logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetLogicalTableArgs>}>;
+    ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs | undefined>;
+    logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetLogicalTableArgs>} | undefined>;
     /**
      * <p>The display name for the dataset.</p>
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The performance optimization configuration of a dataset.
      */
-    performanceConfiguration?: pulumi.Input<inputs.quicksight.DataSetPerformanceConfigurationArgs>;
+    performanceConfiguration?: pulumi.Input<inputs.quicksight.DataSetPerformanceConfigurationArgs | undefined>;
     /**
      * <p>A list of resource permissions on the dataset.</p>
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetResourcePermissionArgs>[] | undefined>;
     /**
      * Declares the physical tables that are available in the underlying data sources.
      */
-    physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>}>;
-    rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
-    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs>;
+    physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>} | undefined>;
+    rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs | undefined>;
+    rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs | undefined>;
     /**
      * The semantic model configuration associated with this dataset.
      */
-    semanticModelConfiguration?: pulumi.Input<inputs.quicksight.DataSetSemanticModelConfigurationArgs>;
+    semanticModelConfiguration?: pulumi.Input<inputs.quicksight.DataSetSemanticModelConfigurationArgs | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The usage of the dataset.
      */
-    useAs?: pulumi.Input<enums.quicksight.DataSetUseAs>;
+    useAs?: pulumi.Input<enums.quicksight.DataSetUseAs | undefined>;
 }

@@ -173,11 +173,11 @@ export interface PartnerAppArgs {
     /**
      * The version of the PartnerApp.
      */
-    appVersion?: pulumi.Input<string>;
+    appVersion?: pulumi.Input<string | undefined>;
     /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
-    applicationConfig?: pulumi.Input<inputs.sagemaker.PartnerAppConfigArgs>;
+    applicationConfig?: pulumi.Input<inputs.sagemaker.PartnerAppConfigArgs | undefined>;
     /**
      * The Auth type of PartnerApp.
      */
@@ -185,15 +185,15 @@ export interface PartnerAppArgs {
     /**
      * The client token for the PartnerApp.
      */
-    clientToken?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
     /**
      * Enables automatic minor version upgrades for the PartnerApp.
      */
-    enableAutoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    enableAutoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Enables IAM Session based Identity for PartnerApp.
      */
-    enableIamSessionBasedIdentity?: pulumi.Input<boolean>;
+    enableIamSessionBasedIdentity?: pulumi.Input<boolean | undefined>;
     /**
      * The execution role for the user.
      */
@@ -201,19 +201,19 @@ export interface PartnerAppArgs {
     /**
      * The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
-    maintenanceConfig?: pulumi.Input<inputs.sagemaker.PartnerAppMaintenanceConfigArgs>;
+    maintenanceConfig?: pulumi.Input<inputs.sagemaker.PartnerAppMaintenanceConfigArgs | undefined>;
     /**
      * A name for the PartnerApp.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to apply to the PartnerApp.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The tier of the PartnerApp.
      */

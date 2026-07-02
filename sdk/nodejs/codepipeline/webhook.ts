@@ -158,15 +158,15 @@ export interface WebhookArgs {
     /**
      * The name of the webhook
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures a connection between the webhook that was created and the external tool with events to be detected.
      */
-    registerWithThirdParty?: pulumi.Input<boolean>;
+    registerWithThirdParty?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook.
      */
@@ -178,5 +178,5 @@ export interface WebhookArgs {
     /**
      * The version number of the pipeline to be connected to the trigger request.
      */
-    targetPipelineVersion?: pulumi.Input<number>;
+    targetPipelineVersion?: pulumi.Input<number | undefined>;
 }

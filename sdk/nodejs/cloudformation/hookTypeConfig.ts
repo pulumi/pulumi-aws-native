@@ -147,19 +147,19 @@ export interface HookTypeConfigArgs {
     /**
      * The configuration data for the extension, in this account and region.
      */
-    configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string | undefined>;
     /**
      * An alias by which to refer to this extension configuration data.
      */
-    configurationAlias?: pulumi.Input<enums.cloudformation.HookTypeConfigConfigurationAlias>;
+    configurationAlias?: pulumi.Input<enums.cloudformation.HookTypeConfigConfigurationAlias | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the type without version number.
      */
-    typeArn?: pulumi.Input<string>;
+    typeArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the type being registered.
      *
      * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
-    typeName?: pulumi.Input<string>;
+    typeName?: pulumi.Input<string | undefined>;
 }

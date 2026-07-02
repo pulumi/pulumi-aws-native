@@ -33,7 +33,7 @@ export interface GetAttributeGroupResult {
      */
     readonly attributes?: any;
     /**
-     * The description of the attribute group. 
+     * The description of the attribute group.
      */
     readonly description?: string;
     /**
@@ -41,7 +41,7 @@ export interface GetAttributeGroupResult {
      */
     readonly id?: string;
     /**
-     * The name of the attribute group. 
+     * The name of the attribute group.
      */
     readonly name?: string;
     /**

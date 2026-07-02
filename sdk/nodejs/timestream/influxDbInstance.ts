@@ -221,73 +221,73 @@ export interface InfluxDbInstanceArgs {
     /**
      * The allocated storage for the InfluxDB instance.
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * The bucket for the InfluxDB instance.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * The compute instance of the InfluxDB instance.
      */
-    dbInstanceType?: pulumi.Input<enums.timestream.InfluxDbInstanceDbInstanceType>;
+    dbInstanceType?: pulumi.Input<enums.timestream.InfluxDbInstanceDbInstanceType | undefined>;
     /**
      * The name of an existing InfluxDB parameter group.
      */
-    dbParameterGroupIdentifier?: pulumi.Input<string>;
+    dbParameterGroupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The storage type of the InfluxDB instance.
      */
-    dbStorageType?: pulumi.Input<enums.timestream.InfluxDbInstanceDbStorageType>;
+    dbStorageType?: pulumi.Input<enums.timestream.InfluxDbInstanceDbStorageType | undefined>;
     /**
      * Deployment type of the InfluxDB Instance.
      */
-    deploymentType?: pulumi.Input<enums.timestream.InfluxDbInstanceDeploymentType>;
+    deploymentType?: pulumi.Input<enums.timestream.InfluxDbInstanceDeploymentType | undefined>;
     /**
      * Configuration for sending logs to customer account from the InfluxDB instance.
      */
-    logDeliveryConfiguration?: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesArgs>;
+    logDeliveryConfiguration?: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesArgs | undefined>;
     /**
      * The maintenance schedule for the InfluxDB instance.
      */
-    maintenanceSchedule?: pulumi.Input<inputs.timestream.InfluxDbInstanceMaintenanceScheduleArgs>;
+    maintenanceSchedule?: pulumi.Input<inputs.timestream.InfluxDbInstanceMaintenanceScheduleArgs | undefined>;
     /**
      * The unique name that is associated with the InfluxDB instance.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network type of the InfluxDB Instance.
      */
-    networkType?: pulumi.Input<enums.timestream.InfluxDbInstanceNetworkType>;
+    networkType?: pulumi.Input<enums.timestream.InfluxDbInstanceNetworkType | undefined>;
     /**
      * The organization for the InfluxDB instance.
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * The password for the InfluxDB instance.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port number on which InfluxDB accepts connections.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Attach a public IP to the customer ENI.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this DB instance.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The username for the InfluxDB instance.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * A list of Amazon EC2 VPC security groups to associate with this InfluxDB instance.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of EC2 subnet IDs for this InfluxDB instance.
      */
-    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

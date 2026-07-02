@@ -182,12 +182,12 @@ export interface RouterOutputResourceArgs {
     /**
      * The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     configuration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2PropertiesArgs>;
     /**
      * The maintenance configuration settings applied to this router output.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.mediaconnect.RouterOutputResourceMaintenanceConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceMaintenanceConfiguration1PropertiesArgs>;
+    maintenanceConfiguration?: pulumi.Input<inputs.mediaconnect.RouterOutputResourceMaintenanceConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceMaintenanceConfiguration1PropertiesArgs | undefined>;
     /**
      * The maximum bitrate for the router output.
      */
@@ -195,11 +195,11 @@ export interface RouterOutputResourceArgs {
     /**
      * The name of the router output.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
      */
-    regionName?: pulumi.Input<string>;
+    regionName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the router output is configured for Regional or global routing.
      */
@@ -207,7 +207,7 @@ export interface RouterOutputResourceArgs {
     /**
      * Key-value pairs that can be used to tag this router output.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The tier level of the router output.
      */

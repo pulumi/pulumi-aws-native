@@ -119,19 +119,19 @@ export interface VpcPeeringConnectionArgs {
     /**
      * The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
      */
-    assumeRoleRegion?: pulumi.Input<string>;
+    assumeRoleRegion?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID of the owner of the accepter VPC.
      */
-    peerOwnerId?: pulumi.Input<string>;
+    peerOwnerId?: pulumi.Input<string | undefined>;
     /**
      * The Region code for the accepter VPC, if the accepter VPC is located in a Region other than the Region in which you make the request.
      */
-    peerRegion?: pulumi.Input<string>;
+    peerRegion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in another AWS account.
      */
-    peerRoleArn?: pulumi.Input<string>;
+    peerRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC with which you are creating the VPC peering connection. You must specify this parameter in the request.
      */
@@ -139,7 +139,7 @@ export interface VpcPeeringConnectionArgs {
     /**
      * Any tags assigned to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC.
      */

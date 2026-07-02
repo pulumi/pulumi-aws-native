@@ -98,9 +98,9 @@ export interface MeteredProductArgs {
     /**
      * The Amazon EC2 identifier of the license endpoint.
      */
-    licenseEndpointId?: pulumi.Input<string>;
+    licenseEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The product ID.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
 }

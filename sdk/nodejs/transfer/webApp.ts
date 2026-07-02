@@ -126,8 +126,8 @@ export interface WebAppArgs {
     /**
      * The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
      */
-    accessEndpoint?: pulumi.Input<string>;
-    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetailsArgs>;
+    accessEndpoint?: pulumi.Input<string | undefined>;
+    endpointDetails?: pulumi.Input<inputs.transfer.WebAppEndpointDetailsArgs | undefined>;
     /**
      * You can provide a structure that contains the details for the identity provider to use with your web app.
      *
@@ -137,19 +137,19 @@ export interface WebAppArgs {
     /**
      * Key-value pairs that can be used to group and search for web apps.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
      */
-    webAppCustomization?: pulumi.Input<inputs.transfer.WebAppCustomizationArgs>;
+    webAppCustomization?: pulumi.Input<inputs.transfer.WebAppCustomizationArgs | undefined>;
     /**
      * Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
      *
      * If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
      */
-    webAppEndpointPolicy?: pulumi.Input<enums.transfer.WebAppEndpointPolicy>;
+    webAppEndpointPolicy?: pulumi.Input<enums.transfer.WebAppEndpointPolicy | undefined>;
     /**
      * A union that contains the value for number of concurrent connections or the user sessions on your web app.
      */
-    webAppUnits?: pulumi.Input<inputs.transfer.WebAppUnitsPropertiesArgs>;
+    webAppUnits?: pulumi.Input<inputs.transfer.WebAppUnitsPropertiesArgs | undefined>;
 }

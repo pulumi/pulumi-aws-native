@@ -46,9 +46,9 @@ export interface GetDbClusterResult {
      */
     readonly dbClusterParameterGroupName?: string;
     /**
-     * The port number on which the DB instances in the DB cluster accept connections. 
+     * The port number on which the DB instances in the DB cluster accept connections.
      *
-     * If not specified, the default port used is `8182`. 
+     * If not specified, the default port used is `8182`.
      *
      * Note: `Port` property will soon be deprecated from this resource. Please update existing templates to rename it with new property `DBPort` having same functionalities.
      */

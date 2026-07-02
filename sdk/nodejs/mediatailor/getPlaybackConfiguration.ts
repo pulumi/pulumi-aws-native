@@ -47,7 +47,7 @@ export interface GetPlaybackConfigurationResult {
      */
     readonly cdnConfiguration?: outputs.mediatailor.PlaybackConfigurationCdnConfiguration;
     /**
-     * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+     * The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
      */
     readonly configurationAliases?: {[key: string]: any};
     /**

@@ -148,15 +148,15 @@ export interface TemplateArgs {
      * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
      */
     awsAccountId: pulumi.Input<string>;
-    definition?: pulumi.Input<inputs.quicksight.TemplateVersionDefinitionArgs>;
+    definition?: pulumi.Input<inputs.quicksight.TemplateVersionDefinitionArgs | undefined>;
     /**
      * A display name for the template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of resource permissions to be set on the template.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[] | undefined>;
     /**
      * The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
      *
@@ -164,11 +164,11 @@ export interface TemplateArgs {
      *
      * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
-    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
+    sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs | undefined>;
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
      */
@@ -176,9 +176,9 @@ export interface TemplateArgs {
     /**
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
-    validationStrategy?: pulumi.Input<inputs.quicksight.TemplateValidationStrategyArgs>;
+    validationStrategy?: pulumi.Input<inputs.quicksight.TemplateValidationStrategyArgs | undefined>;
     /**
      * A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
 }

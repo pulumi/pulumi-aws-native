@@ -220,7 +220,7 @@ export interface PortalArgs {
     /**
      * The additional encryption context of the portal.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The type of authentication integration points used when signing into the web portal. Defaults to `Standard` .
      *
@@ -236,60 +236,60 @@ export interface PortalArgs {
      *
      * `SSO` web portals are authenticated through SSOlong . They provide additional features, such as IdP-initiated authentication. Identity sources (including external identity provider integration) and other identity provider information must be configured in SSO . User and group assignment must be done through the WorkSpaces Secure Browser console. These cannot be configured in CloudFormation.
      */
-    authenticationType?: pulumi.Input<enums.workspacesweb.PortalAuthenticationType>;
+    authenticationType?: pulumi.Input<enums.workspacesweb.PortalAuthenticationType | undefined>;
     /**
      * The ARN of the browser settings that is associated with this web portal.
      */
-    browserSettingsArn?: pulumi.Input<string>;
+    browserSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The customer managed key of the web portal.
      *
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the data protection settings.
      */
-    dataProtectionSettingsArn?: pulumi.Input<string>;
+    dataProtectionSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the web portal.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The type and resources of the underlying instance.
      */
-    instanceType?: pulumi.Input<enums.workspacesweb.PortalInstanceType>;
+    instanceType?: pulumi.Input<enums.workspacesweb.PortalInstanceType | undefined>;
     /**
      * The ARN of the IP access settings that is associated with the web portal.
      */
-    ipAccessSettingsArn?: pulumi.Input<string>;
+    ipAccessSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of concurrent sessions for the portal.
      */
-    maxConcurrentSessions?: pulumi.Input<number>;
+    maxConcurrentSessions?: pulumi.Input<number | undefined>;
     /**
      * The ARN of the network settings that is associated with the web portal.
      */
-    networkSettingsArn?: pulumi.Input<string>;
-    portalCustomDomain?: pulumi.Input<string>;
+    networkSettingsArn?: pulumi.Input<string | undefined>;
+    portalCustomDomain?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the session logger that is associated with the portal.
      */
-    sessionLoggerArn?: pulumi.Input<string>;
+    sessionLoggerArn?: pulumi.Input<string | undefined>;
     /**
      * The tags to add to the web portal. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the trust store that is associated with the web portal.
      */
-    trustStoreArn?: pulumi.Input<string>;
+    trustStoreArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the user access logging settings that is associated with the web portal.
      */
-    userAccessLoggingSettingsArn?: pulumi.Input<string>;
+    userAccessLoggingSettingsArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the user settings that is associated with the web portal.
      */
-    userSettingsArn?: pulumi.Input<string>;
+    userSettingsArn?: pulumi.Input<string | undefined>;
 }

@@ -143,13 +143,13 @@ export interface PlaybackKeyPairArgs {
     /**
      * An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
      */
-    publicKeyMaterial?: pulumi.Input<string>;
+    publicKeyMaterial?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

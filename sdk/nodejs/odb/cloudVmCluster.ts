@@ -287,89 +287,89 @@ export interface CloudVmClusterArgs {
     /**
      * The unique identifier of the Exadata infrastructure that this VM cluster belongs to.
      */
-    cloudExadataInfrastructureId?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Grid Infrastructure (GI) cluster.
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The number of CPU cores enabled on the VM cluster.
      */
-    cpuCoreCount?: pulumi.Input<number>;
+    cpuCoreCount?: pulumi.Input<number | undefined>;
     /**
      * The set of diagnostic collection options enabled for the VM cluster.
      */
-    dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptionsArgs>;
+    dataCollectionOptions?: pulumi.Input<inputs.odb.CloudVmClusterDataCollectionOptionsArgs | undefined>;
     /**
      * The size of the data disk group, in terabytes (TB), that's allocated for the VM cluster.
      */
-    dataStorageSizeInTbs?: pulumi.Input<number>;
+    dataStorageSizeInTbs?: pulumi.Input<number | undefined>;
     /**
      * The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.
      */
-    dbNodeStorageSizeInGbs?: pulumi.Input<number>;
+    dbNodeStorageSizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The DB nodes that are implicitly created and managed as part of this VM Cluster.
      */
-    dbNodes?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterDbNodeArgs>[]>;
+    dbNodes?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterDbNodeArgs>[] | undefined>;
     /**
      * The list of database servers for the VM cluster.
      */
-    dbServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dbServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The user-friendly name for the VM cluster.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The software version of the Oracle Grid Infrastructure (GI) for the VM cluster.
      */
-    giVersion?: pulumi.Input<string>;
+    giVersion?: pulumi.Input<string | undefined>;
     /**
      * The host name for the VM cluster.
      */
-    hostname?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string | undefined>;
     /**
      * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
      */
-    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIamRoleArgs>[]>;
+    iamRoles?: pulumi.Input<pulumi.Input<inputs.odb.CloudVmClusterIamRoleArgs>[] | undefined>;
     /**
      * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
      */
-    isLocalBackupEnabled?: pulumi.Input<boolean>;
+    isLocalBackupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether the VM cluster is configured with a sparse disk group.
      */
-    isSparseDiskgroupEnabled?: pulumi.Input<boolean>;
+    isSparseDiskgroupEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Oracle license model applied to the VM cluster.
      */
-    licenseModel?: pulumi.Input<enums.odb.CloudVmClusterLicenseModel>;
+    licenseModel?: pulumi.Input<enums.odb.CloudVmClusterLicenseModel | undefined>;
     /**
      * The amount of memory, in gigabytes (GB), that's allocated for the VM cluster.
      */
-    memorySizeInGbs?: pulumi.Input<number>;
+    memorySizeInGbs?: pulumi.Input<number | undefined>;
     /**
      * The unique identifier of the ODB network for the VM cluster.
      */
-    odbNetworkId?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string | undefined>;
     /**
      * Property description not available.
      */
-    scanListenerPortTcp?: pulumi.Input<number>;
+    scanListenerPortTcp?: pulumi.Input<number | undefined>;
     /**
      * The public key portion of one or more key pairs used for SSH access to the VM cluster.
      */
-    sshPublicKeys?: pulumi.Input<pulumi.Input<string>[]>;
+    sshPublicKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The operating system version of the image chosen for the VM cluster.
      */
-    systemVersion?: pulumi.Input<string>;
+    systemVersion?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the Vm Cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The time zone of the VM cluster.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
 }

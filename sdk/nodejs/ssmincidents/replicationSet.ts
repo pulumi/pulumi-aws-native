@@ -90,7 +90,7 @@ export interface ReplicationSetArgs {
     /**
      * Determines if the replication set deletion protection is enabled or not. If deletion protection is enabled, you can't delete the last Region in the replication set.
      */
-    deletionProtected?: pulumi.Input<boolean>;
+    deletionProtected?: pulumi.Input<boolean | undefined>;
     /**
      * The ReplicationSet configuration.
      */
@@ -98,5 +98,5 @@ export interface ReplicationSetArgs {
     /**
      * The tags to apply to the replication set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

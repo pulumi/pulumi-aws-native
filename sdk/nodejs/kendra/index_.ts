@@ -151,15 +151,15 @@ export interface IndexArgs {
     /**
      * Capacity units
      */
-    capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnitsConfigurationArgs>;
+    capacityUnits?: pulumi.Input<inputs.kendra.IndexCapacityUnitsConfigurationArgs | undefined>;
     /**
      * A description for the index
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Document metadata configurations
      */
-    documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
+    documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[] | undefined>;
     /**
      * Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
      */
@@ -167,7 +167,7 @@ export interface IndexArgs {
     /**
      * The name of the index.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
      */
@@ -175,11 +175,11 @@ export interface IndexArgs {
     /**
      * Server side encryption configuration
      */
-    serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfigurationArgs>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.kendra.IndexServerSideEncryptionConfigurationArgs | undefined>;
     /**
      * Tags for labeling the index
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The user context policy.
      *
@@ -191,9 +191,9 @@ export interface IndexArgs {
      *
      * - Enables token-based user access control to filter search results on user context. All documents with no access control and all documents accessible to the user will be searchable and displayable.
      */
-    userContextPolicy?: pulumi.Input<enums.kendra.IndexUserContextPolicy>;
+    userContextPolicy?: pulumi.Input<enums.kendra.IndexUserContextPolicy | undefined>;
     /**
      * Defines the type of user token used for the index.
      */
-    userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[]>;
+    userTokenConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexUserTokenConfigurationArgs>[] | undefined>;
 }

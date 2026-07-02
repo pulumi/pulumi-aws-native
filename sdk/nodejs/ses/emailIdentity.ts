@@ -148,17 +148,17 @@ export interface EmailIdentityArgs {
     /**
      * Used to associate a configuration set with an email identity.
      */
-    configurationSetAttributes?: pulumi.Input<inputs.ses.EmailIdentityConfigurationSetAttributesArgs>;
+    configurationSetAttributes?: pulumi.Input<inputs.ses.EmailIdentityConfigurationSetAttributesArgs | undefined>;
     /**
      * An object that contains information about the DKIM attributes for the identity.
      */
-    dkimAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimAttributesArgs>;
+    dkimAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimAttributesArgs | undefined>;
     /**
      * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html) .
      *
      * You can only specify this object if the email identity is a domain, as opposed to an address.
      */
-    dkimSigningAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimSigningAttributesArgs>;
+    dkimSigningAttributes?: pulumi.Input<inputs.ses.EmailIdentityDkimSigningAttributesArgs | undefined>;
     /**
      * The email address or domain to verify.
      */
@@ -166,13 +166,13 @@ export interface EmailIdentityArgs {
     /**
      * Used to enable or disable feedback forwarding for an identity.
      */
-    feedbackAttributes?: pulumi.Input<inputs.ses.EmailIdentityFeedbackAttributesArgs>;
+    feedbackAttributes?: pulumi.Input<inputs.ses.EmailIdentityFeedbackAttributesArgs | undefined>;
     /**
      * Used to enable or disable the custom Mail-From domain configuration for an email identity.
      */
-    mailFromAttributes?: pulumi.Input<inputs.ses.EmailIdentityMailFromAttributesArgs>;
+    mailFromAttributes?: pulumi.Input<inputs.ses.EmailIdentityMailFromAttributesArgs | undefined>;
     /**
      * The tags (keys and values) associated with the email identity.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

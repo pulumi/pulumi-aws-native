@@ -129,11 +129,11 @@ export interface LinkArgs {
      *
      * > In the  and  Regions, the only supported option is to use custom labels, and the `$AccountName` , `$AccountEmail` , and `$AccountEmailNoDomain` variables all resolve as *account-id* instead of the specified variable.
      */
-    labelTemplate?: pulumi.Input<string>;
+    labelTemplate?: pulumi.Input<string | undefined>;
     /**
      * Use this structure to optionally create filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account.
      */
-    linkConfiguration?: pulumi.Input<inputs.oam.LinkConfigurationArgs>;
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkConfigurationArgs | undefined>;
     /**
      * An array of strings that define which types of data that the source account shares with the monitoring account. Valid values are `AWS::CloudWatch::Metric | AWS::Logs::LogGroup | AWS::XRay::Trace | AWS::ApplicationInsights::Application | AWS::InternetMonitor::Monitor` .
      */
@@ -145,5 +145,5 @@ export interface LinkArgs {
     /**
      * Tags to apply to the link
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

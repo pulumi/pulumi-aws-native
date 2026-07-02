@@ -182,11 +182,11 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The short name or full ARN of the cluster that hosts the Express service.
      */
-    cluster?: pulumi.Input<string>;
+    cluster?: pulumi.Input<string | undefined>;
     /**
      * The CPU allocation for tasks in this service revision.
      */
-    cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the task execution role for the service revision.
      */
@@ -194,7 +194,7 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The health check path for this service revision.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the infrastructure role that manages AWS resources for the Express service.
      */
@@ -202,11 +202,11 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The memory allocation for tasks in this service revision.
      */
-    memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string | undefined>;
     /**
      * The network configuration for tasks in this service revision.
      */
-    networkConfiguration?: pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfigurationArgs | undefined>;
     /**
      * The primary container configuration for this service revision.
      */
@@ -214,17 +214,17 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The auto-scaling configuration for this service revision.
      */
-    scalingTarget?: pulumi.Input<inputs.ecs.ExpressGatewayServiceExpressGatewayScalingTargetArgs>;
+    scalingTarget?: pulumi.Input<inputs.ecs.ExpressGatewayServiceExpressGatewayScalingTargetArgs | undefined>;
     /**
      * The name of the Express service.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * The metadata applied to the Express service.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The ARN of the task role for the service revision.
      */
-    taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string | undefined>;
 }

@@ -135,11 +135,11 @@ export interface AgentStatusArgs {
     /**
      * The description of the status.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display order of the status.
      */
-    displayOrder?: pulumi.Input<number>;
+    displayOrder?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -147,11 +147,11 @@ export interface AgentStatusArgs {
     /**
      * The name of the status.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A number indicating the reset order of the agent status.
      */
-    resetOrderNumber?: pulumi.Input<boolean>;
+    resetOrderNumber?: pulumi.Input<boolean | undefined>;
     /**
      * The state of the status.
      */
@@ -159,9 +159,9 @@ export interface AgentStatusArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of agent status.
      */
-    type?: pulumi.Input<enums.connect.AgentStatusType>;
+    type?: pulumi.Input<enums.connect.AgentStatusType | undefined>;
 }

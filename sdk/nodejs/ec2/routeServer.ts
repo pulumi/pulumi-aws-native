@@ -114,17 +114,17 @@ export interface RouteServerArgs {
     /**
      * Whether to enable persistent routes
      */
-    persistRoutes?: pulumi.Input<enums.ec2.RouteServerPersistRoutes>;
+    persistRoutes?: pulumi.Input<enums.ec2.RouteServerPersistRoutes | undefined>;
     /**
      * The duration of persistent routes in minutes
      */
-    persistRoutesDuration?: pulumi.Input<number>;
+    persistRoutesDuration?: pulumi.Input<number | undefined>;
     /**
      * Whether to enable SNS notifications
      */
-    snsNotificationsEnabled?: pulumi.Input<boolean>;
+    snsNotificationsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

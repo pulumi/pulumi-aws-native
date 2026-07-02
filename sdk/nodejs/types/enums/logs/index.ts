@@ -86,7 +86,7 @@ export const LogGroupClass = {
  * Specifies the log group class for this log group. There are two classes:
  *   +  The ``Standard`` log class supports all CWL features.
  *   +  The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.
- *   
+ *
  *  For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
  */
 export type LogGroupClass = (typeof LogGroupClass)[keyof typeof LogGroupClass];

@@ -153,29 +153,29 @@ export interface IpamArgs {
     /**
      * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
      */
-    defaultResourceDiscoveryOrganizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOrganizationalUnitExclusionArgs>[]>;
+    defaultResourceDiscoveryOrganizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOrganizationalUnitExclusionArgs>[] | undefined>;
     /**
      * The description for the IPAM.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Enable provisioning of GUA space in private pools.
      */
-    enablePrivateGua?: pulumi.Input<boolean>;
+    enablePrivateGua?: pulumi.Input<boolean | undefined>;
     /**
      * A metered account is an account that is charged for active IP addresses managed in IPAM
      */
-    meteredAccount?: pulumi.Input<enums.ec2.IpamMeteredAccount>;
+    meteredAccount?: pulumi.Input<enums.ec2.IpamMeteredAccount | undefined>;
     /**
      * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
      */
-    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOperatingRegionArgs>[]>;
+    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamOperatingRegionArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The tier of the IPAM.
      */
-    tier?: pulumi.Input<enums.ec2.IpamTier>;
+    tier?: pulumi.Input<enums.ec2.IpamTier | undefined>;
 }

@@ -110,15 +110,15 @@ export interface ModelArgs {
     /**
      * The content-type for the model, for example, "application/json".
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The description of the model.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the model.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema for the model. For application/json models, this should be JSON schema draft 4 model.
      *

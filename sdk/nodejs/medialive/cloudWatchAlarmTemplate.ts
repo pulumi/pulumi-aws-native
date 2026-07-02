@@ -201,11 +201,11 @@ export interface CloudWatchAlarmTemplateArgs {
     /**
      * The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
      */
-    datapointsToAlarm?: pulumi.Input<number>;
+    datapointsToAlarm?: pulumi.Input<number | undefined>;
     /**
      * A resource's optional description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The number of periods over which data is compared to the specified threshold.
      */
@@ -213,7 +213,7 @@ export interface CloudWatchAlarmTemplateArgs {
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    groupIdentifier?: pulumi.Input<string>;
+    groupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
      */
@@ -221,7 +221,7 @@ export interface CloudWatchAlarmTemplateArgs {
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The period, in seconds, over which the specified statistic is applied.
      */
@@ -230,7 +230,7 @@ export interface CloudWatchAlarmTemplateArgs {
      * The statistic to apply to the alarm's metric data.
      */
     statistic: pulumi.Input<enums.medialive.CloudWatchAlarmTemplateStatistic>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The resource type this template should dynamically generate CloudWatch metric alarms for.
      */

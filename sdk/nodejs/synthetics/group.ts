@@ -89,13 +89,13 @@ export interface GroupArgs {
     /**
      * Name of the group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARNs of the canaries that you want to associate with this group.
      */
-    resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of key-value pairs that are associated with the group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

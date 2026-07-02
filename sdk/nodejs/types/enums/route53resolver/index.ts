@@ -249,6 +249,6 @@ export const ResolverRuleTargetAddressProtocol = {
 } as const;
 
 /**
- * The protocol that you want to use to forward DNS queries. 
+ * The protocol that you want to use to forward DNS queries.
  */
 export type ResolverRuleTargetAddressProtocol = (typeof ResolverRuleTargetAddressProtocol)[keyof typeof ResolverRuleTargetAddressProtocol];

@@ -164,11 +164,11 @@ export interface DistributionTenantArgs {
     /**
      * The ID of the connection group for the distribution tenant. If you don't specify a connection group, CloudFront uses the default connection group.
      */
-    connectionGroupId?: pulumi.Input<string>;
+    connectionGroupId?: pulumi.Input<string | undefined>;
     /**
      * Customizations for the distribution tenant. For each distribution tenant, you can specify the geographic restrictions, and the Amazon Resource Names (ARNs) for the ACM certificate and WAF web ACL. These are specific values that you can override or disable from the multi-tenant distribution that was used to create the distribution tenant.
      */
-    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizationsArgs>;
+    customizations?: pulumi.Input<inputs.cloudfront.DistributionTenantCustomizationsArgs | undefined>;
     /**
      * The ID of the multi-tenant distribution.
      */
@@ -180,21 +180,21 @@ export interface DistributionTenantArgs {
     /**
      * Indicates whether the distribution tenant is in an enabled state. If disabled, the distribution tenant won't serve traffic.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * An object that represents the request for the Amazon CloudFront managed ACM certificate.
      */
-    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequestArgs>;
+    managedCertificateRequest?: pulumi.Input<inputs.cloudfront.DistributionTenantManagedCertificateRequestArgs | undefined>;
     /**
      * The name of the distribution tenant.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of parameter values to add to the resource. A parameter is specified as a key-value pair. A valid parameter value must exist for any parameter that is marked as required in the multi-tenant distribution.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTenantParameterArgs>[] | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

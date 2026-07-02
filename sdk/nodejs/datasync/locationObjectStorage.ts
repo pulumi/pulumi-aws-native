@@ -177,15 +177,15 @@ export interface LocationObjectStorageArgs {
     /**
      * Optional. The access key is used if credentials are required to access the self-managed object storage server.
      */
-    accessKey?: pulumi.Input<string>;
+    accessKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
      */
-    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the bucket on the self-managed object storage server.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
      *
@@ -195,39 +195,39 @@ export interface LocationObjectStorageArgs {
      *
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
-    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCmkSecretConfigArgs>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCmkSecretConfigArgs | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
-    customSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCustomSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCustomSecretConfigArgs | undefined>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
-    secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string | undefined>;
     /**
      * X.509 PEM content containing a certificate authority or chain to trust.
      */
-    serverCertificate?: pulumi.Input<string>;
+    serverCertificate?: pulumi.Input<string | undefined>;
     /**
      * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * The port that your self-managed server accepts inbound network traffic on.
      */
-    serverPort?: pulumi.Input<number>;
+    serverPort?: pulumi.Input<number | undefined>;
     /**
      * The protocol that the object storage server uses to communicate.
      */
-    serverProtocol?: pulumi.Input<enums.datasync.LocationObjectStorageServerProtocol>;
+    serverProtocol?: pulumi.Input<enums.datasync.LocationObjectStorageServerProtocol | undefined>;
     /**
      * The subdirectory in the self-managed object storage server that is used to read data from.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

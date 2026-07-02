@@ -143,7 +143,7 @@ export interface WorkspacesPoolArgs {
     /**
      * The persistent application settings for users of the pool.
      */
-    applicationSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolApplicationSettingsArgs>;
+    applicationSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolApplicationSettingsArgs | undefined>;
     /**
      * The identifier of the bundle used by the pool.
      */
@@ -155,7 +155,7 @@ export interface WorkspacesPoolArgs {
     /**
      * The description of the pool.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the directory used by the pool.
      */
@@ -163,14 +163,14 @@ export interface WorkspacesPoolArgs {
     /**
      * The name of the pool.
      */
-    poolName?: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The running mode of the pool.
      */
-    runningMode?: pulumi.Input<enums.workspaces.WorkspacesPoolRunningMode>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    runningMode?: pulumi.Input<enums.workspaces.WorkspacesPoolRunningMode | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
      */
-    timeoutSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolTimeoutSettingsArgs>;
+    timeoutSettings?: pulumi.Input<inputs.workspaces.WorkspacesPoolTimeoutSettingsArgs | undefined>;
 }

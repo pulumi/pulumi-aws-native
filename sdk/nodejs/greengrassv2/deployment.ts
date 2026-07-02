@@ -123,23 +123,23 @@ export interface DeploymentArgs {
     /**
      * The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
      */
-    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.greengrassv2.DeploymentComponentDeploymentSpecificationArgs>}>;
+    components?: pulumi.Input<{[key: string]: pulumi.Input<inputs.greengrassv2.DeploymentComponentDeploymentSpecificationArgs>} | undefined>;
     /**
      * The name of the deployment.
      */
-    deploymentName?: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
      */
-    deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs>;
+    deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs | undefined>;
     /**
      * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
      */
-    iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs>;
+    iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs | undefined>;
     /**
      * The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
      */
-    parentTargetArn?: pulumi.Input<string>;
+    parentTargetArn?: pulumi.Input<string | undefined>;
     /**
      * Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
      *
@@ -150,7 +150,7 @@ export interface DeploymentArgs {
      * }
      * ```
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of the target AWS IoT thing or thing group.
      */

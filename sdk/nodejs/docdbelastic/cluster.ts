@@ -218,7 +218,7 @@ export interface ClusterArgs {
      * - Cannot contain a forward slash (/), double quote ("), or the "at" symbol (@).
      * - A valid `AdminUserName` entry is also required.
      */
-    adminUserPassword?: pulumi.Input<string>;
+    adminUserPassword?: pulumi.Input<string | undefined>;
     /**
      * The authentication type used to determine where to fetch the password used for accessing the elastic cluster. Valid types are `PLAIN_TEXT` or `SECRET_ARN` .
      */
@@ -226,7 +226,7 @@ export interface ClusterArgs {
     /**
      * The number of days for which automatic snapshots are retained.
      */
-    backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The name of the new elastic cluster. This parameter is stored as a lowercase string.
      *
@@ -238,7 +238,7 @@ export interface ClusterArgs {
      *
      * *Example* : `my-cluster`
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The KMS key identifier to use to encrypt the new elastic cluster.
      *
@@ -246,11 +246,11 @@ export interface ClusterArgs {
      *
      * If an encryption key is not specified, Amazon DocumentDB uses the default encryption key that KMS creates for your account. Your account has a different default encryption key for each Amazon Region.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled, as determined by `backupRetentionPeriod` .
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      *
@@ -262,7 +262,7 @@ export interface ClusterArgs {
      *
      * *Constraints* : Minimum 30-minute window.
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * The number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64.
      */
@@ -274,17 +274,17 @@ export interface ClusterArgs {
     /**
      * The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
      */
-    shardInstanceCount?: pulumi.Input<number>;
+    shardInstanceCount?: pulumi.Input<number | undefined>;
     /**
      * The Amazon EC2 subnet IDs for the new elastic cluster.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags to be assigned to the new elastic cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A list of EC2 VPC security groups to associate with the new elastic cluster.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -182,7 +182,7 @@ export interface IdentityProviderArgs {
     /**
      * The identity provider name.
      */
-    identityProviderName?: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * The identity provider type.
      */
@@ -190,6 +190,6 @@ export interface IdentityProviderArgs {
     /**
      * The ARN of the identity provider.
      */
-    portalArn?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    portalArn?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

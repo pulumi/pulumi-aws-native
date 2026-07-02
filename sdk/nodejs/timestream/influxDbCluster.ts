@@ -227,77 +227,77 @@ export interface InfluxDbClusterArgs {
     /**
      * The allocated storage for the InfluxDB cluster.
      */
-    allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number | undefined>;
     /**
      * The bucket for the InfluxDB cluster.
      */
-    bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string | undefined>;
     /**
      * The compute instance of the InfluxDB cluster.
      */
-    dbInstanceType?: pulumi.Input<enums.timestream.InfluxDbClusterDbInstanceType>;
+    dbInstanceType?: pulumi.Input<enums.timestream.InfluxDbClusterDbInstanceType | undefined>;
     /**
      * The name of an existing InfluxDB parameter group.
      */
-    dbParameterGroupIdentifier?: pulumi.Input<string>;
+    dbParameterGroupIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The storage type of the InfluxDB cluster.
      */
-    dbStorageType?: pulumi.Input<enums.timestream.InfluxDbClusterDbStorageType>;
+    dbStorageType?: pulumi.Input<enums.timestream.InfluxDbClusterDbStorageType | undefined>;
     /**
      * Deployment type of the InfluxDB cluster.
      */
-    deploymentType?: pulumi.Input<enums.timestream.InfluxDbClusterDeploymentType>;
+    deploymentType?: pulumi.Input<enums.timestream.InfluxDbClusterDeploymentType | undefined>;
     /**
      * Failover mode of the InfluxDB cluster.
      */
-    failoverMode?: pulumi.Input<enums.timestream.InfluxDbClusterFailoverMode>;
+    failoverMode?: pulumi.Input<enums.timestream.InfluxDbClusterFailoverMode | undefined>;
     /**
      * Configuration for sending logs to customer account from the InfluxDB cluster.
      */
-    logDeliveryConfiguration?: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesArgs>;
+    logDeliveryConfiguration?: pulumi.Input<inputs.timestream.LogDeliveryConfigurationPropertiesArgs | undefined>;
     /**
      * The maintenance schedule for the InfluxDB cluster.
      */
-    maintenanceSchedule?: pulumi.Input<inputs.timestream.InfluxDbClusterMaintenanceScheduleArgs>;
+    maintenanceSchedule?: pulumi.Input<inputs.timestream.InfluxDbClusterMaintenanceScheduleArgs | undefined>;
     /**
      * The unique name that is associated with the InfluxDB cluster.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network type of the InfluxDB cluster.
      */
-    networkType?: pulumi.Input<enums.timestream.InfluxDbClusterNetworkType>;
+    networkType?: pulumi.Input<enums.timestream.InfluxDbClusterNetworkType | undefined>;
     /**
      * The organization for the InfluxDB cluster.
      */
-    organization?: pulumi.Input<string>;
+    organization?: pulumi.Input<string | undefined>;
     /**
      * The password for the InfluxDB cluster.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The port number on which InfluxDB accepts connections.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * Attach a public IP to the customer ENI.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this DB cluster.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The username for the InfluxDB cluster.
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
     /**
      * A list of Amazon EC2 VPC security groups to associate with this InfluxDB cluster.
      */
-    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A list of EC2 subnet IDs for this InfluxDB cluster.
      */
-    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

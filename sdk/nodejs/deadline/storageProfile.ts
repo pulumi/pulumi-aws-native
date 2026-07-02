@@ -116,7 +116,7 @@ export interface StorageProfileArgs {
     /**
      * Operating system specific file system path to the storage location.
      */
-    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.deadline.StorageProfileFileSystemLocationArgs>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.deadline.StorageProfileFileSystemLocationArgs>[] | undefined>;
     /**
      * The operating system (OS) family.
      */

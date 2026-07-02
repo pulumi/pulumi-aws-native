@@ -95,17 +95,17 @@ export interface UsageProfileArgs {
     /**
      * UsageProfile configuration for supported service ex: (Jobs, Sessions).
      */
-    configuration?: pulumi.Input<inputs.glue.UsageProfileProfileConfigurationArgs>;
+    configuration?: pulumi.Input<inputs.glue.UsageProfileProfileConfigurationArgs | undefined>;
     /**
      * The description of the UsageProfile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the UsageProfile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to be applied to this UsageProfiles.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

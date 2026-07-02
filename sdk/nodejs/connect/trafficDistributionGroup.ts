@@ -110,7 +110,7 @@ export interface TrafficDistributionGroupArgs {
     /**
      * A description for the traffic distribution group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance that has been replicated.
      */
@@ -118,9 +118,9 @@ export interface TrafficDistributionGroupArgs {
     /**
      * The name for the traffic distribution group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -110,7 +110,7 @@ export interface ConfigurationArgs {
     /**
      * The description of the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The [versions of Apache Kafka](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) with which you can use this MSK configuration.
      *
@@ -120,15 +120,15 @@ export interface ConfigurationArgs {
      *
      * For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
      */
-    kafkaVersionsList?: pulumi.Input<pulumi.Input<string>[]>;
+    kafkaVersionsList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Latest revision of the MSK configuration.
      */
-    latestRevision?: pulumi.Input<inputs.msk.ConfigurationLatestRevisionArgs>;
+    latestRevision?: pulumi.Input<inputs.msk.ConfigurationLatestRevisionArgs | undefined>;
     /**
      * The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
      */

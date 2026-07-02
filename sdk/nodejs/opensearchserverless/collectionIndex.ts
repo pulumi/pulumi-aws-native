@@ -87,9 +87,9 @@ export interface CollectionIndexArgs {
     /**
      * The name of the collection index
      */
-    indexName?: pulumi.Input<string>;
+    indexName?: pulumi.Input<string | undefined>;
     /**
      * The Mappings for the collection index
      */
-    indexSchema?: pulumi.Input<string>;
+    indexSchema?: pulumi.Input<string | undefined>;
 }

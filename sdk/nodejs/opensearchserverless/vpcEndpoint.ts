@@ -128,11 +128,11 @@ export interface VpcEndpointArgs {
     /**
      * The name of the VPC Endpoint
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of one or more subnets in which to create an endpoint network interface
      */

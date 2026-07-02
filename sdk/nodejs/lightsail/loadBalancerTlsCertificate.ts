@@ -116,7 +116,7 @@ export interface LoadBalancerTlsCertificateArgs {
     /**
      * An array of strings listing alternative domains and subdomains for your SSL/TLS certificate.
      */
-    certificateAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
+    certificateAlternativeNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The domain name (e.g., example.com ) for your SSL/TLS certificate.
      */
@@ -124,15 +124,15 @@ export interface LoadBalancerTlsCertificateArgs {
     /**
      * The SSL/TLS certificate name.
      */
-    certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
      */
-    httpsRedirectionEnabled?: pulumi.Input<boolean>;
+    httpsRedirectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
      */
-    isAttached?: pulumi.Input<boolean>;
+    isAttached?: pulumi.Input<boolean | undefined>;
     /**
      * The name of your load balancer.
      */

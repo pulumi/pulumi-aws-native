@@ -218,63 +218,63 @@ export interface JobArgs {
     /**
      * One or more artifacts that represent the AWS Glue Data Catalog output from running the job.
      */
-    dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDataCatalogOutputArgs>[]>;
+    dataCatalogOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDataCatalogOutputArgs>[] | undefined>;
     /**
      * Represents a list of JDBC database output objects which defines the output destination for a DataBrew recipe job to write into.
      */
-    databaseOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDatabaseOutputArgs>[]>;
+    databaseOutputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobDatabaseOutputArgs>[] | undefined>;
     /**
      * Dataset name
      */
-    datasetName?: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * Encryption Key Arn
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Encryption mode
      */
-    encryptionMode?: pulumi.Input<enums.databrew.JobEncryptionMode>;
+    encryptionMode?: pulumi.Input<enums.databrew.JobEncryptionMode | undefined>;
     /**
      * Job Sample
      */
-    jobSample?: pulumi.Input<inputs.databrew.JobSampleArgs>;
+    jobSample?: pulumi.Input<inputs.databrew.JobSampleArgs | undefined>;
     /**
      * Log subscription
      */
-    logSubscription?: pulumi.Input<enums.databrew.JobLogSubscription>;
+    logSubscription?: pulumi.Input<enums.databrew.JobLogSubscription | undefined>;
     /**
      * Max capacity
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * Max retries
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * Job name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Output location
      */
-    outputLocation?: pulumi.Input<inputs.databrew.JobOutputLocationArgs>;
+    outputLocation?: pulumi.Input<inputs.databrew.JobOutputLocationArgs | undefined>;
     /**
      * One or more artifacts that represent output from running the job.
      */
-    outputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobOutputArgs>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.databrew.JobOutputArgs>[] | undefined>;
     /**
      * Profile Job configuration
      */
-    profileConfiguration?: pulumi.Input<inputs.databrew.JobProfileConfigurationArgs>;
+    profileConfiguration?: pulumi.Input<inputs.databrew.JobProfileConfigurationArgs | undefined>;
     /**
      * Project name
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * A series of data transformation steps that the job runs.
      */
-    recipe?: pulumi.Input<inputs.databrew.JobRecipeArgs>;
+    recipe?: pulumi.Input<inputs.databrew.JobRecipeArgs | undefined>;
     /**
      * Role arn
      */
@@ -282,11 +282,11 @@ export interface JobArgs {
     /**
      * Metadata tags that have been applied to the job.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Timeout
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Job type
      */
@@ -294,5 +294,5 @@ export interface JobArgs {
     /**
      * Data quality rules configuration
      */
-    validationConfigurations?: pulumi.Input<pulumi.Input<inputs.databrew.JobValidationConfigurationArgs>[]>;
+    validationConfigurations?: pulumi.Input<pulumi.Input<inputs.databrew.JobValidationConfigurationArgs>[] | undefined>;
 }

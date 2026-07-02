@@ -98,5 +98,5 @@ export interface ResourcePolicyArgs {
     /**
      * A list of tags that you want to attach to the resource policy
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

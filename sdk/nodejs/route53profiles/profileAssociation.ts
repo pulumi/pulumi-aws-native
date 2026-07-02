@@ -107,11 +107,11 @@ export interface ProfileAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the profile association.
      */
-    arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string | undefined>;
     /**
      * The name of an association between a  Profile and a VPC.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the  profile that you associated with the resource that is specified by ResourceId.
      */
@@ -123,5 +123,5 @@ export interface ProfileAssociationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }
