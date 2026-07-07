@@ -33,3 +33,10 @@ aws-cloudformation-docs/
 
 # Local runtime artifacts (logs, temp files, etc.)
 .runtime/
+
+# CLI extraction dirs left in the workspace by pulumi/esc-action when it
+# installs the Pulumi/ESC CLI (e.g. pulumi-ktEWvw/, esc-VgHq48/). Without
+# this, create-pull-request's `git add -A` commits the >100MB pulumi binary
+# and the push is rejected by GitHub's file-size limit.
+/pulumi-*/
+/esc-*/
