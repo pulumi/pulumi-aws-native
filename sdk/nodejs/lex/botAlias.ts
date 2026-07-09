@@ -134,15 +134,15 @@ export interface BotAliasArgs {
     /**
      * Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
      */
-    botAliasLocaleSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasLocaleSettingsItemArgs>[]>;
+    botAliasLocaleSettings?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasLocaleSettingsItemArgs>[] | undefined>;
     /**
      * The name of the bot alias.
      */
-    botAliasName?: pulumi.Input<string>;
+    botAliasName?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to add to the bot alias.
      */
-    botAliasTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    botAliasTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unique identifier of the bot.
      */
@@ -150,17 +150,17 @@ export interface BotAliasArgs {
     /**
      * The version of the bot that the bot alias references.
      */
-    botVersion?: pulumi.Input<string>;
+    botVersion?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
      */
-    conversationLogSettings?: pulumi.Input<inputs.lex.BotAliasConversationLogSettingsArgs>;
+    conversationLogSettings?: pulumi.Input<inputs.lex.BotAliasConversationLogSettingsArgs | undefined>;
     /**
      * The description of the bot alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
      */
-    sentimentAnalysisSettings?: pulumi.Input<inputs.lex.SentimentAnalysisSettingsPropertiesArgs>;
+    sentimentAnalysisSettings?: pulumi.Input<inputs.lex.SentimentAnalysisSettingsPropertiesArgs | undefined>;
 }

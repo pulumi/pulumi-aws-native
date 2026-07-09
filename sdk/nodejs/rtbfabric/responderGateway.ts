@@ -165,21 +165,21 @@ export class ResponderGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ResponderGateway resource.
  */
 export interface ResponderGatewayArgs {
-    acmCertificateArn?: pulumi.Input<string>;
+    acmCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * An optional description for the responder gateway.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The domain name for the responder gateway.
      */
-    domainName?: pulumi.Input<string>;
-    gatewayType?: pulumi.Input<enums.rtbfabric.ResponderGatewayGatewayType>;
-    listenerConfig?: pulumi.Input<inputs.rtbfabric.ResponderGatewayListenerConfigArgs>;
+    domainName?: pulumi.Input<string | undefined>;
+    gatewayType?: pulumi.Input<enums.rtbfabric.ResponderGatewayGatewayType | undefined>;
+    listenerConfig?: pulumi.Input<inputs.rtbfabric.ResponderGatewayListenerConfigArgs | undefined>;
     /**
      * The configuration for the managed endpoint.
      */
-    managedEndpointConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayManagedEndpointConfigurationArgs>;
+    managedEndpointConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayManagedEndpointConfigurationArgs | undefined>;
     /**
      * The networking port to use.
      */
@@ -199,11 +199,11 @@ export interface ResponderGatewayArgs {
     /**
      * A map of the key-value pairs of the tag or tags to assign to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The configuration of the trust store.
      */
-    trustStoreConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayTrustStoreConfigurationArgs>;
+    trustStoreConfiguration?: pulumi.Input<inputs.rtbfabric.ResponderGatewayTrustStoreConfigurationArgs | undefined>;
     /**
      * The unique identifier of the Virtual Private Cloud (VPC).
      */

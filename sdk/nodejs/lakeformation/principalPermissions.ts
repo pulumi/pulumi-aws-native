@@ -119,7 +119,7 @@ export interface PrincipalPermissionsArgs {
     /**
      * The identifier for the GLUDC. By default, the account ID. The GLUDC is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      */
-    catalog?: pulumi.Input<string>;
+    catalog?: pulumi.Input<string | undefined>;
     /**
      * The permissions granted or revoked.
      */

@@ -176,40 +176,40 @@ export interface RuleArgs {
     /**
      * The description of the rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
      */
-    eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string | undefined>;
     /**
      * The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Rule` for more information about the expected schema for this property.
      */
-    eventPattern?: any;
+    eventPattern?: any | undefined;
     /**
      * The name of the rule.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the role that is used for target invocation.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
      */
-    scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string | undefined>;
     /**
      * The state of the rule.
      */
-    state?: pulumi.Input<enums.events.RuleState>;
+    state?: pulumi.Input<enums.events.RuleState | undefined>;
     /**
      * Any tags assigned to the event rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
      * Targets are the resources that are invoked when a rule is triggered.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.events.RuleTargetArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.events.RuleTargetArgs>[] | undefined>;
 }

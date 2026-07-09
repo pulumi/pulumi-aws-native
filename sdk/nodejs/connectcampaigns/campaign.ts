@@ -118,7 +118,7 @@ export interface CampaignArgs {
     /**
      * Amazon Connect Campaign Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the outbound call configuration.
      */
@@ -126,5 +126,5 @@ export interface CampaignArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -84,5 +84,5 @@ export interface StorageLensArgs {
     /**
      * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

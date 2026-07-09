@@ -175,17 +175,17 @@ export interface ConnectionArgs {
     /**
      * The name of the connection. Connection names must be unique in an AWS user account.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
      */
-    hostArn?: pulumi.Input<string>;
+    hostArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
      */
-    providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the tags applied to a connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

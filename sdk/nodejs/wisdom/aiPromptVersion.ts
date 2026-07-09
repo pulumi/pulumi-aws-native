@@ -112,5 +112,5 @@ export interface AiPromptVersionArgs {
     /**
      * The time the AI Prompt version was last modified in seconds.
      */
-    modifiedTimeSeconds?: pulumi.Input<number>;
+    modifiedTimeSeconds?: pulumi.Input<number | undefined>;
 }

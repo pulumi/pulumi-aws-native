@@ -122,11 +122,11 @@ export interface InstanceAccessControlAttributeConfigurationArgs {
     /**
      * Lists the attributes that are configured for ABAC in the specified  instance.
      */
-    accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
+    accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[] | undefined>;
     /**
      * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
      */
-    instanceAccessControlAttributeConfiguration?: pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationPropertiesArgs>;
+    instanceAccessControlAttributeConfiguration?: pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationPropertiesArgs | undefined>;
     /**
      * The ARN of the AWS SSO instance under which the operation will be executed.
      */

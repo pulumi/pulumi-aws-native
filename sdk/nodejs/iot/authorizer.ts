@@ -134,21 +134,21 @@ export interface AuthorizerArgs {
     /**
      * The authorizer name.
      */
-    authorizerName?: pulumi.Input<string>;
+    authorizerName?: pulumi.Input<string | undefined>;
     /**
      * When `true` , the result from the authorizer's Lambda function is cached for clients that use persistent HTTP connections. The results are cached for the time specified by the Lambda function in `refreshAfterInSeconds` . This value doesn't affect authorization of clients that use MQTT connections.
      */
-    enableCachingForHttp?: pulumi.Input<boolean>;
+    enableCachingForHttp?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether AWS IoT validates the token signature in an authorization request.
      */
-    signingDisabled?: pulumi.Input<boolean>;
+    signingDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The status of the authorizer.
      *
      * Valid values: `ACTIVE` | `INACTIVE`
      */
-    status?: pulumi.Input<enums.iot.AuthorizerStatus>;
+    status?: pulumi.Input<enums.iot.AuthorizerStatus | undefined>;
     /**
      * Metadata which can be used to manage the custom authorizer.
      *
@@ -158,13 +158,13 @@ export interface AuthorizerArgs {
      * > 
      * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The key used to extract the token from the HTTP headers.
      */
-    tokenKeyName?: pulumi.Input<string>;
+    tokenKeyName?: pulumi.Input<string | undefined>;
     /**
      * The public keys used to validate the token signature returned by your custom authentication service.
      */
-    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tokenSigningPublicKeys?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

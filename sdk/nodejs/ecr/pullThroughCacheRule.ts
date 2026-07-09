@@ -124,25 +124,25 @@ export interface PullThroughCacheRuleArgs {
     /**
      * The ARN of the Secrets Manager secret associated with the pull through cache rule.
      */
-    credentialArn?: pulumi.Input<string>;
+    credentialArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role associated with the pull through cache rule.
      */
-    customRoleArn?: pulumi.Input<string>;
+    customRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon ECR repository prefix associated with the pull through cache rule.
      */
-    ecrRepositoryPrefix?: pulumi.Input<string>;
+    ecrRepositoryPrefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the upstream source registry associated with the pull through cache rule.
      */
-    upstreamRegistry?: pulumi.Input<string>;
+    upstreamRegistry?: pulumi.Input<string | undefined>;
     /**
      * The upstream registry URL associated with the pull through cache rule.
      */
-    upstreamRegistryUrl?: pulumi.Input<string>;
+    upstreamRegistryUrl?: pulumi.Input<string | undefined>;
     /**
      * The upstream repository prefix associated with the pull through cache rule.
      */
-    upstreamRepositoryPrefix?: pulumi.Input<string>;
+    upstreamRepositoryPrefix?: pulumi.Input<string | undefined>;
 }

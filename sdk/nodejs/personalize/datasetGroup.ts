@@ -115,17 +115,17 @@ export interface DatasetGroupArgs {
     /**
      * The domain of a Domain dataset group.
      */
-    domain?: pulumi.Input<enums.personalize.DatasetGroupDomain>;
+    domain?: pulumi.Input<enums.personalize.DatasetGroupDomain | undefined>;
     /**
      * The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The name for the new dataset group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }

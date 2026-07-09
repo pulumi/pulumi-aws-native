@@ -130,13 +130,13 @@ export interface StorageSystemArgs {
     /**
      * The ARN of the Amazon CloudWatch log group used to monitor and log discovery job events.
      */
-    cloudWatchLogGroupArn?: pulumi.Input<string>;
+    cloudWatchLogGroupArn?: pulumi.Input<string | undefined>;
     /**
      * A familiar name for the on-premises storage system.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     serverConfiguration: pulumi.Input<inputs.datasync.StorageSystemServerConfigurationArgs>;
-    serverCredentials?: pulumi.Input<inputs.datasync.StorageSystemServerCredentialsArgs>;
+    serverCredentials?: pulumi.Input<inputs.datasync.StorageSystemServerCredentialsArgs | undefined>;
     /**
      * The type of on-premises storage system that DataSync Discovery will analyze.
      */
@@ -144,5 +144,5 @@ export interface StorageSystemArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

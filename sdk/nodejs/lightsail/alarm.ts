@@ -155,7 +155,7 @@ export interface AlarmArgs {
     /**
      * The name for the alarm. Specify the name of an existing alarm to update, and overwrite the previous configuration of the alarm.
      */
-    alarmName?: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string | undefined>;
     /**
      * The arithmetic operation to use when comparing the specified statistic to the threshold. The specified statistic value is used as the first operand.
      */
@@ -163,11 +163,11 @@ export interface AlarmArgs {
     /**
      * The contact protocols to use for the alarm, such as Email, SMS (text messaging), or both.
      */
-    contactProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    contactProtocols?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of data points that must be not within the specified threshold to trigger the alarm. If you are setting an "M out of N" alarm, this value (datapointsToAlarm) is the M.
      */
-    datapointsToAlarm?: pulumi.Input<number>;
+    datapointsToAlarm?: pulumi.Input<number | undefined>;
     /**
      * The number of most recent periods over which data is compared to the specified threshold. If you are setting an "M out of N" alarm, this value (evaluationPeriods) is the N.
      */
@@ -183,11 +183,11 @@ export interface AlarmArgs {
     /**
      * Indicates whether the alarm is enabled. Notifications are enabled by default if you don't specify this parameter.
      */
-    notificationEnabled?: pulumi.Input<boolean>;
+    notificationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The alarm states that trigger a notification.
      */
-    notificationTriggers?: pulumi.Input<pulumi.Input<string>[]>;
+    notificationTriggers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The value against which the specified statistic is compared.
      */
@@ -195,5 +195,5 @@ export interface AlarmArgs {
     /**
      * Sets how this alarm will handle missing data points.
      */
-    treatMissingData?: pulumi.Input<string>;
+    treatMissingData?: pulumi.Input<string | undefined>;
 }

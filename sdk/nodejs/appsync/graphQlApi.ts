@@ -90,7 +90,7 @@ export class GraphQlApi extends pulumi.CustomResource {
      */
     declare public readonly logConfig: pulumi.Output<outputs.appsync.GraphQlApiLogConfig | undefined>;
     /**
-     * The AWS Identity and Access Management service role ARN for a merged API. 
+     * The AWS Identity and Access Management service role ARN for a merged API.
      */
     declare public readonly mergedApiExecutionRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -216,11 +216,11 @@ export interface GraphQlApiArgs {
     /**
      * A list of additional authentication providers for the GraphqlApi API.
      */
-    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQlApiAdditionalAuthenticationProviderArgs>[]>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQlApiAdditionalAuthenticationProviderArgs>[] | undefined>;
     /**
      * The value that indicates whether the GraphQL API is a standard API (GRAPHQL) or merged API (MERGED).
      */
-    apiType?: pulumi.Input<string>;
+    apiType?: pulumi.Input<string | undefined>;
     /**
      * Security configuration for your GraphQL API
      */
@@ -228,61 +228,61 @@ export interface GraphQlApiArgs {
     /**
      * Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data on API usage and performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data is sent to your CloudWatch account, and you can configure the types of data that will be sent.
      */
-    enhancedMetricsConfig?: pulumi.Input<inputs.appsync.GraphQlApiEnhancedMetricsConfigArgs>;
+    enhancedMetricsConfig?: pulumi.Input<inputs.appsync.GraphQlApiEnhancedMetricsConfigArgs | undefined>;
     /**
      * A map containing the list of resources with their properties and environment variables.
      */
-    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Sets the value of the GraphQL API to enable (ENABLED) or disable (DISABLED) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled.
      */
-    introspectionConfig?: pulumi.Input<string>;
+    introspectionConfig?: pulumi.Input<string | undefined>;
     /**
      * A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
      */
-    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQlApiLambdaAuthorizerConfigArgs>;
+    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQlApiLambdaAuthorizerConfigArgs | undefined>;
     /**
      * The Amazon CloudWatch Logs configuration.
      */
-    logConfig?: pulumi.Input<inputs.appsync.GraphQlApiLogConfigArgs>;
+    logConfig?: pulumi.Input<inputs.appsync.GraphQlApiLogConfigArgs | undefined>;
     /**
-     * The AWS Identity and Access Management service role ARN for a merged API. 
+     * The AWS Identity and Access Management service role ARN for a merged API.
      */
-    mergedApiExecutionRoleArn?: pulumi.Input<string>;
+    mergedApiExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The API name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The OpenID Connect configuration.
      */
-    openIdConnectConfig?: pulumi.Input<inputs.appsync.GraphQlApiOpenIdConnectConfigArgs>;
+    openIdConnectConfig?: pulumi.Input<inputs.appsync.GraphQlApiOpenIdConnectConfigArgs | undefined>;
     /**
      * The owner contact information for an API resource.
      */
-    ownerContact?: pulumi.Input<string>;
+    ownerContact?: pulumi.Input<string | undefined>;
     /**
      * The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query.
      */
-    queryDepthLimit?: pulumi.Input<number>;
+    queryDepthLimit?: pulumi.Input<number | undefined>;
     /**
      * The maximum number of resolvers that can be invoked in a single request.
      */
-    resolverCountLimit?: pulumi.Input<number>;
+    resolverCountLimit?: pulumi.Input<number | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this GraphQL API.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Optional authorization configuration for using Amazon Cognito user pools with your GraphQL endpoint.
      */
-    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQlApiUserPoolConfigArgs>;
+    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQlApiUserPoolConfigArgs | undefined>;
     /**
      * Sets the scope of the GraphQL API to public (GLOBAL) or private (PRIVATE). By default, the scope is set to Global if no value is provided.
      */
-    visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string | undefined>;
     /**
      * A flag indicating whether to use AWS X-Ray tracing for this GraphqlApi.
      */
-    xrayEnabled?: pulumi.Input<boolean>;
+    xrayEnabled?: pulumi.Input<boolean | undefined>;
 }

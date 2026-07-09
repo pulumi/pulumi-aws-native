@@ -117,33 +117,33 @@ export interface VpcEndpointServiceArgs {
     /**
      * Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
      */
-    acceptanceRequired?: pulumi.Input<boolean>;
+    acceptanceRequired?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether to enable the built-in Contributor Insights rules provided by AWS PrivateLink .
      */
-    contributorInsightsEnabled?: pulumi.Input<boolean>;
+    contributorInsightsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
      */
-    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Network Load Balancers.
      */
-    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
-    payerResponsibility?: pulumi.Input<string>;
+    payerResponsibility?: pulumi.Input<string | undefined>;
     /**
      * Specify which Ip Address types are supported for VPC endpoint service.
      */
-    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<enums.ec2.VpcEndpointServiceIpAddressType>[]>;
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<enums.ec2.VpcEndpointServiceIpAddressType>[] | undefined>;
     /**
      * The Regions from which service consumers can access the service.
      */
-    supportedRegions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags to add to the VPC endpoint service.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

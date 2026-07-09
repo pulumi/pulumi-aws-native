@@ -95,7 +95,7 @@ export interface IntegrationArgs {
     /**
      * User provided identifier for integration, unique to the user account.
      */
-    integrationName?: pulumi.Input<string>;
+    integrationName?: pulumi.Input<string | undefined>;
     /**
      * The type of the Integration.
      */

@@ -95,13 +95,13 @@ export interface RoutingControlArgs {
     /**
      * Arn associated with Control Panel
      */
-    clusterArn?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the control panel.
      */
-    controlPanelArn?: pulumi.Input<string>;
+    controlPanelArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the routing control. You can use any non-white space character in the name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

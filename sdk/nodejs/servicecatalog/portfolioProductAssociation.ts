@@ -86,17 +86,17 @@ export interface PortfolioProductAssociationArgs {
     /**
      * The language code.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The portfolio identifier.
      */
-    portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string | undefined>;
     /**
      * The product identifier.
      */
-    productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the source portfolio. The source portfolio must be a portfolio imported from a different account than the one creating the association. This account must have previously shared this portfolio with the account creating the association.
      */
-    sourcePortfolioId?: pulumi.Input<string>;
+    sourcePortfolioId?: pulumi.Input<string | undefined>;
 }

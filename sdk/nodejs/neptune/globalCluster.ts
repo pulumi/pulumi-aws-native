@@ -107,29 +107,29 @@ export interface GlobalClusterArgs {
     /**
      * Whether deletion protection is enabled.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the database engine.
      */
-    engine?: pulumi.Input<enums.neptune.GlobalClusterEngine>;
+    engine?: pulumi.Input<enums.neptune.GlobalClusterEngine | undefined>;
     /**
      * The version number of the database engine.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The cluster identifier of the global database cluster.
      */
-    globalClusterIdentifier?: pulumi.Input<string>;
+    globalClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an existing Neptune DB cluster to use as the primary cluster of the new global database.
      */
-    sourceDbClusterIdentifier?: pulumi.Input<string>;
+    sourceDbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Whether the global database cluster is storage encrypted.
      */
-    storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -221,11 +221,11 @@ export interface EnvironmentArgs {
     /**
      * The deployment order for the environment.
      */
-    deploymentOrder?: pulumi.Input<number>;
+    deploymentOrder?: pulumi.Input<number | undefined>;
     /**
      * The description of the Amazon DataZone environment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon DataZone domain in which the environment would be created.
      */
@@ -233,35 +233,35 @@ export interface EnvironmentArgs {
     /**
      * The AWS account in which the Amazon DataZone environment is created.
      */
-    environmentAccountIdentifier?: pulumi.Input<string>;
+    environmentAccountIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The AWS region in which the Amazon DataZone environment is created.
      */
-    environmentAccountRegion?: pulumi.Input<string>;
+    environmentAccountRegion?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the environment blueprint.
      */
-    environmentBlueprintIdentifier?: pulumi.Input<string>;
+    environmentBlueprintIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the environment configuration.
      */
-    environmentConfigurationId?: pulumi.Input<string>;
+    environmentConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment profile with which the Amazon DataZone environment would be created.
      */
-    environmentProfileIdentifier?: pulumi.Input<string>;
+    environmentProfileIdentifier?: pulumi.Input<string | undefined>;
     /**
      * Environment role arn for custom aws environment permissions
      */
-    environmentRoleArn?: pulumi.Input<string>;
+    environmentRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The glossary terms that can be used in the Amazon DataZone environment.
      */
-    glossaryTerms?: pulumi.Input<pulumi.Input<string>[]>;
+    glossaryTerms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone project in which the environment would be created.
      */
@@ -269,5 +269,5 @@ export interface EnvironmentArgs {
     /**
      * The user parameters of the Amazon DataZone environment.
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentParameterArgs>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentParameterArgs>[] | undefined>;
 }

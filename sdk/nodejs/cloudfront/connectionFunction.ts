@@ -143,7 +143,7 @@ export interface ConnectionFunctionArgs {
     /**
      * A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
      */
-    autoPublish?: pulumi.Input<boolean>;
+    autoPublish?: pulumi.Input<boolean | undefined>;
     /**
      * The code for the connection function.
      */
@@ -155,9 +155,9 @@ export interface ConnectionFunctionArgs {
     /**
      * The connection function name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

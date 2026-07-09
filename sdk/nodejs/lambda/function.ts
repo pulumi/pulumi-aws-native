@@ -330,7 +330,7 @@ export class Function extends pulumi.CustomResource {
      *   +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
      *   +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
      *   +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
-     *   
+     *
      *  If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
@@ -501,11 +501,11 @@ export interface FunctionArgs {
     /**
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
-    architectures?: pulumi.Input<pulumi.Input<enums.lambda.FunctionArchitecturesItem>[]>;
+    architectures?: pulumi.Input<pulumi.Input<enums.lambda.FunctionArchitecturesItem>[] | undefined>;
     /**
      * Configuration for the capacity provider that manages compute resources for Lambda functions.
      */
-    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfigArgs>;
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfigArgs | undefined>;
     /**
      * The code for the function. You can define your function code in multiple ways:
      *   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -516,86 +516,86 @@ export interface FunctionArgs {
     /**
      * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
      */
-    codeSigningConfigArn?: pulumi.Input<string>;
+    codeSigningConfigArn?: pulumi.Input<string | undefined>;
     /**
      * A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
      */
-    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfigArgs>;
+    deadLetterConfig?: pulumi.Input<inputs.lambda.FunctionDeadLetterConfigArgs | undefined>;
     /**
      * A description of the function.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
      */
-    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs>;
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs | undefined>;
     /**
      * Environment variables that are accessible from function code during execution.
      */
-    environment?: pulumi.Input<inputs.lambda.FunctionEnvironmentArgs>;
+    environment?: pulumi.Input<inputs.lambda.FunctionEnvironmentArgs | undefined>;
     /**
      * The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
      */
-    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorageArgs>;
+    ephemeralStorage?: pulumi.Input<inputs.lambda.FunctionEphemeralStorageArgs | undefined>;
     /**
      * Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
      *  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
      */
-    fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfigArgs>[]>;
+    fileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.FunctionFileSystemConfigArgs>[] | undefined>;
     /**
      * The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
      *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string | undefined>;
     /**
      * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
      */
-    functionScalingConfig?: pulumi.Input<inputs.lambda.FunctionScalingConfigArgs>;
+    functionScalingConfig?: pulumi.Input<inputs.lambda.FunctionScalingConfigArgs | undefined>;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
      */
-    handler?: pulumi.Input<string>;
+    handler?: pulumi.Input<string | undefined>;
     /**
      * Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
      */
-    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfigArgs>;
+    imageConfig?: pulumi.Input<inputs.lambda.FunctionImageConfigArgs | undefined>;
     /**
      * The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
      *   +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
      *   +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
      *   +  When used with ``SourceKMSKeyArn``, the unzipped version of the .zip deployment package that's used for function invocations. For more information, see [Specifying a customer managed key for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/encrypt-zip-package.html#enable-zip-custom-encryption).
      *   +  The optimized version of the container image that's used for function invocations. Note that this is not the same key that's used to protect your container image in the Amazon Elastic Container Registry (Amazon ECR). For more information, see [Function lifecycle](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-lifecycle).
-     *   
+     *
      *  If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
      */
-    layers?: pulumi.Input<pulumi.Input<string>[]>;
+    layers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The function's Amazon CloudWatch Logs configuration settings.
      */
-    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfigArgs>;
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfigArgs | undefined>;
     /**
      * The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
      */
-    memorySize?: pulumi.Input<number>;
+    memorySize?: pulumi.Input<number | undefined>;
     /**
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
-    packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
-    publishToLatestPublished?: pulumi.Input<boolean>;
+    packageType?: pulumi.Input<enums.lambda.FunctionPackageType | undefined>;
+    publishToLatestPublished?: pulumi.Input<boolean | undefined>;
     /**
      * The status of your function's recursive loop detection configuration.
      *  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
      *  When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
      */
-    recursiveLoop?: pulumi.Input<enums.lambda.FunctionRecursiveLoop>;
+    recursiveLoop?: pulumi.Input<enums.lambda.FunctionRecursiveLoop | undefined>;
     /**
      * The number of simultaneous executions to reserve for the function.
      */
-    reservedConcurrentExecutions?: pulumi.Input<number>;
+    reservedConcurrentExecutions?: pulumi.Input<number | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the function's execution role.
      */
@@ -605,34 +605,34 @@ export interface FunctionArgs {
      *  The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
      *  For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
      */
-    runtime?: pulumi.Input<string>;
+    runtime?: pulumi.Input<string | undefined>;
     /**
      * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
      */
-    runtimeManagementConfig?: pulumi.Input<inputs.lambda.FunctionRuntimeManagementConfigArgs>;
+    runtimeManagementConfig?: pulumi.Input<inputs.lambda.FunctionRuntimeManagementConfigArgs | undefined>;
     /**
      * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
      */
-    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStartArgs>;
+    snapStart?: pulumi.Input<inputs.lambda.FunctionSnapStartArgs | undefined>;
     /**
      * A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
      *   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
      */
-    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfigArgs>;
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfigArgs | undefined>;
     /**
      * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
      */
-    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfigArgs>;
+    tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfigArgs | undefined>;
     /**
      * For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.lambda.FunctionVpcConfigArgs | undefined>;
 }

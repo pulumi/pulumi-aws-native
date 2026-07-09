@@ -134,31 +134,31 @@ export interface AccessPointArgs {
     /**
      * The AWS account ID associated with the S3 bucket associated with this access point.
      */
-    bucketAccountId?: pulumi.Input<string>;
+    bucketAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Access Point Policy you want to apply to this access point.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3Express::AccessPoint` for more information about the expected schema for this property.
      */
-    policy?: any;
+    policy?: any | undefined;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Access Point.
      */
-    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3express.AccessPointPublicAccessBlockConfigurationArgs>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3express.AccessPointPublicAccessBlockConfigurationArgs | undefined>;
     /**
      * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
      */
-    scope?: pulumi.Input<inputs.s3express.AccessPointScopeArgs>;
+    scope?: pulumi.Input<inputs.s3express.AccessPointScopeArgs | undefined>;
     /**
      * An array of tags that you can apply to access points. Tags are key-value pairs of metadata used to categorize your access points and control access. For more information, see [Using tags for attribute-based access control (ABAC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tagging.html#using-tags-for-abac) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
-    vpcConfiguration?: pulumi.Input<inputs.s3express.AccessPointVpcConfigurationArgs>;
+    vpcConfiguration?: pulumi.Input<inputs.s3express.AccessPointVpcConfigurationArgs | undefined>;
 }

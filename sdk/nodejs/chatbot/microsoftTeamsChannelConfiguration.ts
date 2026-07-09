@@ -155,15 +155,15 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
     /**
      * The name of the configuration
      */
-    configurationName?: pulumi.Input<string>;
+    configurationName?: pulumi.Input<string | undefined>;
     /**
      * ARNs of Custom Actions to associate with notifications in the provided chat channel.
      */
-    customizationResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    customizationResourceArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */
-    guardrailPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    guardrailPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ARN of the IAM role that defines the permissions for AWS Chatbot
      */
@@ -171,15 +171,15 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
     /**
      * Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
      */
-    loggingLevel?: pulumi.Input<string>;
+    loggingLevel?: pulumi.Input<string | undefined>;
     /**
      * ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
      */
-    snsTopicArns?: pulumi.Input<pulumi.Input<string>[]>;
+    snsTopicArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags to add to the configuration
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The id of the Microsoft Teams team
      */
@@ -191,7 +191,7 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
     /**
      * The name of the Microsoft Teams channel
      */
-    teamsChannelName?: pulumi.Input<string>;
+    teamsChannelName?: pulumi.Input<string | undefined>;
     /**
      * The id of the Microsoft Teams tenant
      */
@@ -199,5 +199,5 @@ export interface MicrosoftTeamsChannelConfigurationArgs {
     /**
      * Enables use of a user role requirement in your chat configuration
      */
-    userRoleRequired?: pulumi.Input<boolean>;
+    userRoleRequired?: pulumi.Input<boolean | undefined>;
 }

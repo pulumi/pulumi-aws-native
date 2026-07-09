@@ -120,21 +120,21 @@ export interface RecordingConfigurationArgs {
     /**
      * Recording Configuration Name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Recording Reconnect Window Seconds. (0 means disabled)
      */
-    recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    recordingReconnectWindowSeconds?: pulumi.Input<number | undefined>;
     /**
      * A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
      */
-    renditionConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationRenditionConfigurationArgs>;
+    renditionConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationRenditionConfigurationArgs | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
      */
-    thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs>;
+    thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs | undefined>;
 }

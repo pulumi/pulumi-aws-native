@@ -133,35 +133,35 @@ export interface FolderArgs {
     /**
      * The ID for the AWS account where you want to create the folder.
      */
-    awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the folder.
      */
-    folderId?: pulumi.Input<string>;
+    folderId?: pulumi.Input<string | undefined>;
     /**
      * The type of folder it is.
      */
-    folderType?: pulumi.Input<enums.quicksight.FolderType>;
+    folderType?: pulumi.Input<enums.quicksight.FolderType | undefined>;
     /**
      * A display name for the folder.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the folder.
      */
-    parentFolderArn?: pulumi.Input<string>;
+    parentFolderArn?: pulumi.Input<string | undefined>;
     /**
      * A structure that describes the principals and the resource-level permissions of a folder.
      *
      * To specify no permissions, omit `Permissions` .
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderResourcePermissionArgs>[] | undefined>;
     /**
      * The sharing scope of the folder.
      */
-    sharingModel?: pulumi.Input<enums.quicksight.FolderSharingModel>;
+    sharingModel?: pulumi.Input<enums.quicksight.FolderSharingModel | undefined>;
     /**
      * A list of tags for the folders that you want to apply overrides to.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

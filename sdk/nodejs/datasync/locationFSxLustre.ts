@@ -132,7 +132,7 @@ export interface LocationFSxLustreArgs {
     /**
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
-    fsxFilesystemArn?: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
      * The ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */
@@ -140,9 +140,9 @@ export interface LocationFSxLustreArgs {
     /**
      * A subdirectory in the location's path.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

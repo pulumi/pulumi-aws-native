@@ -106,7 +106,7 @@ export interface FirewallPolicyArgs {
     /**
      * A description of the firewall policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The traffic filtering behavior of a firewall policy, defined in a collection of stateless and stateful rule groups and other settings.
      */
@@ -114,11 +114,11 @@ export interface FirewallPolicyArgs {
     /**
      * The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
      */
-    firewallPolicyName?: pulumi.Input<string>;
+    firewallPolicyName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

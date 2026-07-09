@@ -17,7 +17,7 @@ export function getVpcGatewayAttachment(args: GetVpcGatewayAttachmentArgs, opts?
 
 export interface GetVpcGatewayAttachmentArgs {
     /**
-     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
      */
     attachmentType: string;
     /**
@@ -28,7 +28,7 @@ export interface GetVpcGatewayAttachmentArgs {
 
 export interface GetVpcGatewayAttachmentResult {
     /**
-     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
      */
     readonly attachmentType?: string;
     /**
@@ -53,7 +53,7 @@ export function getVpcGatewayAttachmentOutput(args: GetVpcGatewayAttachmentOutpu
 
 export interface GetVpcGatewayAttachmentOutputArgs {
     /**
-     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
      */
     attachmentType: pulumi.Input<string>;
     /**

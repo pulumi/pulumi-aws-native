@@ -93,7 +93,7 @@ export interface BridgeOutputResourceArgs {
     /**
      * The network output name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The output of the bridge.
      */

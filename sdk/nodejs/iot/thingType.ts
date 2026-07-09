@@ -105,17 +105,17 @@ export interface ThingTypeArgs {
      *
      * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
      */
-    deprecateThingType?: pulumi.Input<boolean>;
+    deprecateThingType?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the thing type.
      */
-    thingTypeName?: pulumi.Input<string>;
+    thingTypeName?: pulumi.Input<string | undefined>;
     /**
      * The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
      */
-    thingTypeProperties?: pulumi.Input<inputs.iot.ThingTypePropertiesPropertiesArgs>;
+    thingTypeProperties?: pulumi.Input<inputs.iot.ThingTypePropertiesPropertiesArgs | undefined>;
 }

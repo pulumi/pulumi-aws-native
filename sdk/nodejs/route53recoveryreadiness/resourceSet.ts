@@ -46,7 +46,7 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     declare public readonly resourceSetName: pulumi.Output<string | undefined>;
     /**
-     * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
+     * The resource type of the resources in the resource set. Enter one of the following values for resource type:
      *
      * AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
      */
@@ -103,9 +103,9 @@ export interface ResourceSetArgs {
     /**
      * The name of the resource set to create.
      */
-    resourceSetName?: pulumi.Input<string>;
+    resourceSetName?: pulumi.Input<string | undefined>;
     /**
-     * The resource type of the resources in the resource set. Enter one of the following values for resource type: 
+     * The resource type of the resources in the resource set. Enter one of the following values for resource type:
      *
      * AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
      */
@@ -117,5 +117,5 @@ export interface ResourceSetArgs {
     /**
      * A tag to associate with the parameters for a resource set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

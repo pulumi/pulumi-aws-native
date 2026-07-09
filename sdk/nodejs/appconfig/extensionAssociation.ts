@@ -119,21 +119,21 @@ export interface ExtensionAssociationArgs {
     /**
      * The name, the ID, or the Amazon Resource Name (ARN) of the extension.
      */
-    extensionIdentifier?: pulumi.Input<string>;
+    extensionIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The version number of the extension. If not specified, AWS AppConfig uses the maximum version of the extension.
      */
-    extensionVersionNumber?: pulumi.Input<number>;
+    extensionVersionNumber?: pulumi.Input<number | undefined>;
     /**
      * The parameter names and values defined in the extensions. Extension parameters marked `Required` must be entered for this field.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ARN of an application, configuration profile, or environment.
      */
-    resourceIdentifier?: pulumi.Input<string>;
+    resourceIdentifier?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

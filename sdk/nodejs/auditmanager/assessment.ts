@@ -147,35 +147,35 @@ export interface AssessmentArgs {
     /**
      * The destination that evidence reports are stored in for the assessment.
      */
-    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
+    assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs | undefined>;
     /**
      * The AWS account that's associated with the assessment.
      */
-    awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAwsAccountArgs>;
+    awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAwsAccountArgs | undefined>;
     /**
      * The list of delegations.
      */
-    delegations?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentDelegationArgs>[]>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentDelegationArgs>[] | undefined>;
     /**
      * The description of the assessment.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the framework.
      */
-    frameworkId?: pulumi.Input<string>;
+    frameworkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the assessment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of roles for the specified assessment.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[] | undefined>;
     /**
      * The wrapper of AWS accounts and services that are in scope for the assessment.
      */
-    scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
+    scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs | undefined>;
     /**
      * The overall status of the assessment.
      *
@@ -183,9 +183,9 @@ export interface AssessmentArgs {
      *
      * After you create an assessment, you can change the value of the `Status` property at any time. For example, when you want to stop collecting evidence for your assessment, you can change the assessment status to `INACTIVE` .
      */
-    status?: pulumi.Input<enums.auditmanager.AssessmentStatus>;
+    status?: pulumi.Input<enums.auditmanager.AssessmentStatus | undefined>;
     /**
      * The tags associated with the assessment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

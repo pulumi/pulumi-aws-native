@@ -113,21 +113,21 @@ export interface ListArgs {
     /**
      * The description of the list.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The elements in this list.
      */
-    elements?: pulumi.Input<pulumi.Input<string>[]>;
+    elements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the list.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags associated with this list.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The variable type of the list.
      */
-    variableType?: pulumi.Input<string>;
+    variableType?: pulumi.Input<string | undefined>;
 }

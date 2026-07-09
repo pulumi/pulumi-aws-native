@@ -111,7 +111,7 @@ export interface RobotArgs {
     /**
      * The Amazon Resource Name (ARN) of the fleet.
      */
-    fleet?: pulumi.Input<string>;
+    fleet?: pulumi.Input<string | undefined>;
     /**
      * The Greengrass group id.
      */
@@ -119,9 +119,9 @@ export interface RobotArgs {
     /**
      * The name for the robot.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A map that contains tag keys and tag values that are attached to the robot.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

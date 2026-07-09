@@ -30,7 +30,7 @@ export interface GetAnomalySubscriptionResult {
      */
     readonly accountId?: string;
     /**
-     * The frequency at which anomaly reports are sent over email. 
+     * The frequency at which anomaly reports are sent over email.
      */
     readonly frequency?: enums.ce.AnomalySubscriptionFrequency;
     /**
@@ -50,7 +50,7 @@ export interface GetAnomalySubscriptionResult {
      */
     readonly subscriptionName?: string;
     /**
-     * The dollar value that triggers a notification if the threshold is exceeded. 
+     * The dollar value that triggers a notification if the threshold is exceeded.
      */
     readonly threshold?: number;
     /**

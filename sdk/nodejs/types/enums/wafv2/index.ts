@@ -43,7 +43,7 @@ export const LoggingConfigurationFilterBehavior = {
 } as const;
 
 /**
- * How to handle logs that satisfy the filter's conditions and requirement. 
+ * How to handle logs that satisfy the filter's conditions and requirement.
  */
 export type LoggingConfigurationFilterBehavior = (typeof LoggingConfigurationFilterBehavior)[keyof typeof LoggingConfigurationFilterBehavior];
 
@@ -127,7 +127,7 @@ export const RuleGroupForwardedIpConfigurationFallbackBehavior = {
 /**
  * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
  *
- * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
  *
  * You can specify the following fallback behaviors:
  *
@@ -144,7 +144,7 @@ export const RuleGroupIpSetForwardedIpConfigurationFallbackBehavior = {
 /**
  * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
  *
- * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
  *
  * You can specify the following fallback behaviors:
  *
@@ -263,7 +263,7 @@ export const RuleGroupRateBasedStatementAggregateKeyType = {
 /**
  * Setting that indicates how to aggregate the request counts.
  *
- * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+ * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
  *
  * - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
  *
@@ -488,7 +488,7 @@ export const WebAclForwardedIpConfigurationFallbackBehavior = {
 /**
  * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
  *
- * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
  *
  * You can specify the following fallback behaviors:
  *
@@ -505,7 +505,7 @@ export const WebAclIpSetForwardedIpConfigurationFallbackBehavior = {
 /**
  * The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
  *
- * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+ * > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
  *
  * You can specify the following fallback behaviors:
  *
@@ -644,7 +644,7 @@ export const WebAclRateBasedStatementAggregateKeyType = {
 /**
  * Setting that indicates how to aggregate the request counts.
  *
- * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+ * > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
  *
  * - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
  *

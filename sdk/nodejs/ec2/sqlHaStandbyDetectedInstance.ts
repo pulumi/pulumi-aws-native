@@ -81,5 +81,5 @@ export class SqlHaStandbyDetectedInstance extends pulumi.CustomResource {
  */
 export interface SqlHaStandbyDetectedInstanceArgs {
     instanceId: pulumi.Input<string>;
-    sqlServerCredentials?: pulumi.Input<string>;
+    sqlServerCredentials?: pulumi.Input<string | undefined>;
 }

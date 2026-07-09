@@ -221,33 +221,33 @@ export interface TriggerArgs {
     /**
      * A description of this trigger.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
      */
-    eventBatchingCondition?: pulumi.Input<inputs.glue.TriggerEventBatchingConditionArgs>;
+    eventBatchingCondition?: pulumi.Input<inputs.glue.TriggerEventBatchingConditionArgs | undefined>;
     /**
      * The name of the trigger.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The predicate of this trigger, which defines when it will fire.
      */
-    predicate?: pulumi.Input<inputs.glue.TriggerPredicateArgs>;
+    predicate?: pulumi.Input<inputs.glue.TriggerPredicateArgs | undefined>;
     /**
      * A cron expression used to specify the schedule.
      */
-    schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string | undefined>;
     /**
      * Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
      */
-    startOnCreation?: pulumi.Input<boolean>;
+    startOnCreation?: pulumi.Input<boolean | undefined>;
     /**
      * The tags to use with this trigger.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Trigger` for more information about the expected schema for this property.
      */
-    tags?: any;
+    tags?: any | undefined;
     /**
      * The type of trigger that this is.
      */
@@ -255,5 +255,5 @@ export interface TriggerArgs {
     /**
      * The name of the workflow associated with the trigger.
      */
-    workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string | undefined>;
 }

@@ -95,7 +95,7 @@ export interface GuardrailVersionArgs {
     /**
      * Description of the Guardrail version
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Identifier (GuardrailId or GuardrailArn) for the guardrail
      */

@@ -145,21 +145,21 @@ export interface LogicallyAirGappedBackupVaultArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
-    accessPolicy?: any;
+    accessPolicy?: any | undefined;
     /**
      * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
      */
-    backupVaultName?: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string | undefined>;
     /**
      * The tags to assign to the vault.
      */
-    backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
      *
      * If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
@@ -173,9 +173,9 @@ export interface LogicallyAirGappedBackupVaultArgs {
     /**
      * The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
      */
-    mpaApprovalTeamArn?: pulumi.Input<string>;
+    mpaApprovalTeamArn?: pulumi.Input<string | undefined>;
     /**
      * Returns event notifications for the specified backup vault.
      */
-    notifications?: pulumi.Input<inputs.backup.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs>;
+    notifications?: pulumi.Input<inputs.backup.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs | undefined>;
 }

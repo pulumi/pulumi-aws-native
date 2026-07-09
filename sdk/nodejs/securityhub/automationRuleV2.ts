@@ -164,9 +164,9 @@ export interface AutomationRuleV2Args {
     /**
      * The status of the automation rule
      */
-    ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleV2RuleStatus>;
+    ruleStatus?: pulumi.Input<enums.securityhub.AutomationRuleV2RuleStatus | undefined>;
     /**
      * A list of key-value pairs associated with the V2 automation rule.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

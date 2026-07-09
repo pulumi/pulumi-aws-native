@@ -106,13 +106,13 @@ export interface CodeSigningConfigArgs {
     /**
      * Policies to control how to act if a signature is invalid
      */
-    codeSigningPolicies?: pulumi.Input<inputs.lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
+    codeSigningPolicies?: pulumi.Input<inputs.lambda.CodeSigningConfigCodeSigningPoliciesArgs | undefined>;
     /**
      * A description of the CodeSigningConfig
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to apply to CodeSigningConfig resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

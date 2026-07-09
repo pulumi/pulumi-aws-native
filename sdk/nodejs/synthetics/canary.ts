@@ -301,7 +301,7 @@ export interface CanaryArgs {
     /**
      * Provide artifact configuration
      */
-    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfigArgs>;
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfigArgs | undefined>;
     /**
      * Provide the s3 bucket output location for test results
      */
@@ -309,7 +309,7 @@ export interface CanaryArgs {
     /**
      * List of browser configurations for the canary
      */
-    browserConfigs?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryBrowserConfigArgs>[]>;
+    browserConfigs?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryBrowserConfigArgs>[] | undefined>;
     /**
      * Provide the canary script source
      */
@@ -317,11 +317,11 @@ export interface CanaryArgs {
     /**
      * Deletes associated lambda resources created by Synthetics if set to True. Default is False
      */
-    deleteLambdaResourcesOnCanaryDeletion?: pulumi.Input<boolean>;
+    deleteLambdaResourcesOnCanaryDeletion?: pulumi.Input<boolean | undefined>;
     /**
      * Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
      */
-    dryRunAndUpdate?: pulumi.Input<boolean>;
+    dryRunAndUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Lambda Execution role used to run your canaries
      */
@@ -329,23 +329,23 @@ export interface CanaryArgs {
     /**
      * Retention period of failed canary runs represented in number of days
      */
-    failureRetentionPeriod?: pulumi.Input<number>;
+    failureRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * Name of the canary.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
      */
-    provisionedResourceCleanup?: pulumi.Input<enums.synthetics.CanaryProvisionedResourceCleanup>;
+    provisionedResourceCleanup?: pulumi.Input<enums.synthetics.CanaryProvisionedResourceCleanup | undefined>;
     /**
      * List of resources which canary tags should be replicated to.
      */
-    resourcesToReplicateTags?: pulumi.Input<pulumi.Input<enums.synthetics.CanaryResourceToTag>[]>;
+    resourcesToReplicateTags?: pulumi.Input<pulumi.Input<enums.synthetics.CanaryResourceToTag>[] | undefined>;
     /**
      * Provide canary run configuration
      */
-    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfigArgs>;
+    runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfigArgs | undefined>;
     /**
      * Runtime version of Synthetics Library
      */
@@ -357,25 +357,25 @@ export interface CanaryArgs {
     /**
      * Runs canary if set to True. Default is False
      */
-    startCanaryAfterCreation?: pulumi.Input<boolean>;
+    startCanaryAfterCreation?: pulumi.Input<boolean | undefined>;
     /**
      * Retention period of successful canary runs represented in number of days
      */
-    successRetentionPeriod?: pulumi.Input<number>;
+    successRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * The list of key-value pairs that are associated with the canary.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Visual reference configuration for visual testing
      */
-    visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>;
+    visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs | undefined>;
     /**
      * List of visual references for the canary
      */
-    visualReferences?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>[]>;
+    visualReferences?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>[] | undefined>;
     /**
      * Provide VPC Configuration if enabled.
      */
-    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfigArgs>;
+    vpcConfig?: pulumi.Input<inputs.synthetics.CanaryVpcConfigArgs | undefined>;
 }

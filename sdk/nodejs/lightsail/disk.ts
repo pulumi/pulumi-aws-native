@@ -158,19 +158,19 @@ export interface DiskArgs {
     /**
      * An array of objects representing the add-ons to enable for the new instance.
      */
-    addOns?: pulumi.Input<pulumi.Input<inputs.lightsail.DiskAddOnArgs>[]>;
+    addOns?: pulumi.Input<pulumi.Input<inputs.lightsail.DiskAddOnArgs>[] | undefined>;
     /**
      * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     /**
      * The names to use for your new Lightsail disk.
      */
-    diskName?: pulumi.Input<string>;
+    diskName?: pulumi.Input<string | undefined>;
     /**
      * The AWS Region and Availability Zone where the disk is located.
      */
-    location?: pulumi.Input<inputs.lightsail.DiskLocationArgs>;
+    location?: pulumi.Input<inputs.lightsail.DiskLocationArgs | undefined>;
     /**
      * Size of the Lightsail disk
      */
@@ -178,5 +178,5 @@ export interface DiskArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

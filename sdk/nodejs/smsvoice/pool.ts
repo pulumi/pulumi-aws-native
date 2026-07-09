@@ -135,7 +135,7 @@ export interface PoolArgs {
     /**
      * When set to true the pool can't be deleted. By default this is set to false.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message. Keywords "HELP" and "STOP" are mandatory keywords
      */
@@ -143,11 +143,11 @@ export interface PoolArgs {
     /**
      * The name of the OptOutList to associate with the pool. You can use the OptOutListName or OptOutListArn.
      */
-    optOutListName?: pulumi.Input<string>;
+    optOutListName?: pulumi.Input<string | undefined>;
     /**
      * A keyword is a word that you can search for on a particular phone number or pool. It is also a specific word or phrase that an end user can send to your number to elicit a response, such as an informational message or a special offer. When your number receives a message that begins with a keyword, AWS End User Messaging SMS and Voice responds with a customizable message.
      */
-    optionalKeywords?: pulumi.Input<pulumi.Input<inputs.smsvoice.PoolOptionalKeywordArgs>[]>;
+    optionalKeywords?: pulumi.Input<pulumi.Input<inputs.smsvoice.PoolOptionalKeywordArgs>[] | undefined>;
     /**
      * The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn and it's IsoCountryCode.
      */
@@ -155,17 +155,17 @@ export interface PoolArgs {
     /**
      * By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.
      */
-    selfManagedOptOutsEnabled?: pulumi.Input<boolean>;
+    selfManagedOptOutsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates whether shared routes are enabled for the pool.
      */
-    sharedRoutesEnabled?: pulumi.Input<boolean>;
+    sharedRoutesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * When you set up two-way SMS, you can receive incoming messages from your customers. When one of your customers sends a message to your phone number, the message body is sent to an Amazon SNS topic or Amazon Connect for processing.
      */
-    twoWay?: pulumi.Input<inputs.smsvoice.TwoWayPropertiesArgs>;
+    twoWay?: pulumi.Input<inputs.smsvoice.TwoWayPropertiesArgs | undefined>;
 }

@@ -38,11 +38,11 @@ export interface GetTargetGroupResult {
      */
     readonly healthCheckPath?: string;
     /**
-     * The port the load balancer uses when performing health checks on targets. 
+     * The port the load balancer uses when performing health checks on targets.
      */
     readonly healthCheckPort?: string;
     /**
-     * The protocol the load balancer uses when performing health checks on targets. 
+     * The protocol the load balancer uses when performing health checks on targets.
      */
     readonly healthCheckProtocol?: string;
     /**
@@ -50,7 +50,7 @@ export interface GetTargetGroupResult {
      */
     readonly healthCheckTimeoutSeconds?: number;
     /**
-     * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+     * The number of consecutive health checks successes required before considering an unhealthy target healthy.
      */
     readonly healthyThresholdCount?: number;
     /**

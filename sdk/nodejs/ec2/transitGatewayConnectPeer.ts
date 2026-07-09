@@ -111,7 +111,7 @@ export interface TransitGatewayConnectPeerArgs {
     /**
      * The tags for the Connect Peer.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the Connect attachment.
      */

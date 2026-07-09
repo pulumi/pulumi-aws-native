@@ -99,9 +99,9 @@ export interface InstanceArgs {
     /**
      * The name you want to assign to this Identity Center (SSO) Instance
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies tags to be attached to the instance of IAM Identity Center.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

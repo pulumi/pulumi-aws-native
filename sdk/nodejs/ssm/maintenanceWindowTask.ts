@@ -307,27 +307,27 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The specification for whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached.
      */
-    cutoffBehavior?: pulumi.Input<string>;
+    cutoffBehavior?: pulumi.Input<string | undefined>;
     /**
      * A description of the task.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Information about an Amazon S3 bucket to write Run Command task-level logs to.
      */
-    loggingInfo?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskLoggingInfoArgs>;
+    loggingInfo?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskLoggingInfoArgs | undefined>;
     /**
      * The maximum number of targets this task can be run for, in parallel.
      */
-    maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string | undefined>;
     /**
      * The task name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
      */
@@ -335,11 +335,11 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The targets (either instances or window target ids).
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTargetArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTargetArgs>[] | undefined>;
     /**
      * The resource that the task uses during execution.
      */
@@ -347,13 +347,13 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The parameters to pass to the task when it runs. Populate only the fields that match the task type. All other fields should be empty.
      */
-    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs>;
+    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs | undefined>;
     /**
      * The parameters to pass to the task when it runs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
      */
-    taskParameters?: any;
+    taskParameters?: any | undefined;
     /**
      * The type of task.
      */

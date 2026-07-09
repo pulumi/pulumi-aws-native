@@ -140,15 +140,15 @@ export interface ConnectorV2Args {
     /**
      * A description of the connector
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of KMS key used for the connector
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The third-party provider detail for a service configuration.
      */
@@ -156,5 +156,5 @@ export interface ConnectorV2Args {
     /**
      * The tags to add to the connectorV2 when you create.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

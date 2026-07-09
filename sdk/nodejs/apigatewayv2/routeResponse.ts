@@ -122,17 +122,17 @@ export interface RouteResponseArgs {
     /**
      * The model selection expression for the route response. Supported only for WebSocket APIs.
      */
-    modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string | undefined>;
     /**
      * The response models for the route response.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGatewayV2::RouteResponse` for more information about the expected schema for this property.
      */
-    responseModels?: any;
+    responseModels?: any | undefined;
     /**
      * The route response parameters.
      */
-    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.apigatewayv2.RouteResponseParameterConstraintsArgs>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.apigatewayv2.RouteResponseParameterConstraintsArgs>} | undefined>;
     /**
      * The route ID.
      */

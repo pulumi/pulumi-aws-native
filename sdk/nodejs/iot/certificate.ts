@@ -124,7 +124,7 @@ export interface CertificateArgs {
     /**
      * The CA certificate used to sign the device certificate being registered, not available when CertificateMode is SNI_ONLY.
      */
-    caCertificatePem?: pulumi.Input<string>;
+    caCertificatePem?: pulumi.Input<string | undefined>;
     /**
      * Specifies which mode of certificate registration to use with this resource. Valid options are DEFAULT with CaCertificatePem and CertificatePem, SNI_ONLY with CertificatePem, and Default with CertificateSigningRequest.
      *
@@ -132,15 +132,15 @@ export interface CertificateArgs {
      *
      * `SNI_ONLY` : A certificate in `SNI_ONLY` mode is registered without an issuer CA. Devices with certificates in `SNI_ONLY` mode must send the SNI extension when connecting to AWS IoT Core .
      */
-    certificateMode?: pulumi.Input<enums.iot.CertificateMode>;
+    certificateMode?: pulumi.Input<enums.iot.CertificateMode | undefined>;
     /**
      * The certificate data in PEM format. Requires SNI_ONLY for the certificate mode or the accompanying CACertificatePem for registration.
      */
-    certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string | undefined>;
     /**
      * The certificate signing request (CSR).
      */
-    certificateSigningRequest?: pulumi.Input<string>;
+    certificateSigningRequest?: pulumi.Input<string | undefined>;
     /**
      * The status of the certificate.
      *

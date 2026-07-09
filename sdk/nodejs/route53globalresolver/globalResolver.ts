@@ -113,14 +113,14 @@ export class GlobalResolver extends pulumi.CustomResource {
  * The set of arguments for constructing a GlobalResolver resource.
  */
 export interface GlobalResolverArgs {
-    clientToken?: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
-    ipAddressType?: pulumi.Input<enums.route53globalresolver.GlobalResolverIpAddressType>;
-    name?: pulumi.Input<string>;
-    observabilityRegion?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    ipAddressType?: pulumi.Input<enums.route53globalresolver.GlobalResolverIpAddressType | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    observabilityRegion?: pulumi.Input<string | undefined>;
     /**
      * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

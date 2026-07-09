@@ -105,11 +105,11 @@ export interface IpamAllocationArgs {
      *
      * Possible values: Any available IPv4 or IPv6 CIDR.
      */
-    cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string | undefined>;
     /**
      * A description for the allocation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Id of the IPAM Pool.
      */
@@ -117,5 +117,5 @@ export interface IpamAllocationArgs {
     /**
      * The desired netmask length of the allocation. If set, IPAM will choose a block of free space with this size and return the CIDR representing it.
      */
-    netmaskLength?: pulumi.Input<number>;
+    netmaskLength?: pulumi.Input<number | undefined>;
 }

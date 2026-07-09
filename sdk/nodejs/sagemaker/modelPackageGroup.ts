@@ -109,19 +109,19 @@ export interface ModelPackageGroupArgs {
     /**
      * The description for the model group.
      */
-    modelPackageGroupDescription?: pulumi.Input<string>;
+    modelPackageGroupDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the model group.
      */
-    modelPackageGroupName?: pulumi.Input<string>;
+    modelPackageGroupName?: pulumi.Input<string | undefined>;
     /**
      * A resouce policy to control access to a model group. For information about resoure policies, see [Identity-based policies and resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) in the *AWS Identity and Access Management User Guide.* .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SageMaker::ModelPackageGroup` for more information about the expected schema for this property.
      */
-    modelPackageGroupPolicy?: any;
+    modelPackageGroupPolicy?: any | undefined;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

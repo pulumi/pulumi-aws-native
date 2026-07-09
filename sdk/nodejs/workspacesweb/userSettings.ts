@@ -180,15 +180,15 @@ export interface UserSettingsArgs {
     /**
      * The additional encryption context of the user settings.
      */
-    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
      */
-    brandingConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsBrandingConfigurationArgs>;
+    brandingConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsBrandingConfigurationArgs | undefined>;
     /**
      * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
      */
-    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs>;
+    cookieSynchronizationConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsCookieSynchronizationConfigurationArgs | undefined>;
     /**
      * Specifies whether the user can copy text from the streaming session to the local device.
      */
@@ -196,15 +196,15 @@ export interface UserSettingsArgs {
     /**
      * The customer managed key used to encrypt sensitive information in the user settings.
      */
-    customerManagedKey?: pulumi.Input<string>;
+    customerManagedKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the user can use deep links that open automatically when connecting to a session.
      */
-    deepLinkAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    deepLinkAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType | undefined>;
     /**
      * The amount of time that a streaming session remains active after users disconnect.
      */
-    disconnectTimeoutInMinutes?: pulumi.Input<number>;
+    disconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can download files from the streaming session to the local device.
      */
@@ -212,7 +212,7 @@ export interface UserSettingsArgs {
     /**
      * The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
      */
-    idleDisconnectTimeoutInMinutes?: pulumi.Input<number>;
+    idleDisconnectTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the user can paste text from the local device to the streaming session.
      */
@@ -224,11 +224,11 @@ export interface UserSettingsArgs {
     /**
      * The tags to add to the user settings resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
      */
-    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfigurationArgs>;
+    toolbarConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsToolbarConfigurationArgs | undefined>;
     /**
      * Specifies whether the user can upload files from the local device to the streaming session.
      */
@@ -236,5 +236,5 @@ export interface UserSettingsArgs {
     /**
      * Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
      */
-    webAuthnAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    webAuthnAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType | undefined>;
 }

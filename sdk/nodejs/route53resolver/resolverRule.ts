@@ -122,19 +122,19 @@ export interface ResolverRuleArgs {
     /**
      * The name server domain for queries to be delegated to if a query matches the delegation record.
      */
-    delegationRecord?: pulumi.Input<string>;
+    delegationRecord?: pulumi.Input<string | undefined>;
     /**
      * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
      */
-    domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * The name for the Resolver rule
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the endpoint that the rule is associated with.
      */
-    resolverEndpointId?: pulumi.Input<string>;
+    resolverEndpointId?: pulumi.Input<string | undefined>;
     /**
      * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
      */
@@ -142,9 +142,9 @@ export interface ResolverRuleArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
      */
-    targetIps?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverRuleTargetAddressArgs>[]>;
+    targetIps?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverRuleTargetAddressArgs>[] | undefined>;
 }

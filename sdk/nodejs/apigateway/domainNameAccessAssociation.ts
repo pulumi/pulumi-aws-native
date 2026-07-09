@@ -116,5 +116,5 @@ export interface DomainNameAccessAssociationArgs {
     /**
      * An array of arbitrary tags (key-value pairs) to associate with the domainname access association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

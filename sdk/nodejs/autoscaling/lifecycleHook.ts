@@ -120,15 +120,15 @@ export interface LifecycleHookArgs {
     /**
      * The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are CONTINUE and ABANDON (default).
      */
-    defaultResult?: pulumi.Input<string>;
+    defaultResult?: pulumi.Input<string | undefined>;
     /**
      * The maximum time, in seconds, that can elapse before the lifecycle hook times out. The range is from 30 to 7200 seconds. The default value is 3600 seconds (1 hour). If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the DefaultResult property.
      */
-    heartbeatTimeout?: pulumi.Input<number>;
+    heartbeatTimeout?: pulumi.Input<number | undefined>;
     /**
      * The name of the lifecycle hook.
      */
-    lifecycleHookName?: pulumi.Input<string>;
+    lifecycleHookName?: pulumi.Input<string | undefined>;
     /**
      * The instance state to which you want to attach the lifecycle hook.
      */
@@ -136,13 +136,13 @@ export interface LifecycleHookArgs {
     /**
      * Additional information that is included any time Amazon EC2 Auto Scaling sends a message to the notification target.
      */
-    notificationMetadata?: pulumi.Input<string>;
+    notificationMetadata?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the notification target that Amazon EC2 Auto Scaling uses to notify you when an instance is in the transition state for the lifecycle hook. You can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes the following information: lifecycle action token, user account ID, Auto Scaling group name, lifecycle hook name, instance ID, lifecycle transition, and notification metadata.
      */
-    notificationTargetArn?: pulumi.Input<string>;
+    notificationTargetArn?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }

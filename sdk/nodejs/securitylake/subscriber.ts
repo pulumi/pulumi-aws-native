@@ -165,7 +165,7 @@ export interface SubscriberArgs {
     /**
      * The description for your subscriber account in Security Lake.
      */
-    subscriberDescription?: pulumi.Input<string>;
+    subscriberDescription?: pulumi.Input<string | undefined>;
     /**
      * The AWS identity used to access your data.
      */
@@ -173,9 +173,9 @@ export interface SubscriberArgs {
     /**
      * The name of your Security Lake subscriber account.
      */
-    subscriberName?: pulumi.Input<string>;
+    subscriberName?: pulumi.Input<string | undefined>;
     /**
      * An array of objects, one for each tag to associate with the subscriber. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

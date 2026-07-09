@@ -104,9 +104,9 @@ export interface IdentityPoolRoleAttachmentArgs {
      *
      * For more information, see the [RoleMapping property](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html) .
      */
-    roleMappings?: pulumi.Input<{[key: string]: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMappingArgs>}>;
+    roleMappings?: pulumi.Input<{[key: string]: pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMappingArgs>} | undefined>;
     /**
      * The map of the roles associated with this pool. For a given role, the key is either "authenticated" or "unauthenticated". The value is the role ARN.
      */
-    roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    roles?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -150,17 +150,17 @@ export interface QueueArgs {
     /**
      * The identifiers of the storage profiles that this queue can use to share assets between workers using different operating systems.
      */
-    allowedStorageProfileIds?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedStorageProfileIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The default action taken on a queue summary if a budget wasn't configured.
      */
-    defaultBudgetAction?: pulumi.Input<enums.deadline.QueueDefaultQueueBudgetAction>;
+    defaultBudgetAction?: pulumi.Input<enums.deadline.QueueDefaultQueueBudgetAction | undefined>;
     /**
      * A description of the queue that helps identify what the queue is used for.
      *
      * > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the queue summary to update.
      *
@@ -174,22 +174,22 @@ export interface QueueArgs {
     /**
      * The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.
      */
-    jobAttachmentSettings?: pulumi.Input<inputs.deadline.QueueJobAttachmentSettingsArgs>;
+    jobAttachmentSettings?: pulumi.Input<inputs.deadline.QueueJobAttachmentSettingsArgs | undefined>;
     /**
      * Identifies the user for a job.
      */
-    jobRunAsUser?: pulumi.Input<inputs.deadline.QueueJobRunAsUserArgs>;
+    jobRunAsUser?: pulumi.Input<inputs.deadline.QueueJobRunAsUserArgs | undefined>;
     /**
      * The file system location that the queue uses.
      */
-    requiredFileSystemLocationNames?: pulumi.Input<pulumi.Input<string>[]>;
+    requiredFileSystemLocationNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that workers use when running jobs in this queue.
      */
-    roleArn?: pulumi.Input<string>;
-    schedulingConfiguration?: pulumi.Input<inputs.deadline.QueueSchedulingConfigurationArgs>;
+    roleArn?: pulumi.Input<string | undefined>;
+    schedulingConfiguration?: pulumi.Input<inputs.deadline.QueueSchedulingConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

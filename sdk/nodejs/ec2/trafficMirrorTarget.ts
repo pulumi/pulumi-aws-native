@@ -98,21 +98,21 @@ export interface TrafficMirrorTargetArgs {
     /**
      * The description of the Traffic Mirror target.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Gateway Load Balancer endpoint.
      */
-    gatewayLoadBalancerEndpointId?: pulumi.Input<string>;
+    gatewayLoadBalancerEndpointId?: pulumi.Input<string | undefined>;
     /**
      * The network interface ID that is associated with the target.
      */
-    networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
      */
-    networkLoadBalancerArn?: pulumi.Input<string>;
+    networkLoadBalancerArn?: pulumi.Input<string | undefined>;
     /**
      *  The tags to assign to the Traffic Mirror target.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

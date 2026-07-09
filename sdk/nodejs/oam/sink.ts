@@ -88,15 +88,15 @@ export interface SinkArgs {
     /**
      * The name of the ObservabilityAccessManager Sink.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The policy of this ObservabilityAccessManager Sink.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Oam::Sink` for more information about the expected schema for this property.
      */
-    policy?: any;
+    policy?: any | undefined;
     /**
      * Tags to apply to the sink
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

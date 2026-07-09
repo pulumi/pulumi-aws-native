@@ -146,11 +146,11 @@ export interface PackageVersionArgs {
     /**
      * Whether to mark the new version as the latest version.
      */
-    markLatest?: pulumi.Input<boolean>;
+    markLatest?: pulumi.Input<boolean | undefined>;
     /**
      * An owner account.
      */
-    ownerAccount?: pulumi.Input<string>;
+    ownerAccount?: pulumi.Input<string | undefined>;
     /**
      * A package ID.
      */
@@ -166,5 +166,5 @@ export interface PackageVersionArgs {
     /**
      * If the version was marked latest, the new version to maker as latest.
      */
-    updatedLatestPatchVersion?: pulumi.Input<string>;
+    updatedLatestPatchVersion?: pulumi.Input<string | undefined>;
 }

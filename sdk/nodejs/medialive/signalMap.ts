@@ -182,11 +182,11 @@ export interface SignalMapArgs {
     /**
      * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
      */
-    cloudWatchAlarmTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    cloudWatchAlarmTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A resource's optional description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A top-level supported AWS resource ARN to discovery a signal map from.
      */
@@ -194,14 +194,14 @@ export interface SignalMapArgs {
     /**
      * An eventbridge rule template group's identifier. Can be either be its id or current name.
      */
-    eventBridgeRuleTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    eventBridgeRuleTemplateGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * If true, will force a rediscovery of a signal map if an unchanged discoveryEntryPointArn is provided.
      */
-    forceRediscovery?: pulumi.Input<boolean>;
+    forceRediscovery?: pulumi.Input<boolean | undefined>;
     /**
      * A resource's name. Names must be unique within the scope of a resource type in a specific region.
      */
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

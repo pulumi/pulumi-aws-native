@@ -329,7 +329,7 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Users to configure on the broker. 
+     * Users to configure on the broker.
      * For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
      * For ActiveMQ, changes to anything but Password are detected and will trigger an update,
      * but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.
@@ -447,34 +447,34 @@ export interface BrokerArgs {
     /**
      * Optional. The authentication strategy used to secure the broker. The default is `SIMPLE` .
      */
-    authenticationStrategy?: pulumi.Input<string>;
+    authenticationStrategy?: pulumi.Input<string | undefined>;
     /**
      * Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to `true` by default, if no value is specified.
      *
      * > Must be set to `true` for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.
      */
-    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * Required. The broker's name. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
      *
      * > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
      */
-    brokerName?: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string | undefined>;
     /**
      * The intended configuration (ID and revision) to be set when creating or updating.
      * This property is write-only so that applications of a ConfigurationAssociation do not cause drift.
      */
-    configuration?: pulumi.Input<inputs.amazonmq.BrokerConfigurationIdArgs>;
+    configuration?: pulumi.Input<inputs.amazonmq.BrokerConfigurationIdArgs | undefined>;
     /**
      * Defines whether this broker is a part of a data replication pair.
      */
-    dataReplicationMode?: pulumi.Input<enums.amazonmq.BrokerDataReplicationMode | string>;
+    dataReplicationMode?: pulumi.Input<enums.amazonmq.BrokerDataReplicationMode | string | undefined>;
     /**
      * The ARN of the primary broker that is used to replicate data from in a data replication pair when creating a replica.
      * This field is only used at creation-time. Changes to it subsequently are ignored by CloudFormation.
      * Information on the current primary is available on the DataReplicationMetadata object returned by the API.
      */
-    dataReplicationPrimaryBrokerArn?: pulumi.Input<string>;
+    dataReplicationPrimaryBrokerArn?: pulumi.Input<string | undefined>;
     /**
      * Required. The broker's deployment mode.
      */
@@ -482,7 +482,7 @@ export interface BrokerArgs {
     /**
      * Encryption options for the broker.
      */
-    encryptionOptions?: pulumi.Input<inputs.amazonmq.BrokerEncryptionOptionsArgs>;
+    encryptionOptions?: pulumi.Input<inputs.amazonmq.BrokerEncryptionOptionsArgs | undefined>;
     /**
      * Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
      */
@@ -490,7 +490,7 @@ export interface BrokerArgs {
     /**
      * The version specified to use. See also EngineVersionCurrent.
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * Required. The broker's instance type.
      */
@@ -498,15 +498,15 @@ export interface BrokerArgs {
     /**
      * Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
      */
-    ldapServerMetadata?: pulumi.Input<inputs.amazonmq.BrokerLdapServerMetadataArgs>;
+    ldapServerMetadata?: pulumi.Input<inputs.amazonmq.BrokerLdapServerMetadataArgs | undefined>;
     /**
      * Enables Amazon CloudWatch logging for brokers.
      */
-    logs?: pulumi.Input<inputs.amazonmq.BrokerLogListArgs>;
+    logs?: pulumi.Input<inputs.amazonmq.BrokerLogListArgs | undefined>;
     /**
      * The parameters that determine the WeeklyStartTime.
      */
-    maintenanceWindowStartTime?: pulumi.Input<inputs.amazonmq.BrokerMaintenanceWindowArgs>;
+    maintenanceWindowStartTime?: pulumi.Input<inputs.amazonmq.BrokerMaintenanceWindowArgs | undefined>;
     /**
      * Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
      */
@@ -514,30 +514,30 @@ export interface BrokerArgs {
     /**
      * The ARNs of the resource shares to be associated with the broker.
      */
-    resourceShareArns?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceShareArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
      */
-    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The broker's storage type.
      */
-    storageType?: pulumi.Input<enums.amazonmq.BrokerStorageType | string>;
+    storageType?: pulumi.Input<enums.amazonmq.BrokerStorageType | string | undefined>;
     /**
      * The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
      *
      * > If you specify subnets in a [shared VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html) for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account .
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Create tags when creating the broker.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
-     * Users to configure on the broker. 
+     * Users to configure on the broker.
      * For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
      * For ActiveMQ, changes to anything but Password are detected and will trigger an update,
      * but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.
      */
-    users?: pulumi.Input<pulumi.Input<inputs.amazonmq.BrokerUserArgs>[]>;
+    users?: pulumi.Input<pulumi.Input<inputs.amazonmq.BrokerUserArgs>[] | undefined>;
 }

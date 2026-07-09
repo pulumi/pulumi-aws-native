@@ -20,7 +20,7 @@ export function getConfigurationTemplate(args: GetConfigurationTemplateArgs, opt
 
 export interface GetConfigurationTemplateArgs {
     /**
-     * The name of the Elastic Beanstalk application to associate with this configuration template. 
+     * The name of the Elastic Beanstalk application to associate with this configuration template.
      */
     applicationName: string;
     /**
@@ -35,7 +35,7 @@ export interface GetConfigurationTemplateResult {
      */
     readonly description?: string;
     /**
-     * Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+     * Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
      */
     readonly optionSettings?: outputs.elasticbeanstalk.ConfigurationTemplateConfigurationOptionSetting[];
     /**
@@ -56,7 +56,7 @@ export function getConfigurationTemplateOutput(args: GetConfigurationTemplateOut
 
 export interface GetConfigurationTemplateOutputArgs {
     /**
-     * The name of the Elastic Beanstalk application to associate with this configuration template. 
+     * The name of the Elastic Beanstalk application to associate with this configuration template.
      */
     applicationName: pulumi.Input<string>;
     /**

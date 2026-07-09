@@ -160,19 +160,19 @@ export interface BotArgs {
     /**
      * Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
      */
-    autoBuildBotLocales?: pulumi.Input<boolean>;
+    autoBuildBotLocales?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
      */
-    botFileS3Location?: pulumi.Input<inputs.lex.BotS3LocationArgs>;
+    botFileS3Location?: pulumi.Input<inputs.lex.BotS3LocationArgs | undefined>;
     /**
      * A list of locales for the bot.
      */
-    botLocales?: pulumi.Input<pulumi.Input<inputs.lex.BotLocaleArgs>[]>;
+    botLocales?: pulumi.Input<pulumi.Input<inputs.lex.BotLocaleArgs>[] | undefined>;
     /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
-    botTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    botTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
@@ -180,8 +180,8 @@ export interface BotArgs {
     /**
      * The description of the version.
      */
-    description?: pulumi.Input<string>;
-    errorLogSettings?: pulumi.Input<inputs.lex.ErrorLogSettingsPropertiesArgs>;
+    description?: pulumi.Input<string | undefined>;
+    errorLogSettings?: pulumi.Input<inputs.lex.ErrorLogSettingsPropertiesArgs | undefined>;
     /**
      * The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
      *
@@ -193,8 +193,8 @@ export interface BotArgs {
     /**
      * The name of the bot locale.
      */
-    name?: pulumi.Input<string>;
-    replication?: pulumi.Input<inputs.lex.BotReplicationArgs>;
+    name?: pulumi.Input<string | undefined>;
+    replication?: pulumi.Input<inputs.lex.BotReplicationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
      */
@@ -202,9 +202,9 @@ export interface BotArgs {
     /**
      * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
      */
-    testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs>;
+    testBotAliasSettings?: pulumi.Input<inputs.lex.BotTestBotAliasSettingsArgs | undefined>;
     /**
      * A list of tags to add to the test alias for a bot. You can only add tags when you import a bot. You can't use the `UpdateAlias` operation to update tags. To update tags on the test alias, use the `TagResource` operation.
      */
-    testBotAliasTags?: pulumi.Input<pulumi.Input<inputs.lex.BotTagArgs>[]>;
+    testBotAliasTags?: pulumi.Input<pulumi.Input<inputs.lex.BotTagArgs>[] | undefined>;
 }

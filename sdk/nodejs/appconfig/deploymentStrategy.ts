@@ -167,11 +167,11 @@ export interface DeploymentStrategyArgs {
     /**
      * A description of the deployment strategy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the amount of time AWS AppConfig monitors for Amazon CloudWatch alarms after the configuration has been deployed to 100% of its targets, before considering the deployment to be complete. If an alarm is triggered during this time, AWS AppConfig rolls back the deployment. You must configure permissions for AWS AppConfig to roll back based on CloudWatch alarms. For more information, see Configuring permissions for rollback based on Amazon CloudWatch alarms in the AWS AppConfig User Guide.
      */
-    finalBakeTimeInMinutes?: pulumi.Input<number>;
+    finalBakeTimeInMinutes?: pulumi.Input<number | undefined>;
     /**
      * The percentage of targets to receive a deployed configuration during each interval.
      */
@@ -191,11 +191,11 @@ export interface DeploymentStrategyArgs {
      *
      * Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4% of the targets, 8% of the targets, and continues until the configuration has been deployed to all targets.
      */
-    growthType?: pulumi.Input<enums.appconfig.DeploymentStrategyGrowthType>;
+    growthType?: pulumi.Input<enums.appconfig.DeploymentStrategyGrowthType | undefined>;
     /**
      * A name for the deployment strategy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Save the deployment strategy to a Systems Manager (SSM) document.
      */
@@ -203,5 +203,5 @@ export interface DeploymentStrategyArgs {
     /**
      * Assigns metadata to an AWS AppConfig resource. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define. You can specify a maximum of 50 tags for a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -147,11 +147,11 @@ export interface QueueArgs {
     /**
      * The email addresses that agents can use when replying to or initiating email contacts
      */
-    additionalEmailAddresses?: pulumi.Input<pulumi.Input<inputs.connect.QueueEmailAddressArgs>[]>;
+    additionalEmailAddresses?: pulumi.Input<pulumi.Input<inputs.connect.QueueEmailAddressArgs>[] | undefined>;
     /**
      * The description of the queue.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier for the hours of operation.
      */
@@ -163,29 +163,29 @@ export interface QueueArgs {
     /**
      * The maximum number of contacts that can be in the queue before it is considered full.
      */
-    maxContacts?: pulumi.Input<number>;
+    maxContacts?: pulumi.Input<number | undefined>;
     /**
      * The name of the queue.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The outbound caller ID name, number, and outbound whisper flow.
      */
-    outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfigArgs>;
+    outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfigArgs | undefined>;
     /**
      * The outbound email address ID.
      */
-    outboundEmailConfig?: pulumi.Input<inputs.connect.QueueOutboundEmailConfigArgs>;
+    outboundEmailConfig?: pulumi.Input<inputs.connect.QueueOutboundEmailConfigArgs | undefined>;
     /**
      * The quick connects available to agents who are working the queue.
      */
-    quickConnectArns?: pulumi.Input<pulumi.Input<string>[]>;
+    quickConnectArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The status of the queue.
      */
-    status?: pulumi.Input<enums.connect.QueueStatus>;
+    status?: pulumi.Input<enums.connect.QueueStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -134,7 +134,7 @@ export interface ScraperArgs {
     /**
      * Scraper alias.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
      */
@@ -142,7 +142,7 @@ export interface ScraperArgs {
     /**
      * The role configuration in an Amazon Managed Service for Prometheus scraper.
      */
-    roleConfiguration?: pulumi.Input<inputs.aps.ScraperRoleConfigurationArgs>;
+    roleConfiguration?: pulumi.Input<inputs.aps.ScraperRoleConfigurationArgs | undefined>;
     /**
      * The configuration in use by the scraper.
      */
@@ -150,7 +150,7 @@ export interface ScraperArgs {
     /**
      * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
      */
-    scraperLoggingConfiguration?: pulumi.Input<inputs.aps.ScraperLoggingConfigurationArgs>;
+    scraperLoggingConfiguration?: pulumi.Input<inputs.aps.ScraperLoggingConfigurationArgs | undefined>;
     /**
      * The Amazon EKS cluster from which the scraper collects metrics.
      */
@@ -158,5 +158,5 @@ export interface ScraperArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

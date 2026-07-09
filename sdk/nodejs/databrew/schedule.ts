@@ -115,13 +115,13 @@ export interface ScheduleArgs {
     /**
      * A list of jobs to be run, according to the schedule.
      */
-    jobNames?: pulumi.Input<pulumi.Input<string>[]>;
+    jobNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Schedule Name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Metadata tags that have been applied to the schedule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

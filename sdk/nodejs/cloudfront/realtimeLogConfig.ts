@@ -114,7 +114,7 @@ export interface RealtimeLogConfigArgs {
     /**
      * The unique name of this real-time log configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
      */

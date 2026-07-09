@@ -115,13 +115,13 @@ export interface TemplateArgs {
     /**
      * Name of the templates. Template names must be unique.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * This setting allows the major version of a template to be increased automatically. All members of Active Directory groups that are allowed to enroll with a template will receive a new certificate issued using that template.
      */
-    reenrollAllCertificateHolders?: pulumi.Input<boolean>;
+    reenrollAllCertificateHolders?: pulumi.Input<boolean | undefined>;
     /**
      * Metadata assigned to a template consisting of a key-value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

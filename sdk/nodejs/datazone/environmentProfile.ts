@@ -178,7 +178,7 @@ export interface EnvironmentProfileArgs {
     /**
      * The description of this Amazon DataZone environment profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Amazon DataZone domain in which this environment profile is created.
      */
@@ -190,7 +190,7 @@ export interface EnvironmentProfileArgs {
     /**
      * The name of this Amazon DataZone environment profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the project in which to create the environment profile.
      */
@@ -198,5 +198,5 @@ export interface EnvironmentProfileArgs {
     /**
      * The user parameters of this Amazon DataZone environment profile.
      */
-    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileEnvironmentParameterArgs>[]>;
+    userParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProfileEnvironmentParameterArgs>[] | undefined>;
 }

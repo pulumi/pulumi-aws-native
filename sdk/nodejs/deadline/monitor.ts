@@ -149,7 +149,7 @@ export interface MonitorArgs {
     /**
      * The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
      */
-    identityCenterRegion?: pulumi.Input<string>;
+    identityCenterRegion?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */
@@ -161,5 +161,5 @@ export interface MonitorArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

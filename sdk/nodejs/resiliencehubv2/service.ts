@@ -155,43 +155,43 @@ export interface ServiceArgs {
     /**
      * Assertions associated with this service.
      */
-    assertions?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceAssertionDefinitionArgs>[]>;
+    assertions?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceAssertionDefinitionArgs>[] | undefined>;
     /**
      * Systems associated with this service.
      */
-    associatedSystems?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceAssociatedSystemArgs>[]>;
+    associatedSystems?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceAssociatedSystemArgs>[] | undefined>;
     /**
      * Dependency discovery state.
      */
-    dependencyDiscovery?: pulumi.Input<enums.resiliencehubv2.ServiceDependencyDiscovery>;
+    dependencyDiscovery?: pulumi.Input<enums.resiliencehubv2.ServiceDependencyDiscovery | undefined>;
     /**
      * The description of the service.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Input sources for this service.
      */
-    inputSources?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceInputSourceDefinitionArgs>[]>;
+    inputSources?: pulumi.Input<pulumi.Input<inputs.resiliencehubv2.ServiceInputSourceDefinitionArgs>[] | undefined>;
     /**
      * The KMS key ID for encrypting service data.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the service.
      */
-    name?: pulumi.Input<string>;
-    permissionModel?: pulumi.Input<inputs.resiliencehubv2.ServicePermissionModelArgs>;
+    name?: pulumi.Input<string | undefined>;
+    permissionModel?: pulumi.Input<inputs.resiliencehubv2.ServicePermissionModelArgs | undefined>;
     /**
      * The ARN of the resilience policy to associate.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * AWS regions for the service.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
-    reportConfiguration?: pulumi.Input<inputs.resiliencehubv2.ServiceReportConfigurationArgs>;
+    reportConfiguration?: pulumi.Input<inputs.resiliencehubv2.ServiceReportConfigurationArgs | undefined>;
     /**
      * Tags assigned to the service.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

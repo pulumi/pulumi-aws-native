@@ -96,7 +96,7 @@ export class DataCatalog extends pulumi.CustomResource {
      */
     declare public readonly connectionType: pulumi.Output<string | undefined>;
     /**
-     * A description of the data catalog to be created. 
+     * A description of the data catalog to be created.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -104,11 +104,11 @@ export class DataCatalog extends pulumi.CustomResource {
      */
     declare public readonly error: pulumi.Output<string | undefined>;
     /**
-     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -116,7 +116,7 @@ export class DataCatalog extends pulumi.CustomResource {
      */
     declare public readonly status: pulumi.Output<enums.athena.DataCatalogStatus | undefined>;
     /**
-     * A list of comma separated tags to add to the data catalog that is created. 
+     * A list of comma separated tags to add to the data catalog that is created.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -170,31 +170,31 @@ export interface DataCatalogArgs {
     /**
      * The type of connection for a FEDERATED data catalog
      */
-    connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string | undefined>;
     /**
-     * A description of the data catalog to be created. 
+     * A description of the data catalog to be created.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Text of the error that occurred during data catalog creation or deletion.
      */
-    error?: pulumi.Input<string>;
+    error?: pulumi.Input<string | undefined>;
     /**
-     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The status of the creation or deletion of the data catalog. LAMBDA, GLUE, and HIVE data catalog types are created synchronously. Their status is either CREATE_COMPLETE or CREATE_FAILED. The FEDERATED data catalog type is created asynchronously.
      */
-    status?: pulumi.Input<enums.athena.DataCatalogStatus>;
+    status?: pulumi.Input<enums.athena.DataCatalogStatus | undefined>;
     /**
-     * A list of comma separated tags to add to the data catalog that is created. 
+     * A list of comma separated tags to add to the data catalog that is created.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. FEDERATED is a federated catalog for which Athena creates the connection and the Lambda function for you based on the parameters that you pass.
      */

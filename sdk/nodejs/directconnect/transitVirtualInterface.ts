@@ -143,7 +143,7 @@ export interface TransitVirtualInterfaceArgs {
     /**
      * The Amazon Resource Name (ARN) of the role to allocate the TransitVifAllocation. Needs directconnect:AllocateTransitVirtualInterface permissions and tag permissions if applicable.
      */
-    allocateTransitVirtualInterfaceRoleArn?: pulumi.Input<string>;
+    allocateTransitVirtualInterfaceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The BGP peers configured on this virtual interface..
      */
@@ -159,19 +159,19 @@ export interface TransitVirtualInterfaceArgs {
     /**
      * Indicates whether to enable or disable SiteLink.
      */
-    enableSiteLink?: pulumi.Input<boolean>;
+    enableSiteLink?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
      */
-    mtu?: pulumi.Input<number>;
+    mtu?: pulumi.Input<number | undefined>;
     /**
      * The tags associated with the private virtual interface.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
      */
-    virtualInterfaceName?: pulumi.Input<string>;
+    virtualInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VLAN.
      */

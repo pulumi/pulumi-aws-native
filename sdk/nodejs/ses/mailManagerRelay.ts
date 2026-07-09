@@ -118,7 +118,7 @@ export interface MailManagerRelayArgs {
     /**
      * The unique relay name.
      */
-    relayName?: pulumi.Input<string>;
+    relayName?: pulumi.Input<string | undefined>;
     /**
      * The destination relay server address.
      */
@@ -130,5 +130,5 @@ export interface MailManagerRelayArgs {
     /**
      * The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

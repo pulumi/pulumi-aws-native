@@ -102,11 +102,11 @@ export interface DatasetArgs {
     /**
      * A description about the dataset, and its functionality.
      */
-    datasetDescription?: pulumi.Input<string>;
+    datasetDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the dataset.
      */
-    datasetName?: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * The data source for the dataset.
      */
@@ -114,5 +114,5 @@ export interface DatasetArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

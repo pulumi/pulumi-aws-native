@@ -143,49 +143,49 @@ export interface FormArgs {
     /**
      * The unique ID of the Amplify app associated with the form.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The `FormCTA` object that stores the call to action configuration for the form.
      */
-    cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
+    cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs | undefined>;
     /**
      * The type of data source to use to create the form.
      */
-    dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
+    dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs | undefined>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The configuration information for the form's fields.
      */
-    fields?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormFieldConfigArgs>}>;
+    fields?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormFieldConfigArgs>} | undefined>;
     /**
      * Specifies whether to perform a create or update action on the form.
      */
-    formActionType?: pulumi.Input<enums.amplifyuibuilder.FormActionType>;
+    formActionType?: pulumi.Input<enums.amplifyuibuilder.FormActionType | undefined>;
     /**
      * Specifies an icon or decoration to display on the form.
      */
-    labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator>;
+    labelDecorator?: pulumi.Input<enums.amplifyuibuilder.FormLabelDecorator | undefined>;
     /**
      * The name of the form.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema version of the form.
      */
-    schemaVersion?: pulumi.Input<string>;
+    schemaVersion?: pulumi.Input<string | undefined>;
     /**
      * The configuration information for the visual helper elements for the form. These elements are not associated with any data.
      */
-    sectionalElements?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementArgs>}>;
+    sectionalElements?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementArgs>} | undefined>;
     /**
      * The configuration for the form's style.
      */
-    style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
+    style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs | undefined>;
     /**
      * One or more key-value pairs to use when tagging the form data.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

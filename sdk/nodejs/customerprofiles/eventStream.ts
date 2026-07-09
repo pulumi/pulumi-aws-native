@@ -123,11 +123,11 @@ export interface EventStreamArgs {
     /**
      * The name of the event stream.
      */
-    eventStreamName?: pulumi.Input<string>;
+    eventStreamName?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.
      */

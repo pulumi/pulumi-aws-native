@@ -19,7 +19,7 @@ export const ComponentType = {
 } as const;
 
 /**
- * The type of the component denotes whether the component is used to build the image or only to test it. 
+ * The type of the component denotes whether the component is used to build the image or only to test it.
  */
 export type ComponentType = (typeof ComponentType)[keyof typeof ComponentType];
 
@@ -146,7 +146,7 @@ export const InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = {
 } as const;
 
 /**
- * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+ * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
  */
 export type InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = (typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)[keyof typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens];
 
