@@ -162,7 +162,6 @@ def get_stack_set(stack_set_id: Optional[_builtins.str] = None,
     """
     StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 
-
     :param _builtins.str stack_set_id: The ID of the stack set that you're creating.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_stack_set(stack_set_id: Optional[_builtins.str] = None,
         stack_set_id=pulumi.get(__ret__, 'stack_set_id'),
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'))
-def get_stack_set_output(stack_set_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stack_set_output(stack_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackSetResult]:
     """
     StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
-
 
     :param _builtins.str stack_set_id: The ID of the stack set that you're creating.
     """

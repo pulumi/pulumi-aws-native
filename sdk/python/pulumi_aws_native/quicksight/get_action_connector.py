@@ -140,8 +140,8 @@ def get_action_connector(action_connector_id: Optional[_builtins.str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_action_connector_output(action_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_action_connector_output(action_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionConnectorResult]:
     """
     Definition of the AWS::QuickSight::ActionConnector Resource Type.

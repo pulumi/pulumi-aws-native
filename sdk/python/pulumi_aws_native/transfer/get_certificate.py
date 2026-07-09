@@ -185,7 +185,6 @@ def get_certificate(certificate_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Transfer::Certificate
 
-
     :param _builtins.str certificate_id: A unique identifier for the certificate.
     """
     __args__ = dict()
@@ -206,11 +205,10 @@ def get_certificate(certificate_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         usage=pulumi.get(__ret__, 'usage'))
-def get_certificate_output(certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_certificate_output(certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Resource Type definition for AWS::Transfer::Certificate
-
 
     :param _builtins.str certificate_id: A unique identifier for the certificate.
     """

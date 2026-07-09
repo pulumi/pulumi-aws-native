@@ -224,7 +224,7 @@ class ListenerAttribute(dict):
         :param _builtins.str key: The name of the attribute.
                 The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
                  +  ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
-                 
+               
                 The following attributes are only supported by Application Load Balancers.
                  +  ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
                  +  ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
@@ -259,7 +259,7 @@ class ListenerAttribute(dict):
         The name of the attribute.
          The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
           +  ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
-          
+
          The following attributes are only supported by Application Load Balancers.
           +  ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
           +  ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
@@ -979,7 +979,7 @@ class ListenerRedirectConfig(dict):
       +  #{port}
       +  #{path} (the leading "/" is removed)
       +  #{query}
-      
+
      For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
     """
     @staticmethod
@@ -1015,7 +1015,7 @@ class ListenerRedirectConfig(dict):
           +  #{port}
           +  #{path} (the leading "/" is removed)
           +  #{query}
-          
+
          For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 
         :param _builtins.str status_code: The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
@@ -2064,7 +2064,7 @@ class ListenerRuleRedirectConfig(dict):
       +  #{port}
       +  #{path} (the leading "/" is removed)
       +  #{query}
-      
+
      For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
     """
     @staticmethod
@@ -2100,7 +2100,7 @@ class ListenerRuleRedirectConfig(dict):
           +  #{port}
           +  #{path} (the leading "/" is removed)
           +  #{query}
-          
+
          For example, you can change the path to "/new/#{path}", the hostname to "example.#{host}", or the query to "#{query}&value=xyz".
 
         :param _builtins.str status_code: The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP 302).
@@ -2265,11 +2265,11 @@ class ListenerRuleRuleCondition(dict):
         Specifies a condition for a listener rule.
 
         :param _builtins.str field: The field in the HTTP request. The following are the possible values:
-                 +   ``http-header`` 
-                 +   ``http-request-method`` 
-                 +   ``host-header`` 
-                 +   ``path-pattern`` 
-                 +   ``query-string`` 
+                 +   ``http-header``
+                 +   ``http-request-method``
+                 +   ``host-header``
+                 +   ``path-pattern``
+                 +   ``query-string``
                  +   ``source-ip``
         :param 'ListenerRuleHostHeaderConfig' host_header_config: Information for a host header condition. Specify only when ``Field`` is ``host-header``.
         :param 'ListenerRuleHttpHeaderConfig' http_header_config: Information for an HTTP header condition. Specify only when ``Field`` is ``http-header``.
@@ -2284,7 +2284,7 @@ class ListenerRuleRuleCondition(dict):
                  +  - .
                  +  * (matches 0 or more characters)
                  +  ? (matches exactly 1 character)
-                 
+               
                 If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
                  +  A-Z, a-z, 0-9
                  +  _ - . $ / ~ " ' @ : +
@@ -2316,11 +2316,11 @@ class ListenerRuleRuleCondition(dict):
     def field(self) -> Optional[_builtins.str]:
         """
         The field in the HTTP request. The following are the possible values:
-          +   ``http-header`` 
-          +   ``http-request-method`` 
-          +   ``host-header`` 
-          +   ``path-pattern`` 
-          +   ``query-string`` 
+          +   ``http-header``
+          +   ``http-request-method``
+          +   ``host-header``
+          +   ``path-pattern``
+          +   ``query-string``
           +   ``source-ip``
         """
         return pulumi.get(self, "field")
@@ -2391,7 +2391,7 @@ class ListenerRuleRuleCondition(dict):
           +  - .
           +  * (matches 0 or more characters)
           +  ? (matches exactly 1 character)
-          
+
          If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.
           +  A-Z, a-z, 0-9
           +  _ - . $ / ~ " ' @ : +
@@ -2704,14 +2704,14 @@ class LoadBalancerAttribute(dict):
                 The following attributes are supported by all load balancers:
                  +  ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
                  +  ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
-                 
+               
                 The following attributes are supported by both Application Load Balancers and Network Load Balancers:
                  +  ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
                  +  ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
                  +  ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
                  +  ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
                  +  ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
-                 
+               
                 The following attributes are supported by only Application Load Balancers:
                  +  ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
                  +  ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
@@ -2730,10 +2730,10 @@ class LoadBalancerAttribute(dict):
                  +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
                  +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
                  +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
-                 
+               
                  +  ``routing.http2.enabled`` - Indicates whether clients can connect to the load balancer using HTTP/2. If ``true``, clients can connect using HTTP/2 or HTTP/1.1. However, all client requests are subject to the stricter HTTP/2 header validation rules. For example, message header names must contain only alphanumeric characters and hyphens. If ``false``, clients must connect using HTTP/1.1. The default is ``true``.
                  +  ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
-                 
+               
                 The following attributes are supported by only Network Load Balancers:
                  +  ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
                  +  ``secondary_ips.auto_assigned.per_subnet`` - The number of secondary IP addresses to configure for your load balancer nodes. Use to address port allocation errors if you can't add targets. The valid range is 0 to 7. The default is 0. After you set this value, you can't decrease it.
@@ -2752,14 +2752,14 @@ class LoadBalancerAttribute(dict):
          The following attributes are supported by all load balancers:
           +  ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
           +  ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
-          
+
          The following attributes are supported by both Application Load Balancers and Network Load Balancers:
           +  ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
           +  ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
           +  ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
           +  ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
           +  ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
-          
+
          The following attributes are supported by only Application Load Balancers:
           +  ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
           +  ``client_keep_alive.seconds`` - The client keep alive value, in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
@@ -2778,10 +2778,10 @@ class LoadBalancerAttribute(dict):
           +  If the value is ``append``, the Application Load Balancer adds the client IP address (of the last hop) to the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
           +  If the value is ``preserve`` the Application Load Balancer preserves the ``X-Forwarded-For`` header in the HTTP request, and sends it to targets without any change.
           +  If the value is ``remove``, the Application Load Balancer removes the ``X-Forwarded-For`` header in the HTTP request before it sends it to targets.
-          
+
           +  ``routing.http2.enabled`` - Indicates whether clients can connect to the load balancer using HTTP/2. If ``true``, clients can connect using HTTP/2 or HTTP/1.1. However, all client requests are subject to the stricter HTTP/2 header validation rules. For example, message header names must contain only alphanumeric characters and hyphens. If ``false``, clients must connect using HTTP/1.1. The default is ``true``.
           +  ``waf.fail_open.enabled`` - Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. The possible values are ``true`` and ``false``. The default is ``false``.
-          
+
          The following attributes are supported by only Network Load Balancers:
           +  ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
           +  ``secondary_ips.auto_assigned.per_subnet`` - The number of secondary IP addresses to configure for your load balancer nodes. Use to address port allocation errors if you can't add targets. The valid range is 0 to 7. The default is 0. After you set this value, you can't decrease it.
@@ -2990,7 +2990,7 @@ class TargetGroupMatcher(dict):
                  http_code: Optional[_builtins.str] = None):
         """
         :param _builtins.str grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
-        :param _builtins.str http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+        :param _builtins.str http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
         """
         if grpc_code is not None:
             pulumi.set(__self__, "grpc_code", grpc_code)
@@ -3009,7 +3009,7 @@ class TargetGroupMatcher(dict):
     @pulumi.getter(name="httpCode")
     def http_code(self) -> Optional[_builtins.str]:
         """
-        For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
+        For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values.
         """
         return pulumi.get(self, "http_code")
 
@@ -3041,7 +3041,7 @@ class TargetGroupTargetDescription(dict):
                  port: Optional[_builtins.int] = None,
                  quic_server_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+        :param _builtins.str id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
         :param _builtins.str availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
         :param _builtins.int port: The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         :param _builtins.str quic_server_id: The Server ID used by targets when using QUIC or TCP_QUIC protocols.
@@ -3058,7 +3058,7 @@ class TargetGroupTargetDescription(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
+        The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target.
         """
         return pulumi.get(self, "id")
 

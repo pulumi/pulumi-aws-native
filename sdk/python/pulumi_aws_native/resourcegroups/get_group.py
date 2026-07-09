@@ -122,7 +122,6 @@ def get_group(name: Optional[_builtins.str] = None,
     """
     Schema for ResourceGroups::Group
 
-
     :param _builtins.str name: The name of the resource group
     """
     __args__ = dict()
@@ -137,11 +136,10 @@ def get_group(name: Optional[_builtins.str] = None,
         resource_query=pulumi.get(__ret__, 'resource_query'),
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Schema for ResourceGroups::Group
-
 
     :param _builtins.str name: The name of the resource group
     """

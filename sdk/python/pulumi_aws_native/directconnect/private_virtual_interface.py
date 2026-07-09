@@ -26,13 +26,13 @@ class PrivateVirtualInterfaceArgs:
                  bgp_peers: pulumi.Input[Sequence[pulumi.Input['PrivateVirtualInterfaceBgpPeerArgs']]],
                  connection_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
-                 allocate_private_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_site_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 virtual_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocate_private_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateVirtualInterface resource.
 
@@ -103,86 +103,86 @@ class PrivateVirtualInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatePrivateVirtualInterfaceRoleArn")
-    def allocate_private_virtual_interface_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocate_private_virtual_interface_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role to allocate the private virtual interface. Needs directconnect:AllocatePrivateVirtualInterface permissions and tag permissions if applicable.
         """
         return pulumi.get(self, "allocate_private_virtual_interface_role_arn")
 
     @allocate_private_virtual_interface_role_arn.setter
-    def allocate_private_virtual_interface_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocate_private_virtual_interface_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocate_private_virtual_interface_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="directConnectGatewayId")
-    def direct_connect_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direct_connect_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of the Direct Connect gateway.
         """
         return pulumi.get(self, "direct_connect_gateway_id")
 
     @direct_connect_gateway_id.setter
-    def direct_connect_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direct_connect_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direct_connect_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSiteLink")
-    def enable_site_link(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_site_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to enable or disable SiteLink.
         """
         return pulumi.get(self, "enable_site_link")
 
     @enable_site_link.setter
-    def enable_site_link(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_site_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_site_link", value)
 
     @_builtins.property
     @pulumi.getter
-    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def mtu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.
         """
         return pulumi.get(self, "mtu")
 
     @mtu.setter
-    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def mtu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "mtu", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the private virtual interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualGatewayId")
-    def virtual_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID or ARN of the virtual private gateway.
         """
         return pulumi.get(self, "virtual_gateway_id")
 
     @virtual_gateway_id.setter
-    def virtual_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualInterfaceName")
-    def virtual_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
         """
         return pulumi.get(self, "virtual_interface_name")
 
     @virtual_interface_name.setter
-    def virtual_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_interface_name", value)
 
 
@@ -192,20 +192,19 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocate_private_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateVirtualInterfaceBgpPeerArgs', 'PrivateVirtualInterfaceBgpPeerArgsDict']]]]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_site_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 virtual_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocate_private_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateVirtualInterfaceBgpPeerArgs', 'PrivateVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::PrivateVirtualInterface
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +228,6 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::PrivateVirtualInterface
 
-
         :param str resource_name: The name of the resource.
         :param PrivateVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,16 +243,16 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocate_private_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivateVirtualInterfaceBgpPeerArgs', 'PrivateVirtualInterfaceBgpPeerArgsDict']]]]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_site_link: Optional[pulumi.Input[_builtins.bool]] = None,
-                 mtu: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 virtual_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocate_private_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateVirtualInterfaceBgpPeerArgs', 'PrivateVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_site_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 mtu: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

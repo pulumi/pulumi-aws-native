@@ -53,7 +53,6 @@ def get_hosted_configuration_version(application_id: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
 
-
     :param _builtins.str application_id: The application ID.
     :param _builtins.str configuration_profile_id: The configuration profile ID.
     :param _builtins.str version_number: Current version number of hosted configuration version.
@@ -67,13 +66,12 @@ def get_hosted_configuration_version(application_id: Optional[_builtins.str] = N
 
     return AwaitableGetHostedConfigurationVersionResult(
         version_number=pulumi.get(__ret__, 'version_number'))
-def get_hosted_configuration_version_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            configuration_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            version_number: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hosted_configuration_version_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            configuration_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            version_number: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedConfigurationVersionResult]:
     """
     Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
-
 
     :param _builtins.str application_id: The application ID.
     :param _builtins.str configuration_profile_id: The configuration profile ID.

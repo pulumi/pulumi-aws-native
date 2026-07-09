@@ -65,7 +65,6 @@ def get_signing_configuration(registry_id: Optional[_builtins.str] = None,
     """
     The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
 
-
     :param _builtins.str registry_id: 12-digit AWS account ID of the ECR registry.
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_signing_configuration(registry_id: Optional[_builtins.str] = None,
     return AwaitableGetSigningConfigurationResult(
         registry_id=pulumi.get(__ret__, 'registry_id'),
         rules=pulumi.get(__ret__, 'rules'))
-def get_signing_configuration_output(registry_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signing_configuration_output(registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningConfigurationResult]:
     """
     The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
-
 
     :param _builtins.str registry_id: 12-digit AWS account ID of the ECR registry.
     """

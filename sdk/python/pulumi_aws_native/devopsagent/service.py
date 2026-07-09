@@ -25,9 +25,9 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  service_type: pulumi.Input['ServiceType'],
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_details: Optional[pulumi.Input['ServiceDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_details: pulumi.Input[Optional['ServiceDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -58,38 +58,38 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS key to use for encryption.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceDetails")
-    def service_details(self) -> Optional[pulumi.Input['ServiceDetailsArgs']]:
+    def service_details(self) -> pulumi.Input[Optional['ServiceDetailsArgs']]:
         """
         Service-specific configuration details for create operation
         """
         return pulumi.get(self, "service_details")
 
     @service_details.setter
-    def service_details(self, value: Optional[pulumi.Input['ServiceDetailsArgs']]):
+    def service_details(self, value: pulumi.Input[Optional['ServiceDetailsArgs']]):
         pulumi.set(self, "service_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,14 +99,13 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_details: Optional[pulumi.Input[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
-                 service_type: Optional[pulumi.Input['ServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
+                 service_type: pulumi.Input[Optional['ServiceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::DevOpsAgent::Service resource registers external services (like Dynatrace, MCP servers, GitLab) for integration with DevOpsAgent.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class Service(pulumi.CustomResource):
         """
         The AWS::DevOpsAgent::Service resource registers external services (like Dynatrace, MCP servers, GitLab) for integration with DevOpsAgent.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_details: Optional[pulumi.Input[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
-                 service_type: Optional[pulumi.Input['ServiceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
+                 service_type: pulumi.Input[Optional['ServiceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

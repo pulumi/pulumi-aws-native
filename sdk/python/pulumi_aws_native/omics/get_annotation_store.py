@@ -136,7 +136,6 @@ def get_annotation_store(name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Omics::AnnotationStore Resource Type
 
-
     :param _builtins.str name: The name of the Annotation Store.
     """
     __args__ = dict()
@@ -153,11 +152,10 @@ def get_annotation_store(name: Optional[_builtins.str] = None,
         store_arn=pulumi.get(__ret__, 'store_arn'),
         store_size_bytes=pulumi.get(__ret__, 'store_size_bytes'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_annotation_store_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_annotation_store_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnnotationStoreResult]:
     """
     Definition of AWS::Omics::AnnotationStore Resource Type
-
 
     :param _builtins.str name: The name of the Annotation Store.
     """

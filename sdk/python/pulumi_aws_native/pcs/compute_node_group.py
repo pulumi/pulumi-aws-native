@@ -28,12 +28,12 @@ class ComputeNodeGroupArgs:
                  instance_configs: pulumi.Input[Sequence[pulumi.Input['ComputeNodeGroupInstanceConfigArgs']]],
                  scaling_configuration: pulumi.Input['ScalingConfigurationPropertiesArgs'],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_option: Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']] = None,
-                 slurm_configuration: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']] = None,
-                 spot_options: Optional[pulumi.Input['SpotOptionsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
+                 slurm_configuration: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']] = None,
+                 spot_options: pulumi.Input[Optional['SpotOptionsPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComputeNodeGroup resource.
 
@@ -143,74 +143,74 @@ class ComputeNodeGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="amiId")
-    def ami_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ami_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon Machine Image (AMI) that AWS PCS uses to launch instances. If not provided, AWS PCS uses the AMI ID specified in the custom launch template.
         """
         return pulumi.get(self, "ami_id")
 
     @ami_id.setter
-    def ami_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ami_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ami_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that identifies the compute node group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="purchaseOption")
-    def purchase_option(self) -> Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']]:
+    def purchase_option(self) -> pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']]:
         """
         Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot, Capacity Block, and Interruptible Capacity Reservation instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
         """
         return pulumi.get(self, "purchase_option")
 
     @purchase_option.setter
-    def purchase_option(self, value: Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']]):
+    def purchase_option(self, value: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']]):
         pulumi.set(self, "purchase_option", value)
 
     @_builtins.property
     @pulumi.getter(name="slurmConfiguration")
-    def slurm_configuration(self) -> Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]:
+    def slurm_configuration(self) -> pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']]:
         """
         Additional options related to the Slurm scheduler.
         """
         return pulumi.get(self, "slurm_configuration")
 
     @slurm_configuration.setter
-    def slurm_configuration(self, value: Optional[pulumi.Input['SlurmConfigurationPropertiesArgs']]):
+    def slurm_configuration(self, value: pulumi.Input[Optional['SlurmConfigurationPropertiesArgs']]):
         pulumi.set(self, "slurm_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['SpotOptionsPropertiesArgs']]:
+    def spot_options(self) -> pulumi.Input[Optional['SpotOptionsPropertiesArgs']]:
         """
         Additional configuration when you specify SPOT as the purchase option.
         """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['SpotOptionsPropertiesArgs']]):
+    def spot_options(self, value: pulumi.Input[Optional['SpotOptionsPropertiesArgs']]):
         pulumi.set(self, "spot_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -220,22 +220,21 @@ class ComputeNodeGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_launch_template: Optional[pulumi.Input[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict']]] = None,
-                 iam_instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_option: Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
-                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
-                 spot_options: Optional[pulumi.Input[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_launch_template: pulumi.Input[Optional[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict']]] = None,
+                 iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 spot_options: pulumi.Input[Optional[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         AWS::PCS::ComputeNodeGroup resource creates an AWS PCS compute node group.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,7 +260,6 @@ class ComputeNodeGroup(pulumi.CustomResource):
         """
         AWS::PCS::ComputeNodeGroup resource creates an AWS PCS compute node group.
 
-
         :param str resource_name: The name of the resource.
         :param ComputeNodeGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,18 +275,18 @@ class ComputeNodeGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ami_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_launch_template: Optional[pulumi.Input[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict']]] = None,
-                 iam_instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 purchase_option: Optional[pulumi.Input['ComputeNodeGroupPurchaseOption']] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
-                 slurm_configuration: Optional[pulumi.Input[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
-                 spot_options: Optional[pulumi.Input[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict']]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ami_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_launch_template: pulumi.Input[Optional[Union['CustomLaunchTemplatePropertiesArgs', 'CustomLaunchTemplatePropertiesArgsDict']]] = None,
+                 iam_instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputeNodeGroupInstanceConfigArgs', 'ComputeNodeGroupInstanceConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 purchase_option: pulumi.Input[Optional['ComputeNodeGroupPurchaseOption']] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['ScalingConfigurationPropertiesArgs', 'ScalingConfigurationPropertiesArgsDict']]] = None,
+                 slurm_configuration: pulumi.Input[Optional[Union['SlurmConfigurationPropertiesArgs', 'SlurmConfigurationPropertiesArgsDict']]] = None,
+                 spot_options: pulumi.Input[Optional[Union['SpotOptionsPropertiesArgs', 'SpotOptionsPropertiesArgsDict']]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

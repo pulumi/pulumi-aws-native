@@ -63,7 +63,6 @@ def get_hypervisor(hypervisor_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type
 
-
     :param _builtins.str hypervisor_arn: Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_hypervisor(hypervisor_arn: Optional[_builtins.str] = None,
     return AwaitableGetHypervisorResult(
         host=pulumi.get(__ret__, 'host'),
         hypervisor_arn=pulumi.get(__ret__, 'hypervisor_arn'))
-def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hypervisor_output(hypervisor_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervisorResult]:
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type
-
 
     :param _builtins.str hypervisor_arn: Returns `HypervisorArn` , an Amazon Resource Name (ARN) that uniquely identifies a Hypervisor. For example: `arn:aws:backup-gateway:us-east-1:123456789012:hypervisor/hype-1234D67D`
     """

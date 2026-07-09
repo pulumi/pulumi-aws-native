@@ -23,9 +23,9 @@ class PackageVersionArgs:
                  package_id: pulumi.Input[_builtins.str],
                  package_version: pulumi.Input[_builtins.str],
                  patch_version: pulumi.Input[_builtins.str],
-                 mark_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_latest_patch_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 mark_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_latest_patch_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PackageVersion resource.
 
@@ -84,38 +84,38 @@ class PackageVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="markLatest")
-    def mark_latest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def mark_latest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to mark the new version as the latest version.
         """
         return pulumi.get(self, "mark_latest")
 
     @mark_latest.setter
-    def mark_latest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def mark_latest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "mark_latest", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerAccount")
-    def owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An owner account.
         """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
-    def owner_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_account", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedLatestPatchVersion")
-    def updated_latest_patch_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_latest_patch_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the version was marked latest, the new version to maker as latest.
         """
         return pulumi.get(self, "updated_latest_patch_version")
 
     @updated_latest_patch_version.setter
-    def updated_latest_patch_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_latest_patch_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_latest_patch_version", value)
 
 
@@ -125,16 +125,15 @@ class PackageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mark_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_latest_patch_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 mark_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_latest_patch_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Registers a package version.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +153,6 @@ class PackageVersion(pulumi.CustomResource):
         """
         Registers a package version.
 
-
         :param str resource_name: The name of the resource.
         :param PackageVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,12 +168,12 @@ class PackageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mark_latest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 patch_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_latest_patch_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 mark_latest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 patch_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_latest_patch_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

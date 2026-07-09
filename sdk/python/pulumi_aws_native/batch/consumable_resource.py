@@ -22,8 +22,8 @@ class ConsumableResourceArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input['ConsumableResourceResourceType'],
                  total_quantity: pulumi.Input[_builtins.int],
-                 consumable_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 consumable_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConsumableResource resource.
 
@@ -71,26 +71,26 @@ class ConsumableResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumableResourceName")
-    def consumable_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumable_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of ConsumableResource.
         """
         return pulumi.get(self, "consumable_resource_name")
 
     @consumable_resource_name.setter
-    def consumable_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumable_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumable_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,14 +100,13 @@ class ConsumableResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumable_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['ConsumableResourceResourceType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 total_quantity: Optional[pulumi.Input[_builtins.int]] = None,
+                 consumable_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['ConsumableResourceResourceType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 total_quantity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Batch::ConsumableResource
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +127,6 @@ class ConsumableResource(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Batch::ConsumableResource
 
-
         :param str resource_name: The name of the resource.
         :param ConsumableResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,10 +142,10 @@ class ConsumableResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumable_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_type: Optional[pulumi.Input['ConsumableResourceResourceType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 total_quantity: Optional[pulumi.Input[_builtins.int]] = None,
+                 consumable_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_type: pulumi.Input[Optional['ConsumableResourceResourceType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 total_quantity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

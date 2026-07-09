@@ -198,7 +198,6 @@ def get_security_profile(security_profile_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::SecurityProfile
 
-
     :param _builtins.str security_profile_arn: The Amazon Resource Name (ARN) for the security profile.
     """
     __args__ = dict()
@@ -220,11 +219,10 @@ def get_security_profile(security_profile_arn: Optional[_builtins.str] = None,
         security_profile_arn=pulumi.get(__ret__, 'security_profile_arn'),
         tag_restricted_resources=pulumi.get(__ret__, 'tag_restricted_resources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_profile_output(security_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_profile_output(security_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     Resource Type definition for AWS::Connect::SecurityProfile
-
 
     :param _builtins.str security_profile_arn: The Amazon Resource Name (ARN) for the security profile.
     """

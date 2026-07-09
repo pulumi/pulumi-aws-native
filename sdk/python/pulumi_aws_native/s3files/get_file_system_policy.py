@@ -58,7 +58,7 @@ def get_file_system_policy(file_system_id: Optional[_builtins.str] = None,
 
     return AwaitableGetFileSystemPolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
-def get_file_system_policy_output(file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_system_policy_output(file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemPolicyResult]:
     """
     Resource Type definition for AWS::S3Files::FileSystemPolicy

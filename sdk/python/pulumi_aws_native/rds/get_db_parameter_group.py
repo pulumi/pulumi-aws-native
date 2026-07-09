@@ -72,13 +72,12 @@ def get_db_parameter_group(db_parameter_group_name: Optional[_builtins.str] = No
      For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
       Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 
-
     :param _builtins.str db_parameter_group_name: The name of the DB parameter group.
             Constraints:
              +  Must be 1 to 255 letters, numbers, or hyphens.
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
-             
+           
             If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
              This value is stored as a lowercase string.
     """
@@ -90,7 +89,7 @@ def get_db_parameter_group(db_parameter_group_name: Optional[_builtins.str] = No
     return AwaitableGetDbParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_parameter_group_output(db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbParameterGroupResult]:
     """
     The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.
@@ -99,13 +98,12 @@ def get_db_parameter_group_output(db_parameter_group_name: Optional[pulumi.Input
      For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
       Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 
-
     :param _builtins.str db_parameter_group_name: The name of the DB parameter group.
             Constraints:
              +  Must be 1 to 255 letters, numbers, or hyphens.
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
-             
+           
             If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
              This value is stored as a lowercase string.
     """

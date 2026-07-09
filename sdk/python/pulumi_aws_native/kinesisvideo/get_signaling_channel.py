@@ -89,7 +89,6 @@ def get_signaling_channel(name: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS::KinesisVideo::SignalingChannel
 
-
     :param _builtins.str name: The name of the Kinesis Video Signaling Channel.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_signaling_channel(name: Optional[_builtins.str] = None,
         message_ttl_seconds=pulumi.get(__ret__, 'message_ttl_seconds'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_signaling_channel_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signaling_channel_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalingChannelResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::SignalingChannel
-
 
     :param _builtins.str name: The name of the Kinesis Video Signaling Channel.
     """

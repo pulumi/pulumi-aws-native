@@ -28,12 +28,12 @@ class AutomationRuleArgs:
                  rule_type: pulumi.Input['AutomationRuleRuleType'],
                  schedule: pulumi.Input['AutomationRuleScheduleArgs'],
                  status: pulumi.Input['AutomationRuleStatus'],
-                 criteria: Optional[pulumi.Input['AutomationRuleCriteriaArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input['AutomationRuleOrganizationConfigurationArgs']] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 criteria: pulumi.Input[Optional['AutomationRuleCriteriaArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional['AutomationRuleOrganizationConfigurationArgs']] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
 
@@ -115,74 +115,74 @@ class AutomationRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['AutomationRuleCriteriaArgs']]:
+    def criteria(self) -> pulumi.Input[Optional['AutomationRuleCriteriaArgs']]:
         """
         Filter criteria that specify which recommended actions qualify for implementation.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['AutomationRuleCriteriaArgs']]):
+    def criteria(self, value: pulumi.Input[Optional['AutomationRuleCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the automation rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the automation rule.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationConfiguration")
-    def organization_configuration(self) -> Optional[pulumi.Input['AutomationRuleOrganizationConfigurationArgs']]:
+    def organization_configuration(self) -> pulumi.Input[Optional['AutomationRuleOrganizationConfigurationArgs']]:
         """
         Organization configuration for organization rules, including rule apply order and account scope.
         """
         return pulumi.get(self, "organization_configuration")
 
     @organization_configuration.setter
-    def organization_configuration(self, value: Optional[pulumi.Input['AutomationRuleOrganizationConfigurationArgs']]):
+    def organization_configuration(self, value: pulumi.Input[Optional['AutomationRuleOrganizationConfigurationArgs']]):
         pulumi.set(self, "organization_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Rule priority within its group
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with the automation rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,20 +192,19 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input[Union['AutomationRuleOrganizationConfigurationArgs', 'AutomationRuleOrganizationConfigurationArgsDict']]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommended_action_types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRecommendedActionTypesItem']]]] = None,
-                 rule_type: Optional[pulumi.Input['AutomationRuleRuleType']] = None,
-                 schedule: Optional[pulumi.Input[Union['AutomationRuleScheduleArgs', 'AutomationRuleScheduleArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AutomationRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['AutomationRuleOrganizationConfigurationArgs', 'AutomationRuleOrganizationConfigurationArgsDict']]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommended_action_types: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleRecommendedActionTypesItem']]]] = None,
+                 rule_type: pulumi.Input[Optional['AutomationRuleRuleType']] = None,
+                 schedule: pulumi.Input[Optional[Union['AutomationRuleScheduleArgs', 'AutomationRuleScheduleArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AutomationRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an AWS Compute Optimizer automation rule that automatically implements recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. Organization-level rules can only be created by the management account or delegated administrator.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +228,6 @@ class AutomationRule(pulumi.CustomResource):
         """
         Creates an AWS Compute Optimizer automation rule that automatically implements recommended actions based on your defined criteria and schedule. Automation rules are global resources that manage automated actions across all AWS Regions where Compute Optimizer Automation is available. Organization-level rules can only be created by the management account or delegated administrator.
 
-
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,16 +243,16 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_configuration: Optional[pulumi.Input[Union['AutomationRuleOrganizationConfigurationArgs', 'AutomationRuleOrganizationConfigurationArgsDict']]] = None,
-                 priority: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommended_action_types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleRecommendedActionTypesItem']]]] = None,
-                 rule_type: Optional[pulumi.Input['AutomationRuleRuleType']] = None,
-                 schedule: Optional[pulumi.Input[Union['AutomationRuleScheduleArgs', 'AutomationRuleScheduleArgsDict']]] = None,
-                 status: Optional[pulumi.Input['AutomationRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_configuration: pulumi.Input[Optional[Union['AutomationRuleOrganizationConfigurationArgs', 'AutomationRuleOrganizationConfigurationArgsDict']]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommended_action_types: pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleRecommendedActionTypesItem']]]] = None,
+                 rule_type: pulumi.Input[Optional['AutomationRuleRuleType']] = None,
+                 schedule: pulumi.Input[Optional[Union['AutomationRuleScheduleArgs', 'AutomationRuleScheduleArgsDict']]] = None,
+                 status: pulumi.Input[Optional['AutomationRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

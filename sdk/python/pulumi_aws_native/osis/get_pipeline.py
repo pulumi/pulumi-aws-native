@@ -195,7 +195,6 @@ def get_pipeline(pipeline_arn: Optional[_builtins.str] = None,
     """
     An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
 
-
     :param _builtins.str pipeline_arn: The Amazon Resource Name (ARN) of the pipeline.
     """
     __args__ = dict()
@@ -217,11 +216,10 @@ def get_pipeline(pipeline_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_endpoint_service=pulumi.get(__ret__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
-def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pipeline_output(pipeline_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
-
 
     :param _builtins.str pipeline_arn: The Amazon Resource Name (ARN) of the pipeline.
     """

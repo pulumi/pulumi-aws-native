@@ -186,7 +186,6 @@ def get_data_automation_project(project_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::DataAutomationProject Resource Type
 
-
     :param _builtins.str project_arn: ARN of a DataAutomationProject
     """
     __args__ = dict()
@@ -207,11 +206,10 @@ def get_data_automation_project(project_arn: Optional[_builtins.str] = None,
         standard_output_configuration=pulumi.get(__ret__, 'standard_output_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_automation_project_output(project_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_automation_project_output(project_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataAutomationProjectResult]:
     """
     Definition of AWS::Bedrock::DataAutomationProject Resource Type
-
 
     :param _builtins.str project_arn: ARN of a DataAutomationProject
     """

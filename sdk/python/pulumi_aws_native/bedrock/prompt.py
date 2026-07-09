@@ -22,12 +22,12 @@ __all__ = ['PromptArgs', 'Prompt']
 @pulumi.input_type
 class PromptArgs:
     def __init__(__self__, *,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input['PromptVariantArgs']]]] = None):
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input['PromptVariantArgs']]]] = None):
         """
         The set of arguments for constructing a Prompt resource.
 
@@ -56,55 +56,55 @@ class PromptArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerEncryptionKeyArn")
-    def customer_encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A KMS key ARN
         """
         return pulumi.get(self, "customer_encryption_key_arn")
 
     @customer_encryption_key_arn.setter
-    def customer_encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultVariant")
-    def default_variant(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_variant(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for a variant.
         """
         return pulumi.get(self, "default_variant")
 
     @default_variant.setter
-    def default_variant(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_variant(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_variant", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for a prompt resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for a prompt resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 
@@ -114,19 +114,19 @@ class PromptArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptVariantArgs']]]]:
+    def variants(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PromptVariantArgs']]]]:
         """
         List of prompt variants
         """
         return pulumi.get(self, "variants")
 
     @variants.setter
-    def variants(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptVariantArgs']]]]):
+    def variants(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PromptVariantArgs']]]]):
         pulumi.set(self, "variants", value)
 
 
@@ -136,16 +136,15 @@ class Prompt(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +167,6 @@ class Prompt(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param PromptArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,12 +182,12 @@ class Prompt(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_variant: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
+                 customer_encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_variant: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

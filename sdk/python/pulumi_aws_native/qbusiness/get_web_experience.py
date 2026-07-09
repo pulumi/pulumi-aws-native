@@ -239,7 +239,6 @@ def get_web_experience(application_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::QBusiness::WebExperience Resource Type
 
-
     :param _builtins.str application_id: The identifier of the Amazon Q Business web experience.
     :param _builtins.str web_experience_id: The identifier of your Amazon Q Business web experience.
     """
@@ -266,12 +265,11 @@ def get_web_experience(application_id: Optional[_builtins.str] = None,
         web_experience_arn=pulumi.get(__ret__, 'web_experience_arn'),
         web_experience_id=pulumi.get(__ret__, 'web_experience_id'),
         welcome_message=pulumi.get(__ret__, 'welcome_message'))
-def get_web_experience_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              web_experience_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_experience_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              web_experience_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebExperienceResult]:
     """
     Definition of AWS::QBusiness::WebExperience Resource Type
-
 
     :param _builtins.str application_id: The identifier of the Amazon Q Business web experience.
     :param _builtins.str web_experience_id: The identifier of your Amazon Q Business web experience.

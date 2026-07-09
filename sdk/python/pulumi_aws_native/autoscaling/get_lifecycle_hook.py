@@ -112,7 +112,6 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AutoScaling::LifecycleHook
 
-
     :param _builtins.str auto_scaling_group_name: The name of the Auto Scaling group for the lifecycle hook.
     :param _builtins.str lifecycle_hook_name: The name of the lifecycle hook.
     """
@@ -129,12 +128,11 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[_builtins.str] = None,
         notification_metadata=pulumi.get(__ret__, 'notification_metadata'),
         notification_target_arn=pulumi.get(__ret__, 'notification_target_arn'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              lifecycle_hook_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lifecycle_hook_output(auto_scaling_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              lifecycle_hook_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecycleHookResult]:
     """
     Resource Type definition for AWS::AutoScaling::LifecycleHook
-
 
     :param _builtins.str auto_scaling_group_name: The name of the Auto Scaling group for the lifecycle hook.
     :param _builtins.str lifecycle_hook_name: The name of the lifecycle hook.

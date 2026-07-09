@@ -77,7 +77,6 @@ def get_recording_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IVS::RecordingConfiguration
 
-
     :param _builtins.str arn: Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_recording_configuration(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_recording_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_recording_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordingConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::RecordingConfiguration
-
 
     :param _builtins.str arn: Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
     """

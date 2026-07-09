@@ -27,10 +27,10 @@ class LinkArgs:
                  gateway_id: pulumi.Input[_builtins.str],
                  link_log_settings: pulumi.Input['LinkLogSettingsArgs'],
                  peer_gateway_id: pulumi.Input[_builtins.str],
-                 http_responder_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_attributes: Optional[pulumi.Input['LinkAttributesArgs']] = None,
-                 module_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 http_responder_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_attributes: pulumi.Input[Optional['LinkAttributesArgs']] = None,
+                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Link resource.
 
@@ -91,47 +91,47 @@ class LinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpResponderAllowed")
-    def http_responder_allowed(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def http_responder_allowed(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean to specify if an HTTP responder is allowed.
         """
         return pulumi.get(self, "http_responder_allowed")
 
     @http_responder_allowed.setter
-    def http_responder_allowed(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def http_responder_allowed(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "http_responder_allowed", value)
 
     @_builtins.property
     @pulumi.getter(name="linkAttributes")
-    def link_attributes(self) -> Optional[pulumi.Input['LinkAttributesArgs']]:
+    def link_attributes(self) -> pulumi.Input[Optional['LinkAttributesArgs']]:
         """
         Attributes of the link.
         """
         return pulumi.get(self, "link_attributes")
 
     @link_attributes.setter
-    def link_attributes(self, value: Optional[pulumi.Input['LinkAttributesArgs']]):
+    def link_attributes(self, value: pulumi.Input[Optional['LinkAttributesArgs']]):
         pulumi.set(self, "link_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="moduleConfigurationList")
-    def module_configuration_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]]:
+    def module_configuration_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]]:
         return pulumi.get(self, "module_configuration_list")
 
     @module_configuration_list.setter
-    def module_configuration_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]]):
+    def module_configuration_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LinkModuleConfigurationArgs']]]]):
         pulumi.set(self, "module_configuration_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,17 +141,16 @@ class Link(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_responder_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_attributes: Optional[pulumi.Input[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
-                 link_log_settings: Optional[pulumi.Input[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
-                 module_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
-                 peer_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_responder_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
+                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
+                 peer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::Link Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +170,6 @@ class Link(pulumi.CustomResource):
         """
         Resource Type definition for AWS::RTBFabric::Link Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,13 +185,13 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 http_responder_allowed: Optional[pulumi.Input[_builtins.bool]] = None,
-                 link_attributes: Optional[pulumi.Input[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
-                 link_log_settings: Optional[pulumi.Input[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
-                 module_configuration_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
-                 peer_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 http_responder_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
+                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
+                 peer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

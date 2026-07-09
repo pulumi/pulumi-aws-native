@@ -21,8 +21,8 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[_builtins.bool],
-                 auto_enable_standards: Optional[pulumi.Input['OrganizationConfigurationAutoEnableStandards']] = None,
-                 configuration_type: Optional[pulumi.Input['OrganizationConfigurationConfigurationType']] = None):
+                 auto_enable_standards: pulumi.Input[Optional['OrganizationConfigurationAutoEnableStandards']] = None,
+                 configuration_type: pulumi.Input[Optional['OrganizationConfigurationConfigurationType']] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
 
@@ -50,26 +50,26 @@ class OrganizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoEnableStandards")
-    def auto_enable_standards(self) -> Optional[pulumi.Input['OrganizationConfigurationAutoEnableStandards']]:
+    def auto_enable_standards(self) -> pulumi.Input[Optional['OrganizationConfigurationAutoEnableStandards']]:
         """
         Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
         """
         return pulumi.get(self, "auto_enable_standards")
 
     @auto_enable_standards.setter
-    def auto_enable_standards(self, value: Optional[pulumi.Input['OrganizationConfigurationAutoEnableStandards']]):
+    def auto_enable_standards(self, value: pulumi.Input[Optional['OrganizationConfigurationAutoEnableStandards']]):
         pulumi.set(self, "auto_enable_standards", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationType")
-    def configuration_type(self) -> Optional[pulumi.Input['OrganizationConfigurationConfigurationType']]:
+    def configuration_type(self) -> pulumi.Input[Optional['OrganizationConfigurationConfigurationType']]:
         """
         Indicates whether the organization uses local or central configuration.
         """
         return pulumi.get(self, "configuration_type")
 
     @configuration_type.setter
-    def configuration_type(self, value: Optional[pulumi.Input['OrganizationConfigurationConfigurationType']]):
+    def configuration_type(self, value: pulumi.Input[Optional['OrganizationConfigurationConfigurationType']]):
         pulumi.set(self, "configuration_type", value)
 
 
@@ -79,13 +79,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_enable_standards: Optional[pulumi.Input['OrganizationConfigurationAutoEnableStandards']] = None,
-                 configuration_type: Optional[pulumi.Input['OrganizationConfigurationConfigurationType']] = None,
+                 auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_enable_standards: pulumi.Input[Optional['OrganizationConfigurationAutoEnableStandards']] = None,
+                 configuration_type: pulumi.Input[Optional['OrganizationConfigurationConfigurationType']] = None,
                  __props__=None):
         """
         The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,7 +101,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
         """
         The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
 
-
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 auto_enable_standards: Optional[pulumi.Input['OrganizationConfigurationAutoEnableStandards']] = None,
-                 configuration_type: Optional[pulumi.Input['OrganizationConfigurationConfigurationType']] = None,
+                 auto_enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_enable_standards: pulumi.Input[Optional['OrganizationConfigurationAutoEnableStandards']] = None,
+                 configuration_type: pulumi.Input[Optional['OrganizationConfigurationConfigurationType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

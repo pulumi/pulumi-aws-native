@@ -22,15 +22,15 @@ __all__ = ['CapacityReservationFleetArgs', 'CapacityReservationFleet']
 @pulumi.input_type
 class CapacityReservationFleetArgs:
     def __init__(__self__, *,
-                 allocation_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_match_criteria: Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']] = None,
-                 instance_type_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] = None,
-                 no_remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]] = None,
-                 tenancy: Optional[pulumi.Input['CapacityReservationFleetTenancy']] = None,
-                 total_target_capacity: Optional[pulumi.Input[_builtins.int]] = None):
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_match_criteria: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']] = None,
+                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] = None,
+                 no_remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]] = None,
+                 tenancy: pulumi.Input[Optional['CapacityReservationFleetTenancy']] = None,
+                 total_target_capacity: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a CapacityReservationFleet resource.
 
@@ -74,7 +74,7 @@ class CapacityReservationFleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocation_strategy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The strategy used by the Capacity Reservation Fleet to determine which of the specified instance types to use. Currently, only the `prioritized` allocation strategy is supported. For more information, see [Allocation strategy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy) in the *Amazon EC2 User Guide* .
 
@@ -83,12 +83,12 @@ class CapacityReservationFleetArgs:
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
-    def allocation_strategy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocation_strategy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocation_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation Fleet expires, its state changes to `expired` and all of the Capacity Reservations in the Fleet expire.
 
@@ -97,12 +97,12 @@ class CapacityReservationFleetArgs:
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMatchCriteria")
-    def instance_match_criteria(self) -> Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']]:
+    def instance_match_criteria(self) -> pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']]:
         """
         Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
 
@@ -111,60 +111,60 @@ class CapacityReservationFleetArgs:
         return pulumi.get(self, "instance_match_criteria")
 
     @instance_match_criteria.setter
-    def instance_match_criteria(self, value: Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']]):
+    def instance_match_criteria(self, value: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']]):
         pulumi.set(self, "instance_match_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceTypeSpecifications")
-    def instance_type_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]:
+    def instance_type_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]:
         """
         Information about the instance types for which to reserve the capacity.
         """
         return pulumi.get(self, "instance_type_specifications")
 
     @instance_type_specifications.setter
-    def instance_type_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]):
+    def instance_type_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]):
         pulumi.set(self, "instance_type_specifications", value)
 
     @_builtins.property
     @pulumi.getter(name="noRemoveEndDate")
-    def no_remove_end_date(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def no_remove_end_date(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
         """
         return pulumi.get(self, "no_remove_end_date")
 
     @no_remove_end_date.setter
-    def no_remove_end_date(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def no_remove_end_date(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "no_remove_end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="removeEndDate")
-    def remove_end_date(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def remove_end_date(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
         """
         return pulumi.get(self, "remove_end_date")
 
     @remove_end_date.setter
-    def remove_end_date(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def remove_end_date(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "remove_end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]:
         """
         The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input['CapacityReservationFleetTenancy']]:
+    def tenancy(self) -> pulumi.Input[Optional['CapacityReservationFleetTenancy']]:
         """
         Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
 
@@ -174,19 +174,19 @@ class CapacityReservationFleetArgs:
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input['CapacityReservationFleetTenancy']]):
+    def tenancy(self, value: pulumi.Input[Optional['CapacityReservationFleetTenancy']]):
         pulumi.set(self, "tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="totalTargetCapacity")
-    def total_target_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def total_target_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The total number of capacity units to be reserved by the Capacity Reservation Fleet. This value, together with the instance type weights that you assign to each instance type used by the Fleet determine the number of instances for which the Fleet reserves capacity. Both values are based on units that make sense for your workload. For more information, see [Total target capacity](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "total_target_capacity")
 
     @total_target_capacity.setter
-    def total_target_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def total_target_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "total_target_capacity", value)
 
 
@@ -196,15 +196,15 @@ class CapacityReservationFleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_match_criteria: Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']] = None,
-                 instance_type_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
-                 no_remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
-                 tenancy: Optional[pulumi.Input['CapacityReservationFleetTenancy']] = None,
-                 total_target_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_match_criteria: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']] = None,
+                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
+                 no_remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
+                 tenancy: pulumi.Input[Optional['CapacityReservationFleetTenancy']] = None,
+                 total_target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::CapacityReservationFleet
@@ -318,15 +318,15 @@ class CapacityReservationFleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocation_strategy: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_match_criteria: Optional[pulumi.Input['CapacityReservationFleetInstanceMatchCriteria']] = None,
-                 instance_type_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
-                 no_remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remove_end_date: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
-                 tenancy: Optional[pulumi.Input['CapacityReservationFleetTenancy']] = None,
-                 total_target_capacity: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_match_criteria: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']] = None,
+                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
+                 no_remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
+                 tenancy: pulumi.Input[Optional['CapacityReservationFleetTenancy']] = None,
+                 total_target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

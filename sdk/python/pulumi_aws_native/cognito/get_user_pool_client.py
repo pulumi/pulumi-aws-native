@@ -243,7 +243,7 @@ class GetUserPoolClientResult:
         """
         The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
 
-        > If you don't specify a value for `ExplicitAuthFlows` , your app client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` . 
+        > If you don't specify a value for `ExplicitAuthFlows` , your app client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` .
 
         The values for authentication flow options include the following.
 
@@ -407,7 +407,6 @@ def get_user_pool_client(client_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Cognito::UserPoolClient
 
-
     :param _builtins.str client_id: The ID of the app client, for example `1example23456789` .
     :param _builtins.str user_pool_id: The ID of the user pool where you want to create an app client.
     """
@@ -442,12 +441,11 @@ def get_user_pool_client(client_id: Optional[_builtins.str] = None,
         supported_identity_providers=pulumi.get(__ret__, 'supported_identity_providers'),
         token_validity_units=pulumi.get(__ret__, 'token_validity_units'),
         write_attributes=pulumi.get(__ret__, 'write_attributes'))
-def get_user_pool_client_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_client_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolClient
-
 
     :param _builtins.str client_id: The ID of the app client, for example `1example23456789` .
     :param _builtins.str user_pool_id: The ID of the user pool where you want to create an app client.

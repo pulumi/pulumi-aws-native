@@ -141,12 +141,12 @@ class AlarmModelAlarmAction(dict):
                 +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
                  +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
                  +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-                 ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+                     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+                      ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
                  +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-                In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-                 ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-                 
+                     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+                      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+               
                 For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
                 The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
         :param 'AlarmModelDynamoDb' dynamo_db: Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
@@ -155,12 +155,12 @@ class AlarmModelAlarmAction(dict):
                 +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
                  +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
                  +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-                 ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+                     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+                      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
                  +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-                In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-                 ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-                 
+                     In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+                      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+               
                 For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
                 If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
         :param 'AlarmModelFirehose' firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
@@ -171,9 +171,9 @@ class AlarmModelAlarmAction(dict):
                 +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
                  +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
                  +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-                In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-                 ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-                 
+                     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+                      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+               
                 You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
                 For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
         :param 'AlarmModelIotTopicPublish' iot_topic_publish: Information required to publish the MQTT message through the IoT message broker.
@@ -210,12 +210,12 @@ class AlarmModelAlarmAction(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+              In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+               ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
         """
@@ -231,12 +231,12 @@ class AlarmModelAlarmAction(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+              In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+               ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
         """
@@ -268,9 +268,9 @@ class AlarmModelAlarmAction(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-          
+              In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+               ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+
          You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
         """
@@ -455,9 +455,9 @@ class AlarmModelAssetPropertyTimestamp(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
-      
+          In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+           ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
     @staticmethod
@@ -489,9 +489,9 @@ class AlarmModelAssetPropertyTimestamp(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-          ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
-          
+              In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+               ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
         :param _builtins.str time_in_seconds: The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
@@ -526,7 +526,7 @@ class AlarmModelAssetPropertyValue(dict):
       **Examples**
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-      
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
     def __init__(__self__, *,
@@ -539,7 +539,7 @@ class AlarmModelAssetPropertyValue(dict):
           **Examples**
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-          
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
         :param 'AlarmModelAssetPropertyVariant' value: The value to send to an asset property.
@@ -585,10 +585,10 @@ class AlarmModelAssetPropertyVariant(dict):
       **Examples**
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
       +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
-     In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
-      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
-      
+      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+          In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+           ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
     """
@@ -626,10 +626,10 @@ class AlarmModelAssetPropertyVariant(dict):
           **Examples**
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
           +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
-         In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
-          ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
-          
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+              In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+               ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 
@@ -689,12 +689,12 @@ class AlarmModelDynamoDBv2(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-      ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+          In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+           ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
       +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-      
+          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
     """
@@ -725,12 +725,12 @@ class AlarmModelDynamoDBv2(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+              In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+               ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 
@@ -769,12 +769,12 @@ class AlarmModelDynamoDb(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+          In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+           ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
       +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-      
+          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
     """
@@ -827,12 +827,12 @@ class AlarmModelDynamoDb(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+              In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+               ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 
@@ -842,13 +842,13 @@ class AlarmModelDynamoDb(dict):
         :param _builtins.str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
                  +  ``'STRING'`` - The hash key is a string.
                  +  ``'NUMBER'`` - The hash key is a number.
-                 
+               
                 If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
-        :param _builtins.str operation: The type of operation to perform. You can specify the following values: 
+        :param _builtins.str operation: The type of operation to perform. You can specify the following values:
                  +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
                  +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                  +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-                 
+               
                 If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         :param 'AlarmModelPayload' payload: Information needed to configure the payload.
                 By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
@@ -858,7 +858,7 @@ class AlarmModelDynamoDb(dict):
         :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
                  +  ``'STRING'`` - The range key is a string.
                  +  ``'NUMBER'`` - The range key is number.
-                 
+               
                 If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param _builtins.str range_key_value: The value of the range key (also called the sort key).
         """
@@ -911,7 +911,7 @@ class AlarmModelDynamoDb(dict):
         The data type for the hash key (also called the partition key). You can specify the following values:
           +  ``'STRING'`` - The hash key is a string.
           +  ``'NUMBER'`` - The hash key is a number.
-          
+
          If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "hash_key_type")
@@ -920,11 +920,11 @@ class AlarmModelDynamoDb(dict):
     @pulumi.getter
     def operation(self) -> Optional[_builtins.str]:
         """
-        The type of operation to perform. You can specify the following values: 
+        The type of operation to perform. You can specify the following values:
           +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
           +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
           +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-          
+
          If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
         return pulumi.get(self, "operation")
@@ -962,7 +962,7 @@ class AlarmModelDynamoDb(dict):
         The data type for the range key (also called the sort key), You can specify the following values:
           +  ``'STRING'`` - The range key is a string.
           +  ``'NUMBER'`` - The range key is number.
-          
+
          If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "range_key_type")
@@ -1141,9 +1141,9 @@ class AlarmModelIotSiteWise(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-      
+          In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+           ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+
      You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
@@ -1185,9 +1185,9 @@ class AlarmModelIotSiteWise(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-          
+              In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+               ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+
          You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
@@ -1800,9 +1800,9 @@ class DetectorModelAssetPropertyTimestamp(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-      ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
-      
+          In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+           ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
     @staticmethod
@@ -1834,9 +1834,9 @@ class DetectorModelAssetPropertyTimestamp(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``timeInSeconds`` parameter can be ``'1586400675'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``offsetInNanos`` parameter can be ``$variable.time``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
-          ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'`` 
-          
+              In the following example, the value for the ``timeInSeconds`` parameter uses a substitution template.
+               ``'${$input.TemperatureInput.sensorData.timestamp / 1000}'``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
         :param _builtins.str time_in_seconds: The timestamp, in seconds, in the Unix epoch format. The valid range is between 1-31556889864403199.
@@ -1871,7 +1871,7 @@ class DetectorModelAssetPropertyValue(dict):
       **Examples**
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-      
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
     def __init__(__self__, *,
@@ -1884,7 +1884,7 @@ class DetectorModelAssetPropertyValue(dict):
           **Examples**
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``quality`` parameter can be ``'GOOD'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``quality`` parameter can be ``$input.TemperatureInput.sensorData.quality``.
-          
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
         :param 'DetectorModelAssetPropertyVariant' value: The value to send to an asset property.
@@ -1930,10 +1930,10 @@ class DetectorModelAssetPropertyVariant(dict):
       **Examples**
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
       +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
-     In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
-      ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
-      
+      +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+          In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+           ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
     """
@@ -1971,10 +1971,10 @@ class DetectorModelAssetPropertyVariant(dict):
           **Examples**
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``integerValue`` parameter can be ``'100'``.
           +  For references, you must specify either variables or parameters. For example, the value for the ``booleanValue`` parameter can be ``$variable.offline``.
-          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates. 
-         In the following example, the value for the ``doubleValue`` parameter uses a substitution template. 
-          ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`` 
-          
+          +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
+              In the following example, the value for the ``doubleValue`` parameter uses a substitution template.
+               ``'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          You must specify one of the following value types, depending on the ``dataType`` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *API Reference*.
 
@@ -2125,12 +2125,12 @@ class DetectorModelDynamoDBv2(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-      ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+          In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+           ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
       +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-      
+          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
     """
@@ -2161,12 +2161,12 @@ class DetectorModelDynamoDBv2(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``tableName`` parameter can be ``'GreenhouseTemperatureTable'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``tableName`` parameter can be ``$variable.ddbtableName``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template. 
-          ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`` 
+              In the following example, the value for the ``contentExpression`` parameter in ``Payload`` uses a substitution template.
+               ``'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          The value for the ``type`` parameter in ``Payload`` must be ``JSON``.
 
@@ -2205,12 +2205,12 @@ class DetectorModelDynamoDb(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-      ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+          In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+           ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
       +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-      ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-      
+          In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+           ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
      If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
     """
@@ -2263,12 +2263,12 @@ class DetectorModelDynamoDb(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``hashKeyType`` parameter can be ``'STRING'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``hashKeyField`` parameter can be ``$input.GreenhouseInput.name``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template. 
-          ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`` 
+              In the following example, the value for the ``hashKeyValue`` parameter uses a substitution template.
+               ``'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'``
           +  For a string concatenation, you must use ``+``. A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``tableName`` parameter uses a string concatenation. 
-          ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`` 
-          
+              In the following example, the value for the ``tableName`` parameter uses a string concatenation.
+               ``'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date``
+
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
          If the defined payload type is a string, ``DynamoDBAction`` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the ``payloadField`` parameter is ``<payload-field>_raw``.
 
@@ -2278,13 +2278,13 @@ class DetectorModelDynamoDb(dict):
         :param _builtins.str hash_key_type: The data type for the hash key (also called the partition key). You can specify the following values:
                  +  ``'STRING'`` - The hash key is a string.
                  +  ``'NUMBER'`` - The hash key is a number.
-                 
+               
                 If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
-        :param _builtins.str operation: The type of operation to perform. You can specify the following values: 
+        :param _builtins.str operation: The type of operation to perform. You can specify the following values:
                  +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
                  +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
                  +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-                 
+               
                 If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         :param 'DetectorModelPayload' payload: Information needed to configure the payload.
                 By default, ITE generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use ``contentExpression``.
@@ -2294,7 +2294,7 @@ class DetectorModelDynamoDb(dict):
         :param _builtins.str range_key_type: The data type for the range key (also called the sort key), You can specify the following values:
                  +  ``'STRING'`` - The range key is a string.
                  +  ``'NUMBER'`` - The range key is number.
-                 
+               
                 If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         :param _builtins.str range_key_value: The value of the range key (also called the sort key).
         """
@@ -2347,7 +2347,7 @@ class DetectorModelDynamoDb(dict):
         The data type for the hash key (also called the partition key). You can specify the following values:
           +  ``'STRING'`` - The hash key is a string.
           +  ``'NUMBER'`` - The hash key is a number.
-          
+
          If you don't specify ``hashKeyType``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "hash_key_type")
@@ -2356,11 +2356,11 @@ class DetectorModelDynamoDb(dict):
     @pulumi.getter
     def operation(self) -> Optional[_builtins.str]:
         """
-        The type of operation to perform. You can specify the following values: 
+        The type of operation to perform. You can specify the following values:
           +  ``'INSERT'`` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
           +  ``'UPDATE'`` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
           +  ``'DELETE'`` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
-          
+
          If you don't specify this parameter, ITE triggers the ``'INSERT'`` operation.
         """
         return pulumi.get(self, "operation")
@@ -2398,7 +2398,7 @@ class DetectorModelDynamoDb(dict):
         The data type for the range key (also called the sort key), You can specify the following values:
           +  ``'STRING'`` - The range key is a string.
           +  ``'NUMBER'`` - The range key is number.
-          
+
          If you don't specify ``rangeKeyField``, the default value is ``'STRING'``.
         """
         return pulumi.get(self, "range_key_type")
@@ -2601,9 +2601,9 @@ class DetectorModelIotSiteWise(dict):
      +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
       +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
       +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-     In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-      ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-      
+          In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+           ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+
      You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
      For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
     """
@@ -2645,9 +2645,9 @@ class DetectorModelIotSiteWise(dict):
          +  For literal values, the expressions must contain single quotes. For example, the value for the ``propertyAlias`` parameter can be ``'/company/windfarm/3/turbine/7/temperature'``.
           +  For references, you must specify either variables or input values. For example, the value for the ``assetId`` parameter can be ``$input.TurbineInput.assetId1``.
           +  For a substitution template, you must use ``${}``, and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-         In the following example, the value for the ``propertyAlias`` parameter uses a substitution template. 
-          ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`` 
-          
+              In the following example, the value for the ``propertyAlias`` parameter uses a substitution template.
+               ``'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'``
+
          You must specify either ``propertyAlias`` or both ``assetId`` and ``propertyId`` to identify the target asset property in ITSW.
          For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *Developer Guide*.
 
@@ -3426,7 +3426,7 @@ class InputAttribute(dict):
         """
         The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the ITE system using ``BatchPutMessage``. Each such message contains a JSON payload. Those attributes (and their paired values) specified here are available for use in the ``condition`` expressions used by detectors.
 
-        :param _builtins.str json_path: An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors. 
+        :param _builtins.str json_path: An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors.
                 Syntax: ``<field-name>.<field-name>...``
         """
         pulumi.set(__self__, "json_path", json_path)
@@ -3435,7 +3435,7 @@ class InputAttribute(dict):
     @pulumi.getter(name="jsonPath")
     def json_path(self) -> _builtins.str:
         """
-        An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors. 
+        An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to ITE (``BatchPutMessage``). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the ``condition`` expressions used by detectors.
          Syntax: ``<field-name>.<field-name>...``
         """
         return pulumi.get(self, "json_path")

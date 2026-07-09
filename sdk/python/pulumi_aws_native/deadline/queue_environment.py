@@ -107,15 +107,14 @@ class QueueEnvironment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input['QueueEnvironmentEnvironmentTemplateType']] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional['QueueEnvironmentEnvironmentTemplateType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::QueueEnvironment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +133,6 @@ class QueueEnvironment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Deadline::QueueEnvironment
 
-
         :param str resource_name: The name of the resource.
         :param QueueEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,11 +148,11 @@ class QueueEnvironment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 template: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input['QueueEnvironmentEnvironmentTemplateType']] = None,
+                 farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional['QueueEnvironmentEnvironmentTemplateType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

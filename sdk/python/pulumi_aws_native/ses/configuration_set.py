@@ -23,15 +23,15 @@ __all__ = ['ConfigurationSetArgs', 'ConfigurationSet']
 @pulumi.input_type
 class ConfigurationSetArgs:
     def __init__(__self__, *,
-                 archiving_options: Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']] = None,
-                 delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reputation_options: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']] = None,
-                 sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
-                 suppression_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
-                 vdm_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']] = None):
+                 archiving_options: pulumi.Input[Optional['ConfigurationSetArchivingOptionsArgs']] = None,
+                 delivery_options: pulumi.Input[Optional['ConfigurationSetDeliveryOptionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reputation_options: pulumi.Input[Optional['ConfigurationSetReputationOptionsArgs']] = None,
+                 sending_options: pulumi.Input[Optional['ConfigurationSetSendingOptionsArgs']] = None,
+                 suppression_options: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tracking_options: pulumi.Input[Optional['ConfigurationSetTrackingOptionsArgs']] = None,
+                 vdm_options: pulumi.Input[Optional['ConfigurationSetVdmOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
 
@@ -65,107 +65,107 @@ class ConfigurationSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="archivingOptions")
-    def archiving_options(self) -> Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']]:
+    def archiving_options(self) -> pulumi.Input[Optional['ConfigurationSetArchivingOptionsArgs']]:
         return pulumi.get(self, "archiving_options")
 
     @archiving_options.setter
-    def archiving_options(self, value: Optional[pulumi.Input['ConfigurationSetArchivingOptionsArgs']]):
+    def archiving_options(self, value: pulumi.Input[Optional['ConfigurationSetArchivingOptionsArgs']]):
         pulumi.set(self, "archiving_options", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryOptions")
-    def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
+    def delivery_options(self) -> pulumi.Input[Optional['ConfigurationSetDeliveryOptionsArgs']]:
         """
         Specifies the name of the dedicated IP pool to associate with the configuration set and whether messages that use the configuration set are required to use Transport Layer Security (TLS).
         """
         return pulumi.get(self, "delivery_options")
 
     @delivery_options.setter
-    def delivery_options(self, value: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]):
+    def delivery_options(self, value: pulumi.Input[Optional['ConfigurationSetDeliveryOptionsArgs']]):
         pulumi.set(self, "delivery_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration set.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="reputationOptions")
-    def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
+    def reputation_options(self) -> pulumi.Input[Optional['ConfigurationSetReputationOptionsArgs']]:
         """
         An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
         """
         return pulumi.get(self, "reputation_options")
 
     @reputation_options.setter
-    def reputation_options(self, value: Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]):
+    def reputation_options(self, value: pulumi.Input[Optional['ConfigurationSetReputationOptionsArgs']]):
         pulumi.set(self, "reputation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="sendingOptions")
-    def sending_options(self) -> Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]:
+    def sending_options(self) -> pulumi.Input[Optional['ConfigurationSetSendingOptionsArgs']]:
         """
         An object that defines whether or not Amazon SES can send email that you send using the configuration set.
         """
         return pulumi.get(self, "sending_options")
 
     @sending_options.setter
-    def sending_options(self, value: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]):
+    def sending_options(self, value: pulumi.Input[Optional['ConfigurationSetSendingOptionsArgs']]):
         pulumi.set(self, "sending_options", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionOptions")
-    def suppression_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]:
+    def suppression_options(self) -> pulumi.Input[Optional['ConfigurationSetSuppressionOptionsArgs']]:
         """
         An object that contains information about the suppression list preferences for your account.
         """
         return pulumi.get(self, "suppression_options")
 
     @suppression_options.setter
-    def suppression_options(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]):
+    def suppression_options(self, value: pulumi.Input[Optional['ConfigurationSetSuppressionOptionsArgs']]):
         pulumi.set(self, "suppression_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags (keys and values) associated with the contact list.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trackingOptions")
-    def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
+    def tracking_options(self) -> pulumi.Input[Optional['ConfigurationSetTrackingOptionsArgs']]:
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         return pulumi.get(self, "tracking_options")
 
     @tracking_options.setter
-    def tracking_options(self, value: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]):
+    def tracking_options(self, value: pulumi.Input[Optional['ConfigurationSetTrackingOptionsArgs']]):
         pulumi.set(self, "tracking_options", value)
 
     @_builtins.property
     @pulumi.getter(name="vdmOptions")
-    def vdm_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]:
+    def vdm_options(self) -> pulumi.Input[Optional['ConfigurationSetVdmOptionsArgs']]:
         """
         The Virtual Deliverability Manager (VDM) options that apply to the configuration set.
         """
         return pulumi.get(self, "vdm_options")
 
     @vdm_options.setter
-    def vdm_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsArgs']]):
+    def vdm_options(self, value: pulumi.Input[Optional['ConfigurationSetVdmOptionsArgs']]):
         pulumi.set(self, "vdm_options", value)
 
 
@@ -175,15 +175,15 @@ class ConfigurationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archiving_options: Optional[pulumi.Input[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
-                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
-                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
-                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
-                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
+                 archiving_options: pulumi.Input[Optional[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
+                 delivery_options: pulumi.Input[Optional[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reputation_options: pulumi.Input[Optional[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: pulumi.Input[Optional[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: pulumi.Input[Optional[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracking_options: pulumi.Input[Optional[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: pulumi.Input[Optional[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ConfigurationSet.
@@ -457,15 +457,15 @@ class ConfigurationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 archiving_options: Optional[pulumi.Input[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
-                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
-                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
-                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
-                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
+                 archiving_options: pulumi.Input[Optional[Union['ConfigurationSetArchivingOptionsArgs', 'ConfigurationSetArchivingOptionsArgsDict']]] = None,
+                 delivery_options: pulumi.Input[Optional[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reputation_options: pulumi.Input[Optional[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: pulumi.Input[Optional[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: pulumi.Input[Optional[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracking_options: pulumi.Input[Optional[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: pulumi.Input[Optional[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

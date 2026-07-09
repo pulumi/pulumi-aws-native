@@ -149,7 +149,6 @@ def get_sync_configuration(resource_name: Optional[_builtins.str] = None,
     """
     Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
 
-
     :param _builtins.str resource_name: The name of the resource that is being synchronized to the repository.
     :param _builtins.str sync_type: The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
     """
@@ -169,12 +168,11 @@ def get_sync_configuration(resource_name: Optional[_builtins.str] = None,
         repository_name=pulumi.get(__ret__, 'repository_name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         trigger_resource_update_on=pulumi.get(__ret__, 'trigger_resource_update_on'))
-def get_sync_configuration_output(resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  sync_type: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sync_configuration_output(resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  sync_type: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncConfigurationResult]:
     """
     Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
-
 
     :param _builtins.str resource_name: The name of the resource that is being synchronized to the repository.
     :param _builtins.str sync_type: The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.

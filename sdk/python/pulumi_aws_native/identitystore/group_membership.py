@@ -78,13 +78,12 @@ class GroupMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,7 +100,6 @@ class GroupMembership(pulumi.CustomResource):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
 
-
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,9 +115,9 @@ class GroupMembership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 member_id: Optional[pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

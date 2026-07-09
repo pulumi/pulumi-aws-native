@@ -21,13 +21,13 @@ __all__ = ['GrantArgs', 'Grant']
 @pulumi.input_type
 class GrantArgs:
     def __init__(__self__, *,
-                 allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 allowed_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Grant resource.
 
@@ -62,55 +62,55 @@ class GrantArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedOperations")
-    def allowed_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Allowed operations for the grant.
         """
         return pulumi.get(self, "allowed_operations")
 
     @allowed_operations.setter
-    def allowed_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="grantName")
-    def grant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for the created Grant.
         """
         return pulumi.get(self, "grant_name")
 
     @grant_name.setter
-    def grant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grant_name", value)
 
     @_builtins.property
     @pulumi.getter(name="homeRegion")
-    def home_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def home_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Home region for the created grant.
         """
         return pulumi.get(self, "home_region")
 
     @home_region.setter
-    def home_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def home_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "home_region", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseArn")
-    def license_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         License Arn for the grant.
         """
         return pulumi.get(self, "license_arn")
 
     @license_arn.setter
-    def license_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The grant principals. You can specify one of the following as an Amazon Resource Name (ARN):
 
@@ -123,31 +123,31 @@ class GrantArgs:
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Granted license status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to attach.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -157,17 +157,16 @@ class Grant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +193,6 @@ class Grant(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
-
         :param str resource_name: The name of the resource.
         :param GrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,13 +208,13 @@ class Grant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 grant_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 home_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 allowed_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 grant_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 home_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -166,7 +166,7 @@ class GetCapacityReservationResult:
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 
         Valid range: 1 - 1000
         """
@@ -181,7 +181,7 @@ class GetCapacityReservationResult:
         - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 
-        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 
         Default: `open`
         """
@@ -270,7 +270,6 @@ def get_capacity_reservation(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::CapacityReservation
 
-
     :param _builtins.str id: The ID of the Capacity Reservation.
     """
     __args__ = dict()
@@ -296,11 +295,10 @@ def get_capacity_reservation(id: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         state=pulumi.get(__ret__, 'state'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
-def get_capacity_reservation_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_capacity_reservation_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservation
-
 
     :param _builtins.str id: The ID of the Capacity Reservation.
     """

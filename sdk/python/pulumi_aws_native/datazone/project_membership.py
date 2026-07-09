@@ -94,14 +94,13 @@ class ProjectMembership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 designation: Optional[pulumi.Input['ProjectMembershipUserDesignation']] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 member: Optional[pulumi.Input[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 designation: pulumi.Input[Optional['ProjectMembershipUserDesignation']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 member: pulumi.Input[Optional[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::ProjectMembership Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +118,6 @@ class ProjectMembership(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::ProjectMembership Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param ProjectMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,10 +133,10 @@ class ProjectMembership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 designation: Optional[pulumi.Input['ProjectMembershipUserDesignation']] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 member: Optional[pulumi.Input[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 designation: pulumi.Input[Optional['ProjectMembershipUserDesignation']] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 member: pulumi.Input[Optional[Union[Union['ProjectMembershipMember0PropertiesArgs', 'ProjectMembershipMember0PropertiesArgsDict'], Union['ProjectMembershipMember1PropertiesArgs', 'ProjectMembershipMember1PropertiesArgsDict']]]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

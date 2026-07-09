@@ -42,7 +42,7 @@ class GetClusterSubnetGroupResult:
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> Optional[_builtins.str]:
         """
-        This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+        This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -88,8 +88,7 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[_builtins.str] 
     """
     Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
-
-    :param _builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+    :param _builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
     """
     __args__ = dict()
     __args__['clusterSubnetGroupName'] = cluster_subnet_group_name
@@ -101,13 +100,12 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[_builtins.str] 
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_subnet_group_output(cluster_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
     Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
 
-
-    :param _builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+    :param _builtins.str cluster_subnet_group_name: This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
     """
     __args__ = dict()
     __args__['clusterSubnetGroupName'] = cluster_subnet_group_name

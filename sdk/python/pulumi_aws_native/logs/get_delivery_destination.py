@@ -83,7 +83,6 @@ def get_delivery_destination(name: Optional[_builtins.str] = None,
 
     A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
-
     :param _builtins.str name: The name of this delivery destination.
     """
     __args__ = dict()
@@ -95,13 +94,12 @@ def get_delivery_destination(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         delivery_destination_policy=pulumi.get(__ret__, 'delivery_destination_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_delivery_destination_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delivery_destination_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
     """
     This structure contains information about one delivery destination in your account.
 
     A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
-
 
     :param _builtins.str name: The name of this delivery destination.
     """

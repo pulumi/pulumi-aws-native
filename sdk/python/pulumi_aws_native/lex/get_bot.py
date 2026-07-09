@@ -150,7 +150,6 @@ def get_bot(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
-
     :param _builtins.str id: The unique identifier of the bot.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_bot(id: Optional[_builtins.str] = None,
         idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
         name=pulumi.get(__ret__, 'name'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_bot_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bot_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
-
 
     :param _builtins.str id: The unique identifier of the bot.
     """

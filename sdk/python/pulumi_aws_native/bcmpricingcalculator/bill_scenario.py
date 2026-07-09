@@ -23,11 +23,11 @@ __all__ = ['BillScenarioArgs', 'BillScenario']
 @pulumi.input_type
 class BillScenarioArgs:
     def __init__(__self__, *,
-                 cost_category_group_sharing_preference_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_sharing_preference: Optional[pulumi.Input['BillScenarioGroupSharingPreference']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cost_category_group_sharing_preference_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_sharing_preference: pulumi.Input[Optional['BillScenarioGroupSharingPreference']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BillScenario resource.
 
@@ -50,62 +50,62 @@ class BillScenarioArgs:
 
     @_builtins.property
     @pulumi.getter(name="costCategoryGroupSharingPreferenceArn")
-    def cost_category_group_sharing_preference_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cost_category_group_sharing_preference_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the cost category group sharing preference
         """
         return pulumi.get(self, "cost_category_group_sharing_preference_arn")
 
     @cost_category_group_sharing_preference_arn.setter
-    def cost_category_group_sharing_preference_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cost_category_group_sharing_preference_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cost_category_group_sharing_preference_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresAt")
-    def expires_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expires_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The timestamp when the bill scenario expires
         """
         return pulumi.get(self, "expires_at")
 
     @expires_at.setter
-    def expires_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expires_at(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_at", value)
 
     @_builtins.property
     @pulumi.getter(name="groupSharingPreference")
-    def group_sharing_preference(self) -> Optional[pulumi.Input['BillScenarioGroupSharingPreference']]:
+    def group_sharing_preference(self) -> pulumi.Input[Optional['BillScenarioGroupSharingPreference']]:
         """
         The group sharing preference for the bill scenario
         """
         return pulumi.get(self, "group_sharing_preference")
 
     @group_sharing_preference.setter
-    def group_sharing_preference(self, value: Optional[pulumi.Input['BillScenarioGroupSharingPreference']]):
+    def group_sharing_preference(self, value: pulumi.Input[Optional['BillScenarioGroupSharingPreference']]):
         pulumi.set(self, "group_sharing_preference", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bill scenario
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -115,15 +115,14 @@ class BillScenario(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cost_category_group_sharing_preference_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_sharing_preference: Optional[pulumi.Input['BillScenarioGroupSharingPreference']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cost_category_group_sharing_preference_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_sharing_preference: pulumi.Input[Optional['BillScenarioGroupSharingPreference']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BcmPricingCalculator::BillScenario
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class BillScenario(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BcmPricingCalculator::BillScenario
 
-
         :param str resource_name: The name of the resource.
         :param BillScenarioArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class BillScenario(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cost_category_group_sharing_preference_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 expires_at: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_sharing_preference: Optional[pulumi.Input['BillScenarioGroupSharingPreference']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cost_category_group_sharing_preference_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 expires_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_sharing_preference: pulumi.Input[Optional['BillScenarioGroupSharingPreference']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

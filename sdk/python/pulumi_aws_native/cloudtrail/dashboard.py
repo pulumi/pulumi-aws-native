@@ -24,11 +24,11 @@ __all__ = ['DashboardArgs', 'Dashboard']
 @pulumi.input_type
 class DashboardArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_schedule: Optional[pulumi.Input['DashboardRefreshScheduleArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_schedule: pulumi.Input[Optional['DashboardRefreshScheduleArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardWidgetArgs']]]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
 
@@ -51,62 +51,62 @@ class DashboardArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dashboard.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshSchedule")
-    def refresh_schedule(self) -> Optional[pulumi.Input['DashboardRefreshScheduleArgs']]:
+    def refresh_schedule(self) -> pulumi.Input[Optional['DashboardRefreshScheduleArgs']]:
         """
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
         """
         return pulumi.get(self, "refresh_schedule")
 
     @refresh_schedule.setter
-    def refresh_schedule(self, value: Optional[pulumi.Input['DashboardRefreshScheduleArgs']]):
+    def refresh_schedule(self, value: pulumi.Input[Optional['DashboardRefreshScheduleArgs']]):
         pulumi.set(self, "refresh_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationProtectionEnabled")
-    def termination_protection_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def termination_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the dashboard is protected from termination.
         """
         return pulumi.get(self, "termination_protection_enabled")
 
     @termination_protection_enabled.setter
-    def termination_protection_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def termination_protection_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "termination_protection_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def widgets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
+    def widgets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardWidgetArgs']]]]:
         """
         List of widgets on the dashboard
         """
         return pulumi.get(self, "widgets")
 
     @widgets.setter
-    def widgets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]]]):
+    def widgets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardWidgetArgs']]]]):
         pulumi.set(self, "widgets", value)
 
 
@@ -116,15 +116,14 @@ class Dashboard(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_schedule: Optional[pulumi.Input[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
                  __props__=None):
         """
         The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards. You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class Dashboard(pulumi.CustomResource):
         """
         The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards. You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.
 
-
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class Dashboard(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_schedule: Optional[pulumi.Input[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 termination_protection_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 widgets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

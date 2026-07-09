@@ -104,7 +104,6 @@ def get_user_pool_identity_provider(provider_name: Optional[_builtins.str] = Non
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
-
     :param _builtins.str provider_name: The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
     :param _builtins.str user_pool_id: The Id of the user pool where you want to create an IdP.
     """
@@ -118,12 +117,11 @@ def get_user_pool_identity_provider(provider_name: Optional[_builtins.str] = Non
         attribute_mapping=pulumi.get(__ret__, 'attribute_mapping'),
         idp_identifiers=pulumi.get(__ret__, 'idp_identifiers'),
         provider_details=pulumi.get(__ret__, 'provider_details'))
-def get_user_pool_identity_provider_output(provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                           user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_identity_provider_output(provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                           user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
-
 
     :param _builtins.str provider_name: The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
     :param _builtins.str user_pool_id: The Id of the user pool where you want to create an IdP.

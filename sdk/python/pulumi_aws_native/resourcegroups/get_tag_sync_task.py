@@ -88,7 +88,6 @@ def get_tag_sync_task(task_arn: Optional[_builtins.str] = None,
     """
     Schema for ResourceGroups::TagSyncTask
 
-
     :param _builtins.str task_arn: The ARN of the TagSyncTask resource
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_tag_sync_task(task_arn: Optional[_builtins.str] = None,
         group_name=pulumi.get(__ret__, 'group_name'),
         status=pulumi.get(__ret__, 'status'),
         task_arn=pulumi.get(__ret__, 'task_arn'))
-def get_tag_sync_task_output(task_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_sync_task_output(task_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagSyncTaskResult]:
     """
     Schema for ResourceGroups::TagSyncTask
-
 
     :param _builtins.str task_arn: The ARN of the TagSyncTask resource
     """

@@ -24,14 +24,14 @@ class ImageRecipeArgs:
     def __init__(__self__, *,
                  parent_image: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
-                 additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
-                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_instance_configuration: pulumi.Input[Optional['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
+                 ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
 
@@ -91,98 +91,98 @@ class ImageRecipeArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalInstanceConfiguration")
-    def additional_instance_configuration(self) -> Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']]:
+    def additional_instance_configuration(self) -> pulumi.Input[Optional['ImageRecipeAdditionalInstanceConfigurationArgs']]:
         """
         Specify additional settings and launch scripts for your build instances.
         """
         return pulumi.get(self, "additional_instance_configuration")
 
     @additional_instance_configuration.setter
-    def additional_instance_configuration(self, value: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']]):
+    def additional_instance_configuration(self, value: pulumi.Input[Optional['ImageRecipeAdditionalInstanceConfigurationArgs']]):
         pulumi.set(self, "additional_instance_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="amiTags")
-    def ami_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def ami_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to apply to the AMI created by this image recipe.
         """
         return pulumi.get(self, "ami_tags")
 
     @ami_tags.setter
-    def ami_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def ami_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ami_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
-    def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]:
+    def block_device_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]:
         """
         The block device mappings to apply when creating images from this recipe.
         """
         return pulumi.get(self, "block_device_mappings")
 
     @block_device_mappings.setter
-    def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]):
+    def block_device_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]:
         """
         The components of the image recipe.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the image recipe.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the image recipe.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the image recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def working_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
-    def working_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def working_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "working_directory", value)
 
 
@@ -192,20 +192,19 @@ class ImageRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
-                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::ImageBuilder::ImageRecipe
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +228,6 @@ class ImageRecipe(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ImageRecipe
 
-
         :param str resource_name: The name of the resource.
         :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,16 +243,16 @@ class ImageRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
-                 ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_image: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 additional_instance_configuration: pulumi.Input[Optional[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
+                 ami_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 block_device_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

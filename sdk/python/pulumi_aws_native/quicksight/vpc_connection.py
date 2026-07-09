@@ -23,15 +23,15 @@ __all__ = ['VpcConnectionArgs', 'VpcConnection']
 @pulumi.input_type
 class VpcConnectionArgs:
     def __init__(__self__, *,
-                 availability_status: Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_status: pulumi.Input[Optional['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_resolvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpcConnection resource.
 
@@ -66,110 +66,110 @@ class VpcConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']]:
+    def availability_status(self) -> pulumi.Input[Optional['VpcConnectionVpcConnectionAvailabilityStatus']]:
         """
         The availability status of the VPC connection.
         """
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
-    def availability_status(self, value: Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']]):
+    def availability_status(self, value: pulumi.Input[Optional['VpcConnectionVpcConnectionAvailabilityStatus']]):
         pulumi.set(self, "availability_status", value)
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID of the account where you want to create a new VPC connection.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsResolvers")
-    def dns_resolvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_resolvers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of IP addresses of DNS resolver endpoints for the VPC connection.
         """
         return pulumi.get(self, "dns_resolvers")
 
     @dns_resolvers.setter
-    def dns_resolvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_resolvers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_resolvers", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name for the VPC connection.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the IAM role associated with the VPC connection.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon EC2 security group IDs associated with the VPC connection.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of subnet IDs for the VPC connection.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A map of the key-value pairs for the resource tag or tags assigned to the VPC connection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectionId")
-    def vpc_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
         """
         return pulumi.get(self, "vpc_connection_id")
 
     @vpc_connection_id.setter
-    def vpc_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_connection_id", value)
 
 
@@ -179,19 +179,18 @@ class VpcConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_status: Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_status: pulumi.Input[Optional['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_resolvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::VPCConnection Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,7 +213,6 @@ class VpcConnection(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::VPCConnection Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param VpcConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,15 +228,15 @@ class VpcConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_status: Optional[pulumi.Input['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_resolvers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_status: pulumi.Input[Optional['VpcConnectionVpcConnectionAvailabilityStatus']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_resolvers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -22,8 +22,8 @@ __all__ = ['VectorBucketPolicyArgs', 'VectorBucketPolicy']
 class VectorBucketPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input['VectorBucketPolicyPolicyArgs'],
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VectorBucketPolicy resource.
 
@@ -51,26 +51,26 @@ class VectorBucketPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
-    def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the S3 vector bucket to which the policy applies.
         """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
-    def vector_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
-    def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the S3 vector bucket to which the policy applies.
         """
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
-    def vector_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_name", value)
 
 
@@ -80,13 +80,12 @@ class VectorBucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucketPolicy
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class VectorBucketPolicy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucketPolicy
 
-
         :param str resource_name: The name of the resource.
         :param VectorBucketPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class VectorBucketPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy: Optional[pulumi.Input[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: pulumi.Input[Optional[Union['VectorBucketPolicyPolicyArgs', 'VectorBucketPolicyPolicyArgsDict']]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -51,7 +51,6 @@ def get_discovery(account_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ApplicationSignals::Discovery
 
-
     :param _builtins.str account_id: The 12 digit AWS Account ID for the account.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_discovery(account_id: Optional[_builtins.str] = None,
 
     return AwaitableGetDiscoveryResult(
         account_id=pulumi.get(__ret__, 'account_id'))
-def get_discovery_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_discovery_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveryResult]:
     """
     Resource Type definition for AWS::ApplicationSignals::Discovery
-
 
     :param _builtins.str account_id: The 12 digit AWS Account ID for the account.
     """

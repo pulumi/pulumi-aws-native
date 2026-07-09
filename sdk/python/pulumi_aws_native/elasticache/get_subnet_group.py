@@ -76,7 +76,6 @@ def get_subnet_group(cache_subnet_group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElastiCache::SubnetGroup
 
-
     :param _builtins.str cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_subnet_group(cache_subnet_group_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subnet_group_output(cache_subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_group_output(cache_subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::SubnetGroup
-
 
     :param _builtins.str cache_subnet_group_name: The name for the cache subnet group. This value is stored as a lowercase string.
     """

@@ -245,7 +245,6 @@ def get_fleet(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CodeBuild::Fleet
 
-
     :param _builtins.str arn: The ARN of the compute fleet.
     """
     __args__ = dict()
@@ -267,11 +266,10 @@ def get_fleet(arn: Optional[_builtins.str] = None,
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
         scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_fleet_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fleet_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Resource Type definition for AWS::CodeBuild::Fleet
-
 
     :param _builtins.str arn: The ARN of the compute fleet.
     """

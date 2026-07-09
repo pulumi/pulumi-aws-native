@@ -103,7 +103,6 @@ def get_cross_account_attachment(attachment_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
 
-
     :param _builtins.str attachment_arn: The Amazon Resource Name (ARN) of the attachment.
     """
     __args__ = dict()
@@ -117,11 +116,10 @@ def get_cross_account_attachment(attachment_arn: Optional[_builtins.str] = None,
         principals=pulumi.get(__ret__, 'principals'),
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cross_account_attachment_output(attachment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cross_account_attachment_output(attachment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrossAccountAttachmentResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
-
 
     :param _builtins.str attachment_arn: The Amazon Resource Name (ARN) of the attachment.
     """

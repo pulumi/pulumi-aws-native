@@ -150,7 +150,6 @@ def get_field(field_arn: Optional[_builtins.str] = None,
     """
     A field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.
 
-
     :param _builtins.str field_arn: The Amazon Resource Name (ARN) of the field.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_field(field_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_field_output(field_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_field_output(field_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFieldResult]:
     """
     A field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.
-
 
     :param _builtins.str field_arn: The Amazon Resource Name (ARN) of the field.
     """

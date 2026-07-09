@@ -76,7 +76,6 @@ def get_connector_profile(connector_profile_name: Optional[_builtins.str] = None
     """
     Resource Type definition for AWS::AppFlow::ConnectorProfile
 
-
     :param _builtins.str connector_profile_name: The maximum number of items to retrieve in a single batch.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_connector_profile(connector_profile_name: Optional[_builtins.str] = None
         connection_mode=pulumi.get(__ret__, 'connection_mode'),
         connector_profile_arn=pulumi.get(__ret__, 'connector_profile_arn'),
         credentials_arn=pulumi.get(__ret__, 'credentials_arn'))
-def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_profile_output(connector_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorProfileResult]:
     """
     Resource Type definition for AWS::AppFlow::ConnectorProfile
-
 
     :param _builtins.str connector_profile_name: The maximum number of items to retrieve in a single batch.
     """

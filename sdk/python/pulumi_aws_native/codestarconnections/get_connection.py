@@ -88,7 +88,6 @@ def get_connection(connection_arn: Optional[_builtins.str] = None,
     """
     Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
 
-
     :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_connection(connection_arn: Optional[_builtins.str] = None,
         connection_status=pulumi.get(__ret__, 'connection_status'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_output(connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_output(connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
-
 
     :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
     """

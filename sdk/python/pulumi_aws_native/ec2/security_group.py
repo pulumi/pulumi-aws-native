@@ -24,11 +24,11 @@ __all__ = ['SecurityGroupArgs', 'SecurityGroup']
 class SecurityGroupArgs:
     def __init__(__self__, *,
                  group_description: pulumi.Input[_builtins.str],
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
-                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_egress: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
+                 security_group_ingress: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityGroup resource.
 
@@ -65,62 +65,62 @@ class SecurityGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the security group.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupEgress")
-    def security_group_egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]:
+    def security_group_egress(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]:
         """
         [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
         """
         return pulumi.get(self, "security_group_egress")
 
     @security_group_egress.setter
-    def security_group_egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]):
+    def security_group_egress(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]]):
         pulumi.set(self, "security_group_egress", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIngress")
-    def security_group_ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]:
+    def security_group_ingress(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]:
         """
         The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
         """
         return pulumi.get(self, "security_group_ingress")
 
     @security_group_ingress.setter
-    def security_group_ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]):
+    def security_group_ingress(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]]):
         pulumi.set(self, "security_group_ingress", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the security group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC for the security group.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -130,16 +130,15 @@ class SecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
-                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 security_group_ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SecurityGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class SecurityGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::SecurityGroup
 
-
         :param str resource_name: The name of the resource.
         :param SecurityGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class SecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
-                 security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_egress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 security_group_ingress: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

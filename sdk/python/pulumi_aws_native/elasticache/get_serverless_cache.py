@@ -222,7 +222,6 @@ def get_serverless_cache(serverless_cache_name: Optional[_builtins.str] = None,
     """
     The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
 
-
     :param _builtins.str serverless_cache_name: The name of the Serverless Cache. This value must be unique.
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_serverless_cache(serverless_cache_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
-def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_serverless_cache_output(serverless_cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
     The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
-
 
     :param _builtins.str serverless_cache_name: The name of the Serverless Cache. This value must be unique.
     """

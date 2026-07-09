@@ -24,18 +24,18 @@ __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
 @pulumi.input_type
 class LocationObjectStorageArgs:
     def __init__(__self__, *,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmk_secret_config: Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']] = None,
-                 custom_secret_config: Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmk_secret_config: pulumi.Input[Optional['LocationObjectStorageCmkSecretConfigArgs']] = None,
+                 custom_secret_config: pulumi.Input[Optional['LocationObjectStorageCustomSecretConfigArgs']] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_protocol: pulumi.Input[Optional['LocationObjectStorageServerProtocol']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationObjectStorage resource.
 
@@ -87,43 +87,43 @@ class LocationObjectStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. The access key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="agentArns")
-    def agent_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def agent_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         """
         return pulumi.get(self, "agent_arns")
 
     @agent_arns.setter
-    def agent_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def agent_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "agent_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the bucket on the self-managed object storage server.
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cmkSecretConfig")
-    def cmk_secret_config(self) -> Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']]:
+    def cmk_secret_config(self) -> pulumi.Input[Optional['LocationObjectStorageCmkSecretConfigArgs']]:
         """
         Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
 
@@ -136,12 +136,12 @@ class LocationObjectStorageArgs:
         return pulumi.get(self, "cmk_secret_config")
 
     @cmk_secret_config.setter
-    def cmk_secret_config(self, value: Optional[pulumi.Input['LocationObjectStorageCmkSecretConfigArgs']]):
+    def cmk_secret_config(self, value: pulumi.Input[Optional['LocationObjectStorageCmkSecretConfigArgs']]):
         pulumi.set(self, "cmk_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customSecretConfig")
-    def custom_secret_config(self) -> Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']]:
+    def custom_secret_config(self) -> pulumi.Input[Optional['LocationObjectStorageCustomSecretConfigArgs']]:
         """
         Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 
@@ -150,91 +150,91 @@ class LocationObjectStorageArgs:
         return pulumi.get(self, "custom_secret_config")
 
     @custom_secret_config.setter
-    def custom_secret_config(self, value: Optional[pulumi.Input['LocationObjectStorageCustomSecretConfigArgs']]):
+    def custom_secret_config(self, value: pulumi.Input[Optional['LocationObjectStorageCustomSecretConfigArgs']]):
         pulumi.set(self, "custom_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
-    def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
-    def secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="serverCertificate")
-    def server_certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         X.509 PEM content containing a certificate authority or chain to trust.
         """
         return pulumi.get(self, "server_certificate")
 
     @server_certificate.setter
-    def server_certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
-    def server_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_hostname", value)
 
     @_builtins.property
     @pulumi.getter(name="serverPort")
-    def server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def server_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that your self-managed server accepts inbound network traffic on.
         """
         return pulumi.get(self, "server_port")
 
     @server_port.setter
-    def server_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def server_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "server_port", value)
 
     @_builtins.property
     @pulumi.getter(name="serverProtocol")
-    def server_protocol(self) -> Optional[pulumi.Input['LocationObjectStorageServerProtocol']]:
+    def server_protocol(self) -> pulumi.Input[Optional['LocationObjectStorageServerProtocol']]:
         """
         The protocol that the object storage server uses to communicate.
         """
         return pulumi.get(self, "server_protocol")
 
     @server_protocol.setter
-    def server_protocol(self, value: Optional[pulumi.Input['LocationObjectStorageServerProtocol']]):
+    def server_protocol(self, value: pulumi.Input[Optional['LocationObjectStorageServerProtocol']]):
         pulumi.set(self, "server_protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdirectory in the self-managed object storage server that is used to read data from.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -244,18 +244,18 @@ class LocationObjectStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_protocol: pulumi.Input[Optional['LocationObjectStorageServerProtocol']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationObjectStorage.
@@ -341,18 +341,18 @@ class LocationObjectStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_protocol: pulumi.Input[Optional['LocationObjectStorageServerProtocol']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

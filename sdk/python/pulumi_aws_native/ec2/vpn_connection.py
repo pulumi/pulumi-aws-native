@@ -26,22 +26,22 @@ class VpnConnectionArgs:
     def __init__(__self__, *,
                  customer_gateway_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 enable_acceleration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 outside_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
-                 remote_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_routes_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
-                 tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
+                 enable_acceleration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 outside_ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_shared_key_storage: pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']] = None,
+                 remote_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_routes_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transport_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_bandwidth: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']] = None,
+                 tunnel_inside_ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
         """
         The set of arguments for constructing a VpnConnection resource.
 
@@ -137,7 +137,7 @@ class VpnConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableAcceleration")
-    def enable_acceleration(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_acceleration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicate whether to enable acceleration for the VPN connection.
          Default: ``false``
@@ -145,12 +145,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "enable_acceleration")
 
     @enable_acceleration.setter
-    def enable_acceleration(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_acceleration(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_acceleration", value)
 
     @_builtins.property
     @pulumi.getter(name="localIpv4NetworkCidr")
-    def local_ipv4_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_ipv4_network_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
          Default: ``0.0.0.0/0``
@@ -158,12 +158,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "local_ipv4_network_cidr")
 
     @local_ipv4_network_cidr.setter
-    def local_ipv4_network_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_ipv4_network_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_ipv4_network_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="localIpv6NetworkCidr")
-    def local_ipv6_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_ipv6_network_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
          Default: ``::/0``
@@ -171,12 +171,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "local_ipv6_network_cidr")
 
     @local_ipv6_network_cidr.setter
-    def local_ipv6_network_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_ipv6_network_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_ipv6_network_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="outsideIpAddressType")
-    def outside_ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outside_ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of IP address assigned to the outside interface of the customer gateway device.
          Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
@@ -185,24 +185,24 @@ class VpnConnectionArgs:
         return pulumi.get(self, "outside_ip_address_type")
 
     @outside_ip_address_type.setter
-    def outside_ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outside_ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outside_ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="preSharedKeyStorage")
-    def pre_shared_key_storage(self) -> Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']]:
+    def pre_shared_key_storage(self) -> pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']]:
         """
         Describes the storage location for an instance store-backed AMI.
         """
         return pulumi.get(self, "pre_shared_key_storage")
 
     @pre_shared_key_storage.setter
-    def pre_shared_key_storage(self, value: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']]):
+    def pre_shared_key_storage(self, value: pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']]):
         pulumi.set(self, "pre_shared_key_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
-    def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_ipv4_network_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR on the AWS side of the VPN connection.
          Default: ``0.0.0.0/0``
@@ -210,12 +210,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "remote_ipv4_network_cidr")
 
     @remote_ipv4_network_cidr.setter
-    def remote_ipv4_network_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_ipv4_network_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_ipv4_network_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteIpv6NetworkCidr")
-    def remote_ipv6_network_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_ipv6_network_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR on the AWS side of the VPN connection.
          Default: ``::/0``
@@ -223,12 +223,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "remote_ipv6_network_cidr")
 
     @remote_ipv6_network_cidr.setter
-    def remote_ipv6_network_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_ipv6_network_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_ipv6_network_cidr", value)
 
     @_builtins.property
     @pulumi.getter(name="staticRoutesOnly")
-    def static_routes_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def static_routes_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
          If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -236,24 +236,24 @@ class VpnConnectionArgs:
         return pulumi.get(self, "static_routes_only")
 
     @static_routes_only.setter
-    def static_routes_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def static_routes_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "static_routes_only", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the VPN connection.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the transit gateway associated with the VPN connection.
          You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -261,12 +261,12 @@ class VpnConnectionArgs:
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
-    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="transportTransitGatewayAttachmentId")
-    def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transport_transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The transit gateway attachment ID to use for the VPN tunnel.
          Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
@@ -274,24 +274,24 @@ class VpnConnectionArgs:
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @transport_transit_gateway_attachment_id.setter
-    def transport_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transport_transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transport_transit_gateway_attachment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelBandwidth")
-    def tunnel_bandwidth(self) -> Optional[pulumi.Input['VpnConnectionTunnelBandwidth']]:
+    def tunnel_bandwidth(self) -> pulumi.Input[Optional['VpnConnectionTunnelBandwidth']]:
         """
         The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
         """
         return pulumi.get(self, "tunnel_bandwidth")
 
     @tunnel_bandwidth.setter
-    def tunnel_bandwidth(self, value: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']]):
+    def tunnel_bandwidth(self, value: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']]):
         pulumi.set(self, "tunnel_bandwidth", value)
 
     @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")
-    def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tunnel_inside_ip_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
          Default: ``ipv4``
@@ -299,24 +299,24 @@ class VpnConnectionArgs:
         return pulumi.get(self, "tunnel_inside_ip_version")
 
     @tunnel_inside_ip_version.setter
-    def tunnel_inside_ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tunnel_inside_ip_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tunnel_inside_ip_version", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
-    def vpn_concentrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_concentrator_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPN concentrator to associate with the VPN connection.
         """
         return pulumi.get(self, "vpn_concentrator_id")
 
     @vpn_concentrator_id.setter
-    def vpn_concentrator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_concentrator_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_concentrator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
-    def vpn_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpn_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the virtual private gateway at the AWS side of the VPN connection.
          You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -324,19 +324,19 @@ class VpnConnectionArgs:
         return pulumi.get(self, "vpn_gateway_id")
 
     @vpn_gateway_id.setter
-    def vpn_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpn_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpn_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnTunnelOptionsSpecifications")
-    def vpn_tunnel_options_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]:
+    def vpn_tunnel_options_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]:
         """
         The tunnel options for the VPN connection.
         """
         return pulumi.get(self, "vpn_tunnel_options_specifications")
 
     @vpn_tunnel_options_specifications.setter
-    def vpn_tunnel_options_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]):
+    def vpn_tunnel_options_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]]):
         pulumi.set(self, "vpn_tunnel_options_specifications", value)
 
 
@@ -346,31 +346,30 @@ class VpnConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_acceleration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 outside_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
-                 remote_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_routes_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
-                 tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
+                 customer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_acceleration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 outside_ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_shared_key_storage: pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']] = None,
+                 remote_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_routes_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transport_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_bandwidth: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']] = None,
+                 tunnel_inside_ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
          To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
          To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,7 +416,6 @@ class VpnConnection(pulumi.CustomResource):
          To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
          For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param VpnConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -433,24 +431,24 @@ class VpnConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_acceleration: Optional[pulumi.Input[_builtins.bool]] = None,
-                 local_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 outside_ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_shared_key_storage: Optional[pulumi.Input['VpnConnectionPreSharedKeyStorage']] = None,
-                 remote_ipv4_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 remote_ipv6_network_cidr: Optional[pulumi.Input[_builtins.str]] = None,
-                 static_routes_only: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
-                 tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
+                 customer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_acceleration: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 outside_ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_shared_key_storage: pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']] = None,
+                 remote_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 remote_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
+                 static_routes_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transport_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tunnel_bandwidth: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']] = None,
+                 tunnel_inside_ip_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -69,7 +69,6 @@ def get_zonal_autoshift_configuration(resource_identifier: Optional[_builtins.st
     """
     Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
 
-
     :param _builtins.str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
            
            At this time, supported resources are Network Load Balancers and Application Load Balancers.
@@ -82,11 +81,10 @@ def get_zonal_autoshift_configuration(resource_identifier: Optional[_builtins.st
     return AwaitableGetZonalAutoshiftConfigurationResult(
         practice_run_configuration=pulumi.get(__ret__, 'practice_run_configuration'),
         zonal_autoshift_status=pulumi.get(__ret__, 'zonal_autoshift_status'))
-def get_zonal_autoshift_configuration_output(resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_zonal_autoshift_configuration_output(resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZonalAutoshiftConfigurationResult]:
     """
     Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
-
 
     :param _builtins.str resource_identifier: The identifier for the resource that AWS shifts traffic for. The identifier is the Amazon Resource Name (ARN) for the resource.
            

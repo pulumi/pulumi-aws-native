@@ -26,16 +26,16 @@ class GameServerGroupArgs:
     def __init__(__self__, *,
                  instance_definitions: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]],
                  role_arn: pulumi.Input[_builtins.str],
-                 auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
-                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
-                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
-                 game_server_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
-                 launch_template: Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']] = None,
-                 max_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 auto_scaling_policy: pulumi.Input[Optional['GameServerGroupAutoScalingPolicyArgs']] = None,
+                 balancing_strategy: pulumi.Input[Optional['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: pulumi.Input[Optional['GameServerGroupDeleteOption']] = None,
+                 game_server_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_protection_policy: pulumi.Input[Optional['GameServerGroupGameServerProtectionPolicy']] = None,
+                 launch_template: pulumi.Input[Optional['GameServerGroupLaunchTemplateArgs']] = None,
+                 max_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
 
@@ -101,122 +101,122 @@ class GameServerGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingPolicy")
-    def auto_scaling_policy(self) -> Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]:
+    def auto_scaling_policy(self) -> pulumi.Input[Optional['GameServerGroupAutoScalingPolicyArgs']]:
         """
         Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "auto_scaling_policy")
 
     @auto_scaling_policy.setter
-    def auto_scaling_policy(self, value: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]):
+    def auto_scaling_policy(self, value: pulumi.Input[Optional['GameServerGroupAutoScalingPolicyArgs']]):
         pulumi.set(self, "auto_scaling_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="balancingStrategy")
-    def balancing_strategy(self) -> Optional[pulumi.Input['GameServerGroupBalancingStrategy']]:
+    def balancing_strategy(self) -> pulumi.Input[Optional['GameServerGroupBalancingStrategy']]:
         """
         The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         """
         return pulumi.get(self, "balancing_strategy")
 
     @balancing_strategy.setter
-    def balancing_strategy(self, value: Optional[pulumi.Input['GameServerGroupBalancingStrategy']]):
+    def balancing_strategy(self, value: pulumi.Input[Optional['GameServerGroupBalancingStrategy']]):
         pulumi.set(self, "balancing_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteOption")
-    def delete_option(self) -> Optional[pulumi.Input['GameServerGroupDeleteOption']]:
+    def delete_option(self) -> pulumi.Input[Optional['GameServerGroupDeleteOption']]:
         """
         The type of delete to perform.
         """
         return pulumi.get(self, "delete_option")
 
     @delete_option.setter
-    def delete_option(self, value: Optional[pulumi.Input['GameServerGroupDeleteOption']]):
+    def delete_option(self, value: pulumi.Input[Optional['GameServerGroupDeleteOption']]):
         pulumi.set(self, "delete_option", value)
 
     @_builtins.property
     @pulumi.getter(name="gameServerGroupName")
-    def game_server_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def game_server_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier for the new game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
     @game_server_group_name.setter
-    def game_server_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def game_server_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "game_server_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gameServerProtectionPolicy")
-    def game_server_protection_policy(self) -> Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']]:
+    def game_server_protection_policy(self) -> pulumi.Input[Optional['GameServerGroupGameServerProtectionPolicy']]:
         """
         A flag that indicates whether instances in the game server group are protected from early termination.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
     @game_server_protection_policy.setter
-    def game_server_protection_policy(self, value: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']]):
+    def game_server_protection_policy(self, value: pulumi.Input[Optional['GameServerGroupGameServerProtectionPolicy']]):
         pulumi.set(self, "game_server_protection_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']]:
+    def launch_template(self) -> pulumi.Input[Optional['GameServerGroupLaunchTemplateArgs']]:
         """
         The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['GameServerGroupLaunchTemplateArgs']]):
+    def launch_template(self, value: pulumi.Input[Optional['GameServerGroupLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSize")
-    def max_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "max_size")
 
     @max_size.setter
-    def max_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_size", value)
 
     @_builtins.property
     @pulumi.getter(name="minSize")
-    def min_size(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_size(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
-    def min_size(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSubnets")
-    def vpc_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
         """
         return pulumi.get(self, "vpc_subnets")
 
     @vpc_subnets.setter
-    def vpc_subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_subnets", value)
 
 
@@ -226,22 +226,21 @@ class GameServerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_policy: Optional[pulumi.Input[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict']]] = None,
-                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
-                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
-                 game_server_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
-                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameServerGroupInstanceDefinitionArgs', 'GameServerGroupInstanceDefinitionArgsDict']]]]] = None,
-                 launch_template: Optional[pulumi.Input[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_policy: pulumi.Input[Optional[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict']]] = None,
+                 balancing_strategy: pulumi.Input[Optional['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: pulumi.Input[Optional['GameServerGroupDeleteOption']] = None,
+                 game_server_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_protection_policy: pulumi.Input[Optional['GameServerGroupGameServerProtectionPolicy']] = None,
+                 instance_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameServerGroupInstanceDefinitionArgs', 'GameServerGroupInstanceDefinitionArgsDict']]]]] = None,
+                 launch_template: pulumi.Input[Optional[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class GameServerGroup(pulumi.CustomResource):
         """
         The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 
-
         :param str resource_name: The name of the resource.
         :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class GameServerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_policy: Optional[pulumi.Input[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict']]] = None,
-                 balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
-                 delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
-                 game_server_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 game_server_protection_policy: Optional[pulumi.Input['GameServerGroupGameServerProtectionPolicy']] = None,
-                 instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GameServerGroupInstanceDefinitionArgs', 'GameServerGroupInstanceDefinitionArgsDict']]]]] = None,
-                 launch_template: Optional[pulumi.Input[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
-                 max_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 min_size: Optional[pulumi.Input[_builtins.float]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_scaling_policy: pulumi.Input[Optional[Union['GameServerGroupAutoScalingPolicyArgs', 'GameServerGroupAutoScalingPolicyArgsDict']]] = None,
+                 balancing_strategy: pulumi.Input[Optional['GameServerGroupBalancingStrategy']] = None,
+                 delete_option: pulumi.Input[Optional['GameServerGroupDeleteOption']] = None,
+                 game_server_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 game_server_protection_policy: pulumi.Input[Optional['GameServerGroupGameServerProtectionPolicy']] = None,
+                 instance_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GameServerGroupInstanceDefinitionArgs', 'GameServerGroupInstanceDefinitionArgsDict']]]]] = None,
+                 launch_template: pulumi.Input[Optional[Union['GameServerGroupLaunchTemplateArgs', 'GameServerGroupLaunchTemplateArgsDict']]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 min_size: pulumi.Input[Optional[_builtins.float]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

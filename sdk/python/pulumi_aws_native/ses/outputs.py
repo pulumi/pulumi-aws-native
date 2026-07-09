@@ -467,7 +467,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         """
         :param Sequence[_builtins.str] matching_event_types: The type of email sending events, send, reject, bounce, complaint, delivery, open, click, renderingFailure, deliveryDelay, and subscription.
         :param 'ConfigurationSetEventDestinationCloudWatchDestination' cloud_watch_destination: An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
-        :param _builtins.bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        :param _builtins.bool enabled: Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
         :param 'ConfigurationSetEventDestinationEventBridgeDestination' event_bridge_destination: An object that contains Event bus ARN associated with the event bridge destination.
         :param 'ConfigurationSetEventDestinationKinesisFirehoseDestination' kinesis_firehose_destination: An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
         :param _builtins.str name: The name of the event destination set.
@@ -507,7 +507,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         """
-        Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   
+        Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
         """
         return pulumi.get(self, "enabled")
 

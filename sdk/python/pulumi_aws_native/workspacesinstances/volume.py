@@ -23,14 +23,14 @@ __all__ = ['VolumeArgs', 'Volume']
 class VolumeArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[_builtins.str],
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None):
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_type: pulumi.Input[Optional['VolumeType']] = None):
         """
         The set of arguments for constructing a Volume resource.
 
@@ -76,98 +76,98 @@ class VolumeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the volume should be encrypted
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "encrypted", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of I/O operations per second (IOPS)
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInGb")
-    def size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the volume, in GiBs
         """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "size_in_gb", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
-    def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The snapshot from which to create the volume
         """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
-    def snapshot_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]]:
         """
         The tags passed to EBS volume
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The throughput to provision for a volume, with a maximum of 1,000 MiB/s
         """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
-    def throughput(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def throughput(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "throughput", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input['VolumeType']]:
+    def volume_type(self) -> pulumi.Input[Optional['VolumeType']]:
         """
         The volume type
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input['VolumeType']]):
+    def volume_type(self, value: pulumi.Input[Optional['VolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 
@@ -177,19 +177,18 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_type: pulumi.Input[Optional['VolumeType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +211,6 @@ class Volume(pulumi.CustomResource):
         """
         Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
 
-
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,15 +226,15 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.int]] = None,
-                 snapshot_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
-                 throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
+                 snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeTagSpecificationArgs', 'VolumeTagSpecificationArgsDict']]]]] = None,
+                 throughput: pulumi.Input[Optional[_builtins.int]] = None,
+                 volume_type: pulumi.Input[Optional['VolumeType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

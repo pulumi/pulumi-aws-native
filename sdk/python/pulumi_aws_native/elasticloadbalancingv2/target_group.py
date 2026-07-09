@@ -23,37 +23,37 @@ __all__ = ['TargetGroupArgs', 'TargetGroup']
 @pulumi.input_type
 class TargetGroupArgs:
     def __init__(__self__, *,
-                 health_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 healthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 matcher: Optional[pulumi.Input['TargetGroupMatcherArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
-                 unhealthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 health_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 healthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 matcher: pulumi.Input[Optional['TargetGroupMatcherArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_control_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_group_attributes: pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
+                 unhealthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
 
         :param pulumi.Input[_builtins.bool] health_check_enabled: Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
         :param pulumi.Input[_builtins.int] health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target.
         :param pulumi.Input[_builtins.str] health_check_path: [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-        :param pulumi.Input[_builtins.str] health_check_port: The port the load balancer uses when performing health checks on targets. 
-        :param pulumi.Input[_builtins.str] health_check_protocol: The protocol the load balancer uses when performing health checks on targets. 
+        :param pulumi.Input[_builtins.str] health_check_port: The port the load balancer uses when performing health checks on targets.
+        :param pulumi.Input[_builtins.str] health_check_protocol: The protocol the load balancer uses when performing health checks on targets.
         :param pulumi.Input[_builtins.int] health_check_timeout_seconds: The amount of time, in seconds, during which no response from a target means a failed health check.
-        :param pulumi.Input[_builtins.int] healthy_threshold_count: The number of consecutive health checks successes required before considering an unhealthy target healthy. 
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        :param pulumi.Input[_builtins.int] healthy_threshold_count: The number of consecutive health checks successes required before considering an unhealthy target healthy.
+        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         :param pulumi.Input['TargetGroupMatcherArgs'] matcher: [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
         :param pulumi.Input[_builtins.str] name: The name of the target group.
         :param pulumi.Input[_builtins.int] port: The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
@@ -110,242 +110,242 @@ class TargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="healthCheckEnabled")
-    def health_check_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def health_check_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
         """
         return pulumi.get(self, "health_check_enabled")
 
     @health_check_enabled.setter
-    def health_check_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def health_check_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "health_check_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckIntervalSeconds")
-    def health_check_interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The approximate amount of time, in seconds, between health checks of an individual target.
         """
         return pulumi.get(self, "health_check_interval_seconds")
 
     @health_check_interval_seconds.setter
-    def health_check_interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPort")
-    def health_check_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The port the load balancer uses when performing health checks on targets. 
+        The port the load balancer uses when performing health checks on targets.
         """
         return pulumi.get(self, "health_check_port")
 
     @health_check_port.setter
-    def health_check_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_port", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckProtocol")
-    def health_check_protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The protocol the load balancer uses when performing health checks on targets. 
+        The protocol the load balancer uses when performing health checks on targets.
         """
         return pulumi.get(self, "health_check_protocol")
 
     @health_check_protocol.setter
-    def health_check_protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckTimeoutSeconds")
-    def health_check_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, during which no response from a target means a failed health check.
         """
         return pulumi.get(self, "health_check_timeout_seconds")
 
     @health_check_timeout_seconds.setter
-    def health_check_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="healthyThresholdCount")
-    def healthy_threshold_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def healthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+        The number of consecutive health checks successes required before considering an unhealthy target healthy.
         """
         return pulumi.get(self, "healthy_threshold_count")
 
     @healthy_threshold_count.setter
-    def healthy_threshold_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def healthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "healthy_threshold_count", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def matcher(self) -> Optional[pulumi.Input['TargetGroupMatcherArgs']]:
+    def matcher(self) -> pulumi.Input[Optional['TargetGroupMatcherArgs']]:
         """
         [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
         """
         return pulumi.get(self, "matcher")
 
     @matcher.setter
-    def matcher(self, value: Optional[pulumi.Input['TargetGroupMatcherArgs']]):
+    def matcher(self, value: pulumi.Input[Optional['TargetGroupMatcherArgs']]):
         pulumi.set(self, "matcher", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol to use for routing traffic to the targets.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolVersion")
-    def protocol_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
         """
         return pulumi.get(self, "protocol_version")
 
     @protocol_version.setter
-    def protocol_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetControlPort")
-    def target_control_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def target_control_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
         """
         return pulumi.get(self, "target_control_port")
 
     @target_control_port.setter
-    def target_control_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def target_control_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "target_control_port", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupAttributes")
-    def target_group_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]:
+    def target_group_attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]:
         """
         The attributes.
         """
         return pulumi.get(self, "target_group_attributes")
 
     @target_group_attributes.setter
-    def target_group_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]):
+    def target_group_attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]):
         pulumi.set(self, "target_group_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]]:
+    def targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]]:
         """
         The targets.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]]):
+    def targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]]):
         pulumi.set(self, "targets", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThresholdCount")
-    def unhealthy_threshold_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unhealthy_threshold_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health check failures required before considering a target unhealthy.
         """
         return pulumi.get(self, "unhealthy_threshold_count")
 
     @unhealthy_threshold_count.setter
-    def unhealthy_threshold_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unhealthy_threshold_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unhealthy_threshold_count", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -355,41 +355,40 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 healthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 matcher: Optional[pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
-                 unhealthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 healthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 matcher: pulumi.Input[Optional[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_control_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_group_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
+                 unhealthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] health_check_enabled: Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
         :param pulumi.Input[_builtins.int] health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target.
         :param pulumi.Input[_builtins.str] health_check_path: [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
-        :param pulumi.Input[_builtins.str] health_check_port: The port the load balancer uses when performing health checks on targets. 
-        :param pulumi.Input[_builtins.str] health_check_protocol: The protocol the load balancer uses when performing health checks on targets. 
+        :param pulumi.Input[_builtins.str] health_check_port: The port the load balancer uses when performing health checks on targets.
+        :param pulumi.Input[_builtins.str] health_check_protocol: The protocol the load balancer uses when performing health checks on targets.
         :param pulumi.Input[_builtins.int] health_check_timeout_seconds: The amount of time, in seconds, during which no response from a target means a failed health check.
-        :param pulumi.Input[_builtins.int] healthy_threshold_count: The number of consecutive health checks successes required before considering an unhealthy target healthy. 
-        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        :param pulumi.Input[_builtins.int] healthy_threshold_count: The number of consecutive health checks successes required before considering an unhealthy target healthy.
+        :param pulumi.Input[_builtins.str] ip_address_type: The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         :param pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']] matcher: [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
         :param pulumi.Input[_builtins.str] name: The name of the target group.
         :param pulumi.Input[_builtins.int] port: The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
@@ -412,7 +411,6 @@ class TargetGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
 
-
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,26 +426,26 @@ class TargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 health_check_interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_check_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 healthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 matcher: Optional[pulumi.Input[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
-                 target_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
-                 unhealthy_threshold_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 health_check_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_check_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 healthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 matcher: pulumi.Input[Optional[Union['TargetGroupMatcherArgs', 'TargetGroupMatcherArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_control_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 target_group_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
+                 target_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
+                 unhealthy_threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -559,7 +557,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckPort")
     def health_check_port(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The port the load balancer uses when performing health checks on targets. 
+        The port the load balancer uses when performing health checks on targets.
         """
         return pulumi.get(self, "health_check_port")
 
@@ -567,7 +565,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckProtocol")
     def health_check_protocol(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The protocol the load balancer uses when performing health checks on targets. 
+        The protocol the load balancer uses when performing health checks on targets.
         """
         return pulumi.get(self, "health_check_protocol")
 
@@ -583,7 +581,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthyThresholdCount")
     def healthy_threshold_count(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+        The number of consecutive health checks successes required before considering an unhealthy target healthy.
         """
         return pulumi.get(self, "healthy_threshold_count")
 
@@ -591,7 +589,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+        The type of IP address used for this target group. The possible values are ipv4 and ipv6.
         """
         return pulumi.get(self, "ip_address_type")
 

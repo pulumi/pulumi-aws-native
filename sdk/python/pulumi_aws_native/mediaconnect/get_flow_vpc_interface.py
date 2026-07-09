@@ -101,7 +101,6 @@ def get_flow_vpc_interface(flow_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaConnect::FlowVpcInterface
 
-
     :param _builtins.str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
     :param _builtins.str name: Immutable and has to be a unique against other VpcInterfaces in this Flow.
     """
@@ -117,12 +116,11 @@ def get_flow_vpc_interface(flow_arn: Optional[_builtins.str] = None,
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                  name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_vpc_interface_output(flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                  name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
     """
     Resource schema for AWS::MediaConnect::FlowVpcInterface
-
 
     :param _builtins.str flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
     :param _builtins.str name: Immutable and has to be a unique against other VpcInterfaces in this Flow.

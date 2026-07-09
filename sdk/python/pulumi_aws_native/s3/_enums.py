@@ -239,8 +239,8 @@ class BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize(_builtins.s
     Indicates which default minimum object size behavior is applied to the lifecycle configuration.
       This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
        +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-      +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
-      
+      +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+
      To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
     """
     VARIES_BY_STORAGE_CLASS = "varies_by_storage_class"
@@ -343,7 +343,7 @@ class BucketReplicaModificationsStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:s3:BucketReplicationDestinationStorageClass")
 class BucketReplicationDestinationStorageClass(_builtins.str, Enum):
     """
-    The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+    The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
      For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
      ``FSX_OPENZFS`` is not an accepted value when replicating objects.
     """

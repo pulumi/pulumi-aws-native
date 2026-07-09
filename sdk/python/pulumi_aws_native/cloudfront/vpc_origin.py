@@ -24,7 +24,7 @@ __all__ = ['VpcOriginArgs', 'VpcOrigin']
 class VpcOriginArgs:
     def __init__(__self__, *,
                  vpc_origin_endpoint_config: pulumi.Input['VpcOriginEndpointConfigArgs'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
 
@@ -49,14 +49,14 @@ class VpcOriginArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A complex type that contains zero or more ``Tag`` elements.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -66,12 +66,11 @@ class VpcOrigin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_origin_endpoint_config: Optional[pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
                  __props__=None):
         """
         An Amazon CloudFront VPC origin.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -86,7 +85,6 @@ class VpcOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Amazon CloudFront VPC origin.
-
 
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.
@@ -103,8 +101,8 @@ class VpcOrigin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_origin_endpoint_config: Optional[pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -24,33 +24,33 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
-                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
-                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
-                 desired_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_new_deployment: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']] = None,
-                 health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
-                 monitoring: Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']] = None,
-                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
-                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
-                 service_connect_configuration: Optional[pulumi.Input['ServiceConnectConfigurationArgs']] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 task_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]] = None,
-                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None):
+                 availability_zone_rebalancing: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional['ServiceDeploymentConfigurationArgs']] = None,
+                 deployment_controller: pulumi.Input[Optional['ServiceDeploymentControllerArgs']] = None,
+                 desired_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_new_deployment: pulumi.Input[Optional['ServiceForceNewDeploymentArgs']] = None,
+                 health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+                 monitoring: pulumi.Input[Optional['ServiceMonitoringConfigurationArgs']] = None,
+                 network_configuration: pulumi.Input[Optional['ServiceNetworkConfigurationArgs']] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_tags: pulumi.Input[Optional['ServicePropagateTags']] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_strategy: pulumi.Input[Optional['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: pulumi.Input[Optional['ServiceConnectConfigurationArgs']] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]] = None,
+                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -95,7 +95,7 @@ class ServiceArgs:
                 There are two service scheduler strategies available:
                  +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
                  +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
-                 Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+                      Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
         :param pulumi.Input['ServiceConnectConfigurationArgs'] service_connect_configuration: The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
                 Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[_builtins.str] service_name: The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
@@ -176,7 +176,7 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneRebalancing")
-    def availability_zone_rebalancing(self) -> Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']]:
+    def availability_zone_rebalancing(self) -> pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']]:
         """
         Indicates whether to use Availability Zone rebalancing for the service.
          For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -187,12 +187,12 @@ class ServiceArgs:
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @availability_zone_rebalancing.setter
-    def availability_zone_rebalancing(self, value: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']]):
+    def availability_zone_rebalancing(self, value: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']]):
         pulumi.set(self, "availability_zone_rebalancing", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderStrategy")
-    def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]:
+    def capacity_provider_strategy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]:
         """
         The capacity provider strategy to use for the service.
          If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -202,48 +202,48 @@ class ServiceArgs:
         return pulumi.get(self, "capacity_provider_strategy")
 
     @capacity_provider_strategy.setter
-    def capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]):
+    def capacity_provider_strategy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]]):
         pulumi.set(self, "capacity_provider_strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def cluster(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
         """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
-    def cluster(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
-    def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
+    def deployment_configuration(self) -> pulumi.Input[Optional['ServiceDeploymentConfigurationArgs']]:
         """
         Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
-    def deployment_configuration(self, value: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]):
+    def deployment_configuration(self, value: pulumi.Input[Optional['ServiceDeploymentConfigurationArgs']]):
         pulumi.set(self, "deployment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentController")
-    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
+    def deployment_controller(self) -> pulumi.Input[Optional['ServiceDeploymentControllerArgs']]:
         """
         The deployment controller to use for the service.
         """
         return pulumi.get(self, "deployment_controller")
 
     @deployment_controller.setter
-    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArgs']]):
+    def deployment_controller(self, value: pulumi.Input[Optional['ServiceDeploymentControllerArgs']]):
         pulumi.set(self, "deployment_controller", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredCount")
-    def desired_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def desired_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instantiations of the specified task definition to place and keep running in your service.
          For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -252,12 +252,12 @@ class ServiceArgs:
         return pulumi.get(self, "desired_count")
 
     @desired_count.setter
-    def desired_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def desired_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "desired_count", value)
 
     @_builtins.property
     @pulumi.getter(name="enableEcsManagedTags")
-    def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_ecs_managed_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to turn on Amazon ECS managed tags for the tasks within the service. For more information, see [Tagging your Amazon ECS resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the *Amazon Elastic Container Service Developer Guide*.
          When you use Amazon ECS managed tags, you must set the ``propagateTags`` request parameter.
@@ -265,36 +265,36 @@ class ServiceArgs:
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
-    def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_ecs_managed_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_ecs_managed_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="enableExecuteCommand")
-    def enable_execute_command(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_execute_command(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.
         """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
-    def enable_execute_command(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_execute_command(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_execute_command", value)
 
     @_builtins.property
     @pulumi.getter(name="forceNewDeployment")
-    def force_new_deployment(self) -> Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]:
+    def force_new_deployment(self) -> pulumi.Input[Optional['ServiceForceNewDeploymentArgs']]:
         """
         Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version.
         """
         return pulumi.get(self, "force_new_deployment")
 
     @force_new_deployment.setter
-    def force_new_deployment(self, value: Optional[pulumi.Input['ServiceForceNewDeploymentArgs']]):
+    def force_new_deployment(self, value: pulumi.Input[Optional['ServiceForceNewDeploymentArgs']]):
         pulumi.set(self, "force_new_deployment", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckGracePeriodSeconds")
-    def health_check_grace_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def health_check_grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
          If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
@@ -302,12 +302,12 @@ class ServiceArgs:
         return pulumi.get(self, "health_check_grace_period_seconds")
 
     @health_check_grace_period_seconds.setter
-    def health_check_grace_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def health_check_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "health_check_grace_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="launchType")
-    def launch_type(self) -> Optional[pulumi.Input['ServiceLaunchType']]:
+    def launch_type(self) -> pulumi.Input[Optional['ServiceLaunchType']]:
         """
         The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
           If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
@@ -315,12 +315,12 @@ class ServiceArgs:
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
-    def launch_type(self, value: Optional[pulumi.Input['ServiceLaunchType']]):
+    def launch_type(self, value: pulumi.Input[Optional['ServiceLaunchType']]):
         pulumi.set(self, "launch_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
+    def load_balancers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
         """
         A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
           To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
@@ -328,33 +328,33 @@ class ServiceArgs:
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
+    def load_balancers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @_builtins.property
     @pulumi.getter
-    def monitoring(self) -> Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']]:
+    def monitoring(self) -> pulumi.Input[Optional['ServiceMonitoringConfigurationArgs']]:
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
-    def monitoring(self, value: Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']]):
+    def monitoring(self, value: pulumi.Input[Optional['ServiceMonitoringConfigurationArgs']]):
         pulumi.set(self, "monitoring", value)
 
     @_builtins.property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> pulumi.Input[Optional['ServiceNetworkConfigurationArgs']]:
         """
         The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: pulumi.Input[Optional['ServiceNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
+    def placement_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
         """
         An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
           To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
@@ -362,12 +362,12 @@ class ServiceArgs:
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]):
+    def placement_constraints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]):
         pulumi.set(self, "placement_constraints", value)
 
     @_builtins.property
     @pulumi.getter(name="placementStrategies")
-    def placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]:
+    def placement_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]:
         """
         The placement strategy objects to use for tasks in your service. You can specify a maximum of 5 strategy rules for each service.
           To remove this property from your service resource, specify an empty ``PlacementStrategy`` array.
@@ -375,24 +375,24 @@ class ServiceArgs:
         return pulumi.get(self, "placement_strategies")
 
     @placement_strategies.setter
-    def placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]):
+    def placement_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]]):
         pulumi.set(self, "placement_strategies", value)
 
     @_builtins.property
     @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The platform version that your tasks in the service are running on. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the ``LATEST`` platform version is used. For more information, see [platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
-    def platform_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_version", value)
 
     @_builtins.property
     @pulumi.getter(name="propagateTags")
-    def propagate_tags(self) -> Optional[pulumi.Input['ServicePropagateTags']]:
+    def propagate_tags(self) -> pulumi.Input[Optional['ServicePropagateTags']]:
         """
         Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the [TagResource](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html) API action.
          You must set this to a value other than ``NONE`` when you use Cost Explorer. For more information, see [Amazon ECS usage reports](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/usage-reports.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -401,12 +401,12 @@ class ServiceArgs:
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
-    def propagate_tags(self, value: Optional[pulumi.Input['ServicePropagateTags']]):
+    def propagate_tags(self, value: pulumi.Input[Optional['ServicePropagateTags']]):
         pulumi.set(self, "propagate_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is only permitted if you are using a load balancer with your service and your task definition doesn't use the ``awsvpc`` network mode. If you specify the ``role`` parameter, you must also specify a load balancer object with the ``loadBalancers`` parameter.
           If your account has already created the Amazon ECS service-linked role, that role is used for your service unless you specify a role here. The service-linked role is required if your task definition uses the ``awsvpc`` network mode or if the service is configured to use service discovery, an external deployment controller, multiple target groups, or Elastic Inference accelerators in which case you don't specify a role here. For more information, see [Using service-linked roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -415,28 +415,28 @@ class ServiceArgs:
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingStrategy")
-    def scheduling_strategy(self) -> Optional[pulumi.Input['ServiceSchedulingStrategy']]:
+    def scheduling_strategy(self) -> pulumi.Input[Optional['ServiceSchedulingStrategy']]:
         """
         The scheduling strategy to use for the service. For more information, see [Services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
          There are two service scheduler strategies available:
           +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
           +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
-          Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+               Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
         """
         return pulumi.get(self, "scheduling_strategy")
 
     @scheduling_strategy.setter
-    def scheduling_strategy(self, value: Optional[pulumi.Input['ServiceSchedulingStrategy']]):
+    def scheduling_strategy(self, value: pulumi.Input[Optional['ServiceSchedulingStrategy']]):
         pulumi.set(self, "scheduling_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectConfiguration")
-    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceConnectConfigurationArgs']]:
+    def service_connect_configuration(self) -> pulumi.Input[Optional['ServiceConnectConfigurationArgs']]:
         """
         The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -444,12 +444,12 @@ class ServiceArgs:
         return pulumi.get(self, "service_connect_configuration")
 
     @service_connect_configuration.setter
-    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceConnectConfigurationArgs']]):
+    def service_connect_configuration(self, value: pulumi.Input[Optional['ServiceConnectConfigurationArgs']]):
         pulumi.set(self, "service_connect_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
           The stack update fails if you change any properties that require replacement and the ``ServiceName`` is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceName`` must be unique in the cluster.
@@ -457,12 +457,12 @@ class ServiceArgs:
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]]:
+    def service_registries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceRegistryArgs']]]]:
         """
         The details of the service discovery registry to associate with this service. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
           Each service may be associated with one service registry. Multiple service registries for each service isn't supported.
@@ -471,12 +471,12 @@ class ServiceArgs:
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]]):
+    def service_registries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceRegistryArgs']]]]):
         pulumi.set(self, "service_registries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The metadata that you apply to the service to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. When a service is deleted, the tags are deleted as well.
          The following basic restrictions apply to tags:
@@ -491,12 +491,12 @@ class ServiceArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskDefinition")
-    def task_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ``family`` and ``revision`` (``family:revision``) or full ARN of the task definition to run in your service. If a ``revision`` isn't specified, the latest ``ACTIVE`` revision is used.
          A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
@@ -505,12 +505,12 @@ class ServiceArgs:
         return pulumi.get(self, "task_definition")
 
     @task_definition.setter
-    def task_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeConfigurations")
-    def volume_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]:
+    def volume_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]:
         """
         The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
           To remove this property from your service resource, specify an empty ``ServiceVolumeConfiguration`` array.
@@ -518,19 +518,19 @@ class ServiceArgs:
         return pulumi.get(self, "volume_configurations")
 
     @volume_configurations.setter
-    def volume_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]):
+    def volume_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]):
         pulumi.set(self, "volume_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcLatticeConfigurations")
-    def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
+    def vpc_lattice_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
         """
         The VPC Lattice configuration for the service being created.
         """
         return pulumi.get(self, "vpc_lattice_configurations")
 
     @vpc_lattice_configurations.setter
-    def vpc_lattice_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]):
+    def vpc_lattice_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]):
         pulumi.set(self, "vpc_lattice_configurations", value)
 
 
@@ -540,33 +540,33 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
-                 deployment_controller: Optional[pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
-                 desired_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
-                 health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
-                 monitoring: Optional[pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
-                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
-                 service_connect_configuration: Optional[pulumi.Input[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
-                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
+                 availability_zone_rebalancing: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
+                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
+                 desired_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
+                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_tags: pulumi.Input[Optional['ServicePropagateTags']] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_strategy: pulumi.Input[Optional['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
+                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
@@ -594,7 +594,6 @@ class Service(pulumi.CustomResource):
           Invalid request provided: When switching from launch type to capacity provider strategy on an existing service, or making a change to a capacity provider strategy on a service that is already using one, you must force a new deployment. (Service: Ecs, Status Code: 400, Request ID: xxx) (SDK Attempt Count: 1)" (RequestToken: xxx HandlerErrorCode: InvalidRequest)
          Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
          If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -639,7 +638,7 @@ class Service(pulumi.CustomResource):
                 There are two service scheduler strategies available:
                  +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
                  +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
-                 Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+                      Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
         :param pulumi.Input[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']] service_connect_configuration: The configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace.
                 Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[_builtins.str] service_name: The name of your service. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. Service names must be unique within a cluster, but you can have similarly named services in multiple clusters within a Region or across multiple Regions.
@@ -696,7 +695,6 @@ class Service(pulumi.CustomResource):
          Note that CFN automatically initiates a new deployment when it detects a parameter change, but customers cannot choose to force a deployment through CFN. This is an invalid input scenario that requires one of the remediation actions listed above.
          If you are experiencing active production issues related to this change, contact AWS Support or your Technical Account Manager.
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -712,33 +710,33 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
-                 capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
-                 deployment_controller: Optional[pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
-                 desired_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 enable_ecs_managed_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable_execute_command: Optional[pulumi.Input[_builtins.bool]] = None,
-                 force_new_deployment: Optional[pulumi.Input[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
-                 health_check_grace_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
-                 monitoring: Optional[pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
-                 network_configuration: Optional[pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
-                 placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
-                 platform_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
-                 service_connect_configuration: Optional[pulumi.Input[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
-                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
+                 availability_zone_rebalancing: pulumi.Input[Optional['ServiceAvailabilityZoneRebalancing']] = None,
+                 capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
+                 deployment_controller: pulumi.Input[Optional[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']]] = None,
+                 desired_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
+                 force_new_deployment: pulumi.Input[Optional[Union['ServiceForceNewDeploymentArgs', 'ServiceForceNewDeploymentArgsDict']]] = None,
+                 health_check_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 launch_type: pulumi.Input[Optional['ServiceLaunchType']] = None,
+                 load_balancers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]]] = None,
+                 monitoring: pulumi.Input[Optional[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']]] = None,
+                 placement_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
+                 placement_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServicePlacementStrategyArgs', 'ServicePlacementStrategyArgsDict']]]]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 propagate_tags: pulumi.Input[Optional['ServicePropagateTags']] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduling_strategy: pulumi.Input[Optional['ServiceSchedulingStrategy']] = None,
+                 service_connect_configuration: pulumi.Input[Optional[Union['ServiceConnectConfigurationArgs', 'ServiceConnectConfigurationArgsDict']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_registries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceRegistryArgs', 'ServiceRegistryArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
+                 vpc_lattice_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1016,7 +1014,7 @@ class Service(pulumi.CustomResource):
          There are two service scheduler strategies available:
           +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
           +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
-          Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+               Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
         """
         return pulumi.get(self, "scheduling_strategy")
 

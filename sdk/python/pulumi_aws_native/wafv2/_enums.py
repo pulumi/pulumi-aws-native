@@ -108,7 +108,7 @@ class LoggingConfigurationConditionActionConditionPropertiesAction(_builtins.str
 @pulumi.type_token("aws-native:wafv2:LoggingConfigurationFilterBehavior")
 class LoggingConfigurationFilterBehavior(_builtins.str, Enum):
     """
-    How to handle logs that satisfy the filter's conditions and requirement. 
+    How to handle logs that satisfy the filter's conditions and requirement.
     """
     KEEP = "KEEP"
     DROP = "DROP"
@@ -184,7 +184,7 @@ class RuleGroupForwardedIpConfigurationFallbackBehavior(_builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
     You can specify the following fallback behaviors:
 
@@ -200,7 +200,7 @@ class RuleGroupIpSetForwardedIpConfigurationFallbackBehavior(_builtins.str, Enum
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
     You can specify the following fallback behaviors:
 
@@ -308,7 +308,7 @@ class RuleGroupRateBasedStatementAggregateKeyType(_builtins.str, Enum):
     """
     Setting that indicates how to aggregate the request counts.
 
-    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
 
     - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 
@@ -519,7 +519,7 @@ class WebAclForwardedIpConfigurationFallbackBehavior(_builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
     You can specify the following fallback behaviors:
 
@@ -535,7 +535,7 @@ class WebAclIpSetForwardedIpConfigurationFallbackBehavior(_builtins.str, Enum):
     """
     The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+    > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
     You can specify the following fallback behaviors:
 
@@ -661,7 +661,7 @@ class WebAclRateBasedStatementAggregateKeyType(_builtins.str, Enum):
     """
     Setting that indicates how to aggregate the request counts.
 
-    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+    > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
 
     - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 

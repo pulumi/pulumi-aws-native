@@ -83,7 +83,6 @@ def get_ai_prompt_version(ai_prompt_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
 
-
     :param _builtins.str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
     :param _builtins.str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     :param _builtins.float version_number: The version number for this AI Prompt version.
@@ -100,13 +99,12 @@ def get_ai_prompt_version(ai_prompt_id: Optional[_builtins.str] = None,
         ai_prompt_version_id=pulumi.get(__ret__, 'ai_prompt_version_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         version_number=pulumi.get(__ret__, 'version_number'))
-def get_ai_prompt_version_output(ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 version_number: Optional[pulumi.Input[_builtins.float]] = None,
+def get_ai_prompt_version_output(ai_prompt_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 version_number: pulumi.Input[Optional[_builtins.float]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiPromptVersionResult]:
     """
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
-
 
     :param _builtins.str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
     :param _builtins.str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.

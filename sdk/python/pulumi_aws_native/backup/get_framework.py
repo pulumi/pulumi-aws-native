@@ -133,7 +133,6 @@ def get_framework(framework_arn: Optional[_builtins.str] = None,
     """
     Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
 
-
     :param _builtins.str framework_arn: An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
     """
     __args__ = dict()
@@ -149,11 +148,10 @@ def get_framework(framework_arn: Optional[_builtins.str] = None,
         framework_description=pulumi.get(__ret__, 'framework_description'),
         framework_status=pulumi.get(__ret__, 'framework_status'),
         framework_tags=pulumi.get(__ret__, 'framework_tags'))
-def get_framework_output(framework_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_framework_output(framework_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
-
 
     :param _builtins.str framework_arn: An Amazon Resource Name (ARN) that uniquely identifies Framework as a resource
     """

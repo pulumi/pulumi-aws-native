@@ -51,7 +51,6 @@ def get_repository_association(association_arn: Optional[_builtins.str] = None,
     """
     This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
 
-
     :param _builtins.str association_arn: The Amazon Resource Name (ARN) of the repository association.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_repository_association(association_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRepositoryAssociationResult(
         association_arn=pulumi.get(__ret__, 'association_arn'))
-def get_repository_association_output(association_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_association_output(association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryAssociationResult]:
     """
     This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
-
 
     :param _builtins.str association_arn: The Amazon Resource Name (ARN) of the repository association.
     """

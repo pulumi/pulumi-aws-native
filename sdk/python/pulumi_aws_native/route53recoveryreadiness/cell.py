@@ -21,9 +21,9 @@ __all__ = ['CellArgs', 'Cell']
 @pulumi.input_type
 class CellArgs:
     def __init__(__self__, *,
-                 cell_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cell_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cell resource.
 
@@ -40,38 +40,38 @@ class CellArgs:
 
     @_builtins.property
     @pulumi.getter(name="cellName")
-    def cell_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cell_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cell to create.
         """
         return pulumi.get(self, "cell_name")
 
     @cell_name.setter
-    def cell_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cell_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cell_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cells(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         """
         return pulumi.get(self, "cells")
 
     @cells.setter
-    def cells(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cells(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cells", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,13 +81,12 @@ class Cell(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cell_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cell_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The API Schema for AWS Route53 Recovery Readiness Cells.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class Cell(pulumi.CustomResource):
         """
         The API Schema for AWS Route53 Recovery Readiness Cells.
 
-
         :param str resource_name: The name of the resource.
         :param CellArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class Cell(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cell_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cells: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 cell_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cells: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

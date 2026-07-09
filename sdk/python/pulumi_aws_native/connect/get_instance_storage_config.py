@@ -115,7 +115,6 @@ def get_instance_storage_config(association_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::InstanceStorageConfig
 
-
     :param _builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param _builtins.str instance_arn: Connect Instance ID with which the storage config will be associated
     :param 'InstanceStorageConfigInstanceStorageResourceType' resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
@@ -134,13 +133,12 @@ def get_instance_storage_config(association_id: Optional[_builtins.str] = None,
         kinesis_video_stream_config=pulumi.get(__ret__, 'kinesis_video_stream_config'),
         s3_config=pulumi.get(__ret__, 's3_config'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
-def get_instance_storage_config_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                       instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_type: Optional[pulumi.Input['InstanceStorageConfigInstanceStorageResourceType']] = None,
+def get_instance_storage_config_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                       instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_type: pulumi.Input[Optional['InstanceStorageConfigInstanceStorageResourceType']] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
     Resource Type definition for AWS::Connect::InstanceStorageConfig
-
 
     :param _builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param _builtins.str instance_arn: Connect Instance ID with which the storage config will be associated

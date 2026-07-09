@@ -126,7 +126,6 @@ def get_instance(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::Instance
 
-
     :param _builtins.str arn: An instanceArn is automatically generated on creation based on instanceId.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_instance(arn: Optional[_builtins.str] = None,
         instance_status=pulumi.get(__ret__, 'instance_status'),
         service_role=pulumi.get(__ret__, 'service_role'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_instance_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::Connect::Instance
-
 
     :param _builtins.str arn: An instanceArn is automatically generated on creation based on instanceId.
     """

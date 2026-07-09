@@ -23,13 +23,13 @@ class ConnectorArgs:
     def __init__(__self__, *,
                  connector_provisioning_config: pulumi.Input['ConnectorProvisioningConfigArgs'],
                  connector_provisioning_type: pulumi.Input[_builtins.str],
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
         :param pulumi.Input['ConnectorProvisioningConfigArgs'] connector_provisioning_config: Contains information about the configuration of the connector being registered.
-        :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA.
         :param pulumi.Input[_builtins.str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
         :param pulumi.Input[_builtins.str] description: A description about the connector that's being registered.
         """
@@ -56,7 +56,7 @@ class ConnectorArgs:
     @pulumi.getter(name="connectorProvisioningType")
     def connector_provisioning_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        The provisioning type of the connector. Currently the only supported value is LAMBDA.
         """
         return pulumi.get(self, "connector_provisioning_type")
 
@@ -66,26 +66,26 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorLabel")
-    def connector_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connector_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
          The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
         """
         return pulumi.get(self, "connector_label")
 
     @connector_label.setter
-    def connector_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connector_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connector_label", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description about the connector that's being registered.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -95,20 +95,19 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_provisioning_config: Optional[pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
-                 connector_provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::AppFlow::Connector
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
         :param pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']] connector_provisioning_config: Contains information about the configuration of the connector being registered.
-        :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA.
         :param pulumi.Input[_builtins.str] description: A description about the connector that's being registered.
         """
         ...
@@ -119,7 +118,6 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::AppFlow::Connector
-
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -136,10 +134,10 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_label: Optional[pulumi.Input[_builtins.str]] = None,
-                 connector_provisioning_config: Optional[pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
-                 connector_provisioning_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -217,7 +215,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="connectorProvisioningType")
     def connector_provisioning_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+        The provisioning type of the connector. Currently the only supported value is LAMBDA.
         """
         return pulumi.get(self, "connector_provisioning_type")
 

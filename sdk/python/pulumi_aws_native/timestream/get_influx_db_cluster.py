@@ -222,7 +222,6 @@ def get_influx_db_cluster(id: Optional[_builtins.str] = None,
     """
     The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.
 
-
     :param _builtins.str id: The service generated unique identifier for InfluxDB cluster.
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_influx_db_cluster(id: Optional[_builtins.str] = None,
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_influx_db_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_influx_db_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfluxDbClusterResult]:
     """
     The AWS::Timestream::InfluxDBCluster resource creates an InfluxDB cluster.
-
 
     :param _builtins.str id: The service generated unique identifier for InfluxDB cluster.
     """

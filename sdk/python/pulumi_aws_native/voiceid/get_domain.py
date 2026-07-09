@@ -101,7 +101,6 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
     """
     The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
 
-
     :param _builtins.str domain_id: The identifier of the domain.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         server_side_encryption_configuration=pulumi.get(__ret__, 'server_side_encryption_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
-
 
     :param _builtins.str domain_id: The identifier of the domain.
     """

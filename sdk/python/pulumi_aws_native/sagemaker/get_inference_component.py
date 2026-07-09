@@ -174,7 +174,6 @@ def get_inference_component(inference_component_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::SageMaker::InferenceComponent
 
-
     :param _builtins.str inference_component_arn: The Amazon Resource Name (ARN) of the inference component.
     """
     __args__ = dict()
@@ -195,11 +194,10 @@ def get_inference_component(inference_component_arn: Optional[_builtins.str] = N
         specification=pulumi.get(__ret__, 'specification'),
         tags=pulumi.get(__ret__, 'tags'),
         variant_name=pulumi.get(__ret__, 'variant_name'))
-def get_inference_component_output(inference_component_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_inference_component_output(inference_component_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceComponentResult]:
     """
     Resource Type definition for AWS::SageMaker::InferenceComponent
-
 
     :param _builtins.str inference_component_arn: The Amazon Resource Name (ARN) of the inference component.
     """

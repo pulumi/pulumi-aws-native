@@ -136,7 +136,6 @@ def get_schema(schema_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EventSchemas::Schema
 
-
     :param _builtins.str schema_arn: The ARN of the schema.
     """
     __args__ = dict()
@@ -153,11 +152,10 @@ def get_schema(schema_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version_created_date=pulumi.get(__ret__, 'version_created_date'))
-def get_schema_output(schema_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_output(schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Resource Type definition for AWS::EventSchemas::Schema
-
 
     :param _builtins.str schema_arn: The ARN of the schema.
     """

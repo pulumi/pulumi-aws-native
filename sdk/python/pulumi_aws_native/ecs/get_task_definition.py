@@ -76,7 +76,6 @@ def get_task_definition(task_definition_arn: Optional[_builtins.str] = None,
       In the following example or examples, the Authorization header contents (``AUTHPARAMS``) must be replaced with an AWS Signature Version 4 signature. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the *General Reference*.
      You only need to learn how to sign HTTP requests if you intend to create them manually. When you use the [](https://docs.aws.amazon.com/cli/) or one of the [SDKs](https://docs.aws.amazon.com/tools/) to make requests to AWS, these tools automatically sign the requests for you, with the access key that you specify when you configure the tools. When you use these tools, you don't have to sign requests yourself.
 
-
     :param _builtins.str task_definition_arn: The ARN of the task definition.
     """
     __args__ = dict()
@@ -87,7 +86,7 @@ def get_task_definition(task_definition_arn: Optional[_builtins.str] = None,
     return AwaitableGetTaskDefinitionResult(
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_arn=pulumi.get(__ret__, 'task_definition_arn'))
-def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_definition_output(task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     Registers a new task definition from the supplied ``family`` and ``containerDefinitions``. Optionally, you can add data volumes to your containers with the ``volumes`` parameter. For more information about task definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -95,7 +94,6 @@ def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[_built
      You can specify a Docker networking mode for the containers in your task definition with the ``networkMode`` parameter. If you specify the ``awsvpc`` network mode, the task is allocated an elastic network interface, and you must specify a [NetworkConfiguration](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html) when you create a service or run a task with the task definition. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
       In the following example or examples, the Authorization header contents (``AUTHPARAMS``) must be replaced with an AWS Signature Version 4 signature. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the *General Reference*.
      You only need to learn how to sign HTTP requests if you intend to create them manually. When you use the [](https://docs.aws.amazon.com/cli/) or one of the [SDKs](https://docs.aws.amazon.com/tools/) to make requests to AWS, these tools automatically sign the requests for you, with the access key that you specify when you configure the tools. When you use these tools, you don't have to sign requests yourself.
-
 
     :param _builtins.str task_definition_arn: The ARN of the task definition.
     """

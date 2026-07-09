@@ -217,7 +217,7 @@ class DbClusterReadEndpoint(dict):
 @pulumi.output_type
 class DbClusterScalingConfiguration(dict):
     """
-    The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
+    The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
      For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
      This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
      Valid for: Aurora Serverless v1 DB clusters only
@@ -257,7 +257,7 @@ class DbClusterScalingConfiguration(dict):
                  seconds_until_auto_pause: Optional[_builtins.int] = None,
                  timeout_action: Optional[_builtins.str] = None):
         """
-        The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster. 
+        The ``ScalingConfiguration`` property type specifies the scaling configuration of an Aurora Serverless v1 DB cluster.
          For more information, see [Using Amazon Aurora Serverless](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html) in the *Amazon Aurora User Guide*.
          This property is only supported for Aurora Serverless v1. For Aurora Serverless v2, Use the ``ServerlessV2ScalingConfiguration`` property.
          Valid for: Aurora Serverless v1 DB clusters only
@@ -400,7 +400,7 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
                 The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
                 Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
         :param _builtins.float min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
-        :param _builtins.int seconds_until_auto_pause: Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+        :param _builtins.int seconds_until_auto_pause: Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
                 Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
         if max_capacity is not None:
@@ -432,7 +432,7 @@ class DbClusterServerlessV2ScalingConfiguration(dict):
     @pulumi.getter(name="secondsUntilAutoPause")
     def seconds_until_auto_pause(self) -> Optional[_builtins.int]:
         """
-        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
          Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
@@ -742,10 +742,10 @@ class DbInstanceDbInstanceStatusInfo(dict):
 class DbInstanceEndpoint(dict):
     """
     This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-      +   ``CreateDBInstance`` 
-      +   ``DescribeDBInstances`` 
-      +   ``DeleteDBInstance`` 
-      
+      +   ``CreateDBInstance``
+      +   ``DescribeDBInstances``
+      +   ``DeleteDBInstance``
+
      For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
     """
     @staticmethod
@@ -771,10 +771,10 @@ class DbInstanceEndpoint(dict):
                  port: Optional[_builtins.str] = None):
         """
         This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
-          +   ``CreateDBInstance`` 
-          +   ``DescribeDBInstances`` 
-          +   ``DeleteDBInstance`` 
-          
+          +   ``CreateDBInstance``
+          +   ``DescribeDBInstances``
+          +   ``DeleteDBInstance``
+
          For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
 
         :param _builtins.str address: Specifies the DNS address of the DB instance.
@@ -938,11 +938,11 @@ class DbProxyAuthFormat(dict):
                  iam_auth: Optional['DbProxyAuthFormatIamAuth'] = None,
                  secret_arn: Optional[_builtins.str] = None):
         """
-        :param 'DbProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param 'DbProxyAuthFormatAuthScheme' auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database.
         :param 'DbProxyAuthFormatClientPasswordAuthType' client_password_auth_type: The type of authentication the proxy uses for connections from clients.
-        :param _builtins.str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
+        :param _builtins.str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param 'DbProxyAuthFormatIamAuth' iam_auth: Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy. The ENABLED value is valid only for proxies with RDS for Microsoft SQL Server.
-        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
+        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -959,7 +959,7 @@ class DbProxyAuthFormat(dict):
     @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> Optional['DbProxyAuthFormatAuthScheme']:
         """
-        The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        The type of authentication that the proxy uses for connections from the proxy to the underlying database.
         """
         return pulumi.get(self, "auth_scheme")
 
@@ -975,7 +975,7 @@ class DbProxyAuthFormat(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        A user-specified description about the authentication used by a proxy to log in as a specific database user. 
+        A user-specified description about the authentication used by a proxy to log in as a specific database user.
         """
         return pulumi.get(self, "description")
 
@@ -991,7 +991,7 @@ class DbProxyAuthFormat(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
+        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 

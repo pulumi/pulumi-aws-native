@@ -89,7 +89,6 @@ def get_registry_policy(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy
 
-
     :param _builtins.str id: The ID of the policy.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_registry_policy(id: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         registry_name=pulumi.get(__ret__, 'registry_name'),
         revision_id=pulumi.get(__ret__, 'revision_id'))
-def get_registry_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy
-
 
     :param _builtins.str id: The ID of the policy.
     """

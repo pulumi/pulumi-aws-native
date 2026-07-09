@@ -15,10 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'DeploymentConfigMinimumHealthyHostsPerZoneArgs',
-    'DeploymentConfigMinimumHealthyHostsPerZoneArgsDict',
     'DeploymentConfigMinimumHealthyHostsArgs',
     'DeploymentConfigMinimumHealthyHostsArgsDict',
+    'DeploymentConfigMinimumHealthyHostsPerZoneArgs',
+    'DeploymentConfigMinimumHealthyHostsPerZoneArgsDict',
     'DeploymentConfigTimeBasedCanaryArgs',
     'DeploymentConfigTimeBasedCanaryArgsDict',
     'DeploymentConfigTimeBasedLinearArgs',
@@ -27,28 +27,28 @@ __all__ = [
     'DeploymentConfigTrafficRoutingConfigArgsDict',
     'DeploymentConfigZonalConfigArgs',
     'DeploymentConfigZonalConfigArgsDict',
-    'DeploymentGroupAlarmConfigurationArgs',
-    'DeploymentGroupAlarmConfigurationArgsDict',
     'DeploymentGroupAlarmArgs',
     'DeploymentGroupAlarmArgsDict',
+    'DeploymentGroupAlarmConfigurationArgs',
+    'DeploymentGroupAlarmConfigurationArgsDict',
     'DeploymentGroupAutoRollbackConfigurationArgs',
     'DeploymentGroupAutoRollbackConfigurationArgsDict',
     'DeploymentGroupBlueGreenDeploymentConfigurationArgs',
     'DeploymentGroupBlueGreenDeploymentConfigurationArgsDict',
     'DeploymentGroupBlueInstanceTerminationOptionArgs',
     'DeploymentGroupBlueInstanceTerminationOptionArgsDict',
+    'DeploymentGroupDeploymentArgs',
+    'DeploymentGroupDeploymentArgsDict',
     'DeploymentGroupDeploymentReadyOptionArgs',
     'DeploymentGroupDeploymentReadyOptionArgsDict',
     'DeploymentGroupDeploymentStyleArgs',
     'DeploymentGroupDeploymentStyleArgsDict',
-    'DeploymentGroupDeploymentArgs',
-    'DeploymentGroupDeploymentArgsDict',
     'DeploymentGroupEc2TagFilterArgs',
     'DeploymentGroupEc2TagFilterArgsDict',
-    'DeploymentGroupEc2TagSetListObjectArgs',
-    'DeploymentGroupEc2TagSetListObjectArgsDict',
     'DeploymentGroupEc2TagSetArgs',
     'DeploymentGroupEc2TagSetArgsDict',
+    'DeploymentGroupEc2TagSetListObjectArgs',
+    'DeploymentGroupEc2TagSetListObjectArgsDict',
     'DeploymentGroupEcsServiceArgs',
     'DeploymentGroupEcsServiceArgsDict',
     'DeploymentGroupElbInfoArgs',
@@ -59,10 +59,10 @@ __all__ = [
     'DeploymentGroupGreenFleetProvisioningOptionArgsDict',
     'DeploymentGroupLoadBalancerInfoArgs',
     'DeploymentGroupLoadBalancerInfoArgsDict',
-    'DeploymentGroupOnPremisesTagSetListObjectArgs',
-    'DeploymentGroupOnPremisesTagSetListObjectArgsDict',
     'DeploymentGroupOnPremisesTagSetArgs',
     'DeploymentGroupOnPremisesTagSetArgsDict',
+    'DeploymentGroupOnPremisesTagSetListObjectArgs',
+    'DeploymentGroupOnPremisesTagSetListObjectArgsDict',
     'DeploymentGroupRevisionLocationArgs',
     'DeploymentGroupRevisionLocationArgsDict',
     'DeploymentGroupS3LocationArgs',
@@ -78,6 +78,80 @@ __all__ = [
     'DeploymentGroupTriggerConfigArgs',
     'DeploymentGroupTriggerConfigArgsDict',
 ]
+
+class DeploymentConfigMinimumHealthyHostsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The minimum healthy instance type:
+
+    - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+    - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+
+    In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+
+    > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+
+    For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The minimum healthy instance value.
+    """
+
+@pulumi.input_type
+class DeploymentConfigMinimumHealthyHostsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] type: The minimum healthy instance type:
+               
+               - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+               - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+               
+               In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+               
+               > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+               
+               For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+        :param pulumi.Input[_builtins.int] value: The minimum healthy instance value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The minimum healthy instance type:
+
+        - HOST_COUNT: The minimum number of healthy instance as an absolute value.
+        - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
+
+        In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
+
+        > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful.
+
+        For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        The minimum healthy instance value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
 
 class DeploymentConfigMinimumHealthyHostsPerZoneArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
@@ -118,80 +192,6 @@ class DeploymentConfigMinimumHealthyHostsPerZoneArgs:
     def value(self) -> pulumi.Input[_builtins.int]:
         """
         The `value` associated with the `MinimumHealthyHostsPerZone` option.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[_builtins.int]):
-        pulumi.set(self, "value", value)
-
-
-class DeploymentConfigMinimumHealthyHostsArgsDict(TypedDict):
-    type: pulumi.Input[_builtins.str]
-    """
-    The minimum healthy instance type:
-
-    - HOST_COUNT: The minimum number of healthy instance as an absolute value.
-    - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
-
-    In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
-
-    > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
-
-    For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
-    """
-    value: pulumi.Input[_builtins.int]
-    """
-    The minimum healthy instance value.
-    """
-
-@pulumi.input_type
-class DeploymentConfigMinimumHealthyHostsArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[_builtins.str],
-                 value: pulumi.Input[_builtins.int]):
-        """
-        :param pulumi.Input[_builtins.str] type: The minimum healthy instance type:
-               
-               - HOST_COUNT: The minimum number of healthy instance as an absolute value.
-               - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
-               
-               In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
-               
-               > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
-               
-               For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
-        :param pulumi.Input[_builtins.int] value: The minimum healthy instance value.
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The minimum healthy instance type:
-
-        - HOST_COUNT: The minimum number of healthy instance as an absolute value.
-        - FLEET_PERCENT: The minimum number of healthy instance as a percentage of the total number of instance in the deployment.
-
-        In an example of nine instance, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instance at a time. The deployment is successful if four or more instance are deployed to successfully. Otherwise, the deployment fails.
-
-        > In a call to `GetDeploymentConfig` , CodeDeployDefault.OneAtATime returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This means a deployment to only one instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to HOST_COUNT or FLEET_PERCENT.) In addition, with CodeDeployDefault.OneAtATime, AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy state during the deployment. Although this allows one instance at a time to be taken offline for a new deployment, it also means that if the deployment to the last instance fails, the overall deployment is still successful. 
-
-        For more information, see [AWS CodeDeploy Instance Health](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html) in the *AWS CodeDeploy User Guide* .
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[_builtins.int]:
-        """
-        The minimum healthy instance value.
         """
         return pulumi.get(self, "value")
 
@@ -299,11 +299,11 @@ class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
     """
     The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
     """
-    time_based_canary: NotRequired[pulumi.Input['DeploymentConfigTimeBasedCanaryArgsDict']]
+    time_based_canary: NotRequired[pulumi.Input[Optional['DeploymentConfigTimeBasedCanaryArgsDict']]]
     """
     A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
     """
-    time_based_linear: NotRequired[pulumi.Input['DeploymentConfigTimeBasedLinearArgsDict']]
+    time_based_linear: NotRequired[pulumi.Input[Optional['DeploymentConfigTimeBasedLinearArgsDict']]]
     """
     A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
     """
@@ -312,8 +312,8 @@ class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
 class DeploymentConfigTrafficRoutingConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 time_based_canary: Optional[pulumi.Input['DeploymentConfigTimeBasedCanaryArgs']] = None,
-                 time_based_linear: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']] = None):
+                 time_based_canary: pulumi.Input[Optional['DeploymentConfigTimeBasedCanaryArgs']] = None,
+                 time_based_linear: pulumi.Input[Optional['DeploymentConfigTimeBasedLinearArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] type: The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
         :param pulumi.Input['DeploymentConfigTimeBasedCanaryArgs'] time_based_canary: A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
@@ -339,37 +339,37 @@ class DeploymentConfigTrafficRoutingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeBasedCanary")
-    def time_based_canary(self) -> Optional[pulumi.Input['DeploymentConfigTimeBasedCanaryArgs']]:
+    def time_based_canary(self) -> pulumi.Input[Optional['DeploymentConfigTimeBasedCanaryArgs']]:
         """
         A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
         """
         return pulumi.get(self, "time_based_canary")
 
     @time_based_canary.setter
-    def time_based_canary(self, value: Optional[pulumi.Input['DeploymentConfigTimeBasedCanaryArgs']]):
+    def time_based_canary(self, value: pulumi.Input[Optional['DeploymentConfigTimeBasedCanaryArgs']]):
         pulumi.set(self, "time_based_canary", value)
 
     @_builtins.property
     @pulumi.getter(name="timeBasedLinear")
-    def time_based_linear(self) -> Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']]:
+    def time_based_linear(self) -> pulumi.Input[Optional['DeploymentConfigTimeBasedLinearArgs']]:
         """
         A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
         """
         return pulumi.get(self, "time_based_linear")
 
     @time_based_linear.setter
-    def time_based_linear(self, value: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']]):
+    def time_based_linear(self, value: pulumi.Input[Optional['DeploymentConfigTimeBasedLinearArgs']]):
         pulumi.set(self, "time_based_linear", value)
 
 
 class DeploymentConfigZonalConfigArgsDict(TypedDict):
-    first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
 
     For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
     """
-    minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgsDict']]
+    minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsPerZoneArgsDict']]]
     """
     The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
 
@@ -377,7 +377,7 @@ class DeploymentConfigZonalConfigArgsDict(TypedDict):
 
     For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
     """
-    monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    monitor_duration_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
 
@@ -387,9 +387,9 @@ class DeploymentConfigZonalConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentConfigZonalConfigArgs:
     def __init__(__self__, *,
-                 first_zone_monitor_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_healthy_hosts_per_zone: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']] = None,
-                 monitor_duration_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 first_zone_monitor_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_healthy_hosts_per_zone: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsPerZoneArgs']] = None,
+                 monitor_duration_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] first_zone_monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
                
@@ -412,7 +412,7 @@ class DeploymentConfigZonalConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="firstZoneMonitorDurationInSeconds")
-    def first_zone_monitor_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def first_zone_monitor_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
 
@@ -421,12 +421,12 @@ class DeploymentConfigZonalConfigArgs:
         return pulumi.get(self, "first_zone_monitor_duration_in_seconds")
 
     @first_zone_monitor_duration_in_seconds.setter
-    def first_zone_monitor_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def first_zone_monitor_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "first_zone_monitor_duration_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumHealthyHostsPerZone")
-    def minimum_healthy_hosts_per_zone(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]:
+    def minimum_healthy_hosts_per_zone(self) -> pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]:
         """
         The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
 
@@ -437,12 +437,12 @@ class DeploymentConfigZonalConfigArgs:
         return pulumi.get(self, "minimum_healthy_hosts_per_zone")
 
     @minimum_healthy_hosts_per_zone.setter
-    def minimum_healthy_hosts_per_zone(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]):
+    def minimum_healthy_hosts_per_zone(self, value: pulumi.Input[Optional['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]):
         pulumi.set(self, "minimum_healthy_hosts_per_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorDurationInSeconds")
-    def monitor_duration_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def monitor_duration_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
 
@@ -451,23 +451,57 @@ class DeploymentConfigZonalConfigArgs:
         return pulumi.get(self, "monitor_duration_in_seconds")
 
     @monitor_duration_in_seconds.setter
-    def monitor_duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def monitor_duration_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "monitor_duration_in_seconds", value)
+
+
+class DeploymentGroupAlarmArgsDict(TypedDict):
+    """
+    Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+    """
+
+@pulumi.input_type
+class DeploymentGroupAlarmArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
+
+        :param pulumi.Input[_builtins.str] name: The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 class DeploymentGroupAlarmConfigurationArgsDict(TypedDict):
     """
     Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
     """
-    alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupAlarmArgsDict']]]]
+    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupAlarmArgsDict']]]]]
     """
     A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether the alarm configuration is enabled.
     """
-    ignore_poll_alarm_failure: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_poll_alarm_failure: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
     """
@@ -475,9 +509,9 @@ class DeploymentGroupAlarmConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupAlarmConfigurationArgs:
     def __init__(__self__, *,
-                 alarms: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_poll_alarm_failure: Optional[pulumi.Input[_builtins.bool]] = None):
+                 alarms: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_poll_alarm_failure: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Configures CloudWatch alarms for an AWS CodeDeploy deployment group.
 
@@ -494,84 +528,50 @@ class DeploymentGroupAlarmConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]]:
+    def alarms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]]:
         """
         A list of alarms configured for the deployment or deployment group. A maximum of 10 alarms can be added.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]]):
+    def alarms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]]):
         pulumi.set(self, "alarms", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the alarm configuration is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePollAlarmFailure")
-    def ignore_poll_alarm_failure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_poll_alarm_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.
         """
         return pulumi.get(self, "ignore_poll_alarm_failure")
 
     @ignore_poll_alarm_failure.setter
-    def ignore_poll_alarm_failure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_poll_alarm_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_poll_alarm_failure", value)
-
-
-class DeploymentGroupAlarmArgsDict(TypedDict):
-    """
-    Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
-    """
-    name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
-    """
-
-@pulumi.input_type
-class DeploymentGroupAlarmArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specifies a CloudWatch alarm to use for an AWS CodeDeploy deployment group.
-
-        :param pulumi.Input[_builtins.str] name: The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the alarm. Maximum length is 255 characters. Each alarm name can be used only once in a list of alarms.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 class DeploymentGroupAutoRollbackConfigurationArgsDict(TypedDict):
     """
     Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether a defined automatic rollback configuration is currently enabled.
     """
-    events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The event type or types that trigger a rollback.
     """
@@ -579,8 +579,8 @@ class DeploymentGroupAutoRollbackConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupAutoRollbackConfigurationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Configures automatic rollback for an AWS CodeDeploy deployment group when a deployment is not completed successfully.
 
@@ -594,26 +594,26 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether a defined automatic rollback configuration is currently enabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The event type or types that trigger a rollback.
         """
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "events", value)
 
 
@@ -621,15 +621,15 @@ class DeploymentGroupBlueGreenDeploymentConfigurationArgsDict(TypedDict):
     """
     Information about blue/green deployment options for a deployment group.
     """
-    deployment_ready_option: NotRequired[pulumi.Input['DeploymentGroupDeploymentReadyOptionArgsDict']]
+    deployment_ready_option: NotRequired[pulumi.Input[Optional['DeploymentGroupDeploymentReadyOptionArgsDict']]]
     """
     Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
     """
-    green_fleet_provisioning_option: NotRequired[pulumi.Input['DeploymentGroupGreenFleetProvisioningOptionArgsDict']]
+    green_fleet_provisioning_option: NotRequired[pulumi.Input[Optional['DeploymentGroupGreenFleetProvisioningOptionArgsDict']]]
     """
     Information about how instances are provisioned for a replacement environment in a blue/green deployment.
     """
-    terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input['DeploymentGroupBlueInstanceTerminationOptionArgsDict']]
+    terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueInstanceTerminationOptionArgsDict']]]
     """
     Information about whether to terminate instances in the original fleet during a blue/green deployment.
     """
@@ -637,9 +637,9 @@ class DeploymentGroupBlueGreenDeploymentConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupBlueGreenDeploymentConfigurationArgs:
     def __init__(__self__, *,
-                 deployment_ready_option: Optional[pulumi.Input['DeploymentGroupDeploymentReadyOptionArgs']] = None,
-                 green_fleet_provisioning_option: Optional[pulumi.Input['DeploymentGroupGreenFleetProvisioningOptionArgs']] = None,
-                 terminate_blue_instances_on_deployment_success: Optional[pulumi.Input['DeploymentGroupBlueInstanceTerminationOptionArgs']] = None):
+                 deployment_ready_option: pulumi.Input[Optional['DeploymentGroupDeploymentReadyOptionArgs']] = None,
+                 green_fleet_provisioning_option: pulumi.Input[Optional['DeploymentGroupGreenFleetProvisioningOptionArgs']] = None,
+                 terminate_blue_instances_on_deployment_success: pulumi.Input[Optional['DeploymentGroupBlueInstanceTerminationOptionArgs']] = None):
         """
         Information about blue/green deployment options for a deployment group.
 
@@ -656,38 +656,38 @@ class DeploymentGroupBlueGreenDeploymentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentReadyOption")
-    def deployment_ready_option(self) -> Optional[pulumi.Input['DeploymentGroupDeploymentReadyOptionArgs']]:
+    def deployment_ready_option(self) -> pulumi.Input[Optional['DeploymentGroupDeploymentReadyOptionArgs']]:
         """
         Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment.
         """
         return pulumi.get(self, "deployment_ready_option")
 
     @deployment_ready_option.setter
-    def deployment_ready_option(self, value: Optional[pulumi.Input['DeploymentGroupDeploymentReadyOptionArgs']]):
+    def deployment_ready_option(self, value: pulumi.Input[Optional['DeploymentGroupDeploymentReadyOptionArgs']]):
         pulumi.set(self, "deployment_ready_option", value)
 
     @_builtins.property
     @pulumi.getter(name="greenFleetProvisioningOption")
-    def green_fleet_provisioning_option(self) -> Optional[pulumi.Input['DeploymentGroupGreenFleetProvisioningOptionArgs']]:
+    def green_fleet_provisioning_option(self) -> pulumi.Input[Optional['DeploymentGroupGreenFleetProvisioningOptionArgs']]:
         """
         Information about how instances are provisioned for a replacement environment in a blue/green deployment.
         """
         return pulumi.get(self, "green_fleet_provisioning_option")
 
     @green_fleet_provisioning_option.setter
-    def green_fleet_provisioning_option(self, value: Optional[pulumi.Input['DeploymentGroupGreenFleetProvisioningOptionArgs']]):
+    def green_fleet_provisioning_option(self, value: pulumi.Input[Optional['DeploymentGroupGreenFleetProvisioningOptionArgs']]):
         pulumi.set(self, "green_fleet_provisioning_option", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateBlueInstancesOnDeploymentSuccess")
-    def terminate_blue_instances_on_deployment_success(self) -> Optional[pulumi.Input['DeploymentGroupBlueInstanceTerminationOptionArgs']]:
+    def terminate_blue_instances_on_deployment_success(self) -> pulumi.Input[Optional['DeploymentGroupBlueInstanceTerminationOptionArgs']]:
         """
         Information about whether to terminate instances in the original fleet during a blue/green deployment.
         """
         return pulumi.get(self, "terminate_blue_instances_on_deployment_success")
 
     @terminate_blue_instances_on_deployment_success.setter
-    def terminate_blue_instances_on_deployment_success(self, value: Optional[pulumi.Input['DeploymentGroupBlueInstanceTerminationOptionArgs']]):
+    def terminate_blue_instances_on_deployment_success(self, value: pulumi.Input[Optional['DeploymentGroupBlueInstanceTerminationOptionArgs']]):
         pulumi.set(self, "terminate_blue_instances_on_deployment_success", value)
 
 
@@ -695,11 +695,11 @@ class DeploymentGroupBlueInstanceTerminationOptionArgsDict(TypedDict):
     """
     Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The action to take on instances in the original environment after a successful blue/green deployment.
     """
-    termination_wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    termination_wait_time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
     """
@@ -707,8 +707,8 @@ class DeploymentGroupBlueInstanceTerminationOptionArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupBlueInstanceTerminationOptionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None,
-                 termination_wait_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None,
+                 termination_wait_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Information about whether instances in the original environment are terminated when a blue/green deployment is successful. BlueInstanceTerminationOption does not apply to Lambda deployments.
 
@@ -722,135 +722,27 @@ class DeploymentGroupBlueInstanceTerminationOptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The action to take on instances in the original environment after a successful blue/green deployment.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter(name="terminationWaitTimeInMinutes")
-    def termination_wait_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def termination_wait_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         For an Amazon EC2 deployment, the number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment. For an Amazon ECS deployment, the number of minutes before deleting the original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts traffic from the original (blue) task set to a replacement (green) task set. The maximum setting is 2880 minutes (2 days).
         """
         return pulumi.get(self, "termination_wait_time_in_minutes")
 
     @termination_wait_time_in_minutes.setter
-    def termination_wait_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def termination_wait_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "termination_wait_time_in_minutes", value)
-
-
-class DeploymentGroupDeploymentReadyOptionArgsDict(TypedDict):
-    """
-    Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
-    """
-    action_on_timeout: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
-    """
-    wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
-    """
-
-@pulumi.input_type
-class DeploymentGroupDeploymentReadyOptionArgs:
-    def __init__(__self__, *,
-                 action_on_timeout: Optional[pulumi.Input[_builtins.str]] = None,
-                 wait_time_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
-        """
-        Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
-
-        :param pulumi.Input[_builtins.str] action_on_timeout: Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
-        :param pulumi.Input[_builtins.int] wait_time_in_minutes: The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
-        """
-        if action_on_timeout is not None:
-            pulumi.set(__self__, "action_on_timeout", action_on_timeout)
-        if wait_time_in_minutes is not None:
-            pulumi.set(__self__, "wait_time_in_minutes", wait_time_in_minutes)
-
-    @_builtins.property
-    @pulumi.getter(name="actionOnTimeout")
-    def action_on_timeout(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
-        """
-        return pulumi.get(self, "action_on_timeout")
-
-    @action_on_timeout.setter
-    def action_on_timeout(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "action_on_timeout", value)
-
-    @_builtins.property
-    @pulumi.getter(name="waitTimeInMinutes")
-    def wait_time_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
-        """
-        return pulumi.get(self, "wait_time_in_minutes")
-
-    @wait_time_in_minutes.setter
-    def wait_time_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "wait_time_in_minutes", value)
-
-
-class DeploymentGroupDeploymentStyleArgsDict(TypedDict):
-    """
-    Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
-    """
-    deployment_option: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Indicates whether to route deployment traffic behind a load balancer.
-    """
-    deployment_type: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Indicates whether to run an in-place or blue/green deployment.
-    """
-
-@pulumi.input_type
-class DeploymentGroupDeploymentStyleArgs:
-    def __init__(__self__, *,
-                 deployment_option: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_type: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
-
-        :param pulumi.Input[_builtins.str] deployment_option: Indicates whether to route deployment traffic behind a load balancer.
-        :param pulumi.Input[_builtins.str] deployment_type: Indicates whether to run an in-place or blue/green deployment.
-        """
-        if deployment_option is not None:
-            pulumi.set(__self__, "deployment_option", deployment_option)
-        if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentOption")
-    def deployment_option(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether to route deployment traffic behind a load balancer.
-        """
-        return pulumi.get(self, "deployment_option")
-
-    @deployment_option.setter
-    def deployment_option(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_option", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Indicates whether to run an in-place or blue/green deployment.
-        """
-        return pulumi.get(self, "deployment_type")
-
-    @deployment_type.setter
-    def deployment_type(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "deployment_type", value)
 
 
 class DeploymentGroupDeploymentArgsDict(TypedDict):
@@ -861,11 +753,11 @@ class DeploymentGroupDeploymentArgsDict(TypedDict):
     """
     Information about the location of stored application artifacts and the service from which to retrieve them.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description of the deployment.
     """
-    ignore_application_stop_failures: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_application_stop_failures: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
     """
@@ -874,8 +766,8 @@ class DeploymentGroupDeploymentArgsDict(TypedDict):
 class DeploymentGroupDeploymentArgs:
     def __init__(__self__, *,
                  revision: pulumi.Input['DeploymentGroupRevisionLocationArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_application_stop_failures: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_application_stop_failures: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Specifies an AWS CodeDeploy application revision to be deployed to instances in the deployment group. If you specify an application revision, your target revision is deployed as soon as the provisioning process is complete.
 
@@ -903,42 +795,150 @@ class DeploymentGroupDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the deployment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreApplicationStopFailures")
-    def ignore_application_stop_failures(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_application_stop_failures(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment lifecycle event to an instance fails, then the deployment continues to the next deployment lifecycle event. If false or not specified, then if a lifecycle event fails during a deployment to an instance, that deployment fails. If deployment to that instance is part of an overall deployment and the number of healthy hosts is not less than the minimum number of healthy hosts, then a deployment to the next instance is attempted.
         """
         return pulumi.get(self, "ignore_application_stop_failures")
 
     @ignore_application_stop_failures.setter
-    def ignore_application_stop_failures(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_application_stop_failures(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_application_stop_failures", value)
+
+
+class DeploymentGroupDeploymentReadyOptionArgsDict(TypedDict):
+    """
+    Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+    """
+    action_on_timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+    """
+    wait_time_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+    """
+
+@pulumi.input_type
+class DeploymentGroupDeploymentReadyOptionArgs:
+    def __init__(__self__, *,
+                 action_on_timeout: pulumi.Input[Optional[_builtins.str]] = None,
+                 wait_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+
+        :param pulumi.Input[_builtins.str] action_on_timeout: Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+        :param pulumi.Input[_builtins.int] wait_time_in_minutes: The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+        """
+        if action_on_timeout is not None:
+            pulumi.set(__self__, "action_on_timeout", action_on_timeout)
+        if wait_time_in_minutes is not None:
+            pulumi.set(__self__, "wait_time_in_minutes", wait_time_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="actionOnTimeout")
+    def action_on_timeout(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Information about when to reroute traffic from an original environment to a replacement environment in a blue/green deployment. CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment. STOP_DEPLOYMENT: Do not register new instances with a load balancer unless traffic rerouting is started using ContinueDeployment . If traffic rerouting is not started before the end of the specified wait period, the deployment status is changed to Stopped.
+        """
+        return pulumi.get(self, "action_on_timeout")
+
+    @action_on_timeout.setter
+    def action_on_timeout(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action_on_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="waitTimeInMinutes")
+    def wait_time_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The number of minutes to wait before the status of a blue/green deployment is changed to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT option for actionOnTimeout.
+        """
+        return pulumi.get(self, "wait_time_in_minutes")
+
+    @wait_time_in_minutes.setter
+    def wait_time_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "wait_time_in_minutes", value)
+
+
+class DeploymentGroupDeploymentStyleArgsDict(TypedDict):
+    """
+    Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+    """
+    deployment_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates whether to route deployment traffic behind a load balancer.
+    """
+    deployment_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates whether to run an in-place or blue/green deployment.
+    """
+
+@pulumi.input_type
+class DeploymentGroupDeploymentStyleArgs:
+    def __init__(__self__, *,
+                 deployment_option: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Information about the type of deployment, either in-place or blue/green, you want to run and whether to route deployment traffic behind a load balancer.
+
+        :param pulumi.Input[_builtins.str] deployment_option: Indicates whether to route deployment traffic behind a load balancer.
+        :param pulumi.Input[_builtins.str] deployment_type: Indicates whether to run an in-place or blue/green deployment.
+        """
+        if deployment_option is not None:
+            pulumi.set(__self__, "deployment_option", deployment_option)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentOption")
+    def deployment_option(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates whether to route deployment traffic behind a load balancer.
+        """
+        return pulumi.get(self, "deployment_option")
+
+    @deployment_option.setter
+    def deployment_option(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_option", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates whether to run an in-place or blue/green deployment.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_type", value)
 
 
 class DeploymentGroupEc2TagFilterArgsDict(TypedDict):
     """
     Information about an Amazon EC2 tag filter.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tag filter key.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tag filter type.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The tag filter value.
     """
@@ -946,9 +946,9 @@ class DeploymentGroupEc2TagFilterArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupEc2TagFilterArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about an Amazon EC2 tag filter.
 
@@ -965,80 +965,46 @@ class DeploymentGroupEc2TagFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tag filter key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tag filter type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The tag filter value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
-
-
-class DeploymentGroupEc2TagSetListObjectArgsDict(TypedDict):
-    """
-    The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
-    """
-    ec2_tag_group: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgsDict']]]]
-    """
-    A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-    """
-
-@pulumi.input_type
-class DeploymentGroupEc2TagSetListObjectArgs:
-    def __init__(__self__, *,
-                 ec2_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None):
-        """
-        The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
-
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_group: A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-        """
-        if ec2_tag_group is not None:
-            pulumi.set(__self__, "ec2_tag_group", ec2_tag_group)
-
-    @_builtins.property
-    @pulumi.getter(name="ec2TagGroup")
-    def ec2_tag_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
-        """
-        A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
-        """
-        return pulumi.get(self, "ec2_tag_group")
-
-    @ec2_tag_group.setter
-    def ec2_tag_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]):
-        pulumi.set(self, "ec2_tag_group", value)
 
 
 class DeploymentGroupEc2TagSetArgsDict(TypedDict):
     """
     Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
     """
-    ec2_tag_set_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgsDict']]]]
+    ec2_tag_set_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgsDict']]]]]
     """
     The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
     """
@@ -1046,7 +1012,7 @@ class DeploymentGroupEc2TagSetArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupEc2TagSetArgs:
     def __init__(__self__, *,
-                 ec2_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]] = None):
+                 ec2_tag_set_list: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]] = None):
         """
         Specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
 
@@ -1057,15 +1023,49 @@ class DeploymentGroupEc2TagSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ec2TagSetList")
-    def ec2_tag_set_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]:
+    def ec2_tag_set_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]:
         """
         The Amazon EC2 tags that are already applied to Amazon EC2 instances that you want to include in the deployment group. CodeDeploy includes all Amazon EC2 instances identified by any of the tags you specify in this deployment group.
         """
         return pulumi.get(self, "ec2_tag_set_list")
 
     @ec2_tag_set_list.setter
-    def ec2_tag_set_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]):
+    def ec2_tag_set_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]]):
         pulumi.set(self, "ec2_tag_set_list", value)
+
+
+class DeploymentGroupEc2TagSetListObjectArgsDict(TypedDict):
+    """
+    The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+    """
+    ec2_tag_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgsDict']]]]]
+    """
+    A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+    """
+
+@pulumi.input_type
+class DeploymentGroupEc2TagSetListObjectArgs:
+    def __init__(__self__, *,
+                 ec2_tag_group: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None):
+        """
+        The EC2TagSet property type specifies information about groups of tags applied to Amazon EC2 instances. The deployment group includes only Amazon EC2 instances identified by all the tag groups. Cannot be used in the same template as EC2TagFilters.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]] ec2_tag_group: A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+        """
+        if ec2_tag_group is not None:
+            pulumi.set(__self__, "ec2_tag_group", ec2_tag_group)
+
+    @_builtins.property
+    @pulumi.getter(name="ec2TagGroup")
+    def ec2_tag_group(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]:
+        """
+        A list that contains other lists of Amazon EC2 instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
+        """
+        return pulumi.get(self, "ec2_tag_group")
+
+    @ec2_tag_group.setter
+    def ec2_tag_group(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]]):
+        pulumi.set(self, "ec2_tag_group", value)
 
 
 class DeploymentGroupEcsServiceArgsDict(TypedDict):
@@ -1124,7 +1124,7 @@ class DeploymentGroupElbInfoArgsDict(TypedDict):
     """
     The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
     """
@@ -1132,7 +1132,7 @@ class DeploymentGroupElbInfoArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupElbInfoArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ELBInfo property type specifies information about the Elastic Load Balancing load balancer used for an CodeDeploy deployment group. If you specify the ELBInfo property, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for AWS CodeDeploy to route your traffic using the specified load balancers.
 
@@ -1143,14 +1143,14 @@ class DeploymentGroupElbInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For blue/green deployments, the name of the load balancer that is used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1210,7 +1210,7 @@ class DeploymentGroupGreenFleetProvisioningOptionArgsDict(TypedDict):
     """
     Information about the instances that belong to the replacement environment in a blue/green deployment.
     """
-    action: NotRequired[pulumi.Input[_builtins.str]]
+    action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The method used to add instances to a replacement environment.
     """
@@ -1218,7 +1218,7 @@ class DeploymentGroupGreenFleetProvisioningOptionArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupGreenFleetProvisioningOptionArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about the instances that belong to the replacement environment in a blue/green deployment.
 
@@ -1229,14 +1229,14 @@ class DeploymentGroupGreenFleetProvisioningOptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The method used to add instances to a replacement environment.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "action", value)
 
 
@@ -1244,15 +1244,15 @@ class DeploymentGroupLoadBalancerInfoArgsDict(TypedDict):
     """
     Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
     """
-    elb_info_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgsDict']]]]
+    elb_info_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupElbInfoArgsDict']]]]]
     """
     An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
     """
-    target_group_info_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgsDict']]]]
+    target_group_info_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgsDict']]]]]
     """
     An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
     """
-    target_group_pair_info_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgsDict']]]]
+    target_group_pair_info_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgsDict']]]]]
     """
     The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
     """
@@ -1260,9 +1260,9 @@ class DeploymentGroupLoadBalancerInfoArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoArgs:
     def __init__(__self__, *,
-                 elb_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]] = None,
-                 target_group_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
-                 target_group_pair_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]] = None):
+                 elb_info_list: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]] = None,
+                 target_group_info_list: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
+                 target_group_pair_info_list: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]] = None):
         """
         Specifies information about the load balancer or target group used for an AWS CodeDeploy deployment group. For AWS CloudFormation to use the properties specified in LoadBalancerInfo, the DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL.
 
@@ -1279,80 +1279,46 @@ class DeploymentGroupLoadBalancerInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="elbInfoList")
-    def elb_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]:
+    def elb_info_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]:
         """
         An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array.
         """
         return pulumi.get(self, "elb_info_list")
 
     @elb_info_list.setter
-    def elb_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]):
+    def elb_info_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]]):
         pulumi.set(self, "elb_info_list", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupInfoList")
-    def target_group_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]:
+    def target_group_info_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]:
         """
         An array that contains information about the target groups to use for load balancing in a deployment. If you're using Application Load Balancers and Network Load Balancers, specify their associated target groups in this array.
         """
         return pulumi.get(self, "target_group_info_list")
 
     @target_group_info_list.setter
-    def target_group_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
+    def target_group_info_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
         pulumi.set(self, "target_group_info_list", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroupPairInfoList")
-    def target_group_pair_info_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]:
+    def target_group_pair_info_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]:
         """
         The target group pair information. This is an array of TargeGroupPairInfo objects with a maximum size of one.
         """
         return pulumi.get(self, "target_group_pair_info_list")
 
     @target_group_pair_info_list.setter
-    def target_group_pair_info_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]):
+    def target_group_pair_info_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]]):
         pulumi.set(self, "target_group_pair_info_list", value)
-
-
-class DeploymentGroupOnPremisesTagSetListObjectArgsDict(TypedDict):
-    """
-    Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
-    """
-    on_premises_tag_group: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgsDict']]]]
-    """
-    Information about groups of on-premises instance tags.
-    """
-
-@pulumi.input_type
-class DeploymentGroupOnPremisesTagSetListObjectArgs:
-    def __init__(__self__, *,
-                 on_premises_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]] = None):
-        """
-        Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
-
-        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]] on_premises_tag_group: Information about groups of on-premises instance tags.
-        """
-        if on_premises_tag_group is not None:
-            pulumi.set(__self__, "on_premises_tag_group", on_premises_tag_group)
-
-    @_builtins.property
-    @pulumi.getter(name="onPremisesTagGroup")
-    def on_premises_tag_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]]:
-        """
-        Information about groups of on-premises instance tags.
-        """
-        return pulumi.get(self, "on_premises_tag_group")
-
-    @on_premises_tag_group.setter
-    def on_premises_tag_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]]):
-        pulumi.set(self, "on_premises_tag_group", value)
 
 
 class DeploymentGroupOnPremisesTagSetArgsDict(TypedDict):
     """
     Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
     """
-    on_premises_tag_set_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgsDict']]]]
+    on_premises_tag_set_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgsDict']]]]]
     """
     A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
     """
@@ -1360,7 +1326,7 @@ class DeploymentGroupOnPremisesTagSetArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupOnPremisesTagSetArgs:
     def __init__(__self__, *,
-                 on_premises_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]] = None):
+                 on_premises_tag_set_list: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]] = None):
         """
         Specifies a list containing other lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
 
@@ -1371,30 +1337,64 @@ class DeploymentGroupOnPremisesTagSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="onPremisesTagSetList")
-    def on_premises_tag_set_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]]:
+    def on_premises_tag_set_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]]:
         """
         A list that contains other lists of on-premises instance tag groups. For an instance to be included in the deployment group, it must be identified by all of the tag groups in the list.
         """
         return pulumi.get(self, "on_premises_tag_set_list")
 
     @on_premises_tag_set_list.setter
-    def on_premises_tag_set_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]]):
+    def on_premises_tag_set_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]]):
         pulumi.set(self, "on_premises_tag_set_list", value)
+
+
+class DeploymentGroupOnPremisesTagSetListObjectArgsDict(TypedDict):
+    """
+    Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+    """
+    on_premises_tag_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTagFilterArgsDict']]]]]
+    """
+    Information about groups of on-premises instance tags.
+    """
+
+@pulumi.input_type
+class DeploymentGroupOnPremisesTagSetListObjectArgs:
+    def __init__(__self__, *,
+                 on_premises_tag_group: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]] = None):
+        """
+        Specifies lists of on-premises instance tag groups. In order for an instance to be included in the deployment group, it must be identified by all the tag groups in the list.
+
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]] on_premises_tag_group: Information about groups of on-premises instance tags.
+        """
+        if on_premises_tag_group is not None:
+            pulumi.set(__self__, "on_premises_tag_group", on_premises_tag_group)
+
+    @_builtins.property
+    @pulumi.getter(name="onPremisesTagGroup")
+    def on_premises_tag_group(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]]:
+        """
+        Information about groups of on-premises instance tags.
+        """
+        return pulumi.get(self, "on_premises_tag_group")
+
+    @on_premises_tag_group.setter
+    def on_premises_tag_group(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]]):
+        pulumi.set(self, "on_premises_tag_group", value)
 
 
 class DeploymentGroupRevisionLocationArgsDict(TypedDict):
     """
     Defines the location of the CodeDeploy application revision to deploy.
     """
-    git_hub_location: NotRequired[pulumi.Input['DeploymentGroupGitHubLocationArgsDict']]
+    git_hub_location: NotRequired[pulumi.Input[Optional['DeploymentGroupGitHubLocationArgsDict']]]
     """
     Information about the location of application artifacts stored in GitHub.
     """
-    revision_type: NotRequired[pulumi.Input[_builtins.str]]
+    revision_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of application revision.
     """
-    s3_location: NotRequired[pulumi.Input['DeploymentGroupS3LocationArgsDict']]
+    s3_location: NotRequired[pulumi.Input[Optional['DeploymentGroupS3LocationArgsDict']]]
     """
     Information about the location of a revision stored in Amazon S3.
     """
@@ -1402,9 +1402,9 @@ class DeploymentGroupRevisionLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupRevisionLocationArgs:
     def __init__(__self__, *,
-                 git_hub_location: Optional[pulumi.Input['DeploymentGroupGitHubLocationArgs']] = None,
-                 revision_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_location: Optional[pulumi.Input['DeploymentGroupS3LocationArgs']] = None):
+                 git_hub_location: pulumi.Input[Optional['DeploymentGroupGitHubLocationArgs']] = None,
+                 revision_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_location: pulumi.Input[Optional['DeploymentGroupS3LocationArgs']] = None):
         """
         Defines the location of the CodeDeploy application revision to deploy.
 
@@ -1421,38 +1421,38 @@ class DeploymentGroupRevisionLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="gitHubLocation")
-    def git_hub_location(self) -> Optional[pulumi.Input['DeploymentGroupGitHubLocationArgs']]:
+    def git_hub_location(self) -> pulumi.Input[Optional['DeploymentGroupGitHubLocationArgs']]:
         """
         Information about the location of application artifacts stored in GitHub.
         """
         return pulumi.get(self, "git_hub_location")
 
     @git_hub_location.setter
-    def git_hub_location(self, value: Optional[pulumi.Input['DeploymentGroupGitHubLocationArgs']]):
+    def git_hub_location(self, value: pulumi.Input[Optional['DeploymentGroupGitHubLocationArgs']]):
         pulumi.set(self, "git_hub_location", value)
 
     @_builtins.property
     @pulumi.getter(name="revisionType")
-    def revision_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revision_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of application revision.
         """
         return pulumi.get(self, "revision_type")
 
     @revision_type.setter
-    def revision_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revision_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revision_type", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input['DeploymentGroupS3LocationArgs']]:
+    def s3_location(self) -> pulumi.Input[Optional['DeploymentGroupS3LocationArgs']]:
         """
         Information about the location of a revision stored in Amazon S3.
         """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input['DeploymentGroupS3LocationArgs']]):
+    def s3_location(self, value: pulumi.Input[Optional['DeploymentGroupS3LocationArgs']]):
         pulumi.set(self, "s3_location", value)
 
 
@@ -1468,15 +1468,15 @@ class DeploymentGroupS3LocationArgsDict(TypedDict):
     """
     The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
     """
-    bundle_type: NotRequired[pulumi.Input[_builtins.str]]
+    bundle_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The file type of the application revision.
     """
-    e_tag: NotRequired[pulumi.Input[_builtins.str]]
+    e_tag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
     """
@@ -1486,9 +1486,9 @@ class DeploymentGroupS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
-                 bundle_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 bundle_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about the location of application artifacts stored in Amazon S3.
 
@@ -1533,38 +1533,38 @@ class DeploymentGroupS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bundleType")
-    def bundle_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bundle_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file type of the application revision.
         """
         return pulumi.get(self, "bundle_type")
 
     @bundle_type.setter
-    def bundle_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bundle_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bundle_type", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision. If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision. If the version is not specified, the system uses the most recent version by default.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -1572,15 +1572,15 @@ class DeploymentGroupTagFilterArgsDict(TypedDict):
     """
     Specifies which on-premises instances to associate with the deployment group.
     """
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The on-premises instance tag filter key.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The on-premises instance tag filter type
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The on-premises instance tag filter value.
     """
@@ -1588,9 +1588,9 @@ class DeploymentGroupTagFilterArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupTagFilterArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies which on-premises instances to associate with the deployment group.
 
@@ -1607,38 +1607,38 @@ class DeploymentGroupTagFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The on-premises instance tag filter key.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The on-premises instance tag filter type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The on-premises instance tag filter value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -1646,7 +1646,7 @@ class DeploymentGroupTargetGroupInfoArgsDict(TypedDict):
     """
     Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
     """
@@ -1654,7 +1654,7 @@ class DeploymentGroupTargetGroupInfoArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupTargetGroupInfoArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
 
@@ -1665,14 +1665,14 @@ class DeploymentGroupTargetGroupInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes. No duplicates allowed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -1680,15 +1680,15 @@ class DeploymentGroupTargetGroupPairInfoArgsDict(TypedDict):
     """
     The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
     """
-    prod_traffic_route: NotRequired[pulumi.Input['DeploymentGroupTrafficRouteArgsDict']]
+    prod_traffic_route: NotRequired[pulumi.Input[Optional['DeploymentGroupTrafficRouteArgsDict']]]
     """
     The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
     """
-    target_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgsDict']]]]
+    target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgsDict']]]]]
     """
     One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
     """
-    test_traffic_route: NotRequired[pulumi.Input['DeploymentGroupTrafficRouteArgsDict']]
+    test_traffic_route: NotRequired[pulumi.Input[Optional['DeploymentGroupTrafficRouteArgsDict']]]
     """
     An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
     """
@@ -1696,9 +1696,9 @@ class DeploymentGroupTargetGroupPairInfoArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupTargetGroupPairInfoArgs:
     def __init__(__self__, *,
-                 prod_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
-                 test_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None):
+                 prod_traffic_route: pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']] = None,
+                 target_groups: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
+                 test_traffic_route: pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']] = None):
         """
         The TargetGroupInfo property type specifies information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group. The DeploymentStyle.DeploymentOption property must be set to WITH_TRAFFIC_CONTROL for CodeDeploy to route your traffic using the specified target groups.
 
@@ -1715,38 +1715,38 @@ class DeploymentGroupTargetGroupPairInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="prodTrafficRoute")
-    def prod_traffic_route(self) -> Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]:
+    def prod_traffic_route(self) -> pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']]:
         """
         The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete.
         """
         return pulumi.get(self, "prod_traffic_route")
 
     @prod_traffic_route.setter
-    def prod_traffic_route(self, value: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]):
+    def prod_traffic_route(self, value: pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']]):
         pulumi.set(self, "prod_traffic_route", value)
 
     @_builtins.property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]:
+    def target_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]:
         """
         One pair of target groups. One is associated with the original task set. The second is associated with the task set that serves traffic after the deployment is complete.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
+    def target_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]]):
         pulumi.set(self, "target_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="testTrafficRoute")
-    def test_traffic_route(self) -> Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]:
+    def test_traffic_route(self) -> pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']]:
         """
         An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a deployment.
         """
         return pulumi.get(self, "test_traffic_route")
 
     @test_traffic_route.setter
-    def test_traffic_route(self, value: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']]):
+    def test_traffic_route(self, value: pulumi.Input[Optional['DeploymentGroupTrafficRouteArgs']]):
         pulumi.set(self, "test_traffic_route", value)
 
 
@@ -1754,7 +1754,7 @@ class DeploymentGroupTrafficRouteArgsDict(TypedDict):
     """
     Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
     """
-    listener_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    listener_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
     """
@@ -1762,7 +1762,7 @@ class DeploymentGroupTrafficRouteArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupTrafficRouteArgs:
     def __init__(__self__, *,
-                 listener_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 listener_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Information about a listener. The listener contains the path used to route traffic that is received from the load balancer to a target group.
 
@@ -1773,14 +1773,14 @@ class DeploymentGroupTrafficRouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="listenerArns")
-    def listener_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def listener_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Name (ARN) of one listener. The listener identifies the route between a target group and a load balancer. This is an array of strings with a maximum size of one.
         """
         return pulumi.get(self, "listener_arns")
 
     @listener_arns.setter
-    def listener_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def listener_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "listener_arns", value)
 
 
@@ -1788,15 +1788,15 @@ class DeploymentGroupTriggerConfigArgsDict(TypedDict):
     """
     Information about notification triggers for the deployment group.
     """
-    trigger_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    trigger_events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The event type or types that trigger notifications.
     """
-    trigger_name: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the notification trigger.
     """
-    trigger_target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    trigger_target_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
     """
@@ -1804,9 +1804,9 @@ class DeploymentGroupTriggerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class DeploymentGroupTriggerConfigArgs:
     def __init__(__self__, *,
-                 trigger_events: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_target_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 trigger_events: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 trigger_target_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about notification triggers for the deployment group.
 
@@ -1823,38 +1823,38 @@ class DeploymentGroupTriggerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerEvents")
-    def trigger_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def trigger_events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The event type or types that trigger notifications.
         """
         return pulumi.get(self, "trigger_events")
 
     @trigger_events.setter
-    def trigger_events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def trigger_events(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trigger_events", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the notification trigger.
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_name", value)
 
     @_builtins.property
     @pulumi.getter(name="triggerTargetArn")
-    def trigger_target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trigger_target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through which notifications about deployment or instance events are sent.
         """
         return pulumi.get(self, "trigger_target_arn")
 
     @trigger_target_arn.setter
-    def trigger_target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trigger_target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_target_arn", value)
 
 

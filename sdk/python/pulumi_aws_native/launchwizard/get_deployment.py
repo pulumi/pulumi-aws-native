@@ -125,7 +125,6 @@ def get_deployment(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::LaunchWizard::Deployment Resource Type
 
-
     :param _builtins.str arn: ARN of the LaunchWizard deployment
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_deployment(arn: Optional[_builtins.str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_deployment_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     Definition of AWS::LaunchWizard::Deployment Resource Type
-
 
     :param _builtins.str arn: ARN of the LaunchWizard deployment
     """

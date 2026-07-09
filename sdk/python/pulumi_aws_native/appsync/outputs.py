@@ -1571,7 +1571,7 @@ class GraphQlApiCognitoUserPoolConfig(dict):
                  aws_region: Optional[_builtins.str] = None,
                  user_pool_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        :param _builtins.str app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID.
         :param _builtins.str aws_region: The AWS Region in which the user pool was created.
         :param _builtins.str user_pool_id: The user pool ID
         """
@@ -1586,7 +1586,7 @@ class GraphQlApiCognitoUserPoolConfig(dict):
     @pulumi.getter(name="appIdClientRegex")
     def app_id_client_regex(self) -> Optional[_builtins.str]:
         """
-        A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID.
         """
         return pulumi.get(self, "app_id_client_regex")
 
@@ -1826,7 +1826,7 @@ class GraphQlApiOpenIdConnectConfig(dict):
         :param _builtins.float auth_ttl: The number of milliseconds that a token is valid after being authenticated.
         :param _builtins.str client_id: The client identifier of the Relying party at the OpenID identity provider.
         :param _builtins.float iat_ttl: The number of milliseconds that a token is valid after it's issued to a user.
-        :param _builtins.str issuer: The issuer for the OIDC configuration. 
+        :param _builtins.str issuer: The issuer for the OIDC configuration.
         """
         if auth_ttl is not None:
             pulumi.set(__self__, "auth_ttl", auth_ttl)
@@ -1865,7 +1865,7 @@ class GraphQlApiOpenIdConnectConfig(dict):
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
         """
-        The issuer for the OIDC configuration. 
+        The issuer for the OIDC configuration.
         """
         return pulumi.get(self, "issuer")
 

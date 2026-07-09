@@ -52,13 +52,12 @@ def get_permission(function_name: Optional[_builtins.str] = None,
      If your function has a function URL, you can specify the ``FunctionUrlAuthType`` parameter. This adds a condition to your permission that only applies when your function URL's ``AuthType`` matches the specified ``FunctionUrlAuthType``. For more information about the ``AuthType`` parameter, see [Control access to function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
      This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
 
-
     :param _builtins.str function_name: The name or ARN of the Lambda function, version, or alias.
              **Name formats**
             +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
              +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
              +  *Partial ARN* – ``123456789012:function:my-function``.
-             
+           
             You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     """
     __args__ = dict()
@@ -69,8 +68,8 @@ def get_permission(function_name: Optional[_builtins.str] = None,
 
     return AwaitableGetPermissionResult(
         id=pulumi.get(__ret__, 'id'))
-def get_permission_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_permission_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionResult]:
     """
     The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
@@ -78,13 +77,12 @@ def get_permission_output(function_name: Optional[pulumi.Input[_builtins.str]] =
      If your function has a function URL, you can specify the ``FunctionUrlAuthType`` parameter. This adds a condition to your permission that only applies when your function URL's ``AuthType`` matches the specified ``FunctionUrlAuthType``. For more information about the ``AuthType`` parameter, see [Control access to function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
      This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
 
-
     :param _builtins.str function_name: The name or ARN of the Lambda function, version, or alias.
              **Name formats**
             +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
              +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
              +  *Partial ARN* – ``123456789012:function:my-function``.
-             
+           
             You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
     """
     __args__ = dict()

@@ -77,7 +77,7 @@ class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(_buil
     """
     The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
 
-    > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
+    > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work.
 
     When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and each instance in the Auto Scaling group must have instance protection from scale-in actions on as well. For more information, see [Instance Protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection) in the *AWS Auto Scaling User Guide* .
 
@@ -288,9 +288,9 @@ class ServiceAvailabilityZoneRebalancing(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ecs:ServiceAwsVpcConfigurationAssignPublicIp")
 class ServiceAwsVpcConfigurationAssignPublicIp(_builtins.str, Enum):
     """
-    Whether the task's elastic network interface receives a public IP address. 
+    Whether the task's elastic network interface receives a public IP address.
      Consider the following when you set this value:
-      +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``. 
+      +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
       +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
     """
     DISABLED = "DISABLED"
@@ -337,9 +337,9 @@ class ServiceDeploymentControllerType(_builtins.str, Enum):
     The deployment controller type to use.
      The deployment controller is the mechanism that determines how tasks are deployed for your service. The valid options are:
       +  ECS
-     When you create a service which uses the ``ECS`` deployment controller, you can choose between the following deployment strategies:
-      +  ``ROLLING``: When you create a service which uses the *rolling update* (``ROLLING``) deployment strategy, the ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration. 
-     Rolling update deployments are best suited for the following scenarios:
+          When you create a service which uses the ``ECS`` deployment controller, you can choose between the following deployment strategies:
+      +  ``ROLLING``: When you create a service which uses the *rolling update* (``ROLLING``) deployment strategy, the ECS service scheduler replaces the currently running tasks with new tasks. The number of tasks that ECS adds or removes from the service during a rolling update is controlled by the service deployment configuration.
+          Rolling update deployments are best suited for the following scenarios:
       +  Gradual service updates: You need to update your service incrementally without taking the entire service offline at once.
       +  Limited resource requirements: You want to avoid the additional resource costs of running two complete environments simultaneously (as required by blue/green deployments).
       +  Acceptable deployment time: Your application can tolerate a longer deployment process, as rolling updates replace tasks one by one.
@@ -348,7 +348,7 @@ class ServiceDeploymentControllerType(_builtins.str, Enum):
       +  No load balancer requirement: Your service doesn't use or require a load balancer, ALB, NLB, or Service Connect (which are required for blue/green deployments).
       +  Stateful applications: Your application maintains state that makes it difficult to run two parallel environments.
       +  Cost sensitivity: You want to minimize deployment costs by not running duplicate environments during deployment.
-      
+
      Rolling updates are the default deployment strategy for services and provide a balance between deployment safety and resource efficiency for many common application scenarios.
       +  ``BLUE_GREEN``: A *blue/green* deployment strategy (``BLUE_GREEN``) is a release methodology that reduces downtime and risk by running two identical production environments called blue and green. With ECS blue/green deployments, you can validate new service revisions before directing production traffic to them. This approach provides a safer way to deploy changes with the ability to quickly roll back if needed.
      ECS blue/green deployments are best suited for the following scenarios:
@@ -356,17 +356,16 @@ class ServiceDeploymentControllerType(_builtins.str, Enum):
       +  Zero downtime: When your service requires zero-downtime deployments
       +  Instant roll back: When you need the ability to quickly roll back if issues are detected
       +  Load balancer requirement: When your service uses ALB, NLB, or Service Connect
-      
-      
+
       +  External
      Use a third-party deployment controller.
       +  Blue/green deployment (powered by ACD)
      ACD installs an updated version of the application as a new replacement task set and reroutes production traffic from the original application task set to the replacement task set. The original task set is terminated after a successful deployment. Use this deployment controller to verify a new deployment of a service before sending production traffic to it.
-      
+
      When updating the deployment controller for a service, consider the following depending on the type of migration you're performing.
       +  If you have a template that contains the ``EXTERNAL`` deployment controller information as well as ``TaskSet`` and ``PrimaryTaskSet`` resources, and you remove the task set resources from the template when updating from ``EXTERNAL`` to ``ECS``, the ``DescribeTaskSet`` and ``DeleteTaskSet`` API calls will return a 400 error after the deployment controller is updated to ``ECS``. This results in a delete failure on the task set resources, even though the stack transitions to ``UPDATE_COMPLETE`` status. For more information, see [Resource removed from stack but not deleted](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-resource-removed-not-deleted) in the CFNlong User Guide. To fix this issue, delete the task sets directly using the ECS``DeleteTaskSet`` API. For more information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
       +  If you're migrating from ``CODE_DEPLOY`` to ``ECS`` with a new task definition and CFN performs a rollback operation, the ECS``UpdateService`` request fails with the following error:
-     Resource handler returned message: "Invalid request provided: Unable to update task definition on services with a CODE_DEPLOY deployment controller. 
+          Resource handler returned message: "Invalid request provided: Unable to update task definition on services with a CODE_DEPLOY deployment controller.
       +  After a successful migration from ``ECS`` to ``EXTERNAL`` deployment controller, you need to manually remove the ``ACTIVE`` task set, because ECS no longer manages the deployment. For information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
     """
     CODE_DEPLOY = "CODE_DEPLOY"
@@ -392,7 +391,7 @@ class ServiceDeploymentLifecycleHookTargetType(_builtins.str, Enum):
     The type of action the lifecycle hook performs. Valid values are:
       +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
       +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
-      
+
      This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
     """
     AWS_LAMBDA = "AWS_LAMBDA"
@@ -468,7 +467,7 @@ class ServiceSchedulingStrategy(_builtins.str, Enum):
      There are two service scheduler strategies available:
       +  ``REPLICA``-The replica scheduling strategy places and maintains the desired number of tasks across your cluster. By default, the service scheduler spreads tasks across Availability Zones. You can use task placement strategies and constraints to customize task placement decisions. This scheduler strategy is required if the service uses the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types.
       +  ``DAEMON``-The daemon scheduling strategy deploys exactly one task on each active container instance that meets all of the task placement constraints that you specify in your cluster. The service scheduler also evaluates the task placement constraints for running tasks and will stop tasks that don't meet the placement constraints. When you're using this strategy, you don't need to specify a desired number of tasks, a task placement strategy, or use Service Auto Scaling policies.
-      Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
+           Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
     """
     DAEMON = "DAEMON"
     REPLICA = "REPLICA"
@@ -526,7 +525,7 @@ class TaskSetAwsVpcConfigurationAssignPublicIp(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ecs:TaskSetLaunchType")
 class TaskSetLaunchType(_builtins.str, Enum):
     """
-    The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
+    The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
     """
     EC2 = "EC2"
     FARGATE = "FARGATE"

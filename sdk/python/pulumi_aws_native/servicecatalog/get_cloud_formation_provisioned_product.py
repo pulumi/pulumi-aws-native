@@ -226,7 +226,6 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[_bu
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
-
     :param _builtins.str provisioned_product_id: The ID of the provisioned product.
     """
     __args__ = dict()
@@ -249,11 +248,10 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[_bu
         provisioning_preferences=pulumi.get(__ret__, 'provisioning_preferences'),
         record_id=pulumi.get(__ret__, 'record_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_formation_provisioned_product_output(provisioned_product_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
-
 
     :param _builtins.str provisioned_product_id: The ID of the provisioned product.
     """

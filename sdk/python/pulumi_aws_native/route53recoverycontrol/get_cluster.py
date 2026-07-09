@@ -89,7 +89,6 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
     """
     AWS Route53 Recovery Control Cluster resource schema
 
-
     :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) of the cluster.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_cluster(cluster_arn: Optional[_builtins.str] = None,
         cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
         network_type=pulumi.get(__ret__, 'network_type'),
         status=pulumi.get(__ret__, 'status'))
-def get_cluster_output(cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     AWS Route53 Recovery Control Cluster resource schema
-
 
     :param _builtins.str cluster_arn: The Amazon Resource Name (ARN) of the cluster.
     """

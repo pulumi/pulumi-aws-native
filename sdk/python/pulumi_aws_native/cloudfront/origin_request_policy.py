@@ -48,7 +48,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
+                 origin_request_policy_config: pulumi.Input[Optional[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         An origin request policy.
@@ -58,7 +58,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
           +  All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
 
          CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,7 +78,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
          CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
 
-
         :param str resource_name: The name of the resource.
         :param OriginRequestPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -95,7 +93,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 origin_request_policy_config: Optional[pulumi.Input[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
+                 origin_request_policy_config: pulumi.Input[Optional[Union['OriginRequestPolicyConfigArgs', 'OriginRequestPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -90,7 +90,6 @@ def get_distribution(id: Optional[_builtins.str] = None,
     """
     A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
-
     :param _builtins.str id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
     """
     __args__ = dict()
@@ -103,11 +102,10 @@ def get_distribution(id: Optional[_builtins.str] = None,
         domain_name=pulumi.get(__ret__, 'domain_name'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_distribution_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_distribution_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionResult]:
     """
     A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
-
 
     :param _builtins.str id: The distribution's identifier. For example: `E1U5RQF7T870K0` .
     """

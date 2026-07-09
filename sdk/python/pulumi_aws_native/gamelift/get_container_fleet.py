@@ -280,7 +280,6 @@ def get_container_fleet(fleet_id: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
 
-
     :param _builtins.str fleet_id: Unique fleet ID
     """
     __args__ = dict()
@@ -309,11 +308,10 @@ def get_container_fleet(fleet_id: Optional[_builtins.str] = None,
         scaling_policies=pulumi.get(__ret__, 'scaling_policies'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_container_fleet_output(fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_fleet_output(fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerFleetResult]:
     """
     The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
-
 
     :param _builtins.str fleet_id: Unique fleet ID
     """

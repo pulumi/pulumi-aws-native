@@ -88,7 +88,6 @@ def get_carrier_gateway(carrier_gateway_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
 
-
     :param _builtins.str carrier_gateway_id: The ID of the carrier gateway.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_carrier_gateway(carrier_gateway_id: Optional[_builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_carrier_gateway_output(carrier_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCarrierGatewayResult]:
     """
     Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
-
 
     :param _builtins.str carrier_gateway_id: The ID of the carrier gateway.
     """

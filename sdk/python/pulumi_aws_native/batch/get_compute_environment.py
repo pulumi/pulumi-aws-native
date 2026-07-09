@@ -75,7 +75,7 @@ class GetComputeEnvironmentResult:
         """
         The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
 
-        > If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account. 
+        > If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account.
 
         If your specified role has a path other than `/` , then you must specify either the full role ARN (recommended) or prefix the role name with the path. For example, if a role with the name `bar` has a path of `/foo/` , specify `/foo/bar` as the role name. For more information, see [Friendly names and paths](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) in the *IAM User Guide* .
 
@@ -93,7 +93,7 @@ class GetComputeEnvironmentResult:
 
         If the state is `DISABLED` , then the AWS Batch scheduler doesn't attempt to place jobs within the environment. Jobs in a `STARTING` or `RUNNING` state continue to progress normally. Managed compute environments in the `DISABLED` state don't scale out.
 
-        > Compute environments in a `DISABLED` state may continue to incur billing charges. To prevent additional charges, turn off and then delete the compute environment. For more information, see [State](https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state) in the *AWS Batch User Guide* . 
+        > Compute environments in a `DISABLED` state may continue to incur billing charges. To prevent additional charges, turn off and then delete the compute environment. For more information, see [State](https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state) in the *AWS Batch User Guide* .
 
         When an instance is idle, the instance scales down to the `minvCpus` value. However, the instance size doesn't change. For example, consider a `c5.8xlarge` instance with a `minvCpus` value of `4` and a `desiredvCpus` value of `36` . This instance doesn't scale down to a `c5.large` instance.
         """
@@ -129,7 +129,6 @@ def get_compute_environment(compute_environment_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment
 
-
     :param _builtins.str compute_environment_arn: Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
     """
     __args__ = dict()
@@ -144,11 +143,10 @@ def get_compute_environment(compute_environment_arn: Optional[_builtins.str] = N
         service_role=pulumi.get(__ret__, 'service_role'),
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
-def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_compute_environment_output(compute_environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment
-
 
     :param _builtins.str compute_environment_arn: Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
     """

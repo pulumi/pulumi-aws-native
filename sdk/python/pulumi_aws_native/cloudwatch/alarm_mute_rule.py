@@ -25,12 +25,12 @@ __all__ = ['AlarmMuteRuleArgs', 'AlarmMuteRule']
 class AlarmMuteRuleArgs:
     def __init__(__self__, *,
                  rule: pulumi.Input['RulePropertiesArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_targets: Optional[pulumi.Input['MuteTargetsPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_targets: pulumi.Input[Optional['MuteTargetsPropertiesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AlarmMuteRule resource.
 
@@ -70,74 +70,74 @@ class AlarmMuteRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the AlarmMuteRule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="expireDate")
-    def expire_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expire_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date, with the same timezone offset as "ScheduleTimezone" after which the alarm mute rule will be expired.
         """
         return pulumi.get(self, "expire_date")
 
     @expire_date.setter
-    def expire_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expire_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expire_date", value)
 
     @_builtins.property
     @pulumi.getter(name="muteTargets")
-    def mute_targets(self) -> Optional[pulumi.Input['MuteTargetsPropertiesArgs']]:
+    def mute_targets(self) -> pulumi.Input[Optional['MuteTargetsPropertiesArgs']]:
         """
         Targets to be muted
         """
         return pulumi.get(self, "mute_targets")
 
     @mute_targets.setter
-    def mute_targets(self, value: Optional[pulumi.Input['MuteTargetsPropertiesArgs']]):
+    def mute_targets(self, value: pulumi.Input[Optional['MuteTargetsPropertiesArgs']]):
         pulumi.set(self, "mute_targets", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the AlarmMuteRule
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="startDate")
-    def start_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date, with the same timezone offset as "ScheduleTimezone", after which the alarm mute rule will become active.
         """
         return pulumi.get(self, "start_date")
 
     @start_date.setter
-    def start_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_date", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -147,17 +147,16 @@ class AlarmMuteRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_targets: Optional[pulumi.Input[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class AlarmMuteRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudWatch::AlarmMuteRule that allows defining a rule and targeting alarms to mute their actions during the specified window.
 
-
         :param str resource_name: The name of the resource.
         :param AlarmMuteRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class AlarmMuteRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 expire_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 mute_targets: Optional[pulumi.Input[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule: Optional[pulumi.Input[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
-                 start_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 expire_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 mute_targets: pulumi.Input[Optional[Union['MuteTargetsPropertiesArgs', 'MuteTargetsPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule: pulumi.Input[Optional[Union['RulePropertiesArgs', 'RulePropertiesArgsDict']]] = None,
+                 start_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,7 +302,7 @@ class AlarmMuteRule(pulumi.CustomResource):
     @pulumi.getter(name="muteType")
     def mute_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The mute type of the alarm mute 
+        The mute type of the alarm mute
         """
         return pulumi.get(self, "mute_type")
 

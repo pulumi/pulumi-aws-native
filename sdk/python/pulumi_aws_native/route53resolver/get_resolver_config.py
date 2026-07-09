@@ -76,7 +76,6 @@ def get_resolver_config(resource_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.
 
-
     :param _builtins.str resource_id: ResourceId
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_resolver_config(resource_id: Optional[_builtins.str] = None,
         autodefined_reverse=pulumi.get(__ret__, 'autodefined_reverse'),
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'))
-def get_resolver_config_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_config_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.
-
 
     :param _builtins.str resource_id: ResourceId
     """

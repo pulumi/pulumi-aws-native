@@ -118,13 +118,13 @@ class GetKeyResult:
          If you provide a key policy, it must meet the following criteria:
           +  The key policy must allow the caller to make a subsequent [PutKeyPolicy](https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html) request on the KMS key. This reduces the risk that the KMS key becomes unmanageable. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *Developer Guide*. (To omit this condition, set ``BypassPolicyLockoutSafetyCheck`` to true.)
           +  Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to KMS. For more information, see [Changes that I make are not always immediately visible](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency) in the *User Guide*.
-          
+
          If you do not provide a key policy, KMS attaches a default key policy to the KMS key. For more information, see [Default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) in the *Developer Guide*.
          A key policy document can include only the following characters:
           +  Printable ASCII characters
           +  Printable characters in the Basic Latin and Latin-1 Supplement character set
           +  The tab (``\\u0009``), line feed (``\\u000A``), and carriage return (``\\u000D``) special characters
-          
+
          *Minimum*: ``1``
          *Maximum*: ``32768``
 
@@ -143,34 +143,33 @@ class GetKeyResult:
           KMS supports the following key specs for KMS keys:
           +  Symmetric encryption key (default)
           +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)
-          
+
           +  HMAC keys (symmetric)
-          +   ``HMAC_224`` 
-          +   ``HMAC_256`` 
-          +   ``HMAC_384`` 
-          +   ``HMAC_512`` 
-          
+          +   ``HMAC_224``
+          +   ``HMAC_256``
+          +   ``HMAC_384``
+          +   ``HMAC_512``
+
           +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)
-          +   ``RSA_2048`` 
-          +   ``RSA_3072`` 
-          +   ``RSA_4096`` 
-          
+          +   ``RSA_2048``
+          +   ``RSA_3072``
+          +   ``RSA_4096``
+
           +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)
           +  ``ECC_NIST_P256`` (secp256r1)
           +  ``ECC_NIST_P384`` (secp384r1)
           +  ``ECC_NIST_P521`` (secp521r1)
           +  ``ECC_NIST_EDWARDS25519`` (ed25519) - signing and verification only
           +  *Note:* For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires [MessageType:RAW](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType), while ED25519_PH_SHA_512 requires [MessageType:DIGEST](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType). These message types cannot be used interchangeably.
-          
-          
+
           +  Other asymmetric elliptic curve key pairs (signing and verification)
           +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
-          
+
           +  Asymmetric ML-DSA key pairs (signing and verification)
-          +   ``ML_DSA_44`` 
-          +   ``ML_DSA_65`` 
-          +   ``ML_DSA_87`` 
-          
+          +   ``ML_DSA_44``
+          +   ``ML_DSA_65``
+          +   ``ML_DSA_87``
+
           +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)
           +  ``SM2`` (China Regions only)
         """
@@ -213,7 +212,7 @@ class GetKeyResult:
         """
         The source of the key material for the KMS key. You cannot change the origin after you create the KMS key. The default is ``AWS_KMS``, which means that KMS creates the key material.
          To [create a KMS key with no key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html) (for imported key material), set this value to ``EXTERNAL``. For more information about importing key material into KMS, see [Importing Key Material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) in the *Developer Guide*.
-         You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations. 
+         You can ignore ``ENABLED`` when Origin is ``EXTERNAL``. When a KMS key with Origin ``EXTERNAL`` is created, the key state is ``PENDING_IMPORT`` and ``ENABLED`` is ``false``. After you import the key material, ``ENABLED`` updated to ``true``. The KMS key can then be used for Cryptographic Operations.
            +  CFN doesn't support creating an ``Origin`` parameter of the ``AWS_CLOUDHSM`` or ``EXTERNAL_KEY_STORE`` values.
           +  ``EXTERNAL`` is not supported for ML-DSA keys.
         """
@@ -263,7 +262,6 @@ def get_key(key_id: Optional[_builtins.str] = None,
       *Regions*
      KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
 
-
     :param _builtins.str key_id: The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
            
            For information about the key ID of a KMS key, see [Key ID](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id) in the *AWS Key Management Service Developer Guide* .
@@ -285,7 +283,7 @@ def get_key(key_id: Optional[_builtins.str] = None,
         multi_region=pulumi.get(__ret__, 'multi_region'),
         origin=pulumi.get(__ret__, 'origin'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_key_output(key_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_key_output(key_id: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     The ``AWS::KMS::Key`` resource specifies an [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in KMSlong. You can use this resource to create symmetric encryption KMS keys, asymmetric KMS keys for encryption or signing, and symmetric HMAC KMS keys. You can use ``AWS::KMS::Key`` to create [multi-Region primary keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-primary-key) of all supported types. To replicate a multi-Region key, use the ``AWS::KMS::ReplicaKey`` resource.
@@ -298,7 +296,6 @@ def get_key_output(key_id: Optional[pulumi.Input[_builtins.str]] = None,
      You cannot use the ``AWS::KMS::Key`` resource to specify a KMS key with [imported key material](https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html) or a KMS key in a [custom key store](https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html).
       *Regions*
      KMS CloudFormation resources are available in all Regions in which KMS and CFN are supported. You can use the ``AWS::KMS::Key`` resource to create and manage all KMS key types that are supported in a Region.
-
 
     :param _builtins.str key_id: The key ID of the KMS key, such as `1234abcd-12ab-34cd-56ef-1234567890ab` .
            

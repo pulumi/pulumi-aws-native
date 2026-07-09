@@ -67,12 +67,11 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mrap_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mrap_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         """
         The policy to be attached to a Multi Region Access Point
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,7 +89,6 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         """
         The policy to be attached to a Multi Region Access Point
 
-
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +104,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mrap_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mrap_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

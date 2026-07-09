@@ -24,8 +24,8 @@ class LoggingConfigurationInitArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[_builtins.str],
                  logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
 
@@ -66,23 +66,23 @@ class LoggingConfigurationInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableMonitoringDashboard")
-    def enable_monitoring_dashboard(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_monitoring_dashboard(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "enable_monitoring_dashboard")
 
     @enable_monitoring_dashboard.setter
-    def enable_monitoring_dashboard(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_monitoring_dashboard(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_monitoring_dashboard", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallName")
-    def firewall_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
         """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
-    def firewall_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_name", value)
 
 
@@ -92,14 +92,13 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +115,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,10 +130,10 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enable_monitoring_dashboard: Optional[pulumi.Input[_builtins.bool]] = None,
-                 firewall_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
+                 enable_monitoring_dashboard: pulumi.Input[Optional[_builtins.bool]] = None,
+                 firewall_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['LoggingConfigurationArgs', 'LoggingConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

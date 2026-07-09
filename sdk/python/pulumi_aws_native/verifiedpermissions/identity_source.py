@@ -24,7 +24,7 @@ class IdentitySourceArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgs']],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
 
@@ -63,14 +63,14 @@ class IdentitySourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalEntityType")
-    def principal_entity_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 
     @principal_entity_type.setter
-    def principal_entity_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_entity_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_entity_type", value)
 
 
@@ -80,9 +80,9 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
@@ -169,9 +169,9 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['IdentitySourceConfiguration0PropertiesArgs', 'IdentitySourceConfiguration0PropertiesArgsDict'], Union['IdentitySourceConfiguration1PropertiesArgs', 'IdentitySourceConfiguration1PropertiesArgsDict']]]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_entity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -151,7 +151,6 @@ def get_retriever(application_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::QBusiness::Retriever Resource Type
 
-
     :param _builtins.str application_id: The identifier of the Amazon Q Business application using the retriever.
     :param _builtins.str retriever_id: The identifier of the retriever used by your Amazon Q Business application.
     """
@@ -171,12 +170,11 @@ def get_retriever(application_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_retriever_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         retriever_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_retriever_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         retriever_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRetrieverResult]:
     """
     Definition of AWS::QBusiness::Retriever Resource Type
-
 
     :param _builtins.str application_id: The identifier of the Amazon Q Business application using the retriever.
     :param _builtins.str retriever_id: The identifier of the retriever used by your Amazon Q Business application.

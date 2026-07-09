@@ -26,24 +26,24 @@ class OptionGroupArgs:
                  engine_name: pulumi.Input[_builtins.str],
                  major_engine_version: pulumi.Input[_builtins.str],
                  option_group_description: pulumi.Input[_builtins.str],
-                 option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
 
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-                Valid Values: 
-                 +   ``mariadb`` 
-                 +   ``mysql`` 
-                 +   ``oracle-ee`` 
-                 +   ``oracle-ee-cdb`` 
-                 +   ``oracle-se2`` 
-                 +   ``oracle-se2-cdb`` 
-                 +   ``postgres`` 
-                 +   ``sqlserver-ee`` 
-                 +   ``sqlserver-se`` 
-                 +   ``sqlserver-ex`` 
+                Valid Values:
+                 +   ``mariadb``
+                 +   ``mysql``
+                 +   ``oracle-ee``
+                 +   ``oracle-ee-cdb``
+                 +   ``oracle-se2``
+                 +   ``oracle-se2-cdb``
+                 +   ``postgres``
+                 +   ``sqlserver-ee``
+                 +   ``sqlserver-se``
+                 +   ``sqlserver-ex``
                  +   ``sqlserver-web``
         :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[_builtins.str] option_group_description: The description of the option group.
@@ -53,7 +53,7 @@ class OptionGroupArgs:
                  +  Must be 1 to 255 letters, numbers, or hyphens
                  +  First character must be a letter
                  +  Can't end with a hyphen or contain two consecutive hyphens
-                 
+               
                 Example: ``myoptiongroup``
                 If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
                  This value is stored as a lowercase string.
@@ -74,17 +74,17 @@ class OptionGroupArgs:
     def engine_name(self) -> pulumi.Input[_builtins.str]:
         """
         Specifies the name of the engine that this option group should be associated with.
-         Valid Values: 
-          +   ``mariadb`` 
-          +   ``mysql`` 
-          +   ``oracle-ee`` 
-          +   ``oracle-ee-cdb`` 
-          +   ``oracle-se2`` 
-          +   ``oracle-se2-cdb`` 
-          +   ``postgres`` 
-          +   ``sqlserver-ee`` 
-          +   ``sqlserver-se`` 
-          +   ``sqlserver-ex`` 
+         Valid Values:
+          +   ``mariadb``
+          +   ``mysql``
+          +   ``oracle-ee``
+          +   ``oracle-ee-cdb``
+          +   ``oracle-se2``
+          +   ``oracle-se2-cdb``
+          +   ``postgres``
+          +   ``sqlserver-ee``
+          +   ``sqlserver-se``
+          +   ``sqlserver-ex``
           +   ``sqlserver-web``
         """
         return pulumi.get(self, "engine_name")
@@ -119,26 +119,26 @@ class OptionGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="optionConfigurations")
-    def option_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]:
+    def option_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]:
         """
         A list of all available options for an option group.
         """
         return pulumi.get(self, "option_configurations")
 
     @option_configurations.setter
-    def option_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]):
+    def option_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]]):
         pulumi.set(self, "option_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="optionGroupName")
-    def option_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def option_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the option group to be created.
          Constraints:
           +  Must be 1 to 255 letters, numbers, or hyphens
           +  First character must be a letter
           +  Can't end with a hyphen or contain two consecutive hyphens
-          
+
          Example: ``myoptiongroup``
          If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
           This value is stored as a lowercase string.
@@ -146,19 +146,19 @@ class OptionGroupArgs:
         return pulumi.get(self, "option_group_name")
 
     @option_group_name.setter
-    def option_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def option_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "option_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the option group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -168,31 +168,30 @@ class OptionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] engine_name: Specifies the name of the engine that this option group should be associated with.
-                Valid Values: 
-                 +   ``mariadb`` 
-                 +   ``mysql`` 
-                 +   ``oracle-ee`` 
-                 +   ``oracle-ee-cdb`` 
-                 +   ``oracle-se2`` 
-                 +   ``oracle-se2-cdb`` 
-                 +   ``postgres`` 
-                 +   ``sqlserver-ee`` 
-                 +   ``sqlserver-se`` 
-                 +   ``sqlserver-ex`` 
+                Valid Values:
+                 +   ``mariadb``
+                 +   ``mysql``
+                 +   ``oracle-ee``
+                 +   ``oracle-ee-cdb``
+                 +   ``oracle-se2``
+                 +   ``oracle-se2-cdb``
+                 +   ``postgres``
+                 +   ``sqlserver-ee``
+                 +   ``sqlserver-se``
+                 +   ``sqlserver-ex``
                  +   ``sqlserver-web``
         :param pulumi.Input[_builtins.str] major_engine_version: Specifies the major version of the engine that this option group should be associated with.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]] option_configurations: A list of all available options for an option group.
@@ -202,7 +201,7 @@ class OptionGroup(pulumi.CustomResource):
                  +  Must be 1 to 255 letters, numbers, or hyphens
                  +  First character must be a letter
                  +  Can't end with a hyphen or contain two consecutive hyphens
-                 
+               
                 Example: ``myoptiongroup``
                 If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
                  This value is stored as a lowercase string.
@@ -216,7 +215,6 @@ class OptionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
-
 
         :param str resource_name: The name of the resource.
         :param OptionGroupArgs args: The arguments to use to populate this resource's properties.
@@ -233,12 +231,12 @@ class OptionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 engine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 major_engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
-                 option_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 engine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OptionGroupOptionConfigurationArgs', 'OptionGroupOptionConfigurationArgsDict']]]]] = None,
+                 option_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,17 +295,17 @@ class OptionGroup(pulumi.CustomResource):
     def engine_name(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the name of the engine that this option group should be associated with.
-         Valid Values: 
-          +   ``mariadb`` 
-          +   ``mysql`` 
-          +   ``oracle-ee`` 
-          +   ``oracle-ee-cdb`` 
-          +   ``oracle-se2`` 
-          +   ``oracle-se2-cdb`` 
-          +   ``postgres`` 
-          +   ``sqlserver-ee`` 
-          +   ``sqlserver-se`` 
-          +   ``sqlserver-ex`` 
+         Valid Values:
+          +   ``mariadb``
+          +   ``mysql``
+          +   ``oracle-ee``
+          +   ``oracle-ee-cdb``
+          +   ``oracle-se2``
+          +   ``oracle-se2-cdb``
+          +   ``postgres``
+          +   ``sqlserver-ee``
+          +   ``sqlserver-se``
+          +   ``sqlserver-ex``
           +   ``sqlserver-web``
         """
         return pulumi.get(self, "engine_name")
@@ -345,7 +343,7 @@ class OptionGroup(pulumi.CustomResource):
           +  Must be 1 to 255 letters, numbers, or hyphens
           +  First character must be a letter
           +  Can't end with a hyphen or contain two consecutive hyphens
-          
+
          Example: ``myoptiongroup``
          If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
           This value is stored as a lowercase string.

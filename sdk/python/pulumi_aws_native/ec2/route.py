@@ -20,21 +20,21 @@ __all__ = ['RouteArgs', 'Route']
 class RouteArgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[_builtins.str],
-                 carrier_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_only_internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 carrier_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_only_internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Route resource.
 
@@ -102,7 +102,7 @@ class RouteArgs:
 
     @_builtins.property
     @pulumi.getter(name="carrierGatewayId")
-    def carrier_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def carrier_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the carrier gateway.
          You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.
@@ -110,175 +110,175 @@ class RouteArgs:
         return pulumi.get(self, "carrier_gateway_id")
 
     @carrier_gateway_id.setter
-    def carrier_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def carrier_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "carrier_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="coreNetworkArn")
-    def core_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def core_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the core network.
         """
         return pulumi.get(self, "core_network_arn")
 
     @core_network_arn.setter
-    def core_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def core_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "core_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationCidrBlock")
-    def destination_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify ``100.68.0.18/18``, we modify it to ``100.68.0.0/18``.
         """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
-    def destination_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationIpv6CidrBlock")
-    def destination_ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_ipv6_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.
         """
         return pulumi.get(self, "destination_ipv6_cidr_block")
 
     @destination_ipv6_cidr_block.setter
-    def destination_ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_ipv6_cidr_block(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ipv6_cidr_block", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a prefix list used for the destination match.
         """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @destination_prefix_list_id.setter
-    def destination_prefix_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_prefix_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_prefix_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="egressOnlyInternetGatewayId")
-    def egress_only_internet_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def egress_only_internet_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [IPv6 traffic only] The ID of an egress-only internet gateway.
         """
         return pulumi.get(self, "egress_only_internet_gateway_id")
 
     @egress_only_internet_gateway_id.setter
-    def egress_only_internet_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def egress_only_internet_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "egress_only_internet_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayId")
-    def gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an internet gateway or virtual private gateway attached to your VPC.
         """
         return pulumi.get(self, "gateway_id")
 
     @gateway_id.setter
-    def gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.
         """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="localGatewayId")
-    def local_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def local_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the local gateway.
         """
         return pulumi.get(self, "local_gateway_id")
 
     @local_gateway_id.setter
-    def local_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def local_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "local_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayId")
-    def nat_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def nat_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         [IPv4 traffic only] The ID of a NAT gateway.
         """
         return pulumi.get(self, "nat_gateway_id")
 
     @nat_gateway_id.setter
-    def nat_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def nat_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nat_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
-    def network_interface_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a network interface.
         """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
-    def network_interface_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
-    def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the ODB network.
         """
         return pulumi.get(self, "odb_network_arn")
 
     @odb_network_arn.setter
-    def odb_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def odb_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "odb_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a transit gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
-    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcPeeringConnectionId")
-    def vpc_peering_connection_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_peering_connection_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of a VPC peering connection.
         """
         return pulumi.get(self, "vpc_peering_connection_id")
 
     @vpc_peering_connection_id.setter
-    def vpc_peering_connection_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_peering_connection_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
@@ -288,28 +288,27 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 carrier_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_only_internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 carrier_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_only_internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Specifies a route in a route table. For more information, see [Routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.
          You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.
          If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,7 +341,6 @@ class Route(pulumi.CustomResource):
          You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.
          If you create a route that references a transit gateway in the same template where you create the transit gateway, you must declare a dependency on the transit gateway attachment. The route table cannot use the transit gateway until it has successfully attached to the VPC. Add a [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) in the ``AWS::EC2::Route`` resource to explicitly declare a dependency on the ``AWS::EC2::TransitGatewayAttachment`` resource.
 
-
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,22 +356,22 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 carrier_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 core_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 egress_only_internet_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 local_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 nat_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_peering_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 carrier_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 core_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_ipv6_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 egress_only_internet_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

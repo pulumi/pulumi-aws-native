@@ -28,10 +28,10 @@ class GuardHookArgs:
                  hook_status: pulumi.Input['GuardHookHookStatus'],
                  rule_location: pulumi.Input['GuardHookS3LocationArgs'],
                  target_operations: pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]],
-                 log_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
-                 stack_filters: Optional[pulumi.Input['StackFiltersPropertiesArgs']] = None,
-                 target_filters: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
+                 log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional['OptionsPropertiesArgs']] = None,
+                 stack_filters: pulumi.Input[Optional['StackFiltersPropertiesArgs']] = None,
+                 target_filters: pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a GuardHook resource.
 
@@ -135,50 +135,50 @@ class GuardHookArgs:
 
     @_builtins.property
     @pulumi.getter(name="logBucket")
-    def log_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 Bucket where the guard validate report will be uploaded to
         """
         return pulumi.get(self, "log_bucket")
 
     @log_bucket.setter
-    def log_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_bucket", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['OptionsPropertiesArgs']]:
+    def options(self) -> pulumi.Input[Optional['OptionsPropertiesArgs']]:
         """
         Specifies the S3 location of your input parameters.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['OptionsPropertiesArgs']]):
+    def options(self, value: pulumi.Input[Optional['OptionsPropertiesArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter(name="stackFilters")
-    def stack_filters(self) -> Optional[pulumi.Input['StackFiltersPropertiesArgs']]:
+    def stack_filters(self) -> pulumi.Input[Optional['StackFiltersPropertiesArgs']]:
         """
         Filters to allow hooks to target specific stack attributes
         """
         return pulumi.get(self, "stack_filters")
 
     @stack_filters.setter
-    def stack_filters(self, value: Optional[pulumi.Input['StackFiltersPropertiesArgs']]):
+    def stack_filters(self, value: pulumi.Input[Optional['StackFiltersPropertiesArgs']]):
         pulumi.set(self, "stack_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="targetFilters")
-    def target_filters(self) -> Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]:
+    def target_filters(self) -> pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]:
         """
         Attribute to specify which targets should invoke the hook
         """
         return pulumi.get(self, "target_filters")
 
     @target_filters.setter
-    def target_filters(self, value: Optional[pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]):
+    def target_filters(self, value: pulumi.Input[Optional[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']]]):
         pulumi.set(self, "target_filters", value)
 
 
@@ -188,20 +188,19 @@ class GuardHook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_mode: Optional[pulumi.Input['GuardHookFailureMode']] = None,
-                 hook_status: Optional[pulumi.Input['GuardHookHookStatus']] = None,
-                 log_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 rule_location: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
-                 stack_filters: Optional[pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: Optional[pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
-                 target_operations: Optional[pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_mode: pulumi.Input[Optional['GuardHookFailureMode']] = None,
+                 hook_status: pulumi.Input[Optional['GuardHookHookStatus']] = None,
+                 log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
+                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
                  __props__=None):
         """
         This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +224,6 @@ class GuardHook(pulumi.CustomResource):
         """
         This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
 
-
         :param str resource_name: The name of the resource.
         :param GuardHookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -241,16 +239,16 @@ class GuardHook(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 failure_mode: Optional[pulumi.Input['GuardHookFailureMode']] = None,
-                 hook_status: Optional[pulumi.Input['GuardHookHookStatus']] = None,
-                 log_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 options: Optional[pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
-                 rule_location: Optional[pulumi.Input[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
-                 stack_filters: Optional[pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
-                 target_filters: Optional[pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
-                 target_operations: Optional[pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 failure_mode: pulumi.Input[Optional['GuardHookFailureMode']] = None,
+                 hook_status: pulumi.Input[Optional['GuardHookHookStatus']] = None,
+                 log_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 options: pulumi.Input[Optional[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']]] = None,
+                 rule_location: pulumi.Input[Optional[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']]] = None,
+                 stack_filters: pulumi.Input[Optional[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']]] = None,
+                 target_filters: pulumi.Input[Optional[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]]] = None,
+                 target_operations: pulumi.Input[Optional[Sequence[pulumi.Input['GuardHookTargetOperation']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

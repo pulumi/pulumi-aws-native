@@ -25,17 +25,17 @@ __all__ = ['FlowArgs', 'Flow']
 class FlowArgs:
     def __init__(__self__, *,
                  source: pulumi.Input['FlowSourceArgs'],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding_config: Optional[pulumi.Input['FlowEncodingConfigArgs']] = None,
-                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
-                 maintenance: Optional[pulumi.Input['FlowMaintenanceArgs']] = None,
-                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_config: Optional[pulumi.Input['FlowNdiConfigArgs']] = None,
-                 source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
-                 source_monitoring_config: Optional[pulumi.Input['FlowSourceMonitoringConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding_config: pulumi.Input[Optional['FlowEncodingConfigArgs']] = None,
+                 flow_size: pulumi.Input[Optional['FlowSize']] = None,
+                 maintenance: pulumi.Input[Optional['FlowMaintenanceArgs']] = None,
+                 media_streams: pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_config: pulumi.Input[Optional['FlowNdiConfigArgs']] = None,
+                 source_failover_config: pulumi.Input[Optional['FlowFailoverConfigArgs']] = None,
+                 source_monitoring_config: pulumi.Input[Optional['FlowSourceMonitoringConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
 
@@ -90,134 +90,134 @@ class FlowArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="encodingConfig")
-    def encoding_config(self) -> Optional[pulumi.Input['FlowEncodingConfigArgs']]:
+    def encoding_config(self) -> pulumi.Input[Optional['FlowEncodingConfigArgs']]:
         """
         The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
         """
         return pulumi.get(self, "encoding_config")
 
     @encoding_config.setter
-    def encoding_config(self, value: Optional[pulumi.Input['FlowEncodingConfigArgs']]):
+    def encoding_config(self, value: pulumi.Input[Optional['FlowEncodingConfigArgs']]):
         pulumi.set(self, "encoding_config", value)
 
     @_builtins.property
     @pulumi.getter(name="flowSize")
-    def flow_size(self) -> Optional[pulumi.Input['FlowSize']]:
+    def flow_size(self) -> pulumi.Input[Optional['FlowSize']]:
         """
         Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
         """
         return pulumi.get(self, "flow_size")
 
     @flow_size.setter
-    def flow_size(self, value: Optional[pulumi.Input['FlowSize']]):
+    def flow_size(self, value: pulumi.Input[Optional['FlowSize']]):
         pulumi.set(self, "flow_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def maintenance(self) -> Optional[pulumi.Input['FlowMaintenanceArgs']]:
+    def maintenance(self) -> pulumi.Input[Optional['FlowMaintenanceArgs']]:
         """
         The maintenance settings you want to use for the flow.
         """
         return pulumi.get(self, "maintenance")
 
     @maintenance.setter
-    def maintenance(self, value: Optional[pulumi.Input['FlowMaintenanceArgs']]):
+    def maintenance(self, value: pulumi.Input[Optional['FlowMaintenanceArgs']]):
         pulumi.set(self, "maintenance", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaStreams")
-    def media_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]:
+    def media_streams(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]:
         """
         The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
         """
         return pulumi.get(self, "media_streams")
 
     @media_streams.setter
-    def media_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]):
+    def media_streams(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamArgs']]]]):
         pulumi.set(self, "media_streams", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiConfig")
-    def ndi_config(self) -> Optional[pulumi.Input['FlowNdiConfigArgs']]:
+    def ndi_config(self) -> pulumi.Input[Optional['FlowNdiConfigArgs']]:
         """
         Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
         """
         return pulumi.get(self, "ndi_config")
 
     @ndi_config.setter
-    def ndi_config(self, value: Optional[pulumi.Input['FlowNdiConfigArgs']]):
+    def ndi_config(self, value: pulumi.Input[Optional['FlowNdiConfigArgs']]):
         pulumi.set(self, "ndi_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceFailoverConfig")
-    def source_failover_config(self) -> Optional[pulumi.Input['FlowFailoverConfigArgs']]:
+    def source_failover_config(self) -> pulumi.Input[Optional['FlowFailoverConfigArgs']]:
         """
         The source failover config of the flow.
         """
         return pulumi.get(self, "source_failover_config")
 
     @source_failover_config.setter
-    def source_failover_config(self, value: Optional[pulumi.Input['FlowFailoverConfigArgs']]):
+    def source_failover_config(self, value: pulumi.Input[Optional['FlowFailoverConfigArgs']]):
         pulumi.set(self, "source_failover_config", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceMonitoringConfig")
-    def source_monitoring_config(self) -> Optional[pulumi.Input['FlowSourceMonitoringConfigArgs']]:
+    def source_monitoring_config(self) -> pulumi.Input[Optional['FlowSourceMonitoringConfigArgs']]:
         """
         The source monitoring config of the flow.
         """
         return pulumi.get(self, "source_monitoring_config")
 
     @source_monitoring_config.setter
-    def source_monitoring_config(self, value: Optional[pulumi.Input['FlowSourceMonitoringConfigArgs']]):
+    def source_monitoring_config(self, value: pulumi.Input[Optional['FlowSourceMonitoringConfigArgs']]):
         pulumi.set(self, "source_monitoring_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to tag this flow.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaces")
-    def vpc_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]:
+    def vpc_interfaces(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]:
         """
         The VPC interfaces that you added to this flow.
         """
         return pulumi.get(self, "vpc_interfaces")
 
     @vpc_interfaces.setter
-    def vpc_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]):
+    def vpc_interfaces(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowVpcInterfaceArgs']]]]):
         pulumi.set(self, "vpc_interfaces", value)
 
 
@@ -227,22 +227,21 @@ class Flow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding_config: Optional[pulumi.Input[Union['FlowEncodingConfigArgs', 'FlowEncodingConfigArgsDict']]] = None,
-                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
-                 maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
-                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_config: Optional[pulumi.Input[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
-                 source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
-                 source_monitoring_config: Optional[pulumi.Input[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding_config: pulumi.Input[Optional[Union['FlowEncodingConfigArgs', 'FlowEncodingConfigArgsDict']]] = None,
+                 flow_size: pulumi.Input[Optional['FlowSize']] = None,
+                 maintenance: pulumi.Input[Optional[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
+                 media_streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_config: pulumi.Input[Optional[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
+                 source_failover_config: pulumi.Input[Optional[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
+                 source_monitoring_config: pulumi.Input[Optional[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaConnect::Flow
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,7 +267,6 @@ class Flow(pulumi.CustomResource):
         """
         Resource Type definition for AWS::MediaConnect::Flow
 
-
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,18 +282,18 @@ class Flow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 encoding_config: Optional[pulumi.Input[Union['FlowEncodingConfigArgs', 'FlowEncodingConfigArgsDict']]] = None,
-                 flow_size: Optional[pulumi.Input['FlowSize']] = None,
-                 maintenance: Optional[pulumi.Input[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
-                 media_streams: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_config: Optional[pulumi.Input[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
-                 source_failover_config: Optional[pulumi.Input[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
-                 source_monitoring_config: Optional[pulumi.Input[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 encoding_config: pulumi.Input[Optional[Union['FlowEncodingConfigArgs', 'FlowEncodingConfigArgsDict']]] = None,
+                 flow_size: pulumi.Input[Optional['FlowSize']] = None,
+                 maintenance: pulumi.Input[Optional[Union['FlowMaintenanceArgs', 'FlowMaintenanceArgsDict']]] = None,
+                 media_streams: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowMediaStreamArgs', 'FlowMediaStreamArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_config: pulumi.Input[Optional[Union['FlowNdiConfigArgs', 'FlowNdiConfigArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['FlowSourceArgs', 'FlowSourceArgsDict']]] = None,
+                 source_failover_config: pulumi.Input[Optional[Union['FlowFailoverConfigArgs', 'FlowFailoverConfigArgsDict']]] = None,
+                 source_monitoring_config: pulumi.Input[Optional[Union['FlowSourceMonitoringConfigArgs', 'FlowSourceMonitoringConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowVpcInterfaceArgs', 'FlowVpcInterfaceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

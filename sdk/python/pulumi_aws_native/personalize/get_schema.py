@@ -51,7 +51,6 @@ def get_schema(schema_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Personalize::Schema.
 
-
     :param _builtins.str schema_arn: Arn for the schema.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_schema(schema_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetSchemaResult(
         schema_arn=pulumi.get(__ret__, 'schema_arn'))
-def get_schema_output(schema_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_output(schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Resource schema for AWS::Personalize::Schema.
-
 
     :param _builtins.str schema_arn: Arn for the schema.
     """

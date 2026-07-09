@@ -61,12 +61,11 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,7 +80,6 @@ class AttributeGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
-
 
         :param str resource_name: The name of the resource.
         :param AttributeGroupAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -98,8 +96,8 @@ class AttributeGroupAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute_group: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

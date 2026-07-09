@@ -61,8 +61,7 @@ def get_application_version(application_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
 
-
-    :param _builtins.str application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
+    :param _builtins.str application_name: The name of the Elastic Beanstalk application that is associated with this application version.
     """
     __args__ = dict()
     __args__['applicationName'] = application_name
@@ -73,14 +72,13 @@ def get_application_version(application_name: Optional[_builtins.str] = None,
     return AwaitableGetApplicationVersionResult(
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'))
-def get_application_version_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_version_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationVersionResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
 
-
-    :param _builtins.str application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
+    :param _builtins.str application_name: The name of the Elastic Beanstalk application that is associated with this application version.
     """
     __args__ = dict()
     __args__['applicationName'] = application_name

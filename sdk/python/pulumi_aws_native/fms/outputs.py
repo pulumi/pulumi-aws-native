@@ -353,12 +353,12 @@ class PolicyNetworkAclEntrySet(dict):
                If forced remediation is disabled, Firewall Manager marks the network ACL as noncompliant and does not try to remediate. For more information about the remediation behavior, see [Remediation for managed network ACLs](https://docs.aws.amazon.com/waf/latest/developerguide/network-acl-policies.html#network-acls-remediation) in the *AWS Firewall Manager Developer Guide* .
         :param Sequence['PolicyNetworkAclEntry'] first_entries: The rules that you want to run first in the Firewall Manager managed network ACLs.
                
-               > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+               > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
                
                You must specify at least one first entry or one last entry in any network ACL policy.
         :param Sequence['PolicyNetworkAclEntry'] last_entries: The rules that you want to run last in the Firewall Manager managed network ACLs.
                
-               > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+               > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
                
                You must specify at least one first entry or one last entry in any network ACL policy.
         """
@@ -395,7 +395,7 @@ class PolicyNetworkAclEntrySet(dict):
         """
         The rules that you want to run first in the Firewall Manager managed network ACLs.
 
-        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
 
         You must specify at least one first entry or one last entry in any network ACL policy.
         """
@@ -407,7 +407,7 @@ class PolicyNetworkAclEntrySet(dict):
         """
         The rules that you want to run last in the Firewall Manager managed network ACLs.
 
-        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates. 
+        > Provide these in the order in which you want them to run. Firewall Manager will assign the specific rule numbers for you, in the network ACLs that it creates.
 
         You must specify at least one first entry or one last entry in any network ACL policy.
         """

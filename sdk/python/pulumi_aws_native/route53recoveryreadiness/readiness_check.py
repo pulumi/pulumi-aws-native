@@ -21,9 +21,9 @@ __all__ = ['ReadinessCheckArgs', 'ReadinessCheck']
 @pulumi.input_type
 class ReadinessCheckArgs:
     def __init__(__self__, *,
-                 readiness_check_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ReadinessCheck resource.
 
@@ -40,38 +40,38 @@ class ReadinessCheckArgs:
 
     @_builtins.property
     @pulumi.getter(name="readinessCheckName")
-    def readiness_check_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def readiness_check_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the ReadinessCheck to create.
         """
         return pulumi.get(self, "readiness_check_name")
 
     @readiness_check_name.setter
-    def readiness_check_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def readiness_check_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "readiness_check_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceSetName")
-    def resource_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the resource set to check.
         """
         return pulumi.get(self, "resource_set_name")
 
     @resource_set_name.setter
-    def resource_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_set_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -81,13 +81,12 @@ class ReadinessCheck(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 readiness_check_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,7 +103,6 @@ class ReadinessCheck(pulumi.CustomResource):
         """
         Aws Route53 Recovery Readiness Check Schema and API specification.
 
-
         :param str resource_name: The name of the resource.
         :param ReadinessCheckArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,9 +118,9 @@ class ReadinessCheck(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 readiness_check_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 readiness_check_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

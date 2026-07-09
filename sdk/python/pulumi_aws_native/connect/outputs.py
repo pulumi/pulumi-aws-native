@@ -1815,7 +1815,7 @@ class EvaluationFormSection(dict):
         :param Sequence['EvaluationFormItem'] items: The items of the section.
                 *Minimum*: 1
         :param _builtins.float weight: The scoring weight of the section.
-                *Minimum*: 0 
+                *Minimum*: 0
                 *Maximum*: 100
         """
         pulumi.set(__self__, "ref_id", ref_id)
@@ -1867,7 +1867,7 @@ class EvaluationFormSection(dict):
     def weight(self) -> Optional[_builtins.float]:
         """
         The scoring weight of the section.
-         *Minimum*: 0 
+         *Minimum*: 0
          *Maximum*: 100
         """
         return pulumi.get(self, "weight")
@@ -4451,7 +4451,7 @@ class RuleReference(dict):
         """
         Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
 
-        :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+        :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp.
                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         :param _builtins.str value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
@@ -4462,7 +4462,7 @@ class RuleReference(dict):
     @pulumi.getter
     def type(self) -> 'RuleReferenceType':
         """
-        The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+        The type of the reference. ``DATE`` must be of type Epoch timestamp.
          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
         """
         return pulumi.get(self, "type")

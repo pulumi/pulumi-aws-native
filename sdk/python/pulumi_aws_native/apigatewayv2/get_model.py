@@ -102,7 +102,6 @@ def get_model(api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str model_id: The model ID.
     """
@@ -118,12 +117,11 @@ def get_model(api_id: Optional[_builtins.str] = None,
         model_id=pulumi.get(__ret__, 'model_id'),
         name=pulumi.get(__ret__, 'name'),
         schema=pulumi.get(__ret__, 'schema'))
-def get_model_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     model_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     model_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str model_id: The model ID.

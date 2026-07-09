@@ -22,14 +22,14 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 class LoadBalancerArgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[_builtins.int],
-                 attached_instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_stickiness_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tls_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 attached_instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_stickiness_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 session_stickiness_lb_cookie_duration_seconds: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tls_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
@@ -75,98 +75,98 @@ class LoadBalancerArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachedInstances")
-    def attached_instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def attached_instances(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the instances attached to the load balancer.
         """
         return pulumi.get(self, "attached_instances")
 
     @attached_instances.setter
-    def attached_instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def attached_instances(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attached_instances", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckPath")
-    def health_check_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path you provided to perform the load balancer health check. If you didn't specify a health check path, Lightsail uses the root path of your website (e.g., "/").
         """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
-    def health_check_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def health_check_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "health_check_path", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address type for the load balancer. The possible values are ipv4 for IPv4 only, and dualstack for IPv4 and IPv6. The default value is dualstack.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_address_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your load balancer.
         """
         return pulumi.get(self, "load_balancer_name")
 
     @load_balancer_name.setter
-    def load_balancer_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionStickinessEnabled")
-    def session_stickiness_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def session_stickiness_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configuration option to enable session stickiness.
         """
         return pulumi.get(self, "session_stickiness_enabled")
 
     @session_stickiness_enabled.setter
-    def session_stickiness_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def session_stickiness_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "session_stickiness_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionStickinessLbCookieDurationSeconds")
-    def session_stickiness_lb_cookie_duration_seconds(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def session_stickiness_lb_cookie_duration_seconds(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Configuration option to adjust session stickiness cookie duration parameter.
         """
         return pulumi.get(self, "session_stickiness_lb_cookie_duration_seconds")
 
     @session_stickiness_lb_cookie_duration_seconds.setter
-    def session_stickiness_lb_cookie_duration_seconds(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def session_stickiness_lb_cookie_duration_seconds(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "session_stickiness_lb_cookie_duration_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tlsPolicyName")
-    def tls_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tls_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the TLS policy to apply to the load balancer.
         """
         return pulumi.get(self, "tls_policy_name")
 
     @tls_policy_name.setter
-    def tls_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tls_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tls_policy_name", value)
 
 
@@ -176,19 +176,18 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_stickiness_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_stickiness_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 session_stickiness_lb_cookie_duration_seconds: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancer
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::LoadBalancer
 
-
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,15 +225,15 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attached_instances: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ip_address_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 session_stickiness_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tls_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 attached_instances: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_stickiness_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 session_stickiness_lb_cookie_duration_seconds: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tls_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

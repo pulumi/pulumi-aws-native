@@ -22,16 +22,16 @@ __all__ = ['ProjectProfileArgs', 'ProjectProfile']
 @pulumi.input_type
 class ProjectProfileArgs:
     def __init__(__self__, *,
-                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]] = None,
-                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
-                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None):
+                 allow_custom_project_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]] = None,
+                 project_resource_tags_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['ProjectProfileStatus']] = None,
+                 use_default_configurations: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProjectProfile resource.
 
@@ -65,110 +65,110 @@ class ProjectProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCustomProjectResourceTags")
-    def allow_custom_project_resource_tags(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_custom_project_resource_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "allow_custom_project_resource_tags")
 
     @allow_custom_project_resource_tags.setter
-    def allow_custom_project_resource_tags(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_custom_project_resource_tags(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_custom_project_resource_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the project profile.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
-    def domain_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A domain ID of the project profile.
         """
         return pulumi.get(self, "domain_identifier")
 
     @domain_identifier.setter
-    def domain_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUnitIdentifier")
-    def domain_unit_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_unit_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A domain unit ID of the project profile.
         """
         return pulumi.get(self, "domain_unit_identifier")
 
     @domain_unit_identifier.setter
-    def domain_unit_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_unit_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_unit_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentConfigurations")
-    def environment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]:
+    def environment_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]:
         """
         Environment configurations of a project profile.
         """
         return pulumi.get(self, "environment_configurations")
 
     @environment_configurations.setter
-    def environment_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]):
+    def environment_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]]):
         pulumi.set(self, "environment_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a project profile.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectResourceTags")
-    def project_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]:
+    def project_resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]:
         return pulumi.get(self, "project_resource_tags")
 
     @project_resource_tags.setter
-    def project_resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]):
+    def project_resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectProfileResourceTagParameterArgs']]]]):
         pulumi.set(self, "project_resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="projectResourceTagsDescription")
-    def project_resource_tags_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_resource_tags_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "project_resource_tags_description")
 
     @project_resource_tags_description.setter
-    def project_resource_tags_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_resource_tags_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_resource_tags_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['ProjectProfileStatus']]:
+    def status(self) -> pulumi.Input[Optional['ProjectProfileStatus']]:
         """
         The status of a project profile.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['ProjectProfileStatus']]):
+    def status(self, value: pulumi.Input[Optional['ProjectProfileStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="useDefaultConfigurations")
-    def use_default_configurations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def use_default_configurations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "use_default_configurations")
 
     @use_default_configurations.setter
-    def use_default_configurations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def use_default_configurations(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_default_configurations", value)
 
 
@@ -178,20 +178,19 @@ class ProjectProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
-                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
-                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_custom_project_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['ProjectProfileStatus']] = None,
+                 use_default_configurations: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::ProjectProfile Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,7 +210,6 @@ class ProjectProfile(pulumi.CustomResource):
         """
         Definition of AWS::DataZone::ProjectProfile Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param ProjectProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,16 +225,16 @@ class ProjectProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_custom_project_resource_tags: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
-                 project_resource_tags_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
-                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_custom_project_resource_tags: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectProfileResourceTagParameterArgs', 'ProjectProfileResourceTagParameterArgsDict']]]]] = None,
+                 project_resource_tags_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional['ProjectProfileStatus']] = None,
+                 use_default_configurations: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

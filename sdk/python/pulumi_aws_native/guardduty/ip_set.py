@@ -23,11 +23,11 @@ class IpSetArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[_builtins.str],
                  location: pulumi.Input[_builtins.str],
-                 activate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 activate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpSet resource.
 
@@ -87,19 +87,19 @@ class IpSetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def activate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def activate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A boolean value that determines if GuardDuty can start using this list for custom threat detection. For GuardDuty to prevent generating findings based on an activity associated with these entries, this list must be active.
         """
         return pulumi.get(self, "activate")
 
     @activate.setter
-    def activate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def activate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "activate", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorId")
-    def detector_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique ID of the detector of the GuardDuty account for which you want to create an IPSet.
 
@@ -109,12 +109,12 @@ class IpSetArgs:
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
-    def detector_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
-    def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def expected_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID that owns the Amazon S3 bucket specified in the *Location* field.
 
@@ -123,12 +123,12 @@ class IpSetArgs:
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
-    def expected_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def expected_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The user-friendly name to identify the IPSet.
 
@@ -137,12 +137,12 @@ class IpSetArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to be added to a new threat entity set resource. Each tag consists of a key and an optional value, both of which you define.
 
@@ -151,7 +151,7 @@ class IpSetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,17 +161,16 @@ class IpSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 activate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::IPSet
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,7 +200,6 @@ class IpSet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::GuardDuty::IPSet
 
-
         :param str resource_name: The name of the resource.
         :param IpSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,13 +215,13 @@ class IpSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activate: Optional[pulumi.Input[_builtins.bool]] = None,
-                 detector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 format: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 activate: pulumi.Input[Optional[_builtins.bool]] = None,
+                 detector_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 expected_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 format: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

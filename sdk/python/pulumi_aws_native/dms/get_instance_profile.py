@@ -173,7 +173,6 @@ def get_instance_profile(instance_profile_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DMS::InstanceProfile.
 
-
     :param _builtins.str instance_profile_arn: The property describes an ARN of the instance profile.
     """
     __args__ = dict()
@@ -193,11 +192,10 @@ def get_instance_profile(instance_profile_arn: Optional[_builtins.str] = None,
         subnet_group_identifier=pulumi.get(__ret__, 'subnet_group_identifier'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
-def get_instance_profile_output(instance_profile_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_profile_output(instance_profile_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Resource schema for AWS::DMS::InstanceProfile.
-
 
     :param _builtins.str instance_profile_arn: The property describes an ARN of the instance profile.
     """

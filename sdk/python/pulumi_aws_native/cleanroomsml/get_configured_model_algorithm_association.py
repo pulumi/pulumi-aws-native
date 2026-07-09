@@ -79,7 +79,7 @@ def get_configured_model_algorithm_association(configured_model_algorithm_associ
         collaboration_identifier=pulumi.get(__ret__, 'collaboration_identifier'),
         configured_model_algorithm_association_arn=pulumi.get(__ret__, 'configured_model_algorithm_association_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configured_model_algorithm_association_output(configured_model_algorithm_association_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configured_model_algorithm_association_output(configured_model_algorithm_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredModelAlgorithmAssociationResult]:
     """
     Definition of AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation Resource Type

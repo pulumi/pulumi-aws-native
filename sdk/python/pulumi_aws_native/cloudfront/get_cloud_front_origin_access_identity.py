@@ -76,7 +76,6 @@ def get_cloud_front_origin_access_identity(id: Optional[_builtins.str] = None,
     """
     The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
 
-
     :param _builtins.str id: The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_cloud_front_origin_access_identity(id: Optional[_builtins.str] = None,
         cloud_front_origin_access_identity_config=pulumi.get(__ret__, 'cloud_front_origin_access_identity_config'),
         id=pulumi.get(__ret__, 'id'),
         s3_canonical_user_id=pulumi.get(__ret__, 's3_canonical_user_id'))
-def get_cloud_front_origin_access_identity_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_front_origin_access_identity_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFrontOriginAccessIdentityResult]:
     """
     The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
-
 
     :param _builtins.str id: The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
     """

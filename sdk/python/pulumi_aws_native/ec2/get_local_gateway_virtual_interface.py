@@ -112,7 +112,6 @@ def get_local_gateway_virtual_interface(local_gateway_virtual_interface_id: Opti
     """
     Resource Type definition for Local Gateway Virtual Interface which describes a virtual interface for AWS Outposts local gateways.
 
-
     :param _builtins.str local_gateway_virtual_interface_id: The ID of the virtual interface
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_local_gateway_virtual_interface(local_gateway_virtual_interface_id: Opti
         local_gateway_virtual_interface_id=pulumi.get(__ret__, 'local_gateway_virtual_interface_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_virtual_interface_output(local_gateway_virtual_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_virtual_interface_output(local_gateway_virtual_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
     """
     Resource Type definition for Local Gateway Virtual Interface which describes a virtual interface for AWS Outposts local gateways.
-
 
     :param _builtins.str local_gateway_virtual_interface_id: The ID of the virtual interface
     """

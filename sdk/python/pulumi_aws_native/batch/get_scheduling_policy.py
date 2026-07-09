@@ -86,7 +86,6 @@ def get_scheduling_policy(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Batch::SchedulingPolicy
 
-
     :param _builtins.str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
     """
     __args__ = dict()
@@ -99,11 +98,10 @@ def get_scheduling_policy(arn: Optional[_builtins.str] = None,
         fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'),
         quota_share_policy=pulumi.get(__ret__, 'quota_share_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_scheduling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduling_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
     Resource Type definition for AWS::Batch::SchedulingPolicy
-
 
     :param _builtins.str arn: Returns the scheduling policy ARN, such as `batch: *us-east-1* : *111122223333* :scheduling-policy/ *HighPriority*` .
     """

@@ -26,11 +26,11 @@ class ExperimentTemplateArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
                  targets: pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateTargetArgs']]],
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
-                 experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
-                 experiment_report_configuration: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
-                 log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]] = None,
+                 experiment_options: pulumi.Input[Optional['ExperimentTemplateExperimentOptionsArgs']] = None,
+                 experiment_report_configuration: pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationArgs']] = None,
+                 log_configuration: pulumi.Input[Optional['ExperimentTemplateLogConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
 
@@ -109,62 +109,62 @@ class ExperimentTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]]:
         """
         The actions for the experiment.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentOptions")
-    def experiment_options(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]:
+    def experiment_options(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentOptionsArgs']]:
         """
         The experiment options for an experiment template.
         """
         return pulumi.get(self, "experiment_options")
 
     @experiment_options.setter
-    def experiment_options(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]):
+    def experiment_options(self, value: pulumi.Input[Optional['ExperimentTemplateExperimentOptionsArgs']]):
         pulumi.set(self, "experiment_options", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentReportConfiguration")
-    def experiment_report_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]:
+    def experiment_report_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationArgs']]:
         """
         Describes the report configuration for the experiment template.
         """
         return pulumi.get(self, "experiment_report_configuration")
 
     @experiment_report_configuration.setter
-    def experiment_report_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]):
+    def experiment_report_configuration(self, value: pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationArgs']]):
         pulumi.set(self, "experiment_report_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['ExperimentTemplateLogConfigurationArgs']]:
         """
         The configuration for experiment logging.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['ExperimentTemplateLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags for the experiment template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -174,15 +174,15 @@ class ExperimentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
-                 experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::FIS::ExperimentTemplate
@@ -357,15 +357,15 @@ class ExperimentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 experiment_options: Optional[pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
-                 experiment_report_configuration: Optional[pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 experiment_options: pulumi.Input[Optional[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']]] = None,
+                 experiment_report_configuration: pulumi.Input[Optional[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 stop_conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExperimentTemplateTargetArgs', 'ExperimentTemplateTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

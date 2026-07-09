@@ -28,7 +28,7 @@ class PrivacyBudgetTemplateArgs:
                  membership_identifier: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input['ParametersPropertiesArgs'],
                  privacy_budget_type: pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PrivacyBudgetTemplate resource.
 
@@ -99,14 +99,14 @@ class PrivacyBudgetTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,15 +116,14 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_refresh: Optional[pulumi.Input['PrivacyBudgetTemplateAutoRefresh']] = None,
-                 membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
-                 privacy_budget_type: Optional[pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auto_refresh: pulumi.Input[Optional['PrivacyBudgetTemplateAutoRefresh']] = None,
+                 membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
+                 privacy_budget_type: pulumi.Input[Optional['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Represents a privacy budget within a collaboration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +144,6 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
         """
         Represents a privacy budget within a collaboration
 
-
         :param str resource_name: The name of the resource.
         :param PrivacyBudgetTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,11 +159,11 @@ class PrivacyBudgetTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_refresh: Optional[pulumi.Input['PrivacyBudgetTemplateAutoRefresh']] = None,
-                 membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
-                 privacy_budget_type: Optional[pulumi.Input['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auto_refresh: pulumi.Input[Optional['PrivacyBudgetTemplateAutoRefresh']] = None,
+                 membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Union['ParametersPropertiesArgs', 'ParametersPropertiesArgsDict']]] = None,
+                 privacy_budget_type: pulumi.Input[Optional['PrivacyBudgetTemplatePrivacyBudgetType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

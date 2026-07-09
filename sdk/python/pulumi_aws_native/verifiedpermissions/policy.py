@@ -24,7 +24,7 @@ class PolicyArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']],
                  policy_store_id: pulumi.Input[_builtins.str],
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -62,11 +62,11 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -76,9 +76,9 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::VerifiedPermissions::Policy Resource Type
@@ -222,9 +222,9 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition0PropertiesArgsDict'], Union['PolicyDefinition1PropertiesArgs', 'PolicyDefinition1PropertiesArgsDict']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -139,7 +139,6 @@ def get_budgets_action(action_id: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str action_id: A system-generated universally unique identifier (UUID) for the action.
     :param _builtins.str budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.
     """
@@ -158,12 +157,11 @@ def get_budgets_action(action_id: Optional[_builtins.str] = None,
         notification_type=pulumi.get(__ret__, 'notification_type'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         subscribers=pulumi.get(__ret__, 'subscribers'))
-def get_budgets_action_output(action_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              budget_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_budgets_action_output(action_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              budget_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetsActionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str action_id: A system-generated universally unique identifier (UUID) for the action.
     :param _builtins.str budget_name: A string that represents the budget name. ":" and "\\" characters aren't allowed.

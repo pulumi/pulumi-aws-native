@@ -209,7 +209,6 @@ def get_quick_response(quick_response_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Wisdom::QuickResponse Resource Type.
 
-
     :param _builtins.str quick_response_arn: The Amazon Resource Name (ARN) of the quick response.
     """
     __args__ = dict()
@@ -232,11 +231,10 @@ def get_quick_response(quick_response_arn: Optional[_builtins.str] = None,
         shortcut_key=pulumi.get(__ret__, 'shortcut_key'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_quick_response_output(quick_response_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_quick_response_output(quick_response_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuickResponseResult]:
     """
     Definition of AWS::Wisdom::QuickResponse Resource Type.
-
 
     :param _builtins.str quick_response_arn: The Amazon Resource Name (ARN) of the quick response.
     """

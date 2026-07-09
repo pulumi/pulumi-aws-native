@@ -132,7 +132,6 @@ def get_feature(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Evidently::Feature.
 
-
     :param _builtins.str arn: The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
     """
     __args__ = dict()
@@ -148,11 +147,10 @@ def get_feature(arn: Optional[_builtins.str] = None,
         evaluation_strategy=pulumi.get(__ret__, 'evaluation_strategy'),
         tags=pulumi.get(__ret__, 'tags'),
         variations=pulumi.get(__ret__, 'variations'))
-def get_feature_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_feature_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeatureResult]:
     """
     Resource Type definition for AWS::Evidently::Feature.
-
 
     :param _builtins.str arn: The ARN of the feature. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/feature/myFeature` .
     """

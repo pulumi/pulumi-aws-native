@@ -118,7 +118,6 @@ def get_resource_version(arn: Optional[_builtins.str] = None,
     """
     A resource that has been registered in the CloudFormation Registry.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
     """
     __args__ = dict()
@@ -133,11 +132,10 @@ def get_resource_version(arn: Optional[_builtins.str] = None,
         type_arn=pulumi.get(__ret__, 'type_arn'),
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_resource_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceVersionResult]:
     """
     A resource that has been registered in the CloudFormation Registry.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
     """

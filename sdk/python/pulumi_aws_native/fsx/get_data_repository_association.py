@@ -102,7 +102,6 @@ def get_data_repository_association(association_id: Optional[_builtins.str] = No
     """
     Resource Type definition for AWS::FSx::DataRepositoryAssociation
 
-
     :param _builtins.str association_id: The system-generated, unique ID of the data repository association.
     """
     __args__ = dict()
@@ -116,11 +115,10 @@ def get_data_repository_association(association_id: Optional[_builtins.str] = No
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         s3=pulumi.get(__ret__, 's3'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_repository_association_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_repository_association_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataRepositoryAssociationResult]:
     """
     Resource Type definition for AWS::FSx::DataRepositoryAssociation
-
 
     :param _builtins.str association_id: The system-generated, unique ID of the data repository association.
     """

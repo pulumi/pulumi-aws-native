@@ -28,15 +28,15 @@ class InferenceExperimentArgs:
                  model_variants: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]],
                  role_arn: pulumi.Input[_builtins.str],
                  type: pulumi.Input['InferenceExperimentType'],
-                 data_storage_config: Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['InferenceExperimentDesiredState']] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['InferenceExperimentScheduleArgs']] = None,
-                 shadow_mode_config: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_storage_config: pulumi.Input[Optional['InferenceExperimentDataStorageConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['InferenceExperimentDesiredState']] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['InferenceExperimentScheduleArgs']] = None,
+                 shadow_mode_config: pulumi.Input[Optional['InferenceExperimentShadowModeConfigArgs']] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InferenceExperiment resource.
 
@@ -129,67 +129,67 @@ class InferenceExperimentArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStorageConfig")
-    def data_storage_config(self) -> Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']]:
+    def data_storage_config(self) -> pulumi.Input[Optional['InferenceExperimentDataStorageConfigArgs']]:
         """
         The Amazon S3 location and configuration for storing inference request and response data.
         """
         return pulumi.get(self, "data_storage_config")
 
     @data_storage_config.setter
-    def data_storage_config(self, value: Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']]):
+    def data_storage_config(self, value: pulumi.Input[Optional['InferenceExperimentDataStorageConfigArgs']]):
         pulumi.set(self, "data_storage_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the inference experiment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredState")
-    def desired_state(self) -> Optional[pulumi.Input['InferenceExperimentDesiredState']]:
+    def desired_state(self) -> pulumi.Input[Optional['InferenceExperimentDesiredState']]:
         """
         The desired state of the experiment after starting or stopping operation.
         """
         return pulumi.get(self, "desired_state")
 
     @desired_state.setter
-    def desired_state(self, value: Optional[pulumi.Input['InferenceExperimentDesiredState']]):
+    def desired_state(self, value: pulumi.Input[Optional['InferenceExperimentDesiredState']]):
         pulumi.set(self, "desired_state", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the inference experiment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['InferenceExperimentScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['InferenceExperimentScheduleArgs']]:
         """
         The duration for which the inference experiment ran or will run.
 
@@ -198,43 +198,43 @@ class InferenceExperimentArgs:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['InferenceExperimentScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['InferenceExperimentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="shadowModeConfig")
-    def shadow_mode_config(self) -> Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']]:
+    def shadow_mode_config(self) -> pulumi.Input[Optional['InferenceExperimentShadowModeConfigArgs']]:
         """
         The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
         """
         return pulumi.get(self, "shadow_mode_config")
 
     @shadow_mode_config.setter
-    def shadow_mode_config(self, value: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']]):
+    def shadow_mode_config(self, value: pulumi.Input[Optional['InferenceExperimentShadowModeConfigArgs']]):
         pulumi.set(self, "shadow_mode_config", value)
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -244,23 +244,22 @@ class InferenceExperiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_storage_config: Optional[pulumi.Input[Union['InferenceExperimentDataStorageConfigArgs', 'InferenceExperimentDataStorageConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['InferenceExperimentDesiredState']] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InferenceExperimentModelVariantConfigArgs', 'InferenceExperimentModelVariantConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['InferenceExperimentScheduleArgs', 'InferenceExperimentScheduleArgsDict']]] = None,
-                 shadow_mode_config: Optional[pulumi.Input[Union['InferenceExperimentShadowModeConfigArgs', 'InferenceExperimentShadowModeConfigArgsDict']]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['InferenceExperimentType']] = None,
+                 data_storage_config: pulumi.Input[Optional[Union['InferenceExperimentDataStorageConfigArgs', 'InferenceExperimentDataStorageConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['InferenceExperimentDesiredState']] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceExperimentModelVariantConfigArgs', 'InferenceExperimentModelVariantConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['InferenceExperimentScheduleArgs', 'InferenceExperimentScheduleArgsDict']]] = None,
+                 shadow_mode_config: pulumi.Input[Optional[Union['InferenceExperimentShadowModeConfigArgs', 'InferenceExperimentShadowModeConfigArgsDict']]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['InferenceExperimentType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::InferenceExperiment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +288,6 @@ class InferenceExperiment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::InferenceExperiment
 
-
         :param str resource_name: The name of the resource.
         :param InferenceExperimentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,19 +303,19 @@ class InferenceExperiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_storage_config: Optional[pulumi.Input[Union['InferenceExperimentDataStorageConfigArgs', 'InferenceExperimentDataStorageConfigArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['InferenceExperimentDesiredState']] = None,
-                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InferenceExperimentModelVariantConfigArgs', 'InferenceExperimentModelVariantConfigArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['InferenceExperimentScheduleArgs', 'InferenceExperimentScheduleArgsDict']]] = None,
-                 shadow_mode_config: Optional[pulumi.Input[Union['InferenceExperimentShadowModeConfigArgs', 'InferenceExperimentShadowModeConfigArgsDict']]] = None,
-                 status_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['InferenceExperimentType']] = None,
+                 data_storage_config: pulumi.Input[Optional[Union['InferenceExperimentDataStorageConfigArgs', 'InferenceExperimentDataStorageConfigArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['InferenceExperimentDesiredState']] = None,
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InferenceExperimentModelVariantConfigArgs', 'InferenceExperimentModelVariantConfigArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['InferenceExperimentScheduleArgs', 'InferenceExperimentScheduleArgsDict']]] = None,
+                 shadow_mode_config: pulumi.Input[Optional[Union['InferenceExperimentShadowModeConfigArgs', 'InferenceExperimentShadowModeConfigArgsDict']]] = None,
+                 status_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['InferenceExperimentType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

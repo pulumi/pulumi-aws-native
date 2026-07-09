@@ -314,7 +314,6 @@ def get_portal(portal_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::WorkSpacesWeb::Portal Resource Type
 
-
     :param _builtins.str portal_arn: The ARN of the web portal.
     """
     __args__ = dict()
@@ -345,11 +344,10 @@ def get_portal(portal_arn: Optional[_builtins.str] = None,
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'),
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
-def get_portal_output(portal_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_portal_output(portal_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortalResult]:
     """
     Definition of AWS::WorkSpacesWeb::Portal Resource Type
-
 
     :param _builtins.str portal_arn: The ARN of the web portal.
     """

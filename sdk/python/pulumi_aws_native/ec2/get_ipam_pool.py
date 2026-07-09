@@ -234,7 +234,6 @@ def get_ipam_pool(ipam_pool_id: Optional[_builtins.str] = None,
     """
     Resource Schema of AWS::EC2::IPAMPool Type
 
-
     :param _builtins.str ipam_pool_id: Id of the IPAM Pool.
     """
     __args__ = dict()
@@ -259,11 +258,10 @@ def get_ipam_pool(ipam_pool_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_pool_output(ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
     Resource Schema of AWS::EC2::IPAMPool Type
-
 
     :param _builtins.str ipam_pool_id: Id of the IPAM Pool.
     """

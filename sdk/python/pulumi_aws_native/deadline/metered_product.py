@@ -19,8 +19,8 @@ __all__ = ['MeteredProductArgs', 'MeteredProduct']
 @pulumi.input_type
 class MeteredProductArgs:
     def __init__(__self__, *,
-                 license_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 license_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MeteredProduct resource.
 
@@ -34,26 +34,26 @@ class MeteredProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="licenseEndpointId")
-    def license_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def license_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon EC2 identifier of the license endpoint.
         """
         return pulumi.get(self, "license_endpoint_id")
 
     @license_endpoint_id.setter
-    def license_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def license_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "license_endpoint_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The product ID.
         """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "product_id", value)
 
 
@@ -63,12 +63,11 @@ class MeteredProduct(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::MeteredProduct
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class MeteredProduct(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Deadline::MeteredProduct
-
 
         :param str resource_name: The name of the resource.
         :param MeteredProductArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class MeteredProduct(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 license_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 license_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

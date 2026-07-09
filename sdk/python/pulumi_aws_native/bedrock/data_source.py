@@ -24,11 +24,11 @@ class DataSourceArgs:
     def __init__(__self__, *,
                  data_source_configuration: pulumi.Input['DataSourceConfigurationArgs'],
                  knowledge_base_id: pulumi.Input[_builtins.str],
-                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs']] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']] = None):
+                 data_deletion_policy: pulumi.Input[Optional['DataSourceDataDeletionPolicy']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['DataSourceServerSideEncryptionConfigurationArgs']] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional['DataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
@@ -79,62 +79,62 @@ class DataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataDeletionPolicy")
-    def data_deletion_policy(self) -> Optional[pulumi.Input['DataSourceDataDeletionPolicy']]:
+    def data_deletion_policy(self) -> pulumi.Input[Optional['DataSourceDataDeletionPolicy']]:
         """
         The data deletion policy for the data source.
         """
         return pulumi.get(self, "data_deletion_policy")
 
     @data_deletion_policy.setter
-    def data_deletion_policy(self, value: Optional[pulumi.Input['DataSourceDataDeletionPolicy']]):
+    def data_deletion_policy(self, value: pulumi.Input[Optional['DataSourceDataDeletionPolicy']]):
         pulumi.set(self, "data_deletion_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['DataSourceServerSideEncryptionConfigurationArgs']]:
         """
         Contains details about the configuration of the server-side encryption.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['DataSourceServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorIngestionConfiguration")
-    def vector_ingestion_configuration(self) -> Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']]:
+    def vector_ingestion_configuration(self) -> pulumi.Input[Optional['DataSourceVectorIngestionConfigurationArgs']]:
         """
         Contains details about how to ingest the documents in the data source.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
-    def vector_ingestion_configuration(self, value: Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']]):
+    def vector_ingestion_configuration(self, value: pulumi.Input[Optional['DataSourceVectorIngestionConfigurationArgs']]):
         pulumi.set(self, "vector_ingestion_configuration", value)
 
 
@@ -144,17 +144,16 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['DataSourceServerSideEncryptionConfigurationArgs', 'DataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['DataSourceVectorIngestionConfigurationArgs', 'DataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 data_deletion_policy: pulumi.Input[Optional['DataSourceDataDeletionPolicy']] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['DataSourceServerSideEncryptionConfigurationArgs', 'DataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['DataSourceVectorIngestionConfigurationArgs', 'DataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::DataSource Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::DataSource Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_deletion_policy: Optional[pulumi.Input['DataSourceDataDeletionPolicy']] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[Union['DataSourceServerSideEncryptionConfigurationArgs', 'DataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[Union['DataSourceVectorIngestionConfigurationArgs', 'DataSourceVectorIngestionConfigurationArgsDict']]] = None,
+                 data_deletion_policy: pulumi.Input[Optional['DataSourceDataDeletionPolicy']] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['DataSourceConfigurationArgs', 'DataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['DataSourceServerSideEncryptionConfigurationArgs', 'DataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['DataSourceVectorIngestionConfigurationArgs', 'DataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

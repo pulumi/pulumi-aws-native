@@ -162,7 +162,6 @@ def get_phone_number(phone_number_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SMSVOICE::PhoneNumber
 
-
     :param _builtins.str phone_number_id: The unique identifier for the phone number.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_phone_number(phone_number_id: Optional[_builtins.str] = None,
         self_managed_opt_outs_enabled=pulumi.get(__ret__, 'self_managed_opt_outs_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         two_way=pulumi.get(__ret__, 'two_way'))
-def get_phone_number_output(phone_number_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_phone_number_output(phone_number_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPhoneNumberResult]:
     """
     Resource Type definition for AWS::SMSVOICE::PhoneNumber
-
 
     :param _builtins.str phone_number_id: The unique identifier for the phone number.
     """

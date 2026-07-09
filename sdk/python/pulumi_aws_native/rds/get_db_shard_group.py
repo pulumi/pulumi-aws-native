@@ -110,7 +110,6 @@ def get_db_shard_group(db_shard_group_identifier: Optional[_builtins.str] = None
     Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
      Valid for: Aurora DB clusters only
 
-
     :param _builtins.str db_shard_group_identifier: The name of the DB shard group.
     """
     __args__ = dict()
@@ -124,12 +123,11 @@ def get_db_shard_group(db_shard_group_identifier: Optional[_builtins.str] = None
         endpoint=pulumi.get(__ret__, 'endpoint'),
         max_acu=pulumi.get(__ret__, 'max_acu'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_shard_group_output(db_shard_group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_shard_group_output(db_shard_group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbShardGroupResult]:
     """
     Creates a new DB shard group for Aurora Limitless Database. You must enable Aurora Limitless Database to create a DB shard group.
      Valid for: Aurora DB clusters only
-
 
     :param _builtins.str db_shard_group_identifier: The name of the DB shard group.
     """

@@ -76,7 +76,6 @@ def get_registry(arn: Optional[_builtins.str] = None,
     """
     This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
 
-
     :param _builtins.str arn: Amazon Resource Name for the created Registry.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_registry(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_registry_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registry_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryResult]:
     """
     This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
-
 
     :param _builtins.str arn: Amazon Resource Name for the created Registry.
     """

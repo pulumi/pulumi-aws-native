@@ -64,7 +64,6 @@ def get_account(account_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::CertificateManager::Account.
 
-
     :param _builtins.str account_id: ID of the AWS account that owns the certificate.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_account(account_id: Optional[_builtins.str] = None,
     return AwaitableGetAccountResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         expiry_events_configuration=pulumi.get(__ret__, 'expiry_events_configuration'))
-def get_account_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_account_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Resource schema for AWS::CertificateManager::Account.
-
 
     :param _builtins.str account_id: ID of the AWS account that owns the certificate.
     """

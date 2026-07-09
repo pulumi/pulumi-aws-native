@@ -262,7 +262,6 @@ def get_app(arn: Optional[_builtins.str] = None,
     """
     The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 
-
     :param _builtins.str arn: ARN for the Amplify App.
     """
     __args__ = dict()
@@ -289,11 +288,10 @@ def get_app(arn: Optional[_builtins.str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         repository=pulumi.get(__ret__, 'repository'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
-
 
     :param _builtins.str arn: ARN for the Amplify App.
     """

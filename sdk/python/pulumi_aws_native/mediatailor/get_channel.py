@@ -142,7 +142,6 @@ def get_channel(channel_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaTailor::Channel Resource Type
 
-
     :param _builtins.str channel_name: The name of the channel.
     """
     __args__ = dict()
@@ -159,11 +158,10 @@ def get_channel(channel_name: Optional[_builtins.str] = None,
         playback_mode=pulumi.get(__ret__, 'playback_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         time_shift_configuration=pulumi.get(__ret__, 'time_shift_configuration'))
-def get_channel_output(channel_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Definition of AWS::MediaTailor::Channel Resource Type
-
 
     :param _builtins.str channel_name: The name of the channel.
     """

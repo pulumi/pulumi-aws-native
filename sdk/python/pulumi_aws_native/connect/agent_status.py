@@ -24,12 +24,12 @@ class AgentStatusArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
                  state: pulumi.Input['AgentStatusState'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_order_number: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input['AgentStatusType']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_order_number: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional['AgentStatusType']] = None):
         """
         The set of arguments for constructing a AgentStatus resource.
 
@@ -83,74 +83,74 @@ class AgentStatusArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the status.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayOrder")
-    def display_order(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def display_order(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The display order of the status.
         """
         return pulumi.get(self, "display_order")
 
     @display_order.setter
-    def display_order(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def display_order(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "display_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the status.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resetOrderNumber")
-    def reset_order_number(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def reset_order_number(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A number indicating the reset order of the agent status.
         """
         return pulumi.get(self, "reset_order_number")
 
     @reset_order_number.setter
-    def reset_order_number(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def reset_order_number(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "reset_order_number", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['AgentStatusType']]:
+    def type(self) -> pulumi.Input[Optional['AgentStatusType']]:
         """
         The type of agent status.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['AgentStatusType']]):
+    def type(self, value: pulumi.Input[Optional['AgentStatusType']]):
         pulumi.set(self, "type", value)
 
 
@@ -160,18 +160,17 @@ class AgentStatus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_order_number: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input['AgentStatusState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['AgentStatusType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_order_number: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional['AgentStatusState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['AgentStatusType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::AgentStatus
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +192,6 @@ class AgentStatus(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::AgentStatus
 
-
         :param str resource_name: The name of the resource.
         :param AgentStatusArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,14 +207,14 @@ class AgentStatus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reset_order_number: Optional[pulumi.Input[_builtins.bool]] = None,
-                 state: Optional[pulumi.Input['AgentStatusState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['AgentStatusType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reset_order_number: pulumi.Input[Optional[_builtins.bool]] = None,
+                 state: pulumi.Input[Optional['AgentStatusState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['AgentStatusType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

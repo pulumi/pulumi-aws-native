@@ -25,12 +25,12 @@ __all__ = ['LocationEfsArgs', 'LocationEfs']
 class LocationEfsArgs:
     def __init__(__self__, *,
                  ec2_config: pulumi.Input['LocationEfsEc2ConfigArgs'],
-                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 efs_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 efs_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_transit_encryption: pulumi.Input[Optional['LocationEfsInTransitEncryption']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationEfs resource.
 
@@ -70,74 +70,74 @@ class LocationEfsArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
-    def access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_point_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
         """
         return pulumi.get(self, "access_point_arn")
 
     @access_point_arn.setter
-    def access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_point_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_point_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="efsFilesystemArn")
-    def efs_filesystem_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def efs_filesystem_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the Amazon EFS file system.
         """
         return pulumi.get(self, "efs_filesystem_arn")
 
     @efs_filesystem_arn.setter
-    def efs_filesystem_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def efs_filesystem_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "efs_filesystem_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemAccessRoleArn")
-    def file_system_access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_system_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
         """
         return pulumi.get(self, "file_system_access_role_arn")
 
     @file_system_access_role_arn.setter
-    def file_system_access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_system_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_system_access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="inTransitEncryption")
-    def in_transit_encryption(self) -> Optional[pulumi.Input['LocationEfsInTransitEncryption']]:
+    def in_transit_encryption(self) -> pulumi.Input[Optional['LocationEfsInTransitEncryption']]:
         """
         Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
         """
         return pulumi.get(self, "in_transit_encryption")
 
     @in_transit_encryption.setter
-    def in_transit_encryption(self, value: Optional[pulumi.Input['LocationEfsInTransitEncryption']]):
+    def in_transit_encryption(self, value: pulumi.Input[Optional['LocationEfsInTransitEncryption']]):
         pulumi.set(self, "in_transit_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -147,17 +147,16 @@ class LocationEfs(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_config: Optional[pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
-                 efs_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
+                 efs_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_transit_encryption: pulumi.Input[Optional['LocationEfsInTransitEncryption']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationEFS.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +177,6 @@ class LocationEfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationEFS.
 
-
         :param str resource_name: The name of the resource.
         :param LocationEfsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,13 +192,13 @@ class LocationEfs(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 ec2_config: Optional[pulumi.Input[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
-                 efs_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_system_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_config: pulumi.Input[Optional[Union['LocationEfsEc2ConfigArgs', 'LocationEfsEc2ConfigArgsDict']]] = None,
+                 efs_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_system_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 in_transit_encryption: pulumi.Input[Optional['LocationEfsInTransitEncryption']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

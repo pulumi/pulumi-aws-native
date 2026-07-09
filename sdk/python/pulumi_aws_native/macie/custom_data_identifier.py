@@ -22,12 +22,12 @@ __all__ = ['CustomDataIdentifierArgs', 'CustomDataIdentifier']
 class CustomDataIdentifierArgs:
     def __init__(__self__, *,
                  regex: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_match_distance: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_match_distance: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
 
@@ -67,74 +67,74 @@ class CustomDataIdentifierArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of custom data identifier.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreWords")
-    def ignore_words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ignore_words(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Words to be ignored.
         """
         return pulumi.get(self, "ignore_words")
 
     @ignore_words.setter
-    def ignore_words(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ignore_words(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ignore_words", value)
 
     @_builtins.property
     @pulumi.getter
-    def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keywords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Keywords to be matched against.
         """
         return pulumi.get(self, "keywords")
 
     @keywords.setter
-    def keywords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keywords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keywords", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumMatchDistance")
-    def maximum_match_distance(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_match_distance(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum match distance.
         """
         return pulumi.get(self, "maximum_match_distance")
 
     @maximum_match_distance.setter
-    def maximum_match_distance(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_match_distance(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_match_distance", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of custom data identifier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,17 +144,16 @@ class CustomDataIdentifier(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_match_distance: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_match_distance: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Macie CustomDataIdentifier resource schema
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
         """
         Macie CustomDataIdentifier resource schema
 
-
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class CustomDataIdentifier(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 maximum_match_distance: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 regex: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 maximum_match_distance: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 regex: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

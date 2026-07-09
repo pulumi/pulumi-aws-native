@@ -160,7 +160,6 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[_bui
     """
     A calculated attribute definition for Customer Profiles
 
-
     :param _builtins.str calculated_attribute_name: The name of an attribute defined in a profile object type.
     :param _builtins.str domain_name: The unique name of the domain.
     """
@@ -181,12 +180,11 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[_bui
         statistic=pulumi.get(__ret__, 'statistic'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_calculated_attribute_definition_output(calculated_attribute_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_calculated_attribute_definition_output(calculated_attribute_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCalculatedAttributeDefinitionResult]:
     """
     A calculated attribute definition for Customer Profiles
-
 
     :param _builtins.str calculated_attribute_name: The name of an attribute defined in a profile object type.
     :param _builtins.str domain_name: The unique name of the domain.

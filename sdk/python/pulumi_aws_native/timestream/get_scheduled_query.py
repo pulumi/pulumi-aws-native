@@ -160,7 +160,6 @@ def get_scheduled_query(arn: Optional[_builtins.str] = None,
     """
     The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
 
-
     :param _builtins.str arn: The `ARN` of the scheduled query.
     """
     __args__ = dict()
@@ -179,11 +178,10 @@ def get_scheduled_query(arn: Optional[_builtins.str] = None,
         sq_scheduled_query_execution_role_arn=pulumi.get(__ret__, 'sq_scheduled_query_execution_role_arn'),
         sq_target_configuration=pulumi.get(__ret__, 'sq_target_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_scheduled_query_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scheduled_query_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryResult]:
     """
     The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
-
 
     :param _builtins.str arn: The `ARN` of the scheduled query.
     """

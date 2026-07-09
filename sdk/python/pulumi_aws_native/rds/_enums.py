@@ -46,7 +46,7 @@ class DbInstanceProcessorFeatureName(_builtins.str, Enum):
 @pulumi.type_token("aws-native:rds:DbProxyAuthFormatAuthScheme")
 class DbProxyAuthFormatAuthScheme(_builtins.str, Enum):
     """
-    The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+    The type of authentication that the proxy uses for connections from the proxy to the underlying database.
     """
     SECRETS = "SECRETS"
 

@@ -171,7 +171,6 @@ def get_campaign(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
 
-
     :param _builtins.str arn: Amazon Connect Campaign Arn
     """
     __args__ = dict()
@@ -191,11 +190,10 @@ def get_campaign(arn: Optional[_builtins.str] = None,
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_campaign_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_campaign_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCampaignResult]:
     """
     Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
-
 
     :param _builtins.str arn: Amazon Connect Campaign Arn
     """

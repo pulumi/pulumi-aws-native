@@ -63,7 +63,6 @@ def get_vpc_connection(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::MSK::VpcConnection
 
-
     :param _builtins.str arn: The ARN of the VPC connection.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_vpc_connection(arn: Optional[_builtins.str] = None,
     return AwaitableGetVpcConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vpc_connection_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_connection_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Resource Type definition for AWS::MSK::VpcConnection
-
 
     :param _builtins.str arn: The ARN of the VPC connection.
     """

@@ -67,7 +67,6 @@ def get_multi_region_access_point_policy(mrap_name: Optional[_builtins.str] = No
     """
     The policy to be attached to a Multi Region Access Point
 
-
     :param _builtins.str mrap_name: The name of the Multi Region Access Point to apply policy
     """
     __args__ = dict()
@@ -78,11 +77,10 @@ def get_multi_region_access_point_policy(mrap_name: Optional[_builtins.str] = No
     return AwaitableGetMultiRegionAccessPointPolicyResult(
         policy=pulumi.get(__ret__, 'policy'),
         policy_status=pulumi.get(__ret__, 'policy_status'))
-def get_multi_region_access_point_policy_output(mrap_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multi_region_access_point_policy_output(mrap_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionAccessPointPolicyResult]:
     """
     The policy to be attached to a Multi Region Access Point
-
 
     :param _builtins.str mrap_name: The name of the Multi Region Access Point to apply policy
     """

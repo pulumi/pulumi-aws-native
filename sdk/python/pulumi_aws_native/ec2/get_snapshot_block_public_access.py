@@ -64,7 +64,6 @@ def get_snapshot_block_public_access(account_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
 
-
     :param _builtins.str account_id: The identifier for the specified AWS account.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_snapshot_block_public_access(account_id: Optional[_builtins.str] = None,
     return AwaitableGetSnapshotBlockPublicAccessResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         state=pulumi.get(__ret__, 'state'))
-def get_snapshot_block_public_access_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_snapshot_block_public_access_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotBlockPublicAccessResult]:
     """
     Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
-
 
     :param _builtins.str account_id: The identifier for the specified AWS account.
     """

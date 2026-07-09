@@ -198,7 +198,6 @@ def get_application(application_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS:AppIntegrations::Application
 
-
     :param _builtins.str application_arn: The Amazon Resource Name (ARN) of the application.
     """
     __args__ = dict()
@@ -220,11 +219,10 @@ def get_application(application_arn: Optional[_builtins.str] = None,
         namespace=pulumi.get(__ret__, 'namespace'),
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(application_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Type definition for AWS:AppIntegrations::Application
-
 
     :param _builtins.str application_arn: The Amazon Resource Name (ARN) of the application.
     """

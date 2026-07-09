@@ -24,11 +24,11 @@ class LogicallyAirGappedBackupVaultArgs:
                  max_retention_days: pulumi.Input[_builtins.int],
                  min_retention_days: pulumi.Input[_builtins.int],
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 mpa_approval_team_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
 
@@ -104,31 +104,31 @@ class LogicallyAirGappedBackupVaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupVaultName")
-    def backup_vault_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def backup_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
-    def backup_vault_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def backup_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "backup_vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupVaultTags")
-    def backup_vault_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def backup_vault_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to assign to the vault.
         """
         return pulumi.get(self, "backup_vault_tags")
 
     @backup_vault_tags.setter
-    def backup_vault_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def backup_vault_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "backup_vault_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
 
@@ -137,31 +137,31 @@ class LogicallyAirGappedBackupVaultArgs:
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
-    def mpa_approval_team_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mpa_approval_team_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
         """
         return pulumi.get(self, "mpa_approval_team_arn")
 
     @mpa_approval_team_arn.setter
-    def mpa_approval_team_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mpa_approval_team_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mpa_approval_team_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]:
+    def notifications(self) -> pulumi.Input[Optional['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]:
         """
         Returns event notifications for the specified backup vault.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]):
+    def notifications(self, value: pulumi.Input[Optional['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]):
         pulumi.set(self, "notifications", value)
 
 
@@ -172,17 +172,16 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 mpa_approval_team_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +209,6 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
 
-
         :param str resource_name: The name of the resource.
         :param LogicallyAirGappedBackupVaultArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,13 +225,13 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[Any] = None,
-                 backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_vault_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 mpa_approval_team_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notifications: pulumi.Input[Optional[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

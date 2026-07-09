@@ -31,23 +31,23 @@ __all__ = [
 ]
 
 class FleetComputeConfigurationArgsDict(TypedDict):
-    disk: NotRequired[pulumi.Input[_builtins.int]]
+    disk: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of disk space of the instance type included in your fleet.
     """
-    instance_type: NotRequired[pulumi.Input[_builtins.str]]
+    instance_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The EC2 instance type to be launched in your fleet.
     """
-    machine_type: NotRequired[pulumi.Input['FleetComputeConfigurationmachineType']]
+    machine_type: NotRequired[pulumi.Input[Optional['FleetComputeConfigurationmachineType']]]
     """
     The machine type of the instance type included in your fleet.
     """
-    memory: NotRequired[pulumi.Input[_builtins.int]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of memory of the instance type included in your fleet.
     """
-    v_cpu: NotRequired[pulumi.Input[_builtins.int]]
+    v_cpu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of vCPUs of the instance type included in your fleet.
     """
@@ -55,11 +55,11 @@ class FleetComputeConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FleetComputeConfigurationArgs:
     def __init__(__self__, *,
-                 disk: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 machine_type: Optional[pulumi.Input['FleetComputeConfigurationmachineType']] = None,
-                 memory: Optional[pulumi.Input[_builtins.int]] = None,
-                 v_cpu: Optional[pulumi.Input[_builtins.int]] = None):
+                 disk: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 machine_type: pulumi.Input[Optional['FleetComputeConfigurationmachineType']] = None,
+                 memory: pulumi.Input[Optional[_builtins.int]] = None,
+                 v_cpu: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] disk: The amount of disk space of the instance type included in your fleet.
         :param pulumi.Input[_builtins.str] instance_type: The EC2 instance type to be launched in your fleet.
@@ -80,71 +80,71 @@ class FleetComputeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disk(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def disk(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of disk space of the instance type included in your fleet.
         """
         return pulumi.get(self, "disk")
 
     @disk.setter
-    def disk(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def disk(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "disk", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EC2 instance type to be launched in your fleet.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="machineType")
-    def machine_type(self) -> Optional[pulumi.Input['FleetComputeConfigurationmachineType']]:
+    def machine_type(self) -> pulumi.Input[Optional['FleetComputeConfigurationmachineType']]:
         """
         The machine type of the instance type included in your fleet.
         """
         return pulumi.get(self, "machine_type")
 
     @machine_type.setter
-    def machine_type(self, value: Optional[pulumi.Input['FleetComputeConfigurationmachineType']]):
+    def machine_type(self, value: pulumi.Input[Optional['FleetComputeConfigurationmachineType']]):
         pulumi.set(self, "machine_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of memory of the instance type included in your fleet.
         """
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "memory", value)
 
     @_builtins.property
     @pulumi.getter(name="vCpu")
-    def v_cpu(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def v_cpu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of vCPUs of the instance type included in your fleet.
         """
         return pulumi.get(self, "v_cpu")
 
     @v_cpu.setter
-    def v_cpu(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def v_cpu(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "v_cpu", value)
 
 
 class FleetProxyConfigurationArgsDict(TypedDict):
-    default_behavior: NotRequired[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]
+    default_behavior: NotRequired[pulumi.Input[Optional['FleetProxyConfigurationDefaultBehavior']]]
     """
     The default behavior of outgoing traffic.
     """
-    ordered_proxy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgsDict']]]]
+    ordered_proxy_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetProxyRuleArgsDict']]]]]
     """
     An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
     """
@@ -152,8 +152,8 @@ class FleetProxyConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FleetProxyConfigurationArgs:
     def __init__(__self__, *,
-                 default_behavior: Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']] = None,
-                 ordered_proxy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]] = None):
+                 default_behavior: pulumi.Input[Optional['FleetProxyConfigurationDefaultBehavior']] = None,
+                 ordered_proxy_rules: pulumi.Input[Optional[Sequence[pulumi.Input['FleetProxyRuleArgs']]]] = None):
         """
         :param pulumi.Input['FleetProxyConfigurationDefaultBehavior'] default_behavior: The default behavior of outgoing traffic.
         :param pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]] ordered_proxy_rules: An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
@@ -165,39 +165,39 @@ class FleetProxyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultBehavior")
-    def default_behavior(self) -> Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]:
+    def default_behavior(self) -> pulumi.Input[Optional['FleetProxyConfigurationDefaultBehavior']]:
         """
         The default behavior of outgoing traffic.
         """
         return pulumi.get(self, "default_behavior")
 
     @default_behavior.setter
-    def default_behavior(self, value: Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]):
+    def default_behavior(self, value: pulumi.Input[Optional['FleetProxyConfigurationDefaultBehavior']]):
         pulumi.set(self, "default_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="orderedProxyRules")
-    def ordered_proxy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]:
+    def ordered_proxy_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]:
         """
         An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
         """
         return pulumi.get(self, "ordered_proxy_rules")
 
     @ordered_proxy_rules.setter
-    def ordered_proxy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]):
+    def ordered_proxy_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]):
         pulumi.set(self, "ordered_proxy_rules", value)
 
 
 class FleetProxyRuleArgsDict(TypedDict):
-    effect: NotRequired[pulumi.Input['FleetProxyRuleEffect']]
+    effect: NotRequired[pulumi.Input[Optional['FleetProxyRuleEffect']]]
     """
     The behavior of the proxy rule.
     """
-    entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    entities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The destination of the proxy rule.
     """
-    type: NotRequired[pulumi.Input['FleetProxyRuleType']]
+    type: NotRequired[pulumi.Input[Optional['FleetProxyRuleType']]]
     """
     The type of proxy rule.
     """
@@ -205,9 +205,9 @@ class FleetProxyRuleArgsDict(TypedDict):
 @pulumi.input_type
 class FleetProxyRuleArgs:
     def __init__(__self__, *,
-                 effect: Optional[pulumi.Input['FleetProxyRuleEffect']] = None,
-                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: Optional[pulumi.Input['FleetProxyRuleType']] = None):
+                 effect: pulumi.Input[Optional['FleetProxyRuleEffect']] = None,
+                 entities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: pulumi.Input[Optional['FleetProxyRuleType']] = None):
         """
         :param pulumi.Input['FleetProxyRuleEffect'] effect: The behavior of the proxy rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] entities: The destination of the proxy rule.
@@ -222,51 +222,51 @@ class FleetProxyRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> Optional[pulumi.Input['FleetProxyRuleEffect']]:
+    def effect(self) -> pulumi.Input[Optional['FleetProxyRuleEffect']]:
         """
         The behavior of the proxy rule.
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: Optional[pulumi.Input['FleetProxyRuleEffect']]):
+    def effect(self, value: pulumi.Input[Optional['FleetProxyRuleEffect']]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter
-    def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The destination of the proxy rule.
         """
         return pulumi.get(self, "entities")
 
     @entities.setter
-    def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entities", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['FleetProxyRuleType']]:
+    def type(self) -> pulumi.Input[Optional['FleetProxyRuleType']]:
         """
         The type of proxy rule.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['FleetProxyRuleType']]):
+    def type(self, value: pulumi.Input[Optional['FleetProxyRuleType']]):
         pulumi.set(self, "type", value)
 
 
 class FleetScalingConfigurationInputArgsDict(TypedDict):
-    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    max_capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of instances in the ﬂeet when auto-scaling.
     """
-    scaling_type: NotRequired[pulumi.Input['FleetScalingConfigurationInputScalingType']]
+    scaling_type: NotRequired[pulumi.Input[Optional['FleetScalingConfigurationInputScalingType']]]
     """
     The scaling type for a compute fleet.
     """
-    target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgsDict']]]]
+    target_tracking_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgsDict']]]]]
     """
     A list of `TargetTrackingScalingConfiguration` objects.
     """
@@ -274,9 +274,9 @@ class FleetScalingConfigurationInputArgsDict(TypedDict):
 @pulumi.input_type
 class FleetScalingConfigurationInputArgs:
     def __init__(__self__, *,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 scaling_type: Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']] = None,
-                 target_tracking_scaling_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]] = None):
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 scaling_type: pulumi.Input[Optional['FleetScalingConfigurationInputScalingType']] = None,
+                 target_tracking_scaling_configs: pulumi.Input[Optional[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.int] max_capacity: The maximum number of instances in the ﬂeet when auto-scaling.
         :param pulumi.Input['FleetScalingConfigurationInputScalingType'] scaling_type: The scaling type for a compute fleet.
@@ -291,47 +291,47 @@ class FleetScalingConfigurationInputArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of instances in the ﬂeet when auto-scaling.
         """
         return pulumi.get(self, "max_capacity")
 
     @max_capacity.setter
-    def max_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingType")
-    def scaling_type(self) -> Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']]:
+    def scaling_type(self) -> pulumi.Input[Optional['FleetScalingConfigurationInputScalingType']]:
         """
         The scaling type for a compute fleet.
         """
         return pulumi.get(self, "scaling_type")
 
     @scaling_type.setter
-    def scaling_type(self, value: Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']]):
+    def scaling_type(self, value: pulumi.Input[Optional['FleetScalingConfigurationInputScalingType']]):
         pulumi.set(self, "scaling_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetTrackingScalingConfigs")
-    def target_tracking_scaling_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]:
+    def target_tracking_scaling_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]:
         """
         A list of `TargetTrackingScalingConfiguration` objects.
         """
         return pulumi.get(self, "target_tracking_scaling_configs")
 
     @target_tracking_scaling_configs.setter
-    def target_tracking_scaling_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]):
+    def target_tracking_scaling_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]):
         pulumi.set(self, "target_tracking_scaling_configs", value)
 
 
 class FleetTargetTrackingScalingConfigurationArgsDict(TypedDict):
-    metric_type: NotRequired[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]
+    metric_type: NotRequired[pulumi.Input[Optional['FleetTargetTrackingScalingConfigurationMetricType']]]
     """
     The metric type to determine auto-scaling.
     """
-    target_value: NotRequired[pulumi.Input[_builtins.float]]
+    target_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The value of `metricType` when to start scaling.
     """
@@ -339,8 +339,8 @@ class FleetTargetTrackingScalingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FleetTargetTrackingScalingConfigurationArgs:
     def __init__(__self__, *,
-                 metric_type: Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']] = None,
-                 target_value: Optional[pulumi.Input[_builtins.float]] = None):
+                 metric_type: pulumi.Input[Optional['FleetTargetTrackingScalingConfigurationMetricType']] = None,
+                 target_value: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType'] metric_type: The metric type to determine auto-scaling.
         :param pulumi.Input[_builtins.float] target_value: The value of `metricType` when to start scaling.
@@ -352,39 +352,39 @@ class FleetTargetTrackingScalingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricType")
-    def metric_type(self) -> Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]:
+    def metric_type(self) -> pulumi.Input[Optional['FleetTargetTrackingScalingConfigurationMetricType']]:
         """
         The metric type to determine auto-scaling.
         """
         return pulumi.get(self, "metric_type")
 
     @metric_type.setter
-    def metric_type(self, value: Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]):
+    def metric_type(self, value: pulumi.Input[Optional['FleetTargetTrackingScalingConfigurationMetricType']]):
         pulumi.set(self, "metric_type", value)
 
     @_builtins.property
     @pulumi.getter(name="targetValue")
-    def target_value(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target_value(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The value of `metricType` when to start scaling.
         """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
-    def target_value(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target_value(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target_value", value)
 
 
 class FleetVpcConfigArgsDict(TypedDict):
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of one or more security groups IDs in your Amazon VPC.
     """
-    subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of one or more subnet IDs in your Amazon VPC.
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Amazon VPC.
     """
@@ -392,9 +392,9 @@ class FleetVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FleetVpcConfigArgs:
     def __init__(__self__, *,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of one or more security groups IDs in your Amazon VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: A list of one or more subnet IDs in your Amazon VPC.
@@ -409,38 +409,38 @@ class FleetVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more security groups IDs in your Amazon VPC.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more subnet IDs in your Amazon VPC.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Amazon VPC.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 

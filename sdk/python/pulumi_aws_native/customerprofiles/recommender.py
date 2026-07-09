@@ -26,10 +26,10 @@ class RecommenderArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  recommender_recipe_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_config: Optional[pulumi.Input['RecommenderConfigArgs']] = None,
-                 recommender_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_config: pulumi.Input[Optional['RecommenderConfigArgs']] = None,
+                 recommender_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Recommender resource.
 
@@ -66,41 +66,41 @@ class RecommenderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="recommenderConfig")
-    def recommender_config(self) -> Optional[pulumi.Input['RecommenderConfigArgs']]:
+    def recommender_config(self) -> pulumi.Input[Optional['RecommenderConfigArgs']]:
         return pulumi.get(self, "recommender_config")
 
     @recommender_config.setter
-    def recommender_config(self, value: Optional[pulumi.Input['RecommenderConfigArgs']]):
+    def recommender_config(self, value: pulumi.Input[Optional['RecommenderConfigArgs']]):
         pulumi.set(self, "recommender_config", value)
 
     @_builtins.property
     @pulumi.getter(name="recommenderName")
-    def recommender_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recommender_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "recommender_name")
 
     @recommender_name.setter
-    def recommender_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recommender_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recommender_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,16 +110,15 @@ class Recommender(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_config: Optional[pulumi.Input[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
-                 recommender_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_recipe_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
+                 recommender_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_recipe_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CustomerProfiles::Recommender
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +132,6 @@ class Recommender(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::CustomerProfiles::Recommender
-
 
         :param str resource_name: The name of the resource.
         :param RecommenderArgs args: The arguments to use to populate this resource's properties.
@@ -150,12 +148,12 @@ class Recommender(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_config: Optional[pulumi.Input[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
-                 recommender_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommender_recipe_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_config: pulumi.Input[Optional[Union['RecommenderConfigArgs', 'RecommenderConfigArgsDict']]] = None,
+                 recommender_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommender_recipe_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

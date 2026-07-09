@@ -237,8 +237,8 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
                - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
                 - PUT Object calls fail if the request includes a public ACL.
-               . - PUT Bucket calls fail if the request includes a public ACL.
-               Enabling this setting doesn't affect existing policies or ACLs.
+                  . - PUT Bucket calls fail if the request includes a public ACL.
+                  Enabling this setting doesn't affect existing policies or ACLs.
         :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         :param _builtins.bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
@@ -260,8 +260,8 @@ class AccessPointPublicAccessBlockConfiguration(dict):
         Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
         - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
          - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
+           . - PUT Bucket calls fail if the request includes a public ACL.
+           Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
@@ -608,10 +608,10 @@ class BucketBlockedEncryptionTypes(dict):
     """
     A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
      This data type is used with the following actions:
-      +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
-      +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
-      +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
-      
+      +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
+      +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+      +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+
       + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
     """
     @staticmethod
@@ -636,10 +636,10 @@ class BucketBlockedEncryptionTypes(dict):
         """
         A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
          This data type is used with the following actions:
-          +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
-          +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
-          +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
-          
+          +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
+          +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+          +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+
           + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
 
         :param Sequence['BucketBlockedEncryptionTypeListItem'] encryption_type: The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
@@ -913,15 +913,15 @@ class BucketDefaultRetention(dict):
 @pulumi.output_type
 class BucketDeleteMarkerReplication(dict):
     """
-    Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-     For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+    Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+     For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
       If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
     """
     def __init__(__self__, *,
                  status: Optional['BucketDeleteMarkerReplicationStatus'] = None):
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
 
         :param 'BucketDeleteMarkerReplicationStatus' status: Indicates whether to replicate delete markers.
@@ -1621,8 +1621,8 @@ class BucketLifecycleConfiguration(dict):
         :param 'BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize' transition_default_minimum_object_size: Indicates which default minimum object size behavior is applied to the lifecycle configuration.
                  This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
                   +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-                 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
-                 
+                 +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+               
                 To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "rules", rules)
@@ -1644,8 +1644,8 @@ class BucketLifecycleConfiguration(dict):
         Indicates which default minimum object size behavior is applied to the lifecycle configuration.
           This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
            +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
-          +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. 
-          
+          +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+
          To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
         """
         return pulumi.get(self, "transition_default_minimum_object_size")
@@ -1869,7 +1869,7 @@ class BucketMetadataDestination(dict):
 @pulumi.output_type
 class BucketMetadataTableConfiguration(dict):
     """
-    We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+    We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type.
      If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
       Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
     """
@@ -1893,7 +1893,7 @@ class BucketMetadataTableConfiguration(dict):
     def __init__(__self__, *,
                  s3_tables_destination: 'outputs.BucketS3TablesDestination'):
         """
-        We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type. 
+        We recommend that you create your S3 Metadata configurations by using the V2 [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type. We no longer recommend using the V1 ``MetadataTableConfiguration`` resource type.
          If you created your S3 Metadata configuration before July 15, 2025, we recommend that you delete and re-create your configuration by using the [MetadataConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-s3-bucket-metadataconfiguration.html) resource type so that you can expire journal table records and create a live inventory table.
           Creates a V1 S3 Metadata configuration for a general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) in the *Amazon S3 User Guide*.
 
@@ -2548,9 +2548,9 @@ class BucketPublicAccessBlockConfiguration(dict):
                  +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
                  +  PUT Object calls fail if the request includes a public ACL.
                  +  PUT Bucket calls fail if the request includes a public ACL.
-                 
+               
                 Enabling this setting doesn't affect existing policies or ACLs.
-        :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+        :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
                 Enabling this setting doesn't affect existing bucket policies.
         :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
                 Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
@@ -2574,7 +2574,7 @@ class BucketPublicAccessBlockConfiguration(dict):
           +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
           +  PUT Object calls fail if the request includes a public ACL.
           +  PUT Bucket calls fail if the request includes a public ACL.
-          
+
          Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
@@ -2583,7 +2583,7 @@ class BucketPublicAccessBlockConfiguration(dict):
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. 
+        Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to ``TRUE`` causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
          Enabling this setting doesn't affect existing bucket policies.
         """
         return pulumi.get(self, "block_public_policy")
@@ -2944,7 +2944,7 @@ class BucketReplicationDestination(dict):
         :param 'BucketEncryptionConfiguration' encryption_configuration: Specifies encryption-related information.
         :param 'BucketMetrics' metrics: A container specifying replication metrics-related settings enabling replication metrics and events.
         :param 'BucketReplicationTime' replication_time: A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a ``Metrics`` block.
-        :param 'BucketReplicationDestinationStorageClass' storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+        :param 'BucketReplicationDestinationStorageClass' storage_class: The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
                 For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
                 ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         """
@@ -3015,7 +3015,7 @@ class BucketReplicationDestination(dict):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional['BucketReplicationDestinationStorageClass']:
         """
-        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica. 
+        The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          For valid values, see the ``StorageClass`` element of the [PUT Bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) action in the *Amazon S3 API Reference*.
          ``FSX_OPENZFS`` is not an accepted value when replicating objects.
         """
@@ -3060,15 +3060,15 @@ class BucketReplicationRule(dict):
 
         :param 'BucketReplicationDestination' destination: A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).
         :param 'BucketReplicationRuleStatus' status: Specifies whether the rule is enabled.
-        :param 'BucketDeleteMarkerReplication' delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-                For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+        :param 'BucketDeleteMarkerReplication' delete_marker_replication: Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+                For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
                  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         :param 'BucketReplicationRuleFilter' filter: A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element. The use of the filter field indicates that this is a V2 replication configuration. This field isn't supported in a V1 replication configuration.
                  V1 replication configuration only supports filtering by key prefix. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
         :param _builtins.str id: A unique identifier for the rule. The maximum value is 255 characters. If you don't specify a value, AWS CloudFormation generates a random ID. When using a V2 replication configuration this property is capitalized as "ID".
         :param _builtins.str prefix: An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string. To filter using a V1 replication configuration, add the ``Prefix`` directly as a child element of the ``Rule`` element.
                  Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        :param _builtins.int priority: The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+        :param _builtins.int priority: The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.
                 For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
         :param 'BucketSourceSelectionCriteria' source_selection_criteria: A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects.
         """
@@ -3107,8 +3107,8 @@ class BucketReplicationRule(dict):
     @pulumi.getter(name="deleteMarkerReplication")
     def delete_marker_replication(self) -> Optional['outputs.BucketDeleteMarkerReplication']:
         """
-        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). 
-         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). 
+        Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config).
+         For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html).
           If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).
         """
         return pulumi.get(self, "delete_marker_replication")
@@ -3143,7 +3143,7 @@ class BucketReplicationRule(dict):
     @pulumi.getter
     def priority(self) -> Optional[_builtins.int]:
         """
-        The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority. 
+        The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.
          For more information, see [Replication](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html) in the *Amazon S3 User Guide*.
         """
         return pulumi.get(self, "priority")
@@ -3160,9 +3160,9 @@ class BucketReplicationRule(dict):
 @pulumi.output_type
 class BucketReplicationRuleAndOperator(dict):
     """
-    A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+    A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
      For example:
-      +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+      +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
       +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
     """
     @staticmethod
@@ -3186,9 +3186,9 @@ class BucketReplicationRuleAndOperator(dict):
                  prefix: Optional[_builtins.str] = None,
                  tag_filters: Optional[Sequence['outputs.BucketTagFilter']] = None):
         """
-        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. 
+        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
          For example:
-          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag. 
+          +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
           +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag
 
         :param _builtins.str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
@@ -3247,12 +3247,12 @@ class BucketReplicationRuleFilter(dict):
         """
         A filter that identifies the subset of objects to which the replication rule applies. A ``Filter`` must specify exactly one ``Prefix``, ``TagFilter``, or an ``And`` child element.
 
-        :param 'BucketReplicationRuleAndOperator' and_: A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+        :param 'BucketReplicationRuleAndOperator' and_: A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
                  +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
                  +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
         :param _builtins.str prefix: An object key name prefix that identifies the subset of objects to which the rule applies.
                  Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints).
-        :param 'BucketTagFilter' tag_filter: A container for specifying a tag key and value. 
+        :param 'BucketTagFilter' tag_filter: A container for specifying a tag key and value.
                 The rule applies only to objects that have the tag in their tag set.
         """
         if and_ is not None:
@@ -3266,7 +3266,7 @@ class BucketReplicationRuleFilter(dict):
     @pulumi.getter(name="and")
     def and_(self) -> Optional['outputs.BucketReplicationRuleAndOperator']:
         """
-        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: 
+        A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
           +  If you specify both a ``Prefix`` and a ``TagFilter``, wrap these filters in an ``And`` tag.
           +  If you specify a filter based on multiple tags, wrap the ``TagFilter`` elements in an ``And`` tag.
         """
@@ -3285,7 +3285,7 @@ class BucketReplicationRuleFilter(dict):
     @pulumi.getter(name="tagFilter")
     def tag_filter(self) -> Optional['outputs.BucketTagFilter']:
         """
-        A container for specifying a tag key and value. 
+        A container for specifying a tag key and value.
          The rule applies only to objects that have the tag in their tag set.
         """
         return pulumi.get(self, "tag_filter")
@@ -3335,7 +3335,7 @@ class BucketReplicationTimeValue(dict):
         """
         A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics ``EventThreshold``.
 
-        :param _builtins.int minutes: Contains an integer specifying time in minutes. 
+        :param _builtins.int minutes: Contains an integer specifying time in minutes.
                  Valid value: 15
         """
         pulumi.set(__self__, "minutes", minutes)
@@ -3344,7 +3344,7 @@ class BucketReplicationTimeValue(dict):
     @pulumi.getter
     def minutes(self) -> _builtins.int:
         """
-        Contains an integer specifying time in minutes. 
+        Contains an integer specifying time in minutes.
           Valid value: 15
         """
         return pulumi.get(self, "minutes")
@@ -3817,8 +3817,8 @@ class BucketS3TablesDestination(dict):
 class BucketServerSideEncryptionByDefault(dict):
     """
     Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
-       +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-      +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+       +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS.
+      +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported.
       +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
     """
     @staticmethod
@@ -3845,25 +3845,25 @@ class BucketServerSideEncryptionByDefault(dict):
                  kms_master_key_id: Optional[_builtins.str] = None):
         """
         Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
-           +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. 
-          +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. 
+           +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS.
+          +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported.
           +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
 
         :param 'BucketServerSideEncryptionByDefaultSseAlgorithm' sse_algorithm: Server-side encryption algorithm to use for the default encryption.
                  For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
-        :param _builtins.str kms_master_key_id: AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
+        :param _builtins.str kms_master_key_id: AWS Key Management Service (KMS) customer managed key ID to use for the default encryption.
                   +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
                  +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
-                 
+               
                  You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
                  +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
                  +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
                  +  Key Alias: ``alias/alias-name``
-                 
+               
                 If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-                  +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+                  +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
                  +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-                 
+               
                   Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         pulumi.set(__self__, "sse_algorithm", sse_algorithm)
@@ -3883,19 +3883,19 @@ class BucketServerSideEncryptionByDefault(dict):
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[_builtins.str]:
         """
-        AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. 
+        AWS Key Management Service (KMS) customer managed key ID to use for the default encryption.
            +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.
           +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.
-          
+
           You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.
           +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``
           +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``
           +  Key Alias: ``alias/alias-name``
-          
+
          If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).
-           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. 
+           +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.
           +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-          
+
            Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.
         """
         return pulumi.get(self, "kms_master_key_id")
@@ -4458,8 +4458,8 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
         :param _builtins.bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
                - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
                 - PUT Object calls fail if the request includes a public ACL.
-               . - PUT Bucket calls fail if the request includes a public ACL.
-               Enabling this setting doesn't affect existing policies or ACLs.
+                  . - PUT Bucket calls fail if the request includes a public ACL.
+                  Enabling this setting doesn't affect existing policies or ACLs.
         :param _builtins.bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         :param _builtins.bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         :param _builtins.bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
@@ -4481,8 +4481,8 @@ class MultiRegionAccessPointPublicAccessBlockConfiguration(dict):
         Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
         - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
          - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
+           . - PUT Bucket calls fail if the request includes a public ACL.
+           Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 

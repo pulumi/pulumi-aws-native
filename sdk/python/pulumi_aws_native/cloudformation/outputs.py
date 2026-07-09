@@ -204,7 +204,7 @@ class ManagedExecutionProperties(dict):
                
                > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
                > 
-               > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
+               > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
                
                When `false` (default), StackSets performs one operation at a time in request order.
         """
@@ -219,7 +219,7 @@ class ManagedExecutionProperties(dict):
 
         > If there are already running or queued operations, CloudFormation queues all incoming operations even if they are non-conflicting.
         > 
-        > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet. 
+        > You can't modify your StackSet's execution configuration while there are running or queued operations for that StackSet.
 
         When `false` (default), StackSets performs one operation at a time in request order.
         """

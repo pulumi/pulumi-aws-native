@@ -149,7 +149,6 @@ def get_guard_hook(hook_arn: Optional[_builtins.str] = None,
     """
     This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
 
-
     :param _builtins.str hook_arn: The Amazon Resource Name (ARN) of the activated hook
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_guard_hook(hook_arn: Optional[_builtins.str] = None,
         stack_filters=pulumi.get(__ret__, 'stack_filters'),
         target_filters=pulumi.get(__ret__, 'target_filters'),
         target_operations=pulumi.get(__ret__, 'target_operations'))
-def get_guard_hook_output(hook_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guard_hook_output(hook_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardHookResult]:
     """
     This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
-
 
     :param _builtins.str hook_arn: The Amazon Resource Name (ARN) of the activated hook
     """

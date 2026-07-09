@@ -60,7 +60,7 @@ class GetDataCatalogResult:
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        A description of the data catalog to be created. 
+        A description of the data catalog to be created.
         """
         return pulumi.get(self, "description")
 
@@ -76,7 +76,7 @@ class GetDataCatalogResult:
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+        Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
         """
         return pulumi.get(self, "parameters")
 
@@ -92,7 +92,7 @@ class GetDataCatalogResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A list of comma separated tags to add to the data catalog that is created. 
+        A list of comma separated tags to add to the data catalog that is created.
         """
         return pulumi.get(self, "tags")
 
@@ -125,8 +125,7 @@ def get_data_catalog(name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Athena::DataCatalog
 
-
-    :param _builtins.str name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+    :param _builtins.str name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -141,13 +140,12 @@ def get_data_catalog(name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_data_catalog_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_catalog_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCatalogResult]:
     """
     Resource schema for AWS::Athena::DataCatalog
 
-
-    :param _builtins.str name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+    :param _builtins.str name: The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
     """
     __args__ = dict()
     __args__['name'] = name

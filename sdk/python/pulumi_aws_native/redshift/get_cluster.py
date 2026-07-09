@@ -492,9 +492,9 @@ class GetClusterResult:
     @pulumi.getter(name="snapshotCopyRetentionPeriod")
     def snapshot_copy_retention_period(self) -> Optional[_builtins.int]:
         """
-        The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+        The number of days to retain automated snapshots in the destination region after they are copied from the source region.
 
-         Default is 7. 
+         Default is 7.
 
          Constraints: Must be at least 1 and no more than 35.
         """
@@ -573,7 +573,6 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
     """
     __args__ = dict()
@@ -625,11 +624,10 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
         snapshot_copy_retention_period=pulumi.get(__ret__, 'snapshot_copy_retention_period'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_cluster_output(cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
     """

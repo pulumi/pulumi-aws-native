@@ -111,7 +111,6 @@ def get_data_automation_library(library_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Bedrock::DataAutomationLibrary
 
-
     :param _builtins.str library_arn: ARN generated at the server side when a DataAutomationLibrary is created
     """
     __args__ = dict()
@@ -126,11 +125,10 @@ def get_data_automation_library(library_arn: Optional[_builtins.str] = None,
         library_description=pulumi.get(__ret__, 'library_description'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_automation_library_output(library_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_automation_library_output(library_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataAutomationLibraryResult]:
     """
     Resource Type definition for AWS::Bedrock::DataAutomationLibrary
-
 
     :param _builtins.str library_arn: ARN generated at the server side when a DataAutomationLibrary is created
     """

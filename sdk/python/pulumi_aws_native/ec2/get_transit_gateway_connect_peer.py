@@ -88,7 +88,6 @@ def get_transit_gateway_connect_peer(transit_gateway_connect_peer_id: Optional[_
     """
     Resource Type definition for AWS::EC2::TransitGatewayConnectPeer
 
-
     :param _builtins.str transit_gateway_connect_peer_id: The ID of the Connect peer.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_transit_gateway_connect_peer(transit_gateway_connect_peer_id: Optional[_
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
-def get_transit_gateway_connect_peer_output(transit_gateway_connect_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_connect_peer_output(transit_gateway_connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayConnectPeerResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayConnectPeer
-
 
     :param _builtins.str transit_gateway_connect_peer_id: The ID of the Connect peer.
     """

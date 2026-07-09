@@ -25,16 +25,16 @@ __all__ = ['CampaignArgs', 'Campaign']
 class CampaignArgs:
     def __init__(__self__, *,
                  connect_instance_id: pulumi.Input[_builtins.str],
-                 channel_subtype_config: Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']] = None,
-                 communication_limits_override: Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']] = None,
-                 communication_time_config: Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']] = None,
-                 connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 entry_limits_config: Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
-                 source: Optional[pulumi.Input['CampaignSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input['CampaignType']] = None):
+                 channel_subtype_config: pulumi.Input[Optional['CampaignChannelSubtypeConfigArgs']] = None,
+                 communication_limits_override: pulumi.Input[Optional['CampaignCommunicationLimitsConfigArgs']] = None,
+                 communication_time_config: pulumi.Input[Optional['CampaignCommunicationTimeConfigArgs']] = None,
+                 connect_campaign_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 entry_limits_config: pulumi.Input[Optional['CampaignEntryLimitsConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['CampaignScheduleArgs']] = None,
+                 source: pulumi.Input[Optional['CampaignSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional['CampaignType']] = None):
         """
         The set of arguments for constructing a Campaign resource.
 
@@ -85,119 +85,119 @@ class CampaignArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelSubtypeConfig")
-    def channel_subtype_config(self) -> Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']]:
+    def channel_subtype_config(self) -> pulumi.Input[Optional['CampaignChannelSubtypeConfigArgs']]:
         """
         Contains channel subtype configuration for an outbound campaign.
         """
         return pulumi.get(self, "channel_subtype_config")
 
     @channel_subtype_config.setter
-    def channel_subtype_config(self, value: Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']]):
+    def channel_subtype_config(self, value: pulumi.Input[Optional['CampaignChannelSubtypeConfigArgs']]):
         pulumi.set(self, "channel_subtype_config", value)
 
     @_builtins.property
     @pulumi.getter(name="communicationLimitsOverride")
-    def communication_limits_override(self) -> Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']]:
+    def communication_limits_override(self) -> pulumi.Input[Optional['CampaignCommunicationLimitsConfigArgs']]:
         """
         Communication limits configuration for an outbound campaign.
         """
         return pulumi.get(self, "communication_limits_override")
 
     @communication_limits_override.setter
-    def communication_limits_override(self, value: Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']]):
+    def communication_limits_override(self, value: pulumi.Input[Optional['CampaignCommunicationLimitsConfigArgs']]):
         pulumi.set(self, "communication_limits_override", value)
 
     @_builtins.property
     @pulumi.getter(name="communicationTimeConfig")
-    def communication_time_config(self) -> Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']]:
+    def communication_time_config(self) -> pulumi.Input[Optional['CampaignCommunicationTimeConfigArgs']]:
         """
         Contains communication time configuration for an outbound campaign.
         """
         return pulumi.get(self, "communication_time_config")
 
     @communication_time_config.setter
-    def communication_time_config(self, value: Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']]):
+    def communication_time_config(self, value: pulumi.Input[Optional['CampaignCommunicationTimeConfigArgs']]):
         pulumi.set(self, "communication_time_config", value)
 
     @_builtins.property
     @pulumi.getter(name="connectCampaignFlowArn")
-    def connect_campaign_flow_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connect_campaign_flow_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
         """
         return pulumi.get(self, "connect_campaign_flow_arn")
 
     @connect_campaign_flow_arn.setter
-    def connect_campaign_flow_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connect_campaign_flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connect_campaign_flow_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="entryLimitsConfig")
-    def entry_limits_config(self) -> Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']]:
+    def entry_limits_config(self) -> pulumi.Input[Optional['CampaignEntryLimitsConfigArgs']]:
         return pulumi.get(self, "entry_limits_config")
 
     @entry_limits_config.setter
-    def entry_limits_config(self, value: Optional[pulumi.Input['CampaignEntryLimitsConfigArgs']]):
+    def entry_limits_config(self, value: pulumi.Input[Optional['CampaignEntryLimitsConfigArgs']]):
         pulumi.set(self, "entry_limits_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the outbound campaign.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['CampaignScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['CampaignScheduleArgs']]:
         """
         Contains the schedule configuration.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['CampaignScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['CampaignScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['CampaignSourceArgs']]:
+    def source(self) -> pulumi.Input[Optional['CampaignSourceArgs']]:
         """
         Contains source configuration.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['CampaignSourceArgs']]):
+    def source(self, value: pulumi.Input[Optional['CampaignSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['CampaignType']]:
+    def type(self) -> pulumi.Input[Optional['CampaignType']]:
         """
         The type of campaign.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['CampaignType']]):
+    def type(self, value: pulumi.Input[Optional['CampaignType']]):
         pulumi.set(self, "type", value)
 
 
@@ -207,21 +207,20 @@ class Campaign(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_subtype_config: Optional[pulumi.Input[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']]] = None,
-                 communication_limits_override: Optional[pulumi.Input[Union['CampaignCommunicationLimitsConfigArgs', 'CampaignCommunicationLimitsConfigArgsDict']]] = None,
-                 communication_time_config: Optional[pulumi.Input[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
-                 connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connect_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entry_limits_config: Optional[pulumi.Input[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CampaignType']] = None,
+                 channel_subtype_config: pulumi.Input[Optional[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']]] = None,
+                 communication_limits_override: pulumi.Input[Optional[Union['CampaignCommunicationLimitsConfigArgs', 'CampaignCommunicationLimitsConfigArgsDict']]] = None,
+                 communication_time_config: pulumi.Input[Optional[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
+                 connect_campaign_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connect_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entry_limits_config: pulumi.Input[Optional[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CampaignType']] = None,
                  __props__=None):
         """
         Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +244,6 @@ class Campaign(pulumi.CustomResource):
         """
         Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param CampaignArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -261,17 +259,17 @@ class Campaign(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_subtype_config: Optional[pulumi.Input[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']]] = None,
-                 communication_limits_override: Optional[pulumi.Input[Union['CampaignCommunicationLimitsConfigArgs', 'CampaignCommunicationLimitsConfigArgsDict']]] = None,
-                 communication_time_config: Optional[pulumi.Input[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
-                 connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connect_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 entry_limits_config: Optional[pulumi.Input[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
-                 source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['CampaignType']] = None,
+                 channel_subtype_config: pulumi.Input[Optional[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']]] = None,
+                 communication_limits_override: pulumi.Input[Optional[Union['CampaignCommunicationLimitsConfigArgs', 'CampaignCommunicationLimitsConfigArgsDict']]] = None,
+                 communication_time_config: pulumi.Input[Optional[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']]] = None,
+                 connect_campaign_flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connect_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 entry_limits_config: pulumi.Input[Optional[Union['CampaignEntryLimitsConfigArgs', 'CampaignEntryLimitsConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['CampaignType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

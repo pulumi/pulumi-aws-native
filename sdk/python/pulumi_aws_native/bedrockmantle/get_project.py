@@ -100,7 +100,6 @@ def get_project(arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::BedrockMantle::Project
 
-
     :param _builtins.str arn: The ARN of the project.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_project(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_project_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource type definition for AWS::BedrockMantle::Project
-
 
     :param _builtins.str arn: The ARN of the project.
     """

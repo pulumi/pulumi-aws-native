@@ -175,7 +175,6 @@ def get_data_source(id: Optional[_builtins.str] = None,
     """
     Kendra DataSource
 
-
     :param _builtins.str id: The identifier for the data source. For example:
            
            `b8cae438-6787-4091-8897-684a652bbb0a` .
@@ -198,12 +197,11 @@ def get_data_source(id: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_data_source_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                           index_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                           index_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Kendra DataSource
-
 
     :param _builtins.str id: The identifier for the data source. For example:
            

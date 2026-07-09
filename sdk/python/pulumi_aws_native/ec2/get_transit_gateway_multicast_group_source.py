@@ -125,7 +125,6 @@ def get_transit_gateway_multicast_group_source(group_ip_address: Optional[_built
     """
     The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 
-
     :param _builtins.str group_ip_address: The IP address assigned to the transit gateway multicast group.
     :param _builtins.str network_interface_id: The ID of the transit gateway attachment.
     :param _builtins.str transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
@@ -145,13 +144,12 @@ def get_transit_gateway_multicast_group_source(group_ip_address: Optional[_built
         source_type=pulumi.get(__ret__, 'source_type'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
-def get_transit_gateway_multicast_group_source_output(group_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      transit_gateway_multicast_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_multicast_group_source_output(group_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      transit_gateway_multicast_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMulticastGroupSourceResult]:
     """
     The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
-
 
     :param _builtins.str group_ip_address: The IP address assigned to the transit gateway multicast group.
     :param _builtins.str network_interface_id: The ID of the transit gateway attachment.

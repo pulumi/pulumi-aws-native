@@ -150,7 +150,6 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::SageMaker::MonitoringSchedule
 
-
     :param _builtins.str monitoring_schedule_arn: The Amazon Resource Name (ARN) of the monitoring schedule.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[_builtins.str] = N
         monitoring_schedule_config=pulumi.get(__ret__, 'monitoring_schedule_config'),
         monitoring_schedule_status=pulumi.get(__ret__, 'monitoring_schedule_status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitoring_schedule_output(monitoring_schedule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringScheduleResult]:
     """
     Resource Type definition for AWS::SageMaker::MonitoringSchedule
-
 
     :param _builtins.str monitoring_schedule_arn: The Amazon Resource Name (ARN) of the monitoring schedule.
     """

@@ -65,7 +65,6 @@ def get_cluster_parameter_group(parameter_group_name: Optional[_builtins.str] = 
     """
     Resource Type definition for AWS::Redshift::ClusterParameterGroup
 
-
     :param _builtins.str parameter_group_name: The name of the cluster parameter group.
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_cluster_parameter_group(parameter_group_name: Optional[_builtins.str] = 
     return AwaitableGetClusterParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_parameter_group_output(parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Resource Type definition for AWS::Redshift::ClusterParameterGroup
-
 
     :param _builtins.str parameter_group_name: The name of the cluster parameter group.
     """

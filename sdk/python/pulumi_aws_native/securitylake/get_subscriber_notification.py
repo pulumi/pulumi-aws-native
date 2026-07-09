@@ -65,7 +65,6 @@ def get_subscriber_notification(subscriber_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecurityLake::SubscriberNotification
 
-
     :param _builtins.str subscriber_arn: The ARN for the subscriber
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_subscriber_notification(subscriber_arn: Optional[_builtins.str] = None,
     return AwaitableGetSubscriberNotificationResult(
         notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         subscriber_endpoint=pulumi.get(__ret__, 'subscriber_endpoint'))
-def get_subscriber_notification_output(subscriber_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscriber_notification_output(subscriber_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriberNotificationResult]:
     """
     Resource Type definition for AWS::SecurityLake::SubscriberNotification
-
 
     :param _builtins.str subscriber_arn: The ARN for the subscriber
     """

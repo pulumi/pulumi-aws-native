@@ -80,7 +80,6 @@ def get_server_certificate(server_certificate_name: Optional[_builtins.str] = No
     """
     Resource Type definition for AWS::IAM::ServerCertificate
 
-
     :param _builtins.str server_certificate_name: The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
            
            This parameter allows (through its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
@@ -94,11 +93,10 @@ def get_server_certificate(server_certificate_name: Optional[_builtins.str] = No
         arn=pulumi.get(__ret__, 'arn'),
         path=pulumi.get(__ret__, 'path'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_certificate_output(server_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
     Resource Type definition for AWS::IAM::ServerCertificate
-
 
     :param _builtins.str server_certificate_name: The name for the server certificate. Do not include the path in this value. The name of the certificate cannot contain any spaces.
            

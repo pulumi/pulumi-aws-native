@@ -26,10 +26,10 @@ class PublicVirtualInterfaceArgs:
                  bgp_peers: pulumi.Input[Sequence[pulumi.Input['PublicVirtualInterfaceBgpPeerArgs']]],
                  connection_id: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.int],
-                 allocate_public_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublicVirtualInterface resource.
 
@@ -91,50 +91,50 @@ class PublicVirtualInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="allocatePublicVirtualInterfaceRoleArn")
-    def allocate_public_virtual_interface_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allocate_public_virtual_interface_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role to allocate the public virtual interface. Needs directconnect:AllocatePublicVirtualInterface permissions and tag permissions if applicable.
         """
         return pulumi.get(self, "allocate_public_virtual_interface_role_arn")
 
     @allocate_public_virtual_interface_role_arn.setter
-    def allocate_public_virtual_interface_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allocate_public_virtual_interface_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allocate_public_virtual_interface_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="routeFilterPrefixes")
-    def route_filter_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def route_filter_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The routes to be advertised to the AWS network in this region.
         """
         return pulumi.get(self, "route_filter_prefixes")
 
     @route_filter_prefixes.setter
-    def route_filter_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def route_filter_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "route_filter_prefixes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags associated with the public virtual interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualInterfaceName")
-    def virtual_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual interface assigned by the customer network. The name has a maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen (-).
         """
         return pulumi.get(self, "virtual_interface_name")
 
     @virtual_interface_name.setter
-    def virtual_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_interface_name", value)
 
 
@@ -144,17 +144,16 @@ class PublicVirtualInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocate_public_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::PublicVirtualInterface
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DirectConnect::PublicVirtualInterface
 
-
         :param str resource_name: The name of the resource.
         :param PublicVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class PublicVirtualInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allocate_public_virtual_interface_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 bgp_peers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
-                 connection_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 virtual_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vlan: Optional[pulumi.Input[_builtins.int]] = None,
+                 allocate_public_virtual_interface_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PublicVirtualInterfaceBgpPeerArgs', 'PublicVirtualInterfaceBgpPeerArgsDict']]]]] = None,
+                 connection_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 virtual_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vlan: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

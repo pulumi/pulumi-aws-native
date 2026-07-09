@@ -23,12 +23,12 @@ class ApplicationVersionArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
                  source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
 
-        :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
-        :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
+        :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
         """
         pulumi.set(__self__, "application_name", application_name)
@@ -40,7 +40,7 @@ class ApplicationVersionArgs:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Elastic Beanstalk application that is associated with this application version. 
+        The name of the Elastic Beanstalk application that is associated with this application version.
         """
         return pulumi.get(self, "application_name")
 
@@ -52,7 +52,7 @@ class ApplicationVersionArgs:
     @pulumi.getter(name="sourceBundle")
     def source_bundle(self) -> pulumi.Input['ApplicationVersionSourceBundleArgs']:
         """
-        The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         return pulumi.get(self, "source_bundle")
 
@@ -62,14 +62,14 @@ class ApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of this application version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -79,19 +79,18 @@ class ApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version. 
+        :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
-        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         ...
     @overload
@@ -101,7 +100,6 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
-
 
         :param str resource_name: The name of the resource.
         :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -118,9 +116,9 @@ class ApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_bundle: Optional[pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -172,7 +170,7 @@ class ApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Elastic Beanstalk application that is associated with this application version. 
+        The name of the Elastic Beanstalk application that is associated with this application version.
         """
         return pulumi.get(self, "application_name")
 
@@ -193,7 +191,7 @@ class ApplicationVersion(pulumi.CustomResource):
     @pulumi.getter(name="sourceBundle")
     def source_bundle(self) -> pulumi.Output['outputs.ApplicationVersionSourceBundle']:
         """
-        The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+        The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         return pulumi.get(self, "source_bundle")
 

@@ -75,7 +75,6 @@ def get_vpc_endpoint(id: Optional[_builtins.str] = None,
     """
     Amazon OpenSearchServerless vpc endpoint resource
 
-
     :param _builtins.str id: The identifier of the VPC Endpoint
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_vpc_endpoint(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
-def get_vpc_endpoint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_endpoint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     Amazon OpenSearchServerless vpc endpoint resource
-
 
     :param _builtins.str id: The identifier of the VPC Endpoint
     """

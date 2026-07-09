@@ -148,7 +148,6 @@ def get_id_mapping_table(id_mapping_table_identifier: Optional[_builtins.str] = 
     """
     Represents an association between an ID mapping workflow and a collaboration
 
-
     :param _builtins.str id_mapping_table_identifier: The unique identifier of the ID mapping table identifier that you want to retrieve.
     :param _builtins.str membership_identifier: The unique identifier of the membership resource for the ID mapping table.
     """
@@ -168,12 +167,11 @@ def get_id_mapping_table(id_mapping_table_identifier: Optional[_builtins.str] = 
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_id_mapping_table_output(id_mapping_table_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdMappingTableResult]:
     """
     Represents an association between an ID mapping workflow and a collaboration
-
 
     :param _builtins.str id_mapping_table_identifier: The unique identifier of the ID mapping table identifier that you want to retrieve.
     :param _builtins.str membership_identifier: The unique identifier of the membership resource for the ID mapping table.

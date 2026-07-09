@@ -24,10 +24,10 @@ class ScheduledAuditArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input['ScheduledAuditFrequency'],
                  target_check_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 day_of_month: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
-                 scheduled_audit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 day_of_month: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional['ScheduledAuditDayOfWeek']] = None,
+                 scheduled_audit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduledAudit resource.
 
@@ -75,50 +75,50 @@ class ScheduledAuditArgs:
 
     @_builtins.property
     @pulumi.getter(name="dayOfMonth")
-    def day_of_month(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def day_of_month(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
         """
         return pulumi.get(self, "day_of_month")
 
     @day_of_month.setter
-    def day_of_month(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def day_of_month(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "day_of_month", value)
 
     @_builtins.property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input['ScheduledAuditDayOfWeek']]:
+    def day_of_week(self) -> pulumi.Input[Optional['ScheduledAuditDayOfWeek']]:
         """
         The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input['ScheduledAuditDayOfWeek']]):
+    def day_of_week(self, value: pulumi.Input[Optional['ScheduledAuditDayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledAuditName")
-    def scheduled_audit_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduled_audit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name you want to give to the scheduled audit.
         """
         return pulumi.get(self, "scheduled_audit_name")
 
     @scheduled_audit_name.setter
-    def scheduled_audit_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduled_audit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduled_audit_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,16 +128,15 @@ class ScheduledAudit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 day_of_month: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
-                 frequency: Optional[pulumi.Input['ScheduledAuditFrequency']] = None,
-                 scheduled_audit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 day_of_month: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional['ScheduledAuditDayOfWeek']] = None,
+                 frequency: pulumi.Input[Optional['ScheduledAuditFrequency']] = None,
+                 scheduled_audit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_check_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class ScheduledAudit(pulumi.CustomResource):
         """
         Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 
-
         :param str resource_name: The name of the resource.
         :param ScheduledAuditArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class ScheduledAudit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 day_of_month: Optional[pulumi.Input[_builtins.str]] = None,
-                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
-                 frequency: Optional[pulumi.Input['ScheduledAuditFrequency']] = None,
-                 scheduled_audit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 day_of_month: pulumi.Input[Optional[_builtins.str]] = None,
+                 day_of_week: pulumi.Input[Optional['ScheduledAuditDayOfWeek']] = None,
+                 frequency: pulumi.Input[Optional['ScheduledAuditFrequency']] = None,
+                 scheduled_audit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_check_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

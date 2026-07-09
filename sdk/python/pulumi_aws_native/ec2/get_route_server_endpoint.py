@@ -112,7 +112,6 @@ def get_route_server_endpoint(id: Optional[_builtins.str] = None,
     """
     VPC Route Server Endpoint
 
-
     :param _builtins.str id: The ID of the Route Server Endpoint.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_route_server_endpoint(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_route_server_endpoint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_server_endpoint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteServerEndpointResult]:
     """
     VPC Route Server Endpoint
-
 
     :param _builtins.str id: The ID of the Route Server Endpoint.
     """

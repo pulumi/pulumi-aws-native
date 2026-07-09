@@ -67,7 +67,6 @@ def get_identity_provider_config(cluster_name: Optional[_builtins.str] = None,
     """
     An object representing an Amazon EKS IdentityProviderConfig.
 
-
     :param _builtins.str cluster_name: The name of the identity provider configuration.
     :param _builtins.str identity_provider_config_name: The name of the OIDC provider configuration.
     :param 'IdentityProviderConfigType' type: The type of the identity provider configuration.
@@ -82,13 +81,12 @@ def get_identity_provider_config(cluster_name: Optional[_builtins.str] = None,
     return AwaitableGetIdentityProviderConfigResult(
         identity_provider_config_arn=pulumi.get(__ret__, 'identity_provider_config_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_identity_provider_config_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
+def get_identity_provider_config_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        type: pulumi.Input[Optional['IdentityProviderConfigType']] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderConfigResult]:
     """
     An object representing an Amazon EKS IdentityProviderConfig.
-
 
     :param _builtins.str cluster_name: The name of the identity provider configuration.
     :param _builtins.str identity_provider_config_name: The name of the OIDC provider configuration.

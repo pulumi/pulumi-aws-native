@@ -27,26 +27,26 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input['WebAclScope'],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
-                 application_config: Optional[pulumi.Input['WebAclApplicationConfigArgs']] = None,
-                 association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
-                 captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
-                 challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
-                 data_protection_config: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input['WebAclMonetizationConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 application_config: pulumi.Input[Optional['WebAclApplicationConfigArgs']] = None,
+                 association_config: pulumi.Input[Optional['WebAclAssociationConfigArgs']] = None,
+                 captcha_config: pulumi.Input[Optional['WebAclCaptchaConfigArgs']] = None,
+                 challenge_config: pulumi.Input[Optional['WebAclChallengeConfigArgs']] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
+                 data_protection_config: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional['WebAclMonetizationConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_source_d_do_s_protection_config: pulumi.Input[Optional['WebAclOnSourceDDoSProtectionConfigArgs']] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebAcl resource.
 
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action to perform if none of the `Rules` contained in the `WebACL` match.
         :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
-               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
                
                For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
@@ -55,7 +55,7 @@ class WebAclArgs:
                
                Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
                
-               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
                
                For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         :param pulumi.Input['WebAclCaptchaConfigArgs'] captcha_config: Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
@@ -123,7 +123,7 @@ class WebAclArgs:
         """
         Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 
-        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 
         For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
         """
@@ -147,61 +147,61 @@ class WebAclArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationConfig")
-    def application_config(self) -> Optional[pulumi.Input['WebAclApplicationConfigArgs']]:
+    def application_config(self) -> pulumi.Input[Optional['WebAclApplicationConfigArgs']]:
         """
         Collection of application attributes.
         """
         return pulumi.get(self, "application_config")
 
     @application_config.setter
-    def application_config(self, value: Optional[pulumi.Input['WebAclApplicationConfigArgs']]):
+    def application_config(self, value: pulumi.Input[Optional['WebAclApplicationConfigArgs']]):
         pulumi.set(self, "application_config", value)
 
     @_builtins.property
     @pulumi.getter(name="associationConfig")
-    def association_config(self) -> Optional[pulumi.Input['WebAclAssociationConfigArgs']]:
+    def association_config(self) -> pulumi.Input[Optional['WebAclAssociationConfigArgs']]:
         """
         Specifies custom configurations for the associations between the web ACL and protected resources.
 
         Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
 
-        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 
         For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         """
         return pulumi.get(self, "association_config")
 
     @association_config.setter
-    def association_config(self, value: Optional[pulumi.Input['WebAclAssociationConfigArgs']]):
+    def association_config(self, value: pulumi.Input[Optional['WebAclAssociationConfigArgs']]):
         pulumi.set(self, "association_config", value)
 
     @_builtins.property
     @pulumi.getter(name="captchaConfig")
-    def captcha_config(self) -> Optional[pulumi.Input['WebAclCaptchaConfigArgs']]:
+    def captcha_config(self) -> pulumi.Input[Optional['WebAclCaptchaConfigArgs']]:
         """
         Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
         """
         return pulumi.get(self, "captcha_config")
 
     @captcha_config.setter
-    def captcha_config(self, value: Optional[pulumi.Input['WebAclCaptchaConfigArgs']]):
+    def captcha_config(self, value: pulumi.Input[Optional['WebAclCaptchaConfigArgs']]):
         pulumi.set(self, "captcha_config", value)
 
     @_builtins.property
     @pulumi.getter(name="challengeConfig")
-    def challenge_config(self) -> Optional[pulumi.Input['WebAclChallengeConfigArgs']]:
+    def challenge_config(self) -> pulumi.Input[Optional['WebAclChallengeConfigArgs']]:
         """
         Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
         """
         return pulumi.get(self, "challenge_config")
 
     @challenge_config.setter
-    def challenge_config(self, value: Optional[pulumi.Input['WebAclChallengeConfigArgs']]):
+    def challenge_config(self, value: pulumi.Input[Optional['WebAclChallengeConfigArgs']]):
         pulumi.set(self, "challenge_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customResponseBodies")
-    def custom_response_bodies(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+    def custom_response_bodies(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
         """
         A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
 
@@ -212,81 +212,81 @@ class WebAclArgs:
         return pulumi.get(self, "custom_response_bodies")
 
     @custom_response_bodies.setter
-    def custom_response_bodies(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+    def custom_response_bodies(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
         pulumi.set(self, "custom_response_bodies", value)
 
     @_builtins.property
     @pulumi.getter(name="dataProtectionConfig")
-    def data_protection_config(self) -> Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]:
+    def data_protection_config(self) -> pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]:
         """
         Collection of dataProtects.
         """
         return pulumi.get(self, "data_protection_config")
 
     @data_protection_config.setter
-    def data_protection_config(self, value: Optional[pulumi.Input['WebAclDataProtectionConfigArgs']]):
+    def data_protection_config(self, value: pulumi.Input[Optional['WebAclDataProtectionConfigArgs']]):
         pulumi.set(self, "data_protection_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the web ACL that helps with identification.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="monetizationConfig")
-    def monetization_config(self) -> Optional[pulumi.Input['WebAclMonetizationConfigArgs']]:
+    def monetization_config(self) -> pulumi.Input[Optional['WebAclMonetizationConfigArgs']]:
         return pulumi.get(self, "monetization_config")
 
     @monetization_config.setter
-    def monetization_config(self, value: Optional[pulumi.Input['WebAclMonetizationConfigArgs']]):
+    def monetization_config(self, value: pulumi.Input[Optional['WebAclMonetizationConfigArgs']]):
         pulumi.set(self, "monetization_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the web ACL. You cannot change the name of a web ACL after you create it.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="onSourceDDoSProtectionConfig")
-    def on_source_d_do_s_protection_config(self) -> Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']]:
+    def on_source_d_do_s_protection_config(self) -> pulumi.Input[Optional['WebAclOnSourceDDoSProtectionConfigArgs']]:
         """
         Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
         """
         return pulumi.get(self, "on_source_d_do_s_protection_config")
 
     @on_source_d_do_s_protection_config.setter
-    def on_source_d_do_s_protection_config(self, value: Optional[pulumi.Input['WebAclOnSourceDDoSProtectionConfigArgs']]):
+    def on_source_d_do_s_protection_config(self, value: pulumi.Input[Optional['WebAclOnSourceDDoSProtectionConfigArgs']]):
         pulumi.set(self, "on_source_d_do_s_protection_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]:
         """
         Collection of Rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WebAclRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 
@@ -295,19 +295,19 @@ class WebAclArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tokenDomains")
-    def token_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def token_domains(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         """
         return pulumi.get(self, "token_domains")
 
     @token_domains.setter
-    def token_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def token_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "token_domains", value)
 
 
@@ -317,26 +317,25 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_config: Optional[pulumi.Input[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
-                 association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
-                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
-                 default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['WebAclScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
+                 application_config: pulumi.Input[Optional[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
+                 association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_source_d_do_s_protection_config: pulumi.Input[Optional[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['WebAclScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,7 +344,7 @@ class WebAcl(pulumi.CustomResource):
                
                Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
                
-               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
                
                For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         :param pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']] captcha_config: Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
@@ -363,7 +362,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]] rules: Collection of Rules.
         :param pulumi.Input['WebAclScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
-               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+               > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
                
                For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
@@ -381,7 +380,6 @@ class WebAcl(pulumi.CustomResource):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
-
         :param str resource_name: The name of the resource.
         :param WebAclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -397,22 +395,22 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_config: Optional[pulumi.Input[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
-                 association_config: Optional[pulumi.Input[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
-                 captcha_config: Optional[pulumi.Input[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
-                 challenge_config: Optional[pulumi.Input[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
-                 custom_response_bodies: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
-                 data_protection_config: Optional[pulumi.Input[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
-                 default_action: Optional[pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 monetization_config: Optional[pulumi.Input[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_source_d_do_s_protection_config: Optional[pulumi.Input[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
-                 scope: Optional[pulumi.Input['WebAclScope']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 visibility_config: Optional[pulumi.Input[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
+                 application_config: pulumi.Input[Optional[Union['WebAclApplicationConfigArgs', 'WebAclApplicationConfigArgsDict']]] = None,
+                 association_config: pulumi.Input[Optional[Union['WebAclAssociationConfigArgs', 'WebAclAssociationConfigArgsDict']]] = None,
+                 captcha_config: pulumi.Input[Optional[Union['WebAclCaptchaConfigArgs', 'WebAclCaptchaConfigArgsDict']]] = None,
+                 challenge_config: pulumi.Input[Optional[Union['WebAclChallengeConfigArgs', 'WebAclChallengeConfigArgsDict']]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WebAclCustomResponseBodyArgs', 'WebAclCustomResponseBodyArgsDict']]]]] = None,
+                 data_protection_config: pulumi.Input[Optional[Union['WebAclDataProtectionConfigArgs', 'WebAclDataProtectionConfigArgsDict']]] = None,
+                 default_action: pulumi.Input[Optional[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['WebAclMonetizationConfigArgs', 'WebAclMonetizationConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_source_d_do_s_protection_config: pulumi.Input[Optional[Union['WebAclOnSourceDDoSProtectionConfigArgs', 'WebAclOnSourceDDoSProtectionConfigArgsDict']]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WebAclRuleArgs', 'WebAclRuleArgsDict']]]]] = None,
+                 scope: pulumi.Input[Optional['WebAclScope']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 token_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['WebAclVisibilityConfigArgs', 'WebAclVisibilityConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -518,7 +516,7 @@ class WebAcl(pulumi.CustomResource):
 
         Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
 
-        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 
         For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
         """
@@ -641,7 +639,7 @@ class WebAcl(pulumi.CustomResource):
         """
         Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
 
-        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+        > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
 
         For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
         """

@@ -23,11 +23,11 @@ class DeliveryArgs:
     def __init__(__self__, *,
                  delivery_destination_arn: pulumi.Input[_builtins.str],
                  delivery_source_name: pulumi.Input[_builtins.str],
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_enable_hive_compatible_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s3_suffix_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_enable_hive_compatible_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s3_suffix_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Delivery resource.
 
@@ -78,62 +78,62 @@ class DeliveryArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldDelimiter")
-    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def field_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
         """
         return pulumi.get(self, "field_delimiter")
 
     @field_delimiter.setter
-    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def field_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "field_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="recordFields")
-    def record_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def record_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
         """
         return pulumi.get(self, "record_fields")
 
     @record_fields.setter
-    def record_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def record_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "record_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="s3EnableHiveCompatiblePath")
-    def s3_enable_hive_compatible_path(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def s3_enable_hive_compatible_path(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
         """
         return pulumi.get(self, "s3_enable_hive_compatible_path")
 
     @s3_enable_hive_compatible_path.setter
-    def s3_enable_hive_compatible_path(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def s3_enable_hive_compatible_path(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "s3_enable_hive_compatible_path", value)
 
     @_builtins.property
     @pulumi.getter(name="s3SuffixPath")
-    def s3_suffix_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_suffix_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
         """
         return pulumi.get(self, "s3_suffix_path")
 
     @s3_suffix_path.setter
-    def s3_suffix_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_suffix_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_suffix_path", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that have been assigned to this delivery.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class Delivery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_enable_hive_compatible_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s3_suffix_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 delivery_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_enable_hive_compatible_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s3_suffix_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         This structure contains information about one delivery in your account.
@@ -157,7 +157,6 @@ class Delivery(pulumi.CustomResource):
         A delivery is a connection between a logical delivery source and a logical delivery destination.
 
         For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class Delivery(pulumi.CustomResource):
 
         For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
-
         :param str resource_name: The name of the resource.
         :param DeliveryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class Delivery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delivery_destination_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_enable_hive_compatible_path: Optional[pulumi.Input[_builtins.bool]] = None,
-                 s3_suffix_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 delivery_destination_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 record_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_enable_hive_compatible_path: pulumi.Input[Optional[_builtins.bool]] = None,
+                 s3_suffix_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

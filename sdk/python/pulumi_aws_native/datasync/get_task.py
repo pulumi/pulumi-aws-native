@@ -198,7 +198,6 @@ def get_task(task_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DataSync::Task.
 
-
     :param _builtins.str task_arn: The ARN of the task.
     """
     __args__ = dict()
@@ -220,11 +219,10 @@ def get_task(task_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_arn=pulumi.get(__ret__, 'task_arn'),
         task_report_config=pulumi.get(__ret__, 'task_report_config'))
-def get_task_output(task_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_output(task_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskResult]:
     """
     Resource schema for AWS::DataSync::Task.
-
 
     :param _builtins.str task_arn: The ARN of the task.
     """

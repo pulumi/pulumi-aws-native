@@ -89,7 +89,6 @@ def get_knowledge_base(knowledge_base_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type
 
-
     :param _builtins.str knowledge_base_id: The ID of the knowledge base.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_knowledge_base(knowledge_base_id: Optional[_builtins.str] = None,
         knowledge_base_id=pulumi.get(__ret__, 'knowledge_base_id'),
         rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'),
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
-def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_knowledge_base_output(knowledge_base_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type
-
 
     :param _builtins.str knowledge_base_id: The ID of the knowledge base.
     """

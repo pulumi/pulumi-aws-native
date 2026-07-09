@@ -92,7 +92,6 @@ def get_index(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::ResourceExplorer2::Index Resource Type
 
-
     :param _builtins.str arn: The ARN of the new index for the AWS Region . For example:
            
            `arn:aws:resource-explorer-2:us-east-1:123456789012:index/EXAMPLE8-90ab-cdef-fedc-EXAMPLE22222`
@@ -107,11 +106,10 @@ def get_index(arn: Optional[_builtins.str] = None,
         index_state=pulumi.get(__ret__, 'index_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_index_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_index_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::ResourceExplorer2::Index Resource Type
-
 
     :param _builtins.str arn: The ARN of the new index for the AWS Region . For example:
            

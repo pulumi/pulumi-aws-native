@@ -24,9 +24,9 @@ class NetworkInterfaceAttachmentArgs:
                  device_index: pulumi.Input[_builtins.str],
                  instance_id: pulumi.Input[_builtins.str],
                  network_interface_id: pulumi.Input[_builtins.str],
-                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ena_queue_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ena_srd_specification: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] = None):
+                 delete_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ena_srd_specification: pulumi.Input[Optional['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
 
@@ -85,38 +85,38 @@ class NetworkInterfaceAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deleteOnTermination")
-    def delete_on_termination(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_on_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
-    def delete_on_termination(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_on_termination(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_on_termination", value)
 
     @_builtins.property
     @pulumi.getter(name="enaQueueCount")
-    def ena_queue_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ena_queue_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of ENA queues created with the instance.
         """
         return pulumi.get(self, "ena_queue_count")
 
     @ena_queue_count.setter
-    def ena_queue_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ena_queue_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ena_queue_count", value)
 
     @_builtins.property
     @pulumi.getter(name="enaSrdSpecification")
-    def ena_srd_specification(self) -> Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]:
+    def ena_srd_specification(self) -> pulumi.Input[Optional['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]:
         """
         Configures ENA Express for the network interface that this action attaches to the instance.
         """
         return pulumi.get(self, "ena_srd_specification")
 
     @ena_srd_specification.setter
-    def ena_srd_specification(self, value: Optional[pulumi.Input['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]):
+    def ena_srd_specification(self, value: pulumi.Input[Optional['NetworkInterfaceAttachmentEnaSrdSpecificationArgs']]):
         pulumi.set(self, "ena_srd_specification", value)
 
 
@@ -126,16 +126,15 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 device_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_queue_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 device_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +154,6 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         """
         Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
-
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,12 +169,12 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 delete_on_termination: Optional[pulumi.Input[_builtins.bool]] = None,
-                 device_index: Optional[pulumi.Input[_builtins.str]] = None,
-                 ena_queue_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 ena_srd_specification: Optional[pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_interface_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 delete_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
+                 device_index: pulumi.Input[Optional[_builtins.str]] = None,
+                 ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

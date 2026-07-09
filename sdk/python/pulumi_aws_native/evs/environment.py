@@ -32,12 +32,12 @@ class EnvironmentArgs:
                  vcf_hostnames: pulumi.Input['VcfHostnamesPropertiesArgs'],
                  vcf_version: pulumi.Input['EnvironmentVcfVersion'],
                  vpc_id: pulumi.Input[_builtins.str],
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]] = None,
-                 initial_vlans: Optional[pulumi.Input['InitialVlansPropertiesArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_access_security_groups: Optional[pulumi.Input['ServiceAccessSecurityGroupsPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosts: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]] = None,
+                 initial_vlans: pulumi.Input[Optional['InitialVlansPropertiesArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_access_security_groups: pulumi.Input[Optional['ServiceAccessSecurityGroupsPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -181,43 +181,43 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an EVS environment
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]]:
+    def hosts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]]:
         """
         The initial hosts for environment only required upon creation. Modification after creation will have no effect
         """
         return pulumi.get(self, "hosts")
 
     @hosts.setter
-    def hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]]):
+    def hosts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentHostInfoForCreateArgs']]]]):
         pulumi.set(self, "hosts", value)
 
     @_builtins.property
     @pulumi.getter(name="initialVlans")
-    def initial_vlans(self) -> Optional[pulumi.Input['InitialVlansPropertiesArgs']]:
+    def initial_vlans(self) -> pulumi.Input[Optional['InitialVlansPropertiesArgs']]:
         """
         The initial Vlan configuration only required upon creation. Modification after creation will have no effect
         """
         return pulumi.get(self, "initial_vlans")
 
     @initial_vlans.setter
-    def initial_vlans(self, value: Optional[pulumi.Input['InitialVlansPropertiesArgs']]):
+    def initial_vlans(self, value: pulumi.Input[Optional['InitialVlansPropertiesArgs']]):
         pulumi.set(self, "initial_vlans", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key ID that AWS Secrets Manager uses to encrypt secrets that are associated with the environment. These secrets contain the VCF credentials that are needed to install vCenter Server, NSX, and SDDC Manager.
 
@@ -226,31 +226,31 @@ class EnvironmentArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccessSecurityGroups")
-    def service_access_security_groups(self) -> Optional[pulumi.Input['ServiceAccessSecurityGroupsPropertiesArgs']]:
+    def service_access_security_groups(self) -> pulumi.Input[Optional['ServiceAccessSecurityGroupsPropertiesArgs']]:
         """
         The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
         """
         return pulumi.get(self, "service_access_security_groups")
 
     @service_access_security_groups.setter
-    def service_access_security_groups(self, value: Optional[pulumi.Input['ServiceAccessSecurityGroupsPropertiesArgs']]):
+    def service_access_security_groups(self, value: pulumi.Input[Optional['ServiceAccessSecurityGroupsPropertiesArgs']]):
         pulumi.set(self, "service_access_security_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -260,24 +260,23 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectivity_info: Optional[pulumi.Input[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentHostInfoForCreateArgs', 'EnvironmentHostInfoForCreateArgsDict']]]]] = None,
-                 initial_vlans: Optional[pulumi.Input[Union['InitialVlansPropertiesArgs', 'InitialVlansPropertiesArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[Union['LicenseInfoPropertiesArgs', 'LicenseInfoPropertiesArgsDict']]] = None,
-                 service_access_security_groups: Optional[pulumi.Input[Union['ServiceAccessSecurityGroupsPropertiesArgs', 'ServiceAccessSecurityGroupsPropertiesArgsDict']]] = None,
-                 service_access_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 terms_accepted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vcf_hostnames: Optional[pulumi.Input[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']]] = None,
-                 vcf_version: Optional[pulumi.Input['EnvironmentVcfVersion']] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connectivity_info: pulumi.Input[Optional[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentHostInfoForCreateArgs', 'EnvironmentHostInfoForCreateArgsDict']]]]] = None,
+                 initial_vlans: pulumi.Input[Optional[Union['InitialVlansPropertiesArgs', 'InitialVlansPropertiesArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[Union['LicenseInfoPropertiesArgs', 'LicenseInfoPropertiesArgsDict']]] = None,
+                 service_access_security_groups: pulumi.Input[Optional[Union['ServiceAccessSecurityGroupsPropertiesArgs', 'ServiceAccessSecurityGroupsPropertiesArgsDict']]] = None,
+                 service_access_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 terms_accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vcf_hostnames: pulumi.Input[Optional[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']]] = None,
+                 vcf_version: pulumi.Input[Optional['EnvironmentVcfVersion']] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An environment created within the EVS service
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,7 +308,6 @@ class Environment(pulumi.CustomResource):
         """
         An environment created within the EVS service
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,20 +323,20 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectivity_info: Optional[pulumi.Input[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hosts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentHostInfoForCreateArgs', 'EnvironmentHostInfoForCreateArgsDict']]]]] = None,
-                 initial_vlans: Optional[pulumi.Input[Union['InitialVlansPropertiesArgs', 'InitialVlansPropertiesArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 license_info: Optional[pulumi.Input[Union['LicenseInfoPropertiesArgs', 'LicenseInfoPropertiesArgsDict']]] = None,
-                 service_access_security_groups: Optional[pulumi.Input[Union['ServiceAccessSecurityGroupsPropertiesArgs', 'ServiceAccessSecurityGroupsPropertiesArgsDict']]] = None,
-                 service_access_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 terms_accepted: Optional[pulumi.Input[_builtins.bool]] = None,
-                 vcf_hostnames: Optional[pulumi.Input[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']]] = None,
-                 vcf_version: Optional[pulumi.Input['EnvironmentVcfVersion']] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 connectivity_info: pulumi.Input[Optional[Union['ConnectivityInfoPropertiesArgs', 'ConnectivityInfoPropertiesArgsDict']]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hosts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentHostInfoForCreateArgs', 'EnvironmentHostInfoForCreateArgsDict']]]]] = None,
+                 initial_vlans: pulumi.Input[Optional[Union['InitialVlansPropertiesArgs', 'InitialVlansPropertiesArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 license_info: pulumi.Input[Optional[Union['LicenseInfoPropertiesArgs', 'LicenseInfoPropertiesArgsDict']]] = None,
+                 service_access_security_groups: pulumi.Input[Optional[Union['ServiceAccessSecurityGroupsPropertiesArgs', 'ServiceAccessSecurityGroupsPropertiesArgsDict']]] = None,
+                 service_access_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 terms_accepted: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vcf_hostnames: pulumi.Input[Optional[Union['VcfHostnamesPropertiesArgs', 'VcfHostnamesPropertiesArgsDict']]] = None,
+                 vcf_version: pulumi.Input[Optional['EnvironmentVcfVersion']] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

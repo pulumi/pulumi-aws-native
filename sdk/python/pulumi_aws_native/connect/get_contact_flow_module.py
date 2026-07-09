@@ -161,7 +161,6 @@ def get_contact_flow_module(contact_flow_module_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::Connect::ContactFlowModule.
 
-
     :param _builtins.str contact_flow_module_arn: The identifier of the contact flow module (ARN).
     """
     __args__ = dict()
@@ -180,11 +179,10 @@ def get_contact_flow_module(contact_flow_module_arn: Optional[_builtins.str] = N
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_contact_flow_module_output(contact_flow_module_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_flow_module_output(contact_flow_module_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
     Resource Type definition for AWS::Connect::ContactFlowModule.
-
 
     :param _builtins.str contact_flow_module_arn: The identifier of the contact flow module (ARN).
     """

@@ -148,7 +148,6 @@ def get_endpoint_authorization(account: Optional[_builtins.str] = None,
     """
     Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
 
-
     :param _builtins.str account: The target AWS account ID to grant or revoke access for.
     :param _builtins.str cluster_identifier: The cluster identifier.
     """
@@ -168,12 +167,11 @@ def get_endpoint_authorization(account: Optional[_builtins.str] = None,
         grantor=pulumi.get(__ret__, 'grantor'),
         status=pulumi.get(__ret__, 'status'),
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
-def get_endpoint_authorization_output(account: Optional[pulumi.Input[_builtins.str]] = None,
-                                      cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_authorization_output(account: pulumi.Input[Optional[_builtins.str]] = None,
+                                      cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAuthorizationResult]:
     """
     Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
-
 
     :param _builtins.str account: The target AWS account ID to grant or revoke access for.
     :param _builtins.str cluster_identifier: The cluster identifier.

@@ -24,12 +24,12 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
-                 auth_type: Optional[pulumi.Input['ServiceAuthType']] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_entry: Optional[pulumi.Input['ServiceDnsEntryArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 auth_type: pulumi.Input[Optional['ServiceAuthType']] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_entry: pulumi.Input[Optional['ServiceDnsEntryArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -60,7 +60,7 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> Optional[pulumi.Input['ServiceAuthType']]:
+    def auth_type(self) -> pulumi.Input[Optional['ServiceAuthType']]:
         """
         The type of IAM policy.
 
@@ -70,48 +70,48 @@ class ServiceArgs:
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: Optional[pulumi.Input['ServiceAuthType']]):
+    def auth_type(self, value: pulumi.Input[Optional['ServiceAuthType']]):
         pulumi.set(self, "auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
-    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
     @certificate_arn.setter
-    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The custom domain name of the service.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
-    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsEntry")
-    def dns_entry(self) -> Optional[pulumi.Input['ServiceDnsEntryArgs']]:
+    def dns_entry(self) -> pulumi.Input[Optional['ServiceDnsEntryArgs']]:
         """
         Describes the DNS information of the service. This field is read-only.
         """
         return pulumi.get(self, "dns_entry")
 
     @dns_entry.setter
-    def dns_entry(self, value: Optional[pulumi.Input['ServiceDnsEntryArgs']]):
+    def dns_entry(self, value: pulumi.Input[Optional['ServiceDnsEntryArgs']]):
         pulumi.set(self, "dns_entry", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 
@@ -120,19 +120,19 @@ class ServiceArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the service.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -142,16 +142,15 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['ServiceAuthType']] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_entry: Optional[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['ServiceAuthType']] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +175,6 @@ class Service(pulumi.CustomResource):
         """
         A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 
-
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,12 +190,12 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_type: Optional[pulumi.Input['ServiceAuthType']] = None,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_entry: Optional[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 auth_type: pulumi.Input[Optional['ServiceAuthType']] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

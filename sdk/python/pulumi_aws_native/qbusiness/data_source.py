@@ -28,13 +28,13 @@ class DataSourceArgs:
                  configuration: Any,
                  display_name: pulumi.Input[_builtins.str],
                  index_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_enrichment_configuration: Optional[pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs']] = None,
-                 media_extraction_configuration: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_enrichment_configuration: pulumi.Input[Optional['DataSourceDocumentEnrichmentConfigurationArgs']] = None,
+                 media_extraction_configuration: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_configuration: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
@@ -147,19 +147,19 @@ class DataSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the data source connector.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentEnrichmentConfiguration")
-    def document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs']]:
+    def document_enrichment_configuration(self) -> pulumi.Input[Optional['DataSourceDocumentEnrichmentConfigurationArgs']]:
         """
         Provides the configuration information for altering document metadata and content during the document ingestion process.
 
@@ -168,36 +168,36 @@ class DataSourceArgs:
         return pulumi.get(self, "document_enrichment_configuration")
 
     @document_enrichment_configuration.setter
-    def document_enrichment_configuration(self, value: Optional[pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs']]):
+    def document_enrichment_configuration(self, value: pulumi.Input[Optional['DataSourceDocumentEnrichmentConfigurationArgs']]):
         pulumi.set(self, "document_enrichment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaExtractionConfiguration")
-    def media_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]:
+    def media_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']]:
         """
         The configuration for extracting information from media in documents.
         """
         return pulumi.get(self, "media_extraction_configuration")
 
     @media_extraction_configuration.setter
-    def media_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]):
+    def media_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']]):
         pulumi.set(self, "media_extraction_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="syncSchedule")
-    def sync_schedule(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sync_schedule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
 
@@ -206,31 +206,31 @@ class DataSourceArgs:
         return pulumi.get(self, "sync_schedule")
 
     @sync_schedule.setter
-    def sync_schedule(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sync_schedule(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]:
         """
         Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: pulumi.Input[Optional['DataSourceVpcConfigurationArgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
@@ -240,21 +240,20 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
-                 index_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_extraction_configuration: Optional[pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['DataSourceVpcConfigurationArgs', 'DataSourceVpcConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_enrichment_configuration: pulumi.Input[Optional[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
+                 index_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_extraction_configuration: pulumi.Input[Optional[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['DataSourceVpcConfigurationArgs', 'DataSourceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::QBusiness::DataSource Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,7 +294,6 @@ class DataSource(pulumi.CustomResource):
         """
         Definition of AWS::QBusiness::DataSource Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,17 +309,17 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
-                 index_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_extraction_configuration: Optional[pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 sync_schedule: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_configuration: Optional[pulumi.Input[Union['DataSourceVpcConfigurationArgs', 'DataSourceVpcConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_enrichment_configuration: pulumi.Input[Optional[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
+                 index_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_extraction_configuration: pulumi.Input[Optional[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_configuration: pulumi.Input[Optional[Union['DataSourceVpcConfigurationArgs', 'DataSourceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

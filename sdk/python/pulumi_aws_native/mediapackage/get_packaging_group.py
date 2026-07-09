@@ -88,7 +88,6 @@ def get_packaging_group(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaPackage::PackagingGroup
 
-
     :param _builtins.str id: The ID of the PackagingGroup.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_packaging_group(id: Optional[_builtins.str] = None,
         authorization=pulumi.get(__ret__, 'authorization'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'))
-def get_packaging_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_packaging_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackagingGroupResult]:
     """
     Resource schema for AWS::MediaPackage::PackagingGroup
-
 
     :param _builtins.str id: The ID of the PackagingGroup.
     """

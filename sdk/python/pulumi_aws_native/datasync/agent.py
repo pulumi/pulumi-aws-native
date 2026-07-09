@@ -22,12 +22,12 @@ __all__ = ['AgentArgs', 'Agent']
 @pulumi.input_type
 class AgentArgs:
     def __init__(__self__, *,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Agent resource.
 
@@ -53,74 +53,74 @@ class AgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationKey")
-    def activation_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def activation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Activation key of the Agent.
         """
         return pulumi.get(self, "activation_key")
 
     @activation_key.setter
-    def activation_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def activation_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "activation_key", value)
 
     @_builtins.property
     @pulumi.getter(name="agentName")
-    def agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name configured for the agent. Text reference used to identify the agent in the console.
         """
         return pulumi.get(self, "agent_name")
 
     @agent_name.setter
-    def agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupArns")
-    def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ARNs of the security group used to protect your data transfer task subnets.
         """
         return pulumi.get(self, "security_group_arns")
 
     @security_group_arns.setter
-    def security_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetArns")
-    def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
     @subnet_arns.setter
-    def subnet_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointId")
-    def vpc_endpoint_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
-    def vpc_endpoint_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_endpoint_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
@@ -130,12 +130,12 @@ class Agent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::Agent.
@@ -223,12 +223,12 @@ class Agent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 activation_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

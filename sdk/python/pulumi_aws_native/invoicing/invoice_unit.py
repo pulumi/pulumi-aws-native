@@ -25,10 +25,10 @@ class InvoiceUnitArgs:
     def __init__(__self__, *,
                  invoice_receiver: pulumi.Input[_builtins.str],
                  rule: pulumi.Input['InvoiceUnitRuleArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tax_inheritance_disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a InvoiceUnit resource.
 
@@ -76,50 +76,50 @@ class InvoiceUnitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The assigned description for an invoice unit. This information can't be modified or deleted.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name that is distinctive within your AWS .
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tag structure that contains a tag key and value.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taxInheritanceDisabled")
-    def tax_inheritance_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tax_inheritance_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
         """
         return pulumi.get(self, "tax_inheritance_disabled")
 
     @tax_inheritance_disabled.setter
-    def tax_inheritance_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tax_inheritance_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tax_inheritance_disabled", value)
 
 
@@ -129,16 +129,15 @@ class InvoiceUnit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_receiver: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 rule: Optional[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
-                 tax_inheritance_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
+                 tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +157,6 @@ class InvoiceUnit(pulumi.CustomResource):
         """
         An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
 
-
         :param str resource_name: The name of the resource.
         :param InvoiceUnitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,12 +172,12 @@ class InvoiceUnit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 invoice_receiver: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 rule: Optional[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
-                 tax_inheritance_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 invoice_receiver: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rule: pulumi.Input[Optional[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]] = None,
+                 tax_inheritance_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

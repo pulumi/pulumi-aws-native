@@ -26,12 +26,12 @@ class ProvisioningTemplateArgs:
     def __init__(__self__, *,
                  provisioning_role_arn: pulumi.Input[_builtins.str],
                  template_body: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pre_provisioning_hook: pulumi.Input[Optional['ProvisioningTemplateProvisioningHookArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional['ProvisioningTemplateTemplateType']] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
 
@@ -85,74 +85,74 @@ class ProvisioningTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the fleet provisioning template.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         True to enable the fleet provisioning template, otherwise false.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="preProvisioningHook")
-    def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]:
+    def pre_provisioning_hook(self) -> pulumi.Input[Optional['ProvisioningTemplateProvisioningHookArgs']]:
         """
         Creates a pre-provisioning hook template.
         """
         return pulumi.get(self, "pre_provisioning_hook")
 
     @pre_provisioning_hook.setter
-    def pre_provisioning_hook(self, value: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]):
+    def pre_provisioning_hook(self, value: pulumi.Input[Optional['ProvisioningTemplateProvisioningHookArgs']]):
         pulumi.set(self, "pre_provisioning_hook", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata that can be used to manage the fleet provisioning template.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the fleet provisioning template.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter(name="templateType")
-    def template_type(self) -> Optional[pulumi.Input['ProvisioningTemplateTemplateType']]:
+    def template_type(self) -> pulumi.Input[Optional['ProvisioningTemplateTemplateType']]:
         """
         The type of the provisioning template.
         """
         return pulumi.get(self, "template_type")
 
     @template_type.setter
-    def template_type(self, value: Optional[pulumi.Input['ProvisioningTemplateTemplateType']]):
+    def template_type(self, value: pulumi.Input[Optional['ProvisioningTemplateTemplateType']]):
         pulumi.set(self, "template_type", value)
 
 
@@ -162,18 +162,17 @@ class ProvisioningTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
-                 provisioning_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
+                 provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional['ProvisioningTemplateTemplateType']] = None,
                  __props__=None):
         """
         Creates a fleet provisioning template.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         """
         Creates a fleet provisioning template.
 
-
         :param str resource_name: The name of the resource.
         :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class ProvisioningTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 pre_provisioning_hook: Optional[pulumi.Input[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
-                 provisioning_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 pre_provisioning_hook: pulumi.Input[Optional[Union['ProvisioningTemplateProvisioningHookArgs', 'ProvisioningTemplateProvisioningHookArgsDict']]] = None,
+                 provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_type: pulumi.Input[Optional['ProvisioningTemplateTemplateType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

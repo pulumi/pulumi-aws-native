@@ -17,7 +17,7 @@ __all__ = [
 class FileSystemBackupPolicyStatus(_builtins.str, Enum):
     """
     Set the backup policy status for the file system.
-      +  *ENABLED* - Turns automatic backups on for the file system. 
+      +  *ENABLED* - Turns automatic backups on for the file system.
       +  *DISABLED* - Turns automatic backups off for the file system.
     """
     DISABLED = "DISABLED"
@@ -28,10 +28,10 @@ class FileSystemBackupPolicyStatus(_builtins.str, Enum):
 class FileSystemProtectionReplicationOverwriteProtection(_builtins.str, Enum):
     """
     The status of the file system's replication overwrite protection.
-      +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default. 
+      +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
       +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
       +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
-      
+
      If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
     """
     DISABLED = "DISABLED"

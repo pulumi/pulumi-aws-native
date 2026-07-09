@@ -26,24 +26,24 @@ class PlaybackConfigurationArgs:
     def __init__(__self__, *,
                  ad_decision_server_url: pulumi.Input[_builtins.str],
                  video_content_source_url: pulumi.Input[_builtins.str],
-                 ad_conditioning_configuration: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']] = None,
-                 ad_decision_server_configuration: Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']] = None,
-                 avail_suppression: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']] = None,
-                 bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
-                 cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
-                 configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 dash_configuration: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']] = None,
-                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hls_configuration: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']] = None,
-                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
-                 live_pre_roll_configuration: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
-                 log_configuration: Optional[pulumi.Input['PlaybackConfigurationLogConfigurationArgs']] = None,
-                 manifest_processing_rules: Optional[pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personalization_threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 slate_ad_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transcode_profile_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 ad_conditioning_configuration: pulumi.Input[Optional['PlaybackConfigurationAdConditioningConfigurationArgs']] = None,
+                 ad_decision_server_configuration: pulumi.Input[Optional['PlaybackConfigurationAdDecisionServerConfigurationArgs']] = None,
+                 avail_suppression: pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']] = None,
+                 bumper: pulumi.Input[Optional['PlaybackConfigurationBumperArgs']] = None,
+                 cdn_configuration: pulumi.Input[Optional['PlaybackConfigurationCdnConfigurationArgs']] = None,
+                 configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 dash_configuration: pulumi.Input[Optional['PlaybackConfigurationDashConfigurationArgs']] = None,
+                 function_mapping: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hls_configuration: pulumi.Input[Optional['PlaybackConfigurationHlsConfigurationArgs']] = None,
+                 insertion_mode: pulumi.Input[Optional['PlaybackConfigurationInsertionMode']] = None,
+                 live_pre_roll_configuration: pulumi.Input[Optional['PlaybackConfigurationLivePreRollConfigurationArgs']] = None,
+                 log_configuration: pulumi.Input[Optional['PlaybackConfigurationLogConfigurationArgs']] = None,
+                 manifest_processing_rules: pulumi.Input[Optional['PlaybackConfigurationManifestProcessingRulesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personalization_threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 slate_ad_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transcode_profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PlaybackConfiguration resource.
 
@@ -53,7 +53,7 @@ class PlaybackConfigurationArgs:
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionArgs'] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input['PlaybackConfigurationBumperArgs'] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input['PlaybackConfigurationCdnConfigurationArgs'] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
-        :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         :param pulumi.Input['PlaybackConfigurationDashConfigurationArgs'] dash_configuration: The configuration for DASH content.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] function_mapping: A map of event names to function identifiers for custom processing during session lifecycle events.
         :param pulumi.Input['PlaybackConfigurationHlsConfigurationArgs'] hls_configuration: The configuration for HLS content.
@@ -132,215 +132,215 @@ class PlaybackConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="adConditioningConfiguration")
-    def ad_conditioning_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']]:
+    def ad_conditioning_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationAdConditioningConfigurationArgs']]:
         """
         The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         """
         return pulumi.get(self, "ad_conditioning_configuration")
 
     @ad_conditioning_configuration.setter
-    def ad_conditioning_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']]):
+    def ad_conditioning_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationAdConditioningConfigurationArgs']]):
         pulumi.set(self, "ad_conditioning_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="adDecisionServerConfiguration")
-    def ad_decision_server_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']]:
+    def ad_decision_server_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationAdDecisionServerConfigurationArgs']]:
         return pulumi.get(self, "ad_decision_server_configuration")
 
     @ad_decision_server_configuration.setter
-    def ad_decision_server_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']]):
+    def ad_decision_server_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationAdDecisionServerConfigurationArgs']]):
         pulumi.set(self, "ad_decision_server_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availSuppression")
-    def avail_suppression(self) -> Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']]:
+    def avail_suppression(self) -> pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']]:
         """
         The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         """
         return pulumi.get(self, "avail_suppression")
 
     @avail_suppression.setter
-    def avail_suppression(self, value: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']]):
+    def avail_suppression(self, value: pulumi.Input[Optional['PlaybackConfigurationAvailSuppressionArgs']]):
         pulumi.set(self, "avail_suppression", value)
 
     @_builtins.property
     @pulumi.getter
-    def bumper(self) -> Optional[pulumi.Input['PlaybackConfigurationBumperArgs']]:
+    def bumper(self) -> pulumi.Input[Optional['PlaybackConfigurationBumperArgs']]:
         """
         The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         """
         return pulumi.get(self, "bumper")
 
     @bumper.setter
-    def bumper(self, value: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']]):
+    def bumper(self, value: pulumi.Input[Optional['PlaybackConfigurationBumperArgs']]):
         pulumi.set(self, "bumper", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnConfiguration")
-    def cdn_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']]:
+    def cdn_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationCdnConfigurationArgs']]:
         """
         The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
         """
         return pulumi.get(self, "cdn_configuration")
 
     @cdn_configuration.setter
-    def cdn_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']]):
+    def cdn_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationCdnConfigurationArgs']]):
         pulumi.set(self, "cdn_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationAliases")
-    def configuration_aliases(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def configuration_aliases(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
-        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         """
         return pulumi.get(self, "configuration_aliases")
 
     @configuration_aliases.setter
-    def configuration_aliases(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def configuration_aliases(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "configuration_aliases", value)
 
     @_builtins.property
     @pulumi.getter(name="dashConfiguration")
-    def dash_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']]:
+    def dash_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationDashConfigurationArgs']]:
         """
         The configuration for DASH content.
         """
         return pulumi.get(self, "dash_configuration")
 
     @dash_configuration.setter
-    def dash_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationArgs']]):
+    def dash_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationDashConfigurationArgs']]):
         pulumi.set(self, "dash_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="functionMapping")
-    def function_mapping(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def function_mapping(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of event names to function identifiers for custom processing during session lifecycle events.
         """
         return pulumi.get(self, "function_mapping")
 
     @function_mapping.setter
-    def function_mapping(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def function_mapping(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "function_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="hlsConfiguration")
-    def hls_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']]:
+    def hls_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationHlsConfigurationArgs']]:
         """
         The configuration for HLS content.
         """
         return pulumi.get(self, "hls_configuration")
 
     @hls_configuration.setter
-    def hls_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationHlsConfigurationArgs']]):
+    def hls_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationHlsConfigurationArgs']]):
         pulumi.set(self, "hls_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="insertionMode")
-    def insertion_mode(self) -> Optional[pulumi.Input['PlaybackConfigurationInsertionMode']]:
+    def insertion_mode(self) -> pulumi.Input[Optional['PlaybackConfigurationInsertionMode']]:
         """
         The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
         """
         return pulumi.get(self, "insertion_mode")
 
     @insertion_mode.setter
-    def insertion_mode(self, value: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']]):
+    def insertion_mode(self, value: pulumi.Input[Optional['PlaybackConfigurationInsertionMode']]):
         pulumi.set(self, "insertion_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="livePreRollConfiguration")
-    def live_pre_roll_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']]:
+    def live_pre_roll_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationLivePreRollConfigurationArgs']]:
         """
         The configuration for pre-roll ad insertion.
         """
         return pulumi.get(self, "live_pre_roll_configuration")
 
     @live_pre_roll_configuration.setter
-    def live_pre_roll_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationLivePreRollConfigurationArgs']]):
+    def live_pre_roll_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationLivePreRollConfigurationArgs']]):
         pulumi.set(self, "live_pre_roll_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationLogConfigurationArgs']]:
         """
         The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestProcessingRules")
-    def manifest_processing_rules(self) -> Optional[pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs']]:
+    def manifest_processing_rules(self) -> pulumi.Input[Optional['PlaybackConfigurationManifestProcessingRulesArgs']]:
         """
         The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
         """
         return pulumi.get(self, "manifest_processing_rules")
 
     @manifest_processing_rules.setter
-    def manifest_processing_rules(self, value: Optional[pulumi.Input['PlaybackConfigurationManifestProcessingRulesArgs']]):
+    def manifest_processing_rules(self, value: pulumi.Input[Optional['PlaybackConfigurationManifestProcessingRulesArgs']]):
         pulumi.set(self, "manifest_processing_rules", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the playback configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="personalizationThresholdSeconds")
-    def personalization_threshold_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def personalization_threshold_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Defines the maximum duration of underfilled ad time (in seconds) allowed in an ad break. If the duration of underfilled ad time exceeds the personalization threshold, then the personalization of the ad break is abandoned and the underlying content is shown. This feature applies to ad replacement in live and VOD streams, rather than ad insertion, because it relies on an underlying content stream. For more information about ad break behavior, including ad replacement and insertion, see Ad Behavior in AWS Elemental MediaTailor (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         """
         return pulumi.get(self, "personalization_threshold_seconds")
 
     @personalization_threshold_seconds.setter
-    def personalization_threshold_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def personalization_threshold_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "personalization_threshold_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="slateAdUrl")
-    def slate_ad_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slate_ad_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL for a high-quality video asset to transcode and use to fill in time that's not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media content. Configuring the slate is optional for non-VPAID configurations. For VPAID, the slate is required because MediaTailor provides it in the slots that are designated for dynamic ad content. The slate must be a high-quality asset that contains both audio and video.
         """
         return pulumi.get(self, "slate_ad_url")
 
     @slate_ad_url.setter
-    def slate_ad_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slate_ad_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slate_ad_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to assign to the playback configuration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transcodeProfileName")
-    def transcode_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transcode_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.
         """
         return pulumi.get(self, "transcode_profile_name")
 
     @transcode_profile_name.setter
-    def transcode_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transcode_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transcode_profile_name", value)
 
 
@@ -350,30 +350,29 @@ class PlaybackConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
-                 ad_decision_server_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
-                 ad_decision_server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
-                 bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
-                 cdn_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
-                 configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
-                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
-                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
-                 live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
-                 manifest_processing_rules: Optional[pulumi.Input[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personalization_threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 slate_ad_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transcode_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 video_content_source_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 ad_conditioning_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
+                 ad_decision_server_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
+                 ad_decision_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
+                 bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
+                 cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
+                 configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 dash_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
+                 function_mapping: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hls_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
+                 insertion_mode: pulumi.Input[Optional['PlaybackConfigurationInsertionMode']] = None,
+                 live_pre_roll_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
+                 manifest_processing_rules: pulumi.Input[Optional[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personalization_threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 slate_ad_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transcode_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 video_content_source_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaTailor::PlaybackConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,7 +381,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']] avail_suppression: The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
         :param pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']] bumper: The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see Bumpers (https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html).
         :param pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']] cdn_configuration: The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.
-        :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        :param pulumi.Input[Mapping[str, Any]] configuration_aliases: The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         :param pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']] dash_configuration: The configuration for DASH content.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] function_mapping: A map of event names to function identifiers for custom processing during session lifecycle events.
         :param pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']] hls_configuration: The configuration for HLS content.
@@ -406,7 +405,6 @@ class PlaybackConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaTailor::PlaybackConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param PlaybackConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -422,26 +420,26 @@ class PlaybackConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
-                 ad_decision_server_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
-                 ad_decision_server_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
-                 bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
-                 cdn_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
-                 configuration_aliases: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 dash_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
-                 function_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 hls_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
-                 insertion_mode: Optional[pulumi.Input['PlaybackConfigurationInsertionMode']] = None,
-                 live_pre_roll_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
-                 manifest_processing_rules: Optional[pulumi.Input[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 personalization_threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 slate_ad_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transcode_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 video_content_source_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 ad_conditioning_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
+                 ad_decision_server_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
+                 ad_decision_server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 avail_suppression: pulumi.Input[Optional[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
+                 bumper: pulumi.Input[Optional[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
+                 cdn_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationCdnConfigurationArgs', 'PlaybackConfigurationCdnConfigurationArgsDict']]] = None,
+                 configuration_aliases: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 dash_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationDashConfigurationArgs', 'PlaybackConfigurationDashConfigurationArgsDict']]] = None,
+                 function_mapping: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 hls_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationHlsConfigurationArgs', 'PlaybackConfigurationHlsConfigurationArgsDict']]] = None,
+                 insertion_mode: pulumi.Input[Optional['PlaybackConfigurationInsertionMode']] = None,
+                 live_pre_roll_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationLivePreRollConfigurationArgs', 'PlaybackConfigurationLivePreRollConfigurationArgsDict']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PlaybackConfigurationLogConfigurationArgs', 'PlaybackConfigurationLogConfigurationArgsDict']]] = None,
+                 manifest_processing_rules: pulumi.Input[Optional[Union['PlaybackConfigurationManifestProcessingRulesArgs', 'PlaybackConfigurationManifestProcessingRulesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 personalization_threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 slate_ad_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transcode_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 video_content_source_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -576,7 +574,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="configurationAliases")
     def configuration_aliases(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
         """
-        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         """
         return pulumi.get(self, "configuration_aliases")
 

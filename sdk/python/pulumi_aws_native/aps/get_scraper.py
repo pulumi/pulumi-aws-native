@@ -150,7 +150,6 @@ def get_scraper(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::APS::Scraper
 
-
     :param _builtins.str arn: Scraper ARN.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_scraper(arn: Optional[_builtins.str] = None,
         scraper_id=pulumi.get(__ret__, 'scraper_id'),
         scraper_logging_configuration=pulumi.get(__ret__, 'scraper_logging_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_scraper_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scraper_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScraperResult]:
     """
     Resource Type definition for AWS::APS::Scraper
-
 
     :param _builtins.str arn: Scraper ARN.
     """

@@ -22,13 +22,13 @@ __all__ = ['DataTableAttributeArgs', 'DataTableAttribute']
 @pulumi.input_type
 class DataTableAttributeArgs:
     def __init__(__self__, *,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validation: Optional[pulumi.Input['ValidationPropertiesArgs']] = None,
-                 value_type: Optional[pulumi.Input['DataTableAttributeValueType']] = None):
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validation: pulumi.Input[Optional['ValidationPropertiesArgs']] = None,
+                 value_type: pulumi.Input[Optional['DataTableAttributeValueType']] = None):
         """
         The set of arguments for constructing a DataTableAttribute resource.
 
@@ -57,86 +57,86 @@ class DataTableAttributeArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTableArn")
-    def data_table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the data table that contains this attribute.
         """
         return pulumi.get(self, "data_table_arn")
 
     @data_table_arn.setter
-    def data_table_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_table_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_table_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description explaining the purpose and usage of this attribute.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
-    def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the instance.
         """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
-    def instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
 
     @_builtins.property
     @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['ValidationPropertiesArgs']]:
+    def validation(self) -> pulumi.Input[Optional['ValidationPropertiesArgs']]:
         """
         The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
         """
         return pulumi.get(self, "validation")
 
     @validation.setter
-    def validation(self, value: Optional[pulumi.Input['ValidationPropertiesArgs']]):
+    def validation(self, value: pulumi.Input[Optional['ValidationPropertiesArgs']]):
         pulumi.set(self, "validation", value)
 
     @_builtins.property
     @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input['DataTableAttributeValueType']]:
+    def value_type(self) -> pulumi.Input[Optional['DataTableAttributeValueType']]:
         """
         The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
         """
         return pulumi.get(self, "value_type")
 
     @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input['DataTableAttributeValueType']]):
+    def value_type(self, value: pulumi.Input[Optional['DataTableAttributeValueType']]):
         pulumi.set(self, "value_type", value)
 
 
@@ -146,17 +146,16 @@ class DataTableAttribute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validation: Optional[pulumi.Input[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
-                 value_type: Optional[pulumi.Input['DataTableAttributeValueType']] = None,
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
+                 value_type: pulumi.Input[Optional['DataTableAttributeValueType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::DataTableAttribute
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +176,6 @@ class DataTableAttribute(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Connect::DataTableAttribute
 
-
         :param str resource_name: The name of the resource.
         :param DataTableAttributeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,13 +191,13 @@ class DataTableAttribute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validation: Optional[pulumi.Input[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
-                 value_type: Optional[pulumi.Input['DataTableAttributeValueType']] = None,
+                 data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validation: pulumi.Input[Optional[Union['ValidationPropertiesArgs', 'ValidationPropertiesArgsDict']]] = None,
+                 value_type: pulumi.Input[Optional['DataTableAttributeValueType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

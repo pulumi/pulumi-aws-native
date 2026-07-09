@@ -226,7 +226,6 @@ def get_branch(arn: Optional[_builtins.str] = None,
     """
     The AWS::Amplify::Branch resource creates a new branch within an app.
 
-
     :param _builtins.str arn: ARN for a branch, part of an Amplify App.
     """
     __args__ = dict()
@@ -249,11 +248,10 @@ def get_branch(arn: Optional[_builtins.str] = None,
         pull_request_environment_name=pulumi.get(__ret__, 'pull_request_environment_name'),
         stage=pulumi.get(__ret__, 'stage'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_branch_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_branch_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBranchResult]:
     """
     The AWS::Amplify::Branch resource creates a new branch within an app.
-
 
     :param _builtins.str arn: ARN for a branch, part of an Amplify App.
     """

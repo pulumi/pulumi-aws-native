@@ -162,7 +162,6 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[_builtins.str] = Non
     """
     Resource Type definition for AWS::Connect::HoursOfOperation
 
-
     :param _builtins.str hours_of_operation_arn: The Amazon Resource Name (ARN) for the hours of operation.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[_builtins.str] = Non
         parent_hours_of_operations=pulumi.get(__ret__, 'parent_hours_of_operations'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
-def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hours_of_operation_output(hours_of_operation_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
     Resource Type definition for AWS::Connect::HoursOfOperation
-
 
     :param _builtins.str hours_of_operation_arn: The Amazon Resource Name (ARN) for the hours of operation.
     """

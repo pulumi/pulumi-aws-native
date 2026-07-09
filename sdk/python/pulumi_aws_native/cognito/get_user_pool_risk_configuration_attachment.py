@@ -77,7 +77,6 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[_builtins.st
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 
-
     :param _builtins.str client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
     :param _builtins.str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
@@ -91,12 +90,11 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[_builtins.st
         account_takeover_risk_configuration=pulumi.get(__ret__, 'account_takeover_risk_configuration'),
         compromised_credentials_risk_configuration=pulumi.get(__ret__, 'compromised_credentials_risk_configuration'),
         risk_exception_configuration=pulumi.get(__ret__, 'risk_exception_configuration'))
-def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                       user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_risk_configuration_attachment_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                       user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
-
 
     :param _builtins.str client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
     :param _builtins.str user_pool_id: The ID of the user pool that has the risk configuration applied.

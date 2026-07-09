@@ -182,7 +182,6 @@ def get_portal(portal_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::Portal
 
-
     :param _builtins.str portal_id: The ID of the portal.
     """
     __args__ = dict()
@@ -203,11 +202,10 @@ def get_portal(portal_id: Optional[_builtins.str] = None,
         portal_type_configuration=pulumi.get(__ret__, 'portal_type_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_portal_output(portal_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_portal_output(portal_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortalResult]:
     """
     Resource schema for AWS::IoTSiteWise::Portal
-
 
     :param _builtins.str portal_id: The ID of the portal.
     """

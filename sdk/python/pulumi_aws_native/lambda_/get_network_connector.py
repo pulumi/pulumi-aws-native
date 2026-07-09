@@ -101,7 +101,7 @@ def get_network_connector(arn: Optional[_builtins.str] = None,
         operator_role=pulumi.get(__ret__, 'operator_role'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_connector_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_connector_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkConnectorResult]:
     """
     Resource Type definition for AWS::Lambda::NetworkConnector

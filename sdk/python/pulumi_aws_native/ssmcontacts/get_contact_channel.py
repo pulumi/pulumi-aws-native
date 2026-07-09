@@ -75,7 +75,6 @@ def get_contact_channel(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SSMContacts::ContactChannel
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the engagement to a contact channel.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_contact_channel(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         channel_address=pulumi.get(__ret__, 'channel_address'),
         channel_name=pulumi.get(__ret__, 'channel_name'))
-def get_contact_channel_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactChannelResult]:
     """
     Resource Type definition for AWS::SSMContacts::ContactChannel
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the engagement to a contact channel.
     """

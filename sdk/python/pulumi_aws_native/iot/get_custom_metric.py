@@ -76,7 +76,6 @@ def get_custom_metric(metric_name: Optional[_builtins.str] = None,
     """
     A custom metric published by your devices to Device Defender.
 
-
     :param _builtins.str metric_name: The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_custom_metric(metric_name: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         metric_arn=pulumi.get(__ret__, 'metric_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_custom_metric_output(metric_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_metric_output(metric_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomMetricResult]:
     """
     A custom metric published by your devices to Device Defender.
-
 
     :param _builtins.str metric_name: The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with aws: . Cannot be updated once defined.
     """

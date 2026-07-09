@@ -223,7 +223,6 @@ def get_component(app_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type
 
-
     :param _builtins.str app_id: The unique ID of the Amplify app associated with the component.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param _builtins.str id: The unique ID of the component.
@@ -251,13 +250,12 @@ def get_component(app_id: Optional[_builtins.str] = None,
         source_id=pulumi.get(__ret__, 'source_id'),
         tags=pulumi.get(__ret__, 'tags'),
         variants=pulumi.get(__ret__, 'variants'))
-def get_component_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                         environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_component_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                         environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                         id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type
-
 
     :param _builtins.str app_id: The unique ID of the Amplify app associated with the component.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.

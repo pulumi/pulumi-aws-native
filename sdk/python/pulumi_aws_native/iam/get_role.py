@@ -169,7 +169,6 @@ def get_role(role_name: Optional[_builtins.str] = None,
     Creates a new role for your AWS-account.
       For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*. For information about quotas for role names and the number of roles you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
 
-
     :param _builtins.str role_name: A name for the IAM role, up to 64 characters in length. For valid values, see the `RoleName` parameter for the [`CreateRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *IAM User Guide* .
            
            This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex) ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both "Role1" and "role1".
@@ -195,12 +194,11 @@ def get_role(role_name: Optional[_builtins.str] = None,
         policies=pulumi.get(__ret__, 'policies'),
         role_id=pulumi.get(__ret__, 'role_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_role_output(role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_output(role_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleResult]:
     """
     Creates a new role for your AWS-account.
       For more information about roles, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide*. For information about quotas for role names and the number of roles you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
-
 
     :param _builtins.str role_name: A name for the IAM role, up to 64 characters in length. For valid values, see the `RoleName` parameter for the [`CreateRole`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *IAM User Guide* .
            

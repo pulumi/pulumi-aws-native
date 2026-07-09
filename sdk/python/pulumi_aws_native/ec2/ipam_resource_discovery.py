@@ -23,10 +23,10 @@ __all__ = ['IpamResourceDiscoveryArgs', 'IpamResourceDiscovery']
 @pulumi.input_type
 class IpamResourceDiscoveryArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]] = None,
-                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]] = None,
+                 organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamResourceDiscovery resource.
 
@@ -46,50 +46,50 @@ class IpamResourceDiscoveryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource discovery description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]]:
+    def operating_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]]:
         """
         The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
         """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
-    def operating_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]]):
+    def operating_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryIpamOperatingRegionArgs']]]]):
         pulumi.set(self, "operating_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationalUnitExclusions")
-    def organizational_unit_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]:
+    def organizational_unit_exclusions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]:
         """
         A set of organizational unit (OU) exclusions for this resource.
         """
         return pulumi.get(self, "organizational_unit_exclusions")
 
     @organizational_unit_exclusions.setter
-    def organizational_unit_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]):
+    def organizational_unit_exclusions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]):
         pulumi.set(self, "organizational_unit_exclusions", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,14 +99,13 @@ class IpamResourceDiscovery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
-                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class IpamResourceDiscovery(pulumi.CustomResource):
         """
         Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
 
-
         :param str resource_name: The name of the resource.
         :param IpamResourceDiscoveryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class IpamResourceDiscovery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
-                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamResourceDiscoveryIpamOperatingRegionArgs', 'IpamResourceDiscoveryIpamOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,7 +223,7 @@ class IpamResourceDiscovery(pulumi.CustomResource):
     @pulumi.getter(name="ipamResourceDiscoveryRegion")
     def ipam_resource_discovery_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region the resource discovery is setup in. 
+        The region the resource discovery is setup in.
         """
         return pulumi.get(self, "ipam_resource_discovery_region")
 

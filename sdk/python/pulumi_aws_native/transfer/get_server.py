@@ -179,7 +179,6 @@ class GetServerResult:
         Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
 
         > The `IpAddressType` parameter has the following limitations:
-        > 
         > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
         > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         """
@@ -245,7 +244,7 @@ class GetServerResult:
         > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
         > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
         > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
 
         The `Protocols` parameter is an array of strings.
 
@@ -362,7 +361,6 @@ def get_server(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Transfer::Server Resource Type
 
-
     :param _builtins.str arn: Specifies the unique Amazon Resource Name (ARN) of the server.
     """
     __args__ = dict()
@@ -391,11 +389,10 @@ def get_server(arn: Optional[_builtins.str] = None,
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         workflow_details=pulumi.get(__ret__, 'workflow_details'))
-def get_server_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Definition of AWS::Transfer::Server Resource Type
-
 
     :param _builtins.str arn: Specifies the unique Amazon Resource Name (ARN) of the server.
     """

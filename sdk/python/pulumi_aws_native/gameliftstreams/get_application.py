@@ -113,7 +113,6 @@ def get_application(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::GameLiftStreams::Application Resource Type
 
-
     :param _builtins.str arn: An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource across all AWS Regions. For example:
            
            `arn:aws:gameliftstreams:us-west-2:123456789012:application/a-9ZY8X7Wv6` .
@@ -130,11 +129,10 @@ def get_application(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::GameLiftStreams::Application Resource Type
-
 
     :param _builtins.str arn: An [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) that uniquely identifies the application resource across all AWS Regions. For example:
            

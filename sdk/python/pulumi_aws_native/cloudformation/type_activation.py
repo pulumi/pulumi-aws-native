@@ -22,16 +22,16 @@ __all__ = ['TypeActivationArgs', 'TypeActivation']
 @pulumi.input_type
 class TypeActivationArgs:
     def __init__(__self__, *,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input['TypeActivationLoggingConfigArgs']] = None,
-                 major_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['TypeActivationType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None):
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional['TypeActivationLoggingConfigArgs']] = None,
+                 major_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['TypeActivationType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_bump: pulumi.Input[Optional['TypeActivationVersionBump']] = None):
         """
         The set of arguments for constructing a TypeActivation resource.
 
@@ -71,91 +71,91 @@ class TypeActivationArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_update(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         """
         return pulumi.get(self, "auto_update")
 
     @auto_update.setter
-    def auto_update(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_update(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_update", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['TypeActivationLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['TypeActivationLoggingConfigArgs']]:
         """
         Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['TypeActivationLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['TypeActivationLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
     @_builtins.property
     @pulumi.getter(name="majorVersion")
-    def major_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def major_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Major Version of the type you want to enable
         """
         return pulumi.get(self, "major_version")
 
     @major_version.setter
-    def major_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def major_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "major_version", value)
 
     @_builtins.property
     @pulumi.getter(name="publicTypeArn")
-    def public_type_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_type_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Number (ARN) assigned to the public extension upon publication
         """
         return pulumi.get(self, "public_type_arn")
 
     @public_type_arn.setter
-    def public_type_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_type_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_type_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherId")
-    def publisher_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def publisher_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.
         """
         return pulumi.get(self, "publisher_id")
 
     @publisher_id.setter
-    def publisher_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def publisher_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "publisher_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['TypeActivationType']]:
+    def type(self) -> pulumi.Input[Optional['TypeActivationType']]:
         """
         The kind of extension
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['TypeActivationType']]):
+    def type(self, value: pulumi.Input[Optional['TypeActivationType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the type being registered.
 
@@ -164,31 +164,31 @@ class TypeActivationArgs:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeNameAlias")
-    def type_name_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type_name_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         """
         return pulumi.get(self, "type_name_alias")
 
     @type_name_alias.setter
-    def type_name_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type_name_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_name_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="versionBump")
-    def version_bump(self) -> Optional[pulumi.Input['TypeActivationVersionBump']]:
+    def version_bump(self) -> pulumi.Input[Optional['TypeActivationVersionBump']]:
         """
         Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         return pulumi.get(self, "version_bump")
 
     @version_bump.setter
-    def version_bump(self, value: Optional[pulumi.Input['TypeActivationVersionBump']]):
+    def version_bump(self, value: pulumi.Input[Optional['TypeActivationVersionBump']]):
         pulumi.set(self, "version_bump", value)
 
 
@@ -198,20 +198,19 @@ class TypeActivation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
-                 major_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['TypeActivationType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
+                 major_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['TypeActivationType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_bump: pulumi.Input[Optional['TypeActivationVersionBump']] = None,
                  __props__=None):
         """
         Enable a resource that has been published in the CloudFormation Registry.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +236,6 @@ class TypeActivation(pulumi.CustomResource):
         """
         Enable a resource that has been published in the CloudFormation Registry.
 
-
         :param str resource_name: The name of the resource.
         :param TypeActivationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,16 +251,16 @@ class TypeActivation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_update: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_config: Optional[pulumi.Input[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
-                 major_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_type_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 publisher_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['TypeActivationType']] = None,
-                 type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type_name_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
+                 auto_update: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_config: pulumi.Input[Optional[Union['TypeActivationLoggingConfigArgs', 'TypeActivationLoggingConfigArgsDict']]] = None,
+                 major_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_type_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['TypeActivationType']] = None,
+                 type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_name_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_bump: pulumi.Input[Optional['TypeActivationVersionBump']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

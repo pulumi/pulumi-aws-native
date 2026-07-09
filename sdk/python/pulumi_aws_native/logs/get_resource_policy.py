@@ -53,7 +53,6 @@ def get_resource_policy(policy_name: Optional[_builtins.str] = None,
     """
     The resource schema for AWSLogs ResourcePolicy
 
-
     :param _builtins.str policy_name: A name for resource policy
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_resource_policy(policy_name: Optional[_builtins.str] = None,
 
     return AwaitableGetResourcePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_resource_policy_output(policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     The resource schema for AWSLogs ResourcePolicy
-
 
     :param _builtins.str policy_name: A name for resource policy
     """

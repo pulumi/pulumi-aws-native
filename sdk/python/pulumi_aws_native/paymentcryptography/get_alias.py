@@ -51,7 +51,6 @@ def get_alias(alias_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::PaymentCryptography::Alias Resource Type
 
-
     :param _builtins.str alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
            
            > Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in AWS CloudTrail logs and other output.
@@ -63,11 +62,10 @@ def get_alias(alias_name: Optional[_builtins.str] = None,
 
     return AwaitableGetAliasResult(
         key_arn=pulumi.get(__ret__, 'key_arn'))
-def get_alias_output(alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alias_output(alias_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Definition of AWS::PaymentCryptography::Alias Resource Type
-
 
     :param _builtins.str alias_name: A friendly name that you can use to refer to a key. The value must begin with `alias/` .
            

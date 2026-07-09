@@ -112,7 +112,6 @@ def get_policy_association(association_identifier: Optional[_builtins.str] = Non
     """
     The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
 
-
     :param _builtins.str association_identifier: A unique identifier to indicates if the target has an association
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_policy_association(association_identifier: Optional[_builtins.str] = Non
         association_type=pulumi.get(__ret__, 'association_type'),
         configuration_policy_id=pulumi.get(__ret__, 'configuration_policy_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_policy_association_output(association_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_association_output(association_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssociationResult]:
     """
     The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
-
 
     :param _builtins.str association_identifier: A unique identifier to indicates if the target has an association
     """

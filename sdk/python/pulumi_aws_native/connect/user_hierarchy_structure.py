@@ -22,7 +22,7 @@ __all__ = ['UserHierarchyStructureArgs', 'UserHierarchyStructure']
 class UserHierarchyStructureArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
-                 user_hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructurePropertiesArgs']] = None):
+                 user_hierarchy_structure: pulumi.Input[Optional['UserHierarchyStructurePropertiesArgs']] = None):
         """
         The set of arguments for constructing a UserHierarchyStructure resource.
 
@@ -47,14 +47,14 @@ class UserHierarchyStructureArgs:
 
     @_builtins.property
     @pulumi.getter(name="userHierarchyStructure")
-    def user_hierarchy_structure(self) -> Optional[pulumi.Input['UserHierarchyStructurePropertiesArgs']]:
+    def user_hierarchy_structure(self) -> pulumi.Input[Optional['UserHierarchyStructurePropertiesArgs']]:
         """
         Information about the hierarchy structure.
         """
         return pulumi.get(self, "user_hierarchy_structure")
 
     @user_hierarchy_structure.setter
-    def user_hierarchy_structure(self, value: Optional[pulumi.Input['UserHierarchyStructurePropertiesArgs']]):
+    def user_hierarchy_structure(self, value: pulumi.Input[Optional['UserHierarchyStructurePropertiesArgs']]):
         pulumi.set(self, "user_hierarchy_structure", value)
 
 
@@ -64,12 +64,11 @@ class UserHierarchyStructure(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_hierarchy_structure: Optional[pulumi.Input[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyStructure
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +83,6 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyStructure
-
 
         :param str resource_name: The name of the resource.
         :param UserHierarchyStructureArgs args: The arguments to use to populate this resource's properties.
@@ -101,8 +99,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_hierarchy_structure: Optional[pulumi.Input[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
+                 instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

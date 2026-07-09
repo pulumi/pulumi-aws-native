@@ -18,24 +18,24 @@ from ._enums import *
 __all__ = [
     'BucketAccessRulesArgs',
     'BucketAccessRulesArgsDict',
+    'ContainerArgs',
+    'ContainerArgsDict',
     'ContainerEnvironmentVariableArgs',
     'ContainerEnvironmentVariableArgsDict',
     'ContainerHealthCheckConfigArgs',
     'ContainerHealthCheckConfigArgsDict',
     'ContainerPortInfoArgs',
     'ContainerPortInfoArgsDict',
-    'ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs',
-    'ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict',
     'ContainerPrivateRegistryAccessArgs',
     'ContainerPrivateRegistryAccessArgsDict',
+    'ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs',
+    'ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict',
     'ContainerPublicDomainNameArgs',
     'ContainerPublicDomainNameArgsDict',
     'ContainerPublicEndpointArgs',
     'ContainerPublicEndpointArgsDict',
     'ContainerServiceDeploymentArgs',
     'ContainerServiceDeploymentArgsDict',
-    'ContainerArgs',
-    'ContainerArgsDict',
     'DatabaseRelationalDatabaseParameterArgs',
     'DatabaseRelationalDatabaseParameterArgsDict',
     'DiskAddOnArgs',
@@ -68,11 +68,11 @@ class BucketAccessRulesArgsDict(TypedDict):
     """
     An object that sets the public accessibility of objects in the specified bucket.
     """
-    allow_public_overrides: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_public_overrides: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
     """
-    get_object: NotRequired[pulumi.Input[_builtins.str]]
+    get_object: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the anonymous access to all objects in a bucket.
     """
@@ -80,8 +80,8 @@ class BucketAccessRulesArgsDict(TypedDict):
 @pulumi.input_type
 class BucketAccessRulesArgs:
     def __init__(__self__, *,
-                 allow_public_overrides: Optional[pulumi.Input[_builtins.bool]] = None,
-                 get_object: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_public_overrides: pulumi.Input[Optional[_builtins.bool]] = None,
+                 get_object: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that sets the public accessibility of objects in the specified bucket.
 
@@ -95,35 +95,149 @@ class BucketAccessRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowPublicOverrides")
-    def allow_public_overrides(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_public_overrides(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
         """
         return pulumi.get(self, "allow_public_overrides")
 
     @allow_public_overrides.setter
-    def allow_public_overrides(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_public_overrides(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_public_overrides", value)
 
     @_builtins.property
     @pulumi.getter(name="getObject")
-    def get_object(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def get_object(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the anonymous access to all objects in a bucket.
         """
         return pulumi.get(self, "get_object")
 
     @get_object.setter
-    def get_object(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def get_object(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "get_object", value)
 
 
+class ContainerArgsDict(TypedDict):
+    """
+    Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+    """
+    command: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The launch command for the container.
+    """
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the container.
+    """
+    environment: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerEnvironmentVariableArgsDict']]]]]
+    """
+    The environment variables of the container.
+    """
+    image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the image used for the container.
+    """
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortInfoArgsDict']]]]]
+    """
+    The open firewall ports of the container.
+    """
+
+@pulumi.input_type
+class ContainerArgs:
+    def __init__(__self__, *,
+                 command: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]] = None,
+                 image: pulumi.Input[Optional[_builtins.str]] = None,
+                 ports: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortInfoArgs']]]] = None):
+        """
+        Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The launch command for the container.
+        :param pulumi.Input[_builtins.str] container_name: The name of the container.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment: The environment variables of the container.
+        :param pulumi.Input[_builtins.str] image: The name of the image used for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]] ports: The open firewall ports of the container.
+        """
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The launch command for the container.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "command", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the container.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]]:
+        """
+        The environment variables of the container.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]]):
+        pulumi.set(self, "environment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the image used for the container.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortInfoArgs']]]]:
+        """
+        The open firewall ports of the container.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerPortInfoArgs']]]]):
+        pulumi.set(self, "ports", value)
+
+
 class ContainerEnvironmentVariableArgsDict(TypedDict):
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The environment variable value.
     """
-    variable: NotRequired[pulumi.Input[_builtins.str]]
+    variable: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The environment variable key.
     """
@@ -131,8 +245,8 @@ class ContainerEnvironmentVariableArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerEnvironmentVariableArgs:
     def __init__(__self__, *,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
-                 variable: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 variable: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] value: The environment variable value.
         :param pulumi.Input[_builtins.str] variable: The environment variable key.
@@ -144,26 +258,26 @@ class ContainerEnvironmentVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment variable value.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
     @_builtins.property
     @pulumi.getter
-    def variable(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def variable(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The environment variable key.
         """
         return pulumi.get(self, "variable")
 
     @variable.setter
-    def variable(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def variable(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable", value)
 
 
@@ -171,27 +285,27 @@ class ContainerHealthCheckConfigArgsDict(TypedDict):
     """
     Describes the health check configuration of an Amazon Lightsail container service.
     """
-    healthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    healthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
     """
-    interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path on the container on which to perform the health check. The default value is /.
     """
-    success_codes: NotRequired[pulumi.Input[_builtins.str]]
+    success_codes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
     """
-    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
     """
-    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    unhealthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
     """
@@ -199,12 +313,12 @@ class ContainerHealthCheckConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerHealthCheckConfigArgs:
     def __init__(__self__, *,
-                 healthy_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 success_codes: Optional[pulumi.Input[_builtins.str]] = None,
-                 timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 unhealthy_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 healthy_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 success_codes: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 unhealthy_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Describes the health check configuration of an Amazon Lightsail container service.
 
@@ -230,83 +344,83 @@ class ContainerHealthCheckConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def healthy_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
         """
         return pulumi.get(self, "healthy_threshold")
 
     @healthy_threshold.setter
-    def healthy_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def healthy_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "healthy_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. The default value is 5.
         """
         return pulumi.get(self, "interval_seconds")
 
     @interval_seconds.setter
-    def interval_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path on the container on which to perform the health check. The default value is /.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter(name="successCodes")
-    def success_codes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def success_codes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. You can specify multiple values (for example, 200,202) or a range of values (for example, 200-299).
         """
         return pulumi.get(self, "success_codes")
 
     @success_codes.setter
-    def success_codes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def success_codes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "success_codes", value)
 
     @_builtins.property
     @pulumi.getter(name="timeoutSeconds")
-    def timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. The default value is 2.
         """
         return pulumi.get(self, "timeout_seconds")
 
     @timeout_seconds.setter
-    def timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unhealthy_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of consecutive health check failures required before moving the container to the Unhealthy state. The default value is 2.
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unhealthy_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
 class ContainerPortInfoArgsDict(TypedDict):
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The open firewall ports of the container.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The protocol name for the open ports.
 
@@ -316,8 +430,8 @@ class ContainerPortInfoArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerPortInfoArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None):
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] port: The open firewall ports of the container.
         :param pulumi.Input[_builtins.str] protocol: The protocol name for the open ports.
@@ -331,19 +445,19 @@ class ContainerPortInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The open firewall ports of the container.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The protocol name for the open ports.
 
@@ -352,19 +466,53 @@ class ContainerPortInfoArgs:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+
+class ContainerPrivateRegistryAccessArgsDict(TypedDict):
+    """
+    An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+    """
+    ecr_image_puller_role: NotRequired[pulumi.Input[Optional['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict']]]
+    """
+    An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+    """
+
+@pulumi.input_type
+class ContainerPrivateRegistryAccessArgs:
+    def __init__(__self__, *,
+                 ecr_image_puller_role: pulumi.Input[Optional['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']] = None):
+        """
+        An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+
+        :param pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs'] ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        if ecr_image_puller_role is not None:
+            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
+
+    @_builtins.property
+    @pulumi.getter(name="ecrImagePullerRole")
+    def ecr_image_puller_role(self) -> pulumi.Input[Optional['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]:
+        """
+        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        """
+        return pulumi.get(self, "ecr_image_puller_role")
+
+    @ecr_image_puller_role.setter
+    def ecr_image_puller_role(self, value: pulumi.Input[Optional['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]):
+        pulumi.set(self, "ecr_image_puller_role", value)
 
 
 class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict(TypedDict):
     """
     An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
     """
-    is_active: NotRequired[pulumi.Input[_builtins.bool]]
+    is_active: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value that indicates whether to activate the role.
     """
-    principal_arn: NotRequired[pulumi.Input[_builtins.str]]
+    principal_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the role, if it is activated.
     """
@@ -372,8 +520,8 @@ class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict(TypedDi
 @pulumi.input_type
 class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
     def __init__(__self__, *,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 principal_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 principal_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
 
@@ -387,72 +535,38 @@ class ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that indicates whether to activate the role.
         """
         return pulumi.get(self, "is_active")
 
     @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_active", value)
 
     @_builtins.property
     @pulumi.getter(name="principalArn")
-    def principal_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the role, if it is activated.
         """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
-    def principal_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_arn", value)
-
-
-class ContainerPrivateRegistryAccessArgsDict(TypedDict):
-    """
-    An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
-    """
-    ecr_image_puller_role: NotRequired[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgsDict']]
-    """
-    An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
-    """
-
-@pulumi.input_type
-class ContainerPrivateRegistryAccessArgs:
-    def __init__(__self__, *,
-                 ecr_image_puller_role: Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']] = None):
-        """
-        An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
-
-        :param pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs'] ecr_image_puller_role: An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        """
-        if ecr_image_puller_role is not None:
-            pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
-
-    @_builtins.property
-    @pulumi.getter(name="ecrImagePullerRole")
-    def ecr_image_puller_role(self) -> Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]:
-        """
-        An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        """
-        return pulumi.get(self, "ecr_image_puller_role")
-
-    @ecr_image_puller_role.setter
-    def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs']]):
-        pulumi.set(self, "ecr_image_puller_role", value)
 
 
 class ContainerPublicDomainNameArgsDict(TypedDict):
     """
     The public domain name to use with the container service, such as example.com and www.example.com.
     """
-    certificate_name: NotRequired[pulumi.Input[_builtins.str]]
+    certificate_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the certificate for the public domains.
     """
-    domain_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    domain_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An object that describes the configuration for the containers of the deployment.
     """
@@ -460,8 +574,8 @@ class ContainerPublicDomainNameArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerPublicDomainNameArgs:
     def __init__(__self__, *,
-                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The public domain name to use with the container service, such as example.com and www.example.com.
 
@@ -475,26 +589,26 @@ class ContainerPublicDomainNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the certificate for the public domains.
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainNames")
-    def domain_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An object that describes the configuration for the containers of the deployment.
         """
         return pulumi.get(self, "domain_names")
 
     @domain_names.setter
-    def domain_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain_names", value)
 
 
@@ -502,15 +616,15 @@ class ContainerPublicEndpointArgsDict(TypedDict):
     """
     Describes the settings of a public endpoint for an Amazon Lightsail container service.
     """
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
+    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the container for the endpoint.
     """
-    container_port: NotRequired[pulumi.Input[_builtins.int]]
+    container_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port of the container to which traffic is forwarded to.
     """
-    health_check_config: NotRequired[pulumi.Input['ContainerHealthCheckConfigArgsDict']]
+    health_check_config: NotRequired[pulumi.Input[Optional['ContainerHealthCheckConfigArgsDict']]]
     """
     An object that describes the health check configuration of the container.
     """
@@ -518,9 +632,9 @@ class ContainerPublicEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerPublicEndpointArgs:
     def __init__(__self__, *,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 health_check_config: Optional[pulumi.Input['ContainerHealthCheckConfigArgs']] = None):
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 health_check_config: pulumi.Input[Optional['ContainerHealthCheckConfigArgs']] = None):
         """
         Describes the settings of a public endpoint for an Amazon Lightsail container service.
 
@@ -537,38 +651,38 @@ class ContainerPublicEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the container for the endpoint.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="containerPort")
-    def container_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def container_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port of the container to which traffic is forwarded to.
         """
         return pulumi.get(self, "container_port")
 
     @container_port.setter
-    def container_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def container_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_port", value)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckConfig")
-    def health_check_config(self) -> Optional[pulumi.Input['ContainerHealthCheckConfigArgs']]:
+    def health_check_config(self) -> pulumi.Input[Optional['ContainerHealthCheckConfigArgs']]:
         """
         An object that describes the health check configuration of the container.
         """
         return pulumi.get(self, "health_check_config")
 
     @health_check_config.setter
-    def health_check_config(self, value: Optional[pulumi.Input['ContainerHealthCheckConfigArgs']]):
+    def health_check_config(self, value: pulumi.Input[Optional['ContainerHealthCheckConfigArgs']]):
         pulumi.set(self, "health_check_config", value)
 
 
@@ -576,11 +690,11 @@ class ContainerServiceDeploymentArgsDict(TypedDict):
     """
     Describes a container deployment configuration of an Amazon Lightsail container service.
     """
-    containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerArgsDict']]]]
+    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerArgsDict']]]]]
     """
     An object that describes the configuration for the containers of the deployment.
     """
-    public_endpoint: NotRequired[pulumi.Input['ContainerPublicEndpointArgsDict']]
+    public_endpoint: NotRequired[pulumi.Input[Optional['ContainerPublicEndpointArgsDict']]]
     """
     An object that describes the endpoint of the deployment.
     """
@@ -588,8 +702,8 @@ class ContainerServiceDeploymentArgsDict(TypedDict):
 @pulumi.input_type
 class ContainerServiceDeploymentArgs:
     def __init__(__self__, *,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]] = None,
-                 public_endpoint: Optional[pulumi.Input['ContainerPublicEndpointArgs']] = None):
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerArgs']]]] = None,
+                 public_endpoint: pulumi.Input[Optional['ContainerPublicEndpointArgs']] = None):
         """
         Describes a container deployment configuration of an Amazon Lightsail container service.
 
@@ -603,176 +717,62 @@ class ContainerServiceDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]:
+    def containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContainerArgs']]]]:
         """
         An object that describes the configuration for the containers of the deployment.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]):
+    def containers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerArgs']]]]):
         pulumi.set(self, "containers", value)
 
     @_builtins.property
     @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> Optional[pulumi.Input['ContainerPublicEndpointArgs']]:
+    def public_endpoint(self) -> pulumi.Input[Optional['ContainerPublicEndpointArgs']]:
         """
         An object that describes the endpoint of the deployment.
         """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
-    def public_endpoint(self, value: Optional[pulumi.Input['ContainerPublicEndpointArgs']]):
+    def public_endpoint(self, value: pulumi.Input[Optional['ContainerPublicEndpointArgs']]):
         pulumi.set(self, "public_endpoint", value)
-
-
-class ContainerArgsDict(TypedDict):
-    """
-    Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
-    """
-    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    """
-    The launch command for the container.
-    """
-    container_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the container.
-    """
-    environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgsDict']]]]
-    """
-    The environment variables of the container.
-    """
-    image: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the image used for the container.
-    """
-    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgsDict']]]]
-    """
-    The open firewall ports of the container.
-    """
-
-@pulumi.input_type
-class ContainerArgs:
-    def __init__(__self__, *,
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]] = None,
-                 image: Optional[pulumi.Input[_builtins.str]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]]] = None):
-        """
-        Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
-
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] command: The launch command for the container.
-        :param pulumi.Input[_builtins.str] container_name: The name of the container.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]] environment: The environment variables of the container.
-        :param pulumi.Input[_builtins.str] image: The name of the image used for the container.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]] ports: The open firewall ports of the container.
-        """
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
-        if environment is not None:
-            pulumi.set(__self__, "environment", environment)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-        if ports is not None:
-            pulumi.set(__self__, "ports", ports)
-
-    @_builtins.property
-    @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        The launch command for the container.
-        """
-        return pulumi.get(self, "command")
-
-    @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "command", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the container.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]]:
-        """
-        The environment variables of the container.
-        """
-        return pulumi.get(self, "environment")
-
-    @environment.setter
-    def environment(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerEnvironmentVariableArgs']]]]):
-        pulumi.set(self, "environment", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def image(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the image used for the container.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "image", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]]]:
-        """
-        The open firewall ports of the container.
-        """
-        return pulumi.get(self, "ports")
-
-    @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortInfoArgs']]]]):
-        pulumi.set(self, "ports", value)
 
 
 class DatabaseRelationalDatabaseParameterArgsDict(TypedDict):
     """
     Describes the parameters of the database.
     """
-    allowed_values: NotRequired[pulumi.Input[_builtins.str]]
+    allowed_values: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the valid range of values for the parameter.
     """
-    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    apply_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates when parameter updates are applied. Can be immediate or pending-reboot.
     """
-    apply_type: NotRequired[pulumi.Input[_builtins.str]]
+    apply_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the engine-specific parameter type.
     """
-    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    data_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the valid data type for the parameter.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Provides a description of the parameter.
     """
-    is_modifiable: NotRequired[pulumi.Input[_builtins.bool]]
+    is_modifiable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     A Boolean value indicating whether the parameter can be modified.
     """
-    parameter_name: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the name of the parameter.
     """
-    parameter_value: NotRequired[pulumi.Input[_builtins.str]]
+    parameter_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the value of the parameter.
     """
@@ -780,14 +780,14 @@ class DatabaseRelationalDatabaseParameterArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseRelationalDatabaseParameterArgs:
     def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[_builtins.str]] = None,
-                 apply_method: Optional[pulumi.Input[_builtins.str]] = None,
-                 apply_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_modifiable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 parameter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_value: Optional[pulumi.Input[_builtins.str]] = None):
+                 allowed_values: pulumi.Input[Optional[_builtins.str]] = None,
+                 apply_method: pulumi.Input[Optional[_builtins.str]] = None,
+                 apply_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_modifiable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 parameter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Describes the parameters of the database.
 
@@ -819,98 +819,98 @@ class DatabaseRelationalDatabaseParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_values(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the valid range of values for the parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_values(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
     @pulumi.getter(name="applyMethod")
-    def apply_method(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates when parameter updates are applied. Can be immediate or pending-reboot.
         """
         return pulumi.get(self, "apply_method")
 
     @apply_method.setter
-    def apply_method(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_method(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apply_method", value)
 
     @_builtins.property
     @pulumi.getter(name="applyType")
-    def apply_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def apply_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the engine-specific parameter type.
         """
         return pulumi.get(self, "apply_type")
 
     @apply_type.setter
-    def apply_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def apply_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "apply_type", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the valid data type for the parameter.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Provides a description of the parameter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="isModifiable")
-    def is_modifiable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_modifiable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value indicating whether the parameter can be modified.
         """
         return pulumi.get(self, "is_modifiable")
 
     @is_modifiable.setter
-    def is_modifiable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_modifiable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_modifiable", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterName")
-    def parameter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the parameter.
         """
         return pulumi.get(self, "parameter_name")
 
     @parameter_name.setter
-    def parameter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterValue")
-    def parameter_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the value of the parameter.
         """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
-    def parameter_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_value", value)
 
 
@@ -922,11 +922,11 @@ class DiskAddOnArgsDict(TypedDict):
     """
     The add-on type
     """
-    auto_snapshot_add_on_request: NotRequired[pulumi.Input['DiskAutoSnapshotAddOnArgsDict']]
+    auto_snapshot_add_on_request: NotRequired[pulumi.Input[Optional['DiskAutoSnapshotAddOnArgsDict']]]
     """
     The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
     """
-    status: NotRequired[pulumi.Input['DiskAddOnStatus']]
+    status: NotRequired[pulumi.Input[Optional['DiskAddOnStatus']]]
     """
     Status of the Addon
     """
@@ -935,8 +935,8 @@ class DiskAddOnArgsDict(TypedDict):
 class DiskAddOnArgs:
     def __init__(__self__, *,
                  add_on_type: pulumi.Input[_builtins.str],
-                 auto_snapshot_add_on_request: Optional[pulumi.Input['DiskAutoSnapshotAddOnArgs']] = None,
-                 status: Optional[pulumi.Input['DiskAddOnStatus']] = None):
+                 auto_snapshot_add_on_request: pulumi.Input[Optional['DiskAutoSnapshotAddOnArgs']] = None,
+                 status: pulumi.Input[Optional['DiskAddOnStatus']] = None):
         """
         A addon associate with a resource.
 
@@ -964,26 +964,26 @@ class DiskAddOnArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
-    def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['DiskAutoSnapshotAddOnArgs']]:
+    def auto_snapshot_add_on_request(self) -> pulumi.Input[Optional['DiskAutoSnapshotAddOnArgs']]:
         """
         The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @auto_snapshot_add_on_request.setter
-    def auto_snapshot_add_on_request(self, value: Optional[pulumi.Input['DiskAutoSnapshotAddOnArgs']]):
+    def auto_snapshot_add_on_request(self, value: pulumi.Input[Optional['DiskAutoSnapshotAddOnArgs']]):
         pulumi.set(self, "auto_snapshot_add_on_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['DiskAddOnStatus']]:
+    def status(self) -> pulumi.Input[Optional['DiskAddOnStatus']]:
         """
         Status of the Addon
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['DiskAddOnStatus']]):
+    def status(self, value: pulumi.Input[Optional['DiskAddOnStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -991,7 +991,7 @@ class DiskAutoSnapshotAddOnArgsDict(TypedDict):
     """
     An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
     """
-    snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_time_of_day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The daily time when an automatic snapshot will be created.
     """
@@ -999,7 +999,7 @@ class DiskAutoSnapshotAddOnArgsDict(TypedDict):
 @pulumi.input_type
 class DiskAutoSnapshotAddOnArgs:
     def __init__(__self__, *,
-                 snapshot_time_of_day: Optional[pulumi.Input[_builtins.str]] = None):
+                 snapshot_time_of_day: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
 
@@ -1010,14 +1010,14 @@ class DiskAutoSnapshotAddOnArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotTimeOfDay")
-    def snapshot_time_of_day(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_time_of_day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "snapshot_time_of_day")
 
     @snapshot_time_of_day.setter
-    def snapshot_time_of_day(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_time_of_day(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_time_of_day", value)
 
 
@@ -1025,11 +1025,11 @@ class DiskLocationArgsDict(TypedDict):
     """
     Location of a resource.
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
     """
-    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    region_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Region Name in which to create your disk.
     """
@@ -1037,8 +1037,8 @@ class DiskLocationArgsDict(TypedDict):
 @pulumi.input_type
 class DiskLocationArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Location of a resource.
 
@@ -1052,26 +1052,26 @@ class DiskLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region Name in which to create your disk.
         """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_name", value)
 
 
@@ -1083,11 +1083,11 @@ class InstanceAddOnArgsDict(TypedDict):
     """
     The add-on type
     """
-    auto_snapshot_add_on_request: NotRequired[pulumi.Input['InstanceAutoSnapshotAddOnArgsDict']]
+    auto_snapshot_add_on_request: NotRequired[pulumi.Input[Optional['InstanceAutoSnapshotAddOnArgsDict']]]
     """
     The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
     """
-    status: NotRequired[pulumi.Input['InstanceAddOnStatus']]
+    status: NotRequired[pulumi.Input[Optional['InstanceAddOnStatus']]]
     """
     Status of the Addon
     """
@@ -1096,8 +1096,8 @@ class InstanceAddOnArgsDict(TypedDict):
 class InstanceAddOnArgs:
     def __init__(__self__, *,
                  add_on_type: pulumi.Input[_builtins.str],
-                 auto_snapshot_add_on_request: Optional[pulumi.Input['InstanceAutoSnapshotAddOnArgs']] = None,
-                 status: Optional[pulumi.Input['InstanceAddOnStatus']] = None):
+                 auto_snapshot_add_on_request: pulumi.Input[Optional['InstanceAutoSnapshotAddOnArgs']] = None,
+                 status: pulumi.Input[Optional['InstanceAddOnStatus']] = None):
         """
         A addon associate with a resource.
 
@@ -1125,26 +1125,26 @@ class InstanceAddOnArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoSnapshotAddOnRequest")
-    def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['InstanceAutoSnapshotAddOnArgs']]:
+    def auto_snapshot_add_on_request(self) -> pulumi.Input[Optional['InstanceAutoSnapshotAddOnArgs']]:
         """
         The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
     @auto_snapshot_add_on_request.setter
-    def auto_snapshot_add_on_request(self, value: Optional[pulumi.Input['InstanceAutoSnapshotAddOnArgs']]):
+    def auto_snapshot_add_on_request(self, value: pulumi.Input[Optional['InstanceAutoSnapshotAddOnArgs']]):
         pulumi.set(self, "auto_snapshot_add_on_request", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['InstanceAddOnStatus']]:
+    def status(self) -> pulumi.Input[Optional['InstanceAddOnStatus']]:
         """
         Status of the Addon
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['InstanceAddOnStatus']]):
+    def status(self, value: pulumi.Input[Optional['InstanceAddOnStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -1152,7 +1152,7 @@ class InstanceAutoSnapshotAddOnArgsDict(TypedDict):
     """
     An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
     """
-    snapshot_time_of_day: NotRequired[pulumi.Input[_builtins.str]]
+    snapshot_time_of_day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The daily time when an automatic snapshot will be created.
     """
@@ -1160,7 +1160,7 @@ class InstanceAutoSnapshotAddOnArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceAutoSnapshotAddOnArgs:
     def __init__(__self__, *,
-                 snapshot_time_of_day: Optional[pulumi.Input[_builtins.str]] = None):
+                 snapshot_time_of_day: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
 
@@ -1171,14 +1171,14 @@ class InstanceAutoSnapshotAddOnArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotTimeOfDay")
-    def snapshot_time_of_day(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snapshot_time_of_day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "snapshot_time_of_day")
 
     @snapshot_time_of_day.setter
-    def snapshot_time_of_day(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snapshot_time_of_day(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snapshot_time_of_day", value)
 
 
@@ -1194,23 +1194,23 @@ class InstanceDiskArgsDict(TypedDict):
     """
     Path of the disk attached to the instance.
     """
-    attached_to: NotRequired[pulumi.Input[_builtins.str]]
+    attached_to: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instance attached to the disk.
     """
-    attachment_state: NotRequired[pulumi.Input[_builtins.str]]
+    attachment_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Attachment state of the disk.
     """
-    iops: NotRequired[pulumi.Input[_builtins.int]]
+    iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     IOPS of disk.
     """
-    is_system_disk: NotRequired[pulumi.Input[_builtins.bool]]
+    is_system_disk: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is the Attached disk is the system disk of the Instance.
     """
-    size_in_gb: NotRequired[pulumi.Input[_builtins.str]]
+    size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Size of the disk attached to the Instance.
     """
@@ -1220,11 +1220,11 @@ class InstanceDiskArgs:
     def __init__(__self__, *,
                  disk_name: pulumi.Input[_builtins.str],
                  path: pulumi.Input[_builtins.str],
-                 attached_to: Optional[pulumi.Input[_builtins.str]] = None,
-                 attachment_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 iops: Optional[pulumi.Input[_builtins.int]] = None,
-                 is_system_disk: Optional[pulumi.Input[_builtins.bool]] = None,
-                 size_in_gb: Optional[pulumi.Input[_builtins.str]] = None):
+                 attached_to: pulumi.Input[Optional[_builtins.str]] = None,
+                 attachment_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 iops: pulumi.Input[Optional[_builtins.int]] = None,
+                 is_system_disk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 size_in_gb: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Disk associated with the Instance.
 
@@ -1275,62 +1275,62 @@ class InstanceDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="attachedTo")
-    def attached_to(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attached_to(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance attached to the disk.
         """
         return pulumi.get(self, "attached_to")
 
     @attached_to.setter
-    def attached_to(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attached_to(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attached_to", value)
 
     @_builtins.property
     @pulumi.getter(name="attachmentState")
-    def attachment_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def attachment_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Attachment state of the disk.
         """
         return pulumi.get(self, "attachment_state")
 
     @attachment_state.setter
-    def attachment_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def attachment_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "attachment_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         IOPS of disk.
         """
         return pulumi.get(self, "iops")
 
     @iops.setter
-    def iops(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def iops(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "iops", value)
 
     @_builtins.property
     @pulumi.getter(name="isSystemDisk")
-    def is_system_disk(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_system_disk(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Is the Attached disk is the system disk of the Instance.
         """
         return pulumi.get(self, "is_system_disk")
 
     @is_system_disk.setter
-    def is_system_disk(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_system_disk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_system_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="sizeInGb")
-    def size_in_gb(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def size_in_gb(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Size of the disk attached to the Instance.
         """
         return pulumi.get(self, "size_in_gb")
 
     @size_in_gb.setter
-    def size_in_gb(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def size_in_gb(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "size_in_gb", value)
 
 
@@ -1338,15 +1338,15 @@ class InstanceHardwareArgsDict(TypedDict):
     """
     Hardware of the Instance.
     """
-    cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    cpu_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     CPU count of the Instance.
     """
-    disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgsDict']]]]
+    disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceDiskArgsDict']]]]]
     """
     Disks attached to the Instance.
     """
-    ram_size_in_gb: NotRequired[pulumi.Input[_builtins.int]]
+    ram_size_in_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     RAM Size of the Instance.
     """
@@ -1354,9 +1354,9 @@ class InstanceHardwareArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceHardwareArgs:
     def __init__(__self__, *,
-                 cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 disks: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgs']]]] = None,
-                 ram_size_in_gb: Optional[pulumi.Input[_builtins.int]] = None):
+                 cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 disks: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceDiskArgs']]]] = None,
+                 ram_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Hardware of the Instance.
 
@@ -1373,38 +1373,38 @@ class InstanceHardwareArgs:
 
     @_builtins.property
     @pulumi.getter(name="cpuCount")
-    def cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def cpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         CPU count of the Instance.
         """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
-    def cpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def cpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "cpu_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgs']]]]:
+    def disks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceDiskArgs']]]]:
         """
         Disks attached to the Instance.
         """
         return pulumi.get(self, "disks")
 
     @disks.setter
-    def disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceDiskArgs']]]]):
+    def disks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceDiskArgs']]]]):
         pulumi.set(self, "disks", value)
 
     @_builtins.property
     @pulumi.getter(name="ramSizeInGb")
-    def ram_size_in_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ram_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         RAM Size of the Instance.
         """
         return pulumi.get(self, "ram_size_in_gb")
 
     @ram_size_in_gb.setter
-    def ram_size_in_gb(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ram_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ram_size_in_gb", value)
 
 
@@ -1412,11 +1412,11 @@ class InstanceLocationArgsDict(TypedDict):
     """
     Location of a resource.
     """
-    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
     """
-    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    region_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Region Name in which to create your instance.
     """
@@ -1424,8 +1424,8 @@ class InstanceLocationArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceLocationArgs:
     def __init__(__self__, *,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Location of a resource.
 
@@ -1439,26 +1439,26 @@ class InstanceLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="regionName")
-    def region_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Region Name in which to create your instance.
         """
         return pulumi.get(self, "region_name")
 
     @region_name.setter
-    def region_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_name", value)
 
 
@@ -1466,7 +1466,7 @@ class InstanceMonthlyTransferArgsDict(TypedDict):
     """
     Monthly Transfer of the Instance.
     """
-    gb_per_month_allocated: NotRequired[pulumi.Input[_builtins.str]]
+    gb_per_month_allocated: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     GbPerMonthAllocated of the Instance.
     """
@@ -1474,7 +1474,7 @@ class InstanceMonthlyTransferArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceMonthlyTransferArgs:
     def __init__(__self__, *,
-                 gb_per_month_allocated: Optional[pulumi.Input[_builtins.str]] = None):
+                 gb_per_month_allocated: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Monthly Transfer of the Instance.
 
@@ -1485,14 +1485,14 @@ class InstanceMonthlyTransferArgs:
 
     @_builtins.property
     @pulumi.getter(name="gbPerMonthAllocated")
-    def gb_per_month_allocated(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gb_per_month_allocated(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         GbPerMonthAllocated of the Instance.
         """
         return pulumi.get(self, "gb_per_month_allocated")
 
     @gb_per_month_allocated.setter
-    def gb_per_month_allocated(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gb_per_month_allocated(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gb_per_month_allocated", value)
 
 
@@ -1504,7 +1504,7 @@ class InstanceNetworkingArgsDict(TypedDict):
     """
     Ports to the Instance.
     """
-    monthly_transfer: NotRequired[pulumi.Input['InstanceMonthlyTransferArgsDict']]
+    monthly_transfer: NotRequired[pulumi.Input[Optional['InstanceMonthlyTransferArgsDict']]]
     """
     The monthly amount of data transfer, in GB, allocated for the instance
     """
@@ -1513,7 +1513,7 @@ class InstanceNetworkingArgsDict(TypedDict):
 class InstanceNetworkingArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[Sequence[pulumi.Input['InstancePortArgs']]],
-                 monthly_transfer: Optional[pulumi.Input['InstanceMonthlyTransferArgs']] = None):
+                 monthly_transfer: pulumi.Input[Optional['InstanceMonthlyTransferArgs']] = None):
         """
         Networking of the Instance.
 
@@ -1538,14 +1538,14 @@ class InstanceNetworkingArgs:
 
     @_builtins.property
     @pulumi.getter(name="monthlyTransfer")
-    def monthly_transfer(self) -> Optional[pulumi.Input['InstanceMonthlyTransferArgs']]:
+    def monthly_transfer(self) -> pulumi.Input[Optional['InstanceMonthlyTransferArgs']]:
         """
         The monthly amount of data transfer, in GB, allocated for the instance
         """
         return pulumi.get(self, "monthly_transfer")
 
     @monthly_transfer.setter
-    def monthly_transfer(self, value: Optional[pulumi.Input['InstanceMonthlyTransferArgs']]):
+    def monthly_transfer(self, value: pulumi.Input[Optional['InstanceMonthlyTransferArgs']]):
         pulumi.set(self, "monthly_transfer", value)
 
 
@@ -1553,54 +1553,54 @@ class InstancePortArgsDict(TypedDict):
     """
     Port of the Instance.
     """
-    access_direction: NotRequired[pulumi.Input[_builtins.str]]
+    access_direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access Direction for Protocol of the Instance(inbound/outbound).
     """
-    access_from: NotRequired[pulumi.Input[_builtins.str]]
+    access_from: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access From Protocol of the Instance.
     """
-    access_type: NotRequired[pulumi.Input[_builtins.str]]
+    access_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access Type Protocol of the Instance.
     """
-    cidr_list_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cidr_list_aliases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     An alias that defines access for a preconfigured range of IP addresses.
 
     The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
     """
-    cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 
-    > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+    > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
 
     Examples:
 
     - To allow the IP address `192.0.2.44` , specify `192.0.2.44` or `192.0.2.44/32` .
     - To allow the IP addresses `192.0.2.0` to `192.0.2.255` , specify `192.0.2.0/24` .
     """
-    common_name: NotRequired[pulumi.Input[_builtins.str]]
+    common_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CommonName for Protocol of the Instance.
     """
-    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    from_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     From Port of the Instance.
     """
-    ipv6_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    ipv6_cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
 
     > The `cidrs` parameter lists the IPv4 addresses that are allowed to connect to an instance.
     """
-    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port Protocol of the Instance.
     """
-    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    to_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     To Port of the Instance.
     """
@@ -1608,16 +1608,16 @@ class InstancePortArgsDict(TypedDict):
 @pulumi.input_type
 class InstancePortArgs:
     def __init__(__self__, *,
-                 access_direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_from: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_list_aliases: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 common_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 ipv6_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 access_direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_from: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_list_aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 common_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 ipv6_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Port of the Instance.
 
@@ -1629,7 +1629,7 @@ class InstancePortArgs:
                The only alias currently supported is `lightsail-connect` , which allows IP addresses of the browser-based RDP/SSH client in the Lightsail console to connect to your instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidrs: The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
                
-               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+               > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
                
                Examples:
                
@@ -1666,43 +1666,43 @@ class InstancePortArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessDirection")
-    def access_direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Direction for Protocol of the Instance(inbound/outbound).
         """
         return pulumi.get(self, "access_direction")
 
     @access_direction.setter
-    def access_direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_direction", value)
 
     @_builtins.property
     @pulumi.getter(name="accessFrom")
-    def access_from(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_from(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access From Protocol of the Instance.
         """
         return pulumi.get(self, "access_from")
 
     @access_from.setter
-    def access_from(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_from(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_from", value)
 
     @_builtins.property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Type Protocol of the Instance.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrListAliases")
-    def cidr_list_aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidr_list_aliases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         An alias that defines access for a preconfigured range of IP addresses.
 
@@ -1711,16 +1711,16 @@ class InstancePortArgs:
         return pulumi.get(self, "cidr_list_aliases")
 
     @cidr_list_aliases.setter
-    def cidr_list_aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidr_list_aliases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidr_list_aliases", value)
 
     @_builtins.property
     @pulumi.getter
-    def cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IPv4 address, or range of IPv4 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol.
 
-        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance. 
+        > The `ipv6Cidrs` parameter lists the IPv6 addresses that are allowed to connect to an instance.
 
         Examples:
 
@@ -1730,36 +1730,36 @@ class InstancePortArgs:
         return pulumi.get(self, "cidrs")
 
     @cidrs.setter
-    def cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def common_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CommonName for Protocol of the Instance.
         """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def common_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "common_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         From Port of the Instance.
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Cidrs")
-    def ipv6_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def ipv6_cidrs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IPv6 address, or range of IPv6 addresses (in CIDR notation) that are allowed to connect to an instance through the ports, and the protocol. Only devices with an IPv6 address can connect to an instance through IPv6; otherwise, IPv4 should be used.
 
@@ -1768,31 +1768,31 @@ class InstancePortArgs:
         return pulumi.get(self, "ipv6_cidrs")
 
     @ipv6_cidrs.setter
-    def ipv6_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def ipv6_cidrs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ipv6_cidrs", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port Protocol of the Instance.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         To Port of the Instance.
         """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
@@ -1800,11 +1800,11 @@ class InstanceStateArgsDict(TypedDict):
     """
     Current State of the Instance.
     """
-    code: NotRequired[pulumi.Input[_builtins.int]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Status code of the Instance.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Status code of the Instance.
     """
@@ -1812,8 +1812,8 @@ class InstanceStateArgsDict(TypedDict):
 @pulumi.input_type
 class InstanceStateArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Current State of the Instance.
 
@@ -1827,26 +1827,26 @@ class InstanceStateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Status code of the Instance.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Status code of the Instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

@@ -25,9 +25,9 @@ __all__ = ['CapacityReservationArgs', 'CapacityReservation']
 class CapacityReservationArgs:
     def __init__(__self__, *,
                  target_dpus: pulumi.Input[_builtins.int],
-                 capacity_assignment_configuration: Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capacity_assignment_configuration: pulumi.Input[Optional['CapacityReservationCapacityAssignmentConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
 
@@ -58,38 +58,38 @@ class CapacityReservationArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityAssignmentConfiguration")
-    def capacity_assignment_configuration(self) -> Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']]:
+    def capacity_assignment_configuration(self) -> pulumi.Input[Optional['CapacityReservationCapacityAssignmentConfigurationArgs']]:
         """
         Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
         """
         return pulumi.get(self, "capacity_assignment_configuration")
 
     @capacity_assignment_configuration.setter
-    def capacity_assignment_configuration(self, value: Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']]):
+    def capacity_assignment_configuration(self, value: pulumi.Input[Optional['CapacityReservationCapacityAssignmentConfigurationArgs']]):
         pulumi.set(self, "capacity_assignment_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reservation name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,14 +99,13 @@ class CapacityReservation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_assignment_configuration: Optional[pulumi.Input[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_dpus: Optional[pulumi.Input[_builtins.int]] = None,
+                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Athena::CapacityReservation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Resource schema for AWS::Athena::CapacityReservation
 
-
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class CapacityReservation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_assignment_configuration: Optional[pulumi.Input[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_dpus: Optional[pulumi.Input[_builtins.int]] = None,
+                 capacity_assignment_configuration: pulumi.Input[Optional[Union['CapacityReservationCapacityAssignmentConfigurationArgs', 'CapacityReservationCapacityAssignmentConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_dpus: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

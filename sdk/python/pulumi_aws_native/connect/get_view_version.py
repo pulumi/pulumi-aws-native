@@ -75,7 +75,6 @@ def get_view_version(view_version_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::ViewVersion
 
-
     :param _builtins.str view_version_arn: The Amazon Resource Name (ARN) of the created view version.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_view_version(view_version_arn: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'),
         version_description=pulumi.get(__ret__, 'version_description'),
         view_version_arn=pulumi.get(__ret__, 'view_version_arn'))
-def get_view_version_output(view_version_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_version_output(view_version_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewVersionResult]:
     """
     Resource Type definition for AWS::Connect::ViewVersion
-
 
     :param _builtins.str view_version_arn: The Amazon Resource Name (ARN) of the created view version.
     """

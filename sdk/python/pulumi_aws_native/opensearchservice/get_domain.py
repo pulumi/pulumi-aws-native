@@ -385,7 +385,6 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
            
            Required when creating a new domain.
@@ -427,11 +426,10 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
-def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
            
