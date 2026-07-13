@@ -20,6 +20,8 @@ type ImageRecipe struct {
 	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrOutput `pulumi:"additionalInstanceConfiguration"`
 	// The tags to apply to the AMI created by this image recipe.
 	AmiTags pulumi.StringMapOutput `pulumi:"amiTags"`
+	// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+	AmiWatermarks pulumi.StringArrayOutput `pulumi:"amiWatermarks"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The block device mappings to apply when creating images from this recipe.
@@ -56,6 +58,9 @@ func NewImageRecipe(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"additionalInstanceConfiguration",
+		"amiTags.*",
+		"amiWatermarks[*]",
 		"blockDeviceMappings[*]",
 		"components[*]",
 		"description",
@@ -102,6 +107,8 @@ type imageRecipeArgs struct {
 	AdditionalInstanceConfiguration *ImageRecipeAdditionalInstanceConfiguration `pulumi:"additionalInstanceConfiguration"`
 	// The tags to apply to the AMI created by this image recipe.
 	AmiTags map[string]string `pulumi:"amiTags"`
+	// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+	AmiWatermarks []string `pulumi:"amiWatermarks"`
 	// The block device mappings to apply when creating images from this recipe.
 	BlockDeviceMappings []ImageRecipeInstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// The components of the image recipe.
@@ -126,6 +133,8 @@ type ImageRecipeArgs struct {
 	AdditionalInstanceConfiguration ImageRecipeAdditionalInstanceConfigurationPtrInput
 	// The tags to apply to the AMI created by this image recipe.
 	AmiTags pulumi.StringMapInput
+	// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+	AmiWatermarks pulumi.StringArrayInput
 	// The block device mappings to apply when creating images from this recipe.
 	BlockDeviceMappings ImageRecipeInstanceBlockDeviceMappingArrayInput
 	// The components of the image recipe.
@@ -191,6 +200,11 @@ func (o ImageRecipeOutput) AdditionalInstanceConfiguration() ImageRecipeAddition
 // The tags to apply to the AMI created by this image recipe.
 func (o ImageRecipeOutput) AmiTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.AmiTags }).(pulumi.StringMapOutput)
+}
+
+// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+func (o ImageRecipeOutput) AmiWatermarks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringArrayOutput { return v.AmiWatermarks }).(pulumi.StringArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the image recipe.

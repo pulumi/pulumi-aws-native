@@ -663,6 +663,37 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The performance category name.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormScoreThresholdPerformanceCategory : IEquatable<EvaluationFormScoreThresholdPerformanceCategory>
+    {
+        private readonly string _value;
+
+        private EvaluationFormScoreThresholdPerformanceCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormScoreThresholdPerformanceCategory NeedsImprovement { get; } = new EvaluationFormScoreThresholdPerformanceCategory("NEEDS_IMPROVEMENT");
+        public static EvaluationFormScoreThresholdPerformanceCategory ExceedsExpectations { get; } = new EvaluationFormScoreThresholdPerformanceCategory("EXCEEDS_EXPECTATIONS");
+
+        public static bool operator ==(EvaluationFormScoreThresholdPerformanceCategory left, EvaluationFormScoreThresholdPerformanceCategory right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormScoreThresholdPerformanceCategory left, EvaluationFormScoreThresholdPerformanceCategory right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormScoreThresholdPerformanceCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormScoreThresholdPerformanceCategory other && Equals(other);
+        public bool Equals(EvaluationFormScoreThresholdPerformanceCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The scoring mode of the evaluation form.
     ///  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
     /// </summary>
@@ -678,6 +709,7 @@ namespace Pulumi.AwsNative.Connect
 
         public static EvaluationFormScoringStrategyMode QuestionOnly { get; } = new EvaluationFormScoringStrategyMode("QUESTION_ONLY");
         public static EvaluationFormScoringStrategyMode SectionOnly { get; } = new EvaluationFormScoringStrategyMode("SECTION_ONLY");
+        public static EvaluationFormScoringStrategyMode PointsBased { get; } = new EvaluationFormScoringStrategyMode("POINTS_BASED");
 
         public static bool operator ==(EvaluationFormScoringStrategyMode left, EvaluationFormScoringStrategyMode right) => left.Equals(right);
         public static bool operator !=(EvaluationFormScoringStrategyMode left, EvaluationFormScoringStrategyMode right) => !left.Equals(right);
@@ -1309,6 +1341,7 @@ namespace Pulumi.AwsNative.Connect
         public static QuickConnectType PhoneNumber { get; } = new QuickConnectType("PHONE_NUMBER");
         public static QuickConnectType Queue { get; } = new QuickConnectType("QUEUE");
         public static QuickConnectType User { get; } = new QuickConnectType("USER");
+        public static QuickConnectType Flow { get; } = new QuickConnectType("FLOW");
 
         public static bool operator ==(QuickConnectType left, QuickConnectType right) => left.Equals(right);
         public static bool operator !=(QuickConnectType left, QuickConnectType right) => !left.Equals(right);
@@ -1413,6 +1446,66 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RoutingProfileChannel other && Equals(other);
         public bool Equals(RoutingProfileChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of SLA.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleAssignSlaActionCaseSlaConfigurationPropertiesType : IEquatable<RuleAssignSlaActionCaseSlaConfigurationPropertiesType>
+    {
+        private readonly string _value;
+
+        private RuleAssignSlaActionCaseSlaConfigurationPropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleAssignSlaActionCaseSlaConfigurationPropertiesType CaseField { get; } = new RuleAssignSlaActionCaseSlaConfigurationPropertiesType("CaseField");
+
+        public static bool operator ==(RuleAssignSlaActionCaseSlaConfigurationPropertiesType left, RuleAssignSlaActionCaseSlaConfigurationPropertiesType right) => left.Equals(right);
+        public static bool operator !=(RuleAssignSlaActionCaseSlaConfigurationPropertiesType left, RuleAssignSlaActionCaseSlaConfigurationPropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleAssignSlaActionCaseSlaConfigurationPropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleAssignSlaActionCaseSlaConfigurationPropertiesType other && Equals(other);
+        public bool Equals(RuleAssignSlaActionCaseSlaConfigurationPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of SLA assignment.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleAssignSlaActionSlaAssignmentType : IEquatable<RuleAssignSlaActionSlaAssignmentType>
+    {
+        private readonly string _value;
+
+        private RuleAssignSlaActionSlaAssignmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleAssignSlaActionSlaAssignmentType Cases { get; } = new RuleAssignSlaActionSlaAssignmentType("CASES");
+
+        public static bool operator ==(RuleAssignSlaActionSlaAssignmentType left, RuleAssignSlaActionSlaAssignmentType right) => left.Equals(right);
+        public static bool operator !=(RuleAssignSlaActionSlaAssignmentType left, RuleAssignSlaActionSlaAssignmentType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleAssignSlaActionSlaAssignmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleAssignSlaActionSlaAssignmentType other && Equals(other);
+        public bool Equals(RuleAssignSlaActionSlaAssignmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1563,6 +1656,7 @@ namespace Pulumi.AwsNative.Connect
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static RuleTriggerEventSourceEventSourceName OnEmailAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnEmailAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnContactEvaluationSubmit { get; } = new RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit");
         public static RuleTriggerEventSourceEventSourceName OnPostCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnRealTimeCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable");
@@ -1574,6 +1668,10 @@ namespace Pulumi.AwsNative.Connect
         public static RuleTriggerEventSourceEventSourceName OnMetricDataUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate");
         public static RuleTriggerEventSourceEventSourceName OnCaseCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnCaseCreate");
         public static RuleTriggerEventSourceEventSourceName OnCaseUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnCaseUpdate");
+        public static RuleTriggerEventSourceEventSourceName OnSlaBreach { get; } = new RuleTriggerEventSourceEventSourceName("OnSlaBreach");
+        public static RuleTriggerEventSourceEventSourceName OnSchedulePublish { get; } = new RuleTriggerEventSourceEventSourceName("OnSchedulePublish");
+        public static RuleTriggerEventSourceEventSourceName OnScheduleUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnScheduleUpdate");
+        public static RuleTriggerEventSourceEventSourceName OnScheduleTimeOffRequestActivity { get; } = new RuleTriggerEventSourceEventSourceName("OnScheduleTimeOffRequestActivity");
 
         public static bool operator ==(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => left.Equals(right);
         public static bool operator !=(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => !left.Equals(right);
@@ -1726,6 +1824,68 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The type of the Entry Point
+    /// </summary>
+    [EnumType]
+    public readonly struct TestCaseEntryPointType : IEquatable<TestCaseEntryPointType>
+    {
+        private readonly string _value;
+
+        private TestCaseEntryPointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TestCaseEntryPointType VoiceCall { get; } = new TestCaseEntryPointType("VOICE_CALL");
+        public static TestCaseEntryPointType Chat { get; } = new TestCaseEntryPointType("CHAT");
+
+        public static bool operator ==(TestCaseEntryPointType left, TestCaseEntryPointType right) => left.Equals(right);
+        public static bool operator !=(TestCaseEntryPointType left, TestCaseEntryPointType right) => !left.Equals(right);
+
+        public static explicit operator string(TestCaseEntryPointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TestCaseEntryPointType other && Equals(other);
+        public bool Equals(TestCaseEntryPointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the test case.
+    /// </summary>
+    [EnumType]
+    public readonly struct TestCaseStatus : IEquatable<TestCaseStatus>
+    {
+        private readonly string _value;
+
+        private TestCaseStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TestCaseStatus Saved { get; } = new TestCaseStatus("SAVED");
+        public static TestCaseStatus Published { get; } = new TestCaseStatus("PUBLISHED");
+
+        public static bool operator ==(TestCaseStatus left, TestCaseStatus right) => left.Equals(right);
+        public static bool operator !=(TestCaseStatus left, TestCaseStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TestCaseStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TestCaseStatus other && Equals(other);
+        public bool Equals(TestCaseStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of the traffic distribution group.
     /// </summary>
     [EnumType]
@@ -1753,6 +1913,38 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrafficDistributionGroupStatus other && Equals(other);
         public bool Equals(TrafficDistributionGroupStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The after contact work (ACW) mode for the channel.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserAfterContactWorkMode : IEquatable<UserAfterContactWorkMode>
+    {
+        private readonly string _value;
+
+        private UserAfterContactWorkMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserAfterContactWorkMode On { get; } = new UserAfterContactWorkMode("ON");
+        public static UserAfterContactWorkMode Off { get; } = new UserAfterContactWorkMode("OFF");
+        public static UserAfterContactWorkMode OnDemand { get; } = new UserAfterContactWorkMode("ON_DEMAND");
+
+        public static bool operator ==(UserAfterContactWorkMode left, UserAfterContactWorkMode right) => left.Equals(right);
+        public static bool operator !=(UserAfterContactWorkMode left, UserAfterContactWorkMode right) => !left.Equals(right);
+
+        public static explicit operator string(UserAfterContactWorkMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserAfterContactWorkMode other && Equals(other);
+        public bool Equals(UserAfterContactWorkMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -580,7 +580,7 @@
   "primaryIdentifier" : [ "/properties/ApplicationName", "/properties/DeploymentGroupName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "codedeploy:CreateDeploymentGroup", "codedeploy:CreateDeployment", "codedeploy:GetDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetApplicationRevision", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "codedeploy:TagResource", "codedeploy:UntagResource", "iam:PassRole" ],
+      "permissions" : [ "codedeploy:CreateDeploymentGroup", "codedeploy:CreateDeployment", "codedeploy:GetDeployment", "codedeploy:GetDeploymentConfig", "codedeploy:GetDeploymentGroup", "codedeploy:GetApplicationRevision", "codedeploy:ListDeployments", "codedeploy:RegisterApplicationRevision", "codedeploy:RegisterOnPremisesInstance", "codedeploy:TagResource", "codedeploy:UntagResource", "iam:PassRole" ],
       "timeoutInMinutes" : 510
     },
     "read" : {

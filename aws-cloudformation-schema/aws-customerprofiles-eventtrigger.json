@@ -163,13 +163,13 @@
         "Unit" : {
           "description" : "The unit of time.",
           "type" : "string",
-          "enum" : [ "HOURS", "DAYS", "WEEKS", "MONTHS" ]
+          "enum" : [ "MINUTES", "HOURS", "DAYS", "WEEKS", "MONTHS" ]
         },
         "Value" : {
           "description" : "The amount of time of the specified unit.",
           "type" : "integer",
           "minimum" : 1,
-          "maximum" : 24
+          "maximum" : 60
         },
         "MaxInvocationsPerProfile" : {
           "description" : "The maximum allowed number of destination invocations per profile.",
@@ -276,10 +276,10 @@
       "permissions" : [ "profile:CreateEventTrigger", "profile:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetEventTrigger" ]
+      "permissions" : [ "profile:GetEventTrigger", "profile:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetEventTrigger", "profile:UpdateEventTrigger", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "profile:GetEventTrigger", "profile:UpdateEventTrigger", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteEventTrigger" ]

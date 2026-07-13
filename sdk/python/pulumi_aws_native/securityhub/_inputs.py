@@ -86,6 +86,12 @@ __all__ = [
     'ConfigurationPolicySecurityControlsConfigurationArgsDict',
     'ConfigurationPolicySecurityHubPolicyArgs',
     'ConfigurationPolicySecurityHubPolicyArgsDict',
+    'ConnectorAzureProviderConfigurationArgs',
+    'ConnectorAzureProviderConfigurationArgsDict',
+    'ConnectorAzureScopeConfigurationArgs',
+    'ConnectorAzureScopeConfigurationArgsDict',
+    'ConnectorProviderArgs',
+    'ConnectorProviderArgsDict',
     'ConnectorV2ProviderArgs',
     'ConnectorV2ProviderArgsDict',
     'InsightAwsSecurityFindingFiltersArgs',
@@ -3390,6 +3396,148 @@ class ConfigurationPolicySecurityHubPolicyArgs:
     @service_enabled.setter
     def service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "service_enabled", value)
+
+
+class ConnectorAzureProviderConfigurationArgsDict(TypedDict):
+    """
+    The configuration settings for an Azure CSPM provider
+    """
+    aws_config_connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the AWS Config connector used for the Azure integration
+    """
+    azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Azure regions to include in the connector scope
+    """
+    scope_configuration: pulumi.Input['ConnectorAzureScopeConfigurationArgsDict']
+
+@pulumi.input_type
+class ConnectorAzureProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 aws_config_connector_arn: pulumi.Input[_builtins.str],
+                 azure_regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 scope_configuration: pulumi.Input['ConnectorAzureScopeConfigurationArgs']):
+        """
+        The configuration settings for an Azure CSPM provider
+
+        :param pulumi.Input[_builtins.str] aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] azure_regions: The list of Azure regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the AWS Config connector used for the Azure integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @aws_config_connector_arn.setter
+    def aws_config_connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "aws_config_connector_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The list of Azure regions to include in the connector scope
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @azure_regions.setter
+    def azure_regions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "azure_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> pulumi.Input['ConnectorAzureScopeConfigurationArgs']:
+        return pulumi.get(self, "scope_configuration")
+
+    @scope_configuration.setter
+    def scope_configuration(self, value: pulumi.Input['ConnectorAzureScopeConfigurationArgs']):
+        pulumi.set(self, "scope_configuration", value)
+
+
+class ConnectorAzureScopeConfigurationArgsDict(TypedDict):
+    """
+    The scope configuration for an Azure connector
+    """
+    scope_type: pulumi.Input['ConnectorAzureScopeConfigurationScopeType']
+    """
+    The scope type for the Azure connector
+    """
+    scope_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of scope values for the Azure connector
+    """
+
+@pulumi.input_type
+class ConnectorAzureScopeConfigurationArgs:
+    def __init__(__self__, *,
+                 scope_type: pulumi.Input['ConnectorAzureScopeConfigurationScopeType'],
+                 scope_values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The scope configuration for an Azure connector
+
+        :param pulumi.Input['ConnectorAzureScopeConfigurationScopeType'] scope_type: The scope type for the Azure connector
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope_values: The list of scope values for the Azure connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> pulumi.Input['ConnectorAzureScopeConfigurationScopeType']:
+        """
+        The scope type for the Azure connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @scope_type.setter
+    def scope_type(self, value: pulumi.Input['ConnectorAzureScopeConfigurationScopeType']):
+        pulumi.set(self, "scope_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of scope values for the Azure connector
+        """
+        return pulumi.get(self, "scope_values")
+
+    @scope_values.setter
+    def scope_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "scope_values", value)
+
+
+class ConnectorProviderArgsDict(TypedDict):
+    """
+    The CSPM provider configuration for the connector
+    """
+    azure: pulumi.Input['ConnectorAzureProviderConfigurationArgsDict']
+
+@pulumi.input_type
+class ConnectorProviderArgs:
+    def __init__(__self__, *,
+                 azure: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
+        """
+        The CSPM provider configuration for the connector
+        """
+        pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> pulumi.Input['ConnectorAzureProviderConfigurationArgs']:
+        return pulumi.get(self, "azure")
+
+    @azure.setter
+    def azure(self, value: pulumi.Input['ConnectorAzureProviderConfigurationArgs']):
+        pulumi.set(self, "azure", value)
 
 
 class ConnectorV2ProviderArgsDict(TypedDict):

@@ -50,7 +50,9 @@ type UserPool struct {
 	// - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
 	//
 	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
-	EnabledMfas pulumi.StringArrayOutput `pulumi:"enabledMfas"`
+	EnabledMfas         pulumi.StringArrayOutput             `pulumi:"enabledMfas"`
+	IssuerConfiguration UserPoolIssuerConfigurationPtrOutput `pulumi:"issuerConfiguration"`
+	KeyConfiguration    UserPoolKeyConfigurationPtrOutput    `pulumi:"keyConfiguration"`
 	// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
 	LambdaConfig UserPoolLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
@@ -185,7 +187,9 @@ type userPoolArgs struct {
 	// - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
 	//
 	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
-	EnabledMfas []string `pulumi:"enabledMfas"`
+	EnabledMfas         []string                     `pulumi:"enabledMfas"`
+	IssuerConfiguration *UserPoolIssuerConfiguration `pulumi:"issuerConfiguration"`
+	KeyConfiguration    *UserPoolKeyConfiguration    `pulumi:"keyConfiguration"`
 	// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
 	// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
@@ -276,7 +280,9 @@ type UserPoolArgs struct {
 	// - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
 	//
 	// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
-	EnabledMfas pulumi.StringArrayInput
+	EnabledMfas         pulumi.StringArrayInput
+	IssuerConfiguration UserPoolIssuerConfigurationPtrInput
+	KeyConfiguration    UserPoolKeyConfigurationPtrInput
 	// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
 	LambdaConfig UserPoolLambdaConfigPtrInput
 	// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
@@ -442,6 +448,14 @@ func (o UserPoolOutput) EmailVerificationSubject() pulumi.StringPtrOutput {
 // Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
 func (o UserPoolOutput) EnabledMfas() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.EnabledMfas }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolOutput) IssuerConfiguration() UserPoolIssuerConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolIssuerConfigurationPtrOutput { return v.IssuerConfiguration }).(UserPoolIssuerConfigurationPtrOutput)
+}
+
+func (o UserPoolOutput) KeyConfiguration() UserPoolKeyConfigurationPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolKeyConfigurationPtrOutput { return v.KeyConfiguration }).(UserPoolKeyConfigurationPtrOutput)
 }
 
 // A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.

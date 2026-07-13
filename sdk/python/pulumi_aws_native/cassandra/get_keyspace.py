@@ -26,24 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetKeyspaceResult:
-    def __init__(__self__, client_side_timestamps_enabled=None, replication_specification=None, tags=None):
-        if client_side_timestamps_enabled and not isinstance(client_side_timestamps_enabled, bool):
-            raise TypeError("Expected argument 'client_side_timestamps_enabled' to be a bool")
-        pulumi.set(__self__, "client_side_timestamps_enabled", client_side_timestamps_enabled)
+    def __init__(__self__, replication_specification=None, tags=None):
         if replication_specification and not isinstance(replication_specification, dict):
             raise TypeError("Expected argument 'replication_specification' to be a dict")
         pulumi.set(__self__, "replication_specification", replication_specification)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="clientSideTimestampsEnabled")
-    def client_side_timestamps_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
-        """
-        return pulumi.get(self, "client_side_timestamps_enabled")
 
     @_builtins.property
     @pulumi.getter(name="replicationSpecification")
@@ -75,7 +64,6 @@ class AwaitableGetKeyspaceResult(GetKeyspaceResult):
         if False:
             yield self
         return GetKeyspaceResult(
-            client_side_timestamps_enabled=self.client_side_timestamps_enabled,
             replication_specification=self.replication_specification,
             tags=self.tags)
 
@@ -94,7 +82,6 @@ def get_keyspace(keyspace_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:cassandra:getKeyspace', __args__, opts=opts, typ=GetKeyspaceResult).value
 
     return AwaitableGetKeyspaceResult(
-        client_side_timestamps_enabled=pulumi.get(__ret__, 'client_side_timestamps_enabled'),
         replication_specification=pulumi.get(__ret__, 'replication_specification'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_keyspace_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -110,6 +97,5 @@ def get_keyspace_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cassandra:getKeyspace', __args__, opts=opts, typ=GetKeyspaceResult)
     return __ret__.apply(lambda __response__: GetKeyspaceResult(
-        client_side_timestamps_enabled=pulumi.get(__response__, 'client_side_timestamps_enabled'),
         replication_specification=pulumi.get(__response__, 'replication_specification'),
         tags=pulumi.get(__response__, 'tags')))

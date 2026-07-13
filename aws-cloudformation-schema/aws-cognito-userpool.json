@@ -380,6 +380,36 @@
         }
       },
       "additionalProperties" : false
+    },
+    "EncryptionKeyType" : {
+      "type" : "string",
+      "enum" : [ "AWS_OWNED_KEY", "CUSTOMER_MANAGED_KEY" ]
+    },
+    "EncryptionKeyArnType" : {
+      "type" : "string",
+      "pattern" : "arn:[\\w+=/,.@-]+:[\\w+=/,.@-]+:([\\w+=/,.@-]*)?:[0-9]+:[\\w+=/,.@-]+(:[\\w+=/,.@-]+)?(:[\\w+=/,.@-]+)?"
+    },
+    "KeyConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "KeyType" : {
+          "$ref" : "#/definitions/EncryptionKeyType"
+        },
+        "KmsKeyArn" : {
+          "$ref" : "#/definitions/EncryptionKeyArnType"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "IssuerConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "ORIGINAL", "UPDATED" ]
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -469,6 +499,9 @@
       "minLength" : 6,
       "maxLength" : 140
     },
+    "KeyConfiguration" : {
+      "$ref" : "#/definitions/KeyConfiguration"
+    },
     "WebAuthnRelyingPartyID" : {
       "type" : "string",
       "minLength" : 1,
@@ -525,6 +558,9 @@
     "UserPoolTier" : {
       "type" : "string",
       "enum" : [ "LITE", "ESSENTIALS", "PLUS" ]
+    },
+    "IssuerConfiguration" : {
+      "$ref" : "#/definitions/IssuerConfiguration"
     }
   },
   "additionalProperties" : false,
@@ -536,14 +572,14 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "cognito-idp:CreateUserPool", "iam:PassRole", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:DescribeUserPool", "kms:CreateGrant", "iam:CreateServiceLinkedRole", "cognito-idp:TagResource" ],
+      "permissions" : [ "cognito-idp:CreateUserPool", "iam:PassRole", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:DescribeUserPool", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo", "iam:CreateServiceLinkedRole", "cognito-idp:TagResource" ],
       "timeoutInMinutes" : 2
     },
     "read" : {
-      "permissions" : [ "cognito-idp:DescribeUserPool", "cognito-idp:GetUserPoolMfaConfig" ]
+      "permissions" : [ "cognito-idp:DescribeUserPool", "cognito-idp:GetUserPoolMfaConfig", "kms:Decrypt", "kms:DescribeKey" ]
     },
     "update" : {
-      "permissions" : [ "cognito-idp:UpdateUserPool", "cognito-idp:ListTagsForResource", "cognito-idp:UntagResource", "cognito-idp:TagResource", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:AddCustomAttributes", "cognito-idp:DescribeUserPool", "cognito-idp:GetUserPoolMfaConfig", "iam:PassRole" ],
+      "permissions" : [ "cognito-idp:UpdateUserPool", "cognito-idp:ListTagsForResource", "cognito-idp:UntagResource", "cognito-idp:TagResource", "cognito-idp:SetUserPoolMfaConfig", "cognito-idp:AddCustomAttributes", "cognito-idp:DescribeUserPool", "cognito-idp:GetUserPoolMfaConfig", "iam:PassRole", "kms:CreateGrant", "kms:DescribeKey", "kms:Encrypt", "kms:Decrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptFrom", "kms:ReEncryptTo" ],
       "timeoutInMinutes" : 2
     },
     "delete" : {

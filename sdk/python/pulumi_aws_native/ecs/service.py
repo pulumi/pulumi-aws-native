@@ -79,6 +79,7 @@ class ServiceArgs:
                  If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                  To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
+        :param pulumi.Input['ServiceMonitoringConfigurationArgs'] monitoring: The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
         :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
                  To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
@@ -334,6 +335,9 @@ class ServiceArgs:
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input['ServiceMonitoringConfigurationArgs']]:
+        """
+        The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+        """
         return pulumi.get(self, "monitoring")
 
     @monitoring.setter
@@ -623,6 +627,7 @@ class Service(pulumi.CustomResource):
                  If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLoadBalancerArgs', 'ServiceLoadBalancerArgsDict']]]] load_balancers: A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
                  To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
+        :param pulumi.Input[Union['ServiceMonitoringConfigurationArgs', 'ServiceMonitoringConfigurationArgsDict']] monitoring: The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
         :param pulumi.Input[Union['ServiceNetworkConfigurationArgs', 'ServiceNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: An array of placement constraint objects to use for tasks in your service. You can specify a maximum of 10 constraints for each task. This limit includes constraints in the task definition and those specified at runtime.
                  To remove this property from your service resource, specify an empty ``PlacementConstraint`` array.
@@ -944,6 +949,9 @@ class Service(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def monitoring(self) -> pulumi.Output[Optional['outputs.ServiceMonitoringConfiguration']]:
+        """
+        The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+        """
         return pulumi.get(self, "monitoring")
 
     @_builtins.property

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public static class GetIndex
     {
         /// <summary>
-        /// An OpenSearch Serverless index resource
+        /// Resource Type definition for AWS::OpenSearchServerless::Index
         /// </summary>
         public static Task<GetIndexResult> InvokeAsync(GetIndexArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIndexResult>("aws-native:opensearchserverless:getIndex", args ?? new GetIndexArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An OpenSearch Serverless index resource
+        /// Resource Type definition for AWS::OpenSearchServerless::Index
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws-native:opensearchserverless:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An OpenSearch Serverless index resource
+        /// Resource Type definition for AWS::OpenSearchServerless::Index
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws-native:opensearchserverless:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());

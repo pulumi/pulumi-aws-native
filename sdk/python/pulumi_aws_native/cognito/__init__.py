@@ -18,6 +18,7 @@ from .get_user_pool_client import *
 from .get_user_pool_domain import *
 from .get_user_pool_group import *
 from .get_user_pool_identity_provider import *
+from .get_user_pool_regional_configuration_attachment import *
 from .get_user_pool_resource_server import *
 from .get_user_pool_risk_configuration_attachment import *
 from .get_user_pool_ui_customization_attachment import *
@@ -32,6 +33,8 @@ from .user_pool_client import *
 from .user_pool_domain import *
 from .user_pool_group import *
 from .user_pool_identity_provider import *
+from .user_pool_regional_configuration_attachment import *
+from .user_pool_replica import *
 from .user_pool_resource_server import *
 from .user_pool_risk_configuration_attachment import *
 from .user_pool_ui_customization_attachment import *

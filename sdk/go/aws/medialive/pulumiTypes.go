@@ -1909,6 +1909,250 @@ type NetworkTags struct {
 	Value *string `pulumi:"value"`
 }
 
+// Node interface mapping.
+type NodeInterfaceMapping struct {
+	// The logical name for this interface.
+	LogicalInterfaceName *string `pulumi:"logicalInterfaceName"`
+	// The network interface mode.
+	NetworkInterfaceMode *NodeInterfaceMappingNetworkInterfaceMode `pulumi:"networkInterfaceMode"`
+	// The physical interface name.
+	PhysicalInterfaceName *string `pulumi:"physicalInterfaceName"`
+}
+
+// NodeInterfaceMappingInput is an input type that accepts NodeInterfaceMappingArgs and NodeInterfaceMappingOutput values.
+// You can construct a concrete instance of `NodeInterfaceMappingInput` via:
+//
+//	NodeInterfaceMappingArgs{...}
+type NodeInterfaceMappingInput interface {
+	pulumi.Input
+
+	ToNodeInterfaceMappingOutput() NodeInterfaceMappingOutput
+	ToNodeInterfaceMappingOutputWithContext(context.Context) NodeInterfaceMappingOutput
+}
+
+// Node interface mapping.
+type NodeInterfaceMappingArgs struct {
+	// The logical name for this interface.
+	LogicalInterfaceName pulumi.StringPtrInput `pulumi:"logicalInterfaceName"`
+	// The network interface mode.
+	NetworkInterfaceMode NodeInterfaceMappingNetworkInterfaceModePtrInput `pulumi:"networkInterfaceMode"`
+	// The physical interface name.
+	PhysicalInterfaceName pulumi.StringPtrInput `pulumi:"physicalInterfaceName"`
+}
+
+func (NodeInterfaceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeInterfaceMapping)(nil)).Elem()
+}
+
+func (i NodeInterfaceMappingArgs) ToNodeInterfaceMappingOutput() NodeInterfaceMappingOutput {
+	return i.ToNodeInterfaceMappingOutputWithContext(context.Background())
+}
+
+func (i NodeInterfaceMappingArgs) ToNodeInterfaceMappingOutputWithContext(ctx context.Context) NodeInterfaceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeInterfaceMappingOutput)
+}
+
+// NodeInterfaceMappingArrayInput is an input type that accepts NodeInterfaceMappingArray and NodeInterfaceMappingArrayOutput values.
+// You can construct a concrete instance of `NodeInterfaceMappingArrayInput` via:
+//
+//	NodeInterfaceMappingArray{ NodeInterfaceMappingArgs{...} }
+type NodeInterfaceMappingArrayInput interface {
+	pulumi.Input
+
+	ToNodeInterfaceMappingArrayOutput() NodeInterfaceMappingArrayOutput
+	ToNodeInterfaceMappingArrayOutputWithContext(context.Context) NodeInterfaceMappingArrayOutput
+}
+
+type NodeInterfaceMappingArray []NodeInterfaceMappingInput
+
+func (NodeInterfaceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeInterfaceMapping)(nil)).Elem()
+}
+
+func (i NodeInterfaceMappingArray) ToNodeInterfaceMappingArrayOutput() NodeInterfaceMappingArrayOutput {
+	return i.ToNodeInterfaceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i NodeInterfaceMappingArray) ToNodeInterfaceMappingArrayOutputWithContext(ctx context.Context) NodeInterfaceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeInterfaceMappingArrayOutput)
+}
+
+// Node interface mapping.
+type NodeInterfaceMappingOutput struct{ *pulumi.OutputState }
+
+func (NodeInterfaceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeInterfaceMapping)(nil)).Elem()
+}
+
+func (o NodeInterfaceMappingOutput) ToNodeInterfaceMappingOutput() NodeInterfaceMappingOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingOutput) ToNodeInterfaceMappingOutputWithContext(ctx context.Context) NodeInterfaceMappingOutput {
+	return o
+}
+
+// The logical name for this interface.
+func (o NodeInterfaceMappingOutput) LogicalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeInterfaceMapping) *string { return v.LogicalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// The network interface mode.
+func (o NodeInterfaceMappingOutput) NetworkInterfaceMode() NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return o.ApplyT(func(v NodeInterfaceMapping) *NodeInterfaceMappingNetworkInterfaceMode { return v.NetworkInterfaceMode }).(NodeInterfaceMappingNetworkInterfaceModePtrOutput)
+}
+
+// The physical interface name.
+func (o NodeInterfaceMappingOutput) PhysicalInterfaceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeInterfaceMapping) *string { return v.PhysicalInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+type NodeInterfaceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeInterfaceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeInterfaceMapping)(nil)).Elem()
+}
+
+func (o NodeInterfaceMappingArrayOutput) ToNodeInterfaceMappingArrayOutput() NodeInterfaceMappingArrayOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingArrayOutput) ToNodeInterfaceMappingArrayOutputWithContext(ctx context.Context) NodeInterfaceMappingArrayOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingArrayOutput) Index(i pulumi.IntInput) NodeInterfaceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeInterfaceMapping {
+		return vs[0].([]NodeInterfaceMapping)[vs[1].(int)]
+	}).(NodeInterfaceMappingOutput)
+}
+
+// SDI source mapping.
+type NodeSdiSourceMapping struct {
+	// The card number.
+	CardNumber *int `pulumi:"cardNumber"`
+	// The channel number.
+	ChannelNumber *int `pulumi:"channelNumber"`
+	// The SDI source.
+	SdiSource *string `pulumi:"sdiSource"`
+}
+
+// NodeSdiSourceMappingInput is an input type that accepts NodeSdiSourceMappingArgs and NodeSdiSourceMappingOutput values.
+// You can construct a concrete instance of `NodeSdiSourceMappingInput` via:
+//
+//	NodeSdiSourceMappingArgs{...}
+type NodeSdiSourceMappingInput interface {
+	pulumi.Input
+
+	ToNodeSdiSourceMappingOutput() NodeSdiSourceMappingOutput
+	ToNodeSdiSourceMappingOutputWithContext(context.Context) NodeSdiSourceMappingOutput
+}
+
+// SDI source mapping.
+type NodeSdiSourceMappingArgs struct {
+	// The card number.
+	CardNumber pulumi.IntPtrInput `pulumi:"cardNumber"`
+	// The channel number.
+	ChannelNumber pulumi.IntPtrInput `pulumi:"channelNumber"`
+	// The SDI source.
+	SdiSource pulumi.StringPtrInput `pulumi:"sdiSource"`
+}
+
+func (NodeSdiSourceMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSdiSourceMapping)(nil)).Elem()
+}
+
+func (i NodeSdiSourceMappingArgs) ToNodeSdiSourceMappingOutput() NodeSdiSourceMappingOutput {
+	return i.ToNodeSdiSourceMappingOutputWithContext(context.Background())
+}
+
+func (i NodeSdiSourceMappingArgs) ToNodeSdiSourceMappingOutputWithContext(ctx context.Context) NodeSdiSourceMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeSdiSourceMappingOutput)
+}
+
+// NodeSdiSourceMappingArrayInput is an input type that accepts NodeSdiSourceMappingArray and NodeSdiSourceMappingArrayOutput values.
+// You can construct a concrete instance of `NodeSdiSourceMappingArrayInput` via:
+//
+//	NodeSdiSourceMappingArray{ NodeSdiSourceMappingArgs{...} }
+type NodeSdiSourceMappingArrayInput interface {
+	pulumi.Input
+
+	ToNodeSdiSourceMappingArrayOutput() NodeSdiSourceMappingArrayOutput
+	ToNodeSdiSourceMappingArrayOutputWithContext(context.Context) NodeSdiSourceMappingArrayOutput
+}
+
+type NodeSdiSourceMappingArray []NodeSdiSourceMappingInput
+
+func (NodeSdiSourceMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeSdiSourceMapping)(nil)).Elem()
+}
+
+func (i NodeSdiSourceMappingArray) ToNodeSdiSourceMappingArrayOutput() NodeSdiSourceMappingArrayOutput {
+	return i.ToNodeSdiSourceMappingArrayOutputWithContext(context.Background())
+}
+
+func (i NodeSdiSourceMappingArray) ToNodeSdiSourceMappingArrayOutputWithContext(ctx context.Context) NodeSdiSourceMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeSdiSourceMappingArrayOutput)
+}
+
+// SDI source mapping.
+type NodeSdiSourceMappingOutput struct{ *pulumi.OutputState }
+
+func (NodeSdiSourceMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSdiSourceMapping)(nil)).Elem()
+}
+
+func (o NodeSdiSourceMappingOutput) ToNodeSdiSourceMappingOutput() NodeSdiSourceMappingOutput {
+	return o
+}
+
+func (o NodeSdiSourceMappingOutput) ToNodeSdiSourceMappingOutputWithContext(ctx context.Context) NodeSdiSourceMappingOutput {
+	return o
+}
+
+// The card number.
+func (o NodeSdiSourceMappingOutput) CardNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeSdiSourceMapping) *int { return v.CardNumber }).(pulumi.IntPtrOutput)
+}
+
+// The channel number.
+func (o NodeSdiSourceMappingOutput) ChannelNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeSdiSourceMapping) *int { return v.ChannelNumber }).(pulumi.IntPtrOutput)
+}
+
+// The SDI source.
+func (o NodeSdiSourceMappingOutput) SdiSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeSdiSourceMapping) *string { return v.SdiSource }).(pulumi.StringPtrOutput)
+}
+
+type NodeSdiSourceMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeSdiSourceMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeSdiSourceMapping)(nil)).Elem()
+}
+
+func (o NodeSdiSourceMappingArrayOutput) ToNodeSdiSourceMappingArrayOutput() NodeSdiSourceMappingArrayOutput {
+	return o
+}
+
+func (o NodeSdiSourceMappingArrayOutput) ToNodeSdiSourceMappingArrayOutputWithContext(ctx context.Context) NodeSdiSourceMappingArrayOutput {
+	return o
+}
+
+func (o NodeSdiSourceMappingArrayOutput) Index(i pulumi.IntInput) NodeSdiSourceMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeSdiSourceMapping {
+		return vs[0].([]NodeSdiSourceMapping)[vs[1].(int)]
+	}).(NodeSdiSourceMappingOutput)
+}
+
+// A key-value pair to associate with the resource.
+type NodeTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type SdiSourceTags struct {
 	Key   *string `pulumi:"key"`
@@ -2225,6 +2469,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkIpPoolArrayInput)(nil)).Elem(), NetworkIpPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteInput)(nil)).Elem(), NetworkRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkRouteArrayInput)(nil)).Elem(), NetworkRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInterfaceMappingInput)(nil)).Elem(), NodeInterfaceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInterfaceMappingArrayInput)(nil)).Elem(), NodeInterfaceMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeSdiSourceMappingInput)(nil)).Elem(), NodeSdiSourceMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeSdiSourceMappingArrayInput)(nil)).Elem(), NodeSdiSourceMappingArray{})
 	pulumi.RegisterOutputType(ClusterInterfaceMappingOutput{})
 	pulumi.RegisterOutputType(ClusterInterfaceMappingArrayOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkSettingsOutput{})
@@ -2251,6 +2499,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkIpPoolArrayOutput{})
 	pulumi.RegisterOutputType(NetworkRouteOutput{})
 	pulumi.RegisterOutputType(NetworkRouteArrayOutput{})
+	pulumi.RegisterOutputType(NodeInterfaceMappingOutput{})
+	pulumi.RegisterOutputType(NodeInterfaceMappingArrayOutput{})
+	pulumi.RegisterOutputType(NodeSdiSourceMappingOutput{})
+	pulumi.RegisterOutputType(NodeSdiSourceMappingArrayOutput{})
 	pulumi.RegisterOutputType(SignalMapMediaResourceOutput{})
 	pulumi.RegisterOutputType(SignalMapMediaResourceMapOutput{})
 	pulumi.RegisterOutputType(SignalMapMediaResourceNeighborOutput{})

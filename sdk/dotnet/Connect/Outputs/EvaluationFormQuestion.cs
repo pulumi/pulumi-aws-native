@@ -44,6 +44,10 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly string RefId;
         /// <summary>
+        /// The scoring configuration of the question.
+        /// </summary>
+        public readonly Outputs.EvaluationFormQuestionScoringConfiguration? ScoringConfiguration;
+        /// <summary>
         /// The title of the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 350.
         /// </summary>
@@ -69,6 +73,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string refId,
 
+            Outputs.EvaluationFormQuestionScoringConfiguration? scoringConfiguration,
+
             string title,
 
             double? weight)
@@ -79,6 +85,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             QuestionType = questionType;
             QuestionTypeProperties = questionTypeProperties;
             RefId = refId;
+            ScoringConfiguration = scoringConfiguration;
             Title = title;
             Weight = weight;
         }

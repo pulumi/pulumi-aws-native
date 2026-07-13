@@ -195,6 +195,11 @@ export const getTaskTemplate: typeof import("./getTaskTemplate").getTaskTemplate
 export const getTaskTemplateOutput: typeof import("./getTaskTemplate").getTaskTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getTaskTemplate","getTaskTemplateOutput"], () => require("./getTaskTemplate"));
 
+export { GetTestCaseArgs, GetTestCaseResult, GetTestCaseOutputArgs } from "./getTestCase";
+export const getTestCase: typeof import("./getTestCase").getTestCase = null as any;
+export const getTestCaseOutput: typeof import("./getTestCase").getTestCaseOutput = null as any;
+utilities.lazyLoad(exports, ["getTestCase","getTestCaseOutput"], () => require("./getTestCase"));
+
 export { GetTrafficDistributionGroupArgs, GetTrafficDistributionGroupResult, GetTrafficDistributionGroupOutputArgs } from "./getTrafficDistributionGroup";
 export const getTrafficDistributionGroup: typeof import("./getTrafficDistributionGroup").getTrafficDistributionGroup = null as any;
 export const getTrafficDistributionGroupOutput: typeof import("./getTrafficDistributionGroup").getTrafficDistributionGroupOutput = null as any;
@@ -305,6 +310,11 @@ export type TaskTemplate = import("./taskTemplate").TaskTemplate;
 export const TaskTemplate: typeof import("./taskTemplate").TaskTemplate = null as any;
 utilities.lazyLoad(exports, ["TaskTemplate"], () => require("./taskTemplate"));
 
+export { TestCaseArgs } from "./testCase";
+export type TestCase = import("./testCase").TestCase;
+export const TestCase: typeof import("./testCase").TestCase = null as any;
+utilities.lazyLoad(exports, ["TestCase"], () => require("./testCase"));
+
 export { TrafficDistributionGroupArgs } from "./trafficDistributionGroup";
 export type TrafficDistributionGroup = import("./trafficDistributionGroup").TrafficDistributionGroup;
 export const TrafficDistributionGroup: typeof import("./trafficDistributionGroup").TrafficDistributionGroup = null as any;
@@ -402,6 +412,8 @@ const _module = {
                 return new SecurityProfile(name, <any>undefined, { urn })
             case "aws-native:connect:TaskTemplate":
                 return new TaskTemplate(name, <any>undefined, { urn })
+            case "aws-native:connect:TestCase":
+                return new TestCase(name, <any>undefined, { urn })
             case "aws-native:connect:TrafficDistributionGroup":
                 return new TrafficDistributionGroup(name, <any>undefined, { urn })
             case "aws-native:connect:User":

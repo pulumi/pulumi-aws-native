@@ -102,6 +102,172 @@ func (o AlarmMuteRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current state of the rule. Valid values are `ENABLED` and `DISABLED` .
+type InsightRuleRuleState string
+
+const (
+	InsightRuleRuleStateEnabled  = InsightRuleRuleState("ENABLED")
+	InsightRuleRuleStateDisabled = InsightRuleRuleState("DISABLED")
+)
+
+func (InsightRuleRuleState) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightRuleRuleState)(nil)).Elem()
+}
+
+func (e InsightRuleRuleState) ToInsightRuleRuleStateOutput() InsightRuleRuleStateOutput {
+	return pulumi.ToOutput(e).(InsightRuleRuleStateOutput)
+}
+
+func (e InsightRuleRuleState) ToInsightRuleRuleStateOutputWithContext(ctx context.Context) InsightRuleRuleStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InsightRuleRuleStateOutput)
+}
+
+func (e InsightRuleRuleState) ToInsightRuleRuleStatePtrOutput() InsightRuleRuleStatePtrOutput {
+	return e.ToInsightRuleRuleStatePtrOutputWithContext(context.Background())
+}
+
+func (e InsightRuleRuleState) ToInsightRuleRuleStatePtrOutputWithContext(ctx context.Context) InsightRuleRuleStatePtrOutput {
+	return InsightRuleRuleState(e).ToInsightRuleRuleStateOutputWithContext(ctx).ToInsightRuleRuleStatePtrOutputWithContext(ctx)
+}
+
+func (e InsightRuleRuleState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightRuleRuleState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightRuleRuleState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightRuleRuleState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InsightRuleRuleStateOutput struct{ *pulumi.OutputState }
+
+func (InsightRuleRuleStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InsightRuleRuleState)(nil)).Elem()
+}
+
+func (o InsightRuleRuleStateOutput) ToInsightRuleRuleStateOutput() InsightRuleRuleStateOutput {
+	return o
+}
+
+func (o InsightRuleRuleStateOutput) ToInsightRuleRuleStateOutputWithContext(ctx context.Context) InsightRuleRuleStateOutput {
+	return o
+}
+
+func (o InsightRuleRuleStateOutput) ToInsightRuleRuleStatePtrOutput() InsightRuleRuleStatePtrOutput {
+	return o.ToInsightRuleRuleStatePtrOutputWithContext(context.Background())
+}
+
+func (o InsightRuleRuleStateOutput) ToInsightRuleRuleStatePtrOutputWithContext(ctx context.Context) InsightRuleRuleStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightRuleRuleState) *InsightRuleRuleState {
+		return &v
+	}).(InsightRuleRuleStatePtrOutput)
+}
+
+func (o InsightRuleRuleStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InsightRuleRuleStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightRuleRuleState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InsightRuleRuleStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightRuleRuleStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InsightRuleRuleState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InsightRuleRuleStatePtrOutput struct{ *pulumi.OutputState }
+
+func (InsightRuleRuleStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InsightRuleRuleState)(nil)).Elem()
+}
+
+func (o InsightRuleRuleStatePtrOutput) ToInsightRuleRuleStatePtrOutput() InsightRuleRuleStatePtrOutput {
+	return o
+}
+
+func (o InsightRuleRuleStatePtrOutput) ToInsightRuleRuleStatePtrOutputWithContext(ctx context.Context) InsightRuleRuleStatePtrOutput {
+	return o
+}
+
+func (o InsightRuleRuleStatePtrOutput) Elem() InsightRuleRuleStateOutput {
+	return o.ApplyT(func(v *InsightRuleRuleState) InsightRuleRuleState {
+		if v != nil {
+			return *v
+		}
+		var ret InsightRuleRuleState
+		return ret
+	}).(InsightRuleRuleStateOutput)
+}
+
+func (o InsightRuleRuleStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InsightRuleRuleStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InsightRuleRuleState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InsightRuleRuleStateInput is an input type that accepts values of the InsightRuleRuleState enum
+// A concrete instance of `InsightRuleRuleStateInput` can be one of the following:
+//
+//	InsightRuleRuleStateEnabled
+//	InsightRuleRuleStateDisabled
+type InsightRuleRuleStateInput interface {
+	pulumi.Input
+
+	ToInsightRuleRuleStateOutput() InsightRuleRuleStateOutput
+	ToInsightRuleRuleStateOutputWithContext(context.Context) InsightRuleRuleStateOutput
+}
+
+var insightRuleRuleStatePtrType = reflect.TypeOf((**InsightRuleRuleState)(nil)).Elem()
+
+type InsightRuleRuleStatePtrInput interface {
+	pulumi.Input
+
+	ToInsightRuleRuleStatePtrOutput() InsightRuleRuleStatePtrOutput
+	ToInsightRuleRuleStatePtrOutputWithContext(context.Context) InsightRuleRuleStatePtrOutput
+}
+
+type insightRuleRuleStatePtr string
+
+func InsightRuleRuleStatePtr(v string) InsightRuleRuleStatePtrInput {
+	return (*insightRuleRuleStatePtr)(&v)
+}
+
+func (*insightRuleRuleStatePtr) ElementType() reflect.Type {
+	return insightRuleRuleStatePtrType
+}
+
+func (in *insightRuleRuleStatePtr) ToInsightRuleRuleStatePtrOutput() InsightRuleRuleStatePtrOutput {
+	return pulumi.ToOutput(in).(InsightRuleRuleStatePtrOutput)
+}
+
+func (in *insightRuleRuleStatePtr) ToInsightRuleRuleStatePtrOutputWithContext(ctx context.Context) InsightRuleRuleStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InsightRuleRuleStatePtrOutput)
+}
+
 // Current status of OTel enrichment (RUNNING or STOPPED).
 type OTelEnrichmentStatus string
 
@@ -194,8 +360,12 @@ func (o OTelEnrichmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStateInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InsightRuleRuleStatePtrInput)(nil)).Elem(), InsightRuleRuleState("ENABLED"))
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusOutput{})
 	pulumi.RegisterOutputType(AlarmMuteRuleStatusPtrOutput{})
+	pulumi.RegisterOutputType(InsightRuleRuleStateOutput{})
+	pulumi.RegisterOutputType(InsightRuleRuleStatePtrOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusOutput{})
 	pulumi.RegisterOutputType(OTelEnrichmentStatusPtrOutput{})
 }

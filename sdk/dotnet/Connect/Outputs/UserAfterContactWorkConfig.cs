@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class UserAfterContactWorkConfig
     {
+        public readonly Pulumi.AwsNative.Connect.UserAfterContactWorkMode? AfterContactWorkMode;
         public readonly int? AfterContactWorkTimeLimit;
 
         [OutputConstructor]
-        private UserAfterContactWorkConfig(int? afterContactWorkTimeLimit)
+        private UserAfterContactWorkConfig(
+            Pulumi.AwsNative.Connect.UserAfterContactWorkMode? afterContactWorkMode,
+
+            int? afterContactWorkTimeLimit)
         {
+            AfterContactWorkMode = afterContactWorkMode;
             AfterContactWorkTimeLimit = afterContactWorkTimeLimit;
         }
     }

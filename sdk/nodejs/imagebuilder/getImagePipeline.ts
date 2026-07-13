@@ -62,6 +62,10 @@ export interface GetImagePipelineResult {
      */
     readonly imageScanningConfiguration?: outputs.imagebuilder.ImagePipelineImageScanningConfiguration;
     /**
+     * The tags to be applied to images created by this pipeline.
+     */
+    readonly imageTags?: {[key: string]: string};
+    /**
      * The image tests configuration of the image pipeline.
      */
     readonly imageTestsConfiguration?: outputs.imagebuilder.ImagePipelineImageTestsConfiguration;

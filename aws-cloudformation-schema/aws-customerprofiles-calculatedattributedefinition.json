@@ -304,10 +304,10 @@
       "permissions" : [ "profile:CreateCalculatedAttributeDefinition", "profile:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetCalculatedAttributeDefinition" ]
+      "permissions" : [ "profile:GetCalculatedAttributeDefinition", "profile:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetCalculatedAttributeDefinition", "profile:UpdateCalculatedAttributeDefinition", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "profile:GetCalculatedAttributeDefinition", "profile:UpdateCalculatedAttributeDefinition", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteCalculatedAttributeDefinition" ]

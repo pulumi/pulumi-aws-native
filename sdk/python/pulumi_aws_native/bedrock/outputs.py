@@ -12857,7 +12857,7 @@ class KnowledgeBaseManagedKnowledgeBaseConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 embedding_model_arn: _builtins.str,
+                 embedding_model_arn: Optional[_builtins.str] = None,
                  embedding_model_configuration: Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration'] = None,
                  embedding_model_type: Optional['KnowledgeBaseEmbeddingModelType'] = None,
                  server_side_encryption_configuration: Optional['outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration'] = None):
@@ -12866,7 +12866,8 @@ class KnowledgeBaseManagedKnowledgeBaseConfiguration(dict):
 
         :param _builtins.str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         """
-        pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_arn is not None:
+            pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
             pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
         if embedding_model_type is not None:
@@ -12876,7 +12877,7 @@ class KnowledgeBaseManagedKnowledgeBaseConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelArn")
-    def embedding_model_arn(self) -> _builtins.str:
+    def embedding_model_arn(self) -> Optional[_builtins.str]:
         """
         The ARN of the model used to create vector embeddings for the knowledge base.
         """

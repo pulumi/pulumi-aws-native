@@ -22,11 +22,13 @@ from .get_event_bridge_rule_template_group import *
 from .get_multiplex import *
 from .get_multiplexprogram import *
 from .get_network import *
+from .get_node import *
 from .get_sdi_source import *
 from .get_signal_map import *
 from .multiplex import *
 from .multiplexprogram import *
 from .network import *
+from .node import *
 from .sdi_source import *
 from .signal_map import *
 from ._inputs import *

@@ -48078,6 +48078,7 @@ type DataSetUseAs string
 
 const (
 	DataSetUseAsRlsRules = DataSetUseAs("RLS_RULES")
+	DataSetUseAsCatalog  = DataSetUseAs("CATALOG")
 )
 
 func (DataSetUseAs) ElementType() reflect.Type {
@@ -48203,6 +48204,7 @@ func (o DataSetUseAsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 // A concrete instance of `DataSetUseAsInput` can be one of the following:
 //
 //	DataSetUseAsRlsRules
+//	DataSetUseAsCatalog
 type DataSetUseAsInput interface {
 	pulumi.Input
 
@@ -48895,6 +48897,7 @@ const (
 	DataSourceTypeAppflow                      = DataSourceType("APPFLOW")
 	DataSourceTypeImpala                       = DataSourceType("IMPALA")
 	DataSourceTypeGlue                         = DataSourceType("GLUE")
+	DataSourceTypeGlueDataCatalog              = DataSourceType("GLUE_DATA_CATALOG")
 	DataSourceTypeGoogleDrive                  = DataSourceType("GOOGLE_DRIVE")
 	DataSourceTypeConfluence                   = DataSourceType("CONFLUENCE")
 	DataSourceTypeSharepoint                   = DataSourceType("SHAREPOINT")
@@ -48902,6 +48905,7 @@ const (
 	DataSourceTypeWebCrawler                   = DataSourceType("WEB_CRAWLER")
 	DataSourceTypeBox                          = DataSourceType("BOX")
 	DataSourceTypeGooglesheets                 = DataSourceType("GOOGLESHEETS")
+	DataSourceTypeAtlan                        = DataSourceType("ATLAN")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -49074,6 +49078,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeAppflow
 //	DataSourceTypeImpala
 //	DataSourceTypeGlue
+//	DataSourceTypeGlueDataCatalog
 //	DataSourceTypeGoogleDrive
 //	DataSourceTypeConfluence
 //	DataSourceTypeSharepoint
@@ -49081,6 +49086,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeWebCrawler
 //	DataSourceTypeBox
 //	DataSourceTypeGooglesheets
+//	DataSourceTypeAtlan
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -49113,6 +49119,97 @@ func (in *dataSourceTypePtr) ToDataSourceTypePtrOutput() DataSourceTypePtrOutput
 
 func (in *dataSourceTypePtr) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceTypePtrOutput)
+}
+
+type FlowPublishState string
+
+const (
+	FlowPublishStatePublished       = FlowPublishState("PUBLISHED")
+	FlowPublishStateDraft           = FlowPublishState("DRAFT")
+	FlowPublishStatePendingApproval = FlowPublishState("PENDING_APPROVAL")
+)
+
+type FlowPublishStateOutput struct{ *pulumi.OutputState }
+
+func (FlowPublishStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPublishState)(nil)).Elem()
+}
+
+func (o FlowPublishStateOutput) ToFlowPublishStateOutput() FlowPublishStateOutput {
+	return o
+}
+
+func (o FlowPublishStateOutput) ToFlowPublishStateOutputWithContext(ctx context.Context) FlowPublishStateOutput {
+	return o
+}
+
+func (o FlowPublishStateOutput) ToFlowPublishStatePtrOutput() FlowPublishStatePtrOutput {
+	return o.ToFlowPublishStatePtrOutputWithContext(context.Background())
+}
+
+func (o FlowPublishStateOutput) ToFlowPublishStatePtrOutputWithContext(ctx context.Context) FlowPublishStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowPublishState) *FlowPublishState {
+		return &v
+	}).(FlowPublishStatePtrOutput)
+}
+
+func (o FlowPublishStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowPublishStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPublishState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowPublishStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPublishStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowPublishState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowPublishStatePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowPublishStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowPublishState)(nil)).Elem()
+}
+
+func (o FlowPublishStatePtrOutput) ToFlowPublishStatePtrOutput() FlowPublishStatePtrOutput {
+	return o
+}
+
+func (o FlowPublishStatePtrOutput) ToFlowPublishStatePtrOutputWithContext(ctx context.Context) FlowPublishStatePtrOutput {
+	return o
+}
+
+func (o FlowPublishStatePtrOutput) Elem() FlowPublishStateOutput {
+	return o.ApplyT(func(v *FlowPublishState) FlowPublishState {
+		if v != nil {
+			return *v
+		}
+		var ret FlowPublishState
+		return ret
+	}).(FlowPublishStateOutput)
+}
+
+func (o FlowPublishStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowPublishStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowPublishState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 type FolderSharingModel string
@@ -49443,6 +49540,406 @@ func (in *folderTypePtr) ToFolderTypePtrOutput() FolderTypePtrOutput {
 
 func (in *folderTypePtr) ToFolderTypePtrOutputWithContext(ctx context.Context) FolderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FolderTypePtrOutput)
+}
+
+type OAuthClientApplicationDataSourceType string
+
+const (
+	OAuthClientApplicationDataSourceTypeAdobeAnalytics      = OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS")
+	OAuthClientApplicationDataSourceTypeAmazonElasticsearch = OAuthClientApplicationDataSourceType("AMAZON_ELASTICSEARCH")
+	OAuthClientApplicationDataSourceTypeAmazonOpensearch    = OAuthClientApplicationDataSourceType("AMAZON_OPENSEARCH")
+	OAuthClientApplicationDataSourceTypeAthena              = OAuthClientApplicationDataSourceType("ATHENA")
+	OAuthClientApplicationDataSourceTypeAurora              = OAuthClientApplicationDataSourceType("AURORA")
+	OAuthClientApplicationDataSourceTypeAuroraPostgresql    = OAuthClientApplicationDataSourceType("AURORA_POSTGRESQL")
+	OAuthClientApplicationDataSourceTypeAwsIotAnalytics     = OAuthClientApplicationDataSourceType("AWS_IOT_ANALYTICS")
+	OAuthClientApplicationDataSourceTypeBigquery            = OAuthClientApplicationDataSourceType("BIGQUERY")
+	OAuthClientApplicationDataSourceTypeConfluence          = OAuthClientApplicationDataSourceType("CONFLUENCE")
+	OAuthClientApplicationDataSourceTypeDatabricks          = OAuthClientApplicationDataSourceType("DATABRICKS")
+	OAuthClientApplicationDataSourceTypeExasol              = OAuthClientApplicationDataSourceType("EXASOL")
+	OAuthClientApplicationDataSourceTypeGithub              = OAuthClientApplicationDataSourceType("GITHUB")
+	OAuthClientApplicationDataSourceTypeGooglesheets        = OAuthClientApplicationDataSourceType("GOOGLESHEETS")
+	OAuthClientApplicationDataSourceTypeGoogleDrive         = OAuthClientApplicationDataSourceType("GOOGLE_DRIVE")
+	OAuthClientApplicationDataSourceTypeJira                = OAuthClientApplicationDataSourceType("JIRA")
+	OAuthClientApplicationDataSourceTypeMariadb             = OAuthClientApplicationDataSourceType("MARIADB")
+	OAuthClientApplicationDataSourceTypeMysql               = OAuthClientApplicationDataSourceType("MYSQL")
+	OAuthClientApplicationDataSourceTypeOneDrive            = OAuthClientApplicationDataSourceType("ONE_DRIVE")
+	OAuthClientApplicationDataSourceTypeOracle              = OAuthClientApplicationDataSourceType("ORACLE")
+	OAuthClientApplicationDataSourceTypePostgresql          = OAuthClientApplicationDataSourceType("POSTGRESQL")
+	OAuthClientApplicationDataSourceTypePresto              = OAuthClientApplicationDataSourceType("PRESTO")
+	OAuthClientApplicationDataSourceTypeQbusiness           = OAuthClientApplicationDataSourceType("QBUSINESS")
+	OAuthClientApplicationDataSourceTypeRedshift            = OAuthClientApplicationDataSourceType("REDSHIFT")
+	OAuthClientApplicationDataSourceTypeS3                  = OAuthClientApplicationDataSourceType("S3")
+	OAuthClientApplicationDataSourceTypeS3KnowledgeBase     = OAuthClientApplicationDataSourceType("S3_KNOWLEDGE_BASE")
+	OAuthClientApplicationDataSourceTypeS3Tables            = OAuthClientApplicationDataSourceType("S3_TABLES")
+	OAuthClientApplicationDataSourceTypeSalesforce          = OAuthClientApplicationDataSourceType("SALESFORCE")
+	OAuthClientApplicationDataSourceTypeServicenow          = OAuthClientApplicationDataSourceType("SERVICENOW")
+	OAuthClientApplicationDataSourceTypeSharepoint          = OAuthClientApplicationDataSourceType("SHAREPOINT")
+	OAuthClientApplicationDataSourceTypeSnowflake           = OAuthClientApplicationDataSourceType("SNOWFLAKE")
+	OAuthClientApplicationDataSourceTypeSpark               = OAuthClientApplicationDataSourceType("SPARK")
+	OAuthClientApplicationDataSourceTypeSqlserver           = OAuthClientApplicationDataSourceType("SQLSERVER")
+	OAuthClientApplicationDataSourceTypeStarburst           = OAuthClientApplicationDataSourceType("STARBURST")
+	OAuthClientApplicationDataSourceTypeTeradata            = OAuthClientApplicationDataSourceType("TERADATA")
+	OAuthClientApplicationDataSourceTypeTimestream          = OAuthClientApplicationDataSourceType("TIMESTREAM")
+	OAuthClientApplicationDataSourceTypeTrino               = OAuthClientApplicationDataSourceType("TRINO")
+	OAuthClientApplicationDataSourceTypeTwitter             = OAuthClientApplicationDataSourceType("TWITTER")
+	OAuthClientApplicationDataSourceTypeWebCrawler          = OAuthClientApplicationDataSourceType("WEB_CRAWLER")
+)
+
+func (OAuthClientApplicationDataSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationDataSourceType)(nil)).Elem()
+}
+
+func (e OAuthClientApplicationDataSourceType) ToOAuthClientApplicationDataSourceTypeOutput() OAuthClientApplicationDataSourceTypeOutput {
+	return pulumi.ToOutput(e).(OAuthClientApplicationDataSourceTypeOutput)
+}
+
+func (e OAuthClientApplicationDataSourceType) ToOAuthClientApplicationDataSourceTypeOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OAuthClientApplicationDataSourceTypeOutput)
+}
+
+func (e OAuthClientApplicationDataSourceType) ToOAuthClientApplicationDataSourceTypePtrOutput() OAuthClientApplicationDataSourceTypePtrOutput {
+	return e.ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e OAuthClientApplicationDataSourceType) ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypePtrOutput {
+	return OAuthClientApplicationDataSourceType(e).ToOAuthClientApplicationDataSourceTypeOutputWithContext(ctx).ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e OAuthClientApplicationDataSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuthClientApplicationDataSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuthClientApplicationDataSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OAuthClientApplicationDataSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OAuthClientApplicationDataSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationDataSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationDataSourceType)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToOAuthClientApplicationDataSourceTypeOutput() OAuthClientApplicationDataSourceTypeOutput {
+	return o
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToOAuthClientApplicationDataSourceTypeOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypeOutput {
+	return o
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToOAuthClientApplicationDataSourceTypePtrOutput() OAuthClientApplicationDataSourceTypePtrOutput {
+	return o.ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthClientApplicationDataSourceType) *OAuthClientApplicationDataSourceType {
+		return &v
+	}).(OAuthClientApplicationDataSourceTypePtrOutput)
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuthClientApplicationDataSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationDataSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuthClientApplicationDataSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuthClientApplicationDataSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationDataSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthClientApplicationDataSourceType)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationDataSourceTypePtrOutput) ToOAuthClientApplicationDataSourceTypePtrOutput() OAuthClientApplicationDataSourceTypePtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationDataSourceTypePtrOutput) ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypePtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationDataSourceTypePtrOutput) Elem() OAuthClientApplicationDataSourceTypeOutput {
+	return o.ApplyT(func(v *OAuthClientApplicationDataSourceType) OAuthClientApplicationDataSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret OAuthClientApplicationDataSourceType
+		return ret
+	}).(OAuthClientApplicationDataSourceTypeOutput)
+}
+
+func (o OAuthClientApplicationDataSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationDataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OAuthClientApplicationDataSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuthClientApplicationDataSourceTypeInput is an input type that accepts values of the OAuthClientApplicationDataSourceType enum
+// A concrete instance of `OAuthClientApplicationDataSourceTypeInput` can be one of the following:
+//
+//	OAuthClientApplicationDataSourceTypeAdobeAnalytics
+//	OAuthClientApplicationDataSourceTypeAmazonElasticsearch
+//	OAuthClientApplicationDataSourceTypeAmazonOpensearch
+//	OAuthClientApplicationDataSourceTypeAthena
+//	OAuthClientApplicationDataSourceTypeAurora
+//	OAuthClientApplicationDataSourceTypeAuroraPostgresql
+//	OAuthClientApplicationDataSourceTypeAwsIotAnalytics
+//	OAuthClientApplicationDataSourceTypeBigquery
+//	OAuthClientApplicationDataSourceTypeConfluence
+//	OAuthClientApplicationDataSourceTypeDatabricks
+//	OAuthClientApplicationDataSourceTypeExasol
+//	OAuthClientApplicationDataSourceTypeGithub
+//	OAuthClientApplicationDataSourceTypeGooglesheets
+//	OAuthClientApplicationDataSourceTypeGoogleDrive
+//	OAuthClientApplicationDataSourceTypeJira
+//	OAuthClientApplicationDataSourceTypeMariadb
+//	OAuthClientApplicationDataSourceTypeMysql
+//	OAuthClientApplicationDataSourceTypeOneDrive
+//	OAuthClientApplicationDataSourceTypeOracle
+//	OAuthClientApplicationDataSourceTypePostgresql
+//	OAuthClientApplicationDataSourceTypePresto
+//	OAuthClientApplicationDataSourceTypeQbusiness
+//	OAuthClientApplicationDataSourceTypeRedshift
+//	OAuthClientApplicationDataSourceTypeS3
+//	OAuthClientApplicationDataSourceTypeS3KnowledgeBase
+//	OAuthClientApplicationDataSourceTypeS3Tables
+//	OAuthClientApplicationDataSourceTypeSalesforce
+//	OAuthClientApplicationDataSourceTypeServicenow
+//	OAuthClientApplicationDataSourceTypeSharepoint
+//	OAuthClientApplicationDataSourceTypeSnowflake
+//	OAuthClientApplicationDataSourceTypeSpark
+//	OAuthClientApplicationDataSourceTypeSqlserver
+//	OAuthClientApplicationDataSourceTypeStarburst
+//	OAuthClientApplicationDataSourceTypeTeradata
+//	OAuthClientApplicationDataSourceTypeTimestream
+//	OAuthClientApplicationDataSourceTypeTrino
+//	OAuthClientApplicationDataSourceTypeTwitter
+//	OAuthClientApplicationDataSourceTypeWebCrawler
+type OAuthClientApplicationDataSourceTypeInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationDataSourceTypeOutput() OAuthClientApplicationDataSourceTypeOutput
+	ToOAuthClientApplicationDataSourceTypeOutputWithContext(context.Context) OAuthClientApplicationDataSourceTypeOutput
+}
+
+var oauthClientApplicationDataSourceTypePtrType = reflect.TypeOf((**OAuthClientApplicationDataSourceType)(nil)).Elem()
+
+type OAuthClientApplicationDataSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationDataSourceTypePtrOutput() OAuthClientApplicationDataSourceTypePtrOutput
+	ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(context.Context) OAuthClientApplicationDataSourceTypePtrOutput
+}
+
+type oauthClientApplicationDataSourceTypePtr string
+
+func OAuthClientApplicationDataSourceTypePtr(v string) OAuthClientApplicationDataSourceTypePtrInput {
+	return (*oauthClientApplicationDataSourceTypePtr)(&v)
+}
+
+func (*oauthClientApplicationDataSourceTypePtr) ElementType() reflect.Type {
+	return oauthClientApplicationDataSourceTypePtrType
+}
+
+func (in *oauthClientApplicationDataSourceTypePtr) ToOAuthClientApplicationDataSourceTypePtrOutput() OAuthClientApplicationDataSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(OAuthClientApplicationDataSourceTypePtrOutput)
+}
+
+func (in *oauthClientApplicationDataSourceTypePtr) ToOAuthClientApplicationDataSourceTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationDataSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OAuthClientApplicationDataSourceTypePtrOutput)
+}
+
+type OAuthClientApplicationOAuthClientAuthenticationType string
+
+const (
+	OAuthClientApplicationOAuthClientAuthenticationTypeToken = OAuthClientApplicationOAuthClientAuthenticationType("TOKEN")
+)
+
+func (OAuthClientApplicationOAuthClientAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationType)(nil)).Elem()
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToOAuthClientApplicationOAuthClientAuthenticationTypeOutput() OAuthClientApplicationOAuthClientAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(OAuthClientApplicationOAuthClientAuthenticationTypeOutput)
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToOAuthClientApplicationOAuthClientAuthenticationTypeOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OAuthClientApplicationOAuthClientAuthenticationTypeOutput)
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutput() OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return e.ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return OAuthClientApplicationOAuthClientAuthenticationType(e).ToOAuthClientApplicationOAuthClientAuthenticationTypeOutputWithContext(ctx).ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OAuthClientApplicationOAuthClientAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OAuthClientApplicationOAuthClientAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationType)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypeOutput() OAuthClientApplicationOAuthClientAuthenticationTypeOutput {
+	return o
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypeOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypeOutput {
+	return o
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutput() OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return o.ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthClientApplicationOAuthClientAuthenticationType) *OAuthClientApplicationOAuthClientAuthenticationType {
+		return &v
+	}).(OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput)
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuthClientApplicationOAuthClientAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OAuthClientApplicationOAuthClientAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthClientApplicationOAuthClientAuthenticationType)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutput() OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) Elem() OAuthClientApplicationOAuthClientAuthenticationTypeOutput {
+	return o.ApplyT(func(v *OAuthClientApplicationOAuthClientAuthenticationType) OAuthClientApplicationOAuthClientAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret OAuthClientApplicationOAuthClientAuthenticationType
+		return ret
+	}).(OAuthClientApplicationOAuthClientAuthenticationTypeOutput)
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OAuthClientApplicationOAuthClientAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuthClientApplicationOAuthClientAuthenticationTypeInput is an input type that accepts values of the OAuthClientApplicationOAuthClientAuthenticationType enum
+// A concrete instance of `OAuthClientApplicationOAuthClientAuthenticationTypeInput` can be one of the following:
+//
+//	OAuthClientApplicationOAuthClientAuthenticationTypeToken
+type OAuthClientApplicationOAuthClientAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationOAuthClientAuthenticationTypeOutput() OAuthClientApplicationOAuthClientAuthenticationTypeOutput
+	ToOAuthClientApplicationOAuthClientAuthenticationTypeOutputWithContext(context.Context) OAuthClientApplicationOAuthClientAuthenticationTypeOutput
+}
+
+var oauthClientApplicationOAuthClientAuthenticationTypePtrType = reflect.TypeOf((**OAuthClientApplicationOAuthClientAuthenticationType)(nil)).Elem()
+
+type OAuthClientApplicationOAuthClientAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutput() OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput
+	ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(context.Context) OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput
+}
+
+type oauthClientApplicationOAuthClientAuthenticationTypePtr string
+
+func OAuthClientApplicationOAuthClientAuthenticationTypePtr(v string) OAuthClientApplicationOAuthClientAuthenticationTypePtrInput {
+	return (*oauthClientApplicationOAuthClientAuthenticationTypePtr)(&v)
+}
+
+func (*oauthClientApplicationOAuthClientAuthenticationTypePtr) ElementType() reflect.Type {
+	return oauthClientApplicationOAuthClientAuthenticationTypePtrType
+}
+
+func (in *oauthClientApplicationOAuthClientAuthenticationTypePtr) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutput() OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput)
+}
+
+func (in *oauthClientApplicationOAuthClientAuthenticationTypePtr) ToOAuthClientApplicationOAuthClientAuthenticationTypePtrOutputWithContext(ctx context.Context) OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput)
 }
 
 // The type of refresh that a dataset undergoes. Valid values are as follows:
@@ -75410,6 +75907,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderSharingModelPtrInput)(nil)).Elem(), FolderSharingModel("ACCOUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypeInput)(nil)).Elem(), FolderType("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderTypePtrInput)(nil)).Elem(), FolderType("SHARED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypeInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationDataSourceTypePtrInput)(nil)).Elem(), OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationTypeInput)(nil)).Elem(), OAuthClientApplicationOAuthClientAuthenticationType("TOKEN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationOAuthClientAuthenticationTypePtrInput)(nil)).Elem(), OAuthClientApplicationOAuthClientAuthenticationType("TOKEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypeInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypePtrInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesIntervalInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesInterval("MINUTE15"))
@@ -76294,10 +76795,16 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceStarburstProductTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowPublishStateOutput{})
+	pulumi.RegisterOutputType(FlowPublishStatePtrOutput{})
 	pulumi.RegisterOutputType(FolderSharingModelOutput{})
 	pulumi.RegisterOutputType(FolderSharingModelPtrOutput{})
 	pulumi.RegisterOutputType(FolderTypeOutput{})
 	pulumi.RegisterOutputType(FolderTypePtrOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypeOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationDataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationOAuthClientAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationOAuthClientAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypeOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypePtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput{})

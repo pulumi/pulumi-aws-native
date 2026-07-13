@@ -90,6 +90,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The ID of the service.
         /// </summary>
         public readonly string? Id;
+        public readonly int? IdleTimeoutSeconds;
         /// <summary>
         /// The date and time that the service was last updated, specified in ISO-8601 format.
         /// </summary>
@@ -117,6 +118,8 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? id,
 
+            int? idleTimeoutSeconds,
+
             string? lastUpdatedAt,
 
             Pulumi.AwsNative.VpcLattice.ServiceStatus? status,
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.VpcLattice
             CreatedAt = createdAt;
             DnsEntry = dnsEntry;
             Id = id;
+            IdleTimeoutSeconds = idleTimeoutSeconds;
             LastUpdatedAt = lastUpdatedAt;
             Status = status;
             Tags = tags;

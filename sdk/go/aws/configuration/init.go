@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationAggregator{}
 	case "aws-native:configuration:ConformancePack":
 		r = &ConformancePack{}
+	case "aws-native:configuration:Connector":
+		r = &Connector{}
 	case "aws-native:configuration:OrganizationConformancePack":
 		r = &OrganizationConformancePack{}
 	case "aws-native:configuration:RemediationConfiguration":

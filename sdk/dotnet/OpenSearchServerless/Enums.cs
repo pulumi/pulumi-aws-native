@@ -226,6 +226,41 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The compression level for knn_vector fields
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingCompressionLevel : IEquatable<IndexPropertyMappingCompressionLevel>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingCompressionLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_16x { get; } = new IndexPropertyMappingCompressionLevel("16x");
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_32x { get; } = new IndexPropertyMappingCompressionLevel("32x");
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_8x { get; } = new IndexPropertyMappingCompressionLevel("8x");
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_4x { get; } = new IndexPropertyMappingCompressionLevel("4x");
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_2x { get; } = new IndexPropertyMappingCompressionLevel("2x");
+        public static IndexPropertyMappingCompressionLevel IndexPropertyMappingCompressionLevel_1x { get; } = new IndexPropertyMappingCompressionLevel("1x");
+
+        public static bool operator ==(IndexPropertyMappingCompressionLevel left, IndexPropertyMappingCompressionLevel right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingCompressionLevel left, IndexPropertyMappingCompressionLevel right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingCompressionLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingCompressionLevel other && Equals(other);
+        public bool Equals(IndexPropertyMappingCompressionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The k-NN search engine to use
     /// </summary>
     [EnumType]
@@ -324,6 +359,41 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The distance function used for k-NN search (field-level, outside Method)
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexPropertyMappingSpaceType : IEquatable<IndexPropertyMappingSpaceType>
+    {
+        private readonly string _value;
+
+        private IndexPropertyMappingSpaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexPropertyMappingSpaceType L2 { get; } = new IndexPropertyMappingSpaceType("l2");
+        public static IndexPropertyMappingSpaceType L1 { get; } = new IndexPropertyMappingSpaceType("l1");
+        public static IndexPropertyMappingSpaceType Linf { get; } = new IndexPropertyMappingSpaceType("linf");
+        public static IndexPropertyMappingSpaceType Cosinesimil { get; } = new IndexPropertyMappingSpaceType("cosinesimil");
+        public static IndexPropertyMappingSpaceType Innerproduct { get; } = new IndexPropertyMappingSpaceType("innerproduct");
+        public static IndexPropertyMappingSpaceType Hamming { get; } = new IndexPropertyMappingSpaceType("hamming");
+
+        public static bool operator ==(IndexPropertyMappingSpaceType left, IndexPropertyMappingSpaceType right) => left.Equals(right);
+        public static bool operator !=(IndexPropertyMappingSpaceType left, IndexPropertyMappingSpaceType right) => !left.Equals(right);
+
+        public static explicit operator string(IndexPropertyMappingSpaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexPropertyMappingSpaceType other && Equals(other);
+        public bool Equals(IndexPropertyMappingSpaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The field data type. Must be a valid OpenSearch field type.
     /// </summary>
     [EnumType]
@@ -338,6 +408,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
         public static IndexPropertyMappingType Text { get; } = new IndexPropertyMappingType("text");
         public static IndexPropertyMappingType KnnVector { get; } = new IndexPropertyMappingType("knn_vector");
+        public static IndexPropertyMappingType Keyword { get; } = new IndexPropertyMappingType("keyword");
+        public static IndexPropertyMappingType Integer { get; } = new IndexPropertyMappingType("integer");
 
         public static bool operator ==(IndexPropertyMappingType left, IndexPropertyMappingType right) => left.Equals(right);
         public static bool operator !=(IndexPropertyMappingType left, IndexPropertyMappingType right) => !left.Equals(right);

@@ -532,7 +532,7 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediaconnect:GetRouterOutput", "mediaconnect:ListRouterOutputs", "ec2:CreateNetworkInterface", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:CreateRouterOutput", "mediaconnect:TagResource", "mediaconnect:UpdateFlowSource", "medialive:UpdateInput" ]
+      "permissions" : [ "mediaconnect:GetRouterOutput", "mediaconnect:ListRouterOutputs", "ec2:CreateNetworkInterface", "ec2:CreateTags", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:CreateRouterOutput", "mediaconnect:TagResource", "mediaconnect:UpdateFlowSource", "medialive:UpdateInput" ]
     },
     "delete" : {
       "permissions" : [ "mediaconnect:GetRouterOutput", "mediaconnect:UpdateRouterOutput", "mediaconnect:UpdateFlowSource", "medialive:UpdateInput", "mediaconnect:ListRouterOutputs", "mediaconnect:DeleteRouterOutput" ]
@@ -544,7 +544,7 @@
       "permissions" : [ "mediaconnect:GetRouterOutput" ]
     },
     "update" : {
-      "permissions" : [ "mediaconnect:ListTagsForResource", "mediaconnect:TagResource", "mediaconnect:UntagResource", "mediaconnect:GetRouterOutput", "ec2:CreateNetworkInterface", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:UpdateFlowSource", "mediaconnect:UpdateRouterOutput", "medialive:UpdateInput" ]
+      "permissions" : [ "mediaconnect:ListTagsForResource", "mediaconnect:TagResource", "mediaconnect:UntagResource", "mediaconnect:GetRouterOutput", "ec2:CreateNetworkInterface", "ec2:CreateTags", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:UpdateFlowSource", "mediaconnect:UpdateRouterOutput", "medialive:UpdateInput" ]
     }
   },
   "tagging" : {

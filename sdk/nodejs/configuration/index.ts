@@ -25,6 +25,11 @@ export type ConformancePack = import("./conformancePack").ConformancePack;
 export const ConformancePack: typeof import("./conformancePack").ConformancePack = null as any;
 utilities.lazyLoad(exports, ["ConformancePack"], () => require("./conformancePack"));
 
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { GetAggregationAuthorizationArgs, GetAggregationAuthorizationResult, GetAggregationAuthorizationOutputArgs } from "./getAggregationAuthorization";
 export const getAggregationAuthorization: typeof import("./getAggregationAuthorization").getAggregationAuthorization = null as any;
 export const getAggregationAuthorizationOutput: typeof import("./getAggregationAuthorization").getAggregationAuthorizationOutput = null as any;
@@ -44,6 +49,11 @@ export { GetConformancePackArgs, GetConformancePackResult, GetConformancePackOut
 export const getConformancePack: typeof import("./getConformancePack").getConformancePack = null as any;
 export const getConformancePackOutput: typeof import("./getConformancePack").getConformancePackOutput = null as any;
 utilities.lazyLoad(exports, ["getConformancePack","getConformancePackOutput"], () => require("./getConformancePack"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
 export { GetOrganizationConformancePackArgs, GetOrganizationConformancePackResult, GetOrganizationConformancePackOutputArgs } from "./getOrganizationConformancePack";
 export const getOrganizationConformancePack: typeof import("./getOrganizationConformancePack").getOrganizationConformancePack = null as any;
@@ -88,6 +98,8 @@ const _module = {
                 return new ConfigurationAggregator(name, <any>undefined, { urn })
             case "aws-native:configuration:ConformancePack":
                 return new ConformancePack(name, <any>undefined, { urn })
+            case "aws-native:configuration:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws-native:configuration:OrganizationConformancePack":
                 return new OrganizationConformancePack(name, <any>undefined, { urn })
             case "aws-native:configuration:RemediationConfiguration":

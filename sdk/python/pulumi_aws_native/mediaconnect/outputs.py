@@ -80,11 +80,13 @@ __all__ = [
     'FlowVpcInterfaceAttachment',
     'GatewayNetwork',
     'RouterInputAutomaticEncryptionKeyConfiguration',
+    'RouterInputBlackFramesConfiguration',
     'RouterInputConfiguration0Properties',
     'RouterInputConfiguration1Properties',
     'RouterInputConfiguration2Properties',
     'RouterInputConfiguration3Properties',
     'RouterInputConfiguration4Properties',
+    'RouterInputContentQualityAnalysisFeatureConfiguration',
     'RouterInputDefaultMaintenanceConfiguration',
     'RouterInputFailoverRouterInputConfiguration',
     'RouterInputFailoverRouterInputProtocolConfiguration0Properties',
@@ -94,6 +96,7 @@ __all__ = [
     'RouterInputFlowTransitEncryption',
     'RouterInputFlowTransitEncryptionKeyConfiguration0Properties',
     'RouterInputFlowTransitEncryptionKeyConfiguration1Properties',
+    'RouterInputFrozenFramesConfiguration',
     'RouterInputMaintenanceConfiguration0Properties',
     'RouterInputMaintenanceConfiguration1Properties',
     'RouterInputMediaConnectFlowRouterInputConfiguration',
@@ -110,8 +113,10 @@ __all__ = [
     'RouterInputProtocolConfiguration2Properties',
     'RouterInputProtocolConfiguration3Properties',
     'RouterInputRistRouterInputConfiguration',
+    'RouterInputRouterContentQualityAnalysisConfigurationProperties',
     'RouterInputRtpRouterInputConfiguration',
     'RouterInputSecretsManagerEncryptionKeyConfiguration',
+    'RouterInputSilentAudioConfiguration',
     'RouterInputSrtCallerRouterInputConfiguration',
     'RouterInputSrtDecryptionConfiguration',
     'RouterInputSrtListenerRouterInputConfiguration',
@@ -4130,6 +4135,53 @@ class RouterInputAutomaticEncryptionKeyConfiguration(dict):
 
 
 @pulumi.output_type
+class RouterInputBlackFramesConfiguration(dict):
+    """
+    Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputBlackFramesConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputBlackFramesConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputBlackFramesConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: 'RouterInputContentQualityAnalysisState',
+                 threshold_seconds: _builtins.int):
+        """
+        Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+
+        :param _builtins.int threshold_seconds: The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> 'RouterInputContentQualityAnalysisState':
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> _builtins.int:
+        """
+        The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+        """
+        return pulumi.get(self, "threshold_seconds")
+
+
+@pulumi.output_type
 class RouterInputConfiguration0Properties(dict):
     """
     The configuration settings for a router input.
@@ -4251,6 +4303,62 @@ class RouterInputConfiguration4Properties(dict):
     @pulumi.getter(name="mediaLiveChannel")
     def media_live_channel(self) -> 'outputs.RouterInputMediaLiveChannelRouterInputConfiguration':
         return pulumi.get(self, "media_live_channel")
+
+
+@pulumi.output_type
+class RouterInputContentQualityAnalysisFeatureConfiguration(dict):
+    """
+    Configures the content quality analysis features for the router input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blackFrames":
+            suggest = "black_frames"
+        elif key == "frozenFrames":
+            suggest = "frozen_frames"
+        elif key == "silentAudio":
+            suggest = "silent_audio"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputContentQualityAnalysisFeatureConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputContentQualityAnalysisFeatureConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputContentQualityAnalysisFeatureConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 black_frames: Optional['outputs.RouterInputBlackFramesConfiguration'] = None,
+                 frozen_frames: Optional['outputs.RouterInputFrozenFramesConfiguration'] = None,
+                 silent_audio: Optional['outputs.RouterInputSilentAudioConfiguration'] = None):
+        """
+        Configures the content quality analysis features for the router input.
+        """
+        if black_frames is not None:
+            pulumi.set(__self__, "black_frames", black_frames)
+        if frozen_frames is not None:
+            pulumi.set(__self__, "frozen_frames", frozen_frames)
+        if silent_audio is not None:
+            pulumi.set(__self__, "silent_audio", silent_audio)
+
+    @_builtins.property
+    @pulumi.getter(name="blackFrames")
+    def black_frames(self) -> Optional['outputs.RouterInputBlackFramesConfiguration']:
+        return pulumi.get(self, "black_frames")
+
+    @_builtins.property
+    @pulumi.getter(name="frozenFrames")
+    def frozen_frames(self) -> Optional['outputs.RouterInputFrozenFramesConfiguration']:
+        return pulumi.get(self, "frozen_frames")
+
+    @_builtins.property
+    @pulumi.getter(name="silentAudio")
+    def silent_audio(self) -> Optional['outputs.RouterInputSilentAudioConfiguration']:
+        return pulumi.get(self, "silent_audio")
 
 
 @pulumi.output_type
@@ -4543,6 +4651,53 @@ class RouterInputFlowTransitEncryptionKeyConfiguration1Properties(dict):
     @pulumi.getter
     def automatic(self) -> 'outputs.RouterInputAutomaticEncryptionKeyConfiguration':
         return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
+class RouterInputFrozenFramesConfiguration(dict):
+    """
+    Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFrozenFramesConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFrozenFramesConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFrozenFramesConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: 'RouterInputContentQualityAnalysisState',
+                 threshold_seconds: _builtins.int):
+        """
+        Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+
+        :param _builtins.int threshold_seconds: The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> 'RouterInputContentQualityAnalysisState':
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> _builtins.int:
+        """
+        The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+        """
+        return pulumi.get(self, "threshold_seconds")
 
 
 @pulumi.output_type
@@ -5124,6 +5279,41 @@ class RouterInputRistRouterInputConfiguration(dict):
 
 
 @pulumi.output_type
+class RouterInputRouterContentQualityAnalysisConfigurationProperties(dict):
+    """
+    The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentLevel":
+            suggest = "content_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputRouterContentQualityAnalysisConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputRouterContentQualityAnalysisConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputRouterContentQualityAnalysisConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_level: 'outputs.RouterInputContentQualityAnalysisFeatureConfiguration'):
+        """
+        The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+        """
+        pulumi.set(__self__, "content_level", content_level)
+
+    @_builtins.property
+    @pulumi.getter(name="contentLevel")
+    def content_level(self) -> 'outputs.RouterInputContentQualityAnalysisFeatureConfiguration':
+        return pulumi.get(self, "content_level")
+
+
+@pulumi.output_type
 class RouterInputRtpRouterInputConfiguration(dict):
     """
     The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
@@ -5222,6 +5412,53 @@ class RouterInputSecretsManagerEncryptionKeyConfiguration(dict):
         The ARN of the Secrets Manager secret used for transit encryption.
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class RouterInputSilentAudioConfiguration(dict):
+    """
+    Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdSeconds":
+            suggest = "threshold_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputSilentAudioConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputSilentAudioConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputSilentAudioConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: 'RouterInputContentQualityAnalysisState',
+                 threshold_seconds: _builtins.int):
+        """
+        Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+
+        :param _builtins.int threshold_seconds: The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+        """
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "threshold_seconds", threshold_seconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> 'RouterInputContentQualityAnalysisState':
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdSeconds")
+    def threshold_seconds(self) -> _builtins.int:
+        """
+        The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+        """
+        return pulumi.get(self, "threshold_seconds")
 
 
 @pulumi.output_type

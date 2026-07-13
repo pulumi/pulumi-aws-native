@@ -2843,6 +2843,457 @@ func (o CrawlerTargetsPtrOutput) S3Targets() CrawlerS3TargetArrayOutput {
 	}).(CrawlerS3TargetArrayOutput)
 }
 
+// Contains configuration information for maintaining Data Catalog security.
+type DataCatalogEncryptionSettingsType struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+	ConnectionPasswordEncryption *DataCatalogEncryptionSettingsConnectionPasswordEncryption `pulumi:"connectionPasswordEncryption"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog.
+	EncryptionAtRest *DataCatalogEncryptionSettingsEncryptionAtRest `pulumi:"encryptionAtRest"`
+}
+
+// DataCatalogEncryptionSettingsTypeInput is an input type that accepts DataCatalogEncryptionSettingsTypeArgs and DataCatalogEncryptionSettingsTypeOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsTypeInput` via:
+//
+//	DataCatalogEncryptionSettingsTypeArgs{...}
+type DataCatalogEncryptionSettingsTypeInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput
+	ToDataCatalogEncryptionSettingsTypeOutputWithContext(context.Context) DataCatalogEncryptionSettingsTypeOutput
+}
+
+// Contains configuration information for maintaining Data Catalog security.
+type DataCatalogEncryptionSettingsTypeArgs struct {
+	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+	ConnectionPasswordEncryption DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput `pulumi:"connectionPasswordEncryption"`
+	// Specifies the encryption-at-rest configuration for the Data Catalog.
+	EncryptionAtRest DataCatalogEncryptionSettingsEncryptionAtRestPtrInput `pulumi:"encryptionAtRest"`
+}
+
+func (DataCatalogEncryptionSettingsTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput {
+	return i.ToDataCatalogEncryptionSettingsTypeOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsTypeArgs) ToDataCatalogEncryptionSettingsTypeOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
+// Contains configuration information for maintaining Data Catalog security.
+type DataCatalogEncryptionSettingsTypeOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypeOutput() DataCatalogEncryptionSettingsTypeOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypeOutput) ToDataCatalogEncryptionSettingsTypeOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypeOutput {
+	return o
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+func (o DataCatalogEncryptionSettingsTypeOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog.
+func (o DataCatalogEncryptionSettingsTypeOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsType)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutput() DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ToDataCatalogEncryptionSettingsTypePtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsTypePtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsTypePtrOutput) Elem() DataCatalogEncryptionSettingsTypeOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) DataCatalogEncryptionSettingsType {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsType
+		return ret
+	}).(DataCatalogEncryptionSettingsTypeOutput)
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+func (o DataCatalogEncryptionSettingsTypePtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionPasswordEncryption
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog.
+func (o DataCatalogEncryptionSettingsTypePtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsType) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtRest
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption.
+type DataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
+	// An AWS KMS key that is used to encrypt the connection password.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+	ReturnConnectionPasswordEncrypted *bool `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+// DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput is an input type that accepts DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs and DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput` via:
+//
+//	DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption.
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs struct {
+	// An AWS KMS key that is used to encrypt the connection password.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+	ReturnConnectionPasswordEncrypted pulumi.BoolPtrInput `pulumi:"returnConnectionPasswordEncrypted"`
+}
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput).ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput is an input type that accepts DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs, DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr and DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput` via:
+//
+//	        DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+	ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
+}
+
+type dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
+
+func DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr(v *DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput {
+	return (*dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption.
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		return &v
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
+}
+
+// An AWS KMS key that is used to encrypt the connection password.
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Elem() DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) DataCatalogEncryptionSettingsConnectionPasswordEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsConnectionPasswordEncryption
+		return ret
+	}).(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
+}
+
+// An AWS KMS key that is used to encrypt the connection password.
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+func (o DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReturnConnectionPasswordEncrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog.
+type DataCatalogEncryptionSettingsEncryptionAtRest struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data.
+	CatalogEncryptionMode *string `pulumi:"catalogEncryptionMode"`
+	// The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+	CatalogEncryptionServiceRole *string `pulumi:"catalogEncryptionServiceRole"`
+	// The ID of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId *string `pulumi:"sseAwsKmsKeyId"`
+}
+
+// DataCatalogEncryptionSettingsEncryptionAtRestInput is an input type that accepts DataCatalogEncryptionSettingsEncryptionAtRestArgs and DataCatalogEncryptionSettingsEncryptionAtRestOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsEncryptionAtRestInput` via:
+//
+//	DataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+type DataCatalogEncryptionSettingsEncryptionAtRestInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput
+	ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog.
+type DataCatalogEncryptionSettingsEncryptionAtRestArgs struct {
+	// The encryption-at-rest mode for encrypting Data Catalog data.
+	CatalogEncryptionMode pulumi.StringPtrInput `pulumi:"catalogEncryptionMode"`
+	// The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+	CatalogEncryptionServiceRole pulumi.StringPtrInput `pulumi:"catalogEncryptionServiceRole"`
+	// The ID of the AWS KMS key to use for encryption at rest.
+	SseAwsKmsKeyId pulumi.StringPtrInput `pulumi:"sseAwsKmsKeyId"`
+}
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i DataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestOutput).ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx)
+}
+
+// DataCatalogEncryptionSettingsEncryptionAtRestPtrInput is an input type that accepts DataCatalogEncryptionSettingsEncryptionAtRestArgs, DataCatalogEncryptionSettingsEncryptionAtRestPtr and DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput values.
+// You can construct a concrete instance of `DataCatalogEncryptionSettingsEncryptionAtRestPtrInput` via:
+//
+//	        DataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataCatalogEncryptionSettingsEncryptionAtRestPtrInput interface {
+	pulumi.Input
+
+	ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+	ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
+}
+
+type dataCatalogEncryptionSettingsEncryptionAtRestPtrType DataCatalogEncryptionSettingsEncryptionAtRestArgs
+
+func DataCatalogEncryptionSettingsEncryptionAtRestPtr(v *DataCatalogEncryptionSettingsEncryptionAtRestArgs) DataCatalogEncryptionSettingsEncryptionAtRestPtrInput {
+	return (*dataCatalogEncryptionSettingsEncryptionAtRestPtrType)(v)
+}
+
+func (*dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (i *dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return i.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (i *dataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// Specifies the encryption-at-rest configuration for the Data Catalog.
+type DataCatalogEncryptionSettingsEncryptionAtRestOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestOutput() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsEncryptionAtRest {
+		return &v
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
+}
+
+// The encryption-at-rest mode for encrypting Data Catalog data.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.CatalogEncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.CatalogEncryptionServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS KMS key to use for encryption at rest.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataCatalogEncryptionSettingsEncryptionAtRest) *string { return v.SseAwsKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
+	return o
+}
+
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) Elem() DataCatalogEncryptionSettingsEncryptionAtRestOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) DataCatalogEncryptionSettingsEncryptionAtRest {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsEncryptionAtRest
+		return ret
+	}).(DataCatalogEncryptionSettingsEncryptionAtRestOutput)
+}
+
+// The encryption-at-rest mode for encrypting Data Catalog data.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogEncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogEncryptionServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS KMS key to use for encryption at rest.
+func (o DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettingsEncryptionAtRest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SseAwsKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The AWS Lake Formation principal.
 type DatabaseDataLakePrincipal struct {
 	// An identifier for the AWS Lake Formation principal.
@@ -6170,6 +6621,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyPtrInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerTargetsInput)(nil)).Elem(), CrawlerTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsTypeInput)(nil)).Elem(), DataCatalogEncryptionSettingsTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryptionInput)(nil)).Elem(), DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDataLakePrincipalPtrInput)(nil)).Elem(), DatabaseDataLakePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseFederatedDatabaseInput)(nil)).Elem(), DatabaseFederatedDatabaseArgs{})
@@ -6249,6 +6705,12 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerTargetsOutput{})
 	pulumi.RegisterOutputType(CrawlerTargetsPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypeOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsTypePtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestOutput{})
+	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalOutput{})
 	pulumi.RegisterOutputType(DatabaseDataLakePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseFederatedDatabaseOutput{})

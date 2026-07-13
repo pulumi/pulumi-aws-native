@@ -296,6 +296,38 @@ namespace Pulumi.AwsNative.Route53Resolver
     }
 
     /// <summary>
+    /// The status of the firewall rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallRuleGroupFirewallRuleStatus : IEquatable<FirewallRuleGroupFirewallRuleStatus>
+    {
+        private readonly string _value;
+
+        private FirewallRuleGroupFirewallRuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallRuleGroupFirewallRuleStatus Complete { get; } = new FirewallRuleGroupFirewallRuleStatus("COMPLETE");
+        public static FirewallRuleGroupFirewallRuleStatus Creating { get; } = new FirewallRuleGroupFirewallRuleStatus("CREATING");
+        public static FirewallRuleGroupFirewallRuleStatus CreationFailed { get; } = new FirewallRuleGroupFirewallRuleStatus("CREATION_FAILED");
+
+        public static bool operator ==(FirewallRuleGroupFirewallRuleStatus left, FirewallRuleGroupFirewallRuleStatus right) => left.Equals(right);
+        public static bool operator !=(FirewallRuleGroupFirewallRuleStatus left, FirewallRuleGroupFirewallRuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallRuleGroupFirewallRuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallRuleGroupFirewallRuleStatus other && Equals(other);
+        public bool Equals(FirewallRuleGroupFirewallRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
     /// </summary>
     [EnumType]

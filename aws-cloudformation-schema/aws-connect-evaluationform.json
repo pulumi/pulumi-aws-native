@@ -27,6 +27,94 @@
       "minimum" : 0,
       "maximum" : 10
     },
+    "PointValue" : {
+      "description" : "The point value for scoring.",
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 100
+    },
+    "QuestionPointsConfiguration" : {
+      "description" : "Information about the points configuration for a question.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MaxPointValue" : {
+          "description" : "The maximum point value.",
+          "$ref" : "#/definitions/PointValue"
+        },
+        "MinPointValue" : {
+          "description" : "The minimum point value.",
+          "$ref" : "#/definitions/PointValue"
+        },
+        "IsBonus" : {
+          "description" : "The flag to mark the question as a bonus question.",
+          "type" : "boolean"
+        }
+      }
+    },
+    "QuestionOptionPointsConfiguration" : {
+      "description" : "Information about the points configuration for an answer option.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PointValue" : {
+          "description" : "The point value assigned to the answer option.",
+          "$ref" : "#/definitions/PointValue"
+        },
+        "IsBonus" : {
+          "description" : "The flag to mark the option as a bonus option.",
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "PointValue" ]
+    },
+    "EvaluationFormScoreThreshold" : {
+      "description" : "Information about a score threshold for a performance category.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PerformanceCategory" : {
+          "description" : "The performance category name.",
+          "type" : "string",
+          "enum" : [ "NEEDS_IMPROVEMENT", "EXCEEDS_EXPECTATIONS" ]
+        },
+        "MinScorePercentage" : {
+          "description" : "The minimum score percentage for the performance category.",
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 100
+        },
+        "MaxScorePercentage" : {
+          "description" : "The maximum score percentage for the performance category.",
+          "type" : "number",
+          "minimum" : 0,
+          "maximum" : 100
+        }
+      },
+      "required" : [ "PerformanceCategory" ]
+    },
+    "EvaluationFormQuestionScoringConfiguration" : {
+      "description" : "Scoring configuration for a question in an evaluation form.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PointsConfiguration" : {
+          "description" : "The points configuration for point-based scoring.",
+          "$ref" : "#/definitions/QuestionPointsConfiguration"
+        },
+        "IsExcludedFromScoring" : {
+          "description" : "The flag to exclude the question from scoring.",
+          "type" : "boolean"
+        },
+        "ScoreThresholds" : {
+          "description" : "The score thresholds for performance categories.",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/EvaluationFormScoreThreshold"
+          }
+        }
+      }
+    },
     "AutomaticFailConfiguration" : {
       "description" : "Information about automatic fail configuration for an evaluation form.",
       "type" : "object",
@@ -173,6 +261,17 @@
         "Weight" : {
           "description" : "The scoring weight of the section.\n *Minimum*: 0 \n *Maximum*: 100",
           "$ref" : "#/definitions/Weight"
+        },
+        "IsExcludedFromScoring" : {
+          "description" : "The flag to exclude the section from scoring.",
+          "type" : "boolean"
+        },
+        "ScoreThresholds" : {
+          "description" : "The score thresholds for performance categories.",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/EvaluationFormScoreThreshold"
+          }
         }
       },
       "required" : [ "RefId", "Title" ]
@@ -315,6 +414,10 @@
         "AutomaticFailConfiguration" : {
           "description" : "A configuration for automatic fail.",
           "$ref" : "#/definitions/AutomaticFailConfiguration"
+        },
+        "PointsConfiguration" : {
+          "description" : "The points configuration for point-based scoring.",
+          "$ref" : "#/definitions/QuestionOptionPointsConfiguration"
         }
       },
       "required" : [ "MinValue", "MaxValue" ]
@@ -463,6 +566,10 @@
         "AutomaticFailConfiguration" : {
           "description" : "Whether automatic fail is configured on a single select question.",
           "$ref" : "#/definitions/AutomaticFailConfiguration"
+        },
+        "PointsConfiguration" : {
+          "description" : "The points configuration for point-based scoring.",
+          "$ref" : "#/definitions/QuestionOptionPointsConfiguration"
         }
       },
       "required" : [ "RefId", "Text" ]
@@ -603,6 +710,22 @@
           "type" : "string",
           "minLength" : 1,
           "maxLength" : 128
+        },
+        "Score" : {
+          "description" : "The score assigned to the answer option.",
+          "$ref" : "#/definitions/Score"
+        },
+        "AutomaticFail" : {
+          "description" : "The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.",
+          "type" : "boolean"
+        },
+        "AutomaticFailConfiguration" : {
+          "description" : "",
+          "$ref" : "#/definitions/AutomaticFailConfiguration"
+        },
+        "PointsConfiguration" : {
+          "description" : "The points configuration for point-based scoring.",
+          "$ref" : "#/definitions/QuestionOptionPointsConfiguration"
         }
       },
       "required" : [ "RefId", "Text" ]
@@ -694,6 +817,10 @@
           "description" : "The scoring weight of the section.\n *Minimum*: 0\n *Maximum*: 100",
           "$ref" : "#/definitions/Weight"
         },
+        "ScoringConfiguration" : {
+          "description" : "The scoring configuration of the question.",
+          "$ref" : "#/definitions/EvaluationFormQuestionScoringConfiguration"
+        },
         "Enablement" : {
           "description" : "A question conditional enablement.",
           "$ref" : "#/definitions/EvaluationFormItemEnablementConfiguration"
@@ -709,12 +836,19 @@
         "Mode" : {
           "description" : "The scoring mode of the evaluation form.\n *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``",
           "type" : "string",
-          "enum" : [ "QUESTION_ONLY", "SECTION_ONLY" ]
+          "enum" : [ "QUESTION_ONLY", "SECTION_ONLY", "POINTS_BASED" ]
         },
         "Status" : {
           "description" : "The scoring status of the evaluation form.\n *Allowed values*: ``ENABLED`` | ``DISABLED``",
           "type" : "string",
           "enum" : [ "ENABLED", "DISABLED" ]
+        },
+        "ScoreThresholds" : {
+          "description" : "",
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/EvaluationFormScoreThreshold"
+          }
         }
       },
       "required" : [ "Mode", "Status" ]

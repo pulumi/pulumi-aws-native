@@ -136,6 +136,18 @@ __all__ = [
     'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict',
     'GatewayTargetIamCredentialProviderArgs',
     'GatewayTargetIamCredentialProviderArgsDict',
+    'GatewayTargetInferenceConnectorSourceArgs',
+    'GatewayTargetInferenceConnectorSourceArgsDict',
+    'GatewayTargetInferenceConnectorTargetConfigurationArgs',
+    'GatewayTargetInferenceConnectorTargetConfigurationArgsDict',
+    'GatewayTargetInferenceOperationConfigurationArgs',
+    'GatewayTargetInferenceOperationConfigurationArgsDict',
+    'GatewayTargetInferenceProviderTargetConfigurationArgs',
+    'GatewayTargetInferenceProviderTargetConfigurationArgsDict',
+    'GatewayTargetInferenceTargetConfiguration0PropertiesArgs',
+    'GatewayTargetInferenceTargetConfiguration0PropertiesArgsDict',
+    'GatewayTargetInferenceTargetConfiguration1PropertiesArgs',
+    'GatewayTargetInferenceTargetConfiguration1PropertiesArgsDict',
     'GatewayTargetManagedVpcResourceArgs',
     'GatewayTargetManagedVpcResourceArgsDict',
     'GatewayTargetMcpLambdaTargetConfigurationArgs',
@@ -160,6 +172,10 @@ __all__ = [
     'GatewayTargetMcpToolSchemaConfiguration1PropertiesArgsDict',
     'GatewayTargetMetadataConfigurationArgs',
     'GatewayTargetMetadataConfigurationArgsDict',
+    'GatewayTargetModelEntryArgs',
+    'GatewayTargetModelEntryArgsDict',
+    'GatewayTargetModelMappingArgs',
+    'GatewayTargetModelMappingArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
     'GatewayTargetOAuthCredentialProviderArgsDict',
     'GatewayTargetPassthroughTargetConfigurationArgs',
@@ -168,6 +184,8 @@ __all__ = [
     'GatewayTargetPrivateEndpoint0PropertiesArgsDict',
     'GatewayTargetPrivateEndpoint1PropertiesArgs',
     'GatewayTargetPrivateEndpoint1PropertiesArgsDict',
+    'GatewayTargetProviderPrefixArgs',
+    'GatewayTargetProviderPrefixArgsDict',
     'GatewayTargetRuntimeTargetConfigurationArgs',
     'GatewayTargetRuntimeTargetConfigurationArgsDict',
     'GatewayTargetS3ConfigurationArgs',
@@ -182,6 +200,8 @@ __all__ = [
     'GatewayTargetTargetConfiguration0PropertiesArgsDict',
     'GatewayTargetTargetConfiguration1PropertiesArgs',
     'GatewayTargetTargetConfiguration1PropertiesArgsDict',
+    'GatewayTargetTargetConfiguration2PropertiesArgs',
+    'GatewayTargetTargetConfiguration2PropertiesArgsDict',
     'GatewayTargetToolDefinitionArgs',
     'GatewayTargetToolDefinitionArgsDict',
     'GatewayTargetToolSchema0PropertiesArgs',
@@ -2785,6 +2805,172 @@ class GatewayTargetIamCredentialProviderArgs:
         pulumi.set(self, "region", value)
 
 
+class GatewayTargetInferenceConnectorSourceArgsDict(TypedDict):
+    connector_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetInferenceConnectorSourceArgs:
+    def __init__(__self__, *,
+                 connector_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_id", value)
+
+
+class GatewayTargetInferenceConnectorTargetConfigurationArgsDict(TypedDict):
+    source: pulumi.Input['GatewayTargetInferenceConnectorSourceArgsDict']
+
+@pulumi.input_type
+class GatewayTargetInferenceConnectorTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['GatewayTargetInferenceConnectorSourceArgs']):
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['GatewayTargetInferenceConnectorSourceArgs']:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['GatewayTargetInferenceConnectorSourceArgs']):
+        pulumi.set(self, "source", value)
+
+
+class GatewayTargetInferenceOperationConfigurationArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    models: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetModelEntryArgsDict']]]]
+    provider_path: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class GatewayTargetInferenceOperationConfigurationArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 models: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetModelEntryArgs']]]] = None,
+                 provider_path: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "path", path)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if provider_path is not None:
+            pulumi.set(__self__, "provider_path", provider_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def models(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetModelEntryArgs']]]]:
+        return pulumi.get(self, "models")
+
+    @models.setter
+    def models(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetModelEntryArgs']]]]):
+        pulumi.set(self, "models", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerPath")
+    def provider_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "provider_path")
+
+    @provider_path.setter
+    def provider_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "provider_path", value)
+
+
+class GatewayTargetInferenceProviderTargetConfigurationArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    model_mapping: NotRequired[pulumi.Input['GatewayTargetModelMappingArgsDict']]
+    operations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayTargetInferenceOperationConfigurationArgsDict']]]]
+
+@pulumi.input_type
+class GatewayTargetInferenceProviderTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[_builtins.str],
+                 model_mapping: Optional[pulumi.Input['GatewayTargetModelMappingArgs']] = None,
+                 operations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetInferenceOperationConfigurationArgs']]]] = None):
+        pulumi.set(__self__, "endpoint", endpoint)
+        if model_mapping is not None:
+            pulumi.set(__self__, "model_mapping", model_mapping)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelMapping")
+    def model_mapping(self) -> Optional[pulumi.Input['GatewayTargetModelMappingArgs']]:
+        return pulumi.get(self, "model_mapping")
+
+    @model_mapping.setter
+    def model_mapping(self, value: Optional[pulumi.Input['GatewayTargetModelMappingArgs']]):
+        pulumi.set(self, "model_mapping", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetInferenceOperationConfigurationArgs']]]]:
+        return pulumi.get(self, "operations")
+
+    @operations.setter
+    def operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetInferenceOperationConfigurationArgs']]]]):
+        pulumi.set(self, "operations", value)
+
+
+class GatewayTargetInferenceTargetConfiguration0PropertiesArgsDict(TypedDict):
+    connector: pulumi.Input['GatewayTargetInferenceConnectorTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetInferenceTargetConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 connector: pulumi.Input['GatewayTargetInferenceConnectorTargetConfigurationArgs']):
+        pulumi.set(__self__, "connector", connector)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> pulumi.Input['GatewayTargetInferenceConnectorTargetConfigurationArgs']:
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: pulumi.Input['GatewayTargetInferenceConnectorTargetConfigurationArgs']):
+        pulumi.set(self, "connector", value)
+
+
+class GatewayTargetInferenceTargetConfiguration1PropertiesArgsDict(TypedDict):
+    provider: pulumi.Input['GatewayTargetInferenceProviderTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetInferenceTargetConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 provider: pulumi.Input['GatewayTargetInferenceProviderTargetConfigurationArgs']):
+        pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input['GatewayTargetInferenceProviderTargetConfigurationArgs']:
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input['GatewayTargetInferenceProviderTargetConfigurationArgs']):
+        pulumi.set(self, "provider", value)
+
+
 class GatewayTargetManagedVpcResourceArgsDict(TypedDict):
     endpoint_ip_address_type: pulumi.Input['GatewayTargetEndpointIpAddressType']
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
@@ -3141,6 +3327,45 @@ class GatewayTargetMetadataConfigurationArgs:
         pulumi.set(self, "allowed_response_headers", value)
 
 
+class GatewayTargetModelEntryArgsDict(TypedDict):
+    model: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetModelEntryArgs:
+    def __init__(__self__, *,
+                 model: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "model", model)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model", value)
+
+
+class GatewayTargetModelMappingArgsDict(TypedDict):
+    provider_prefix: NotRequired[pulumi.Input['GatewayTargetProviderPrefixArgsDict']]
+
+@pulumi.input_type
+class GatewayTargetModelMappingArgs:
+    def __init__(__self__, *,
+                 provider_prefix: Optional[pulumi.Input['GatewayTargetProviderPrefixArgs']] = None):
+        if provider_prefix is not None:
+            pulumi.set(__self__, "provider_prefix", provider_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="providerPrefix")
+    def provider_prefix(self) -> Optional[pulumi.Input['GatewayTargetProviderPrefixArgs']]:
+        return pulumi.get(self, "provider_prefix")
+
+    @provider_prefix.setter
+    def provider_prefix(self, value: Optional[pulumi.Input['GatewayTargetProviderPrefixArgs']]):
+        pulumi.set(self, "provider_prefix", value)
+
+
 class GatewayTargetOAuthCredentialProviderArgsDict(TypedDict):
     provider_arn: pulumi.Input[_builtins.str]
     scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
@@ -3313,6 +3538,39 @@ class GatewayTargetPrivateEndpoint1PropertiesArgs:
     @managed_vpc_resource.setter
     def managed_vpc_resource(self, value: pulumi.Input['GatewayTargetManagedVpcResourceArgs']):
         pulumi.set(self, "managed_vpc_resource", value)
+
+
+class GatewayTargetProviderPrefixArgsDict(TypedDict):
+    separator: NotRequired[pulumi.Input[_builtins.str]]
+    strip: NotRequired[pulumi.Input[_builtins.bool]]
+
+@pulumi.input_type
+class GatewayTargetProviderPrefixArgs:
+    def __init__(__self__, *,
+                 separator: Optional[pulumi.Input[_builtins.str]] = None,
+                 strip: Optional[pulumi.Input[_builtins.bool]] = None):
+        if separator is not None:
+            pulumi.set(__self__, "separator", separator)
+        if strip is not None:
+            pulumi.set(__self__, "strip", strip)
+
+    @_builtins.property
+    @pulumi.getter
+    def separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "separator")
+
+    @separator.setter
+    def separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "separator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def strip(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "strip")
+
+    @strip.setter
+    def strip(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "strip", value)
 
 
 class GatewayTargetRuntimeTargetConfigurationArgsDict(TypedDict):
@@ -3551,6 +3809,25 @@ class GatewayTargetTargetConfiguration1PropertiesArgs:
     @http.setter
     def http(self, value: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]):
         pulumi.set(self, "http", value)
+
+
+class GatewayTargetTargetConfiguration2PropertiesArgsDict(TypedDict):
+    inference: pulumi.Input[Union['GatewayTargetInferenceTargetConfiguration0PropertiesArgsDict', 'GatewayTargetInferenceTargetConfiguration1PropertiesArgsDict']]
+
+@pulumi.input_type
+class GatewayTargetTargetConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 inference: pulumi.Input[Union['GatewayTargetInferenceTargetConfiguration0PropertiesArgs', 'GatewayTargetInferenceTargetConfiguration1PropertiesArgs']]):
+        pulumi.set(__self__, "inference", inference)
+
+    @_builtins.property
+    @pulumi.getter
+    def inference(self) -> pulumi.Input[Union['GatewayTargetInferenceTargetConfiguration0PropertiesArgs', 'GatewayTargetInferenceTargetConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "inference")
+
+    @inference.setter
+    def inference(self, value: pulumi.Input[Union['GatewayTargetInferenceTargetConfiguration0PropertiesArgs', 'GatewayTargetInferenceTargetConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "inference", value)
 
 
 class GatewayTargetToolDefinitionArgsDict(TypedDict):

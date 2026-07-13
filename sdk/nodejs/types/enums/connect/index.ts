@@ -237,9 +237,20 @@ export const EvaluationFormQuestionQuestionType = {
  */
 export type EvaluationFormQuestionQuestionType = (typeof EvaluationFormQuestionQuestionType)[keyof typeof EvaluationFormQuestionQuestionType];
 
+export const EvaluationFormScoreThresholdPerformanceCategory = {
+    NeedsImprovement: "NEEDS_IMPROVEMENT",
+    ExceedsExpectations: "EXCEEDS_EXPECTATIONS",
+} as const;
+
+/**
+ * The performance category name.
+ */
+export type EvaluationFormScoreThresholdPerformanceCategory = (typeof EvaluationFormScoreThresholdPerformanceCategory)[keyof typeof EvaluationFormScoreThresholdPerformanceCategory];
+
 export const EvaluationFormScoringStrategyMode = {
     QuestionOnly: "QUESTION_ONLY",
     SectionOnly: "SECTION_ONLY",
+    PointsBased: "POINTS_BASED",
 } as const;
 
 /**
@@ -473,6 +484,7 @@ export const QuickConnectType = {
     PhoneNumber: "PHONE_NUMBER",
     Queue: "QUEUE",
     User: "USER",
+    Flow: "FLOW",
 } as const;
 
 /**
@@ -511,6 +523,24 @@ export const RoutingProfileChannel = {
  * The channels that agents can handle in the Contact Control Panel (CCP).
  */
 export type RoutingProfileChannel = (typeof RoutingProfileChannel)[keyof typeof RoutingProfileChannel];
+
+export const RuleAssignSlaActionCaseSlaConfigurationPropertiesType = {
+    CaseField: "CaseField",
+} as const;
+
+/**
+ * The type of SLA.
+ */
+export type RuleAssignSlaActionCaseSlaConfigurationPropertiesType = (typeof RuleAssignSlaActionCaseSlaConfigurationPropertiesType)[keyof typeof RuleAssignSlaActionCaseSlaConfigurationPropertiesType];
+
+export const RuleAssignSlaActionSlaAssignmentType = {
+    Cases: "CASES",
+} as const;
+
+/**
+ * The type of SLA assignment.
+ */
+export type RuleAssignSlaActionSlaAssignmentType = (typeof RuleAssignSlaActionSlaAssignmentType)[keyof typeof RuleAssignSlaActionSlaAssignmentType];
 
 export const RulePublishStatus = {
     Draft: "DRAFT",
@@ -559,6 +589,7 @@ export const RuleSendNotificationActionDeliveryMethod = {
 export type RuleSendNotificationActionDeliveryMethod = (typeof RuleSendNotificationActionDeliveryMethod)[keyof typeof RuleSendNotificationActionDeliveryMethod];
 
 export const RuleTriggerEventSourceEventSourceName = {
+    OnEmailAnalysisAvailable: "OnEmailAnalysisAvailable",
     OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
     OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
     OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
@@ -570,6 +601,10 @@ export const RuleTriggerEventSourceEventSourceName = {
     OnMetricDataUpdate: "OnMetricDataUpdate",
     OnCaseCreate: "OnCaseCreate",
     OnCaseUpdate: "OnCaseUpdate",
+    OnSlaBreach: "OnSlaBreach",
+    OnSchedulePublish: "OnSchedulePublish",
+    OnScheduleUpdate: "OnScheduleUpdate",
+    OnScheduleTimeOffRequestActivity: "OnScheduleTimeOffRequestActivity",
 } as const;
 
 /**
@@ -628,6 +663,26 @@ export const TaskTemplateStatus = {
  */
 export type TaskTemplateStatus = (typeof TaskTemplateStatus)[keyof typeof TaskTemplateStatus];
 
+export const TestCaseEntryPointType = {
+    VoiceCall: "VOICE_CALL",
+    Chat: "CHAT",
+} as const;
+
+/**
+ * The type of the Entry Point
+ */
+export type TestCaseEntryPointType = (typeof TestCaseEntryPointType)[keyof typeof TestCaseEntryPointType];
+
+export const TestCaseStatus = {
+    Saved: "SAVED",
+    Published: "PUBLISHED",
+} as const;
+
+/**
+ * The status of the test case.
+ */
+export type TestCaseStatus = (typeof TestCaseStatus)[keyof typeof TestCaseStatus];
+
 export const TrafficDistributionGroupStatus = {
     CreationInProgress: "CREATION_IN_PROGRESS",
     Active: "ACTIVE",
@@ -641,6 +696,17 @@ export const TrafficDistributionGroupStatus = {
  * The status of the traffic distribution group.
  */
 export type TrafficDistributionGroupStatus = (typeof TrafficDistributionGroupStatus)[keyof typeof TrafficDistributionGroupStatus];
+
+export const UserAfterContactWorkMode = {
+    On: "ON",
+    Off: "OFF",
+    OnDemand: "ON_DEMAND",
+} as const;
+
+/**
+ * The after contact work (ACW) mode for the channel.
+ */
+export type UserAfterContactWorkMode = (typeof UserAfterContactWorkMode)[keyof typeof UserAfterContactWorkMode];
 
 export const UserChannel = {
     Voice: "VOICE",

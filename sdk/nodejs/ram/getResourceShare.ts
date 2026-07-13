@@ -54,6 +54,10 @@ export interface GetResourceShareResult {
      */
     readonly owningAccountId?: string;
     /**
+     * Specifies the configuration for the resource share
+     */
+    readonly resourceShareConfiguration?: outputs.ram.ResourceShareConfiguration;
+    /**
      * The current status of the resource share.
      */
     readonly status?: enums.ram.ResourceShareStatus;

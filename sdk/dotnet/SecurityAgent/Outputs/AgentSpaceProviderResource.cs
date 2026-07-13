@@ -11,22 +11,46 @@ namespace Pulumi.AwsNative.SecurityAgent.Outputs
 {
 
     /// <summary>
-    /// Selected Resource (eg: Code Repository) from an Integration
+    /// Selected Resource (eg: Code Repository, Document) from an Integration
     /// </summary>
     [OutputType]
     public sealed class AgentSpaceProviderResource
     {
+        public readonly Outputs.AgentSpaceBitbucketCapabilitiesResource? BitbucketCapabilities;
+        public readonly Outputs.AgentSpaceBitbucketRepositoryResource? BitbucketRepository;
+        public readonly Outputs.AgentSpaceConfluenceCapabilitiesResource? ConfluenceCapabilities;
+        public readonly Outputs.AgentSpaceConfluenceDocumentResource? ConfluenceDocument;
         public readonly Outputs.AgentSpaceGitHubCapabilitiesResource? GitHubCapabilities;
         public readonly Outputs.AgentSpaceGitHubRepositoryResource? GitHubRepository;
+        public readonly Outputs.AgentSpaceGitLabCapabilitiesResource? GitLabCapabilities;
+        public readonly Outputs.AgentSpaceGitLabRepositoryResource? GitLabRepository;
 
         [OutputConstructor]
         private AgentSpaceProviderResource(
+            Outputs.AgentSpaceBitbucketCapabilitiesResource? bitbucketCapabilities,
+
+            Outputs.AgentSpaceBitbucketRepositoryResource? bitbucketRepository,
+
+            Outputs.AgentSpaceConfluenceCapabilitiesResource? confluenceCapabilities,
+
+            Outputs.AgentSpaceConfluenceDocumentResource? confluenceDocument,
+
             Outputs.AgentSpaceGitHubCapabilitiesResource? gitHubCapabilities,
 
-            Outputs.AgentSpaceGitHubRepositoryResource? gitHubRepository)
+            Outputs.AgentSpaceGitHubRepositoryResource? gitHubRepository,
+
+            Outputs.AgentSpaceGitLabCapabilitiesResource? gitLabCapabilities,
+
+            Outputs.AgentSpaceGitLabRepositoryResource? gitLabRepository)
         {
+            BitbucketCapabilities = bitbucketCapabilities;
+            BitbucketRepository = bitbucketRepository;
+            ConfluenceCapabilities = confluenceCapabilities;
+            ConfluenceDocument = confluenceDocument;
             GitHubCapabilities = gitHubCapabilities;
             GitHubRepository = gitHubRepository;
+            GitLabCapabilities = gitLabCapabilities;
+            GitLabRepository = gitLabRepository;
         }
     }
 }

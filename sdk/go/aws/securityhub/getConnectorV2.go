@@ -33,11 +33,17 @@ type LookupConnectorV2Result struct {
 	// The ID of the connector
 	ConnectorId *string `pulumi:"connectorId"`
 	// The status of the connector
-	ConnectorStatus *ConnectorV2ConnectorStatus `pulumi:"connectorStatus"`
+	ConnectorStatus *string `pulumi:"connectorStatus"`
 	// The timestamp when the V2 connector was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// A description of the connector
 	Description *string `pulumi:"description"`
+	// The enablement status of the connector
+	EnablementStatus *string `pulumi:"enablementStatus"`
+	// The reason for the enablement status of the connector
+	EnablementStatusReason *string `pulumi:"enablementStatusReason"`
+	// The list of health issues associated with the connector
+	Issues []ConnectorV2HealthIssue `pulumi:"issues"`
 	// The most recent timestamp when the V2 connector was checked on health status.
 	LastCheckedAt *string `pulumi:"lastCheckedAt"`
 	// The most recent timestamp when the V2 connector was updated.
@@ -93,8 +99,8 @@ func (o LookupConnectorV2ResultOutput) ConnectorId() pulumi.StringPtrOutput {
 }
 
 // The status of the connector
-func (o LookupConnectorV2ResultOutput) ConnectorStatus() ConnectorV2ConnectorStatusPtrOutput {
-	return o.ApplyT(func(v LookupConnectorV2Result) *ConnectorV2ConnectorStatus { return v.ConnectorStatus }).(ConnectorV2ConnectorStatusPtrOutput)
+func (o LookupConnectorV2ResultOutput) ConnectorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.ConnectorStatus }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the V2 connector was created.
@@ -105,6 +111,21 @@ func (o LookupConnectorV2ResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // A description of the connector
 func (o LookupConnectorV2ResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The enablement status of the connector
+func (o LookupConnectorV2ResultOutput) EnablementStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.EnablementStatus }).(pulumi.StringPtrOutput)
+}
+
+// The reason for the enablement status of the connector
+func (o LookupConnectorV2ResultOutput) EnablementStatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.EnablementStatusReason }).(pulumi.StringPtrOutput)
+}
+
+// The list of health issues associated with the connector
+func (o LookupConnectorV2ResultOutput) Issues() ConnectorV2HealthIssueArrayOutput {
+	return o.ApplyT(func(v LookupConnectorV2Result) []ConnectorV2HealthIssue { return v.Issues }).(ConnectorV2HealthIssueArrayOutput)
 }
 
 // The most recent timestamp when the V2 connector was checked on health status.

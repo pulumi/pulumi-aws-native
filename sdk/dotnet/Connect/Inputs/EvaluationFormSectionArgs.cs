@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("instructions")]
         public Input<string>? Instructions { get; set; }
 
+        /// <summary>
+        /// The flag to exclude the section from scoring.
+        /// </summary>
+        [Input("isExcludedFromScoring")]
+        public Input<bool>? IsExcludedFromScoring { get; set; }
+
         [Input("items")]
         private InputList<Inputs.EvaluationFormItemArgs>? _items;
 
@@ -40,6 +46,18 @@ namespace Pulumi.AwsNative.Connect.Inputs
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
+
+        [Input("scoreThresholds")]
+        private InputList<Inputs.EvaluationFormScoreThresholdArgs>? _scoreThresholds;
+
+        /// <summary>
+        /// The score thresholds for performance categories.
+        /// </summary>
+        public InputList<Inputs.EvaluationFormScoreThresholdArgs> ScoreThresholds
+        {
+            get => _scoreThresholds ?? (_scoreThresholds = new InputList<Inputs.EvaluationFormScoreThresholdArgs>());
+            set => _scoreThresholds = value;
+        }
 
         /// <summary>
         /// The title of the section.

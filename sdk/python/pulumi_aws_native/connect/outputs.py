@@ -47,7 +47,11 @@ __all__ = [
     'EvaluationFormNumericQuestionPropertyValueAutomation',
     'EvaluationFormQuestion',
     'EvaluationFormQuestionAutomationAnswerSource',
+    'EvaluationFormQuestionOptionPointsConfiguration',
+    'EvaluationFormQuestionPointsConfiguration',
+    'EvaluationFormQuestionScoringConfiguration',
     'EvaluationFormQuestionTypeProperties',
+    'EvaluationFormScoreThreshold',
     'EvaluationFormScoringStrategy',
     'EvaluationFormSection',
     'EvaluationFormSingleSelectQuestionAutomation',
@@ -81,6 +85,7 @@ __all__ = [
     'QueueOutboundCallerConfig',
     'QueueOutboundEmailConfig',
     'QuickConnectConfig',
+    'QuickConnectFlowQuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
     'QuickConnectUserQuickConnectConfig',
@@ -91,6 +96,8 @@ __all__ = [
     'RoutingProfileQueueReference',
     'RuleActions',
     'RuleAssignContactCategoryAction',
+    'RuleAssignSlaAction',
+    'RuleAssignSlaActionCaseSlaConfigurationProperties',
     'RuleCreateCaseAction',
     'RuleEndAssociatedTasksAction',
     'RuleEventBridgeAction',
@@ -99,6 +106,7 @@ __all__ = [
     'RuleNotificationRecipientType',
     'RuleReference',
     'RuleSendNotificationAction',
+    'RuleSlaTargetFieldValue',
     'RuleSubmitAutoEvaluationAction',
     'RuleTaskAction',
     'RuleTriggerEventSource',
@@ -115,6 +123,9 @@ __all__ = [
     'TaskTemplateInvisibleFieldInfo',
     'TaskTemplateReadOnlyFieldInfo',
     'TaskTemplateRequiredFieldInfo',
+    'TestCaseEntryPoint',
+    'TestCaseEntryPointChatEntryPointParametersProperties',
+    'TestCaseEntryPointVoiceCallEntryPointParametersProperties',
     'UserAfterContactWorkConfig',
     'UserAfterContactWorkConfigPerChannel',
     'UserAutoAcceptConfig',
@@ -1060,6 +1071,12 @@ class EvaluationFormMultiSelectQuestionOption(dict):
         suggest = None
         if key == "refId":
             suggest = "ref_id"
+        elif key == "automaticFail":
+            suggest = "automatic_fail"
+        elif key == "automaticFailConfiguration":
+            suggest = "automatic_fail_configuration"
+        elif key == "pointsConfiguration":
+            suggest = "points_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionOption. Access the value via the '{suggest}' property getter instead.")
@@ -1074,15 +1091,30 @@ class EvaluationFormMultiSelectQuestionOption(dict):
 
     def __init__(__self__, *,
                  ref_id: _builtins.str,
-                 text: _builtins.str):
+                 text: _builtins.str,
+                 automatic_fail: Optional[_builtins.bool] = None,
+                 automatic_fail_configuration: Optional['outputs.EvaluationFormAutomaticFailConfiguration'] = None,
+                 points_configuration: Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration'] = None,
+                 score: Optional[_builtins.int] = None):
         """
         An option for a multi-select question in an evaluation form.
 
         :param _builtins.str ref_id: Reference identifier for this option.
         :param _builtins.str text: Display text for this option.
+        :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param 'EvaluationFormQuestionOptionPointsConfiguration' points_configuration: The points configuration for point-based scoring.
+        :param _builtins.int score: The score assigned to the answer option.
         """
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "text", text)
+        if automatic_fail is not None:
+            pulumi.set(__self__, "automatic_fail", automatic_fail)
+        if automatic_fail_configuration is not None:
+            pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
+        if score is not None:
+            pulumi.set(__self__, "score", score)
 
     @_builtins.property
     @pulumi.getter(name="refId")
@@ -1099,6 +1131,35 @@ class EvaluationFormMultiSelectQuestionOption(dict):
         Display text for this option.
         """
         return pulumi.get(self, "text")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFail")
+    def automatic_fail(self) -> Optional[_builtins.bool]:
+        """
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        """
+        return pulumi.get(self, "automatic_fail")
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFailConfiguration")
+    def automatic_fail_configuration(self) -> Optional['outputs.EvaluationFormAutomaticFailConfiguration']:
+        return pulumi.get(self, "automatic_fail_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration']:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def score(self) -> Optional[_builtins.int]:
+        """
+        The score assigned to the answer option.
+        """
+        return pulumi.get(self, "score")
 
 
 @pulumi.output_type
@@ -1298,6 +1359,8 @@ class EvaluationFormNumericQuestionOption(dict):
             suggest = "automatic_fail"
         elif key == "automaticFailConfiguration":
             suggest = "automatic_fail_configuration"
+        elif key == "pointsConfiguration":
+            suggest = "points_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormNumericQuestionOption. Access the value via the '{suggest}' property getter instead.")
@@ -1315,6 +1378,7 @@ class EvaluationFormNumericQuestionOption(dict):
                  min_value: _builtins.int,
                  automatic_fail: Optional[_builtins.bool] = None,
                  automatic_fail_configuration: Optional['outputs.EvaluationFormAutomaticFailConfiguration'] = None,
+                 points_configuration: Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration'] = None,
                  score: Optional[_builtins.int] = None):
         """
         Information about the option range used for scoring in numeric questions.
@@ -1323,6 +1387,7 @@ class EvaluationFormNumericQuestionOption(dict):
         :param _builtins.int min_value: The minimum answer value of the range option.
         :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         :param 'EvaluationFormAutomaticFailConfiguration' automatic_fail_configuration: A configuration for automatic fail.
+        :param 'EvaluationFormQuestionOptionPointsConfiguration' points_configuration: The points configuration for point-based scoring.
         :param _builtins.int score: The score assigned to answer values within the range option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -1333,6 +1398,8 @@ class EvaluationFormNumericQuestionOption(dict):
             pulumi.set(__self__, "automatic_fail", automatic_fail)
         if automatic_fail_configuration is not None:
             pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -1367,6 +1434,14 @@ class EvaluationFormNumericQuestionOption(dict):
         A configuration for automatic fail.
         """
         return pulumi.get(self, "automatic_fail_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration']:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -1495,6 +1570,8 @@ class EvaluationFormQuestion(dict):
             suggest = "not_applicable_enabled"
         elif key == "questionTypeProperties":
             suggest = "question_type_properties"
+        elif key == "scoringConfiguration":
+            suggest = "scoring_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormQuestion. Access the value via the '{suggest}' property getter instead.")
@@ -1515,6 +1592,7 @@ class EvaluationFormQuestion(dict):
                  instructions: Optional[_builtins.str] = None,
                  not_applicable_enabled: Optional[_builtins.bool] = None,
                  question_type_properties: Optional['outputs.EvaluationFormQuestionTypeProperties'] = None,
+                 scoring_configuration: Optional['outputs.EvaluationFormQuestionScoringConfiguration'] = None,
                  weight: Optional[_builtins.float] = None):
         """
         Information about a question from an evaluation form.
@@ -1530,6 +1608,7 @@ class EvaluationFormQuestion(dict):
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param _builtins.bool not_applicable_enabled: The flag to enable not applicable answers to the question.
         :param 'EvaluationFormQuestionTypeProperties' question_type_properties: The properties of the type of question. Text questions do not have to define question type properties.
+        :param 'EvaluationFormQuestionScoringConfiguration' scoring_configuration: The scoring configuration of the question.
         :param _builtins.float weight: The scoring weight of the section.
                 *Minimum*: 0
                 *Maximum*: 100
@@ -1545,6 +1624,8 @@ class EvaluationFormQuestion(dict):
             pulumi.set(__self__, "not_applicable_enabled", not_applicable_enabled)
         if question_type_properties is not None:
             pulumi.set(__self__, "question_type_properties", question_type_properties)
+        if scoring_configuration is not None:
+            pulumi.set(__self__, "scoring_configuration", scoring_configuration)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -1609,6 +1690,14 @@ class EvaluationFormQuestion(dict):
         return pulumi.get(self, "question_type_properties")
 
     @_builtins.property
+    @pulumi.getter(name="scoringConfiguration")
+    def scoring_configuration(self) -> Optional['outputs.EvaluationFormQuestionScoringConfiguration']:
+        """
+        The scoring configuration of the question.
+        """
+        return pulumi.get(self, "scoring_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[_builtins.float]:
         """
@@ -1657,6 +1746,198 @@ class EvaluationFormQuestionAutomationAnswerSource(dict):
         The automation answer source type.
         """
         return pulumi.get(self, "source_type")
+
+
+@pulumi.output_type
+class EvaluationFormQuestionOptionPointsConfiguration(dict):
+    """
+    Information about the points configuration for an answer option.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pointValue":
+            suggest = "point_value"
+        elif key == "isBonus":
+            suggest = "is_bonus"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormQuestionOptionPointsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormQuestionOptionPointsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormQuestionOptionPointsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 point_value: _builtins.int,
+                 is_bonus: Optional[_builtins.bool] = None):
+        """
+        Information about the points configuration for an answer option.
+
+        :param _builtins.int point_value: The point value assigned to the answer option.
+        :param _builtins.bool is_bonus: The flag to mark the option as a bonus option.
+        """
+        pulumi.set(__self__, "point_value", point_value)
+        if is_bonus is not None:
+            pulumi.set(__self__, "is_bonus", is_bonus)
+
+    @_builtins.property
+    @pulumi.getter(name="pointValue")
+    def point_value(self) -> _builtins.int:
+        """
+        The point value assigned to the answer option.
+        """
+        return pulumi.get(self, "point_value")
+
+    @_builtins.property
+    @pulumi.getter(name="isBonus")
+    def is_bonus(self) -> Optional[_builtins.bool]:
+        """
+        The flag to mark the option as a bonus option.
+        """
+        return pulumi.get(self, "is_bonus")
+
+
+@pulumi.output_type
+class EvaluationFormQuestionPointsConfiguration(dict):
+    """
+    Information about the points configuration for a question.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isBonus":
+            suggest = "is_bonus"
+        elif key == "maxPointValue":
+            suggest = "max_point_value"
+        elif key == "minPointValue":
+            suggest = "min_point_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormQuestionPointsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormQuestionPointsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormQuestionPointsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_bonus: Optional[_builtins.bool] = None,
+                 max_point_value: Optional[_builtins.int] = None,
+                 min_point_value: Optional[_builtins.int] = None):
+        """
+        Information about the points configuration for a question.
+
+        :param _builtins.bool is_bonus: The flag to mark the question as a bonus question.
+        :param _builtins.int max_point_value: The maximum point value.
+        :param _builtins.int min_point_value: The minimum point value.
+        """
+        if is_bonus is not None:
+            pulumi.set(__self__, "is_bonus", is_bonus)
+        if max_point_value is not None:
+            pulumi.set(__self__, "max_point_value", max_point_value)
+        if min_point_value is not None:
+            pulumi.set(__self__, "min_point_value", min_point_value)
+
+    @_builtins.property
+    @pulumi.getter(name="isBonus")
+    def is_bonus(self) -> Optional[_builtins.bool]:
+        """
+        The flag to mark the question as a bonus question.
+        """
+        return pulumi.get(self, "is_bonus")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPointValue")
+    def max_point_value(self) -> Optional[_builtins.int]:
+        """
+        The maximum point value.
+        """
+        return pulumi.get(self, "max_point_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minPointValue")
+    def min_point_value(self) -> Optional[_builtins.int]:
+        """
+        The minimum point value.
+        """
+        return pulumi.get(self, "min_point_value")
+
+
+@pulumi.output_type
+class EvaluationFormQuestionScoringConfiguration(dict):
+    """
+    Scoring configuration for a question in an evaluation form.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isExcludedFromScoring":
+            suggest = "is_excluded_from_scoring"
+        elif key == "pointsConfiguration":
+            suggest = "points_configuration"
+        elif key == "scoreThresholds":
+            suggest = "score_thresholds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormQuestionScoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormQuestionScoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormQuestionScoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_excluded_from_scoring: Optional[_builtins.bool] = None,
+                 points_configuration: Optional['outputs.EvaluationFormQuestionPointsConfiguration'] = None,
+                 score_thresholds: Optional[Sequence['outputs.EvaluationFormScoreThreshold']] = None):
+        """
+        Scoring configuration for a question in an evaluation form.
+
+        :param _builtins.bool is_excluded_from_scoring: The flag to exclude the question from scoring.
+        :param 'EvaluationFormQuestionPointsConfiguration' points_configuration: The points configuration for point-based scoring.
+        :param Sequence['EvaluationFormScoreThreshold'] score_thresholds: The score thresholds for performance categories.
+        """
+        if is_excluded_from_scoring is not None:
+            pulumi.set(__self__, "is_excluded_from_scoring", is_excluded_from_scoring)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcludedFromScoring")
+    def is_excluded_from_scoring(self) -> Optional[_builtins.bool]:
+        """
+        The flag to exclude the question from scoring.
+        """
+        return pulumi.get(self, "is_excluded_from_scoring")
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional['outputs.EvaluationFormQuestionPointsConfiguration']:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[Sequence['outputs.EvaluationFormScoreThreshold']]:
+        """
+        The score thresholds for performance categories.
+        """
+        return pulumi.get(self, "score_thresholds")
 
 
 @pulumi.output_type
@@ -1739,13 +2020,99 @@ class EvaluationFormQuestionTypeProperties(dict):
 
 
 @pulumi.output_type
+class EvaluationFormScoreThreshold(dict):
+    """
+    Information about a score threshold for a performance category.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "performanceCategory":
+            suggest = "performance_category"
+        elif key == "maxScorePercentage":
+            suggest = "max_score_percentage"
+        elif key == "minScorePercentage":
+            suggest = "min_score_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormScoreThreshold. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormScoreThreshold.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormScoreThreshold.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 performance_category: 'EvaluationFormScoreThresholdPerformanceCategory',
+                 max_score_percentage: Optional[_builtins.float] = None,
+                 min_score_percentage: Optional[_builtins.float] = None):
+        """
+        Information about a score threshold for a performance category.
+
+        :param 'EvaluationFormScoreThresholdPerformanceCategory' performance_category: The performance category name.
+        :param _builtins.float max_score_percentage: The maximum score percentage for the performance category.
+        :param _builtins.float min_score_percentage: The minimum score percentage for the performance category.
+        """
+        pulumi.set(__self__, "performance_category", performance_category)
+        if max_score_percentage is not None:
+            pulumi.set(__self__, "max_score_percentage", max_score_percentage)
+        if min_score_percentage is not None:
+            pulumi.set(__self__, "min_score_percentage", min_score_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="performanceCategory")
+    def performance_category(self) -> 'EvaluationFormScoreThresholdPerformanceCategory':
+        """
+        The performance category name.
+        """
+        return pulumi.get(self, "performance_category")
+
+    @_builtins.property
+    @pulumi.getter(name="maxScorePercentage")
+    def max_score_percentage(self) -> Optional[_builtins.float]:
+        """
+        The maximum score percentage for the performance category.
+        """
+        return pulumi.get(self, "max_score_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="minScorePercentage")
+    def min_score_percentage(self) -> Optional[_builtins.float]:
+        """
+        The minimum score percentage for the performance category.
+        """
+        return pulumi.get(self, "min_score_percentage")
+
+
+@pulumi.output_type
 class EvaluationFormScoringStrategy(dict):
     """
     A scoring strategy of the evaluation form.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scoreThresholds":
+            suggest = "score_thresholds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormScoringStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormScoringStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormScoringStrategy.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  mode: 'EvaluationFormScoringStrategyMode',
-                 status: 'EvaluationFormScoringStrategyStatus'):
+                 status: 'EvaluationFormScoringStrategyStatus',
+                 score_thresholds: Optional[Sequence['outputs.EvaluationFormScoreThreshold']] = None):
         """
         A scoring strategy of the evaluation form.
 
@@ -1756,6 +2123,8 @@ class EvaluationFormScoringStrategy(dict):
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "status", status)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
 
     @_builtins.property
     @pulumi.getter
@@ -1775,6 +2144,11 @@ class EvaluationFormScoringStrategy(dict):
         """
         return pulumi.get(self, "status")
 
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[Sequence['outputs.EvaluationFormScoreThreshold']]:
+        return pulumi.get(self, "score_thresholds")
+
 
 @pulumi.output_type
 class EvaluationFormSection(dict):
@@ -1786,6 +2160,10 @@ class EvaluationFormSection(dict):
         suggest = None
         if key == "refId":
             suggest = "ref_id"
+        elif key == "isExcludedFromScoring":
+            suggest = "is_excluded_from_scoring"
+        elif key == "scoreThresholds":
+            suggest = "score_thresholds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormSection. Access the value via the '{suggest}' property getter instead.")
@@ -1802,7 +2180,9 @@ class EvaluationFormSection(dict):
                  ref_id: _builtins.str,
                  title: _builtins.str,
                  instructions: Optional[_builtins.str] = None,
+                 is_excluded_from_scoring: Optional[_builtins.bool] = None,
                  items: Optional[Sequence['outputs.EvaluationFormItem']] = None,
+                 score_thresholds: Optional[Sequence['outputs.EvaluationFormScoreThreshold']] = None,
                  weight: Optional[_builtins.float] = None):
         """
         Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
@@ -1812,8 +2192,10 @@ class EvaluationFormSection(dict):
         :param _builtins.str title: The title of the section.
                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
         :param _builtins.str instructions: The instructions of the section.
+        :param _builtins.bool is_excluded_from_scoring: The flag to exclude the section from scoring.
         :param Sequence['EvaluationFormItem'] items: The items of the section.
                 *Minimum*: 1
+        :param Sequence['EvaluationFormScoreThreshold'] score_thresholds: The score thresholds for performance categories.
         :param _builtins.float weight: The scoring weight of the section.
                 *Minimum*: 0 
                 *Maximum*: 100
@@ -1822,8 +2204,12 @@ class EvaluationFormSection(dict):
         pulumi.set(__self__, "title", title)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
+        if is_excluded_from_scoring is not None:
+            pulumi.set(__self__, "is_excluded_from_scoring", is_excluded_from_scoring)
         if items is not None:
             pulumi.set(__self__, "items", items)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -1854,6 +2240,14 @@ class EvaluationFormSection(dict):
         return pulumi.get(self, "instructions")
 
     @_builtins.property
+    @pulumi.getter(name="isExcludedFromScoring")
+    def is_excluded_from_scoring(self) -> Optional[_builtins.bool]:
+        """
+        The flag to exclude the section from scoring.
+        """
+        return pulumi.get(self, "is_excluded_from_scoring")
+
+    @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[Sequence['outputs.EvaluationFormItem']]:
         """
@@ -1861,6 +2255,14 @@ class EvaluationFormSection(dict):
          *Minimum*: 1
         """
         return pulumi.get(self, "items")
+
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[Sequence['outputs.EvaluationFormScoreThreshold']]:
+        """
+        The score thresholds for performance categories.
+        """
+        return pulumi.get(self, "score_thresholds")
 
     @_builtins.property
     @pulumi.getter
@@ -2000,6 +2402,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
             suggest = "automatic_fail"
         elif key == "automaticFailConfiguration":
             suggest = "automatic_fail_configuration"
+        elif key == "pointsConfiguration":
+            suggest = "points_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EvaluationFormSingleSelectQuestionOption. Access the value via the '{suggest}' property getter instead.")
@@ -2017,6 +2421,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
                  text: _builtins.str,
                  automatic_fail: Optional[_builtins.bool] = None,
                  automatic_fail_configuration: Optional['outputs.EvaluationFormAutomaticFailConfiguration'] = None,
+                 points_configuration: Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration'] = None,
                  score: Optional[_builtins.int] = None):
         """
         Information about the automation configuration in single select questions.
@@ -2027,6 +2432,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
         :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         :param 'EvaluationFormAutomaticFailConfiguration' automatic_fail_configuration: Whether automatic fail is configured on a single select question.
+        :param 'EvaluationFormQuestionOptionPointsConfiguration' points_configuration: The points configuration for point-based scoring.
         :param _builtins.int score: The score assigned to the answer option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -2037,6 +2443,8 @@ class EvaluationFormSingleSelectQuestionOption(dict):
             pulumi.set(__self__, "automatic_fail", automatic_fail)
         if automatic_fail_configuration is not None:
             pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -2073,6 +2481,14 @@ class EvaluationFormSingleSelectQuestionOption(dict):
         Whether automatic fail is configured on a single select question.
         """
         return pulumi.get(self, "automatic_fail_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional['outputs.EvaluationFormQuestionOptionPointsConfiguration']:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -3608,6 +4024,8 @@ class QuickConnectConfig(dict):
         suggest = None
         if key == "quickConnectType":
             suggest = "quick_connect_type"
+        elif key == "flowConfig":
+            suggest = "flow_config"
         elif key == "phoneConfig":
             suggest = "phone_config"
         elif key == "queueConfig":
@@ -3628,6 +4046,7 @@ class QuickConnectConfig(dict):
 
     def __init__(__self__, *,
                  quick_connect_type: 'QuickConnectType',
+                 flow_config: Optional['outputs.QuickConnectFlowQuickConnectConfig'] = None,
                  phone_config: Optional['outputs.QuickConnectPhoneNumberQuickConnectConfig'] = None,
                  queue_config: Optional['outputs.QuickConnectQueueQuickConnectConfig'] = None,
                  user_config: Optional['outputs.QuickConnectUserQuickConnectConfig'] = None):
@@ -3640,6 +4059,8 @@ class QuickConnectConfig(dict):
         :param 'QuickConnectUserQuickConnectConfig' user_config: The user configuration. This is required only if QuickConnectType is USER.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
+        if flow_config is not None:
+            pulumi.set(__self__, "flow_config", flow_config)
         if phone_config is not None:
             pulumi.set(__self__, "phone_config", phone_config)
         if queue_config is not None:
@@ -3654,6 +4075,11 @@ class QuickConnectConfig(dict):
         The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
         """
         return pulumi.get(self, "quick_connect_type")
+
+    @_builtins.property
+    @pulumi.getter(name="flowConfig")
+    def flow_config(self) -> Optional['outputs.QuickConnectFlowQuickConnectConfig']:
+        return pulumi.get(self, "flow_config")
 
     @_builtins.property
     @pulumi.getter(name="phoneConfig")
@@ -3678,6 +4104,41 @@ class QuickConnectConfig(dict):
         The user configuration. This is required only if QuickConnectType is USER.
         """
         return pulumi.get(self, "user_config")
+
+
+@pulumi.output_type
+class QuickConnectFlowQuickConnectConfig(dict):
+    """
+    The flow configuration. This is required only if QuickConnectType is FLOW.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactFlowArn":
+            suggest = "contact_flow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickConnectFlowQuickConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickConnectFlowQuickConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickConnectFlowQuickConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_flow_arn: _builtins.str):
+        """
+        The flow configuration. This is required only if QuickConnectType is FLOW.
+        """
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="contactFlowArn")
+    def contact_flow_arn(self) -> _builtins.str:
+        return pulumi.get(self, "contact_flow_arn")
 
 
 @pulumi.output_type
@@ -4104,6 +4565,8 @@ class RuleActions(dict):
         suggest = None
         if key == "assignContactCategoryActions":
             suggest = "assign_contact_category_actions"
+        elif key == "assignSlaActions":
+            suggest = "assign_sla_actions"
         elif key == "createCaseActions":
             suggest = "create_case_actions"
         elif key == "endAssociatedTasksActions":
@@ -4132,6 +4595,7 @@ class RuleActions(dict):
 
     def __init__(__self__, *,
                  assign_contact_category_actions: Optional[Sequence['outputs.RuleAssignContactCategoryAction']] = None,
+                 assign_sla_actions: Optional[Sequence['outputs.RuleAssignSlaAction']] = None,
                  create_case_actions: Optional[Sequence['outputs.RuleCreateCaseAction']] = None,
                  end_associated_tasks_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
                  event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
@@ -4149,6 +4613,8 @@ class RuleActions(dict):
         """
         if assign_contact_category_actions is not None:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
+        if assign_sla_actions is not None:
+            pulumi.set(__self__, "assign_sla_actions", assign_sla_actions)
         if create_case_actions is not None:
             pulumi.set(__self__, "create_case_actions", create_case_actions)
         if end_associated_tasks_actions is not None:
@@ -4171,6 +4637,11 @@ class RuleActions(dict):
         Information about the contact category action. The syntax can be empty, for example, ``{}``.
         """
         return pulumi.get(self, "assign_contact_category_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="assignSlaActions")
+    def assign_sla_actions(self) -> Optional[Sequence['outputs.RuleAssignSlaAction']]:
+        return pulumi.get(self, "assign_sla_actions")
 
     @_builtins.property
     @pulumi.getter(name="createCaseActions")
@@ -4227,6 +4698,144 @@ class RuleAssignContactCategoryAction(dict):
         The definition for assigning contact category action.
         """
         pass
+
+
+@pulumi.output_type
+class RuleAssignSlaAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSlaConfiguration":
+            suggest = "case_sla_configuration"
+        elif key == "slaAssignmentType":
+            suggest = "sla_assignment_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleAssignSlaAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleAssignSlaAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleAssignSlaAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 case_sla_configuration: 'outputs.RuleAssignSlaActionCaseSlaConfigurationProperties',
+                 sla_assignment_type: 'RuleAssignSlaActionSlaAssignmentType'):
+        """
+        :param 'RuleAssignSlaActionCaseSlaConfigurationProperties' case_sla_configuration: The SLA configuration for cases.
+        :param 'RuleAssignSlaActionSlaAssignmentType' sla_assignment_type: The type of SLA assignment.
+        """
+        pulumi.set(__self__, "case_sla_configuration", case_sla_configuration)
+        pulumi.set(__self__, "sla_assignment_type", sla_assignment_type)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSlaConfiguration")
+    def case_sla_configuration(self) -> 'outputs.RuleAssignSlaActionCaseSlaConfigurationProperties':
+        """
+        The SLA configuration for cases.
+        """
+        return pulumi.get(self, "case_sla_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="slaAssignmentType")
+    def sla_assignment_type(self) -> 'RuleAssignSlaActionSlaAssignmentType':
+        """
+        The type of SLA assignment.
+        """
+        return pulumi.get(self, "sla_assignment_type")
+
+
+@pulumi.output_type
+class RuleAssignSlaActionCaseSlaConfigurationProperties(dict):
+    """
+    The SLA configuration for cases.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetSlaMinutes":
+            suggest = "target_sla_minutes"
+        elif key == "fieldId":
+            suggest = "field_id"
+        elif key == "targetFieldValues":
+            suggest = "target_field_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleAssignSlaActionCaseSlaConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleAssignSlaActionCaseSlaConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleAssignSlaActionCaseSlaConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 target_sla_minutes: _builtins.float,
+                 type: 'RuleAssignSlaActionCaseSlaConfigurationPropertiesType',
+                 field_id: Optional[_builtins.str] = None,
+                 target_field_values: Optional[Sequence['outputs.RuleSlaTargetFieldValue']] = None):
+        """
+        The SLA configuration for cases.
+
+        :param _builtins.str name: The name of the SLA.
+        :param _builtins.float target_sla_minutes: The target SLA time in minutes.
+        :param 'RuleAssignSlaActionCaseSlaConfigurationPropertiesType' type: The type of SLA.
+        :param _builtins.str field_id: The field Id for the SLA.
+        :param Sequence['RuleSlaTargetFieldValue'] target_field_values: The target field values for the SLA.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target_sla_minutes", target_sla_minutes)
+        pulumi.set(__self__, "type", type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if target_field_values is not None:
+            pulumi.set(__self__, "target_field_values", target_field_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the SLA.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetSlaMinutes")
+    def target_sla_minutes(self) -> _builtins.float:
+        """
+        The target SLA time in minutes.
+        """
+        return pulumi.get(self, "target_sla_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'RuleAssignSlaActionCaseSlaConfigurationPropertiesType':
+        """
+        The type of SLA.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.str]:
+        """
+        The field Id for the SLA.
+        """
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetFieldValues")
+    def target_field_values(self) -> Optional[Sequence['outputs.RuleSlaTargetFieldValue']]:
+        """
+        The target field values for the SLA.
+        """
+        return pulumi.get(self, "target_field_values")
 
 
 @pulumi.output_type
@@ -4505,6 +5114,7 @@ class RuleSendNotificationAction(dict):
                  content_type: 'RuleSendNotificationActionContentType',
                  delivery_method: 'RuleSendNotificationActionDeliveryMethod',
                  recipient: 'outputs.RuleNotificationRecipientType',
+                 exclusion: Optional['outputs.RuleNotificationRecipientType'] = None,
                  subject: Optional[_builtins.str] = None):
         """
         Information about the send notification action.
@@ -4521,6 +5131,8 @@ class RuleSendNotificationAction(dict):
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "delivery_method", delivery_method)
         pulumi.set(__self__, "recipient", recipient)
+        if exclusion is not None:
+            pulumi.set(__self__, "exclusion", exclusion)
         if subject is not None:
             pulumi.set(__self__, "subject", subject)
 
@@ -4560,11 +5172,46 @@ class RuleSendNotificationAction(dict):
 
     @_builtins.property
     @pulumi.getter
+    def exclusion(self) -> Optional['outputs.RuleNotificationRecipientType']:
+        return pulumi.get(self, "exclusion")
+
+    @_builtins.property
+    @pulumi.getter
     def subject(self) -> Optional[_builtins.str]:
         """
         The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         return pulumi.get(self, "subject")
+
+
+@pulumi.output_type
+class RuleSlaTargetFieldValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSlaTargetFieldValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSlaTargetFieldValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSlaTargetFieldValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_value: Optional[_builtins.str] = None):
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "string_value")
 
 
 @pulumi.output_type
@@ -5234,6 +5881,183 @@ class TaskTemplateRequiredFieldInfo(dict):
 
 
 @pulumi.output_type
+class TestCaseEntryPoint(dict):
+    """
+    The Entry Point associated with the test case
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chatEntryPointParameters":
+            suggest = "chat_entry_point_parameters"
+        elif key == "voiceCallEntryPointParameters":
+            suggest = "voice_call_entry_point_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TestCaseEntryPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TestCaseEntryPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TestCaseEntryPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chat_entry_point_parameters: Optional['outputs.TestCaseEntryPointChatEntryPointParametersProperties'] = None,
+                 type: Optional['TestCaseEntryPointType'] = None,
+                 voice_call_entry_point_parameters: Optional['outputs.TestCaseEntryPointVoiceCallEntryPointParametersProperties'] = None):
+        """
+        The Entry Point associated with the test case
+
+        :param 'TestCaseEntryPointChatEntryPointParametersProperties' chat_entry_point_parameters: The chat entry point parameters for the test case
+        :param 'TestCaseEntryPointType' type: The type of the Entry Point
+        :param 'TestCaseEntryPointVoiceCallEntryPointParametersProperties' voice_call_entry_point_parameters: The voice call entry point parameters for the test case
+        """
+        if chat_entry_point_parameters is not None:
+            pulumi.set(__self__, "chat_entry_point_parameters", chat_entry_point_parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if voice_call_entry_point_parameters is not None:
+            pulumi.set(__self__, "voice_call_entry_point_parameters", voice_call_entry_point_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="chatEntryPointParameters")
+    def chat_entry_point_parameters(self) -> Optional['outputs.TestCaseEntryPointChatEntryPointParametersProperties']:
+        """
+        The chat entry point parameters for the test case
+        """
+        return pulumi.get(self, "chat_entry_point_parameters")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['TestCaseEntryPointType']:
+        """
+        The type of the Entry Point
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="voiceCallEntryPointParameters")
+    def voice_call_entry_point_parameters(self) -> Optional['outputs.TestCaseEntryPointVoiceCallEntryPointParametersProperties']:
+        """
+        The voice call entry point parameters for the test case
+        """
+        return pulumi.get(self, "voice_call_entry_point_parameters")
+
+
+@pulumi.output_type
+class TestCaseEntryPointChatEntryPointParametersProperties(dict):
+    """
+    The chat entry point parameters for the test case
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowId":
+            suggest = "flow_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TestCaseEntryPointChatEntryPointParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TestCaseEntryPointChatEntryPointParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TestCaseEntryPointChatEntryPointParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 flow_id: Optional[_builtins.str] = None):
+        """
+        The chat entry point parameters for the test case
+
+        :param _builtins.str flow_id: The flow id used for the TestCase
+        """
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> Optional[_builtins.str]:
+        """
+        The flow id used for the TestCase
+        """
+        return pulumi.get(self, "flow_id")
+
+
+@pulumi.output_type
+class TestCaseEntryPointVoiceCallEntryPointParametersProperties(dict):
+    """
+    The voice call entry point parameters for the test case
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPhoneNumber":
+            suggest = "destination_phone_number"
+        elif key == "flowId":
+            suggest = "flow_id"
+        elif key == "sourcePhoneNumber":
+            suggest = "source_phone_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TestCaseEntryPointVoiceCallEntryPointParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TestCaseEntryPointVoiceCallEntryPointParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TestCaseEntryPointVoiceCallEntryPointParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_phone_number: Optional[_builtins.str] = None,
+                 flow_id: Optional[_builtins.str] = None,
+                 source_phone_number: Optional[_builtins.str] = None):
+        """
+        The voice call entry point parameters for the test case
+
+        :param _builtins.str destination_phone_number: The destination phonenumber of the EntryPoint
+        :param _builtins.str flow_id: The flow id used for the TestCase
+        :param _builtins.str source_phone_number: The source phonenumber of the EntryPoint
+        """
+        if destination_phone_number is not None:
+            pulumi.set(__self__, "destination_phone_number", destination_phone_number)
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+        if source_phone_number is not None:
+            pulumi.set(__self__, "source_phone_number", source_phone_number)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPhoneNumber")
+    def destination_phone_number(self) -> Optional[_builtins.str]:
+        """
+        The destination phonenumber of the EntryPoint
+        """
+        return pulumi.get(self, "destination_phone_number")
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> Optional[_builtins.str]:
+        """
+        The flow id used for the TestCase
+        """
+        return pulumi.get(self, "flow_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePhoneNumber")
+    def source_phone_number(self) -> Optional[_builtins.str]:
+        """
+        The source phonenumber of the EntryPoint
+        """
+        return pulumi.get(self, "source_phone_number")
+
+
+@pulumi.output_type
 class UserAfterContactWorkConfig(dict):
     """
     After Contact Work configuration.
@@ -5241,7 +6065,9 @@ class UserAfterContactWorkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "afterContactWorkTimeLimit":
+        if key == "afterContactWorkMode":
+            suggest = "after_contact_work_mode"
+        elif key == "afterContactWorkTimeLimit":
             suggest = "after_contact_work_time_limit"
 
         if suggest:
@@ -5256,12 +6082,20 @@ class UserAfterContactWorkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 after_contact_work_mode: Optional['UserAfterContactWorkMode'] = None,
                  after_contact_work_time_limit: Optional[_builtins.int] = None):
         """
         After Contact Work configuration.
         """
+        if after_contact_work_mode is not None:
+            pulumi.set(__self__, "after_contact_work_mode", after_contact_work_mode)
         if after_contact_work_time_limit is not None:
             pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkMode")
+    def after_contact_work_mode(self) -> Optional['UserAfterContactWorkMode']:
+        return pulumi.get(self, "after_contact_work_mode")
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")

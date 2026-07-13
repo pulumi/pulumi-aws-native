@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The target configuration for the Smithy model target.
         /// </summary>
         [Output("targetConfiguration")]
-        public Output<Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>> TargetConfiguration { get; private set; } = null!;
+        public Output<object> TargetConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The target ID for the gateway target.
@@ -185,7 +185,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The target configuration for the Smithy model target.
         /// </summary>
         [Input("targetConfiguration", required: true)]
-        public InputUnion<Inputs.GatewayTargetTargetConfiguration0PropertiesArgs, Inputs.GatewayTargetTargetConfiguration1PropertiesArgs> TargetConfiguration { get; set; } = null!;
+        public object TargetConfiguration { get; set; } = null!;
 
         public GatewayTargetArgs()
         {

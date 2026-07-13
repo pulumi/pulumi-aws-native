@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("configuration")]
         public Output<object> Configuration { get; private set; } = null!;
 
+        [Output("contentQualityAnalysisConfiguration")]
+        public Output<Outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties?> ContentQualityAnalysisConfiguration { get; private set; } = null!;
+
+        [Output("contentQualityAnalysisType")]
+        public Output<Pulumi.AwsNative.MediaConnect.RouterInputRouterContentQualityAnalysisType> ContentQualityAnalysisType { get; private set; } = null!;
+
         /// <summary>
         /// The timestamp when the router input was created.
         /// </summary>
@@ -184,6 +190,9 @@ namespace Pulumi.AwsNative.MediaConnect
 
         [Input("configuration", required: true)]
         public object Configuration { get; set; } = null!;
+
+        [Input("contentQualityAnalysisConfiguration")]
+        public Input<Inputs.RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs>? ContentQualityAnalysisConfiguration { get; set; }
 
         /// <summary>
         /// The maintenance configuration settings applied to this router input.

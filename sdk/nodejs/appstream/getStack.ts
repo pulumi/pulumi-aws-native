@@ -30,6 +30,10 @@ export interface GetStackResult {
      */
     readonly accessEndpoints?: outputs.appstream.StackAccessEndpoint[];
     /**
+     * The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+     */
+    readonly agentAccessConfig?: outputs.appstream.StackAgentAccessConfig;
+    /**
      * The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
      */
     readonly applicationSettings?: outputs.appstream.StackApplicationSettings;

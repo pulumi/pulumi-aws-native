@@ -43,6 +43,7 @@ __all__ = [
     'ClusterRemoteNodeNetwork',
     'ClusterRemotePodNetwork',
     'ClusterResourcesVpcConfig',
+    'ClusterRollbackConfig',
     'ClusterStorageConfig',
     'ClusterUpgradePolicy',
     'ClusterZonalShiftConfig',
@@ -1320,6 +1321,47 @@ class ClusterResourcesVpcConfig(dict):
         Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ClusterRollbackConfig(dict):
+    """
+    The rollback configuration to use for the cluster version rollback.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRollbackConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRollbackConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRollbackConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timeout_minutes: Optional[_builtins.int] = None):
+        """
+        The rollback configuration to use for the cluster version rollback.
+
+        :param _builtins.int timeout_minutes: The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+        """
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.int]:
+        """
+        The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+        """
+        return pulumi.get(self, "timeout_minutes")
 
 
 @pulumi.output_type

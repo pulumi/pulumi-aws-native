@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class UserAfterContactWorkConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("afterContactWorkMode")]
+        public Input<Pulumi.AwsNative.Connect.UserAfterContactWorkMode>? AfterContactWorkMode { get; set; }
+
         [Input("afterContactWorkTimeLimit")]
         public Input<int>? AfterContactWorkTimeLimit { get; set; }
 

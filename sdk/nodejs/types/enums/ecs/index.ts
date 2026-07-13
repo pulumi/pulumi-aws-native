@@ -87,6 +87,12 @@ export const CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = {
     Vu9p: "vu9p",
     V100: "v100",
     L40s: "l40s",
+    L4: "l4",
+    GaudiHl205: "gaudi-hl-205",
+    Inferentia2: "inferentia2",
+    Trainium: "trainium",
+    Trainium2: "trainium2",
+    U30: "u30",
 } as const;
 
 export type CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem = (typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem];
@@ -458,6 +464,14 @@ export const ServiceSchedulingStrategy = {
  *   Tasks using the Fargate launch type or the ``CODE_DEPLOY`` or ``EXTERNAL`` deployment controller types don't support the ``DAEMON`` scheduling strategy.
  */
 export type ServiceSchedulingStrategy = (typeof ServiceSchedulingStrategy)[keyof typeof ServiceSchedulingStrategy];
+
+export const ServiceThresholdConfigurationType = {
+    Count: "COUNT",
+    BoundedPercent: "BOUNDED_PERCENT",
+    UnboundedPercent: "UNBOUNDED_PERCENT",
+} as const;
+
+export type ServiceThresholdConfigurationType = (typeof ServiceThresholdConfigurationType)[keyof typeof ServiceThresholdConfigurationType];
 
 export const TaskDefinitionAuthorizationConfigIam = {
     Enabled: "ENABLED",

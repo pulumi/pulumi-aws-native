@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class QuickConnectConfig
     {
+        public readonly Outputs.QuickConnectFlowQuickConnectConfig? FlowConfig;
         /// <summary>
         /// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         /// </summary>
@@ -35,6 +36,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private QuickConnectConfig(
+            Outputs.QuickConnectFlowQuickConnectConfig? flowConfig,
+
             Outputs.QuickConnectPhoneNumberQuickConnectConfig? phoneConfig,
 
             Outputs.QuickConnectQueueQuickConnectConfig? queueConfig,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             Outputs.QuickConnectUserQuickConnectConfig? userConfig)
         {
+            FlowConfig = flowConfig;
             PhoneConfig = phoneConfig;
             QueueConfig = queueConfig;
             QuickConnectType = quickConnectType;

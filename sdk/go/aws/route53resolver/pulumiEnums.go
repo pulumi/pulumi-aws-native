@@ -1366,6 +1366,174 @@ func (in *firewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtr) ToFir
 	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
 }
 
+// The status of the firewall rule.
+type FirewallRuleGroupFirewallRuleStatus string
+
+const (
+	FirewallRuleGroupFirewallRuleStatusComplete       = FirewallRuleGroupFirewallRuleStatus("COMPLETE")
+	FirewallRuleGroupFirewallRuleStatusCreating       = FirewallRuleGroupFirewallRuleStatus("CREATING")
+	FirewallRuleGroupFirewallRuleStatusCreationFailed = FirewallRuleGroupFirewallRuleStatus("CREATION_FAILED")
+)
+
+func (FirewallRuleGroupFirewallRuleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleStatus)(nil)).Elem()
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToFirewallRuleGroupFirewallRuleStatusOutput() FirewallRuleGroupFirewallRuleStatusOutput {
+	return pulumi.ToOutput(e).(FirewallRuleGroupFirewallRuleStatusOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToFirewallRuleGroupFirewallRuleStatusOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupFirewallRuleStatusOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToFirewallRuleGroupFirewallRuleStatusPtrOutput() FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return e.ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return FirewallRuleGroupFirewallRuleStatus(e).ToFirewallRuleGroupFirewallRuleStatusOutputWithContext(ctx).ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(ctx)
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallRuleGroupFirewallRuleStatusOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleStatus)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToFirewallRuleGroupFirewallRuleStatusOutput() FirewallRuleGroupFirewallRuleStatusOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToFirewallRuleGroupFirewallRuleStatusOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToFirewallRuleGroupFirewallRuleStatusPtrOutput() FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return o.ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallRuleStatus) *FirewallRuleGroupFirewallRuleStatus {
+		return &v
+	}).(FirewallRuleGroupFirewallRuleStatusPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallRuleGroupFirewallRuleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleStatus)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusPtrOutput) ToFirewallRuleGroupFirewallRuleStatusPtrOutput() FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusPtrOutput) ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusPtrOutput) Elem() FirewallRuleGroupFirewallRuleStatusOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleStatus) FirewallRuleGroupFirewallRuleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallRuleStatus
+		return ret
+	}).(FirewallRuleGroupFirewallRuleStatusOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallRuleGroupFirewallRuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallRuleGroupFirewallRuleStatusInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleStatus enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleStatusInput` can be one of the following:
+//
+//	FirewallRuleGroupFirewallRuleStatusComplete
+//	FirewallRuleGroupFirewallRuleStatusCreating
+//	FirewallRuleGroupFirewallRuleStatusCreationFailed
+type FirewallRuleGroupFirewallRuleStatusInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleStatusOutput() FirewallRuleGroupFirewallRuleStatusOutput
+	ToFirewallRuleGroupFirewallRuleStatusOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleStatusOutput
+}
+
+var firewallRuleGroupFirewallRuleStatusPtrType = reflect.TypeOf((**FirewallRuleGroupFirewallRuleStatus)(nil)).Elem()
+
+type FirewallRuleGroupFirewallRuleStatusPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleStatusPtrOutput() FirewallRuleGroupFirewallRuleStatusPtrOutput
+	ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleStatusPtrOutput
+}
+
+type firewallRuleGroupFirewallRuleStatusPtr string
+
+func FirewallRuleGroupFirewallRuleStatusPtr(v string) FirewallRuleGroupFirewallRuleStatusPtrInput {
+	return (*firewallRuleGroupFirewallRuleStatusPtr)(&v)
+}
+
+func (*firewallRuleGroupFirewallRuleStatusPtr) ElementType() reflect.Type {
+	return firewallRuleGroupFirewallRuleStatusPtrType
+}
+
+func (in *firewallRuleGroupFirewallRuleStatusPtr) ToFirewallRuleGroupFirewallRuleStatusPtrOutput() FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return pulumi.ToOutput(in).(FirewallRuleGroupFirewallRuleStatusPtrOutput)
+}
+
+func (in *firewallRuleGroupFirewallRuleStatusPtr) ToFirewallRuleGroupFirewallRuleStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleStatusPtrOutput)
+}
+
 // ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
 type FirewallRuleGroupShareStatus string
 
@@ -2888,6 +3056,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleStatusInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleStatus("COMPLETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleStatusPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleStatus("COMPLETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointTypeInput)(nil)).Elem(), ResolverEndpointType("IPV6"))
@@ -2914,6 +3084,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleStatusOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupStatusOutput{})

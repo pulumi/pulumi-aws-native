@@ -18,15 +18,19 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
     {
         public readonly Outputs.FirewallRuleGroupFirewallAdvancedContentCategoryConfig? FirewallAdvancedContentCategory;
         public readonly Outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig? FirewallAdvancedThreatCategory;
+        public readonly Outputs.FirewallRuleGroupPartnerThreatProtectionConfig? PartnerThreatProtection;
 
         [OutputConstructor]
         private FirewallRuleGroupFirewallRuleType(
             Outputs.FirewallRuleGroupFirewallAdvancedContentCategoryConfig? firewallAdvancedContentCategory,
 
-            Outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig? firewallAdvancedThreatCategory)
+            Outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig? firewallAdvancedThreatCategory,
+
+            Outputs.FirewallRuleGroupPartnerThreatProtectionConfig? partnerThreatProtection)
         {
             FirewallAdvancedContentCategory = firewallAdvancedContentCategory;
             FirewallAdvancedThreatCategory = firewallAdvancedThreatCategory;
+            PartnerThreatProtection = partnerThreatProtection;
         }
     }
 }

@@ -18,6 +18,10 @@ __all__ = [
     'MultiplexState',
     'MultiplexprogramPreferredChannelPipeline',
     'NetworkState',
+    'NodeConnectionState',
+    'NodeInterfaceMappingNetworkInterfaceMode',
+    'NodeRole',
+    'NodeState',
     'SdiSourceMode',
     'SdiSourceState',
     'SdiSourceType',
@@ -173,6 +177,52 @@ class NetworkState(_builtins.str, Enum):
     UPDATING = "UPDATING"
     DELETED = "DELETED"
     DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:medialive:NodeConnectionState")
+class NodeConnectionState(_builtins.str, Enum):
+    """
+    The current connection state of the Node.
+    """
+    CONNECTED = "CONNECTED"
+    DISCONNECTED = "DISCONNECTED"
+
+
+@pulumi.type_token("aws-native:medialive:NodeInterfaceMappingNetworkInterfaceMode")
+class NodeInterfaceMappingNetworkInterfaceMode(_builtins.str, Enum):
+    """
+    The network interface mode.
+    """
+    NAT = "NAT"
+    BRIDGE = "BRIDGE"
+
+
+@pulumi.type_token("aws-native:medialive:NodeRole")
+class NodeRole(_builtins.str, Enum):
+    """
+    The role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+    """
+    BACKUP = "BACKUP"
+    ACTIVE = "ACTIVE"
+
+
+@pulumi.type_token("aws-native:medialive:NodeState")
+class NodeState(_builtins.str, Enum):
+    """
+    The current state of the Node.
+    """
+    CREATED = "CREATED"
+    REGISTERING = "REGISTERING"
+    READY_TO_ACTIVATE = "READY_TO_ACTIVATE"
+    REGISTRATION_FAILED = "REGISTRATION_FAILED"
+    ACTIVATION_FAILED = "ACTIVATION_FAILED"
+    ACTIVE = "ACTIVE"
+    READY = "READY"
+    IN_USE = "IN_USE"
+    DEREGISTERING = "DEREGISTERING"
+    DRAINING = "DRAINING"
+    DEREGISTRATION_FAILED = "DEREGISTRATION_FAILED"
+    DEREGISTERED = "DEREGISTERED"
 
 
 @pulumi.type_token("aws-native:medialive:SdiSourceMode")

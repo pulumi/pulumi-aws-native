@@ -1,0 +1,25 @@
+{
+  "typeName" : "AWS::Route53Resolver::FirewallConfig",
+  "description" : "Resource Type definition for AWS::Route53Resolver::FirewallConfig",
+  "additionalProperties" : false,
+  "properties" : {
+    "Id" : {
+      "type" : "string"
+    },
+    "OwnerId" : {
+      "type" : "string"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "ResourceId" : {
+      "type" : "string"
+    },
+    "FirewallFailOpen" : {
+      "type" : "string"
+    }
+  },
+  "createOnlyProperties" : [ "/properties/ResourceId", "/properties/FirewallFailOpen" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/OwnerId" ]
+}

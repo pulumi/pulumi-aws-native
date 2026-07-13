@@ -163,7 +163,7 @@
   "additionalIdentifiers" : [ [ "/properties/Name" ], [ "/properties/Arn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "aoss:CreateCollection", "aoss:BatchGetCollection", "aoss:AddCollectionToCollectionGroup", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey" ]
+      "permissions" : [ "aoss:CreateCollection", "aoss:BatchGetCollection", "aoss:AddCollectionToCollectionGroup", "aoss:TagResource", "iam:CreateServiceLinkedRole", "kms:CreateGrant", "kms:DescribeKey" ]
     },
     "delete" : {
       "permissions" : [ "aoss:DeleteCollection", "aoss:BatchGetCollection" ]
@@ -172,7 +172,7 @@
       "permissions" : [ "aoss:ListCollections" ]
     },
     "read" : {
-      "permissions" : [ "aoss:BatchGetCollection" ]
+      "permissions" : [ "aoss:BatchGetCollection", "aoss:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "aoss:UpdateCollection", "aoss:BatchGetCollection" ]

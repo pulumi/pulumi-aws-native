@@ -55,6 +55,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
+        /// The scoring configuration of the question.
+        /// </summary>
+        [Input("scoringConfiguration")]
+        public Input<Inputs.EvaluationFormQuestionScoringConfigurationArgs>? ScoringConfiguration { get; set; }
+
+        /// <summary>
         /// The title of the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 350.
         /// </summary>

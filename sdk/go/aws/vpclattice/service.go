@@ -32,7 +32,8 @@ type Service struct {
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
 	// Describes the DNS information of the service. This field is read-only.
-	DnsEntry ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
+	DnsEntry           ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
+	IdleTimeoutSeconds pulumi.IntPtrOutput      `pulumi:"idleTimeoutSeconds"`
 	// The date and time that the service was last updated, specified in ISO-8601 format.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
@@ -100,7 +101,8 @@ type serviceArgs struct {
 	// The custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
 	// Describes the DNS information of the service. This field is read-only.
-	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
+	DnsEntry           *ServiceDnsEntry `pulumi:"dnsEntry"`
+	IdleTimeoutSeconds *int             `pulumi:"idleTimeoutSeconds"`
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
@@ -121,7 +123,8 @@ type ServiceArgs struct {
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
 	// Describes the DNS information of the service. This field is read-only.
-	DnsEntry ServiceDnsEntryPtrInput
+	DnsEntry           ServiceDnsEntryPtrInput
+	IdleTimeoutSeconds pulumi.IntPtrInput
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
@@ -203,6 +206,10 @@ func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 // Describes the DNS information of the service. This field is read-only.
 func (o ServiceOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryPtrOutput { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
+}
+
+func (o ServiceOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntPtrOutput { return v.IdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The date and time that the service was last updated, specified in ISO-8601 format.

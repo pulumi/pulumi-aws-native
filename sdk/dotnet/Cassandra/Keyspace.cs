@@ -61,9 +61,9 @@ namespace Pulumi.AwsNative.Cassandra
     ///             ReplicationStrategy = AwsNative.Cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MultiRegion,
     ///             RegionList = new[]
     ///             {
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.UsEast1,
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.UsWest2,
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.EuWest1,
+    ///                 "us-east-1",
+    ///                 "us-west-2",
+    ///                 "eu-west-1",
     ///             },
     ///         },
     ///     });
@@ -89,9 +89,9 @@ namespace Pulumi.AwsNative.Cassandra
     ///             ReplicationStrategy = AwsNative.Cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MultiRegion,
     ///             RegionList = new[]
     ///             {
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.UsEast1,
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.UsWest2,
-    ///                 AwsNative.Cassandra.KeyspaceRegionListItem.EuWest1,
+    ///                 "us-east-1",
+    ///                 "us-west-2",
+    ///                 "eu-west-1",
     ///             },
     ///         },
     ///     });

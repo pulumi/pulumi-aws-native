@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetConformancePackResult',
@@ -24,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConformancePackResult:
-    def __init__(__self__, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None):
+    def __init__(__self__, conformance_pack_arn=None, conformance_pack_input_parameters=None, delivery_s3_bucket=None, delivery_s3_key_prefix=None, tags=None):
+        if conformance_pack_arn and not isinstance(conformance_pack_arn, str):
+            raise TypeError("Expected argument 'conformance_pack_arn' to be a str")
+        pulumi.set(__self__, "conformance_pack_arn", conformance_pack_arn)
         if conformance_pack_input_parameters and not isinstance(conformance_pack_input_parameters, list):
             raise TypeError("Expected argument 'conformance_pack_input_parameters' to be a list")
         pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
@@ -34,6 +38,17 @@ class GetConformancePackResult:
         if delivery_s3_key_prefix and not isinstance(delivery_s3_key_prefix, str):
             raise TypeError("Expected argument 'delivery_s3_key_prefix' to be a str")
         pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="conformancePackArn")
+    def conformance_pack_arn(self) -> Optional[_builtins.str]:
+        """
+        Amazon Resource Name (ARN) of the conformance pack.
+        """
+        return pulumi.get(self, "conformance_pack_arn")
 
     @_builtins.property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -59,6 +74,14 @@ class GetConformancePackResult:
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the conformance pack.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetConformancePackResult(GetConformancePackResult):
     # pylint: disable=using-constant-test
@@ -66,9 +89,11 @@ class AwaitableGetConformancePackResult(GetConformancePackResult):
         if False:
             yield self
         return GetConformancePackResult(
+            conformance_pack_arn=self.conformance_pack_arn,
             conformance_pack_input_parameters=self.conformance_pack_input_parameters,
             delivery_s3_bucket=self.delivery_s3_bucket,
-            delivery_s3_key_prefix=self.delivery_s3_key_prefix)
+            delivery_s3_key_prefix=self.delivery_s3_key_prefix,
+            tags=self.tags)
 
 
 def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
@@ -85,9 +110,11 @@ def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getConformancePack', __args__, opts=opts, typ=GetConformancePackResult).value
 
     return AwaitableGetConformancePackResult(
+        conformance_pack_arn=pulumi.get(__ret__, 'conformance_pack_arn'),
         conformance_pack_input_parameters=pulumi.get(__ret__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
-        delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'))
+        delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConformancePackResult]:
     """
@@ -101,6 +128,8 @@ def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[_bu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConformancePack', __args__, opts=opts, typ=GetConformancePackResult)
     return __ret__.apply(lambda __response__: GetConformancePackResult(
+        conformance_pack_arn=pulumi.get(__response__, 'conformance_pack_arn'),
         conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),
         delivery_s3_bucket=pulumi.get(__response__, 'delivery_s3_bucket'),
-        delivery_s3_key_prefix=pulumi.get(__response__, 'delivery_s3_key_prefix')))
+        delivery_s3_key_prefix=pulumi.get(__response__, 'delivery_s3_key_prefix'),
+        tags=pulumi.get(__response__, 'tags')))

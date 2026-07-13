@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         ///  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyMode Mode;
+        public readonly ImmutableArray<Outputs.EvaluationFormScoreThreshold> ScoreThresholds;
         /// <summary>
         /// The scoring status of the evaluation form.
         ///  *Allowed values*: ``ENABLED`` | ``DISABLED``
@@ -31,9 +32,12 @@ namespace Pulumi.AwsNative.Connect.Outputs
         private EvaluationFormScoringStrategy(
             Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyMode mode,
 
+            ImmutableArray<Outputs.EvaluationFormScoreThreshold> scoreThresholds,
+
             Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyStatus status)
         {
             Mode = mode;
+            ScoreThresholds = scoreThresholds;
             Status = status;
         }
     }

@@ -1362,6 +1362,236 @@ func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) Confo
 	}).(ConformancePackInputParameterOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ConformancePackTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// Configuration for connecting to Microsoft Azure.
+type ConnectorAzureConnectorConfiguration struct {
+	// The Azure client (application) identifier.
+	ClientIdentifier string `pulumi:"clientIdentifier"`
+	// The Azure tenant identifier.
+	TenantIdentifier string `pulumi:"tenantIdentifier"`
+}
+
+// ConnectorAzureConnectorConfigurationInput is an input type that accepts ConnectorAzureConnectorConfigurationArgs and ConnectorAzureConnectorConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorAzureConnectorConfigurationInput` via:
+//
+//	ConnectorAzureConnectorConfigurationArgs{...}
+type ConnectorAzureConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorAzureConnectorConfigurationOutput() ConnectorAzureConnectorConfigurationOutput
+	ToConnectorAzureConnectorConfigurationOutputWithContext(context.Context) ConnectorAzureConnectorConfigurationOutput
+}
+
+// Configuration for connecting to Microsoft Azure.
+type ConnectorAzureConnectorConfigurationArgs struct {
+	// The Azure client (application) identifier.
+	ClientIdentifier pulumi.StringInput `pulumi:"clientIdentifier"`
+	// The Azure tenant identifier.
+	TenantIdentifier pulumi.StringInput `pulumi:"tenantIdentifier"`
+}
+
+func (ConnectorAzureConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureConnectorConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorAzureConnectorConfigurationArgs) ToConnectorAzureConnectorConfigurationOutput() ConnectorAzureConnectorConfigurationOutput {
+	return i.ToConnectorAzureConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureConnectorConfigurationArgs) ToConnectorAzureConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureConnectorConfigurationOutput)
+}
+
+func (i ConnectorAzureConnectorConfigurationArgs) ToConnectorAzureConnectorConfigurationPtrOutput() ConnectorAzureConnectorConfigurationPtrOutput {
+	return i.ToConnectorAzureConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureConnectorConfigurationArgs) ToConnectorAzureConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureConnectorConfigurationOutput).ToConnectorAzureConnectorConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectorAzureConnectorConfigurationPtrInput is an input type that accepts ConnectorAzureConnectorConfigurationArgs, ConnectorAzureConnectorConfigurationPtr and ConnectorAzureConnectorConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectorAzureConnectorConfigurationPtrInput` via:
+//
+//	        ConnectorAzureConnectorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectorAzureConnectorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectorAzureConnectorConfigurationPtrOutput() ConnectorAzureConnectorConfigurationPtrOutput
+	ToConnectorAzureConnectorConfigurationPtrOutputWithContext(context.Context) ConnectorAzureConnectorConfigurationPtrOutput
+}
+
+type connectorAzureConnectorConfigurationPtrType ConnectorAzureConnectorConfigurationArgs
+
+func ConnectorAzureConnectorConfigurationPtr(v *ConnectorAzureConnectorConfigurationArgs) ConnectorAzureConnectorConfigurationPtrInput {
+	return (*connectorAzureConnectorConfigurationPtrType)(v)
+}
+
+func (*connectorAzureConnectorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureConnectorConfiguration)(nil)).Elem()
+}
+
+func (i *connectorAzureConnectorConfigurationPtrType) ToConnectorAzureConnectorConfigurationPtrOutput() ConnectorAzureConnectorConfigurationPtrOutput {
+	return i.ToConnectorAzureConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectorAzureConnectorConfigurationPtrType) ToConnectorAzureConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureConnectorConfigurationPtrOutput)
+}
+
+// Configuration for connecting to Microsoft Azure.
+type ConnectorAzureConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureConnectorConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureConnectorConfigurationOutput) ToConnectorAzureConnectorConfigurationOutput() ConnectorAzureConnectorConfigurationOutput {
+	return o
+}
+
+func (o ConnectorAzureConnectorConfigurationOutput) ToConnectorAzureConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationOutput {
+	return o
+}
+
+func (o ConnectorAzureConnectorConfigurationOutput) ToConnectorAzureConnectorConfigurationPtrOutput() ConnectorAzureConnectorConfigurationPtrOutput {
+	return o.ToConnectorAzureConnectorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorAzureConnectorConfigurationOutput) ToConnectorAzureConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAzureConnectorConfiguration) *ConnectorAzureConnectorConfiguration {
+		return &v
+	}).(ConnectorAzureConnectorConfigurationPtrOutput)
+}
+
+// The Azure client (application) identifier.
+func (o ConnectorAzureConnectorConfigurationOutput) ClientIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAzureConnectorConfiguration) string { return v.ClientIdentifier }).(pulumi.StringOutput)
+}
+
+// The Azure tenant identifier.
+func (o ConnectorAzureConnectorConfigurationOutput) TenantIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAzureConnectorConfiguration) string { return v.TenantIdentifier }).(pulumi.StringOutput)
+}
+
+type ConnectorAzureConnectorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureConnectorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureConnectorConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureConnectorConfigurationPtrOutput) ToConnectorAzureConnectorConfigurationPtrOutput() ConnectorAzureConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureConnectorConfigurationPtrOutput) ToConnectorAzureConnectorConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureConnectorConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureConnectorConfigurationPtrOutput) Elem() ConnectorAzureConnectorConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorAzureConnectorConfiguration) ConnectorAzureConnectorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAzureConnectorConfiguration
+		return ret
+	}).(ConnectorAzureConnectorConfigurationOutput)
+}
+
+// The Azure client (application) identifier.
+func (o ConnectorAzureConnectorConfigurationPtrOutput) ClientIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureConnectorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure tenant identifier.
+func (o ConnectorAzureConnectorConfigurationPtrOutput) TenantIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureConnectorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the connector. Specify the third-party cloud provider configuration.
+type ConnectorConfiguration struct {
+	// The configuration for connecting to Microsoft Azure.
+	Azure *ConnectorAzureConnectorConfiguration `pulumi:"azure"`
+}
+
+// ConnectorConfigurationInput is an input type that accepts ConnectorConfigurationArgs and ConnectorConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorConfigurationInput` via:
+//
+//	ConnectorConfigurationArgs{...}
+type ConnectorConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorConfigurationOutput() ConnectorConfigurationOutput
+	ToConnectorConfigurationOutputWithContext(context.Context) ConnectorConfigurationOutput
+}
+
+// The configuration for the connector. Specify the third-party cloud provider configuration.
+type ConnectorConfigurationArgs struct {
+	// The configuration for connecting to Microsoft Azure.
+	Azure ConnectorAzureConnectorConfigurationPtrInput `pulumi:"azure"`
+}
+
+func (ConnectorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorConfigurationArgs) ToConnectorConfigurationOutput() ConnectorConfigurationOutput {
+	return i.ToConnectorConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorConfigurationArgs) ToConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorConfigurationOutput)
+}
+
+// The configuration for the connector. Specify the third-party cloud provider configuration.
+type ConnectorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorConfigurationOutput) ToConnectorConfigurationOutput() ConnectorConfigurationOutput {
+	return o
+}
+
+func (o ConnectorConfigurationOutput) ToConnectorConfigurationOutputWithContext(ctx context.Context) ConnectorConfigurationOutput {
+	return o
+}
+
+// The configuration for connecting to Microsoft Azure.
+func (o ConnectorConfigurationOutput) Azure() ConnectorAzureConnectorConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectorConfiguration) *ConnectorAzureConnectorConfiguration { return v.Azure }).(ConnectorAzureConnectorConfigurationPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConnectorTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+	Value string `pulumi:"value"`
+}
+
 // Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameter struct {
 	// One part of a key-value pair.
@@ -1959,6 +2189,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorOrganizationAggregationSourcePtrInput)(nil)).Elem(), ConfigurationAggregatorOrganizationAggregationSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterInput)(nil)).Elem(), ConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterArrayInput)(nil)).Elem(), ConformancePackInputParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureConnectorConfigurationPtrInput)(nil)).Elem(), ConnectorAzureConnectorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorConfigurationInput)(nil)).Elem(), ConnectorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackConformancePackInputParameterArrayInput)(nil)).Elem(), OrganizationConformancePackConformancePackInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationExecutionControlsInput)(nil)).Elem(), RemediationConfigurationExecutionControlsArgs{})
@@ -1985,6 +2218,9 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureConnectorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationExecutionControlsOutput{})

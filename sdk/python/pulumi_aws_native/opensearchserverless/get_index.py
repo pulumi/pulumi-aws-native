@@ -76,7 +76,7 @@ def get_index(collection_endpoint: Optional[_builtins.str] = None,
               index_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
-    An OpenSearch Serverless index resource
+    Resource Type definition for AWS::OpenSearchServerless::Index
 
 
     :param _builtins.str collection_endpoint: The endpoint for the collection.
@@ -96,7 +96,7 @@ def get_index_output(collection_endpoint: Optional[pulumi.Input[_builtins.str]] 
                      index_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
-    An OpenSearch Serverless index resource
+    Resource Type definition for AWS::OpenSearchServerless::Index
 
 
     :param _builtins.str collection_endpoint: The endpoint for the collection.

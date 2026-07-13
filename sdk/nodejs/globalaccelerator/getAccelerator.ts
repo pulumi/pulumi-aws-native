@@ -42,6 +42,18 @@ export interface GetAcceleratorResult {
      */
     readonly enabled?: boolean;
     /**
+     * Indicates whether flow logs are enabled for the accelerator.
+     */
+    readonly flowLogsEnabled?: boolean;
+    /**
+     * The name of the Amazon S3 bucket for the flow logs.
+     */
+    readonly flowLogsS3Bucket?: string;
+    /**
+     * The prefix for the location in the Amazon S3 bucket for the flow logs.
+     */
+    readonly flowLogsS3Prefix?: string;
+    /**
      * IP Address type.
      */
     readonly ipAddressType?: enums.globalaccelerator.AcceleratorIpAddressType;

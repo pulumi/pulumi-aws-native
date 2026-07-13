@@ -68,6 +68,8 @@ __all__ = [
     'ClusterRemotePodNetworkArgsDict',
     'ClusterResourcesVpcConfigArgs',
     'ClusterResourcesVpcConfigArgsDict',
+    'ClusterRollbackConfigArgs',
+    'ClusterRollbackConfigArgsDict',
     'ClusterStorageConfigArgs',
     'ClusterStorageConfigArgsDict',
     'ClusterUpgradePolicyArgs',
@@ -1529,6 +1531,40 @@ class ClusterResourcesVpcConfigArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+
+class ClusterRollbackConfigArgsDict(TypedDict):
+    """
+    The rollback configuration to use for the cluster version rollback.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+    """
+
+@pulumi.input_type
+class ClusterRollbackConfigArgs:
+    def __init__(__self__, *,
+                 timeout_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        The rollback configuration to use for the cluster version rollback.
+
+        :param pulumi.Input[_builtins.int] timeout_minutes: The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+        """
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+        """
+        return pulumi.get(self, "timeout_minutes")
+
+    @timeout_minutes.setter
+    def timeout_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "timeout_minutes", value)
 
 
 class ClusterStorageConfigArgsDict(TypedDict):

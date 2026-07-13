@@ -7,6 +7,121 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.SageMaker
 {
+    [EnumType]
+    public readonly struct AlgorithmChannelSpecificationSupportedCompressionTypesItem : IEquatable<AlgorithmChannelSpecificationSupportedCompressionTypesItem>
+    {
+        private readonly string _value;
+
+        private AlgorithmChannelSpecificationSupportedCompressionTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlgorithmChannelSpecificationSupportedCompressionTypesItem None { get; } = new AlgorithmChannelSpecificationSupportedCompressionTypesItem("None");
+        public static AlgorithmChannelSpecificationSupportedCompressionTypesItem Gzip { get; } = new AlgorithmChannelSpecificationSupportedCompressionTypesItem("Gzip");
+
+        public static bool operator ==(AlgorithmChannelSpecificationSupportedCompressionTypesItem left, AlgorithmChannelSpecificationSupportedCompressionTypesItem right) => left.Equals(right);
+        public static bool operator !=(AlgorithmChannelSpecificationSupportedCompressionTypesItem left, AlgorithmChannelSpecificationSupportedCompressionTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(AlgorithmChannelSpecificationSupportedCompressionTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlgorithmChannelSpecificationSupportedCompressionTypesItem other && Equals(other);
+        public bool Equals(AlgorithmChannelSpecificationSupportedCompressionTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AlgorithmChannelSpecificationSupportedInputModesItem : IEquatable<AlgorithmChannelSpecificationSupportedInputModesItem>
+    {
+        private readonly string _value;
+
+        private AlgorithmChannelSpecificationSupportedInputModesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlgorithmChannelSpecificationSupportedInputModesItem Pipe { get; } = new AlgorithmChannelSpecificationSupportedInputModesItem("Pipe");
+        public static AlgorithmChannelSpecificationSupportedInputModesItem File { get; } = new AlgorithmChannelSpecificationSupportedInputModesItem("File");
+        public static AlgorithmChannelSpecificationSupportedInputModesItem FastFile { get; } = new AlgorithmChannelSpecificationSupportedInputModesItem("FastFile");
+
+        public static bool operator ==(AlgorithmChannelSpecificationSupportedInputModesItem left, AlgorithmChannelSpecificationSupportedInputModesItem right) => left.Equals(right);
+        public static bool operator !=(AlgorithmChannelSpecificationSupportedInputModesItem left, AlgorithmChannelSpecificationSupportedInputModesItem right) => !left.Equals(right);
+
+        public static explicit operator string(AlgorithmChannelSpecificationSupportedInputModesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlgorithmChannelSpecificationSupportedInputModesItem other && Equals(other);
+        public bool Equals(AlgorithmChannelSpecificationSupportedInputModesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AlgorithmHyperParameterSpecificationType : IEquatable<AlgorithmHyperParameterSpecificationType>
+    {
+        private readonly string _value;
+
+        private AlgorithmHyperParameterSpecificationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlgorithmHyperParameterSpecificationType Integer { get; } = new AlgorithmHyperParameterSpecificationType("Integer");
+        public static AlgorithmHyperParameterSpecificationType Continuous { get; } = new AlgorithmHyperParameterSpecificationType("Continuous");
+        public static AlgorithmHyperParameterSpecificationType Categorical { get; } = new AlgorithmHyperParameterSpecificationType("Categorical");
+        public static AlgorithmHyperParameterSpecificationType FreeText { get; } = new AlgorithmHyperParameterSpecificationType("FreeText");
+
+        public static bool operator ==(AlgorithmHyperParameterSpecificationType left, AlgorithmHyperParameterSpecificationType right) => left.Equals(right);
+        public static bool operator !=(AlgorithmHyperParameterSpecificationType left, AlgorithmHyperParameterSpecificationType right) => !left.Equals(right);
+
+        public static explicit operator string(AlgorithmHyperParameterSpecificationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlgorithmHyperParameterSpecificationType other && Equals(other);
+        public bool Equals(AlgorithmHyperParameterSpecificationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AlgorithmHyperParameterTuningJobObjectiveType : IEquatable<AlgorithmHyperParameterTuningJobObjectiveType>
+    {
+        private readonly string _value;
+
+        private AlgorithmHyperParameterTuningJobObjectiveType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AlgorithmHyperParameterTuningJobObjectiveType Maximize { get; } = new AlgorithmHyperParameterTuningJobObjectiveType("Maximize");
+        public static AlgorithmHyperParameterTuningJobObjectiveType Minimize { get; } = new AlgorithmHyperParameterTuningJobObjectiveType("Minimize");
+
+        public static bool operator ==(AlgorithmHyperParameterTuningJobObjectiveType left, AlgorithmHyperParameterTuningJobObjectiveType right) => left.Equals(right);
+        public static bool operator !=(AlgorithmHyperParameterTuningJobObjectiveType left, AlgorithmHyperParameterTuningJobObjectiveType right) => !left.Equals(right);
+
+        public static explicit operator string(AlgorithmHyperParameterTuningJobObjectiveType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlgorithmHyperParameterTuningJobObjectiveType other && Equals(other);
+        public bool Equals(AlgorithmHyperParameterTuningJobObjectiveType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The instance type that the image version runs on.
     /// </summary>
@@ -1663,6 +1778,42 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeatureGroupUnit other && Equals(other);
         public bool Equals(FeatureGroupUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the hub.
+    /// </summary>
+    [EnumType]
+    public readonly struct HubStatus : IEquatable<HubStatus>
+    {
+        private readonly string _value;
+
+        private HubStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HubStatus InService { get; } = new HubStatus("InService");
+        public static HubStatus Creating { get; } = new HubStatus("Creating");
+        public static HubStatus Updating { get; } = new HubStatus("Updating");
+        public static HubStatus Deleting { get; } = new HubStatus("Deleting");
+        public static HubStatus CreateFailed { get; } = new HubStatus("CreateFailed");
+        public static HubStatus UpdateFailed { get; } = new HubStatus("UpdateFailed");
+        public static HubStatus DeleteFailed { get; } = new HubStatus("DeleteFailed");
+
+        public static bool operator ==(HubStatus left, HubStatus right) => left.Equals(right);
+        public static bool operator !=(HubStatus left, HubStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HubStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HubStatus other && Equals(other);
+        public bool Equals(HubStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

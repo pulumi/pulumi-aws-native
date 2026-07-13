@@ -19,14 +19,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// The ARN of the model used to create vector embeddings for the knowledge base.
         /// </summary>
-        public readonly string EmbeddingModelArn;
+        public readonly string? EmbeddingModelArn;
         public readonly Outputs.KnowledgeBaseEmbeddingModelConfiguration? EmbeddingModelConfiguration;
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseEmbeddingModelType? EmbeddingModelType;
         public readonly Outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
 
         [OutputConstructor]
         private KnowledgeBaseManagedKnowledgeBaseConfiguration(
-            string embeddingModelArn,
+            string? embeddingModelArn,
 
             Outputs.KnowledgeBaseEmbeddingModelConfiguration? embeddingModelConfiguration,
 

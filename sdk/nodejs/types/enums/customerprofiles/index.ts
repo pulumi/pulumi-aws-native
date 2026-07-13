@@ -172,6 +172,7 @@ export const EventTriggerObjectAttributeComparisonOperator = {
 export type EventTriggerObjectAttributeComparisonOperator = (typeof EventTriggerObjectAttributeComparisonOperator)[keyof typeof EventTriggerObjectAttributeComparisonOperator];
 
 export const EventTriggerPeriodUnit = {
+    Minutes: "MINUTES",
     Hours: "HOURS",
     Days: "DAYS",
     Weeks: "WEEKS",

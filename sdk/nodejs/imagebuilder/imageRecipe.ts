@@ -46,6 +46,10 @@ export class ImageRecipe extends pulumi.CustomResource {
      */
     declare public readonly amiTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+     */
+    declare public readonly amiWatermarks: pulumi.Output<string[] | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the image recipe.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             }
             resourceInputs["additionalInstanceConfiguration"] = args?.additionalInstanceConfiguration;
             resourceInputs["amiTags"] = args?.amiTags;
+            resourceInputs["amiWatermarks"] = args?.amiWatermarks;
             resourceInputs["blockDeviceMappings"] = args?.blockDeviceMappings;
             resourceInputs["components"] = args?.components;
             resourceInputs["description"] = args?.description;
@@ -118,6 +123,7 @@ export class ImageRecipe extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;
             resourceInputs["amiTags"] = undefined /*out*/;
+            resourceInputs["amiWatermarks"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["components"] = undefined /*out*/;
@@ -130,7 +136,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["workingDirectory"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalInstanceConfiguration", "amiTags.*", "amiWatermarks[*]", "blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
     }
@@ -148,6 +154,10 @@ export interface ImageRecipeArgs {
      * The tags to apply to the AMI created by this image recipe.
      */
     amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+     */
+    amiWatermarks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The block device mappings to apply when creating images from this recipe.
      */

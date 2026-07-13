@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Ecs
         /// The ARN of the task execution role for the service revision.
         /// </summary>
         [Output("executionRoleArn")]
-        public Output<string> ExecutionRoleArn { get; private set; } = null!;
+        public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The health check path for this service revision.
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ecs
         /// The primary container configuration for this service revision.
         /// </summary>
         [Output("primaryContainer")]
-        public Output<Outputs.ExpressGatewayServiceExpressGatewayContainer> PrimaryContainer { get; private set; } = null!;
+        public Output<Outputs.ExpressGatewayServiceExpressGatewayContainer?> PrimaryContainer { get; private set; } = null!;
 
         /// <summary>
         /// The auto-scaling configuration for this service revision.
@@ -110,6 +110,9 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
+        [Output("taskDefinitionArn")]
+        public Output<string?> TaskDefinitionArn { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the task role for the service revision.
@@ -190,8 +193,8 @@ namespace Pulumi.AwsNative.Ecs
         /// <summary>
         /// The ARN of the task execution role for the service revision.
         /// </summary>
-        [Input("executionRoleArn", required: true)]
-        public Input<string> ExecutionRoleArn { get; set; } = null!;
+        [Input("executionRoleArn")]
+        public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
         /// The health check path for this service revision.
@@ -220,8 +223,8 @@ namespace Pulumi.AwsNative.Ecs
         /// <summary>
         /// The primary container configuration for this service revision.
         /// </summary>
-        [Input("primaryContainer", required: true)]
-        public Input<Inputs.ExpressGatewayServiceExpressGatewayContainerArgs> PrimaryContainer { get; set; } = null!;
+        [Input("primaryContainer")]
+        public Input<Inputs.ExpressGatewayServiceExpressGatewayContainerArgs>? PrimaryContainer { get; set; }
 
         /// <summary>
         /// The auto-scaling configuration for this service revision.
@@ -246,6 +249,9 @@ namespace Pulumi.AwsNative.Ecs
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
+
+        [Input("taskDefinitionArn")]
+        public Input<string>? TaskDefinitionArn { get; set; }
 
         /// <summary>
         /// The ARN of the task role for the service revision.

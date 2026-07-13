@@ -35,6 +35,11 @@ export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
 utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
 
+export { FlowArgs } from "./flow";
+export type Flow = import("./flow").Flow;
+export const Flow: typeof import("./flow").Flow = null as any;
+utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
+
 export { FolderArgs } from "./folder";
 export type Folder = import("./folder").Folder;
 export const Folder: typeof import("./folder").Folder = null as any;
@@ -70,10 +75,20 @@ export const getDataSource: typeof import("./getDataSource").getDataSource = nul
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
+export { GetFlowArgs, GetFlowResult, GetFlowOutputArgs } from "./getFlow";
+export const getFlow: typeof import("./getFlow").getFlow = null as any;
+export const getFlowOutput: typeof import("./getFlow").getFlowOutput = null as any;
+utilities.lazyLoad(exports, ["getFlow","getFlowOutput"], () => require("./getFlow"));
+
 export { GetFolderArgs, GetFolderResult, GetFolderOutputArgs } from "./getFolder";
 export const getFolder: typeof import("./getFolder").getFolder = null as any;
 export const getFolderOutput: typeof import("./getFolder").getFolderOutput = null as any;
 utilities.lazyLoad(exports, ["getFolder","getFolderOutput"], () => require("./getFolder"));
+
+export { GetOAuthClientApplicationArgs, GetOAuthClientApplicationResult, GetOAuthClientApplicationOutputArgs } from "./getOAuthClientApplication";
+export const getOAuthClientApplication: typeof import("./getOAuthClientApplication").getOAuthClientApplication = null as any;
+export const getOAuthClientApplicationOutput: typeof import("./getOAuthClientApplication").getOAuthClientApplicationOutput = null as any;
+utilities.lazyLoad(exports, ["getOAuthClientApplication","getOAuthClientApplicationOutput"], () => require("./getOAuthClientApplication"));
 
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
@@ -94,6 +109,11 @@ export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArg
 export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
 export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
+
+export { OAuthClientApplicationArgs } from "./oauthClientApplication";
+export type OAuthClientApplication = import("./oauthClientApplication").OAuthClientApplication;
+export const OAuthClientApplication: typeof import("./oauthClientApplication").OAuthClientApplication = null as any;
+utilities.lazyLoad(exports, ["OAuthClientApplication"], () => require("./oauthClientApplication"));
 
 export { RefreshScheduleArgs } from "./refreshSchedule";
 export type RefreshSchedule = import("./refreshSchedule").RefreshSchedule;
@@ -140,8 +160,12 @@ const _module = {
                 return new DataSet(name, <any>undefined, { urn })
             case "aws-native:quicksight:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
+            case "aws-native:quicksight:Flow":
+                return new Flow(name, <any>undefined, { urn })
             case "aws-native:quicksight:Folder":
                 return new Folder(name, <any>undefined, { urn })
+            case "aws-native:quicksight:OAuthClientApplication":
+                return new OAuthClientApplication(name, <any>undefined, { urn })
             case "aws-native:quicksight:RefreshSchedule":
                 return new RefreshSchedule(name, <any>undefined, { urn })
             case "aws-native:quicksight:Template":

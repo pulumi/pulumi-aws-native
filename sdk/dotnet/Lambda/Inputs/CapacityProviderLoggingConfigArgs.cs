@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class CapacityProviderLoggingConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The log group name.
-        /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }
 
-        /// <summary>
-        /// System log granularity level
-        /// </summary>
         [Input("systemLogLevel")]
         public Input<Pulumi.AwsNative.Lambda.CapacityProviderLoggingConfigSystemLogLevel>? SystemLogLevel { get; set; }
 

@@ -14,6 +14,14 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
     public sealed class IndexPropertyMapping
     {
         /// <summary>
+        /// The analyzer to use for this field (for text and keyword fields)
+        /// </summary>
+        public readonly string? Analyzer;
+        /// <summary>
+        /// The compression level for knn_vector fields
+        /// </summary>
+        public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel? CompressionLevel;
+        /// <summary>
         /// Dimension size for vector fields, defines the number of dimensions in the vector
         /// </summary>
         public readonly int? Dimension;
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.IndexPropertyMapping>? Properties;
         /// <summary>
+        /// The distance function used for k-NN search (field-level, outside Method)
+        /// </summary>
+        public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingSpaceType? SpaceType;
+        /// <summary>
         /// The field data type. Must be a valid OpenSearch field type.
         /// </summary>
         public readonly Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingType Type;
@@ -40,6 +52,10 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
 
         [OutputConstructor]
         private IndexPropertyMapping(
+            string? analyzer,
+
+            Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel? compressionLevel,
+
             int? dimension,
 
             bool? index,
@@ -48,14 +64,19 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
 
             ImmutableDictionary<string, Outputs.IndexPropertyMapping>? properties,
 
+            Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingSpaceType? spaceType,
+
             Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingType type,
 
             string? value)
         {
+            Analyzer = analyzer;
+            CompressionLevel = compressionLevel;
             Dimension = dimension;
             Index = index;
             Method = method;
             Properties = properties;
+            SpaceType = spaceType;
             Type = type;
             Value = value;
         }

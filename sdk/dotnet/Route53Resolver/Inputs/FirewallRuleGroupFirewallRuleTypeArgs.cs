@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("firewallAdvancedThreatCategory")]
         public Input<Inputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfigArgs>? FirewallAdvancedThreatCategory { get; set; }
 
+        [Input("partnerThreatProtection")]
+        public Input<Inputs.FirewallRuleGroupPartnerThreatProtectionConfigArgs>? PartnerThreatProtection { get; set; }
+
         public FirewallRuleGroupFirewallRuleTypeArgs()
         {
         }

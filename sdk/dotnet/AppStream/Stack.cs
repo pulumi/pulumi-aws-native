@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<Outputs.StackAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        /// </summary>
+        [Output("agentAccessConfig")]
+        public Output<Outputs.StackAgentAccessConfig?> AgentAccessConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         /// </summary>
         [Output("applicationSettings")]
@@ -165,6 +171,12 @@ namespace Pulumi.AwsNative.AppStream
             get => _accessEndpoints ?? (_accessEndpoints = new InputList<Inputs.StackAccessEndpointArgs>());
             set => _accessEndpoints = value;
         }
+
+        /// <summary>
+        /// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        /// </summary>
+        [Input("agentAccessConfig")]
+        public Input<Inputs.StackAgentAccessConfigArgs>? AgentAccessConfig { get; set; }
 
         /// <summary>
         /// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.

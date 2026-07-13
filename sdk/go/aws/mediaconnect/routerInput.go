@@ -22,8 +22,10 @@ type RouterInput struct {
 	// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// The unique identifier of the router input.
-	AwsId         pulumi.StringOutput `pulumi:"awsId"`
-	Configuration pulumi.AnyOutput    `pulumi:"configuration"`
+	AwsId                               pulumi.StringOutput                                                     `pulumi:"awsId"`
+	Configuration                       pulumi.AnyOutput                                                        `pulumi:"configuration"`
+	ContentQualityAnalysisConfiguration RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput `pulumi:"contentQualityAnalysisConfiguration"`
+	ContentQualityAnalysisType          RouterInputRouterContentQualityAnalysisTypeOutput                       `pulumi:"contentQualityAnalysisType"`
 	// The timestamp when the router input was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The type of the router input.
@@ -114,8 +116,9 @@ func (RouterInputState) ElementType() reflect.Type {
 
 type routerInputArgs struct {
 	// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
-	AvailabilityZone *string     `pulumi:"availabilityZone"`
-	Configuration    interface{} `pulumi:"configuration"`
+	AvailabilityZone                    *string                                                         `pulumi:"availabilityZone"`
+	Configuration                       interface{}                                                     `pulumi:"configuration"`
+	ContentQualityAnalysisConfiguration *RouterInputRouterContentQualityAnalysisConfigurationProperties `pulumi:"contentQualityAnalysisConfiguration"`
 	// The maintenance configuration settings applied to this router input.
 	MaintenanceConfiguration interface{} `pulumi:"maintenanceConfiguration"`
 	// The maximum bitrate for the router input.
@@ -137,8 +140,9 @@ type routerInputArgs struct {
 // The set of arguments for constructing a RouterInput resource.
 type RouterInputArgs struct {
 	// The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
-	AvailabilityZone pulumi.StringPtrInput
-	Configuration    pulumi.Input
+	AvailabilityZone                    pulumi.StringPtrInput
+	Configuration                       pulumi.Input
+	ContentQualityAnalysisConfiguration RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput
 	// The maintenance configuration settings applied to this router input.
 	MaintenanceConfiguration pulumi.Input
 	// The maximum bitrate for the router input.
@@ -211,6 +215,18 @@ func (o RouterInputOutput) AwsId() pulumi.StringOutput {
 
 func (o RouterInputOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RouterInput) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+func (o RouterInputOutput) ContentQualityAnalysisConfiguration() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *RouterInput) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+		return v.ContentQualityAnalysisConfiguration
+	}).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput)
+}
+
+func (o RouterInputOutput) ContentQualityAnalysisType() RouterInputRouterContentQualityAnalysisTypeOutput {
+	return o.ApplyT(func(v *RouterInput) RouterInputRouterContentQualityAnalysisTypeOutput {
+		return v.ContentQualityAnalysisType
+	}).(RouterInputRouterContentQualityAnalysisTypeOutput)
 }
 
 // The timestamp when the router input was created.

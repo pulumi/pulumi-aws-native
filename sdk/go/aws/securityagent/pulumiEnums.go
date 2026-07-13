@@ -180,6 +180,172 @@ func (in *pentestAuthenticationProviderTypePtr) ToPentestAuthenticationProviderT
 	return pulumi.ToOutputWithContext(ctx, in).(PentestAuthenticationProviderTypePtrOutput)
 }
 
+// Strategy for cleaning up resources after pentest job completion
+type PentestCleanUpStrategy string
+
+const (
+	PentestCleanUpStrategyBestEffortDelete = PentestCleanUpStrategy("BEST_EFFORT_DELETE")
+	PentestCleanUpStrategyRetainAll        = PentestCleanUpStrategy("RETAIN_ALL")
+)
+
+func (PentestCleanUpStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCleanUpStrategy)(nil)).Elem()
+}
+
+func (e PentestCleanUpStrategy) ToPentestCleanUpStrategyOutput() PentestCleanUpStrategyOutput {
+	return pulumi.ToOutput(e).(PentestCleanUpStrategyOutput)
+}
+
+func (e PentestCleanUpStrategy) ToPentestCleanUpStrategyOutputWithContext(ctx context.Context) PentestCleanUpStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestCleanUpStrategyOutput)
+}
+
+func (e PentestCleanUpStrategy) ToPentestCleanUpStrategyPtrOutput() PentestCleanUpStrategyPtrOutput {
+	return e.ToPentestCleanUpStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e PentestCleanUpStrategy) ToPentestCleanUpStrategyPtrOutputWithContext(ctx context.Context) PentestCleanUpStrategyPtrOutput {
+	return PentestCleanUpStrategy(e).ToPentestCleanUpStrategyOutputWithContext(ctx).ToPentestCleanUpStrategyPtrOutputWithContext(ctx)
+}
+
+func (e PentestCleanUpStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestCleanUpStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestCleanUpStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestCleanUpStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestCleanUpStrategyOutput struct{ *pulumi.OutputState }
+
+func (PentestCleanUpStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCleanUpStrategy)(nil)).Elem()
+}
+
+func (o PentestCleanUpStrategyOutput) ToPentestCleanUpStrategyOutput() PentestCleanUpStrategyOutput {
+	return o
+}
+
+func (o PentestCleanUpStrategyOutput) ToPentestCleanUpStrategyOutputWithContext(ctx context.Context) PentestCleanUpStrategyOutput {
+	return o
+}
+
+func (o PentestCleanUpStrategyOutput) ToPentestCleanUpStrategyPtrOutput() PentestCleanUpStrategyPtrOutput {
+	return o.ToPentestCleanUpStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o PentestCleanUpStrategyOutput) ToPentestCleanUpStrategyPtrOutputWithContext(ctx context.Context) PentestCleanUpStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestCleanUpStrategy) *PentestCleanUpStrategy {
+		return &v
+	}).(PentestCleanUpStrategyPtrOutput)
+}
+
+func (o PentestCleanUpStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestCleanUpStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestCleanUpStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestCleanUpStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestCleanUpStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestCleanUpStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestCleanUpStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (PentestCleanUpStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestCleanUpStrategy)(nil)).Elem()
+}
+
+func (o PentestCleanUpStrategyPtrOutput) ToPentestCleanUpStrategyPtrOutput() PentestCleanUpStrategyPtrOutput {
+	return o
+}
+
+func (o PentestCleanUpStrategyPtrOutput) ToPentestCleanUpStrategyPtrOutputWithContext(ctx context.Context) PentestCleanUpStrategyPtrOutput {
+	return o
+}
+
+func (o PentestCleanUpStrategyPtrOutput) Elem() PentestCleanUpStrategyOutput {
+	return o.ApplyT(func(v *PentestCleanUpStrategy) PentestCleanUpStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret PentestCleanUpStrategy
+		return ret
+	}).(PentestCleanUpStrategyOutput)
+}
+
+func (o PentestCleanUpStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestCleanUpStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestCleanUpStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestCleanUpStrategyInput is an input type that accepts values of the PentestCleanUpStrategy enum
+// A concrete instance of `PentestCleanUpStrategyInput` can be one of the following:
+//
+//	PentestCleanUpStrategyBestEffortDelete
+//	PentestCleanUpStrategyRetainAll
+type PentestCleanUpStrategyInput interface {
+	pulumi.Input
+
+	ToPentestCleanUpStrategyOutput() PentestCleanUpStrategyOutput
+	ToPentestCleanUpStrategyOutputWithContext(context.Context) PentestCleanUpStrategyOutput
+}
+
+var pentestCleanUpStrategyPtrType = reflect.TypeOf((**PentestCleanUpStrategy)(nil)).Elem()
+
+type PentestCleanUpStrategyPtrInput interface {
+	pulumi.Input
+
+	ToPentestCleanUpStrategyPtrOutput() PentestCleanUpStrategyPtrOutput
+	ToPentestCleanUpStrategyPtrOutputWithContext(context.Context) PentestCleanUpStrategyPtrOutput
+}
+
+type pentestCleanUpStrategyPtr string
+
+func PentestCleanUpStrategyPtr(v string) PentestCleanUpStrategyPtrInput {
+	return (*pentestCleanUpStrategyPtr)(&v)
+}
+
+func (*pentestCleanUpStrategyPtr) ElementType() reflect.Type {
+	return pentestCleanUpStrategyPtrType
+}
+
+func (in *pentestCleanUpStrategyPtr) ToPentestCleanUpStrategyPtrOutput() PentestCleanUpStrategyPtrOutput {
+	return pulumi.ToOutput(in).(PentestCleanUpStrategyPtrOutput)
+}
+
+func (in *pentestCleanUpStrategyPtr) ToPentestCleanUpStrategyPtrOutputWithContext(ctx context.Context) PentestCleanUpStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestCleanUpStrategyPtrOutput)
+}
+
 // Strategy for remediating code vulnerabilities discovered during the pentest
 type PentestCodeRemediationStrategy string
 
@@ -939,6 +1105,383 @@ func (o PentestRiskTypeArrayOutput) Index(i pulumi.IntInput) PentestRiskTypeOutp
 	}).(PentestRiskTypeOutput)
 }
 
+// Type of managed skill that can be disabled for a pentest
+type PentestSkillType string
+
+const (
+	PentestSkillTypeFindingPersonalization = PentestSkillType("FINDING_PERSONALIZATION")
+	PentestSkillTypeLoginOptimization      = PentestSkillType("LOGIN_OPTIMIZATION")
+)
+
+func (PentestSkillType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestSkillType)(nil)).Elem()
+}
+
+func (e PentestSkillType) ToPentestSkillTypeOutput() PentestSkillTypeOutput {
+	return pulumi.ToOutput(e).(PentestSkillTypeOutput)
+}
+
+func (e PentestSkillType) ToPentestSkillTypeOutputWithContext(ctx context.Context) PentestSkillTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PentestSkillTypeOutput)
+}
+
+func (e PentestSkillType) ToPentestSkillTypePtrOutput() PentestSkillTypePtrOutput {
+	return e.ToPentestSkillTypePtrOutputWithContext(context.Background())
+}
+
+func (e PentestSkillType) ToPentestSkillTypePtrOutputWithContext(ctx context.Context) PentestSkillTypePtrOutput {
+	return PentestSkillType(e).ToPentestSkillTypeOutputWithContext(ctx).ToPentestSkillTypePtrOutputWithContext(ctx)
+}
+
+func (e PentestSkillType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestSkillType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PentestSkillType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PentestSkillType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PentestSkillTypeOutput struct{ *pulumi.OutputState }
+
+func (PentestSkillTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestSkillType)(nil)).Elem()
+}
+
+func (o PentestSkillTypeOutput) ToPentestSkillTypeOutput() PentestSkillTypeOutput {
+	return o
+}
+
+func (o PentestSkillTypeOutput) ToPentestSkillTypeOutputWithContext(ctx context.Context) PentestSkillTypeOutput {
+	return o
+}
+
+func (o PentestSkillTypeOutput) ToPentestSkillTypePtrOutput() PentestSkillTypePtrOutput {
+	return o.ToPentestSkillTypePtrOutputWithContext(context.Background())
+}
+
+func (o PentestSkillTypeOutput) ToPentestSkillTypePtrOutputWithContext(ctx context.Context) PentestSkillTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PentestSkillType) *PentestSkillType {
+		return &v
+	}).(PentestSkillTypePtrOutput)
+}
+
+func (o PentestSkillTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PentestSkillTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestSkillType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PentestSkillTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestSkillTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PentestSkillType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PentestSkillTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PentestSkillTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PentestSkillType)(nil)).Elem()
+}
+
+func (o PentestSkillTypePtrOutput) ToPentestSkillTypePtrOutput() PentestSkillTypePtrOutput {
+	return o
+}
+
+func (o PentestSkillTypePtrOutput) ToPentestSkillTypePtrOutputWithContext(ctx context.Context) PentestSkillTypePtrOutput {
+	return o
+}
+
+func (o PentestSkillTypePtrOutput) Elem() PentestSkillTypeOutput {
+	return o.ApplyT(func(v *PentestSkillType) PentestSkillType {
+		if v != nil {
+			return *v
+		}
+		var ret PentestSkillType
+		return ret
+	}).(PentestSkillTypeOutput)
+}
+
+func (o PentestSkillTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PentestSkillTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PentestSkillType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PentestSkillTypeInput is an input type that accepts values of the PentestSkillType enum
+// A concrete instance of `PentestSkillTypeInput` can be one of the following:
+//
+//	PentestSkillTypeFindingPersonalization
+//	PentestSkillTypeLoginOptimization
+type PentestSkillTypeInput interface {
+	pulumi.Input
+
+	ToPentestSkillTypeOutput() PentestSkillTypeOutput
+	ToPentestSkillTypeOutputWithContext(context.Context) PentestSkillTypeOutput
+}
+
+var pentestSkillTypePtrType = reflect.TypeOf((**PentestSkillType)(nil)).Elem()
+
+type PentestSkillTypePtrInput interface {
+	pulumi.Input
+
+	ToPentestSkillTypePtrOutput() PentestSkillTypePtrOutput
+	ToPentestSkillTypePtrOutputWithContext(context.Context) PentestSkillTypePtrOutput
+}
+
+type pentestSkillTypePtr string
+
+func PentestSkillTypePtr(v string) PentestSkillTypePtrInput {
+	return (*pentestSkillTypePtr)(&v)
+}
+
+func (*pentestSkillTypePtr) ElementType() reflect.Type {
+	return pentestSkillTypePtrType
+}
+
+func (in *pentestSkillTypePtr) ToPentestSkillTypePtrOutput() PentestSkillTypePtrOutput {
+	return pulumi.ToOutput(in).(PentestSkillTypePtrOutput)
+}
+
+func (in *pentestSkillTypePtr) ToPentestSkillTypePtrOutputWithContext(ctx context.Context) PentestSkillTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PentestSkillTypePtrOutput)
+}
+
+// PentestSkillTypeArrayInput is an input type that accepts PentestSkillTypeArray and PentestSkillTypeArrayOutput values.
+// You can construct a concrete instance of `PentestSkillTypeArrayInput` via:
+//
+//	PentestSkillTypeArray{ PentestSkillTypeArgs{...} }
+type PentestSkillTypeArrayInput interface {
+	pulumi.Input
+
+	ToPentestSkillTypeArrayOutput() PentestSkillTypeArrayOutput
+	ToPentestSkillTypeArrayOutputWithContext(context.Context) PentestSkillTypeArrayOutput
+}
+
+type PentestSkillTypeArray []PentestSkillType
+
+func (PentestSkillTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestSkillType)(nil)).Elem()
+}
+
+func (i PentestSkillTypeArray) ToPentestSkillTypeArrayOutput() PentestSkillTypeArrayOutput {
+	return i.ToPentestSkillTypeArrayOutputWithContext(context.Background())
+}
+
+func (i PentestSkillTypeArray) ToPentestSkillTypeArrayOutputWithContext(ctx context.Context) PentestSkillTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestSkillTypeArrayOutput)
+}
+
+type PentestSkillTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestSkillTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestSkillType)(nil)).Elem()
+}
+
+func (o PentestSkillTypeArrayOutput) ToPentestSkillTypeArrayOutput() PentestSkillTypeArrayOutput {
+	return o
+}
+
+func (o PentestSkillTypeArrayOutput) ToPentestSkillTypeArrayOutputWithContext(ctx context.Context) PentestSkillTypeArrayOutput {
+	return o
+}
+
+func (o PentestSkillTypeArrayOutput) Index(i pulumi.IntInput) PentestSkillTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestSkillType {
+		return vs[0].([]PentestSkillType)[vs[1].(int)]
+	}).(PentestSkillTypeOutput)
+}
+
+// Whether the pack is enabled or disabled
+type SecurityRequirementPackStatus string
+
+const (
+	SecurityRequirementPackStatusEnabled  = SecurityRequirementPackStatus("ENABLED")
+	SecurityRequirementPackStatusDisabled = SecurityRequirementPackStatus("DISABLED")
+)
+
+func (SecurityRequirementPackStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRequirementPackStatus)(nil)).Elem()
+}
+
+func (e SecurityRequirementPackStatus) ToSecurityRequirementPackStatusOutput() SecurityRequirementPackStatusOutput {
+	return pulumi.ToOutput(e).(SecurityRequirementPackStatusOutput)
+}
+
+func (e SecurityRequirementPackStatus) ToSecurityRequirementPackStatusOutputWithContext(ctx context.Context) SecurityRequirementPackStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityRequirementPackStatusOutput)
+}
+
+func (e SecurityRequirementPackStatus) ToSecurityRequirementPackStatusPtrOutput() SecurityRequirementPackStatusPtrOutput {
+	return e.ToSecurityRequirementPackStatusPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityRequirementPackStatus) ToSecurityRequirementPackStatusPtrOutputWithContext(ctx context.Context) SecurityRequirementPackStatusPtrOutput {
+	return SecurityRequirementPackStatus(e).ToSecurityRequirementPackStatusOutputWithContext(ctx).ToSecurityRequirementPackStatusPtrOutputWithContext(ctx)
+}
+
+func (e SecurityRequirementPackStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityRequirementPackStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityRequirementPackStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityRequirementPackStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityRequirementPackStatusOutput struct{ *pulumi.OutputState }
+
+func (SecurityRequirementPackStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRequirementPackStatus)(nil)).Elem()
+}
+
+func (o SecurityRequirementPackStatusOutput) ToSecurityRequirementPackStatusOutput() SecurityRequirementPackStatusOutput {
+	return o
+}
+
+func (o SecurityRequirementPackStatusOutput) ToSecurityRequirementPackStatusOutputWithContext(ctx context.Context) SecurityRequirementPackStatusOutput {
+	return o
+}
+
+func (o SecurityRequirementPackStatusOutput) ToSecurityRequirementPackStatusPtrOutput() SecurityRequirementPackStatusPtrOutput {
+	return o.ToSecurityRequirementPackStatusPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityRequirementPackStatusOutput) ToSecurityRequirementPackStatusPtrOutputWithContext(ctx context.Context) SecurityRequirementPackStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityRequirementPackStatus) *SecurityRequirementPackStatus {
+		return &v
+	}).(SecurityRequirementPackStatusPtrOutput)
+}
+
+func (o SecurityRequirementPackStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityRequirementPackStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityRequirementPackStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityRequirementPackStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityRequirementPackStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityRequirementPackStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityRequirementPackStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityRequirementPackStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityRequirementPackStatus)(nil)).Elem()
+}
+
+func (o SecurityRequirementPackStatusPtrOutput) ToSecurityRequirementPackStatusPtrOutput() SecurityRequirementPackStatusPtrOutput {
+	return o
+}
+
+func (o SecurityRequirementPackStatusPtrOutput) ToSecurityRequirementPackStatusPtrOutputWithContext(ctx context.Context) SecurityRequirementPackStatusPtrOutput {
+	return o
+}
+
+func (o SecurityRequirementPackStatusPtrOutput) Elem() SecurityRequirementPackStatusOutput {
+	return o.ApplyT(func(v *SecurityRequirementPackStatus) SecurityRequirementPackStatus {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityRequirementPackStatus
+		return ret
+	}).(SecurityRequirementPackStatusOutput)
+}
+
+func (o SecurityRequirementPackStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityRequirementPackStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityRequirementPackStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityRequirementPackStatusInput is an input type that accepts values of the SecurityRequirementPackStatus enum
+// A concrete instance of `SecurityRequirementPackStatusInput` can be one of the following:
+//
+//	SecurityRequirementPackStatusEnabled
+//	SecurityRequirementPackStatusDisabled
+type SecurityRequirementPackStatusInput interface {
+	pulumi.Input
+
+	ToSecurityRequirementPackStatusOutput() SecurityRequirementPackStatusOutput
+	ToSecurityRequirementPackStatusOutputWithContext(context.Context) SecurityRequirementPackStatusOutput
+}
+
+var securityRequirementPackStatusPtrType = reflect.TypeOf((**SecurityRequirementPackStatus)(nil)).Elem()
+
+type SecurityRequirementPackStatusPtrInput interface {
+	pulumi.Input
+
+	ToSecurityRequirementPackStatusPtrOutput() SecurityRequirementPackStatusPtrOutput
+	ToSecurityRequirementPackStatusPtrOutputWithContext(context.Context) SecurityRequirementPackStatusPtrOutput
+}
+
+type securityRequirementPackStatusPtr string
+
+func SecurityRequirementPackStatusPtr(v string) SecurityRequirementPackStatusPtrInput {
+	return (*securityRequirementPackStatusPtr)(&v)
+}
+
+func (*securityRequirementPackStatusPtr) ElementType() reflect.Type {
+	return securityRequirementPackStatusPtrType
+}
+
+func (in *securityRequirementPackStatusPtr) ToSecurityRequirementPackStatusPtrOutput() SecurityRequirementPackStatusPtrOutput {
+	return pulumi.ToOutput(in).(SecurityRequirementPackStatusPtrOutput)
+}
+
+func (in *securityRequirementPackStatusPtr) ToSecurityRequirementPackStatusPtrOutputWithContext(ctx context.Context) SecurityRequirementPackStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityRequirementPackStatusPtrOutput)
+}
+
 // Type of record to be added in DNS for target domain
 type TargetDomainDnsVerificationDnsRecordType string
 
@@ -1385,6 +1928,8 @@ func (o TargetDomainVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ct
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypeInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationProviderTypePtrInput)(nil)).Elem(), PentestAuthenticationProviderType("SECRETS_MANAGER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestCleanUpStrategyInput)(nil)).Elem(), PentestCleanUpStrategy("BEST_EFFORT_DELETE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestCleanUpStrategyPtrInput)(nil)).Elem(), PentestCleanUpStrategy("BEST_EFFORT_DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCodeRemediationStrategyInput)(nil)).Elem(), PentestCodeRemediationStrategy("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCodeRemediationStrategyPtrInput)(nil)).Elem(), PentestCodeRemediationStrategy("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleEffectInput)(nil)).Elem(), PentestNetworkTrafficRuleEffect("ALLOW"))
@@ -1394,10 +1939,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypeInput)(nil)).Elem(), PentestRiskType("CROSS_SITE_SCRIPTING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypePtrInput)(nil)).Elem(), PentestRiskType("CROSS_SITE_SCRIPTING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestRiskTypeArrayInput)(nil)).Elem(), PentestRiskTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypeInput)(nil)).Elem(), PentestSkillType("FINDING_PERSONALIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypePtrInput)(nil)).Elem(), PentestSkillType("FINDING_PERSONALIZATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestSkillTypeArrayInput)(nil)).Elem(), PentestSkillTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackStatusInput)(nil)).Elem(), SecurityRequirementPackStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackStatusPtrInput)(nil)).Elem(), SecurityRequirementPackStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetDomainVerificationMethodPtrInput)(nil)).Elem(), TargetDomainVerificationMethod("DNS_TXT"))
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypeOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationProviderTypePtrOutput{})
+	pulumi.RegisterOutputType(PentestCleanUpStrategyOutput{})
+	pulumi.RegisterOutputType(PentestCleanUpStrategyPtrOutput{})
 	pulumi.RegisterOutputType(PentestCodeRemediationStrategyOutput{})
 	pulumi.RegisterOutputType(PentestCodeRemediationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleEffectOutput{})
@@ -1407,6 +1959,11 @@ func init() {
 	pulumi.RegisterOutputType(PentestRiskTypeOutput{})
 	pulumi.RegisterOutputType(PentestRiskTypePtrOutput{})
 	pulumi.RegisterOutputType(PentestRiskTypeArrayOutput{})
+	pulumi.RegisterOutputType(PentestSkillTypeOutput{})
+	pulumi.RegisterOutputType(PentestSkillTypePtrOutput{})
+	pulumi.RegisterOutputType(PentestSkillTypeArrayOutput{})
+	pulumi.RegisterOutputType(SecurityRequirementPackStatusOutput{})
+	pulumi.RegisterOutputType(SecurityRequirementPackStatusPtrOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationDnsRecordTypeOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationDnsRecordTypePtrOutput{})
 	pulumi.RegisterOutputType(TargetDomainVerificationDetailsMethodOutput{})

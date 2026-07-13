@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.AutoScaling
 
         public static AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy BalancedBestEffort { get; } = new AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy("balanced-best-effort");
         public static AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy BalancedOnly { get; } = new AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy("balanced-only");
+        public static AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy ReservationsThenBalanced { get; } = new AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy("reservations-then-balanced");
 
         public static bool operator ==(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy left, AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy right) => left.Equals(right);
         public static bool operator !=(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy left, AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy right) => !left.Equals(right);

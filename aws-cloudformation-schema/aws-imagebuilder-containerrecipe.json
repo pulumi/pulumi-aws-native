@@ -255,6 +255,9 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/ContainerType", "/properties/TargetRepository", "/properties/InstanceConfiguration", "/properties/ParentImage", "/properties/Description", "/properties/DockerfileTemplateUri", "/properties/DockerfileTemplateData", "/properties/ImageOsVersionOverride", "/properties/KmsKeyId", "/properties/PlatformOverride", "/properties/WorkingDirectory", "/properties/Components" ],
   "writeOnlyProperties" : [ "/properties/DockerfileTemplateData", "/properties/DockerfileTemplateUri", "/properties/ImageOsVersionOverride", "/properties/PlatformOverride" ],
+  "propertyTransform" : {
+    "/properties/Version" : "$join([\"^\", $replace($replace(Version, \".\", \"\\\\.\"), \"x\", \"[0-9]+\"), \"$\"])"
+  },
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

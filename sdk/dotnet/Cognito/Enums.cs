@@ -193,6 +193,62 @@ namespace Pulumi.AwsNative.Cognito
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct UserPoolEncryptionKeyType : IEquatable<UserPoolEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private UserPoolEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolEncryptionKeyType AwsOwnedKey { get; } = new UserPoolEncryptionKeyType("AWS_OWNED_KEY");
+        public static UserPoolEncryptionKeyType CustomerManagedKey { get; } = new UserPoolEncryptionKeyType("CUSTOMER_MANAGED_KEY");
+
+        public static bool operator ==(UserPoolEncryptionKeyType left, UserPoolEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(UserPoolEncryptionKeyType left, UserPoolEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolEncryptionKeyType other && Equals(other);
+        public bool Equals(UserPoolEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserPoolIssuerConfigurationType : IEquatable<UserPoolIssuerConfigurationType>
+    {
+        private readonly string _value;
+
+        private UserPoolIssuerConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserPoolIssuerConfigurationType Original { get; } = new UserPoolIssuerConfigurationType("ORIGINAL");
+        public static UserPoolIssuerConfigurationType Updated { get; } = new UserPoolIssuerConfigurationType("UPDATED");
+
+        public static bool operator ==(UserPoolIssuerConfigurationType left, UserPoolIssuerConfigurationType right) => left.Equals(right);
+        public static bool operator !=(UserPoolIssuerConfigurationType left, UserPoolIssuerConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(UserPoolIssuerConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserPoolIssuerConfigurationType other && Equals(other);
+        public bool Equals(UserPoolIssuerConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
     /// </summary>

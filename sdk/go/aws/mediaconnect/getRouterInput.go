@@ -30,8 +30,10 @@ type LookupRouterInputArgs struct {
 
 type LookupRouterInputResult struct {
 	// The Amazon Resource Name (ARN) of the router input.
-	Arn           *string     `pulumi:"arn"`
-	Configuration interface{} `pulumi:"configuration"`
+	Arn                                 *string                                                         `pulumi:"arn"`
+	Configuration                       interface{}                                                     `pulumi:"configuration"`
+	ContentQualityAnalysisConfiguration *RouterInputRouterContentQualityAnalysisConfigurationProperties `pulumi:"contentQualityAnalysisConfiguration"`
+	ContentQualityAnalysisType          *RouterInputRouterContentQualityAnalysisType                    `pulumi:"contentQualityAnalysisType"`
 	// The timestamp when the router input was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The unique identifier of the router input.
@@ -103,6 +105,18 @@ func (o LookupRouterInputResultOutput) Arn() pulumi.StringPtrOutput {
 
 func (o LookupRouterInputResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupRouterInputResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+func (o LookupRouterInputResultOutput) ContentQualityAnalysisConfiguration() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupRouterInputResult) *RouterInputRouterContentQualityAnalysisConfigurationProperties {
+		return v.ContentQualityAnalysisConfiguration
+	}).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput)
+}
+
+func (o LookupRouterInputResultOutput) ContentQualityAnalysisType() RouterInputRouterContentQualityAnalysisTypePtrOutput {
+	return o.ApplyT(func(v LookupRouterInputResult) *RouterInputRouterContentQualityAnalysisType {
+		return v.ContentQualityAnalysisType
+	}).(RouterInputRouterContentQualityAnalysisTypePtrOutput)
 }
 
 // The timestamp when the router input was created.

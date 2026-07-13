@@ -1,0 +1,52 @@
+{
+  "typeName" : "AWS::CodeBuild::Build",
+  "description" : "Resource Type definition for AWS::CodeBuild::Build",
+  "additionalProperties" : false,
+  "properties" : {
+    "CurrentPhase" : {
+      "type" : "string"
+    },
+    "EndTime" : {
+      "type" : "string"
+    },
+    "ProjectName" : {
+      "type" : "string"
+    },
+    "StartTime" : {
+      "type" : "string"
+    },
+    "EncryptionKey" : {
+      "type" : "string"
+    },
+    "BuildNumber" : {
+      "type" : "integer"
+    },
+    "ServiceRole" : {
+      "type" : "string"
+    },
+    "QueuedTimeoutInMinutes" : {
+      "type" : "integer"
+    },
+    "Initiator" : {
+      "type" : "string"
+    },
+    "BuildStatus" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "BuildComplete" : {
+      "type" : "boolean"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "TimeoutInMinutes" : {
+      "type" : "integer"
+    }
+  },
+  "createOnlyProperties" : [ "/properties/ProjectName" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/BuildComplete", "/properties/TimeoutInMinutes", "/properties/EndTime", "/properties/CurrentPhase", "/properties/StartTime", "/properties/ServiceRole", "/properties/BuildNumber", "/properties/Id", "/properties/EncryptionKey", "/properties/QueuedTimeoutInMinutes", "/properties/Arn", "/properties/Initiator", "/properties/BuildStatus" ]
+}

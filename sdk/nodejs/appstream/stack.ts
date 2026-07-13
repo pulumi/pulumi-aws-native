@@ -42,6 +42,10 @@ export class Stack extends pulumi.CustomResource {
      */
     declare public readonly accessEndpoints: pulumi.Output<outputs.appstream.StackAccessEndpoint[] | undefined>;
     /**
+     * The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+     */
+    declare public readonly agentAccessConfig: pulumi.Output<outputs.appstream.StackAgentAccessConfig | undefined>;
+    /**
      * The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
      */
     declare public readonly applicationSettings: pulumi.Output<outputs.appstream.StackApplicationSettings | undefined>;
@@ -110,6 +114,7 @@ export class Stack extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["accessEndpoints"] = args?.accessEndpoints;
+            resourceInputs["agentAccessConfig"] = args?.agentAccessConfig;
             resourceInputs["applicationSettings"] = args?.applicationSettings;
             resourceInputs["attributesToDelete"] = args?.attributesToDelete;
             resourceInputs["contentRedirection"] = args?.contentRedirection;
@@ -126,6 +131,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["userSettings"] = args?.userSettings;
         } else {
             resourceInputs["accessEndpoints"] = undefined /*out*/;
+            resourceInputs["agentAccessConfig"] = undefined /*out*/;
             resourceInputs["applicationSettings"] = undefined /*out*/;
             resourceInputs["attributesToDelete"] = undefined /*out*/;
             resourceInputs["contentRedirection"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface StackArgs {
      * The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.StackAccessEndpointArgs>[]>;
+    /**
+     * The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+     */
+    agentAccessConfig?: pulumi.Input<inputs.appstream.StackAgentAccessConfigArgs>;
     /**
      * The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
      */

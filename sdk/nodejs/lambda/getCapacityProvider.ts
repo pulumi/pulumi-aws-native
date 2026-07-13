@@ -27,6 +27,9 @@ export interface GetCapacityProviderResult {
      * The scaling configuration for the capacity provider.
      */
     readonly capacityProviderScalingConfig?: outputs.lambda.CapacityProviderScalingConfig;
+    /**
+     * Configuration for tag propagation to managed resources launched by the capacity provider.
+     */
     readonly propagateTags?: outputs.lambda.CapacityProviderPropagateTagsConfig;
     /**
      * The current state of the capacity provider.

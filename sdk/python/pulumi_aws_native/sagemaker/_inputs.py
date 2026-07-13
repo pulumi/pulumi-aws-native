@@ -16,6 +16,30 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AlgorithmCategoricalParameterRangeSpecificationArgs',
+    'AlgorithmCategoricalParameterRangeSpecificationArgsDict',
+    'AlgorithmChannelSpecificationArgs',
+    'AlgorithmChannelSpecificationArgsDict',
+    'AlgorithmContinuousParameterRangeSpecificationArgs',
+    'AlgorithmContinuousParameterRangeSpecificationArgsDict',
+    'AlgorithmHyperParameterSpecificationArgs',
+    'AlgorithmHyperParameterSpecificationArgsDict',
+    'AlgorithmHyperParameterTuningJobObjectiveArgs',
+    'AlgorithmHyperParameterTuningJobObjectiveArgsDict',
+    'AlgorithmInferenceSpecificationArgs',
+    'AlgorithmInferenceSpecificationArgsDict',
+    'AlgorithmIntegerParameterRangeSpecificationArgs',
+    'AlgorithmIntegerParameterRangeSpecificationArgsDict',
+    'AlgorithmMetricDefinitionArgs',
+    'AlgorithmMetricDefinitionArgsDict',
+    'AlgorithmModelInputArgs',
+    'AlgorithmModelInputArgsDict',
+    'AlgorithmModelPackageContainerDefinitionArgs',
+    'AlgorithmModelPackageContainerDefinitionArgsDict',
+    'AlgorithmParameterRangeArgs',
+    'AlgorithmParameterRangeArgsDict',
+    'AlgorithmTrainingSpecificationArgs',
+    'AlgorithmTrainingSpecificationArgsDict',
     'AppImageConfigCodeEditorAppImageConfigArgs',
     'AppImageConfigCodeEditorAppImageConfigArgsDict',
     'AppImageConfigContainerConfigArgs',
@@ -592,6 +616,8 @@ __all__ = [
     'ProjectProvisioningParameterArgsDict',
     'ProjectTemplateProviderDetailArgs',
     'ProjectTemplateProviderDetailArgsDict',
+    'S3StorageConfigPropertiesArgs',
+    'S3StorageConfigPropertiesArgsDict',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgs',
     'ServiceCatalogProvisionedProductDetailsPropertiesArgsDict',
     'ServiceCatalogProvisioningDetailsPropertiesArgs',
@@ -675,6 +701,694 @@ __all__ = [
     'UserProfileUserSettingsArgs',
     'UserProfileUserSettingsArgsDict',
 ]
+
+class AlgorithmCategoricalParameterRangeSpecificationArgsDict(TypedDict):
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class AlgorithmCategoricalParameterRangeSpecificationArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class AlgorithmChannelSpecificationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    supported_content_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    supported_input_modes: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedInputModesItem']]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    is_required: NotRequired[pulumi.Input[_builtins.bool]]
+    supported_compression_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedCompressionTypesItem']]]]
+
+@pulumi.input_type
+class AlgorithmChannelSpecificationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 supported_content_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 supported_input_modes: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedInputModesItem']]],
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 supported_compression_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedCompressionTypesItem']]]] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_content_types", supported_content_types)
+        pulumi.set(__self__, "supported_input_modes", supported_input_modes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if supported_compression_types is not None:
+            pulumi.set(__self__, "supported_compression_types", supported_compression_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "supported_content_types")
+
+    @supported_content_types.setter
+    def supported_content_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "supported_content_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedInputModes")
+    def supported_input_modes(self) -> pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedInputModesItem']]]:
+        return pulumi.get(self, "supported_input_modes")
+
+    @supported_input_modes.setter
+    def supported_input_modes(self, value: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedInputModesItem']]]):
+        pulumi.set(self, "supported_input_modes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_required")
+
+    @is_required.setter
+    def is_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_required", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedCompressionTypes")
+    def supported_compression_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedCompressionTypesItem']]]]:
+        return pulumi.get(self, "supported_compression_types")
+
+    @supported_compression_types.setter
+    def supported_compression_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationSupportedCompressionTypesItem']]]]):
+        pulumi.set(self, "supported_compression_types", value)
+
+
+class AlgorithmContinuousParameterRangeSpecificationArgsDict(TypedDict):
+    max_value: pulumi.Input[_builtins.str]
+    min_value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AlgorithmContinuousParameterRangeSpecificationArgs:
+    def __init__(__self__, *,
+                 max_value: pulumi.Input[_builtins.str],
+                 min_value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "max_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "min_value")
+
+    @min_value.setter
+    def min_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "min_value", value)
+
+
+class AlgorithmHyperParameterSpecificationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    type: pulumi.Input['AlgorithmHyperParameterSpecificationType']
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    is_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_tunable: NotRequired[pulumi.Input[_builtins.bool]]
+    range: NotRequired[pulumi.Input['AlgorithmParameterRangeArgsDict']]
+
+@pulumi.input_type
+class AlgorithmHyperParameterSpecificationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['AlgorithmHyperParameterSpecificationType'],
+                 default_value: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 is_tunable: Optional[pulumi.Input[_builtins.bool]] = None,
+                 range: Optional[pulumi.Input['AlgorithmParameterRangeArgs']] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if is_tunable is not None:
+            pulumi.set(__self__, "is_tunable", is_tunable)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AlgorithmHyperParameterSpecificationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AlgorithmHyperParameterSpecificationType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_required")
+
+    @is_required.setter
+    def is_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_required", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isTunable")
+    def is_tunable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_tunable")
+
+    @is_tunable.setter
+    def is_tunable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_tunable", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def range(self) -> Optional[pulumi.Input['AlgorithmParameterRangeArgs']]:
+        return pulumi.get(self, "range")
+
+    @range.setter
+    def range(self, value: Optional[pulumi.Input['AlgorithmParameterRangeArgs']]):
+        pulumi.set(self, "range", value)
+
+
+class AlgorithmHyperParameterTuningJobObjectiveArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    type: pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveType']
+
+@pulumi.input_type
+class AlgorithmHyperParameterTuningJobObjectiveArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveType']):
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metric_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveType']):
+        pulumi.set(self, "type", value)
+
+
+class AlgorithmInferenceSpecificationArgsDict(TypedDict):
+    containers: pulumi.Input[Sequence[pulumi.Input['AlgorithmModelPackageContainerDefinitionArgsDict']]]
+    supported_content_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_realtime_inference_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_response_mime_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    supported_transform_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+
+@pulumi.input_type
+class AlgorithmInferenceSpecificationArgs:
+    def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['AlgorithmModelPackageContainerDefinitionArgs']]],
+                 supported_content_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_realtime_inference_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_response_mime_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 supported_transform_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "containers", containers)
+        if supported_content_types is not None:
+            pulumi.set(__self__, "supported_content_types", supported_content_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_response_mime_types is not None:
+            pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['AlgorithmModelPackageContainerDefinitionArgs']]]:
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['AlgorithmModelPackageContainerDefinitionArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "supported_content_types")
+
+    @supported_content_types.setter
+    def supported_content_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_content_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @supported_realtime_inference_instance_types.setter
+    def supported_realtime_inference_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_realtime_inference_instance_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedResponseMimeTypes")
+    def supported_response_mime_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @supported_response_mime_types.setter
+    def supported_response_mime_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_response_mime_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "supported_transform_instance_types")
+
+    @supported_transform_instance_types.setter
+    def supported_transform_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_transform_instance_types", value)
+
+
+class AlgorithmIntegerParameterRangeSpecificationArgsDict(TypedDict):
+    max_value: pulumi.Input[_builtins.str]
+    min_value: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AlgorithmIntegerParameterRangeSpecificationArgs:
+    def __init__(__self__, *,
+                 max_value: pulumi.Input[_builtins.str],
+                 min_value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "max_value")
+
+    @max_value.setter
+    def max_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "max_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "min_value")
+
+    @min_value.setter
+    def min_value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "min_value", value)
+
+
+class AlgorithmMetricDefinitionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    regex: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AlgorithmMetricDefinitionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 regex: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "regex", value)
+
+
+class AlgorithmModelInputArgsDict(TypedDict):
+    data_input_config: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AlgorithmModelInputArgs:
+    def __init__(__self__, *,
+                 data_input_config: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "data_input_config", data_input_config)
+
+    @_builtins.property
+    @pulumi.getter(name="dataInputConfig")
+    def data_input_config(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "data_input_config")
+
+    @data_input_config.setter
+    def data_input_config(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_input_config", value)
+
+
+class AlgorithmModelPackageContainerDefinitionArgsDict(TypedDict):
+    image: pulumi.Input[_builtins.str]
+    container_hostname: NotRequired[pulumi.Input[_builtins.str]]
+    environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    framework: NotRequired[pulumi.Input[_builtins.str]]
+    framework_version: NotRequired[pulumi.Input[_builtins.str]]
+    image_digest: NotRequired[pulumi.Input[_builtins.str]]
+    is_checkpoint: NotRequired[pulumi.Input[_builtins.bool]]
+    model_input: NotRequired[pulumi.Input['AlgorithmModelInputArgsDict']]
+    nearest_model_name: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class AlgorithmModelPackageContainerDefinitionArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[_builtins.str],
+                 container_hostname: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 framework: Optional[pulumi.Input[_builtins.str]] = None,
+                 framework_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 image_digest: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_checkpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 model_input: Optional[pulumi.Input['AlgorithmModelInputArgs']] = None,
+                 nearest_model_name: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "image", image)
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if is_checkpoint is not None:
+            pulumi.set(__self__, "is_checkpoint", is_checkpoint)
+        if model_input is not None:
+            pulumi.set(__self__, "model_input", model_input)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "container_hostname")
+
+    @container_hostname.setter
+    def container_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "container_hostname", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "environment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "framework", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "framework_version")
+
+    @framework_version.setter
+    def framework_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "framework_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "image_digest")
+
+    @image_digest.setter
+    def image_digest(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "image_digest", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isCheckpoint")
+    def is_checkpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "is_checkpoint")
+
+    @is_checkpoint.setter
+    def is_checkpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_checkpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelInput")
+    def model_input(self) -> Optional[pulumi.Input['AlgorithmModelInputArgs']]:
+        return pulumi.get(self, "model_input")
+
+    @model_input.setter
+    def model_input(self, value: Optional[pulumi.Input['AlgorithmModelInputArgs']]):
+        pulumi.set(self, "model_input", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "nearest_model_name")
+
+    @nearest_model_name.setter
+    def nearest_model_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "nearest_model_name", value)
+
+
+class AlgorithmParameterRangeArgsDict(TypedDict):
+    categorical_parameter_range_specification: NotRequired[pulumi.Input['AlgorithmCategoricalParameterRangeSpecificationArgsDict']]
+    continuous_parameter_range_specification: NotRequired[pulumi.Input['AlgorithmContinuousParameterRangeSpecificationArgsDict']]
+    integer_parameter_range_specification: NotRequired[pulumi.Input['AlgorithmIntegerParameterRangeSpecificationArgsDict']]
+
+@pulumi.input_type
+class AlgorithmParameterRangeArgs:
+    def __init__(__self__, *,
+                 categorical_parameter_range_specification: Optional[pulumi.Input['AlgorithmCategoricalParameterRangeSpecificationArgs']] = None,
+                 continuous_parameter_range_specification: Optional[pulumi.Input['AlgorithmContinuousParameterRangeSpecificationArgs']] = None,
+                 integer_parameter_range_specification: Optional[pulumi.Input['AlgorithmIntegerParameterRangeSpecificationArgs']] = None):
+        if categorical_parameter_range_specification is not None:
+            pulumi.set(__self__, "categorical_parameter_range_specification", categorical_parameter_range_specification)
+        if continuous_parameter_range_specification is not None:
+            pulumi.set(__self__, "continuous_parameter_range_specification", continuous_parameter_range_specification)
+        if integer_parameter_range_specification is not None:
+            pulumi.set(__self__, "integer_parameter_range_specification", integer_parameter_range_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="categoricalParameterRangeSpecification")
+    def categorical_parameter_range_specification(self) -> Optional[pulumi.Input['AlgorithmCategoricalParameterRangeSpecificationArgs']]:
+        return pulumi.get(self, "categorical_parameter_range_specification")
+
+    @categorical_parameter_range_specification.setter
+    def categorical_parameter_range_specification(self, value: Optional[pulumi.Input['AlgorithmCategoricalParameterRangeSpecificationArgs']]):
+        pulumi.set(self, "categorical_parameter_range_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="continuousParameterRangeSpecification")
+    def continuous_parameter_range_specification(self) -> Optional[pulumi.Input['AlgorithmContinuousParameterRangeSpecificationArgs']]:
+        return pulumi.get(self, "continuous_parameter_range_specification")
+
+    @continuous_parameter_range_specification.setter
+    def continuous_parameter_range_specification(self, value: Optional[pulumi.Input['AlgorithmContinuousParameterRangeSpecificationArgs']]):
+        pulumi.set(self, "continuous_parameter_range_specification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="integerParameterRangeSpecification")
+    def integer_parameter_range_specification(self) -> Optional[pulumi.Input['AlgorithmIntegerParameterRangeSpecificationArgs']]:
+        return pulumi.get(self, "integer_parameter_range_specification")
+
+    @integer_parameter_range_specification.setter
+    def integer_parameter_range_specification(self, value: Optional[pulumi.Input['AlgorithmIntegerParameterRangeSpecificationArgs']]):
+        pulumi.set(self, "integer_parameter_range_specification", value)
+
+
+class AlgorithmTrainingSpecificationArgsDict(TypedDict):
+    supported_training_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    training_channels: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationArgsDict']]]
+    training_image: pulumi.Input[_builtins.str]
+    metric_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlgorithmMetricDefinitionArgsDict']]]]
+    supported_hyper_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterSpecificationArgsDict']]]]
+    supported_tuning_job_objective_metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveArgsDict']]]]
+    supports_distributed_training: NotRequired[pulumi.Input[_builtins.bool]]
+    training_image_digest: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class AlgorithmTrainingSpecificationArgs:
+    def __init__(__self__, *,
+                 supported_training_instance_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 training_channels: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationArgs']]],
+                 training_image: pulumi.Input[_builtins.str],
+                 metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmMetricDefinitionArgs']]]] = None,
+                 supported_hyper_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterSpecificationArgs']]]] = None,
+                 supported_tuning_job_objective_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveArgs']]]] = None,
+                 supports_distributed_training: Optional[pulumi.Input[_builtins.bool]] = None,
+                 training_image_digest: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "supported_training_instance_types", supported_training_instance_types)
+        pulumi.set(__self__, "training_channels", training_channels)
+        pulumi.set(__self__, "training_image", training_image)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if supported_hyper_parameters is not None:
+            pulumi.set(__self__, "supported_hyper_parameters", supported_hyper_parameters)
+        if supported_tuning_job_objective_metrics is not None:
+            pulumi.set(__self__, "supported_tuning_job_objective_metrics", supported_tuning_job_objective_metrics)
+        if supports_distributed_training is not None:
+            pulumi.set(__self__, "supports_distributed_training", supports_distributed_training)
+        if training_image_digest is not None:
+            pulumi.set(__self__, "training_image_digest", training_image_digest)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTrainingInstanceTypes")
+    def supported_training_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "supported_training_instance_types")
+
+    @supported_training_instance_types.setter
+    def supported_training_instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "supported_training_instance_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingChannels")
+    def training_channels(self) -> pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationArgs']]]:
+        return pulumi.get(self, "training_channels")
+
+    @training_channels.setter
+    def training_channels(self, value: pulumi.Input[Sequence[pulumi.Input['AlgorithmChannelSpecificationArgs']]]):
+        pulumi.set(self, "training_channels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "training_image")
+
+    @training_image.setter
+    def training_image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "training_image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmMetricDefinitionArgs']]]]:
+        return pulumi.get(self, "metric_definitions")
+
+    @metric_definitions.setter
+    def metric_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmMetricDefinitionArgs']]]]):
+        pulumi.set(self, "metric_definitions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedHyperParameters")
+    def supported_hyper_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterSpecificationArgs']]]]:
+        return pulumi.get(self, "supported_hyper_parameters")
+
+    @supported_hyper_parameters.setter
+    def supported_hyper_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterSpecificationArgs']]]]):
+        pulumi.set(self, "supported_hyper_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTuningJobObjectiveMetrics")
+    def supported_tuning_job_objective_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveArgs']]]]:
+        return pulumi.get(self, "supported_tuning_job_objective_metrics")
+
+    @supported_tuning_job_objective_metrics.setter
+    def supported_tuning_job_objective_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlgorithmHyperParameterTuningJobObjectiveArgs']]]]):
+        pulumi.set(self, "supported_tuning_job_objective_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportsDistributedTraining")
+    def supports_distributed_training(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "supports_distributed_training")
+
+    @supports_distributed_training.setter
+    def supports_distributed_training(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "supports_distributed_training", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImageDigest")
+    def training_image_digest(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "training_image_digest")
+
+    @training_image_digest.setter
+    def training_image_digest(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "training_image_digest", value)
+
 
 class AppImageConfigCodeEditorAppImageConfigArgsDict(TypedDict):
     """
@@ -20780,6 +21494,40 @@ class ProjectTemplateProviderDetailArgs:
     @cfn_template_provider_detail.setter
     def cfn_template_provider_detail(self, value: Optional[pulumi.Input['ProjectCfnTemplateProviderDetailArgs']]):
         pulumi.set(self, "cfn_template_provider_detail", value)
+
+
+class S3StorageConfigPropertiesArgsDict(TypedDict):
+    """
+    The Amazon S3 storage configuration for the hub.
+    """
+    s3_output_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 bucket prefix for hosting hub content.
+    """
+
+@pulumi.input_type
+class S3StorageConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_output_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Amazon S3 storage configuration for the hub.
+
+        :param pulumi.Input[_builtins.str] s3_output_path: The Amazon S3 bucket prefix for hosting hub content.
+        """
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon S3 bucket prefix for hosting hub content.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @s3_output_path.setter
+    def s3_output_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "s3_output_path", value)
 
 
 class ServiceCatalogProvisionedProductDetailsPropertiesArgsDict(TypedDict):

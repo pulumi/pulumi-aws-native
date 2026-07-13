@@ -17,6 +17,8 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the pipeline.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The S3 bucket where artifacts for the pipeline are stored.
 	ArtifactStore PipelineArtifactStorePtrOutput `pulumi:"artifactStore"`
 	// A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
@@ -184,6 +186,11 @@ func (o PipelineOutput) ToPipelineOutput() PipelineOutput {
 
 func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) PipelineOutput {
 	return o
+}
+
+// The Amazon Resource Name (ARN) of the pipeline.
+func (o PipelineOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The S3 bucket where artifacts for the pipeline are stored.

@@ -3619,97 +3619,170 @@ func (in *configurationPolicyParameterConfigurationValueTypePtr) ToConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
 }
 
-// The status of the connector
-type ConnectorV2ConnectorStatus string
+// The scope type for the Azure connector
+type ConnectorAzureScopeConfigurationScopeType string
 
 const (
-	ConnectorV2ConnectorStatusConnected            = ConnectorV2ConnectorStatus("CONNECTED")
-	ConnectorV2ConnectorStatusFailedToConnect      = ConnectorV2ConnectorStatus("FAILED_TO_CONNECT")
-	ConnectorV2ConnectorStatusPendingAuthorization = ConnectorV2ConnectorStatus("PENDING_AUTHORIZATION")
-	ConnectorV2ConnectorStatusPendingConfiguration = ConnectorV2ConnectorStatus("PENDING_CONFIGURATION")
+	ConnectorAzureScopeConfigurationScopeTypeTenant       = ConnectorAzureScopeConfigurationScopeType("TENANT")
+	ConnectorAzureScopeConfigurationScopeTypeSubscription = ConnectorAzureScopeConfigurationScopeType("SUBSCRIPTION")
 )
 
-type ConnectorV2ConnectorStatusOutput struct{ *pulumi.OutputState }
-
-func (ConnectorV2ConnectorStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorV2ConnectorStatus)(nil)).Elem()
+func (ConnectorAzureScopeConfigurationScopeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeType)(nil)).Elem()
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusOutput() ConnectorV2ConnectorStatusOutput {
+func (e ConnectorAzureScopeConfigurationScopeType) ToConnectorAzureScopeConfigurationScopeTypeOutput() ConnectorAzureScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorAzureScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToConnectorAzureScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorAzureScopeConfigurationScopeTypeOutput)
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToConnectorAzureScopeConfigurationScopeTypePtrOutput() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return e.ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return ConnectorAzureScopeConfigurationScopeType(e).ToConnectorAzureScopeConfigurationScopeTypeOutputWithContext(ctx).ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorAzureScopeConfigurationScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorAzureScopeConfigurationScopeTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureScopeConfigurationScopeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeType)(nil)).Elem()
+}
+
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToConnectorAzureScopeConfigurationScopeTypeOutput() ConnectorAzureScopeConfigurationScopeTypeOutput {
 	return o
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToConnectorAzureScopeConfigurationScopeTypeOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypeOutput {
 	return o
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusPtrOutput() ConnectorV2ConnectorStatusPtrOutput {
-	return o.ToConnectorV2ConnectorStatusPtrOutputWithContext(context.Background())
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToConnectorAzureScopeConfigurationScopeTypePtrOutput() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return o.ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ConnectorStatus) *ConnectorV2ConnectorStatus {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAzureScopeConfigurationScopeType) *ConnectorAzureScopeConfigurationScopeType {
 		return &v
-	}).(ConnectorV2ConnectorStatusPtrOutput)
+	}).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToStringOutput() pulumi.StringOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2ConnectorStatus) string {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorAzureScopeConfigurationScopeType) string {
 		return string(e)
 	}).(pulumi.StringOutput)
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorV2ConnectorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2ConnectorStatus) *string {
+func (o ConnectorAzureScopeConfigurationScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorAzureScopeConfigurationScopeType) *string {
 		v := string(e)
 		return &v
 	}).(pulumi.StringPtrOutput)
 }
 
-type ConnectorV2ConnectorStatusPtrOutput struct{ *pulumi.OutputState }
+type ConnectorAzureScopeConfigurationScopeTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ConnectorV2ConnectorStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorV2ConnectorStatus)(nil)).Elem()
+func (ConnectorAzureScopeConfigurationScopeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureScopeConfigurationScopeType)(nil)).Elem()
 }
 
-func (o ConnectorV2ConnectorStatusPtrOutput) ToConnectorV2ConnectorStatusPtrOutput() ConnectorV2ConnectorStatusPtrOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypePtrOutput) ToConnectorAzureScopeConfigurationScopeTypePtrOutput() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
 	return o
 }
 
-func (o ConnectorV2ConnectorStatusPtrOutput) ToConnectorV2ConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusPtrOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypePtrOutput) ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypePtrOutput {
 	return o
 }
 
-func (o ConnectorV2ConnectorStatusPtrOutput) Elem() ConnectorV2ConnectorStatusOutput {
-	return o.ApplyT(func(v *ConnectorV2ConnectorStatus) ConnectorV2ConnectorStatus {
+func (o ConnectorAzureScopeConfigurationScopeTypePtrOutput) Elem() ConnectorAzureScopeConfigurationScopeTypeOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfigurationScopeType) ConnectorAzureScopeConfigurationScopeType {
 		if v != nil {
 			return *v
 		}
-		var ret ConnectorV2ConnectorStatus
+		var ret ConnectorAzureScopeConfigurationScopeType
 		return ret
-	}).(ConnectorV2ConnectorStatusOutput)
+	}).(ConnectorAzureScopeConfigurationScopeTypeOutput)
 }
 
-func (o ConnectorV2ConnectorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (o ConnectorAzureScopeConfigurationScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return o.ToStringPtrOutputWithContext(context.Background())
 }
 
-func (o ConnectorV2ConnectorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorV2ConnectorStatus) *string {
+func (o ConnectorAzureScopeConfigurationScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorAzureScopeConfigurationScopeType) *string {
 		if e == nil {
 			return nil
 		}
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorAzureScopeConfigurationScopeTypeInput is an input type that accepts values of the ConnectorAzureScopeConfigurationScopeType enum
+// A concrete instance of `ConnectorAzureScopeConfigurationScopeTypeInput` can be one of the following:
+//
+//	ConnectorAzureScopeConfigurationScopeTypeTenant
+//	ConnectorAzureScopeConfigurationScopeTypeSubscription
+type ConnectorAzureScopeConfigurationScopeTypeInput interface {
+	pulumi.Input
+
+	ToConnectorAzureScopeConfigurationScopeTypeOutput() ConnectorAzureScopeConfigurationScopeTypeOutput
+	ToConnectorAzureScopeConfigurationScopeTypeOutputWithContext(context.Context) ConnectorAzureScopeConfigurationScopeTypeOutput
+}
+
+var connectorAzureScopeConfigurationScopeTypePtrType = reflect.TypeOf((**ConnectorAzureScopeConfigurationScopeType)(nil)).Elem()
+
+type ConnectorAzureScopeConfigurationScopeTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorAzureScopeConfigurationScopeTypePtrOutput() ConnectorAzureScopeConfigurationScopeTypePtrOutput
+	ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(context.Context) ConnectorAzureScopeConfigurationScopeTypePtrOutput
+}
+
+type connectorAzureScopeConfigurationScopeTypePtr string
+
+func ConnectorAzureScopeConfigurationScopeTypePtr(v string) ConnectorAzureScopeConfigurationScopeTypePtrInput {
+	return (*connectorAzureScopeConfigurationScopeTypePtr)(&v)
+}
+
+func (*connectorAzureScopeConfigurationScopeTypePtr) ElementType() reflect.Type {
+	return connectorAzureScopeConfigurationScopeTypePtrType
+}
+
+func (in *connectorAzureScopeConfigurationScopeTypePtr) ToConnectorAzureScopeConfigurationScopeTypePtrOutput() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
+}
+
+func (in *connectorAzureScopeConfigurationScopeTypePtr) ToConnectorAzureScopeConfigurationScopeTypePtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
 }
 
 // Whether the delegated Security Hub CSPM administrator is set for the organization.
@@ -5465,6 +5538,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateVerificationStatePtrInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateVerificationState("UNKNOWN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueTypeInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyParameterConfigurationValueTypePtrInput)(nil)).Elem(), ConfigurationPolicyParameterConfigurationValueType("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeTypeInput)(nil)).Elem(), ConnectorAzureScopeConfigurationScopeType("TENANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorAzureScopeConfigurationScopeType("TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModeInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModePtrInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
@@ -5523,8 +5598,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypeOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypePtrOutput{})
-	pulumi.RegisterOutputType(ConnectorV2ConnectorStatusOutput{})
-	pulumi.RegisterOutputType(ConnectorV2ConnectorStatusPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationScopeTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModeOutput{})

@@ -21,6 +21,7 @@ class AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy(_
     """
     BALANCED_BEST_EFFORT = "balanced-best-effort"
     BALANCED_ONLY = "balanced-only"
+    RESERVATIONS_THEN_BALANCED = "reservations-then-balanced"
 
 
 @pulumi.type_token("aws-native:autoscaling:AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior")

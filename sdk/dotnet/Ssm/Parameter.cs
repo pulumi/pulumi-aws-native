@@ -178,6 +178,9 @@ namespace Pulumi.AwsNative.Ssm
         [Output("allowedPattern")]
         public Output<string?> AllowedPattern { get; private set; } = null!;
 
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         /// </summary>

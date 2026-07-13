@@ -407,10 +407,10 @@
       "permissions" : [ "profile:CreateDomain", "profile:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetDomain", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
+      "permissions" : [ "profile:GetDomain", "profile:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetDomain", "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
+      "permissions" : [ "profile:GetDomain", "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteDomain", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]

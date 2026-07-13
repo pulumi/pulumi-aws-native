@@ -99,8 +99,854 @@ func (o AccountExpiryEventsConfigurationPtrOutput) DaysBeforeExpiry() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// DNS-based prevalidation options for the domain validation.
+type AcmeDomainValidationDnsPrevalidationOptions struct {
+	DomainScope *AcmeDomainValidationDomainScope `pulumi:"domainScope"`
+	// The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+	HostedZoneId *string `pulumi:"hostedZoneId"`
+}
+
+// AcmeDomainValidationDnsPrevalidationOptionsInput is an input type that accepts AcmeDomainValidationDnsPrevalidationOptionsArgs and AcmeDomainValidationDnsPrevalidationOptionsOutput values.
+// You can construct a concrete instance of `AcmeDomainValidationDnsPrevalidationOptionsInput` via:
+//
+//	AcmeDomainValidationDnsPrevalidationOptionsArgs{...}
+type AcmeDomainValidationDnsPrevalidationOptionsInput interface {
+	pulumi.Input
+
+	ToAcmeDomainValidationDnsPrevalidationOptionsOutput() AcmeDomainValidationDnsPrevalidationOptionsOutput
+	ToAcmeDomainValidationDnsPrevalidationOptionsOutputWithContext(context.Context) AcmeDomainValidationDnsPrevalidationOptionsOutput
+}
+
+// DNS-based prevalidation options for the domain validation.
+type AcmeDomainValidationDnsPrevalidationOptionsArgs struct {
+	DomainScope AcmeDomainValidationDomainScopePtrInput `pulumi:"domainScope"`
+	// The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
+}
+
+func (AcmeDomainValidationDnsPrevalidationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationDnsPrevalidationOptions)(nil)).Elem()
+}
+
+func (i AcmeDomainValidationDnsPrevalidationOptionsArgs) ToAcmeDomainValidationDnsPrevalidationOptionsOutput() AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return i.ToAcmeDomainValidationDnsPrevalidationOptionsOutputWithContext(context.Background())
+}
+
+func (i AcmeDomainValidationDnsPrevalidationOptionsArgs) ToAcmeDomainValidationDnsPrevalidationOptionsOutputWithContext(ctx context.Context) AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeDomainValidationDnsPrevalidationOptionsOutput)
+}
+
+// DNS-based prevalidation options for the domain validation.
+type AcmeDomainValidationDnsPrevalidationOptionsOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationDnsPrevalidationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationDnsPrevalidationOptions)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsOutput) ToAcmeDomainValidationDnsPrevalidationOptionsOutput() AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsOutput) ToAcmeDomainValidationDnsPrevalidationOptionsOutputWithContext(ctx context.Context) AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsOutput) DomainScope() AcmeDomainValidationDomainScopePtrOutput {
+	return o.ApplyT(func(v AcmeDomainValidationDnsPrevalidationOptions) *AcmeDomainValidationDomainScope {
+		return v.DomainScope
+	}).(AcmeDomainValidationDomainScopePtrOutput)
+}
+
+// The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+func (o AcmeDomainValidationDnsPrevalidationOptionsOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcmeDomainValidationDnsPrevalidationOptions) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
+}
+
+type AcmeDomainValidationDnsPrevalidationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeDomainValidationDnsPrevalidationOptions)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) ToAcmeDomainValidationDnsPrevalidationOptionsPtrOutput() AcmeDomainValidationDnsPrevalidationOptionsPtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) ToAcmeDomainValidationDnsPrevalidationOptionsPtrOutputWithContext(ctx context.Context) AcmeDomainValidationDnsPrevalidationOptionsPtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) Elem() AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDnsPrevalidationOptions) AcmeDomainValidationDnsPrevalidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeDomainValidationDnsPrevalidationOptions
+		return ret
+	}).(AcmeDomainValidationDnsPrevalidationOptionsOutput)
+}
+
+func (o AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) DomainScope() AcmeDomainValidationDomainScopePtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDnsPrevalidationOptions) *AcmeDomainValidationDomainScope {
+		if v == nil {
+			return nil
+		}
+		return v.DomainScope
+	}).(AcmeDomainValidationDomainScopePtrOutput)
+}
+
+// The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+func (o AcmeDomainValidationDnsPrevalidationOptionsPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDnsPrevalidationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+type AcmeDomainValidationDomainScope struct {
+	// Whether certificates may be issued for the exact domain.
+	ExactDomain *string `pulumi:"exactDomain"`
+	// Whether certificates may be issued for subdomains of the domain.
+	Subdomains *string `pulumi:"subdomains"`
+	// Whether wildcard certificates may be issued for the domain.
+	Wildcards *string `pulumi:"wildcards"`
+}
+
+// AcmeDomainValidationDomainScopeInput is an input type that accepts AcmeDomainValidationDomainScopeArgs and AcmeDomainValidationDomainScopeOutput values.
+// You can construct a concrete instance of `AcmeDomainValidationDomainScopeInput` via:
+//
+//	AcmeDomainValidationDomainScopeArgs{...}
+type AcmeDomainValidationDomainScopeInput interface {
+	pulumi.Input
+
+	ToAcmeDomainValidationDomainScopeOutput() AcmeDomainValidationDomainScopeOutput
+	ToAcmeDomainValidationDomainScopeOutputWithContext(context.Context) AcmeDomainValidationDomainScopeOutput
+}
+
+// Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+type AcmeDomainValidationDomainScopeArgs struct {
+	// Whether certificates may be issued for the exact domain.
+	ExactDomain pulumi.StringPtrInput `pulumi:"exactDomain"`
+	// Whether certificates may be issued for subdomains of the domain.
+	Subdomains pulumi.StringPtrInput `pulumi:"subdomains"`
+	// Whether wildcard certificates may be issued for the domain.
+	Wildcards pulumi.StringPtrInput `pulumi:"wildcards"`
+}
+
+func (AcmeDomainValidationDomainScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationDomainScope)(nil)).Elem()
+}
+
+func (i AcmeDomainValidationDomainScopeArgs) ToAcmeDomainValidationDomainScopeOutput() AcmeDomainValidationDomainScopeOutput {
+	return i.ToAcmeDomainValidationDomainScopeOutputWithContext(context.Background())
+}
+
+func (i AcmeDomainValidationDomainScopeArgs) ToAcmeDomainValidationDomainScopeOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeDomainValidationDomainScopeOutput)
+}
+
+func (i AcmeDomainValidationDomainScopeArgs) ToAcmeDomainValidationDomainScopePtrOutput() AcmeDomainValidationDomainScopePtrOutput {
+	return i.ToAcmeDomainValidationDomainScopePtrOutputWithContext(context.Background())
+}
+
+func (i AcmeDomainValidationDomainScopeArgs) ToAcmeDomainValidationDomainScopePtrOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeDomainValidationDomainScopeOutput).ToAcmeDomainValidationDomainScopePtrOutputWithContext(ctx)
+}
+
+// AcmeDomainValidationDomainScopePtrInput is an input type that accepts AcmeDomainValidationDomainScopeArgs, AcmeDomainValidationDomainScopePtr and AcmeDomainValidationDomainScopePtrOutput values.
+// You can construct a concrete instance of `AcmeDomainValidationDomainScopePtrInput` via:
+//
+//	        AcmeDomainValidationDomainScopeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AcmeDomainValidationDomainScopePtrInput interface {
+	pulumi.Input
+
+	ToAcmeDomainValidationDomainScopePtrOutput() AcmeDomainValidationDomainScopePtrOutput
+	ToAcmeDomainValidationDomainScopePtrOutputWithContext(context.Context) AcmeDomainValidationDomainScopePtrOutput
+}
+
+type acmeDomainValidationDomainScopePtrType AcmeDomainValidationDomainScopeArgs
+
+func AcmeDomainValidationDomainScopePtr(v *AcmeDomainValidationDomainScopeArgs) AcmeDomainValidationDomainScopePtrInput {
+	return (*acmeDomainValidationDomainScopePtrType)(v)
+}
+
+func (*acmeDomainValidationDomainScopePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeDomainValidationDomainScope)(nil)).Elem()
+}
+
+func (i *acmeDomainValidationDomainScopePtrType) ToAcmeDomainValidationDomainScopePtrOutput() AcmeDomainValidationDomainScopePtrOutput {
+	return i.ToAcmeDomainValidationDomainScopePtrOutputWithContext(context.Background())
+}
+
+func (i *acmeDomainValidationDomainScopePtrType) ToAcmeDomainValidationDomainScopePtrOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeDomainValidationDomainScopePtrOutput)
+}
+
+// Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+type AcmeDomainValidationDomainScopeOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationDomainScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationDomainScope)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationDomainScopeOutput) ToAcmeDomainValidationDomainScopeOutput() AcmeDomainValidationDomainScopeOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDomainScopeOutput) ToAcmeDomainValidationDomainScopeOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopeOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDomainScopeOutput) ToAcmeDomainValidationDomainScopePtrOutput() AcmeDomainValidationDomainScopePtrOutput {
+	return o.ToAcmeDomainValidationDomainScopePtrOutputWithContext(context.Background())
+}
+
+func (o AcmeDomainValidationDomainScopeOutput) ToAcmeDomainValidationDomainScopePtrOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcmeDomainValidationDomainScope) *AcmeDomainValidationDomainScope {
+		return &v
+	}).(AcmeDomainValidationDomainScopePtrOutput)
+}
+
+// Whether certificates may be issued for the exact domain.
+func (o AcmeDomainValidationDomainScopeOutput) ExactDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcmeDomainValidationDomainScope) *string { return v.ExactDomain }).(pulumi.StringPtrOutput)
+}
+
+// Whether certificates may be issued for subdomains of the domain.
+func (o AcmeDomainValidationDomainScopeOutput) Subdomains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcmeDomainValidationDomainScope) *string { return v.Subdomains }).(pulumi.StringPtrOutput)
+}
+
+// Whether wildcard certificates may be issued for the domain.
+func (o AcmeDomainValidationDomainScopeOutput) Wildcards() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AcmeDomainValidationDomainScope) *string { return v.Wildcards }).(pulumi.StringPtrOutput)
+}
+
+type AcmeDomainValidationDomainScopePtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationDomainScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeDomainValidationDomainScope)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationDomainScopePtrOutput) ToAcmeDomainValidationDomainScopePtrOutput() AcmeDomainValidationDomainScopePtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDomainScopePtrOutput) ToAcmeDomainValidationDomainScopePtrOutputWithContext(ctx context.Context) AcmeDomainValidationDomainScopePtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationDomainScopePtrOutput) Elem() AcmeDomainValidationDomainScopeOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDomainScope) AcmeDomainValidationDomainScope {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeDomainValidationDomainScope
+		return ret
+	}).(AcmeDomainValidationDomainScopeOutput)
+}
+
+// Whether certificates may be issued for the exact domain.
+func (o AcmeDomainValidationDomainScopePtrOutput) ExactDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDomainScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExactDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether certificates may be issued for subdomains of the domain.
+func (o AcmeDomainValidationDomainScopePtrOutput) Subdomains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDomainScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subdomains
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether wildcard certificates may be issued for the domain.
+func (o AcmeDomainValidationDomainScopePtrOutput) Wildcards() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationDomainScope) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcards
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+type AcmeDomainValidationPrevalidationOptions struct {
+	DnsPrevalidation AcmeDomainValidationDnsPrevalidationOptions `pulumi:"dnsPrevalidation"`
+}
+
+// AcmeDomainValidationPrevalidationOptionsInput is an input type that accepts AcmeDomainValidationPrevalidationOptionsArgs and AcmeDomainValidationPrevalidationOptionsOutput values.
+// You can construct a concrete instance of `AcmeDomainValidationPrevalidationOptionsInput` via:
+//
+//	AcmeDomainValidationPrevalidationOptionsArgs{...}
+type AcmeDomainValidationPrevalidationOptionsInput interface {
+	pulumi.Input
+
+	ToAcmeDomainValidationPrevalidationOptionsOutput() AcmeDomainValidationPrevalidationOptionsOutput
+	ToAcmeDomainValidationPrevalidationOptionsOutputWithContext(context.Context) AcmeDomainValidationPrevalidationOptionsOutput
+}
+
+// Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+type AcmeDomainValidationPrevalidationOptionsArgs struct {
+	DnsPrevalidation AcmeDomainValidationDnsPrevalidationOptionsInput `pulumi:"dnsPrevalidation"`
+}
+
+func (AcmeDomainValidationPrevalidationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationPrevalidationOptions)(nil)).Elem()
+}
+
+func (i AcmeDomainValidationPrevalidationOptionsArgs) ToAcmeDomainValidationPrevalidationOptionsOutput() AcmeDomainValidationPrevalidationOptionsOutput {
+	return i.ToAcmeDomainValidationPrevalidationOptionsOutputWithContext(context.Background())
+}
+
+func (i AcmeDomainValidationPrevalidationOptionsArgs) ToAcmeDomainValidationPrevalidationOptionsOutputWithContext(ctx context.Context) AcmeDomainValidationPrevalidationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeDomainValidationPrevalidationOptionsOutput)
+}
+
+// Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+type AcmeDomainValidationPrevalidationOptionsOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationPrevalidationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeDomainValidationPrevalidationOptions)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsOutput) ToAcmeDomainValidationPrevalidationOptionsOutput() AcmeDomainValidationPrevalidationOptionsOutput {
+	return o
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsOutput) ToAcmeDomainValidationPrevalidationOptionsOutputWithContext(ctx context.Context) AcmeDomainValidationPrevalidationOptionsOutput {
+	return o
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsOutput) DnsPrevalidation() AcmeDomainValidationDnsPrevalidationOptionsOutput {
+	return o.ApplyT(func(v AcmeDomainValidationPrevalidationOptions) AcmeDomainValidationDnsPrevalidationOptions {
+		return v.DnsPrevalidation
+	}).(AcmeDomainValidationDnsPrevalidationOptionsOutput)
+}
+
+type AcmeDomainValidationPrevalidationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeDomainValidationPrevalidationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeDomainValidationPrevalidationOptions)(nil)).Elem()
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsPtrOutput) ToAcmeDomainValidationPrevalidationOptionsPtrOutput() AcmeDomainValidationPrevalidationOptionsPtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsPtrOutput) ToAcmeDomainValidationPrevalidationOptionsPtrOutputWithContext(ctx context.Context) AcmeDomainValidationPrevalidationOptionsPtrOutput {
+	return o
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsPtrOutput) Elem() AcmeDomainValidationPrevalidationOptionsOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationPrevalidationOptions) AcmeDomainValidationPrevalidationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeDomainValidationPrevalidationOptions
+		return ret
+	}).(AcmeDomainValidationPrevalidationOptionsOutput)
+}
+
+func (o AcmeDomainValidationPrevalidationOptionsPtrOutput) DnsPrevalidation() AcmeDomainValidationDnsPrevalidationOptionsPtrOutput {
+	return o.ApplyT(func(v *AcmeDomainValidationPrevalidationOptions) *AcmeDomainValidationDnsPrevalidationOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsPrevalidation
+	}).(AcmeDomainValidationDnsPrevalidationOptionsPtrOutput)
+}
+
+// The certificate authority configuration for the ACME endpoint.
+type AcmeEndpointCertificateAuthority struct {
+	PublicCertificateAuthority AcmeEndpointPublicCertificateAuthority `pulumi:"publicCertificateAuthority"`
+}
+
+// AcmeEndpointCertificateAuthorityInput is an input type that accepts AcmeEndpointCertificateAuthorityArgs and AcmeEndpointCertificateAuthorityOutput values.
+// You can construct a concrete instance of `AcmeEndpointCertificateAuthorityInput` via:
+//
+//	AcmeEndpointCertificateAuthorityArgs{...}
+type AcmeEndpointCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToAcmeEndpointCertificateAuthorityOutput() AcmeEndpointCertificateAuthorityOutput
+	ToAcmeEndpointCertificateAuthorityOutputWithContext(context.Context) AcmeEndpointCertificateAuthorityOutput
+}
+
+// The certificate authority configuration for the ACME endpoint.
+type AcmeEndpointCertificateAuthorityArgs struct {
+	PublicCertificateAuthority AcmeEndpointPublicCertificateAuthorityInput `pulumi:"publicCertificateAuthority"`
+}
+
+func (AcmeEndpointCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointCertificateAuthority)(nil)).Elem()
+}
+
+func (i AcmeEndpointCertificateAuthorityArgs) ToAcmeEndpointCertificateAuthorityOutput() AcmeEndpointCertificateAuthorityOutput {
+	return i.ToAcmeEndpointCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i AcmeEndpointCertificateAuthorityArgs) ToAcmeEndpointCertificateAuthorityOutputWithContext(ctx context.Context) AcmeEndpointCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeEndpointCertificateAuthorityOutput)
+}
+
+// The certificate authority configuration for the ACME endpoint.
+type AcmeEndpointCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointCertificateAuthority)(nil)).Elem()
+}
+
+func (o AcmeEndpointCertificateAuthorityOutput) ToAcmeEndpointCertificateAuthorityOutput() AcmeEndpointCertificateAuthorityOutput {
+	return o
+}
+
+func (o AcmeEndpointCertificateAuthorityOutput) ToAcmeEndpointCertificateAuthorityOutputWithContext(ctx context.Context) AcmeEndpointCertificateAuthorityOutput {
+	return o
+}
+
+func (o AcmeEndpointCertificateAuthorityOutput) PublicCertificateAuthority() AcmeEndpointPublicCertificateAuthorityOutput {
+	return o.ApplyT(func(v AcmeEndpointCertificateAuthority) AcmeEndpointPublicCertificateAuthority {
+		return v.PublicCertificateAuthority
+	}).(AcmeEndpointPublicCertificateAuthorityOutput)
+}
+
+type AcmeEndpointCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeEndpointCertificateAuthority)(nil)).Elem()
+}
+
+func (o AcmeEndpointCertificateAuthorityPtrOutput) ToAcmeEndpointCertificateAuthorityPtrOutput() AcmeEndpointCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o AcmeEndpointCertificateAuthorityPtrOutput) ToAcmeEndpointCertificateAuthorityPtrOutputWithContext(ctx context.Context) AcmeEndpointCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o AcmeEndpointCertificateAuthorityPtrOutput) Elem() AcmeEndpointCertificateAuthorityOutput {
+	return o.ApplyT(func(v *AcmeEndpointCertificateAuthority) AcmeEndpointCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeEndpointCertificateAuthority
+		return ret
+	}).(AcmeEndpointCertificateAuthorityOutput)
+}
+
+func (o AcmeEndpointCertificateAuthorityPtrOutput) PublicCertificateAuthority() AcmeEndpointPublicCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *AcmeEndpointCertificateAuthority) *AcmeEndpointPublicCertificateAuthority {
+		if v == nil {
+			return nil
+		}
+		return &v.PublicCertificateAuthority
+	}).(AcmeEndpointPublicCertificateAuthorityPtrOutput)
+}
+
+// Configuration for the public certificate authority.
+type AcmeEndpointPublicCertificateAuthority struct {
+	// The allowed key algorithms for certificates issued via this endpoint.
+	AllowedKeyAlgorithms []string `pulumi:"allowedKeyAlgorithms"`
+}
+
+// AcmeEndpointPublicCertificateAuthorityInput is an input type that accepts AcmeEndpointPublicCertificateAuthorityArgs and AcmeEndpointPublicCertificateAuthorityOutput values.
+// You can construct a concrete instance of `AcmeEndpointPublicCertificateAuthorityInput` via:
+//
+//	AcmeEndpointPublicCertificateAuthorityArgs{...}
+type AcmeEndpointPublicCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToAcmeEndpointPublicCertificateAuthorityOutput() AcmeEndpointPublicCertificateAuthorityOutput
+	ToAcmeEndpointPublicCertificateAuthorityOutputWithContext(context.Context) AcmeEndpointPublicCertificateAuthorityOutput
+}
+
+// Configuration for the public certificate authority.
+type AcmeEndpointPublicCertificateAuthorityArgs struct {
+	// The allowed key algorithms for certificates issued via this endpoint.
+	AllowedKeyAlgorithms pulumi.StringArrayInput `pulumi:"allowedKeyAlgorithms"`
+}
+
+func (AcmeEndpointPublicCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointPublicCertificateAuthority)(nil)).Elem()
+}
+
+func (i AcmeEndpointPublicCertificateAuthorityArgs) ToAcmeEndpointPublicCertificateAuthorityOutput() AcmeEndpointPublicCertificateAuthorityOutput {
+	return i.ToAcmeEndpointPublicCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i AcmeEndpointPublicCertificateAuthorityArgs) ToAcmeEndpointPublicCertificateAuthorityOutputWithContext(ctx context.Context) AcmeEndpointPublicCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeEndpointPublicCertificateAuthorityOutput)
+}
+
+// Configuration for the public certificate authority.
+type AcmeEndpointPublicCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointPublicCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointPublicCertificateAuthority)(nil)).Elem()
+}
+
+func (o AcmeEndpointPublicCertificateAuthorityOutput) ToAcmeEndpointPublicCertificateAuthorityOutput() AcmeEndpointPublicCertificateAuthorityOutput {
+	return o
+}
+
+func (o AcmeEndpointPublicCertificateAuthorityOutput) ToAcmeEndpointPublicCertificateAuthorityOutputWithContext(ctx context.Context) AcmeEndpointPublicCertificateAuthorityOutput {
+	return o
+}
+
+// The allowed key algorithms for certificates issued via this endpoint.
+func (o AcmeEndpointPublicCertificateAuthorityOutput) AllowedKeyAlgorithms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AcmeEndpointPublicCertificateAuthority) []string { return v.AllowedKeyAlgorithms }).(pulumi.StringArrayOutput)
+}
+
+type AcmeEndpointPublicCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointPublicCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeEndpointPublicCertificateAuthority)(nil)).Elem()
+}
+
+func (o AcmeEndpointPublicCertificateAuthorityPtrOutput) ToAcmeEndpointPublicCertificateAuthorityPtrOutput() AcmeEndpointPublicCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o AcmeEndpointPublicCertificateAuthorityPtrOutput) ToAcmeEndpointPublicCertificateAuthorityPtrOutputWithContext(ctx context.Context) AcmeEndpointPublicCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o AcmeEndpointPublicCertificateAuthorityPtrOutput) Elem() AcmeEndpointPublicCertificateAuthorityOutput {
+	return o.ApplyT(func(v *AcmeEndpointPublicCertificateAuthority) AcmeEndpointPublicCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeEndpointPublicCertificateAuthority
+		return ret
+	}).(AcmeEndpointPublicCertificateAuthorityOutput)
+}
+
+// The allowed key algorithms for certificates issued via this endpoint.
+func (o AcmeEndpointPublicCertificateAuthorityPtrOutput) AllowedKeyAlgorithms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AcmeEndpointPublicCertificateAuthority) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedKeyAlgorithms
+	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AcmeEndpointTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// AcmeEndpointTagInput is an input type that accepts AcmeEndpointTagArgs and AcmeEndpointTagOutput values.
+// You can construct a concrete instance of `AcmeEndpointTagInput` via:
+//
+//	AcmeEndpointTagArgs{...}
+type AcmeEndpointTagInput interface {
+	pulumi.Input
+
+	ToAcmeEndpointTagOutput() AcmeEndpointTagOutput
+	ToAcmeEndpointTagOutputWithContext(context.Context) AcmeEndpointTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AcmeEndpointTagArgs struct {
+	// The key name of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AcmeEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointTag)(nil)).Elem()
+}
+
+func (i AcmeEndpointTagArgs) ToAcmeEndpointTagOutput() AcmeEndpointTagOutput {
+	return i.ToAcmeEndpointTagOutputWithContext(context.Background())
+}
+
+func (i AcmeEndpointTagArgs) ToAcmeEndpointTagOutputWithContext(ctx context.Context) AcmeEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeEndpointTagOutput)
+}
+
+// AcmeEndpointTagArrayInput is an input type that accepts AcmeEndpointTagArray and AcmeEndpointTagArrayOutput values.
+// You can construct a concrete instance of `AcmeEndpointTagArrayInput` via:
+//
+//	AcmeEndpointTagArray{ AcmeEndpointTagArgs{...} }
+type AcmeEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToAcmeEndpointTagArrayOutput() AcmeEndpointTagArrayOutput
+	ToAcmeEndpointTagArrayOutputWithContext(context.Context) AcmeEndpointTagArrayOutput
+}
+
+type AcmeEndpointTagArray []AcmeEndpointTagInput
+
+func (AcmeEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcmeEndpointTag)(nil)).Elem()
+}
+
+func (i AcmeEndpointTagArray) ToAcmeEndpointTagArrayOutput() AcmeEndpointTagArrayOutput {
+	return i.ToAcmeEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i AcmeEndpointTagArray) ToAcmeEndpointTagArrayOutputWithContext(ctx context.Context) AcmeEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeEndpointTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AcmeEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeEndpointTag)(nil)).Elem()
+}
+
+func (o AcmeEndpointTagOutput) ToAcmeEndpointTagOutput() AcmeEndpointTagOutput {
+	return o
+}
+
+func (o AcmeEndpointTagOutput) ToAcmeEndpointTagOutputWithContext(ctx context.Context) AcmeEndpointTagOutput {
+	return o
+}
+
+// The key name of the tag.
+func (o AcmeEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AcmeEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag.
+func (o AcmeEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AcmeEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AcmeEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AcmeEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcmeEndpointTag)(nil)).Elem()
+}
+
+func (o AcmeEndpointTagArrayOutput) ToAcmeEndpointTagArrayOutput() AcmeEndpointTagArrayOutput {
+	return o
+}
+
+func (o AcmeEndpointTagArrayOutput) ToAcmeEndpointTagArrayOutputWithContext(ctx context.Context) AcmeEndpointTagArrayOutput {
+	return o
+}
+
+func (o AcmeEndpointTagArrayOutput) Index(i pulumi.IntInput) AcmeEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcmeEndpointTag {
+		return vs[0].([]AcmeEndpointTag)[vs[1].(int)]
+	}).(AcmeEndpointTagOutput)
+}
+
+// The expiration configuration for the external account binding.
+type AcmeExternalAccountBindingExpiration struct {
+	// The time unit for the expiration value.
+	Type string `pulumi:"type"`
+	// The expiration value.
+	Value int `pulumi:"value"`
+}
+
+// AcmeExternalAccountBindingExpirationInput is an input type that accepts AcmeExternalAccountBindingExpirationArgs and AcmeExternalAccountBindingExpirationOutput values.
+// You can construct a concrete instance of `AcmeExternalAccountBindingExpirationInput` via:
+//
+//	AcmeExternalAccountBindingExpirationArgs{...}
+type AcmeExternalAccountBindingExpirationInput interface {
+	pulumi.Input
+
+	ToAcmeExternalAccountBindingExpirationOutput() AcmeExternalAccountBindingExpirationOutput
+	ToAcmeExternalAccountBindingExpirationOutputWithContext(context.Context) AcmeExternalAccountBindingExpirationOutput
+}
+
+// The expiration configuration for the external account binding.
+type AcmeExternalAccountBindingExpirationArgs struct {
+	// The time unit for the expiration value.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The expiration value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (AcmeExternalAccountBindingExpirationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeExternalAccountBindingExpiration)(nil)).Elem()
+}
+
+func (i AcmeExternalAccountBindingExpirationArgs) ToAcmeExternalAccountBindingExpirationOutput() AcmeExternalAccountBindingExpirationOutput {
+	return i.ToAcmeExternalAccountBindingExpirationOutputWithContext(context.Background())
+}
+
+func (i AcmeExternalAccountBindingExpirationArgs) ToAcmeExternalAccountBindingExpirationOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeExternalAccountBindingExpirationOutput)
+}
+
+func (i AcmeExternalAccountBindingExpirationArgs) ToAcmeExternalAccountBindingExpirationPtrOutput() AcmeExternalAccountBindingExpirationPtrOutput {
+	return i.ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(context.Background())
+}
+
+func (i AcmeExternalAccountBindingExpirationArgs) ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeExternalAccountBindingExpirationOutput).ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(ctx)
+}
+
+// AcmeExternalAccountBindingExpirationPtrInput is an input type that accepts AcmeExternalAccountBindingExpirationArgs, AcmeExternalAccountBindingExpirationPtr and AcmeExternalAccountBindingExpirationPtrOutput values.
+// You can construct a concrete instance of `AcmeExternalAccountBindingExpirationPtrInput` via:
+//
+//	        AcmeExternalAccountBindingExpirationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AcmeExternalAccountBindingExpirationPtrInput interface {
+	pulumi.Input
+
+	ToAcmeExternalAccountBindingExpirationPtrOutput() AcmeExternalAccountBindingExpirationPtrOutput
+	ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(context.Context) AcmeExternalAccountBindingExpirationPtrOutput
+}
+
+type acmeExternalAccountBindingExpirationPtrType AcmeExternalAccountBindingExpirationArgs
+
+func AcmeExternalAccountBindingExpirationPtr(v *AcmeExternalAccountBindingExpirationArgs) AcmeExternalAccountBindingExpirationPtrInput {
+	return (*acmeExternalAccountBindingExpirationPtrType)(v)
+}
+
+func (*acmeExternalAccountBindingExpirationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeExternalAccountBindingExpiration)(nil)).Elem()
+}
+
+func (i *acmeExternalAccountBindingExpirationPtrType) ToAcmeExternalAccountBindingExpirationPtrOutput() AcmeExternalAccountBindingExpirationPtrOutput {
+	return i.ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(context.Background())
+}
+
+func (i *acmeExternalAccountBindingExpirationPtrType) ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcmeExternalAccountBindingExpirationPtrOutput)
+}
+
+// The expiration configuration for the external account binding.
+type AcmeExternalAccountBindingExpirationOutput struct{ *pulumi.OutputState }
+
+func (AcmeExternalAccountBindingExpirationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcmeExternalAccountBindingExpiration)(nil)).Elem()
+}
+
+func (o AcmeExternalAccountBindingExpirationOutput) ToAcmeExternalAccountBindingExpirationOutput() AcmeExternalAccountBindingExpirationOutput {
+	return o
+}
+
+func (o AcmeExternalAccountBindingExpirationOutput) ToAcmeExternalAccountBindingExpirationOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationOutput {
+	return o
+}
+
+func (o AcmeExternalAccountBindingExpirationOutput) ToAcmeExternalAccountBindingExpirationPtrOutput() AcmeExternalAccountBindingExpirationPtrOutput {
+	return o.ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(context.Background())
+}
+
+func (o AcmeExternalAccountBindingExpirationOutput) ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcmeExternalAccountBindingExpiration) *AcmeExternalAccountBindingExpiration {
+		return &v
+	}).(AcmeExternalAccountBindingExpirationPtrOutput)
+}
+
+// The time unit for the expiration value.
+func (o AcmeExternalAccountBindingExpirationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AcmeExternalAccountBindingExpiration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The expiration value.
+func (o AcmeExternalAccountBindingExpirationOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v AcmeExternalAccountBindingExpiration) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type AcmeExternalAccountBindingExpirationPtrOutput struct{ *pulumi.OutputState }
+
+func (AcmeExternalAccountBindingExpirationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AcmeExternalAccountBindingExpiration)(nil)).Elem()
+}
+
+func (o AcmeExternalAccountBindingExpirationPtrOutput) ToAcmeExternalAccountBindingExpirationPtrOutput() AcmeExternalAccountBindingExpirationPtrOutput {
+	return o
+}
+
+func (o AcmeExternalAccountBindingExpirationPtrOutput) ToAcmeExternalAccountBindingExpirationPtrOutputWithContext(ctx context.Context) AcmeExternalAccountBindingExpirationPtrOutput {
+	return o
+}
+
+func (o AcmeExternalAccountBindingExpirationPtrOutput) Elem() AcmeExternalAccountBindingExpirationOutput {
+	return o.ApplyT(func(v *AcmeExternalAccountBindingExpiration) AcmeExternalAccountBindingExpiration {
+		if v != nil {
+			return *v
+		}
+		var ret AcmeExternalAccountBindingExpiration
+		return ret
+	}).(AcmeExternalAccountBindingExpirationOutput)
+}
+
+// The time unit for the expiration value.
+func (o AcmeExternalAccountBindingExpirationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AcmeExternalAccountBindingExpiration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expiration value.
+func (o AcmeExternalAccountBindingExpirationPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AcmeExternalAccountBindingExpiration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type TagsItemProperties struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountExpiryEventsConfigurationInput)(nil)).Elem(), AccountExpiryEventsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeDomainValidationDnsPrevalidationOptionsInput)(nil)).Elem(), AcmeDomainValidationDnsPrevalidationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeDomainValidationDomainScopeInput)(nil)).Elem(), AcmeDomainValidationDomainScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeDomainValidationDomainScopePtrInput)(nil)).Elem(), AcmeDomainValidationDomainScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeDomainValidationPrevalidationOptionsInput)(nil)).Elem(), AcmeDomainValidationPrevalidationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeEndpointCertificateAuthorityInput)(nil)).Elem(), AcmeEndpointCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeEndpointPublicCertificateAuthorityInput)(nil)).Elem(), AcmeEndpointPublicCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeEndpointTagInput)(nil)).Elem(), AcmeEndpointTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeEndpointTagArrayInput)(nil)).Elem(), AcmeEndpointTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeExternalAccountBindingExpirationInput)(nil)).Elem(), AcmeExternalAccountBindingExpirationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcmeExternalAccountBindingExpirationPtrInput)(nil)).Elem(), AcmeExternalAccountBindingExpirationArgs{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationOutput{})
 	pulumi.RegisterOutputType(AccountExpiryEventsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationDnsPrevalidationOptionsOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationDnsPrevalidationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationDomainScopeOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationDomainScopePtrOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationPrevalidationOptionsOutput{})
+	pulumi.RegisterOutputType(AcmeDomainValidationPrevalidationOptionsPtrOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointCertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointPublicCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointPublicCertificateAuthorityPtrOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointTagOutput{})
+	pulumi.RegisterOutputType(AcmeEndpointTagArrayOutput{})
+	pulumi.RegisterOutputType(AcmeExternalAccountBindingExpirationOutput{})
+	pulumi.RegisterOutputType(AcmeExternalAccountBindingExpirationPtrOutput{})
 }

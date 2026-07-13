@@ -572,7 +572,151 @@
         },
         "required" : [ "Http" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Inference",
+        "properties" : {
+          "Inference" : {
+            "$ref" : "#/definitions/InferenceTargetConfiguration"
+          }
+        },
+        "required" : [ "Inference" ],
+        "additionalProperties" : false
       } ]
+    },
+    "InferenceTargetConfiguration" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "Connector",
+        "properties" : {
+          "Connector" : {
+            "$ref" : "#/definitions/InferenceConnectorTargetConfiguration"
+          }
+        },
+        "required" : [ "Connector" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Provider",
+        "properties" : {
+          "Provider" : {
+            "$ref" : "#/definitions/InferenceProviderTargetConfiguration"
+          }
+        },
+        "required" : [ "Provider" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "InferenceConnectorTargetConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/InferenceConnectorSource"
+        }
+      },
+      "required" : [ "Source" ],
+      "additionalProperties" : false
+    },
+    "InferenceConnectorSource" : {
+      "type" : "object",
+      "properties" : {
+        "ConnectorId" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1
+        }
+      },
+      "required" : [ "ConnectorId" ],
+      "additionalProperties" : false
+    },
+    "InferenceProviderTargetConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Endpoint" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^https://[a-zA-Z0-9\\-\\.]+(:[0-9]{1,5})?(/.*)?$"
+        },
+        "ModelMapping" : {
+          "$ref" : "#/definitions/ModelMapping"
+        },
+        "Operations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/InferenceOperationConfiguration"
+          },
+          "maxItems" : 10,
+          "minItems" : 1
+        }
+      },
+      "required" : [ "Endpoint" ],
+      "additionalProperties" : false
+    },
+    "ModelMapping" : {
+      "type" : "object",
+      "properties" : {
+        "ProviderPrefix" : {
+          "$ref" : "#/definitions/ProviderPrefix"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ProviderPrefix" : {
+      "type" : "object",
+      "properties" : {
+        "Strip" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "Separator" : {
+          "type" : "string",
+          "maxLength" : 1,
+          "minLength" : 1,
+          "default" : "."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "InferenceOperationConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Path" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "pattern" : "^/[a-zA-Z0-9\\-\\._/]+$"
+        },
+        "ProviderPath" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "pattern" : "^/[a-zA-Z0-9\\-\\._/]+$"
+        },
+        "Models" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ModelEntry"
+          },
+          "maxItems" : 100,
+          "minItems" : 1
+        }
+      },
+      "required" : [ "Path" ],
+      "additionalProperties" : false
+    },
+    "ModelEntry" : {
+      "type" : "object",
+      "properties" : {
+        "Model" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "pattern" : "^[a-zA-Z0-9\\-\\._\\*\\?@]+(/[a-zA-Z0-9\\-\\._\\*\\?@]+)*$"
+        }
+      },
+      "required" : [ "Model" ],
+      "additionalProperties" : false
     },
     "TargetStatus" : {
       "type" : "string",
@@ -690,7 +834,7 @@
     },
     "TargetProtocolType" : {
       "type" : "string",
-      "enum" : [ "MCP", "HTTP" ]
+      "enum" : [ "MCP", "HTTP", "INFERENCE" ]
     },
     "ConnectorConfiguration" : {
       "type" : "object",
@@ -904,13 +1048,13 @@
   "primaryIdentifier" : [ "/properties/GatewayIdentifier", "/properties/TargetId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:GET", "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
+      "permissions" : [ "apigateway:GET", "bedrock-agentcore:CreateGatewayTarget", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations", "bedrock-mantle:ListModels", "bedrock-mantle:GetModel" ]
     },
     "read" : {
       "permissions" : [ "bedrock-agentcore:GetGatewayTarget" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations" ]
+      "permissions" : [ "apigateway:GET", "bedrock-agentcore:GetAgentRuntime", "bedrock-agentcore:GetGatewayTarget", "bedrock-agentcore:GetResourceOauth2Token", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetWorkloadAccessTokenForUserId", "bedrock-agentcore:SynchronizeGatewayTargets", "bedrock-agentcore:UpdateGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "s3:GetObject", "secretsmanager:GetSecretValue", "iam:CreateServiceLinkedRole", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "vpc-lattice:AssociateViaAWSService", "vpc-lattice:GetResourceConfiguration", "vpc-lattice:CreateResourceConfiguration", "vpc-lattice:CreateResourceGateway", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:GetServiceNetworkResourceAssociation", "vpc-lattice:CreateServiceNetworkResourceAssociation", "vpc-lattice:DeleteServiceNetworkResourceAssociation", "vpc-lattice:ListServiceNetworkResourceAssociations", "bedrock-mantle:ListModels", "bedrock-mantle:GetModel" ]
     },
     "delete" : {
       "permissions" : [ "bedrock-agentcore:DeleteGatewayTarget", "bedrock-agentcore:GetGatewayTarget", "kms:Decrypt", "kms:GenerateDataKey", "kms:ListGrants", "vpc-lattice:DeleteResourceConfiguration", "vpc-lattice:DeleteResourceGateway", "vpc-lattice:DeleteServiceNetworkResourceAssociation" ]

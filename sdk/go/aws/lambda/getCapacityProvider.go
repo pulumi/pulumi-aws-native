@@ -30,8 +30,9 @@ type LookupCapacityProviderArgs struct {
 type LookupCapacityProviderResult struct {
 	Arn *string `pulumi:"arn"`
 	// The scaling configuration for the capacity provider.
-	CapacityProviderScalingConfig *CapacityProviderScalingConfig       `pulumi:"capacityProviderScalingConfig"`
-	PropagateTags                 *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
+	CapacityProviderScalingConfig *CapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfig"`
+	// Configuration for tag propagation to managed resources launched by the capacity provider.
+	PropagateTags *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
 	// The current state of the capacity provider.
 	State *CapacityProviderStateEnum `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
@@ -81,6 +82,7 @@ func (o LookupCapacityProviderResultOutput) CapacityProviderScalingConfig() Capa
 	}).(CapacityProviderScalingConfigPtrOutput)
 }
 
+// Configuration for tag propagation to managed resources launched by the capacity provider.
 func (o LookupCapacityProviderResultOutput) PropagateTags() CapacityProviderPropagateTagsConfigPtrOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) *CapacityProviderPropagateTagsConfig { return v.PropagateTags }).(CapacityProviderPropagateTagsConfigPtrOutput)
 }

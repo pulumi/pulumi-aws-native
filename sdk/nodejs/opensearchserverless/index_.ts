@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An OpenSearch Serverless index resource
+ * Resource Type definition for AWS::OpenSearchServerless::Index
  */
 export class Index extends pulumi.CustomResource {
     /**
@@ -85,7 +85,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["collectionEndpoint", "indexName"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionEndpoint", "indexName", "settings.analysis"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Index.__pulumiType, name, resourceInputs, opts);
     }

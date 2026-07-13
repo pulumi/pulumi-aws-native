@@ -4,7 +4,7 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/PolicyArn" ],
   "readOnlyProperties" : [ "/properties/Version", "/properties/PolicyId", "/properties/PolicyArn", "/properties/DefinitionHash", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/KmsKeyArn" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ForceDelete" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId" ],
   "writeOnlyProperties" : [ "/properties/KmsKeyId", "/properties/ForceDelete", "/properties/PolicyDefinition" ],
   "definitions" : {
     "Name" : {

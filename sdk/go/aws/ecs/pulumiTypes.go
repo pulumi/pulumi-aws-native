@@ -9278,6 +9278,7 @@ type ExpressGatewayServiceConfiguration struct {
 	ScalingTarget *ExpressGatewayServiceExpressGatewayScalingTarget `pulumi:"scalingTarget"`
 	// The ARN of the service revision.
 	ServiceRevisionArn *string `pulumi:"serviceRevisionArn"`
+	TaskDefinitionArn  *string `pulumi:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 }
@@ -9352,6 +9353,10 @@ func (o ExpressGatewayServiceConfigurationOutput) ScalingTarget() ExpressGateway
 // The ARN of the service revision.
 func (o ExpressGatewayServiceConfigurationOutput) ServiceRevisionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.ServiceRevisionArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceConfigurationOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.TaskDefinitionArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the task role for the service revision.
@@ -9555,6 +9560,47 @@ func (i ExpressGatewayServiceExpressGatewayContainerArgs) ToExpressGatewayServic
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayContainerOutput)
 }
 
+func (i ExpressGatewayServiceExpressGatewayContainerArgs) ToExpressGatewayServiceExpressGatewayContainerPtrOutput() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayContainerArgs) ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayContainerOutput).ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceExpressGatewayContainerPtrInput is an input type that accepts ExpressGatewayServiceExpressGatewayContainerArgs, ExpressGatewayServiceExpressGatewayContainerPtr and ExpressGatewayServiceExpressGatewayContainerPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayContainerPtrInput` via:
+//
+//	        ExpressGatewayServiceExpressGatewayContainerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceExpressGatewayContainerPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayContainerPtrOutput() ExpressGatewayServiceExpressGatewayContainerPtrOutput
+	ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayContainerPtrOutput
+}
+
+type expressGatewayServiceExpressGatewayContainerPtrType ExpressGatewayServiceExpressGatewayContainerArgs
+
+func ExpressGatewayServiceExpressGatewayContainerPtr(v *ExpressGatewayServiceExpressGatewayContainerArgs) ExpressGatewayServiceExpressGatewayContainerPtrInput {
+	return (*expressGatewayServiceExpressGatewayContainerPtrType)(v)
+}
+
+func (*expressGatewayServiceExpressGatewayContainerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayContainer)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceExpressGatewayContainerPtrType) ToExpressGatewayServiceExpressGatewayContainerPtrOutput() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceExpressGatewayContainerPtrType) ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayContainerPtrOutput)
+}
+
 type ExpressGatewayServiceExpressGatewayContainerOutput struct{ *pulumi.OutputState }
 
 func (ExpressGatewayServiceExpressGatewayContainerOutput) ElementType() reflect.Type {
@@ -9567,6 +9613,16 @@ func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServ
 
 func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServiceExpressGatewayContainerOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerOutput {
 	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServiceExpressGatewayContainerPtrOutput() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o.ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceExpressGatewayContainer) *ExpressGatewayServiceExpressGatewayContainer {
+		return &v
+	}).(ExpressGatewayServiceExpressGatewayContainerPtrOutput)
 }
 
 // The log configuration for the container.
@@ -13124,9 +13180,11 @@ func (o ServiceDeploymentAlarmsPtrOutput) Rollback() pulumi.BoolPtrOutput {
 //	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreaker struct {
 	// Determines whether to use the deployment circuit breaker logic for the service.
-	Enable bool `pulumi:"enable"`
+	Enable             bool  `pulumi:"enable"`
+	ResetOnHealthyTask *bool `pulumi:"resetOnHealthyTask"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-	Rollback bool `pulumi:"rollback"`
+	Rollback               bool                           `pulumi:"rollback"`
+	ThresholdConfiguration *ServiceThresholdConfiguration `pulumi:"thresholdConfiguration"`
 }
 
 // ServiceDeploymentCircuitBreakerInput is an input type that accepts ServiceDeploymentCircuitBreakerArgs and ServiceDeploymentCircuitBreakerOutput values.
@@ -13146,9 +13204,11 @@ type ServiceDeploymentCircuitBreakerInput interface {
 //	For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceDeploymentCircuitBreakerArgs struct {
 	// Determines whether to use the deployment circuit breaker logic for the service.
-	Enable pulumi.BoolInput `pulumi:"enable"`
+	Enable             pulumi.BoolInput    `pulumi:"enable"`
+	ResetOnHealthyTask pulumi.BoolPtrInput `pulumi:"resetOnHealthyTask"`
 	// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-	Rollback pulumi.BoolInput `pulumi:"rollback"`
+	Rollback               pulumi.BoolInput                      `pulumi:"rollback"`
+	ThresholdConfiguration ServiceThresholdConfigurationPtrInput `pulumi:"thresholdConfiguration"`
 }
 
 func (ServiceDeploymentCircuitBreakerArgs) ElementType() reflect.Type {
@@ -13237,9 +13297,19 @@ func (o ServiceDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+func (o ServiceDeploymentCircuitBreakerOutput) ResetOnHealthyTask() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *bool { return v.ResetOnHealthyTask }).(pulumi.BoolPtrOutput)
+}
+
 // Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
+}
+
+func (o ServiceDeploymentCircuitBreakerOutput) ThresholdConfiguration() ServiceThresholdConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *ServiceThresholdConfiguration {
+		return v.ThresholdConfiguration
+	}).(ServiceThresholdConfigurationPtrOutput)
 }
 
 type ServiceDeploymentCircuitBreakerPtrOutput struct{ *pulumi.OutputState }
@@ -13276,6 +13346,15 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o ServiceDeploymentCircuitBreakerPtrOutput) ResetOnHealthyTask() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ResetOnHealthyTask
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
@@ -13284,6 +13363,15 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 		}
 		return &v.Rollback
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDeploymentCircuitBreakerPtrOutput) ThresholdConfiguration() ServiceThresholdConfigurationPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *ServiceThresholdConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ThresholdConfiguration
+	}).(ServiceThresholdConfigurationPtrOutput)
 }
 
 // Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
@@ -15736,9 +15824,12 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration for a specific set of metrics to collect for a service.
 type ServiceMetricConfiguration struct {
-	MetricNames       []ServiceMetricConfigurationMetricNamesItem `pulumi:"metricNames"`
-	ResolutionSeconds int                                         `pulumi:"resolutionSeconds"`
+	// The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+	MetricNames []ServiceMetricConfigurationMetricNamesItem `pulumi:"metricNames"`
+	// The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+	ResolutionSeconds int `pulumi:"resolutionSeconds"`
 }
 
 // ServiceMetricConfigurationInput is an input type that accepts ServiceMetricConfigurationArgs and ServiceMetricConfigurationOutput values.
@@ -15752,9 +15843,12 @@ type ServiceMetricConfigurationInput interface {
 	ToServiceMetricConfigurationOutputWithContext(context.Context) ServiceMetricConfigurationOutput
 }
 
+// The configuration for a specific set of metrics to collect for a service.
 type ServiceMetricConfigurationArgs struct {
-	MetricNames       ServiceMetricConfigurationMetricNamesItemArrayInput `pulumi:"metricNames"`
-	ResolutionSeconds pulumi.IntInput                                     `pulumi:"resolutionSeconds"`
+	// The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+	MetricNames ServiceMetricConfigurationMetricNamesItemArrayInput `pulumi:"metricNames"`
+	// The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+	ResolutionSeconds pulumi.IntInput `pulumi:"resolutionSeconds"`
 }
 
 func (ServiceMetricConfigurationArgs) ElementType() reflect.Type {
@@ -15794,6 +15888,7 @@ func (i ServiceMetricConfigurationArray) ToServiceMetricConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMetricConfigurationArrayOutput)
 }
 
+// The configuration for a specific set of metrics to collect for a service.
 type ServiceMetricConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceMetricConfigurationOutput) ElementType() reflect.Type {
@@ -15808,10 +15903,12 @@ func (o ServiceMetricConfigurationOutput) ToServiceMetricConfigurationOutputWith
 	return o
 }
 
+// The list of metric names to configure. The supported metric names are “CPUUtilization“ and “MemoryUtilization“.
 func (o ServiceMetricConfigurationOutput) MetricNames() ServiceMetricConfigurationMetricNamesItemArrayOutput {
 	return o.ApplyT(func(v ServiceMetricConfiguration) []ServiceMetricConfigurationMetricNamesItem { return v.MetricNames }).(ServiceMetricConfigurationMetricNamesItemArrayOutput)
 }
 
+// The resolution, in seconds, at which to collect the metrics. The valid values are “20“ and “60“.
 func (o ServiceMetricConfigurationOutput) ResolutionSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceMetricConfiguration) int { return v.ResolutionSeconds }).(pulumi.IntOutput)
 }
@@ -15836,7 +15933,9 @@ func (o ServiceMetricConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceM
 	}).(ServiceMetricConfigurationOutput)
 }
 
+// The optional monitoring configuration for a service, which defines the resolution for the service-level “CPUUtilization“ and “MemoryUtilization“ Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of “60“ seconds.
 type ServiceMonitoringConfiguration struct {
+	// The list of metric configurations for the service monitoring.
 	MetricConfigurations []ServiceMetricConfiguration `pulumi:"metricConfigurations"`
 }
 
@@ -15851,7 +15950,9 @@ type ServiceMonitoringConfigurationInput interface {
 	ToServiceMonitoringConfigurationOutputWithContext(context.Context) ServiceMonitoringConfigurationOutput
 }
 
+// The optional monitoring configuration for a service, which defines the resolution for the service-level “CPUUtilization“ and “MemoryUtilization“ Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of “60“ seconds.
 type ServiceMonitoringConfigurationArgs struct {
+	// The list of metric configurations for the service monitoring.
 	MetricConfigurations ServiceMetricConfigurationArrayInput `pulumi:"metricConfigurations"`
 }
 
@@ -15908,6 +16009,7 @@ func (i *serviceMonitoringConfigurationPtrType) ToServiceMonitoringConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMonitoringConfigurationPtrOutput)
 }
 
+// The optional monitoring configuration for a service, which defines the resolution for the service-level “CPUUtilization“ and “MemoryUtilization“ Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of “60“ seconds.
 type ServiceMonitoringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceMonitoringConfigurationOutput) ElementType() reflect.Type {
@@ -15932,6 +16034,7 @@ func (o ServiceMonitoringConfigurationOutput) ToServiceMonitoringConfigurationPt
 	}).(ServiceMonitoringConfigurationPtrOutput)
 }
 
+// The list of metric configurations for the service monitoring.
 func (o ServiceMonitoringConfigurationOutput) MetricConfigurations() ServiceMetricConfigurationArrayOutput {
 	return o.ApplyT(func(v ServiceMonitoringConfiguration) []ServiceMetricConfiguration { return v.MetricConfigurations }).(ServiceMetricConfigurationArrayOutput)
 }
@@ -15960,6 +16063,7 @@ func (o ServiceMonitoringConfigurationPtrOutput) Elem() ServiceMonitoringConfigu
 	}).(ServiceMonitoringConfigurationOutput)
 }
 
+// The list of metric configurations for the service monitoring.
 func (o ServiceMonitoringConfigurationPtrOutput) MetricConfigurations() ServiceMetricConfigurationArrayOutput {
 	return o.ApplyT(func(v *ServiceMonitoringConfiguration) []ServiceMetricConfiguration {
 		if v == nil {
@@ -16764,6 +16868,154 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
 		return vs[0].([]ServiceTag)[vs[1].(int)]
 	}).(ServiceTagOutput)
+}
+
+type ServiceThresholdConfiguration struct {
+	Type  ServiceThresholdConfigurationType `pulumi:"type"`
+	Value int                               `pulumi:"value"`
+}
+
+// ServiceThresholdConfigurationInput is an input type that accepts ServiceThresholdConfigurationArgs and ServiceThresholdConfigurationOutput values.
+// You can construct a concrete instance of `ServiceThresholdConfigurationInput` via:
+//
+//	ServiceThresholdConfigurationArgs{...}
+type ServiceThresholdConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceThresholdConfigurationOutput() ServiceThresholdConfigurationOutput
+	ToServiceThresholdConfigurationOutputWithContext(context.Context) ServiceThresholdConfigurationOutput
+}
+
+type ServiceThresholdConfigurationArgs struct {
+	Type  ServiceThresholdConfigurationTypeInput `pulumi:"type"`
+	Value pulumi.IntInput                        `pulumi:"value"`
+}
+
+func (ServiceThresholdConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceThresholdConfiguration)(nil)).Elem()
+}
+
+func (i ServiceThresholdConfigurationArgs) ToServiceThresholdConfigurationOutput() ServiceThresholdConfigurationOutput {
+	return i.ToServiceThresholdConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceThresholdConfigurationArgs) ToServiceThresholdConfigurationOutputWithContext(ctx context.Context) ServiceThresholdConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceThresholdConfigurationOutput)
+}
+
+func (i ServiceThresholdConfigurationArgs) ToServiceThresholdConfigurationPtrOutput() ServiceThresholdConfigurationPtrOutput {
+	return i.ToServiceThresholdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceThresholdConfigurationArgs) ToServiceThresholdConfigurationPtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceThresholdConfigurationOutput).ToServiceThresholdConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceThresholdConfigurationPtrInput is an input type that accepts ServiceThresholdConfigurationArgs, ServiceThresholdConfigurationPtr and ServiceThresholdConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceThresholdConfigurationPtrInput` via:
+//
+//	        ServiceThresholdConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceThresholdConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceThresholdConfigurationPtrOutput() ServiceThresholdConfigurationPtrOutput
+	ToServiceThresholdConfigurationPtrOutputWithContext(context.Context) ServiceThresholdConfigurationPtrOutput
+}
+
+type serviceThresholdConfigurationPtrType ServiceThresholdConfigurationArgs
+
+func ServiceThresholdConfigurationPtr(v *ServiceThresholdConfigurationArgs) ServiceThresholdConfigurationPtrInput {
+	return (*serviceThresholdConfigurationPtrType)(v)
+}
+
+func (*serviceThresholdConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceThresholdConfiguration)(nil)).Elem()
+}
+
+func (i *serviceThresholdConfigurationPtrType) ToServiceThresholdConfigurationPtrOutput() ServiceThresholdConfigurationPtrOutput {
+	return i.ToServiceThresholdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceThresholdConfigurationPtrType) ToServiceThresholdConfigurationPtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceThresholdConfigurationPtrOutput)
+}
+
+type ServiceThresholdConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceThresholdConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceThresholdConfiguration)(nil)).Elem()
+}
+
+func (o ServiceThresholdConfigurationOutput) ToServiceThresholdConfigurationOutput() ServiceThresholdConfigurationOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationOutput) ToServiceThresholdConfigurationOutputWithContext(ctx context.Context) ServiceThresholdConfigurationOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationOutput) ToServiceThresholdConfigurationPtrOutput() ServiceThresholdConfigurationPtrOutput {
+	return o.ToServiceThresholdConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceThresholdConfigurationOutput) ToServiceThresholdConfigurationPtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceThresholdConfiguration) *ServiceThresholdConfiguration {
+		return &v
+	}).(ServiceThresholdConfigurationPtrOutput)
+}
+
+func (o ServiceThresholdConfigurationOutput) Type() ServiceThresholdConfigurationTypeOutput {
+	return o.ApplyT(func(v ServiceThresholdConfiguration) ServiceThresholdConfigurationType { return v.Type }).(ServiceThresholdConfigurationTypeOutput)
+}
+
+func (o ServiceThresholdConfigurationOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceThresholdConfiguration) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type ServiceThresholdConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceThresholdConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceThresholdConfiguration)(nil)).Elem()
+}
+
+func (o ServiceThresholdConfigurationPtrOutput) ToServiceThresholdConfigurationPtrOutput() ServiceThresholdConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationPtrOutput) ToServiceThresholdConfigurationPtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationPtrOutput) Elem() ServiceThresholdConfigurationOutput {
+	return o.ApplyT(func(v *ServiceThresholdConfiguration) ServiceThresholdConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceThresholdConfiguration
+		return ret
+	}).(ServiceThresholdConfigurationOutput)
+}
+
+func (o ServiceThresholdConfigurationPtrOutput) Type() ServiceThresholdConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ServiceThresholdConfiguration) *ServiceThresholdConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ServiceThresholdConfigurationTypePtrOutput)
+}
+
+func (o ServiceThresholdConfigurationPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceThresholdConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
 }
 
 // An object that represents the timeout configurations for Service Connect.
@@ -24481,6 +24733,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationPtrInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainerInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainerPtrInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentialsInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayScalingTargetInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayScalingTargetArgs{})
@@ -24557,6 +24810,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecretArrayInput)(nil)).Elem(), ServiceSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceThresholdConfigurationInput)(nil)).Elem(), ServiceThresholdConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceThresholdConfigurationPtrInput)(nil)).Elem(), ServiceThresholdConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationPtrInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
@@ -24833,6 +25088,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSecretArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
+	pulumi.RegisterOutputType(ServiceThresholdConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceThresholdConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceTimeoutConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceTimeoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})

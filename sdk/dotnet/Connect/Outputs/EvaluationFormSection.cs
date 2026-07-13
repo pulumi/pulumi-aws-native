@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly string? Instructions;
         /// <summary>
+        /// The flag to exclude the section from scoring.
+        /// </summary>
+        public readonly bool? IsExcludedFromScoring;
+        /// <summary>
         /// The items of the section.
         ///  *Minimum*: 1
         /// </summary>
@@ -30,6 +34,10 @@ namespace Pulumi.AwsNative.Connect.Outputs
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
         public readonly string RefId;
+        /// <summary>
+        /// The score thresholds for performance categories.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EvaluationFormScoreThreshold> ScoreThresholds;
         /// <summary>
         /// The title of the section.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 128.
@@ -46,17 +54,23 @@ namespace Pulumi.AwsNative.Connect.Outputs
         private EvaluationFormSection(
             string? instructions,
 
+            bool? isExcludedFromScoring,
+
             ImmutableArray<Outputs.EvaluationFormItem> items,
 
             string refId,
+
+            ImmutableArray<Outputs.EvaluationFormScoreThreshold> scoreThresholds,
 
             string title,
 
             double? weight)
         {
             Instructions = instructions;
+            IsExcludedFromScoring = isExcludedFromScoring;
             Items = items;
             RefId = refId;
+            ScoreThresholds = scoreThresholds;
             Title = title;
             Weight = weight;
         }

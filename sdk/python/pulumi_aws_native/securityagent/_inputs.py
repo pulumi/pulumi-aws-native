@@ -18,12 +18,24 @@ from ._enums import *
 __all__ = [
     'AgentSpaceAwsResourcesArgs',
     'AgentSpaceAwsResourcesArgsDict',
+    'AgentSpaceBitbucketCapabilitiesResourceArgs',
+    'AgentSpaceBitbucketCapabilitiesResourceArgsDict',
+    'AgentSpaceBitbucketRepositoryResourceArgs',
+    'AgentSpaceBitbucketRepositoryResourceArgsDict',
     'AgentSpaceCodeReviewSettingsArgs',
     'AgentSpaceCodeReviewSettingsArgsDict',
+    'AgentSpaceConfluenceCapabilitiesResourceArgs',
+    'AgentSpaceConfluenceCapabilitiesResourceArgsDict',
+    'AgentSpaceConfluenceDocumentResourceArgs',
+    'AgentSpaceConfluenceDocumentResourceArgsDict',
     'AgentSpaceGitHubCapabilitiesResourceArgs',
     'AgentSpaceGitHubCapabilitiesResourceArgsDict',
     'AgentSpaceGitHubRepositoryResourceArgs',
     'AgentSpaceGitHubRepositoryResourceArgsDict',
+    'AgentSpaceGitLabCapabilitiesResourceArgs',
+    'AgentSpaceGitLabCapabilitiesResourceArgsDict',
+    'AgentSpaceGitLabRepositoryResourceArgs',
+    'AgentSpaceGitLabRepositoryResourceArgsDict',
     'AgentSpaceIntegratedResourceArgs',
     'AgentSpaceIntegratedResourceArgsDict',
     'AgentSpaceProviderResourceArgs',
@@ -56,6 +68,8 @@ __all__ = [
     'PentestSourceCodeRepositoryArgsDict',
     'PentestVpcConfigArgs',
     'PentestVpcConfigArgsDict',
+    'SecurityRequirementPackSecurityRequirementArgs',
+    'SecurityRequirementPackSecurityRequirementArgsDict',
 ]
 
 class AgentSpaceAwsResourcesArgsDict(TypedDict):
@@ -192,6 +206,112 @@ class AgentSpaceAwsResourcesArgs:
         pulumi.set(self, "vpcs", value)
 
 
+class AgentSpaceBitbucketCapabilitiesResourceArgsDict(TypedDict):
+    """
+    Bitbucket repository capabilities
+    """
+    leave_comments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables Code Review in the repository
+    """
+    remediate_code: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables creation of pull requests with automated fixes
+    """
+
+@pulumi.input_type
+class AgentSpaceBitbucketCapabilitiesResourceArgs:
+    def __init__(__self__, *,
+                 leave_comments: Optional[pulumi.Input[_builtins.bool]] = None,
+                 remediate_code: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Bitbucket repository capabilities
+
+        :param pulumi.Input[_builtins.bool] leave_comments: Enables Code Review in the repository
+        :param pulumi.Input[_builtins.bool] remediate_code: Enables creation of pull requests with automated fixes
+        """
+        if leave_comments is not None:
+            pulumi.set(__self__, "leave_comments", leave_comments)
+        if remediate_code is not None:
+            pulumi.set(__self__, "remediate_code", remediate_code)
+
+    @_builtins.property
+    @pulumi.getter(name="leaveComments")
+    def leave_comments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables Code Review in the repository
+        """
+        return pulumi.get(self, "leave_comments")
+
+    @leave_comments.setter
+    def leave_comments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "leave_comments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remediateCode")
+    def remediate_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables creation of pull requests with automated fixes
+        """
+        return pulumi.get(self, "remediate_code")
+
+    @remediate_code.setter
+    def remediate_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "remediate_code", value)
+
+
+class AgentSpaceBitbucketRepositoryResourceArgsDict(TypedDict):
+    """
+    Bitbucket repository details
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Bitbucket repository name
+    """
+    workspace: pulumi.Input[_builtins.str]
+    """
+    Bitbucket workspace slug owning the repository
+    """
+
+@pulumi.input_type
+class AgentSpaceBitbucketRepositoryResourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 workspace: pulumi.Input[_builtins.str]):
+        """
+        Bitbucket repository details
+
+        :param pulumi.Input[_builtins.str] name: Bitbucket repository name
+        :param pulumi.Input[_builtins.str] workspace: Bitbucket workspace slug owning the repository
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "workspace", workspace)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Bitbucket repository name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def workspace(self) -> pulumi.Input[_builtins.str]:
+        """
+        Bitbucket workspace slug owning the repository
+        """
+        return pulumi.get(self, "workspace")
+
+    @workspace.setter
+    def workspace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "workspace", value)
+
+
 class AgentSpaceCodeReviewSettingsArgsDict(TypedDict):
     """
     Details of code review settings
@@ -242,6 +362,191 @@ class AgentSpaceCodeReviewSettingsArgs:
     @general_purpose_scanning.setter
     def general_purpose_scanning(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "general_purpose_scanning", value)
+
+
+class AgentSpaceConfluenceCapabilitiesResourceArgsDict(TypedDict):
+    """
+    Confluence document capabilities
+    """
+    create_document: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables creation of new Confluence documents in the same space
+    """
+    fetch_document: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables read access to the document content
+    """
+    update_document: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables updates to the document
+    """
+
+@pulumi.input_type
+class AgentSpaceConfluenceCapabilitiesResourceArgs:
+    def __init__(__self__, *,
+                 create_document: Optional[pulumi.Input[_builtins.bool]] = None,
+                 fetch_document: Optional[pulumi.Input[_builtins.bool]] = None,
+                 update_document: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Confluence document capabilities
+
+        :param pulumi.Input[_builtins.bool] create_document: Enables creation of new Confluence documents in the same space
+        :param pulumi.Input[_builtins.bool] fetch_document: Enables read access to the document content
+        :param pulumi.Input[_builtins.bool] update_document: Enables updates to the document
+        """
+        if create_document is not None:
+            pulumi.set(__self__, "create_document", create_document)
+        if fetch_document is not None:
+            pulumi.set(__self__, "fetch_document", fetch_document)
+        if update_document is not None:
+            pulumi.set(__self__, "update_document", update_document)
+
+    @_builtins.property
+    @pulumi.getter(name="createDocument")
+    def create_document(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables creation of new Confluence documents in the same space
+        """
+        return pulumi.get(self, "create_document")
+
+    @create_document.setter
+    def create_document(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "create_document", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fetchDocument")
+    def fetch_document(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables read access to the document content
+        """
+        return pulumi.get(self, "fetch_document")
+
+    @fetch_document.setter
+    def fetch_document(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "fetch_document", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateDocument")
+    def update_document(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables updates to the document
+        """
+        return pulumi.get(self, "update_document")
+
+    @update_document.setter
+    def update_document(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "update_document", value)
+
+
+class AgentSpaceConfluenceDocumentResourceArgsDict(TypedDict):
+    """
+    Confluence document details
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Customer-supplied logical name for the Confluence document
+    """
+    page_id: pulumi.Input[_builtins.str]
+    """
+    Confluence page identifier
+    """
+    space_key: pulumi.Input[_builtins.str]
+    """
+    Confluence space key containing the document
+    """
+    space_title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Read-only human-readable title of the containing space, populated from service-side metadata
+    """
+    title: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Read-only human-readable title of the page, populated from service-side metadata
+    """
+
+@pulumi.input_type
+class AgentSpaceConfluenceDocumentResourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 page_id: pulumi.Input[_builtins.str],
+                 space_key: pulumi.Input[_builtins.str],
+                 space_title: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Confluence document details
+
+        :param pulumi.Input[_builtins.str] name: Customer-supplied logical name for the Confluence document
+        :param pulumi.Input[_builtins.str] page_id: Confluence page identifier
+        :param pulumi.Input[_builtins.str] space_key: Confluence space key containing the document
+        :param pulumi.Input[_builtins.str] space_title: Read-only human-readable title of the containing space, populated from service-side metadata
+        :param pulumi.Input[_builtins.str] title: Read-only human-readable title of the page, populated from service-side metadata
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "page_id", page_id)
+        pulumi.set(__self__, "space_key", space_key)
+        if space_title is not None:
+            pulumi.set(__self__, "space_title", space_title)
+        if title is not None:
+            pulumi.set(__self__, "title", title)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Customer-supplied logical name for the Confluence document
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pageId")
+    def page_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Confluence page identifier
+        """
+        return pulumi.get(self, "page_id")
+
+    @page_id.setter
+    def page_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "page_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spaceKey")
+    def space_key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Confluence space key containing the document
+        """
+        return pulumi.get(self, "space_key")
+
+    @space_key.setter
+    def space_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "space_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spaceTitle")
+    def space_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Read-only human-readable title of the containing space, populated from service-side metadata
+        """
+        return pulumi.get(self, "space_title")
+
+    @space_title.setter
+    def space_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "space_title", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Read-only human-readable title of the page, populated from service-side metadata
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "title", value)
 
 
 class AgentSpaceGitHubCapabilitiesResourceArgsDict(TypedDict):
@@ -348,6 +653,112 @@ class AgentSpaceGitHubRepositoryResourceArgs:
         pulumi.set(self, "owner", value)
 
 
+class AgentSpaceGitLabCapabilitiesResourceArgsDict(TypedDict):
+    """
+    GitLab repository capabilities
+    """
+    leave_comments: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables Code Review in the repository
+    """
+    remediate_code: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables creation of merge requests with automated fixes
+    """
+
+@pulumi.input_type
+class AgentSpaceGitLabCapabilitiesResourceArgs:
+    def __init__(__self__, *,
+                 leave_comments: Optional[pulumi.Input[_builtins.bool]] = None,
+                 remediate_code: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        GitLab repository capabilities
+
+        :param pulumi.Input[_builtins.bool] leave_comments: Enables Code Review in the repository
+        :param pulumi.Input[_builtins.bool] remediate_code: Enables creation of merge requests with automated fixes
+        """
+        if leave_comments is not None:
+            pulumi.set(__self__, "leave_comments", leave_comments)
+        if remediate_code is not None:
+            pulumi.set(__self__, "remediate_code", remediate_code)
+
+    @_builtins.property
+    @pulumi.getter(name="leaveComments")
+    def leave_comments(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables Code Review in the repository
+        """
+        return pulumi.get(self, "leave_comments")
+
+    @leave_comments.setter
+    def leave_comments(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "leave_comments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remediateCode")
+    def remediate_code(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables creation of merge requests with automated fixes
+        """
+        return pulumi.get(self, "remediate_code")
+
+    @remediate_code.setter
+    def remediate_code(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "remediate_code", value)
+
+
+class AgentSpaceGitLabRepositoryResourceArgsDict(TypedDict):
+    """
+    GitLab repository details
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    GitLab project name
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    GitLab project namespace (user, group, or subgroup path)
+    """
+
+@pulumi.input_type
+class AgentSpaceGitLabRepositoryResourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 namespace: pulumi.Input[_builtins.str]):
+        """
+        GitLab repository details
+
+        :param pulumi.Input[_builtins.str] name: GitLab project name
+        :param pulumi.Input[_builtins.str] namespace: GitLab project namespace (user, group, or subgroup path)
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitLab project name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[_builtins.str]:
+        """
+        GitLab project namespace (user, group, or subgroup path)
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "namespace", value)
+
+
 class AgentSpaceIntegratedResourceArgsDict(TypedDict):
     """
     Integrated Resource details
@@ -402,23 +813,83 @@ class AgentSpaceIntegratedResourceArgs:
 
 class AgentSpaceProviderResourceArgsDict(TypedDict):
     """
-    Selected Resource (eg: Code Repository) from an Integration
+    Selected Resource (eg: Code Repository, Document) from an Integration
     """
+    bitbucket_capabilities: NotRequired[pulumi.Input['AgentSpaceBitbucketCapabilitiesResourceArgsDict']]
+    bitbucket_repository: NotRequired[pulumi.Input['AgentSpaceBitbucketRepositoryResourceArgsDict']]
+    confluence_capabilities: NotRequired[pulumi.Input['AgentSpaceConfluenceCapabilitiesResourceArgsDict']]
+    confluence_document: NotRequired[pulumi.Input['AgentSpaceConfluenceDocumentResourceArgsDict']]
     git_hub_capabilities: NotRequired[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgsDict']]
     git_hub_repository: NotRequired[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgsDict']]
+    git_lab_capabilities: NotRequired[pulumi.Input['AgentSpaceGitLabCapabilitiesResourceArgsDict']]
+    git_lab_repository: NotRequired[pulumi.Input['AgentSpaceGitLabRepositoryResourceArgsDict']]
 
 @pulumi.input_type
 class AgentSpaceProviderResourceArgs:
     def __init__(__self__, *,
+                 bitbucket_capabilities: Optional[pulumi.Input['AgentSpaceBitbucketCapabilitiesResourceArgs']] = None,
+                 bitbucket_repository: Optional[pulumi.Input['AgentSpaceBitbucketRepositoryResourceArgs']] = None,
+                 confluence_capabilities: Optional[pulumi.Input['AgentSpaceConfluenceCapabilitiesResourceArgs']] = None,
+                 confluence_document: Optional[pulumi.Input['AgentSpaceConfluenceDocumentResourceArgs']] = None,
                  git_hub_capabilities: Optional[pulumi.Input['AgentSpaceGitHubCapabilitiesResourceArgs']] = None,
-                 git_hub_repository: Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']] = None):
+                 git_hub_repository: Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']] = None,
+                 git_lab_capabilities: Optional[pulumi.Input['AgentSpaceGitLabCapabilitiesResourceArgs']] = None,
+                 git_lab_repository: Optional[pulumi.Input['AgentSpaceGitLabRepositoryResourceArgs']] = None):
         """
-        Selected Resource (eg: Code Repository) from an Integration
+        Selected Resource (eg: Code Repository, Document) from an Integration
         """
+        if bitbucket_capabilities is not None:
+            pulumi.set(__self__, "bitbucket_capabilities", bitbucket_capabilities)
+        if bitbucket_repository is not None:
+            pulumi.set(__self__, "bitbucket_repository", bitbucket_repository)
+        if confluence_capabilities is not None:
+            pulumi.set(__self__, "confluence_capabilities", confluence_capabilities)
+        if confluence_document is not None:
+            pulumi.set(__self__, "confluence_document", confluence_document)
         if git_hub_capabilities is not None:
             pulumi.set(__self__, "git_hub_capabilities", git_hub_capabilities)
         if git_hub_repository is not None:
             pulumi.set(__self__, "git_hub_repository", git_hub_repository)
+        if git_lab_capabilities is not None:
+            pulumi.set(__self__, "git_lab_capabilities", git_lab_capabilities)
+        if git_lab_repository is not None:
+            pulumi.set(__self__, "git_lab_repository", git_lab_repository)
+
+    @_builtins.property
+    @pulumi.getter(name="bitbucketCapabilities")
+    def bitbucket_capabilities(self) -> Optional[pulumi.Input['AgentSpaceBitbucketCapabilitiesResourceArgs']]:
+        return pulumi.get(self, "bitbucket_capabilities")
+
+    @bitbucket_capabilities.setter
+    def bitbucket_capabilities(self, value: Optional[pulumi.Input['AgentSpaceBitbucketCapabilitiesResourceArgs']]):
+        pulumi.set(self, "bitbucket_capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bitbucketRepository")
+    def bitbucket_repository(self) -> Optional[pulumi.Input['AgentSpaceBitbucketRepositoryResourceArgs']]:
+        return pulumi.get(self, "bitbucket_repository")
+
+    @bitbucket_repository.setter
+    def bitbucket_repository(self, value: Optional[pulumi.Input['AgentSpaceBitbucketRepositoryResourceArgs']]):
+        pulumi.set(self, "bitbucket_repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="confluenceCapabilities")
+    def confluence_capabilities(self) -> Optional[pulumi.Input['AgentSpaceConfluenceCapabilitiesResourceArgs']]:
+        return pulumi.get(self, "confluence_capabilities")
+
+    @confluence_capabilities.setter
+    def confluence_capabilities(self, value: Optional[pulumi.Input['AgentSpaceConfluenceCapabilitiesResourceArgs']]):
+        pulumi.set(self, "confluence_capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="confluenceDocument")
+    def confluence_document(self) -> Optional[pulumi.Input['AgentSpaceConfluenceDocumentResourceArgs']]:
+        return pulumi.get(self, "confluence_document")
+
+    @confluence_document.setter
+    def confluence_document(self, value: Optional[pulumi.Input['AgentSpaceConfluenceDocumentResourceArgs']]):
+        pulumi.set(self, "confluence_document", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHubCapabilities")
@@ -437,6 +908,24 @@ class AgentSpaceProviderResourceArgs:
     @git_hub_repository.setter
     def git_hub_repository(self, value: Optional[pulumi.Input['AgentSpaceGitHubRepositoryResourceArgs']]):
         pulumi.set(self, "git_hub_repository", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitLabCapabilities")
+    def git_lab_capabilities(self) -> Optional[pulumi.Input['AgentSpaceGitLabCapabilitiesResourceArgs']]:
+        return pulumi.get(self, "git_lab_capabilities")
+
+    @git_lab_capabilities.setter
+    def git_lab_capabilities(self, value: Optional[pulumi.Input['AgentSpaceGitLabCapabilitiesResourceArgs']]):
+        pulumi.set(self, "git_lab_capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gitLabRepository")
+    def git_lab_repository(self) -> Optional[pulumi.Input['AgentSpaceGitLabRepositoryResourceArgs']]:
+        return pulumi.get(self, "git_lab_repository")
+
+    @git_lab_repository.setter
+    def git_lab_repository(self, value: Optional[pulumi.Input['AgentSpaceGitLabRepositoryResourceArgs']]):
+        pulumi.set(self, "git_lab_repository", value)
 
 
 class AgentSpaceVpcConfigArgsDict(TypedDict):
@@ -918,7 +1407,7 @@ class PentestCustomHeaderArgs:
 
 class PentestDocumentInfoArgsDict(TypedDict):
     """
-    A document stored in S3 that provides context for the pentest
+    A document attached to the pentest, uploaded to S3
     """
     artifact_id: NotRequired[pulumi.Input[_builtins.str]]
     """
@@ -935,7 +1424,7 @@ class PentestDocumentInfoArgs:
                  artifact_id: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_location: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        A document stored in S3 that provides context for the pentest
+        A document attached to the pentest, uploaded to S3
 
         :param pulumi.Input[_builtins.str] artifact_id: Artifact identifier
         :param pulumi.Input[_builtins.str] s3_location: S3 document location
@@ -1283,5 +1772,110 @@ class PentestVpcConfigArgs:
     @vpc_arn.setter
     def vpc_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "vpc_arn", value)
+
+
+class SecurityRequirementPackSecurityRequirementArgsDict(TypedDict):
+    description: pulumi.Input[_builtins.str]
+    """
+    Description of the security requirement
+    """
+    domain: pulumi.Input[_builtins.str]
+    """
+    Security domain this requirement belongs to
+    """
+    evaluation: pulumi.Input[_builtins.str]
+    """
+    How to evaluate compliance with this requirement
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the security requirement
+    """
+    remediation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How to remediate non-compliance
+    """
+
+@pulumi.input_type
+class SecurityRequirementPackSecurityRequirementArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[_builtins.str],
+                 domain: pulumi.Input[_builtins.str],
+                 evaluation: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 remediation: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: Description of the security requirement
+        :param pulumi.Input[_builtins.str] domain: Security domain this requirement belongs to
+        :param pulumi.Input[_builtins.str] evaluation: How to evaluate compliance with this requirement
+        :param pulumi.Input[_builtins.str] name: Name of the security requirement
+        :param pulumi.Input[_builtins.str] remediation: How to remediate non-compliance
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "evaluation", evaluation)
+        pulumi.set(__self__, "name", name)
+        if remediation is not None:
+            pulumi.set(__self__, "remediation", remediation)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[_builtins.str]:
+        """
+        Description of the security requirement
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[_builtins.str]:
+        """
+        Security domain this requirement belongs to
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def evaluation(self) -> pulumi.Input[_builtins.str]:
+        """
+        How to evaluate compliance with this requirement
+        """
+        return pulumi.get(self, "evaluation")
+
+    @evaluation.setter
+    def evaluation(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "evaluation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the security requirement
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def remediation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        How to remediate non-compliance
+        """
+        return pulumi.get(self, "remediation")
+
+    @remediation.setter
+    def remediation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "remediation", value)
 
 

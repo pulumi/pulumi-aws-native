@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// Qtype
         /// </summary>
         public readonly string? Qtype;
+        /// <summary>
+        /// The status of the firewall rule.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleStatus? Status;
 
         [OutputConstructor]
         private FirewallRuleGroupFirewallRule(
@@ -95,7 +99,9 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             int priority,
 
-            string? qtype)
+            string? qtype,
+
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleStatus? status)
         {
             Action = action;
             BlockOverrideDnsType = blockOverrideDnsType;
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
             FirewallThreatProtectionId = firewallThreatProtectionId;
             Priority = priority;
             Qtype = qtype;
+            Status = status;
         }
     }
 }

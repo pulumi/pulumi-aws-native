@@ -26,8 +26,9 @@ type CapacityProvider struct {
 	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The permissions configuration for the capacity provider.
-	PermissionsConfig CapacityProviderPermissionsConfigOutput      `pulumi:"permissionsConfig"`
-	PropagateTags     CapacityProviderPropagateTagsConfigPtrOutput `pulumi:"propagateTags"`
+	PermissionsConfig CapacityProviderPermissionsConfigOutput `pulumi:"permissionsConfig"`
+	// Configuration for tag propagation to managed resources launched by the capacity provider.
+	PropagateTags CapacityProviderPropagateTagsConfigPtrOutput `pulumi:"propagateTags"`
 	// The current state of the capacity provider.
 	State CapacityProviderStateEnumOutput `pulumi:"state"`
 	// A key-value pair that provides metadata for the capacity provider.
@@ -99,8 +100,9 @@ type capacityProviderArgs struct {
 	// The ARN of the KMS key used to encrypt the capacity provider's resources.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The permissions configuration for the capacity provider.
-	PermissionsConfig CapacityProviderPermissionsConfig    `pulumi:"permissionsConfig"`
-	PropagateTags     *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
+	PermissionsConfig CapacityProviderPermissionsConfig `pulumi:"permissionsConfig"`
+	// Configuration for tag propagation to managed resources launched by the capacity provider.
+	PropagateTags *CapacityProviderPropagateTagsConfig `pulumi:"propagateTags"`
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags            []aws.Tag                        `pulumi:"tags"`
 	TelemetryConfig *CapacityProviderTelemetryConfig `pulumi:"telemetryConfig"`
@@ -119,7 +121,8 @@ type CapacityProviderArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// The permissions configuration for the capacity provider.
 	PermissionsConfig CapacityProviderPermissionsConfigInput
-	PropagateTags     CapacityProviderPropagateTagsConfigPtrInput
+	// Configuration for tag propagation to managed resources launched by the capacity provider.
+	PropagateTags CapacityProviderPropagateTagsConfigPtrInput
 	// A key-value pair that provides metadata for the capacity provider.
 	Tags            aws.TagArrayInput
 	TelemetryConfig CapacityProviderTelemetryConfigPtrInput
@@ -194,6 +197,7 @@ func (o CapacityProviderOutput) PermissionsConfig() CapacityProviderPermissionsC
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPermissionsConfigOutput { return v.PermissionsConfig }).(CapacityProviderPermissionsConfigOutput)
 }
 
+// Configuration for tag propagation to managed resources launched by the capacity provider.
 func (o CapacityProviderOutput) PropagateTags() CapacityProviderPropagateTagsConfigPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderPropagateTagsConfigPtrOutput { return v.PropagateTags }).(CapacityProviderPropagateTagsConfigPtrOutput)
 }

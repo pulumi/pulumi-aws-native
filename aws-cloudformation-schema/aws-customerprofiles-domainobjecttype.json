@@ -150,7 +150,7 @@
       "permissions" : [ "profile:GetDomainObjectType", "profile:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetDomainObjectType", "profile:PutDomainObjectType", "profile:UntagResource", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "profile:GetDomainObjectType", "profile:PutDomainObjectType", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteDomainObjectType" ]

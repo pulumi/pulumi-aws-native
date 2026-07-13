@@ -32,15 +32,15 @@ type Workgroup struct {
 	PricePerformanceTarget WorkgroupPerformanceTargetPtrOutput `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	// The recovery point id to restore from.
+	// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	RecoveryPointId pulumi.StringPtrOutput `pulumi:"recoveryPointId"`
 	// A list of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the snapshot to restore from.
+	// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	SnapshotArn pulumi.StringPtrOutput `pulumi:"snapshotArn"`
-	// The snapshot name to restore from.
+	// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
 	SnapshotName pulumi.StringPtrOutput `pulumi:"snapshotName"`
-	// The Amazon Web Services account that owns the snapshot.
+	// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
 	SnapshotOwnerAccount pulumi.StringPtrOutput `pulumi:"snapshotOwnerAccount"`
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
@@ -115,15 +115,15 @@ type workgroupArgs struct {
 	PricePerformanceTarget *WorkgroupPerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The recovery point id to restore from.
+	// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	RecoveryPointId *string `pulumi:"recoveryPointId"`
 	// A list of security group IDs to associate with the workgroup.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the snapshot to restore from.
+	// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	SnapshotArn *string `pulumi:"snapshotArn"`
-	// The snapshot name to restore from.
+	// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
 	SnapshotName *string `pulumi:"snapshotName"`
-	// The Amazon Web Services account that owns the snapshot.
+	// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
 	SnapshotOwnerAccount *string `pulumi:"snapshotOwnerAccount"`
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -155,15 +155,15 @@ type WorkgroupArgs struct {
 	PricePerformanceTarget WorkgroupPerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The recovery point id to restore from.
+	// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	RecoveryPointId pulumi.StringPtrInput
 	// A list of security group IDs to associate with the workgroup.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) of the snapshot to restore from.
+	// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 	SnapshotArn pulumi.StringPtrInput
-	// The snapshot name to restore from.
+	// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
 	SnapshotName pulumi.StringPtrInput
-	// The Amazon Web Services account that owns the snapshot.
+	// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
 	SnapshotOwnerAccount pulumi.StringPtrInput
 	// A list of subnet IDs the workgroup is associated with.
 	SubnetIds pulumi.StringArrayInput
@@ -254,7 +254,7 @@ func (o WorkgroupOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
-// The recovery point id to restore from.
+// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 func (o WorkgroupOutput) RecoveryPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.RecoveryPointId }).(pulumi.StringPtrOutput)
 }
@@ -264,17 +264,17 @@ func (o WorkgroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the snapshot to restore from.
+// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
 func (o WorkgroupOutput) SnapshotArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.SnapshotArn }).(pulumi.StringPtrOutput)
 }
 
-// The snapshot name to restore from.
+// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
 func (o WorkgroupOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.SnapshotName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Web Services account that owns the snapshot.
+// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
 func (o WorkgroupOutput) SnapshotOwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.StringPtrOutput { return v.SnapshotOwnerAccount }).(pulumi.StringPtrOutput)
 }

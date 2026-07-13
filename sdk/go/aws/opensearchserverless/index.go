@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// An OpenSearch Serverless index resource
+// Resource Type definition for AWS::OpenSearchServerless::Index
 type Index struct {
 	pulumi.CustomResourceState
 
@@ -41,6 +41,7 @@ func NewIndex(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"collectionEndpoint",
 		"indexName",
+		"settings.analysis",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

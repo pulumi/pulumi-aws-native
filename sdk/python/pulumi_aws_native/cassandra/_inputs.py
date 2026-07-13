@@ -49,7 +49,7 @@ __all__ = [
 ]
 
 class KeyspaceReplicationSpecificationArgsDict(TypedDict):
-    region_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]
+    region_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 
@@ -68,10 +68,10 @@ class KeyspaceReplicationSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class KeyspaceReplicationSpecificationArgs:
     def __init__(__self__, *,
-                 region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
+                 region_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]] region_list: Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_list: Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
                
                To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy'] replication_strategy: The options are:
@@ -88,7 +88,7 @@ class KeyspaceReplicationSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="regionList")
-    def region_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]:
+    def region_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 
@@ -97,7 +97,7 @@ class KeyspaceReplicationSpecificationArgs:
         return pulumi.get(self, "region_list")
 
     @region_list.setter
-    def region_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]]):
+    def region_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "region_list", value)
 
     @_builtins.property

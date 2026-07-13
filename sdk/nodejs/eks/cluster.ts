@@ -121,6 +121,7 @@ export class Cluster extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
+    declare public readonly rollbackConfig: pulumi.Output<outputs.eks.ClusterRollbackConfig | undefined>;
     /**
      * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */
@@ -175,6 +176,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["remoteNetworkConfig"] = args?.remoteNetworkConfig;
             resourceInputs["resourcesVpcConfig"] = args?.resourcesVpcConfig;
             resourceInputs["roleArn"] = args?.roleArn;
+            resourceInputs["rollbackConfig"] = args?.rollbackConfig;
             resourceInputs["storageConfig"] = args?.storageConfig;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["upgradePolicy"] = args?.upgradePolicy;
@@ -209,6 +211,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["remoteNetworkConfig"] = undefined /*out*/;
             resourceInputs["resourcesVpcConfig"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["rollbackConfig"] = undefined /*out*/;
             resourceInputs["storageConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
@@ -282,6 +285,7 @@ export interface ClusterArgs {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     roleArn: pulumi.Input<string>;
+    rollbackConfig?: pulumi.Input<inputs.eks.ClusterRollbackConfigArgs>;
     /**
      * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */

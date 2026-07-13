@@ -2169,10 +2169,11 @@ func (in *eventTriggerObjectAttributeComparisonOperatorPtr) ToEventTriggerObject
 type EventTriggerPeriodUnit string
 
 const (
-	EventTriggerPeriodUnitHours  = EventTriggerPeriodUnit("HOURS")
-	EventTriggerPeriodUnitDays   = EventTriggerPeriodUnit("DAYS")
-	EventTriggerPeriodUnitWeeks  = EventTriggerPeriodUnit("WEEKS")
-	EventTriggerPeriodUnitMonths = EventTriggerPeriodUnit("MONTHS")
+	EventTriggerPeriodUnitMinutes = EventTriggerPeriodUnit("MINUTES")
+	EventTriggerPeriodUnitHours   = EventTriggerPeriodUnit("HOURS")
+	EventTriggerPeriodUnitDays    = EventTriggerPeriodUnit("DAYS")
+	EventTriggerPeriodUnitWeeks   = EventTriggerPeriodUnit("WEEKS")
+	EventTriggerPeriodUnitMonths  = EventTriggerPeriodUnit("MONTHS")
 )
 
 func (EventTriggerPeriodUnit) ElementType() reflect.Type {
@@ -2297,6 +2298,7 @@ func (o EventTriggerPeriodUnitPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // EventTriggerPeriodUnitInput is an input type that accepts values of the EventTriggerPeriodUnit enum
 // A concrete instance of `EventTriggerPeriodUnitInput` can be one of the following:
 //
+//	EventTriggerPeriodUnitMinutes
 //	EventTriggerPeriodUnitHours
 //	EventTriggerPeriodUnitDays
 //	EventTriggerPeriodUnitWeeks
@@ -6730,8 +6732,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorPtrInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperatorInput)(nil)).Elem(), EventTriggerObjectAttributeComparisonOperator("INCLUSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperatorPtrInput)(nil)).Elem(), EventTriggerObjectAttributeComparisonOperator("INCLUSIVE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitInput)(nil)).Elem(), EventTriggerPeriodUnit("HOURS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitPtrInput)(nil)).Elem(), EventTriggerPeriodUnit("HOURS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitInput)(nil)).Elem(), EventTriggerPeriodUnit("MINUTES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitPtrInput)(nil)).Elem(), EventTriggerPeriodUnit("MINUTES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypeInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypePtrInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoConnectorOperatorInput)(nil)).Elem(), IntegrationMarketoConnectorOperator("PROJECTION"))

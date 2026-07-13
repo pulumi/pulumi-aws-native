@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.CodePipeline
     public sealed class GetPipelineResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the pipeline.
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
         /// The S3 bucket where artifacts for the pipeline are stored.
         /// </summary>
         public readonly Outputs.PipelineArtifactStore? ArtifactStore;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.CodePipeline
 
         [OutputConstructor]
         private GetPipelineResult(
+            string? arn,
+
             Outputs.PipelineArtifactStore? artifactStore,
 
             ImmutableArray<Outputs.PipelineArtifactStoreMap> artifactStores,
@@ -132,6 +138,7 @@ namespace Pulumi.AwsNative.CodePipeline
 
             string? version)
         {
+            Arn = arn;
             ArtifactStore = artifactStore;
             ArtifactStores = artifactStores;
             DisableInboundStageTransitions = disableInboundStageTransitions;

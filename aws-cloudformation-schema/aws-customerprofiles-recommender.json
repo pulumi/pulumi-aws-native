@@ -234,7 +234,7 @@
       "permissions" : [ "profile:CreateRecommender", "profile:GetRecommender", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetRecommender", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "profile:GetRecommender", "profile:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
       "permissions" : [ "profile:GetRecommender", "profile:UpdateRecommender", "profile:UntagResource", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]

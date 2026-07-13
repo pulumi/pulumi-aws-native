@@ -2,6 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AlgorithmChannelSpecificationSupportedCompressionTypesItem = {
+    None: "None",
+    Gzip: "Gzip",
+} as const;
+
+export type AlgorithmChannelSpecificationSupportedCompressionTypesItem = (typeof AlgorithmChannelSpecificationSupportedCompressionTypesItem)[keyof typeof AlgorithmChannelSpecificationSupportedCompressionTypesItem];
+
+export const AlgorithmChannelSpecificationSupportedInputModesItem = {
+    Pipe: "Pipe",
+    File: "File",
+    FastFile: "FastFile",
+} as const;
+
+export type AlgorithmChannelSpecificationSupportedInputModesItem = (typeof AlgorithmChannelSpecificationSupportedInputModesItem)[keyof typeof AlgorithmChannelSpecificationSupportedInputModesItem];
+
+export const AlgorithmHyperParameterSpecificationType = {
+    Integer: "Integer",
+    Continuous: "Continuous",
+    Categorical: "Categorical",
+    FreeText: "FreeText",
+} as const;
+
+export type AlgorithmHyperParameterSpecificationType = (typeof AlgorithmHyperParameterSpecificationType)[keyof typeof AlgorithmHyperParameterSpecificationType];
+
+export const AlgorithmHyperParameterTuningJobObjectiveType = {
+    Maximize: "Maximize",
+    Minimize: "Minimize",
+} as const;
+
+export type AlgorithmHyperParameterTuningJobObjectiveType = (typeof AlgorithmHyperParameterTuningJobObjectiveType)[keyof typeof AlgorithmHyperParameterTuningJobObjectiveType];
+
 export const AppResourceSpecInstanceType = {
     System: "system",
     MlT3Micro: "ml.t3.micro",
@@ -782,6 +813,21 @@ export const FeatureGroupUnit = {
  * Unit of ttl configuration
  */
 export type FeatureGroupUnit = (typeof FeatureGroupUnit)[keyof typeof FeatureGroupUnit];
+
+export const HubStatus = {
+    InService: "InService",
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    CreateFailed: "CreateFailed",
+    UpdateFailed: "UpdateFailed",
+    DeleteFailed: "DeleteFailed",
+} as const;
+
+/**
+ * The status of the hub.
+ */
+export type HubStatus = (typeof HubStatus)[keyof typeof HubStatus];
 
 export const ImageVersionJobType = {
     Training: "TRAINING",

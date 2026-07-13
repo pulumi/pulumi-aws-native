@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// <summary>
         /// The target configuration for the Smithy model target.
         /// </summary>
-        public readonly Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>? TargetConfiguration;
+        public readonly object? TargetConfiguration;
         /// <summary>
         /// The target ID for the gateway target.
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             ImmutableArray<string> statusReasons,
 
-            Union<Outputs.GatewayTargetTargetConfiguration0Properties, Outputs.GatewayTargetTargetConfiguration1Properties>? targetConfiguration,
+            object? targetConfiguration,
 
             string? targetId,
 

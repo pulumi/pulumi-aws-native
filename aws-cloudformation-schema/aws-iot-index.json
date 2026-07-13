@@ -1,0 +1,25 @@
+{
+  "typeName" : "AWS::IoT::Index",
+  "description" : "Resource Type definition for AWS::IoT::Index",
+  "additionalProperties" : false,
+  "properties" : {
+    "IndexName" : {
+      "type" : "string"
+    },
+    "IndexStatus" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "Arn" : {
+      "type" : "string"
+    },
+    "Schema" : {
+      "type" : "string"
+    }
+  },
+  "createOnlyProperties" : [ "/properties/IndexName" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Schema", "/properties/Arn", "/properties/IndexStatus" ]
+}

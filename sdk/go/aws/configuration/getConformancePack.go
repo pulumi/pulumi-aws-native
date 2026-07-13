@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,12 +29,16 @@ type LookupConformancePackArgs struct {
 }
 
 type LookupConformancePackResult struct {
+	// Amazon Resource Name (ARN) of the conformance pack.
+	ConformancePackArn *string `pulumi:"conformancePackArn"`
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters []ConformancePackInputParameter `pulumi:"conformancePackInputParameters"`
 	// AWS Config stores intermediate files while processing conformance pack template.
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
 	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	// The tags for the conformance pack.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupConformancePackOutput(ctx *pulumi.Context, args LookupConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupConformancePackResultOutput {
@@ -68,6 +73,11 @@ func (o LookupConformancePackResultOutput) ToLookupConformancePackResultOutputWi
 	return o
 }
 
+// Amazon Resource Name (ARN) of the conformance pack.
+func (o LookupConformancePackResultOutput) ConformancePackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConformancePackResult) *string { return v.ConformancePackArn }).(pulumi.StringPtrOutput)
+}
+
 // A list of ConformancePackInputParameter objects.
 func (o LookupConformancePackResultOutput) ConformancePackInputParameters() ConformancePackInputParameterArrayOutput {
 	return o.ApplyT(func(v LookupConformancePackResult) []ConformancePackInputParameter {
@@ -83,6 +93,11 @@ func (o LookupConformancePackResultOutput) DeliveryS3Bucket() pulumi.StringPtrOu
 // The prefix for delivery S3 bucket.
 func (o LookupConformancePackResultOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConformancePackResult) *string { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the conformance pack.
+func (o LookupConformancePackResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupConformancePackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

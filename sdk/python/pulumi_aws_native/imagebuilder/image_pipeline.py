@@ -29,6 +29,7 @@ class ImagePipelineArgs:
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
+                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']] = None,
@@ -47,6 +48,7 @@ class ImagePipelineArgs:
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         :param pulumi.Input['ImagePipelineImageScanningConfigurationArgs'] image_scanning_configuration: Contains settings for vulnerability scans.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] image_tags: The tags to be applied to images created by this pipeline.
         :param pulumi.Input['ImagePipelineImageTestsConfigurationArgs'] image_tests_configuration: The image tests configuration of the image pipeline.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         :param pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs'] logging_configuration: The logging configuration settings for the image pipeline.
@@ -70,6 +72,8 @@ class ImagePipelineArgs:
             pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
         if image_scanning_configuration is not None:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
+        if image_tags is not None:
+            pulumi.set(__self__, "image_tags", image_tags)
         if image_tests_configuration is not None:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if infrastructure_configuration_arn is not None:
@@ -170,6 +174,18 @@ class ImagePipelineArgs:
     @image_scanning_configuration.setter
     def image_scanning_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageTags")
+    def image_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The tags to be applied to images created by this pipeline.
+        """
+        return pulumi.get(self, "image_tags")
+
+    @image_tags.setter
+    def image_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "image_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
@@ -281,6 +297,7 @@ class ImagePipeline(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
@@ -303,6 +320,7 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role: The execution role name/ARN for the image build, if provided
         :param pulumi.Input[_builtins.str] image_recipe_arn: The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Contains settings for vulnerability scans.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] image_tags: The tags to be applied to images created by this pipeline.
         :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: The image tests configuration of the image pipeline.
         :param pulumi.Input[_builtins.str] infrastructure_configuration_arn: The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         :param pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']] logging_configuration: The logging configuration settings for the image pipeline.
@@ -344,6 +362,7 @@ class ImagePipeline(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
@@ -368,6 +387,7 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
+            __props__.__dict__["image_tags"] = image_tags
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["logging_configuration"] = logging_configuration
@@ -411,6 +431,7 @@ class ImagePipeline(pulumi.CustomResource):
         __props__.__dict__["execution_role"] = None
         __props__.__dict__["image_recipe_arn"] = None
         __props__.__dict__["image_scanning_configuration"] = None
+        __props__.__dict__["image_tags"] = None
         __props__.__dict__["image_tests_configuration"] = None
         __props__.__dict__["infrastructure_configuration_arn"] = None
         __props__.__dict__["logging_configuration"] = None
@@ -492,6 +513,14 @@ class ImagePipeline(pulumi.CustomResource):
         Contains settings for vulnerability scans.
         """
         return pulumi.get(self, "image_scanning_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="imageTags")
+    def image_tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        The tags to be applied to images created by this pipeline.
+        """
+        return pulumi.get(self, "image_tags")
 
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")

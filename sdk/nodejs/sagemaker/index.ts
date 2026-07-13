@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AlgorithmArgs } from "./algorithm";
+export type Algorithm = import("./algorithm").Algorithm;
+export const Algorithm: typeof import("./algorithm").Algorithm = null as any;
+utilities.lazyLoad(exports, ["Algorithm"], () => require("./algorithm"));
+
 export { AppArgs } from "./app";
 export type App = import("./app").App;
 export const App: typeof import("./app").App = null as any;
@@ -50,6 +55,11 @@ export type FeatureGroup = import("./featureGroup").FeatureGroup;
 export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
 utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
 
+export { GetAlgorithmArgs, GetAlgorithmResult, GetAlgorithmOutputArgs } from "./getAlgorithm";
+export const getAlgorithm: typeof import("./getAlgorithm").getAlgorithm = null as any;
+export const getAlgorithmOutput: typeof import("./getAlgorithm").getAlgorithmOutput = null as any;
+utilities.lazyLoad(exports, ["getAlgorithm","getAlgorithmOutput"], () => require("./getAlgorithm"));
+
 export { GetAppArgs, GetAppResult, GetAppOutputArgs } from "./getApp";
 export const getApp: typeof import("./getApp").getApp = null as any;
 export const getAppOutput: typeof import("./getApp").getAppOutput = null as any;
@@ -89,6 +99,11 @@ export { GetFeatureGroupArgs, GetFeatureGroupResult, GetFeatureGroupOutputArgs }
 export const getFeatureGroup: typeof import("./getFeatureGroup").getFeatureGroup = null as any;
 export const getFeatureGroupOutput: typeof import("./getFeatureGroup").getFeatureGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getFeatureGroup","getFeatureGroupOutput"], () => require("./getFeatureGroup"));
+
+export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
+export const getHub: typeof import("./getHub").getHub = null as any;
+export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
+utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
 
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
@@ -194,6 +209,11 @@ export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } fr
 export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
 export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getUserProfile","getUserProfileOutput"], () => require("./getUserProfile"));
+
+export { HubArgs } from "./hub";
+export type Hub = import("./hub").Hub;
+export const Hub: typeof import("./hub").Hub = null as any;
+utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
 
 export { ImageArgs } from "./image";
 export type Image = import("./image").Image;
@@ -308,6 +328,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:sagemaker:Algorithm":
+                return new Algorithm(name, <any>undefined, { urn })
             case "aws-native:sagemaker:App":
                 return new App(name, <any>undefined, { urn })
             case "aws-native:sagemaker:AppImageConfig":
@@ -326,6 +348,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:sagemaker:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Hub":
+                return new Hub(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Image":
                 return new Image(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ImageVersion":

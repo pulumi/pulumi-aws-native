@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderLoggingConfig
     {
-        /// <summary>
-        /// The log group name.
-        /// </summary>
         public readonly string? LogGroup;
-        /// <summary>
-        /// System log granularity level
-        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderLoggingConfigSystemLogLevel? SystemLogLevel;
 
         [OutputConstructor]

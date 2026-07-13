@@ -38,6 +38,7 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
+                 rollback_config: Optional[pulumi.Input['ClusterRollbackConfigArgs']] = None,
                  storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
@@ -94,6 +95,8 @@ class ClusterArgs:
             pulumi.set(__self__, "outpost_config", outpost_config)
         if remote_network_config is not None:
             pulumi.set(__self__, "remote_network_config", remote_network_config)
+        if rollback_config is not None:
+            pulumi.set(__self__, "rollback_config", rollback_config)
         if storage_config is not None:
             pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
@@ -274,6 +277,15 @@ class ClusterArgs:
         pulumi.set(self, "remote_network_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="rollbackConfig")
+    def rollback_config(self) -> Optional[pulumi.Input['ClusterRollbackConfigArgs']]:
+        return pulumi.get(self, "rollback_config")
+
+    @rollback_config.setter
+    def rollback_config(self, value: Optional[pulumi.Input['ClusterRollbackConfigArgs']]):
+        pulumi.set(self, "rollback_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageConfig")
     def storage_config(self) -> Optional[pulumi.Input['ClusterStorageConfigArgs']]:
         """
@@ -356,6 +368,7 @@ class Cluster(pulumi.CustomResource):
                  remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollback_config: Optional[pulumi.Input[Union['ClusterRollbackConfigArgs', 'ClusterRollbackConfigArgsDict']]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
@@ -429,6 +442,7 @@ class Cluster(pulumi.CustomResource):
                  remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollback_config: Optional[pulumi.Input[Union['ClusterRollbackConfigArgs', 'ClusterRollbackConfigArgsDict']]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
@@ -461,6 +475,7 @@ class Cluster(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["rollback_config"] = rollback_config
             __props__.__dict__["storage_config"] = storage_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
@@ -518,6 +533,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["remote_network_config"] = None
         __props__.__dict__["resources_vpc_config"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["rollback_config"] = None
         __props__.__dict__["storage_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["upgrade_policy"] = None
@@ -692,6 +708,11 @@ class Cluster(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
         return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="rollbackConfig")
+    def rollback_config(self) -> pulumi.Output[Optional['outputs.ClusterRollbackConfig']]:
+        return pulumi.get(self, "rollback_config")
 
     @_builtins.property
     @pulumi.getter(name="storageConfig")

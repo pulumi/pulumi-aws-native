@@ -142,7 +142,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "appconfig:CreateExtension", "appconfig:TagResource", "iam:PassRole" ]
+      "permissions" : [ "appconfig:CreateExtension", "appconfig:TagResource", "appconfig:GetExtension", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "appconfig:GetExtension", "appconfig:ListTagsForResource" ]

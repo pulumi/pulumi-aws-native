@@ -10182,6 +10182,161 @@ func (o RouterInputAutomaticEncryptionKeyConfigurationPtrOutput) Elem() RouterIn
 	}).(RouterInputAutomaticEncryptionKeyConfigurationOutput)
 }
 
+// Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputBlackFramesConfiguration struct {
+	State RouterInputContentQualityAnalysisState `pulumi:"state"`
+	// The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds int `pulumi:"thresholdSeconds"`
+}
+
+// RouterInputBlackFramesConfigurationInput is an input type that accepts RouterInputBlackFramesConfigurationArgs and RouterInputBlackFramesConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputBlackFramesConfigurationInput` via:
+//
+//	RouterInputBlackFramesConfigurationArgs{...}
+type RouterInputBlackFramesConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputBlackFramesConfigurationOutput() RouterInputBlackFramesConfigurationOutput
+	ToRouterInputBlackFramesConfigurationOutputWithContext(context.Context) RouterInputBlackFramesConfigurationOutput
+}
+
+// Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputBlackFramesConfigurationArgs struct {
+	State RouterInputContentQualityAnalysisStateInput `pulumi:"state"`
+	// The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds pulumi.IntInput `pulumi:"thresholdSeconds"`
+}
+
+func (RouterInputBlackFramesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputBlackFramesConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputBlackFramesConfigurationArgs) ToRouterInputBlackFramesConfigurationOutput() RouterInputBlackFramesConfigurationOutput {
+	return i.ToRouterInputBlackFramesConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputBlackFramesConfigurationArgs) ToRouterInputBlackFramesConfigurationOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputBlackFramesConfigurationOutput)
+}
+
+func (i RouterInputBlackFramesConfigurationArgs) ToRouterInputBlackFramesConfigurationPtrOutput() RouterInputBlackFramesConfigurationPtrOutput {
+	return i.ToRouterInputBlackFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterInputBlackFramesConfigurationArgs) ToRouterInputBlackFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputBlackFramesConfigurationOutput).ToRouterInputBlackFramesConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterInputBlackFramesConfigurationPtrInput is an input type that accepts RouterInputBlackFramesConfigurationArgs, RouterInputBlackFramesConfigurationPtr and RouterInputBlackFramesConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterInputBlackFramesConfigurationPtrInput` via:
+//
+//	        RouterInputBlackFramesConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterInputBlackFramesConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputBlackFramesConfigurationPtrOutput() RouterInputBlackFramesConfigurationPtrOutput
+	ToRouterInputBlackFramesConfigurationPtrOutputWithContext(context.Context) RouterInputBlackFramesConfigurationPtrOutput
+}
+
+type routerInputBlackFramesConfigurationPtrType RouterInputBlackFramesConfigurationArgs
+
+func RouterInputBlackFramesConfigurationPtr(v *RouterInputBlackFramesConfigurationArgs) RouterInputBlackFramesConfigurationPtrInput {
+	return (*routerInputBlackFramesConfigurationPtrType)(v)
+}
+
+func (*routerInputBlackFramesConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputBlackFramesConfiguration)(nil)).Elem()
+}
+
+func (i *routerInputBlackFramesConfigurationPtrType) ToRouterInputBlackFramesConfigurationPtrOutput() RouterInputBlackFramesConfigurationPtrOutput {
+	return i.ToRouterInputBlackFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerInputBlackFramesConfigurationPtrType) ToRouterInputBlackFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputBlackFramesConfigurationPtrOutput)
+}
+
+// Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputBlackFramesConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputBlackFramesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputBlackFramesConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputBlackFramesConfigurationOutput) ToRouterInputBlackFramesConfigurationOutput() RouterInputBlackFramesConfigurationOutput {
+	return o
+}
+
+func (o RouterInputBlackFramesConfigurationOutput) ToRouterInputBlackFramesConfigurationOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationOutput {
+	return o
+}
+
+func (o RouterInputBlackFramesConfigurationOutput) ToRouterInputBlackFramesConfigurationPtrOutput() RouterInputBlackFramesConfigurationPtrOutput {
+	return o.ToRouterInputBlackFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputBlackFramesConfigurationOutput) ToRouterInputBlackFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputBlackFramesConfiguration) *RouterInputBlackFramesConfiguration {
+		return &v
+	}).(RouterInputBlackFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputBlackFramesConfigurationOutput) State() RouterInputContentQualityAnalysisStateOutput {
+	return o.ApplyT(func(v RouterInputBlackFramesConfiguration) RouterInputContentQualityAnalysisState { return v.State }).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+// The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+func (o RouterInputBlackFramesConfigurationOutput) ThresholdSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputBlackFramesConfiguration) int { return v.ThresholdSeconds }).(pulumi.IntOutput)
+}
+
+type RouterInputBlackFramesConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputBlackFramesConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputBlackFramesConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputBlackFramesConfigurationPtrOutput) ToRouterInputBlackFramesConfigurationPtrOutput() RouterInputBlackFramesConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputBlackFramesConfigurationPtrOutput) ToRouterInputBlackFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputBlackFramesConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputBlackFramesConfigurationPtrOutput) Elem() RouterInputBlackFramesConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputBlackFramesConfiguration) RouterInputBlackFramesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputBlackFramesConfiguration
+		return ret
+	}).(RouterInputBlackFramesConfigurationOutput)
+}
+
+func (o RouterInputBlackFramesConfigurationPtrOutput) State() RouterInputContentQualityAnalysisStatePtrOutput {
+	return o.ApplyT(func(v *RouterInputBlackFramesConfiguration) *RouterInputContentQualityAnalysisState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
+// The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue.
+func (o RouterInputBlackFramesConfigurationPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputBlackFramesConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration settings for a router input.
 type RouterInputConfiguration0Properties struct {
 	Standard RouterInputStandardRouterInputConfiguration `pulumi:"standard"`
@@ -10613,6 +10768,178 @@ func (o RouterInputConfiguration4PropertiesPtrOutput) MediaLiveChannel() RouterI
 		}
 		return &v.MediaLiveChannel
 	}).(RouterInputMediaLiveChannelRouterInputConfigurationPtrOutput)
+}
+
+// Configures the content quality analysis features for the router input.
+type RouterInputContentQualityAnalysisFeatureConfiguration struct {
+	BlackFrames  *RouterInputBlackFramesConfiguration  `pulumi:"blackFrames"`
+	FrozenFrames *RouterInputFrozenFramesConfiguration `pulumi:"frozenFrames"`
+	SilentAudio  *RouterInputSilentAudioConfiguration  `pulumi:"silentAudio"`
+}
+
+// RouterInputContentQualityAnalysisFeatureConfigurationInput is an input type that accepts RouterInputContentQualityAnalysisFeatureConfigurationArgs and RouterInputContentQualityAnalysisFeatureConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputContentQualityAnalysisFeatureConfigurationInput` via:
+//
+//	RouterInputContentQualityAnalysisFeatureConfigurationArgs{...}
+type RouterInputContentQualityAnalysisFeatureConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputContentQualityAnalysisFeatureConfigurationOutput() RouterInputContentQualityAnalysisFeatureConfigurationOutput
+	ToRouterInputContentQualityAnalysisFeatureConfigurationOutputWithContext(context.Context) RouterInputContentQualityAnalysisFeatureConfigurationOutput
+}
+
+// Configures the content quality analysis features for the router input.
+type RouterInputContentQualityAnalysisFeatureConfigurationArgs struct {
+	BlackFrames  RouterInputBlackFramesConfigurationPtrInput  `pulumi:"blackFrames"`
+	FrozenFrames RouterInputFrozenFramesConfigurationPtrInput `pulumi:"frozenFrames"`
+	SilentAudio  RouterInputSilentAudioConfigurationPtrInput  `pulumi:"silentAudio"`
+}
+
+func (RouterInputContentQualityAnalysisFeatureConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputContentQualityAnalysisFeatureConfigurationArgs) ToRouterInputContentQualityAnalysisFeatureConfigurationOutput() RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return i.ToRouterInputContentQualityAnalysisFeatureConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputContentQualityAnalysisFeatureConfigurationArgs) ToRouterInputContentQualityAnalysisFeatureConfigurationOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputContentQualityAnalysisFeatureConfigurationOutput)
+}
+
+func (i RouterInputContentQualityAnalysisFeatureConfigurationArgs) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutput() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return i.ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterInputContentQualityAnalysisFeatureConfigurationArgs) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputContentQualityAnalysisFeatureConfigurationOutput).ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterInputContentQualityAnalysisFeatureConfigurationPtrInput is an input type that accepts RouterInputContentQualityAnalysisFeatureConfigurationArgs, RouterInputContentQualityAnalysisFeatureConfigurationPtr and RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterInputContentQualityAnalysisFeatureConfigurationPtrInput` via:
+//
+//	        RouterInputContentQualityAnalysisFeatureConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterInputContentQualityAnalysisFeatureConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutput() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput
+	ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(context.Context) RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput
+}
+
+type routerInputContentQualityAnalysisFeatureConfigurationPtrType RouterInputContentQualityAnalysisFeatureConfigurationArgs
+
+func RouterInputContentQualityAnalysisFeatureConfigurationPtr(v *RouterInputContentQualityAnalysisFeatureConfigurationArgs) RouterInputContentQualityAnalysisFeatureConfigurationPtrInput {
+	return (*routerInputContentQualityAnalysisFeatureConfigurationPtrType)(v)
+}
+
+func (*routerInputContentQualityAnalysisFeatureConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputContentQualityAnalysisFeatureConfiguration)(nil)).Elem()
+}
+
+func (i *routerInputContentQualityAnalysisFeatureConfigurationPtrType) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutput() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return i.ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerInputContentQualityAnalysisFeatureConfigurationPtrType) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput)
+}
+
+// Configures the content quality analysis features for the router input.
+type RouterInputContentQualityAnalysisFeatureConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputContentQualityAnalysisFeatureConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationOutput() RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutput() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return o.ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputContentQualityAnalysisFeatureConfiguration {
+		return &v
+	}).(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) BlackFrames() RouterInputBlackFramesConfigurationPtrOutput {
+	return o.ApplyT(func(v RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputBlackFramesConfiguration {
+		return v.BlackFrames
+	}).(RouterInputBlackFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) FrozenFrames() RouterInputFrozenFramesConfigurationPtrOutput {
+	return o.ApplyT(func(v RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputFrozenFramesConfiguration {
+		return v.FrozenFrames
+	}).(RouterInputFrozenFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationOutput) SilentAudio() RouterInputSilentAudioConfigurationPtrOutput {
+	return o.ApplyT(func(v RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputSilentAudioConfiguration {
+		return v.SilentAudio
+	}).(RouterInputSilentAudioConfigurationPtrOutput)
+}
+
+type RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputContentQualityAnalysisFeatureConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutput() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) ToRouterInputContentQualityAnalysisFeatureConfigurationPtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) Elem() RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputContentQualityAnalysisFeatureConfiguration) RouterInputContentQualityAnalysisFeatureConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputContentQualityAnalysisFeatureConfiguration
+		return ret
+	}).(RouterInputContentQualityAnalysisFeatureConfigurationOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) BlackFrames() RouterInputBlackFramesConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputBlackFramesConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BlackFrames
+	}).(RouterInputBlackFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) FrozenFrames() RouterInputFrozenFramesConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputFrozenFramesConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FrozenFrames
+	}).(RouterInputFrozenFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput) SilentAudio() RouterInputSilentAudioConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputContentQualityAnalysisFeatureConfiguration) *RouterInputSilentAudioConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SilentAudio
+	}).(RouterInputSilentAudioConfigurationPtrOutput)
 }
 
 // Configuration settings for default maintenance scheduling.
@@ -11370,6 +11697,161 @@ func (o RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesPtrOutput) Au
 		}
 		return &v.Automatic
 	}).(RouterInputAutomaticEncryptionKeyConfigurationPtrOutput)
+}
+
+// Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputFrozenFramesConfiguration struct {
+	State RouterInputContentQualityAnalysisState `pulumi:"state"`
+	// The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds int `pulumi:"thresholdSeconds"`
+}
+
+// RouterInputFrozenFramesConfigurationInput is an input type that accepts RouterInputFrozenFramesConfigurationArgs and RouterInputFrozenFramesConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputFrozenFramesConfigurationInput` via:
+//
+//	RouterInputFrozenFramesConfigurationArgs{...}
+type RouterInputFrozenFramesConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputFrozenFramesConfigurationOutput() RouterInputFrozenFramesConfigurationOutput
+	ToRouterInputFrozenFramesConfigurationOutputWithContext(context.Context) RouterInputFrozenFramesConfigurationOutput
+}
+
+// Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputFrozenFramesConfigurationArgs struct {
+	State RouterInputContentQualityAnalysisStateInput `pulumi:"state"`
+	// The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds pulumi.IntInput `pulumi:"thresholdSeconds"`
+}
+
+func (RouterInputFrozenFramesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFrozenFramesConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputFrozenFramesConfigurationArgs) ToRouterInputFrozenFramesConfigurationOutput() RouterInputFrozenFramesConfigurationOutput {
+	return i.ToRouterInputFrozenFramesConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputFrozenFramesConfigurationArgs) ToRouterInputFrozenFramesConfigurationOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputFrozenFramesConfigurationOutput)
+}
+
+func (i RouterInputFrozenFramesConfigurationArgs) ToRouterInputFrozenFramesConfigurationPtrOutput() RouterInputFrozenFramesConfigurationPtrOutput {
+	return i.ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterInputFrozenFramesConfigurationArgs) ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputFrozenFramesConfigurationOutput).ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterInputFrozenFramesConfigurationPtrInput is an input type that accepts RouterInputFrozenFramesConfigurationArgs, RouterInputFrozenFramesConfigurationPtr and RouterInputFrozenFramesConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterInputFrozenFramesConfigurationPtrInput` via:
+//
+//	        RouterInputFrozenFramesConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterInputFrozenFramesConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputFrozenFramesConfigurationPtrOutput() RouterInputFrozenFramesConfigurationPtrOutput
+	ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(context.Context) RouterInputFrozenFramesConfigurationPtrOutput
+}
+
+type routerInputFrozenFramesConfigurationPtrType RouterInputFrozenFramesConfigurationArgs
+
+func RouterInputFrozenFramesConfigurationPtr(v *RouterInputFrozenFramesConfigurationArgs) RouterInputFrozenFramesConfigurationPtrInput {
+	return (*routerInputFrozenFramesConfigurationPtrType)(v)
+}
+
+func (*routerInputFrozenFramesConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputFrozenFramesConfiguration)(nil)).Elem()
+}
+
+func (i *routerInputFrozenFramesConfigurationPtrType) ToRouterInputFrozenFramesConfigurationPtrOutput() RouterInputFrozenFramesConfigurationPtrOutput {
+	return i.ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerInputFrozenFramesConfigurationPtrType) ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputFrozenFramesConfigurationPtrOutput)
+}
+
+// Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputFrozenFramesConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFrozenFramesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputFrozenFramesConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputFrozenFramesConfigurationOutput) ToRouterInputFrozenFramesConfigurationOutput() RouterInputFrozenFramesConfigurationOutput {
+	return o
+}
+
+func (o RouterInputFrozenFramesConfigurationOutput) ToRouterInputFrozenFramesConfigurationOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationOutput {
+	return o
+}
+
+func (o RouterInputFrozenFramesConfigurationOutput) ToRouterInputFrozenFramesConfigurationPtrOutput() RouterInputFrozenFramesConfigurationPtrOutput {
+	return o.ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputFrozenFramesConfigurationOutput) ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputFrozenFramesConfiguration) *RouterInputFrozenFramesConfiguration {
+		return &v
+	}).(RouterInputFrozenFramesConfigurationPtrOutput)
+}
+
+func (o RouterInputFrozenFramesConfigurationOutput) State() RouterInputContentQualityAnalysisStateOutput {
+	return o.ApplyT(func(v RouterInputFrozenFramesConfiguration) RouterInputContentQualityAnalysisState { return v.State }).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+// The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+func (o RouterInputFrozenFramesConfigurationOutput) ThresholdSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputFrozenFramesConfiguration) int { return v.ThresholdSeconds }).(pulumi.IntOutput)
+}
+
+type RouterInputFrozenFramesConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputFrozenFramesConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputFrozenFramesConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputFrozenFramesConfigurationPtrOutput) ToRouterInputFrozenFramesConfigurationPtrOutput() RouterInputFrozenFramesConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputFrozenFramesConfigurationPtrOutput) ToRouterInputFrozenFramesConfigurationPtrOutputWithContext(ctx context.Context) RouterInputFrozenFramesConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputFrozenFramesConfigurationPtrOutput) Elem() RouterInputFrozenFramesConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputFrozenFramesConfiguration) RouterInputFrozenFramesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputFrozenFramesConfiguration
+		return ret
+	}).(RouterInputFrozenFramesConfigurationOutput)
+}
+
+func (o RouterInputFrozenFramesConfigurationPtrOutput) State() RouterInputContentQualityAnalysisStatePtrOutput {
+	return o.ApplyT(func(v *RouterInputFrozenFramesConfiguration) *RouterInputContentQualityAnalysisState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
+// The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue.
+func (o RouterInputFrozenFramesConfigurationPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputFrozenFramesConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
@@ -13039,6 +13521,149 @@ func (o RouterInputRistRouterInputConfigurationPtrOutput) RecoveryLatencyMillise
 	}).(pulumi.IntPtrOutput)
 }
 
+// The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+type RouterInputRouterContentQualityAnalysisConfiguration0Properties struct {
+	ContentLevel RouterInputContentQualityAnalysisFeatureConfiguration `pulumi:"contentLevel"`
+}
+
+// The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+type RouterInputRouterContentQualityAnalysisConfigurationProperties struct {
+	ContentLevel RouterInputContentQualityAnalysisFeatureConfiguration `pulumi:"contentLevel"`
+}
+
+// RouterInputRouterContentQualityAnalysisConfigurationPropertiesInput is an input type that accepts RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs and RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `RouterInputRouterContentQualityAnalysisConfigurationPropertiesInput` via:
+//
+//	RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{...}
+type RouterInputRouterContentQualityAnalysisConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput
+	ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutputWithContext(context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput
+}
+
+// The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+type RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs struct {
+	ContentLevel RouterInputContentQualityAnalysisFeatureConfigurationInput `pulumi:"contentLevel"`
+}
+
+func (RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationProperties)(nil)).Elem()
+}
+
+func (i RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput {
+	return i.ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput)
+}
+
+func (i RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return i.ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput).ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput is an input type that accepts RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs, RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtr and RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput` via:
+//
+//	        RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput
+	ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput
+}
+
+type routerInputRouterContentQualityAnalysisConfigurationPropertiesPtrType RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs
+
+func RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtr(v *RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput {
+	return (*routerInputRouterContentQualityAnalysisConfigurationPropertiesPtrType)(v)
+}
+
+func (*routerInputRouterContentQualityAnalysisConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRouterContentQualityAnalysisConfigurationProperties)(nil)).Elem()
+}
+
+func (i *routerInputRouterContentQualityAnalysisConfigurationPropertiesPtrType) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return i.ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *routerInputRouterContentQualityAnalysisConfigurationPropertiesPtrType) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput)
+}
+
+// The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.
+type RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationProperties)(nil)).Elem()
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o.ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputRouterContentQualityAnalysisConfigurationProperties) *RouterInputRouterContentQualityAnalysisConfigurationProperties {
+		return &v
+	}).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput)
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput) ContentLevel() RouterInputContentQualityAnalysisFeatureConfigurationOutput {
+	return o.ApplyT(func(v RouterInputRouterContentQualityAnalysisConfigurationProperties) RouterInputContentQualityAnalysisFeatureConfiguration {
+		return v.ContentLevel
+	}).(RouterInputContentQualityAnalysisFeatureConfigurationOutput)
+}
+
+type RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRouterContentQualityAnalysisConfigurationProperties)(nil)).Elem()
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput() RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput) ToRouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput) Elem() RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *RouterInputRouterContentQualityAnalysisConfigurationProperties) RouterInputRouterContentQualityAnalysisConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRouterContentQualityAnalysisConfigurationProperties
+		return ret
+	}).(RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput)
+}
+
+func (o RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput) ContentLevel() RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterInputRouterContentQualityAnalysisConfigurationProperties) *RouterInputContentQualityAnalysisFeatureConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentLevel
+	}).(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput)
+}
+
 // The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
 type RouterInputRtpRouterInputConfiguration struct {
 	ForwardErrorCorrection *RouterInputForwardErrorCorrectionState `pulumi:"forwardErrorCorrection"`
@@ -13302,6 +13927,161 @@ func (o RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput) SecretArn(
 		}
 		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputSilentAudioConfiguration struct {
+	State RouterInputContentQualityAnalysisState `pulumi:"state"`
+	// The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds int `pulumi:"thresholdSeconds"`
+}
+
+// RouterInputSilentAudioConfigurationInput is an input type that accepts RouterInputSilentAudioConfigurationArgs and RouterInputSilentAudioConfigurationOutput values.
+// You can construct a concrete instance of `RouterInputSilentAudioConfigurationInput` via:
+//
+//	RouterInputSilentAudioConfigurationArgs{...}
+type RouterInputSilentAudioConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterInputSilentAudioConfigurationOutput() RouterInputSilentAudioConfigurationOutput
+	ToRouterInputSilentAudioConfigurationOutputWithContext(context.Context) RouterInputSilentAudioConfigurationOutput
+}
+
+// Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputSilentAudioConfigurationArgs struct {
+	State RouterInputContentQualityAnalysisStateInput `pulumi:"state"`
+	// The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+	ThresholdSeconds pulumi.IntInput `pulumi:"thresholdSeconds"`
+}
+
+func (RouterInputSilentAudioConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputSilentAudioConfiguration)(nil)).Elem()
+}
+
+func (i RouterInputSilentAudioConfigurationArgs) ToRouterInputSilentAudioConfigurationOutput() RouterInputSilentAudioConfigurationOutput {
+	return i.ToRouterInputSilentAudioConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterInputSilentAudioConfigurationArgs) ToRouterInputSilentAudioConfigurationOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputSilentAudioConfigurationOutput)
+}
+
+func (i RouterInputSilentAudioConfigurationArgs) ToRouterInputSilentAudioConfigurationPtrOutput() RouterInputSilentAudioConfigurationPtrOutput {
+	return i.ToRouterInputSilentAudioConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterInputSilentAudioConfigurationArgs) ToRouterInputSilentAudioConfigurationPtrOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputSilentAudioConfigurationOutput).ToRouterInputSilentAudioConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterInputSilentAudioConfigurationPtrInput is an input type that accepts RouterInputSilentAudioConfigurationArgs, RouterInputSilentAudioConfigurationPtr and RouterInputSilentAudioConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterInputSilentAudioConfigurationPtrInput` via:
+//
+//	        RouterInputSilentAudioConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterInputSilentAudioConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterInputSilentAudioConfigurationPtrOutput() RouterInputSilentAudioConfigurationPtrOutput
+	ToRouterInputSilentAudioConfigurationPtrOutputWithContext(context.Context) RouterInputSilentAudioConfigurationPtrOutput
+}
+
+type routerInputSilentAudioConfigurationPtrType RouterInputSilentAudioConfigurationArgs
+
+func RouterInputSilentAudioConfigurationPtr(v *RouterInputSilentAudioConfigurationArgs) RouterInputSilentAudioConfigurationPtrInput {
+	return (*routerInputSilentAudioConfigurationPtrType)(v)
+}
+
+func (*routerInputSilentAudioConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputSilentAudioConfiguration)(nil)).Elem()
+}
+
+func (i *routerInputSilentAudioConfigurationPtrType) ToRouterInputSilentAudioConfigurationPtrOutput() RouterInputSilentAudioConfigurationPtrOutput {
+	return i.ToRouterInputSilentAudioConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerInputSilentAudioConfigurationPtrType) ToRouterInputSilentAudioConfigurationPtrOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterInputSilentAudioConfigurationPtrOutput)
+}
+
+// Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.
+type RouterInputSilentAudioConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterInputSilentAudioConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputSilentAudioConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputSilentAudioConfigurationOutput) ToRouterInputSilentAudioConfigurationOutput() RouterInputSilentAudioConfigurationOutput {
+	return o
+}
+
+func (o RouterInputSilentAudioConfigurationOutput) ToRouterInputSilentAudioConfigurationOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationOutput {
+	return o
+}
+
+func (o RouterInputSilentAudioConfigurationOutput) ToRouterInputSilentAudioConfigurationPtrOutput() RouterInputSilentAudioConfigurationPtrOutput {
+	return o.ToRouterInputSilentAudioConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputSilentAudioConfigurationOutput) ToRouterInputSilentAudioConfigurationPtrOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputSilentAudioConfiguration) *RouterInputSilentAudioConfiguration {
+		return &v
+	}).(RouterInputSilentAudioConfigurationPtrOutput)
+}
+
+func (o RouterInputSilentAudioConfigurationOutput) State() RouterInputContentQualityAnalysisStateOutput {
+	return o.ApplyT(func(v RouterInputSilentAudioConfiguration) RouterInputContentQualityAnalysisState { return v.State }).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+// The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+func (o RouterInputSilentAudioConfigurationOutput) ThresholdSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v RouterInputSilentAudioConfiguration) int { return v.ThresholdSeconds }).(pulumi.IntOutput)
+}
+
+type RouterInputSilentAudioConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputSilentAudioConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputSilentAudioConfiguration)(nil)).Elem()
+}
+
+func (o RouterInputSilentAudioConfigurationPtrOutput) ToRouterInputSilentAudioConfigurationPtrOutput() RouterInputSilentAudioConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputSilentAudioConfigurationPtrOutput) ToRouterInputSilentAudioConfigurationPtrOutputWithContext(ctx context.Context) RouterInputSilentAudioConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterInputSilentAudioConfigurationPtrOutput) Elem() RouterInputSilentAudioConfigurationOutput {
+	return o.ApplyT(func(v *RouterInputSilentAudioConfiguration) RouterInputSilentAudioConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputSilentAudioConfiguration
+		return ret
+	}).(RouterInputSilentAudioConfigurationOutput)
+}
+
+func (o RouterInputSilentAudioConfigurationPtrOutput) State() RouterInputContentQualityAnalysisStatePtrOutput {
+	return o.ApplyT(func(v *RouterInputSilentAudioConfiguration) *RouterInputContentQualityAnalysisState {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
+// The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue.
+func (o RouterInputSilentAudioConfigurationPtrOutput) ThresholdSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RouterInputSilentAudioConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ThresholdSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
@@ -17871,11 +18651,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayNetworkArrayInput)(nil)).Elem(), GatewayNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputAutomaticEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputAutomaticEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputBlackFramesConfigurationPtrInput)(nil)).Elem(), RouterInputBlackFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration0PropertiesInput)(nil)).Elem(), RouterInputConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration1PropertiesInput)(nil)).Elem(), RouterInputConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration2PropertiesInput)(nil)).Elem(), RouterInputConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration3PropertiesInput)(nil)).Elem(), RouterInputConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputConfiguration4PropertiesInput)(nil)).Elem(), RouterInputConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfigurationInput)(nil)).Elem(), RouterInputContentQualityAnalysisFeatureConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisFeatureConfigurationPtrInput)(nil)).Elem(), RouterInputContentQualityAnalysisFeatureConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDefaultMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterInputDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverRouterInputConfigurationInput)(nil)).Elem(), RouterInputFailoverRouterInputConfigurationArgs{})
@@ -17886,6 +18670,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionInput)(nil)).Elem(), RouterInputFlowTransitEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesInput)(nil)).Elem(), RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFrozenFramesConfigurationInput)(nil)).Elem(), RouterInputFrozenFramesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFrozenFramesConfigurationPtrInput)(nil)).Elem(), RouterInputFrozenFramesConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration0PropertiesInput)(nil)).Elem(), RouterInputMaintenanceConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration0PropertiesPtrInput)(nil)).Elem(), RouterInputMaintenanceConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputMaintenanceConfiguration1PropertiesInput)(nil)).Elem(), RouterInputMaintenanceConfiguration1PropertiesArgs{})
@@ -17905,9 +18691,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration2PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputProtocolConfiguration3PropertiesInput)(nil)).Elem(), RouterInputProtocolConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRistRouterInputConfigurationInput)(nil)).Elem(), RouterInputRistRouterInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationPropertiesInput)(nil)).Elem(), RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrInput)(nil)).Elem(), RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputRtpRouterInputConfigurationInput)(nil)).Elem(), RouterInputRtpRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSecretsManagerEncryptionKeyConfigurationPtrInput)(nil)).Elem(), RouterInputSecretsManagerEncryptionKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSilentAudioConfigurationInput)(nil)).Elem(), RouterInputSilentAudioConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSilentAudioConfigurationPtrInput)(nil)).Elem(), RouterInputSilentAudioConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSrtCallerRouterInputConfigurationInput)(nil)).Elem(), RouterInputSrtCallerRouterInputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSrtDecryptionConfigurationInput)(nil)).Elem(), RouterInputSrtDecryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputSrtDecryptionConfigurationPtrInput)(nil)).Elem(), RouterInputSrtDecryptionConfigurationArgs{})
@@ -18082,6 +18872,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayNetworkArrayOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputAutomaticEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputBlackFramesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration1PropertiesOutput{})
@@ -18092,6 +18884,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisFeatureConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisFeatureConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputDefaultMaintenanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverRouterInputConfigurationOutput{})
@@ -18106,6 +18900,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputFrozenFramesConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputFrozenFramesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputMaintenanceConfiguration1PropertiesOutput{})
@@ -18136,10 +18932,14 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputProtocolConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRistRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputRistRouterInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRtpRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputRtpRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSecretsManagerEncryptionKeyConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputSecretsManagerEncryptionKeyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputSilentAudioConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterInputSilentAudioConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSrtCallerRouterInputConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterInputSrtCallerRouterInputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputSrtDecryptionConfigurationOutput{})

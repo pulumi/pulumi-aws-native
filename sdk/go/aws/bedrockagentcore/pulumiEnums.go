@@ -4179,8 +4179,9 @@ func (in *gatewayTargetSchemaTypePtr) ToGatewayTargetSchemaTypePtrOutputWithCont
 type GatewayTargetTargetProtocolType string
 
 const (
-	GatewayTargetTargetProtocolTypeMcp  = GatewayTargetTargetProtocolType("MCP")
-	GatewayTargetTargetProtocolTypeHttp = GatewayTargetTargetProtocolType("HTTP")
+	GatewayTargetTargetProtocolTypeMcp       = GatewayTargetTargetProtocolType("MCP")
+	GatewayTargetTargetProtocolTypeHttp      = GatewayTargetTargetProtocolType("HTTP")
+	GatewayTargetTargetProtocolTypeInference = GatewayTargetTargetProtocolType("INFERENCE")
 )
 
 type GatewayTargetTargetProtocolTypeOutput struct{ *pulumi.OutputState }

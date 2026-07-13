@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
         [Output("transforms")]
         public Output<ImmutableArray<Outputs.ListenerRuleTransform>> Transforms { get; private set; } = null!;
 
@@ -145,6 +148,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         [Input("transforms")]
         private InputList<Inputs.ListenerRuleTransformArgs>? _transforms;

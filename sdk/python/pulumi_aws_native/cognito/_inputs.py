@@ -70,6 +70,10 @@ __all__ = [
     'UserPoolInboundFederationArgsDict',
     'UserPoolInviteMessageTemplateArgs',
     'UserPoolInviteMessageTemplateArgsDict',
+    'UserPoolIssuerConfigurationArgs',
+    'UserPoolIssuerConfigurationArgsDict',
+    'UserPoolKeyConfigurationArgs',
+    'UserPoolKeyConfigurationArgsDict',
     'UserPoolLambdaConfigArgs',
     'UserPoolLambdaConfigArgsDict',
     'UserPoolNumberAttributeConstraintsArgs',
@@ -82,6 +86,20 @@ __all__ = [
     'UserPoolPreTokenGenerationConfigArgsDict',
     'UserPoolRecoveryOptionArgs',
     'UserPoolRecoveryOptionArgsDict',
+    'UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs',
+    'UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgsDict',
+    'UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs',
+    'UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgsDict',
+    'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs',
+    'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict',
+    'UserPoolRegionalConfigurationAttachmentInboundFederationArgs',
+    'UserPoolRegionalConfigurationAttachmentInboundFederationArgsDict',
+    'UserPoolRegionalConfigurationAttachmentLambdaConfigArgs',
+    'UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict',
+    'UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs',
+    'UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgsDict',
+    'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs',
+    'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict',
     'UserPoolResourceServerResourceServerScopeTypeArgs',
     'UserPoolResourceServerResourceServerScopeTypeArgsDict',
     'UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs',
@@ -1245,16 +1263,20 @@ class UserPoolDomainCustomDomainConfigTypeArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
     """
+    security_policy: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class UserPoolDomainCustomDomainConfigTypeArgs:
     def __init__(__self__, *,
-                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_policy: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
@@ -1267,6 +1289,15 @@ class UserPoolDomainCustomDomainConfigTypeArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "security_policy")
+
+    @security_policy.setter
+    def security_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "security_policy", value)
 
 
 class UserPoolDomainFailoverTypeArgsDict(TypedDict):
@@ -1586,6 +1617,59 @@ class UserPoolInviteMessageTemplateArgs:
     @sms_message.setter
     def sms_message(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sms_message", value)
+
+
+class UserPoolIssuerConfigurationArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input['UserPoolIssuerConfigurationType']]
+
+@pulumi.input_type
+class UserPoolIssuerConfigurationArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['UserPoolIssuerConfigurationType']] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['UserPoolIssuerConfigurationType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['UserPoolIssuerConfigurationType']]):
+        pulumi.set(self, "type", value)
+
+
+class UserPoolKeyConfigurationArgsDict(TypedDict):
+    key_type: NotRequired[pulumi.Input['UserPoolEncryptionKeyType']]
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolKeyConfigurationArgs:
+    def __init__(__self__, *,
+                 key_type: Optional[pulumi.Input['UserPoolEncryptionKeyType']] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input['UserPoolEncryptionKeyType']]:
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input['UserPoolEncryptionKeyType']]):
+        pulumi.set(self, "key_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 
 class UserPoolLambdaConfigArgsDict(TypedDict):
@@ -2251,6 +2335,458 @@ class UserPoolRecoveryOptionArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "priority", value)
+
+
+class UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict(TypedDict):
+    configuration_set: NotRequired[pulumi.Input[_builtins.str]]
+    email_sending_account: NotRequired[pulumi.Input[_builtins.str]]
+    from_: NotRequired[pulumi.Input[_builtins.str]]
+    reply_to_email_address: NotRequired[pulumi.Input[_builtins.str]]
+    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_set: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_sending_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 from_: Optional[pulumi.Input[_builtins.str]] = None,
+                 reply_to_email_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        if configuration_set is not None:
+            pulumi.set(__self__, "configuration_set", configuration_set)
+        if email_sending_account is not None:
+            pulumi.set(__self__, "email_sending_account", email_sending_account)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if reply_to_email_address is not None:
+            pulumi.set(__self__, "reply_to_email_address", reply_to_email_address)
+        if source_arn is not None:
+            pulumi.set(__self__, "source_arn", source_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "configuration_set")
+
+    @configuration_set.setter
+    def configuration_set(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "configuration_set", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailSendingAccount")
+    def email_sending_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_sending_account")
+
+    @email_sending_account.setter
+    def email_sending_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_sending_account", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replyToEmailAddress")
+    def reply_to_email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "reply_to_email_address")
+
+    @reply_to_email_address.setter
+    def reply_to_email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "reply_to_email_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "source_arn")
+
+    @source_arn.setter
+    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_arn", value)
+
+
+class UserPoolRegionalConfigurationAttachmentInboundFederationArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentInboundFederationArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict(TypedDict):
+    create_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
+    custom_email_sender: NotRequired[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgsDict']]
+    custom_message: NotRequired[pulumi.Input[_builtins.str]]
+    custom_sms_sender: NotRequired[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgsDict']]
+    define_auth_challenge: NotRequired[pulumi.Input[_builtins.str]]
+    inbound_federation: NotRequired[pulumi.Input['UserPoolRegionalConfigurationAttachmentInboundFederationArgsDict']]
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    post_authentication: NotRequired[pulumi.Input[_builtins.str]]
+    post_confirmation: NotRequired[pulumi.Input[_builtins.str]]
+    pre_authentication: NotRequired[pulumi.Input[_builtins.str]]
+    pre_sign_up: NotRequired[pulumi.Input[_builtins.str]]
+    pre_token_generation: NotRequired[pulumi.Input[_builtins.str]]
+    pre_token_generation_config: NotRequired[pulumi.Input['UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgsDict']]
+    user_migration: NotRequired[pulumi.Input[_builtins.str]]
+    verify_auth_challenge_response: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentLambdaConfigArgs:
+    def __init__(__self__, *,
+                 create_auth_challenge: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_email_sender: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs']] = None,
+                 custom_message: Optional[pulumi.Input[_builtins.str]] = None,
+                 custom_sms_sender: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs']] = None,
+                 define_auth_challenge: Optional[pulumi.Input[_builtins.str]] = None,
+                 inbound_federation: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentInboundFederationArgs']] = None,
+                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 post_authentication: Optional[pulumi.Input[_builtins.str]] = None,
+                 post_confirmation: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_authentication: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_sign_up: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_token_generation: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_token_generation_config: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs']] = None,
+                 user_migration: Optional[pulumi.Input[_builtins.str]] = None,
+                 verify_auth_challenge_response: Optional[pulumi.Input[_builtins.str]] = None):
+        if create_auth_challenge is not None:
+            pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
+        if custom_email_sender is not None:
+            pulumi.set(__self__, "custom_email_sender", custom_email_sender)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
+        if custom_sms_sender is not None:
+            pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
+        if define_auth_challenge is not None:
+            pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if inbound_federation is not None:
+            pulumi.set(__self__, "inbound_federation", inbound_federation)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if post_authentication is not None:
+            pulumi.set(__self__, "post_authentication", post_authentication)
+        if post_confirmation is not None:
+            pulumi.set(__self__, "post_confirmation", post_confirmation)
+        if pre_authentication is not None:
+            pulumi.set(__self__, "pre_authentication", pre_authentication)
+        if pre_sign_up is not None:
+            pulumi.set(__self__, "pre_sign_up", pre_sign_up)
+        if pre_token_generation is not None:
+            pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+        if pre_token_generation_config is not None:
+            pulumi.set(__self__, "pre_token_generation_config", pre_token_generation_config)
+        if user_migration is not None:
+            pulumi.set(__self__, "user_migration", user_migration)
+        if verify_auth_challenge_response is not None:
+            pulumi.set(__self__, "verify_auth_challenge_response", verify_auth_challenge_response)
+
+    @_builtins.property
+    @pulumi.getter(name="createAuthChallenge")
+    def create_auth_challenge(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "create_auth_challenge")
+
+    @create_auth_challenge.setter
+    def create_auth_challenge(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create_auth_challenge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customEmailSender")
+    def custom_email_sender(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs']]:
+        return pulumi.get(self, "custom_email_sender")
+
+    @custom_email_sender.setter
+    def custom_email_sender(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs']]):
+        pulumi.set(self, "custom_email_sender", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "custom_message")
+
+    @custom_message.setter
+    def custom_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customSmsSender")
+    def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs']]:
+        return pulumi.get(self, "custom_sms_sender")
+
+    @custom_sms_sender.setter
+    def custom_sms_sender(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs']]):
+        pulumi.set(self, "custom_sms_sender", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defineAuthChallenge")
+    def define_auth_challenge(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "define_auth_challenge")
+
+    @define_auth_challenge.setter
+    def define_auth_challenge(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "define_auth_challenge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundFederation")
+    def inbound_federation(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentInboundFederationArgs']]:
+        return pulumi.get(self, "inbound_federation")
+
+    @inbound_federation.setter
+    def inbound_federation(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentInboundFederationArgs']]):
+        pulumi.set(self, "inbound_federation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthentication")
+    def post_authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "post_authentication")
+
+    @post_authentication.setter
+    def post_authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "post_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postConfirmation")
+    def post_confirmation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "post_confirmation")
+
+    @post_confirmation.setter
+    def post_confirmation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "post_confirmation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preAuthentication")
+    def pre_authentication(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pre_authentication")
+
+    @pre_authentication.setter
+    def pre_authentication(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pre_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preSignUp")
+    def pre_sign_up(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pre_sign_up")
+
+    @pre_sign_up.setter
+    def pre_sign_up(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pre_sign_up", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preTokenGeneration")
+    def pre_token_generation(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "pre_token_generation")
+
+    @pre_token_generation.setter
+    def pre_token_generation(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "pre_token_generation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preTokenGenerationConfig")
+    def pre_token_generation_config(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs']]:
+        return pulumi.get(self, "pre_token_generation_config")
+
+    @pre_token_generation_config.setter
+    def pre_token_generation_config(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs']]):
+        pulumi.set(self, "pre_token_generation_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userMigration")
+    def user_migration(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "user_migration")
+
+    @user_migration.setter
+    def user_migration(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "user_migration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="verifyAuthChallengeResponse")
+    def verify_auth_challenge_response(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "verify_auth_challenge_response")
+
+    @verify_auth_challenge_response.setter
+    def verify_auth_challenge_response(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "verify_auth_challenge_response", value)
+
+
+class UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgsDict(TypedDict):
+    lambda_arn: NotRequired[pulumi.Input[_builtins.str]]
+    lambda_version: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs:
+    def __init__(__self__, *,
+                 lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 lambda_version: Optional[pulumi.Input[_builtins.str]] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "lambda_version")
+
+    @lambda_version.setter
+    def lambda_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "lambda_version", value)
+
+
+class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict(TypedDict):
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    sns_caller_arn: NotRequired[pulumi.Input[_builtins.str]]
+    sns_region: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs:
+    def __init__(__self__, *,
+                 external_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 sns_caller_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 sns_region: Optional[pulumi.Input[_builtins.str]] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if sns_caller_arn is not None:
+            pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        if sns_region is not None:
+            pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snsCallerArn")
+    def sns_caller_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "sns_caller_arn")
+
+    @sns_caller_arn.setter
+    def sns_caller_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sns_caller_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snsRegion")
+    def sns_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "sns_region")
+
+    @sns_region.setter
+    def sns_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sns_region", value)
 
 
 class UserPoolResourceServerResourceServerScopeTypeArgsDict(TypedDict):

@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<Outputs.ImagePipelineImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The tags to be applied to images created by this pipeline.
+        /// </summary>
+        [Output("imageTags")]
+        public Output<ImmutableDictionary<string, string>?> ImageTags { get; private set; } = null!;
+
+        /// <summary>
         /// The image tests configuration of the image pipeline.
         /// </summary>
         [Output("imageTestsConfiguration")]
@@ -207,6 +213,18 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("imageScanningConfiguration")]
         public Input<Inputs.ImagePipelineImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
+
+        [Input("imageTags")]
+        private InputMap<string>? _imageTags;
+
+        /// <summary>
+        /// The tags to be applied to images created by this pipeline.
+        /// </summary>
+        public InputMap<string> ImageTags
+        {
+            get => _imageTags ?? (_imageTags = new InputMap<string>());
+            set => _imageTags = value;
+        }
 
         /// <summary>
         /// The image tests configuration of the image pipeline.

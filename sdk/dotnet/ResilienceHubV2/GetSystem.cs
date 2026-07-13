@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        /// </summary>
+        public readonly bool? SharingEnabled;
+        /// <summary>
         /// The ARN of the system.
         /// </summary>
         public readonly string? SystemArn;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.ResilienceHubV2
 
             string? description,
 
+            bool? sharingEnabled,
+
             string? systemArn,
 
             string? systemId,
@@ -104,6 +110,7 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         {
             CreatedAt = createdAt;
             Description = description;
+            SharingEnabled = sharingEnabled;
             SystemArn = systemArn;
             SystemId = systemId;
             Tags = tags;

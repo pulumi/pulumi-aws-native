@@ -1,0 +1,114 @@
+{
+  "typeName" : "AWS::SageMaker::ModelCardExportJob",
+  "description" : "Definition of AWS::SageMaker::ModelCardExportJob Resource Type",
+  "properties" : {
+    "ModelCardExportJobArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the model card export job.",
+      "minLength" : 0,
+      "maxLength" : 256,
+      "pattern" : "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]{9,16}:[0-9]{12}:model-card/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}/export-job/[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "ModelCardExportJobName" : {
+      "type" : "string",
+      "description" : "The name of the model card export job.",
+      "minLength" : 1,
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "ModelCardName" : {
+      "type" : "string",
+      "description" : "The name or Amazon Resource Name (ARN) of the model card to export.",
+      "minLength" : 1,
+      "maxLength" : 256,
+      "pattern" : "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:model-card/.*)?([a-zA-Z0-9](-*[a-zA-Z0-9]){0,62})$"
+    },
+    "ModelCardVersion" : {
+      "type" : "integer",
+      "description" : "The version of the model card to export. If a version is not provided, then the latest version of the model card is exported."
+    },
+    "OutputConfig" : {
+      "description" : "The model card output configuration that specifies the Amazon S3 path for exporting.",
+      "$ref" : "#/definitions/ModelCardExportOutputConfig"
+    },
+    "Status" : {
+      "type" : "string",
+      "description" : "The completion status of the model card export job.",
+      "enum" : [ "InProgress", "Completed", "Failed" ]
+    },
+    "CreatedAt" : {
+      "type" : "string",
+      "description" : "The date and time that the model card export job was created.",
+      "format" : "date-time"
+    },
+    "LastModifiedAt" : {
+      "type" : "string",
+      "description" : "The date and time that the model card export job was last modified.",
+      "format" : "date-time"
+    },
+    "ExportArtifacts" : {
+      "description" : "The exported model card artifacts.",
+      "$ref" : "#/definitions/ModelCardExportArtifacts"
+    }
+  },
+  "definitions" : {
+    "ModelCardExportOutputConfig" : {
+      "type" : "object",
+      "description" : "Configure the export output details for an Amazon SageMaker Model Card.",
+      "properties" : {
+        "S3OutputPath" : {
+          "type" : "string",
+          "description" : "The Amazon S3 output path to export your model card PDF.",
+          "minLength" : 0,
+          "maxLength" : 1024,
+          "pattern" : "^(https|s3)://([^/]+)/?(.*)$"
+        }
+      },
+      "required" : [ "S3OutputPath" ],
+      "additionalProperties" : false
+    },
+    "ModelCardExportArtifacts" : {
+      "type" : "object",
+      "description" : "The artifacts of the model card export job.",
+      "properties" : {
+        "S3ExportArtifacts" : {
+          "type" : "string",
+          "description" : "The Amazon S3 URI of the exported model artifacts.",
+          "minLength" : 0,
+          "maxLength" : 1024,
+          "pattern" : "^(https|s3)://([^/]+)/?(.*)$"
+        }
+      },
+      "required" : [ "S3ExportArtifacts" ],
+      "additionalProperties" : false
+    }
+  },
+  "required" : [ "ModelCardExportJobName", "ModelCardName", "OutputConfig" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/ModelCardExportJobName", "/properties/ModelCardName", "/properties/ModelCardVersion", "/properties/OutputConfig" ],
+  "readOnlyProperties" : [ "/properties/ModelCardExportJobArn", "/properties/Status", "/properties/CreatedAt", "/properties/LastModifiedAt", "/properties/ExportArtifacts" ],
+  "primaryIdentifier" : [ "/properties/ModelCardExportJobArn" ],
+  "additionalIdentifiers" : [ [ "/properties/ModelCardName", "/properties/ModelCardExportJobName" ] ],
+  "tagging" : {
+    "taggable" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "sagemaker:DescribeModelCardExportJob" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ModelCardName" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 63,
+            "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+          }
+        },
+        "required" : [ "ModelCardName" ]
+      },
+      "permissions" : [ "sagemaker:ListModelCardExportJobs" ]
+    }
+  }
+}

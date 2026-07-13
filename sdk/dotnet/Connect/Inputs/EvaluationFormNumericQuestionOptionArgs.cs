@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<int> MinValue { get; set; } = null!;
 
         /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        [Input("pointsConfiguration")]
+        public Input<Inputs.EvaluationFormQuestionOptionPointsConfigurationArgs>? PointsConfiguration { get; set; }
+
+        /// <summary>
         /// The score assigned to answer values within the range option.
         ///  *Minimum*: 0
         ///  *Maximum*: 10

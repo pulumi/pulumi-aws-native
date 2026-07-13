@@ -41,6 +41,7 @@ class CapacityProviderArgs:
         :param pulumi.Input['CapacityProviderScalingConfigArgs'] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
         :param pulumi.Input['CapacityProviderInstanceRequirementsArgs'] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
+        :param pulumi.Input['CapacityProviderPropagateTagsConfigArgs'] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair that provides metadata for the capacity provider.
         """
         pulumi.set(__self__, "permissions_config", permissions_config)
@@ -132,6 +133,9 @@ class CapacityProviderArgs:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsConfigArgs']]:
+        """
+        Configuration for tag propagation to managed resources launched by the capacity provider.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -186,6 +190,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
         :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: The permissions configuration for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair that provides metadata for the capacity provider.
         :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: The VPC configuration for the capacity provider.
         """
@@ -329,6 +334,9 @@ class CapacityProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Output[Optional['outputs.CapacityProviderPropagateTagsConfig']]:
+        """
+        Configuration for tag propagation to managed resources launched by the capacity provider.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property

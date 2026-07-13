@@ -399,6 +399,140 @@ namespace Pulumi.AwsNative.MediaLive
     }
 
     /// <summary>
+    /// The current connection state of the Node.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeConnectionState : IEquatable<NodeConnectionState>
+    {
+        private readonly string _value;
+
+        private NodeConnectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodeConnectionState Connected { get; } = new NodeConnectionState("CONNECTED");
+        public static NodeConnectionState Disconnected { get; } = new NodeConnectionState("DISCONNECTED");
+
+        public static bool operator ==(NodeConnectionState left, NodeConnectionState right) => left.Equals(right);
+        public static bool operator !=(NodeConnectionState left, NodeConnectionState right) => !left.Equals(right);
+
+        public static explicit operator string(NodeConnectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeConnectionState other && Equals(other);
+        public bool Equals(NodeConnectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network interface mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeInterfaceMappingNetworkInterfaceMode : IEquatable<NodeInterfaceMappingNetworkInterfaceMode>
+    {
+        private readonly string _value;
+
+        private NodeInterfaceMappingNetworkInterfaceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodeInterfaceMappingNetworkInterfaceMode Nat { get; } = new NodeInterfaceMappingNetworkInterfaceMode("NAT");
+        public static NodeInterfaceMappingNetworkInterfaceMode Bridge { get; } = new NodeInterfaceMappingNetworkInterfaceMode("BRIDGE");
+
+        public static bool operator ==(NodeInterfaceMappingNetworkInterfaceMode left, NodeInterfaceMappingNetworkInterfaceMode right) => left.Equals(right);
+        public static bool operator !=(NodeInterfaceMappingNetworkInterfaceMode left, NodeInterfaceMappingNetworkInterfaceMode right) => !left.Equals(right);
+
+        public static explicit operator string(NodeInterfaceMappingNetworkInterfaceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeInterfaceMappingNetworkInterfaceMode other && Equals(other);
+        public bool Equals(NodeInterfaceMappingNetworkInterfaceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeRole : IEquatable<NodeRole>
+    {
+        private readonly string _value;
+
+        private NodeRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodeRole Backup { get; } = new NodeRole("BACKUP");
+        public static NodeRole Active { get; } = new NodeRole("ACTIVE");
+
+        public static bool operator ==(NodeRole left, NodeRole right) => left.Equals(right);
+        public static bool operator !=(NodeRole left, NodeRole right) => !left.Equals(right);
+
+        public static explicit operator string(NodeRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeRole other && Equals(other);
+        public bool Equals(NodeRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the Node.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeState : IEquatable<NodeState>
+    {
+        private readonly string _value;
+
+        private NodeState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NodeState Created { get; } = new NodeState("CREATED");
+        public static NodeState Registering { get; } = new NodeState("REGISTERING");
+        public static NodeState ReadyToActivate { get; } = new NodeState("READY_TO_ACTIVATE");
+        public static NodeState RegistrationFailed { get; } = new NodeState("REGISTRATION_FAILED");
+        public static NodeState ActivationFailed { get; } = new NodeState("ACTIVATION_FAILED");
+        public static NodeState Active { get; } = new NodeState("ACTIVE");
+        public static NodeState Ready { get; } = new NodeState("READY");
+        public static NodeState InUse { get; } = new NodeState("IN_USE");
+        public static NodeState Deregistering { get; } = new NodeState("DEREGISTERING");
+        public static NodeState Draining { get; } = new NodeState("DRAINING");
+        public static NodeState DeregistrationFailed { get; } = new NodeState("DEREGISTRATION_FAILED");
+        public static NodeState Deregistered { get; } = new NodeState("DEREGISTERED");
+
+        public static bool operator ==(NodeState left, NodeState right) => left.Equals(right);
+        public static bool operator !=(NodeState left, NodeState right) => !left.Equals(right);
+
+        public static explicit operator string(NodeState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeState other && Equals(other);
+        public bool Equals(NodeState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current state of the SdiSource.
     /// </summary>
     [EnumType]

@@ -124,6 +124,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
+        /// <summary>
+        /// The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+        /// </summary>
         [Output("monitoring")]
         public Output<Outputs.ServiceMonitoringConfiguration?> Monitoring { get; private set; } = null!;
 
@@ -397,6 +400,9 @@ namespace Pulumi.AwsNative.Ecs
             set => _loadBalancers = value;
         }
 
+        /// <summary>
+        /// The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+        /// </summary>
         [Input("monitoring")]
         public Input<Inputs.ServiceMonitoringConfigurationArgs>? Monitoring { get; set; }
 

@@ -21,11 +21,17 @@ type ConnectorV2 struct {
 	// The ID of the connector
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The status of the connector
-	ConnectorStatus ConnectorV2ConnectorStatusOutput `pulumi:"connectorStatus"`
+	ConnectorStatus pulumi.StringOutput `pulumi:"connectorStatus"`
 	// The timestamp when the V2 connector was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A description of the connector
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The enablement status of the connector
+	EnablementStatus pulumi.StringOutput `pulumi:"enablementStatus"`
+	// The reason for the enablement status of the connector
+	EnablementStatusReason pulumi.StringOutput `pulumi:"enablementStatusReason"`
+	// The list of health issues associated with the connector
+	Issues ConnectorV2HealthIssueArrayOutput `pulumi:"issues"`
 	// The ARN of KMS key used for the connector
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The most recent timestamp when the V2 connector was checked on health status.
@@ -164,8 +170,8 @@ func (o ConnectorV2Output) ConnectorId() pulumi.StringOutput {
 }
 
 // The status of the connector
-func (o ConnectorV2Output) ConnectorStatus() ConnectorV2ConnectorStatusOutput {
-	return o.ApplyT(func(v *ConnectorV2) ConnectorV2ConnectorStatusOutput { return v.ConnectorStatus }).(ConnectorV2ConnectorStatusOutput)
+func (o ConnectorV2Output) ConnectorStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.ConnectorStatus }).(pulumi.StringOutput)
 }
 
 // The timestamp when the V2 connector was created.
@@ -176,6 +182,21 @@ func (o ConnectorV2Output) CreatedAt() pulumi.StringOutput {
 // A description of the connector
 func (o ConnectorV2Output) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The enablement status of the connector
+func (o ConnectorV2Output) EnablementStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.EnablementStatus }).(pulumi.StringOutput)
+}
+
+// The reason for the enablement status of the connector
+func (o ConnectorV2Output) EnablementStatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.EnablementStatusReason }).(pulumi.StringOutput)
+}
+
+// The list of health issues associated with the connector
+func (o ConnectorV2Output) Issues() ConnectorV2HealthIssueArrayOutput {
+	return o.ApplyT(func(v *ConnectorV2) ConnectorV2HealthIssueArrayOutput { return v.Issues }).(ConnectorV2HealthIssueArrayOutput)
 }
 
 // The ARN of KMS key used for the connector

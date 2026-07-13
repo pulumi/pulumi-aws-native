@@ -58,7 +58,8 @@ type Cluster struct {
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn        pulumi.StringOutput            `pulumi:"roleArn"`
+	RollbackConfig ClusterRollbackConfigPtrOutput `pulumi:"rollbackConfig"`
 	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
 	StorageConfig ClusterStorageConfigPtrOutput `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
@@ -157,7 +158,8 @@ type clusterArgs struct {
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn        string                 `pulumi:"roleArn"`
+	RollbackConfig *ClusterRollbackConfig `pulumi:"rollbackConfig"`
 	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
 	StorageConfig *ClusterStorageConfig `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
@@ -201,7 +203,8 @@ type ClusterArgs struct {
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringInput
+	RoleArn        pulumi.StringInput
+	RollbackConfig ClusterRollbackConfigPtrInput
 	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
 	StorageConfig ClusterStorageConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -356,6 +359,10 @@ func (o ClusterOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigOutput {
 // The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) RollbackConfig() ClusterRollbackConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRollbackConfigPtrOutput { return v.RollbackConfig }).(ClusterRollbackConfigPtrOutput)
 }
 
 // Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .

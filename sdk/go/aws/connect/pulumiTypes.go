@@ -2877,8 +2877,15 @@ func (o EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput) Index(i pu
 
 // An option for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionOption struct {
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+	AutomaticFail              *bool                                     `pulumi:"automaticFail"`
+	AutomaticFailConfiguration *EvaluationFormAutomaticFailConfiguration `pulumi:"automaticFailConfiguration"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration *EvaluationFormQuestionOptionPointsConfiguration `pulumi:"pointsConfiguration"`
 	// Reference identifier for this option.
 	RefId string `pulumi:"refId"`
+	// The score assigned to the answer option.
+	Score *int `pulumi:"score"`
 	// Display text for this option.
 	Text string `pulumi:"text"`
 }
@@ -2896,8 +2903,15 @@ type EvaluationFormMultiSelectQuestionOptionInput interface {
 
 // An option for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionOptionArgs struct {
+	// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+	AutomaticFail              pulumi.BoolPtrInput                              `pulumi:"automaticFail"`
+	AutomaticFailConfiguration EvaluationFormAutomaticFailConfigurationPtrInput `pulumi:"automaticFailConfiguration"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration EvaluationFormQuestionOptionPointsConfigurationPtrInput `pulumi:"pointsConfiguration"`
 	// Reference identifier for this option.
 	RefId pulumi.StringInput `pulumi:"refId"`
+	// The score assigned to the answer option.
+	Score pulumi.IntPtrInput `pulumi:"score"`
 	// Display text for this option.
 	Text pulumi.StringInput `pulumi:"text"`
 }
@@ -2954,9 +2968,32 @@ func (o EvaluationFormMultiSelectQuestionOptionOutput) ToEvaluationFormMultiSele
 	return o
 }
 
+// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+func (o EvaluationFormMultiSelectQuestionOptionOutput) AutomaticFail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) *bool { return v.AutomaticFail }).(pulumi.BoolPtrOutput)
+}
+
+func (o EvaluationFormMultiSelectQuestionOptionOutput) AutomaticFailConfiguration() EvaluationFormAutomaticFailConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) *EvaluationFormAutomaticFailConfiguration {
+		return v.AutomaticFailConfiguration
+	}).(EvaluationFormAutomaticFailConfigurationPtrOutput)
+}
+
+// The points configuration for point-based scoring.
+func (o EvaluationFormMultiSelectQuestionOptionOutput) PointsConfiguration() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) *EvaluationFormQuestionOptionPointsConfiguration {
+		return v.PointsConfiguration
+	}).(EvaluationFormQuestionOptionPointsConfigurationPtrOutput)
+}
+
 // Reference identifier for this option.
 func (o EvaluationFormMultiSelectQuestionOptionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) string { return v.RefId }).(pulumi.StringOutput)
+}
+
+// The score assigned to the answer option.
+func (o EvaluationFormMultiSelectQuestionOptionOutput) Score() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) *int { return v.Score }).(pulumi.IntPtrOutput)
 }
 
 // Display text for this option.
@@ -3416,6 +3453,8 @@ type EvaluationFormNumericQuestionOption struct {
 	MaxValue int `pulumi:"maxValue"`
 	// The minimum answer value of the range option.
 	MinValue int `pulumi:"minValue"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration *EvaluationFormQuestionOptionPointsConfiguration `pulumi:"pointsConfiguration"`
 	// The score assigned to answer values within the range option.
 	//  *Minimum*: 0
 	//  *Maximum*: 10
@@ -3443,6 +3482,8 @@ type EvaluationFormNumericQuestionOptionArgs struct {
 	MaxValue pulumi.IntInput `pulumi:"maxValue"`
 	// The minimum answer value of the range option.
 	MinValue pulumi.IntInput `pulumi:"minValue"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration EvaluationFormQuestionOptionPointsConfigurationPtrInput `pulumi:"pointsConfiguration"`
 	// The score assigned to answer values within the range option.
 	//  *Minimum*: 0
 	//  *Maximum*: 10
@@ -3521,6 +3562,13 @@ func (o EvaluationFormNumericQuestionOptionOutput) MaxValue() pulumi.IntOutput {
 // The minimum answer value of the range option.
 func (o EvaluationFormNumericQuestionOptionOutput) MinValue() pulumi.IntOutput {
 	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) int { return v.MinValue }).(pulumi.IntOutput)
+}
+
+// The points configuration for point-based scoring.
+func (o EvaluationFormNumericQuestionOptionOutput) PointsConfiguration() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormNumericQuestionOption) *EvaluationFormQuestionOptionPointsConfiguration {
+		return v.PointsConfiguration
+	}).(EvaluationFormQuestionOptionPointsConfigurationPtrOutput)
 }
 
 // The score assigned to answer values within the range option.
@@ -3911,6 +3959,8 @@ type EvaluationFormQuestion struct {
 	// The identifier of the question. An identifier must be unique within the evaluation form.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
+	// The scoring configuration of the question.
+	ScoringConfiguration *EvaluationFormQuestionScoringConfiguration `pulumi:"scoringConfiguration"`
 	// The title of the question.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title string `pulumi:"title"`
@@ -3948,6 +3998,8 @@ type EvaluationFormQuestionArgs struct {
 	// The identifier of the question. An identifier must be unique within the evaluation form.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
+	// The scoring configuration of the question.
+	ScoringConfiguration EvaluationFormQuestionScoringConfigurationPtrInput `pulumi:"scoringConfiguration"`
 	// The title of the question.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 350.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -4071,6 +4123,13 @@ func (o EvaluationFormQuestionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormQuestion) string { return v.RefId }).(pulumi.StringOutput)
 }
 
+// The scoring configuration of the question.
+func (o EvaluationFormQuestionOutput) ScoringConfiguration() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestion) *EvaluationFormQuestionScoringConfiguration {
+		return v.ScoringConfiguration
+	}).(EvaluationFormQuestionScoringConfigurationPtrOutput)
+}
+
 // The title of the question.
 //
 //	*Length Constraints*: Minimum length of 1. Maximum length of 350.
@@ -4174,6 +4233,16 @@ func (o EvaluationFormQuestionPtrOutput) RefId() pulumi.StringPtrOutput {
 		}
 		return &v.RefId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The scoring configuration of the question.
+func (o EvaluationFormQuestionPtrOutput) ScoringConfiguration() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestion) *EvaluationFormQuestionScoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ScoringConfiguration
+	}).(EvaluationFormQuestionScoringConfigurationPtrOutput)
 }
 
 // The title of the question.
@@ -4341,6 +4410,525 @@ func (o EvaluationFormQuestionAutomationAnswerSourcePtrOutput) SourceType() Eval
 		}
 		return &v.SourceType
 	}).(EvaluationFormQuestionAutomationAnswerSourceSourceTypePtrOutput)
+}
+
+// Information about the points configuration for an answer option.
+type EvaluationFormQuestionOptionPointsConfiguration struct {
+	// The flag to mark the option as a bonus option.
+	IsBonus *bool `pulumi:"isBonus"`
+	// The point value assigned to the answer option.
+	PointValue int `pulumi:"pointValue"`
+}
+
+// EvaluationFormQuestionOptionPointsConfigurationInput is an input type that accepts EvaluationFormQuestionOptionPointsConfigurationArgs and EvaluationFormQuestionOptionPointsConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionOptionPointsConfigurationInput` via:
+//
+//	EvaluationFormQuestionOptionPointsConfigurationArgs{...}
+type EvaluationFormQuestionOptionPointsConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionOptionPointsConfigurationOutput() EvaluationFormQuestionOptionPointsConfigurationOutput
+	ToEvaluationFormQuestionOptionPointsConfigurationOutputWithContext(context.Context) EvaluationFormQuestionOptionPointsConfigurationOutput
+}
+
+// Information about the points configuration for an answer option.
+type EvaluationFormQuestionOptionPointsConfigurationArgs struct {
+	// The flag to mark the option as a bonus option.
+	IsBonus pulumi.BoolPtrInput `pulumi:"isBonus"`
+	// The point value assigned to the answer option.
+	PointValue pulumi.IntInput `pulumi:"pointValue"`
+}
+
+func (EvaluationFormQuestionOptionPointsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionOptionPointsConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormQuestionOptionPointsConfigurationArgs) ToEvaluationFormQuestionOptionPointsConfigurationOutput() EvaluationFormQuestionOptionPointsConfigurationOutput {
+	return i.ToEvaluationFormQuestionOptionPointsConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionOptionPointsConfigurationArgs) ToEvaluationFormQuestionOptionPointsConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionOptionPointsConfigurationOutput)
+}
+
+func (i EvaluationFormQuestionOptionPointsConfigurationArgs) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutput() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionOptionPointsConfigurationArgs) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionOptionPointsConfigurationOutput).ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormQuestionOptionPointsConfigurationPtrInput is an input type that accepts EvaluationFormQuestionOptionPointsConfigurationArgs, EvaluationFormQuestionOptionPointsConfigurationPtr and EvaluationFormQuestionOptionPointsConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionOptionPointsConfigurationPtrInput` via:
+//
+//	        EvaluationFormQuestionOptionPointsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormQuestionOptionPointsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionOptionPointsConfigurationPtrOutput() EvaluationFormQuestionOptionPointsConfigurationPtrOutput
+	ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(context.Context) EvaluationFormQuestionOptionPointsConfigurationPtrOutput
+}
+
+type evaluationFormQuestionOptionPointsConfigurationPtrType EvaluationFormQuestionOptionPointsConfigurationArgs
+
+func EvaluationFormQuestionOptionPointsConfigurationPtr(v *EvaluationFormQuestionOptionPointsConfigurationArgs) EvaluationFormQuestionOptionPointsConfigurationPtrInput {
+	return (*evaluationFormQuestionOptionPointsConfigurationPtrType)(v)
+}
+
+func (*evaluationFormQuestionOptionPointsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionOptionPointsConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormQuestionOptionPointsConfigurationPtrType) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutput() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormQuestionOptionPointsConfigurationPtrType) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionOptionPointsConfigurationPtrOutput)
+}
+
+// Information about the points configuration for an answer option.
+type EvaluationFormQuestionOptionPointsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionOptionPointsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionOptionPointsConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) ToEvaluationFormQuestionOptionPointsConfigurationOutput() EvaluationFormQuestionOptionPointsConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) ToEvaluationFormQuestionOptionPointsConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutput() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o.ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestionOptionPointsConfiguration) *EvaluationFormQuestionOptionPointsConfiguration {
+		return &v
+	}).(EvaluationFormQuestionOptionPointsConfigurationPtrOutput)
+}
+
+// The flag to mark the option as a bonus option.
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) IsBonus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionOptionPointsConfiguration) *bool { return v.IsBonus }).(pulumi.BoolPtrOutput)
+}
+
+// The point value assigned to the answer option.
+func (o EvaluationFormQuestionOptionPointsConfigurationOutput) PointValue() pulumi.IntOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionOptionPointsConfiguration) int { return v.PointValue }).(pulumi.IntOutput)
+}
+
+type EvaluationFormQuestionOptionPointsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionOptionPointsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionOptionPointsConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationPtrOutput) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutput() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationPtrOutput) ToEvaluationFormQuestionOptionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionOptionPointsConfigurationPtrOutput) Elem() EvaluationFormQuestionOptionPointsConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionOptionPointsConfiguration) EvaluationFormQuestionOptionPointsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestionOptionPointsConfiguration
+		return ret
+	}).(EvaluationFormQuestionOptionPointsConfigurationOutput)
+}
+
+// The flag to mark the option as a bonus option.
+func (o EvaluationFormQuestionOptionPointsConfigurationPtrOutput) IsBonus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionOptionPointsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsBonus
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The point value assigned to the answer option.
+func (o EvaluationFormQuestionOptionPointsConfigurationPtrOutput) PointValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionOptionPointsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PointValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// Information about the points configuration for a question.
+type EvaluationFormQuestionPointsConfiguration struct {
+	// The flag to mark the question as a bonus question.
+	IsBonus *bool `pulumi:"isBonus"`
+	// The maximum point value.
+	MaxPointValue *int `pulumi:"maxPointValue"`
+	// The minimum point value.
+	MinPointValue *int `pulumi:"minPointValue"`
+}
+
+// EvaluationFormQuestionPointsConfigurationInput is an input type that accepts EvaluationFormQuestionPointsConfigurationArgs and EvaluationFormQuestionPointsConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionPointsConfigurationInput` via:
+//
+//	EvaluationFormQuestionPointsConfigurationArgs{...}
+type EvaluationFormQuestionPointsConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionPointsConfigurationOutput() EvaluationFormQuestionPointsConfigurationOutput
+	ToEvaluationFormQuestionPointsConfigurationOutputWithContext(context.Context) EvaluationFormQuestionPointsConfigurationOutput
+}
+
+// Information about the points configuration for a question.
+type EvaluationFormQuestionPointsConfigurationArgs struct {
+	// The flag to mark the question as a bonus question.
+	IsBonus pulumi.BoolPtrInput `pulumi:"isBonus"`
+	// The maximum point value.
+	MaxPointValue pulumi.IntPtrInput `pulumi:"maxPointValue"`
+	// The minimum point value.
+	MinPointValue pulumi.IntPtrInput `pulumi:"minPointValue"`
+}
+
+func (EvaluationFormQuestionPointsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionPointsConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormQuestionPointsConfigurationArgs) ToEvaluationFormQuestionPointsConfigurationOutput() EvaluationFormQuestionPointsConfigurationOutput {
+	return i.ToEvaluationFormQuestionPointsConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionPointsConfigurationArgs) ToEvaluationFormQuestionPointsConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionPointsConfigurationOutput)
+}
+
+func (i EvaluationFormQuestionPointsConfigurationArgs) ToEvaluationFormQuestionPointsConfigurationPtrOutput() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionPointsConfigurationArgs) ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionPointsConfigurationOutput).ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormQuestionPointsConfigurationPtrInput is an input type that accepts EvaluationFormQuestionPointsConfigurationArgs, EvaluationFormQuestionPointsConfigurationPtr and EvaluationFormQuestionPointsConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionPointsConfigurationPtrInput` via:
+//
+//	        EvaluationFormQuestionPointsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormQuestionPointsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionPointsConfigurationPtrOutput() EvaluationFormQuestionPointsConfigurationPtrOutput
+	ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(context.Context) EvaluationFormQuestionPointsConfigurationPtrOutput
+}
+
+type evaluationFormQuestionPointsConfigurationPtrType EvaluationFormQuestionPointsConfigurationArgs
+
+func EvaluationFormQuestionPointsConfigurationPtr(v *EvaluationFormQuestionPointsConfigurationArgs) EvaluationFormQuestionPointsConfigurationPtrInput {
+	return (*evaluationFormQuestionPointsConfigurationPtrType)(v)
+}
+
+func (*evaluationFormQuestionPointsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionPointsConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormQuestionPointsConfigurationPtrType) ToEvaluationFormQuestionPointsConfigurationPtrOutput() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormQuestionPointsConfigurationPtrType) ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionPointsConfigurationPtrOutput)
+}
+
+// Information about the points configuration for a question.
+type EvaluationFormQuestionPointsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionPointsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionPointsConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionPointsConfigurationOutput) ToEvaluationFormQuestionPointsConfigurationOutput() EvaluationFormQuestionPointsConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPointsConfigurationOutput) ToEvaluationFormQuestionPointsConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPointsConfigurationOutput) ToEvaluationFormQuestionPointsConfigurationPtrOutput() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o.ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionPointsConfigurationOutput) ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestionPointsConfiguration) *EvaluationFormQuestionPointsConfiguration {
+		return &v
+	}).(EvaluationFormQuestionPointsConfigurationPtrOutput)
+}
+
+// The flag to mark the question as a bonus question.
+func (o EvaluationFormQuestionPointsConfigurationOutput) IsBonus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionPointsConfiguration) *bool { return v.IsBonus }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum point value.
+func (o EvaluationFormQuestionPointsConfigurationOutput) MaxPointValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionPointsConfiguration) *int { return v.MaxPointValue }).(pulumi.IntPtrOutput)
+}
+
+// The minimum point value.
+func (o EvaluationFormQuestionPointsConfigurationOutput) MinPointValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionPointsConfiguration) *int { return v.MinPointValue }).(pulumi.IntPtrOutput)
+}
+
+type EvaluationFormQuestionPointsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionPointsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionPointsConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) ToEvaluationFormQuestionPointsConfigurationPtrOutput() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) ToEvaluationFormQuestionPointsConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) Elem() EvaluationFormQuestionPointsConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionPointsConfiguration) EvaluationFormQuestionPointsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestionPointsConfiguration
+		return ret
+	}).(EvaluationFormQuestionPointsConfigurationOutput)
+}
+
+// The flag to mark the question as a bonus question.
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) IsBonus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionPointsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsBonus
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum point value.
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) MaxPointValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionPointsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPointValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum point value.
+func (o EvaluationFormQuestionPointsConfigurationPtrOutput) MinPointValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionPointsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinPointValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// Scoring configuration for a question in an evaluation form.
+type EvaluationFormQuestionScoringConfiguration struct {
+	// The flag to exclude the question from scoring.
+	IsExcludedFromScoring *bool `pulumi:"isExcludedFromScoring"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration *EvaluationFormQuestionPointsConfiguration `pulumi:"pointsConfiguration"`
+	// The score thresholds for performance categories.
+	ScoreThresholds []EvaluationFormScoreThreshold `pulumi:"scoreThresholds"`
+}
+
+// EvaluationFormQuestionScoringConfigurationInput is an input type that accepts EvaluationFormQuestionScoringConfigurationArgs and EvaluationFormQuestionScoringConfigurationOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionScoringConfigurationInput` via:
+//
+//	EvaluationFormQuestionScoringConfigurationArgs{...}
+type EvaluationFormQuestionScoringConfigurationInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionScoringConfigurationOutput() EvaluationFormQuestionScoringConfigurationOutput
+	ToEvaluationFormQuestionScoringConfigurationOutputWithContext(context.Context) EvaluationFormQuestionScoringConfigurationOutput
+}
+
+// Scoring configuration for a question in an evaluation form.
+type EvaluationFormQuestionScoringConfigurationArgs struct {
+	// The flag to exclude the question from scoring.
+	IsExcludedFromScoring pulumi.BoolPtrInput `pulumi:"isExcludedFromScoring"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration EvaluationFormQuestionPointsConfigurationPtrInput `pulumi:"pointsConfiguration"`
+	// The score thresholds for performance categories.
+	ScoreThresholds EvaluationFormScoreThresholdArrayInput `pulumi:"scoreThresholds"`
+}
+
+func (EvaluationFormQuestionScoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionScoringConfiguration)(nil)).Elem()
+}
+
+func (i EvaluationFormQuestionScoringConfigurationArgs) ToEvaluationFormQuestionScoringConfigurationOutput() EvaluationFormQuestionScoringConfigurationOutput {
+	return i.ToEvaluationFormQuestionScoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionScoringConfigurationArgs) ToEvaluationFormQuestionScoringConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionScoringConfigurationOutput)
+}
+
+func (i EvaluationFormQuestionScoringConfigurationArgs) ToEvaluationFormQuestionScoringConfigurationPtrOutput() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormQuestionScoringConfigurationArgs) ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionScoringConfigurationOutput).ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// EvaluationFormQuestionScoringConfigurationPtrInput is an input type that accepts EvaluationFormQuestionScoringConfigurationArgs, EvaluationFormQuestionScoringConfigurationPtr and EvaluationFormQuestionScoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `EvaluationFormQuestionScoringConfigurationPtrInput` via:
+//
+//	        EvaluationFormQuestionScoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EvaluationFormQuestionScoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormQuestionScoringConfigurationPtrOutput() EvaluationFormQuestionScoringConfigurationPtrOutput
+	ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(context.Context) EvaluationFormQuestionScoringConfigurationPtrOutput
+}
+
+type evaluationFormQuestionScoringConfigurationPtrType EvaluationFormQuestionScoringConfigurationArgs
+
+func EvaluationFormQuestionScoringConfigurationPtr(v *EvaluationFormQuestionScoringConfigurationArgs) EvaluationFormQuestionScoringConfigurationPtrInput {
+	return (*evaluationFormQuestionScoringConfigurationPtrType)(v)
+}
+
+func (*evaluationFormQuestionScoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionScoringConfiguration)(nil)).Elem()
+}
+
+func (i *evaluationFormQuestionScoringConfigurationPtrType) ToEvaluationFormQuestionScoringConfigurationPtrOutput() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return i.ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *evaluationFormQuestionScoringConfigurationPtrType) ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormQuestionScoringConfigurationPtrOutput)
+}
+
+// Scoring configuration for a question in an evaluation form.
+type EvaluationFormQuestionScoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionScoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormQuestionScoringConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionScoringConfigurationOutput) ToEvaluationFormQuestionScoringConfigurationOutput() EvaluationFormQuestionScoringConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionScoringConfigurationOutput) ToEvaluationFormQuestionScoringConfigurationOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionScoringConfigurationOutput) ToEvaluationFormQuestionScoringConfigurationPtrOutput() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o.ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormQuestionScoringConfigurationOutput) ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormQuestionScoringConfiguration) *EvaluationFormQuestionScoringConfiguration {
+		return &v
+	}).(EvaluationFormQuestionScoringConfigurationPtrOutput)
+}
+
+// The flag to exclude the question from scoring.
+func (o EvaluationFormQuestionScoringConfigurationOutput) IsExcludedFromScoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionScoringConfiguration) *bool { return v.IsExcludedFromScoring }).(pulumi.BoolPtrOutput)
+}
+
+// The points configuration for point-based scoring.
+func (o EvaluationFormQuestionScoringConfigurationOutput) PointsConfiguration() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionScoringConfiguration) *EvaluationFormQuestionPointsConfiguration {
+		return v.PointsConfiguration
+	}).(EvaluationFormQuestionPointsConfigurationPtrOutput)
+}
+
+// The score thresholds for performance categories.
+func (o EvaluationFormQuestionScoringConfigurationOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v EvaluationFormQuestionScoringConfiguration) []EvaluationFormScoreThreshold {
+		return v.ScoreThresholds
+	}).(EvaluationFormScoreThresholdArrayOutput)
+}
+
+type EvaluationFormQuestionScoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormQuestionScoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormQuestionScoringConfiguration)(nil)).Elem()
+}
+
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) ToEvaluationFormQuestionScoringConfigurationPtrOutput() EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) ToEvaluationFormQuestionScoringConfigurationPtrOutputWithContext(ctx context.Context) EvaluationFormQuestionScoringConfigurationPtrOutput {
+	return o
+}
+
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) Elem() EvaluationFormQuestionScoringConfigurationOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionScoringConfiguration) EvaluationFormQuestionScoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormQuestionScoringConfiguration
+		return ret
+	}).(EvaluationFormQuestionScoringConfigurationOutput)
+}
+
+// The flag to exclude the question from scoring.
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) IsExcludedFromScoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionScoringConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsExcludedFromScoring
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The points configuration for point-based scoring.
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) PointsConfiguration() EvaluationFormQuestionPointsConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionScoringConfiguration) *EvaluationFormQuestionPointsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PointsConfiguration
+	}).(EvaluationFormQuestionPointsConfigurationPtrOutput)
+}
+
+// The score thresholds for performance categories.
+func (o EvaluationFormQuestionScoringConfigurationPtrOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormQuestionScoringConfiguration) []EvaluationFormScoreThreshold {
+		if v == nil {
+			return nil
+		}
+		return v.ScoreThresholds
+	}).(EvaluationFormScoreThresholdArrayOutput)
 }
 
 // Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
@@ -4546,11 +5134,132 @@ func (o EvaluationFormQuestionTypePropertiesPtrOutput) Text() EvaluationFormText
 	}).(EvaluationFormTextQuestionPropertiesPtrOutput)
 }
 
+// Information about a score threshold for a performance category.
+type EvaluationFormScoreThreshold struct {
+	// The maximum score percentage for the performance category.
+	MaxScorePercentage *float64 `pulumi:"maxScorePercentage"`
+	// The minimum score percentage for the performance category.
+	MinScorePercentage *float64 `pulumi:"minScorePercentage"`
+	// The performance category name.
+	PerformanceCategory EvaluationFormScoreThresholdPerformanceCategory `pulumi:"performanceCategory"`
+}
+
+// EvaluationFormScoreThresholdInput is an input type that accepts EvaluationFormScoreThresholdArgs and EvaluationFormScoreThresholdOutput values.
+// You can construct a concrete instance of `EvaluationFormScoreThresholdInput` via:
+//
+//	EvaluationFormScoreThresholdArgs{...}
+type EvaluationFormScoreThresholdInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoreThresholdOutput() EvaluationFormScoreThresholdOutput
+	ToEvaluationFormScoreThresholdOutputWithContext(context.Context) EvaluationFormScoreThresholdOutput
+}
+
+// Information about a score threshold for a performance category.
+type EvaluationFormScoreThresholdArgs struct {
+	// The maximum score percentage for the performance category.
+	MaxScorePercentage pulumi.Float64PtrInput `pulumi:"maxScorePercentage"`
+	// The minimum score percentage for the performance category.
+	MinScorePercentage pulumi.Float64PtrInput `pulumi:"minScorePercentage"`
+	// The performance category name.
+	PerformanceCategory EvaluationFormScoreThresholdPerformanceCategoryInput `pulumi:"performanceCategory"`
+}
+
+func (EvaluationFormScoreThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoreThreshold)(nil)).Elem()
+}
+
+func (i EvaluationFormScoreThresholdArgs) ToEvaluationFormScoreThresholdOutput() EvaluationFormScoreThresholdOutput {
+	return i.ToEvaluationFormScoreThresholdOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormScoreThresholdArgs) ToEvaluationFormScoreThresholdOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoreThresholdOutput)
+}
+
+// EvaluationFormScoreThresholdArrayInput is an input type that accepts EvaluationFormScoreThresholdArray and EvaluationFormScoreThresholdArrayOutput values.
+// You can construct a concrete instance of `EvaluationFormScoreThresholdArrayInput` via:
+//
+//	EvaluationFormScoreThresholdArray{ EvaluationFormScoreThresholdArgs{...} }
+type EvaluationFormScoreThresholdArrayInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoreThresholdArrayOutput() EvaluationFormScoreThresholdArrayOutput
+	ToEvaluationFormScoreThresholdArrayOutputWithContext(context.Context) EvaluationFormScoreThresholdArrayOutput
+}
+
+type EvaluationFormScoreThresholdArray []EvaluationFormScoreThresholdInput
+
+func (EvaluationFormScoreThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormScoreThreshold)(nil)).Elem()
+}
+
+func (i EvaluationFormScoreThresholdArray) ToEvaluationFormScoreThresholdArrayOutput() EvaluationFormScoreThresholdArrayOutput {
+	return i.ToEvaluationFormScoreThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i EvaluationFormScoreThresholdArray) ToEvaluationFormScoreThresholdArrayOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormScoreThresholdArrayOutput)
+}
+
+// Information about a score threshold for a performance category.
+type EvaluationFormScoreThresholdOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoreThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoreThreshold)(nil)).Elem()
+}
+
+func (o EvaluationFormScoreThresholdOutput) ToEvaluationFormScoreThresholdOutput() EvaluationFormScoreThresholdOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdOutput) ToEvaluationFormScoreThresholdOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdOutput {
+	return o
+}
+
+// The maximum score percentage for the performance category.
+func (o EvaluationFormScoreThresholdOutput) MaxScorePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluationFormScoreThreshold) *float64 { return v.MaxScorePercentage }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum score percentage for the performance category.
+func (o EvaluationFormScoreThresholdOutput) MinScorePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EvaluationFormScoreThreshold) *float64 { return v.MinScorePercentage }).(pulumi.Float64PtrOutput)
+}
+
+// The performance category name.
+func (o EvaluationFormScoreThresholdOutput) PerformanceCategory() EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return o.ApplyT(func(v EvaluationFormScoreThreshold) EvaluationFormScoreThresholdPerformanceCategory {
+		return v.PerformanceCategory
+	}).(EvaluationFormScoreThresholdPerformanceCategoryOutput)
+}
+
+type EvaluationFormScoreThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoreThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EvaluationFormScoreThreshold)(nil)).Elem()
+}
+
+func (o EvaluationFormScoreThresholdArrayOutput) ToEvaluationFormScoreThresholdArrayOutput() EvaluationFormScoreThresholdArrayOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdArrayOutput) ToEvaluationFormScoreThresholdArrayOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdArrayOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdArrayOutput) Index(i pulumi.IntInput) EvaluationFormScoreThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EvaluationFormScoreThreshold {
+		return vs[0].([]EvaluationFormScoreThreshold)[vs[1].(int)]
+	}).(EvaluationFormScoreThresholdOutput)
+}
+
 // A scoring strategy of the evaluation form.
 type EvaluationFormScoringStrategy struct {
 	// The scoring mode of the evaluation form.
 	//  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
-	Mode EvaluationFormScoringStrategyMode `pulumi:"mode"`
+	Mode            EvaluationFormScoringStrategyMode `pulumi:"mode"`
+	ScoreThresholds []EvaluationFormScoreThreshold    `pulumi:"scoreThresholds"`
 	// The scoring status of the evaluation form.
 	//  *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatus `pulumi:"status"`
@@ -4571,7 +5280,8 @@ type EvaluationFormScoringStrategyInput interface {
 type EvaluationFormScoringStrategyArgs struct {
 	// The scoring mode of the evaluation form.
 	//  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
-	Mode EvaluationFormScoringStrategyModeInput `pulumi:"mode"`
+	Mode            EvaluationFormScoringStrategyModeInput `pulumi:"mode"`
+	ScoreThresholds EvaluationFormScoreThresholdArrayInput `pulumi:"scoreThresholds"`
 	// The scoring status of the evaluation form.
 	//  *Allowed values*: ``ENABLED`` | ``DISABLED``
 	Status EvaluationFormScoringStrategyStatusInput `pulumi:"status"`
@@ -4662,6 +5372,10 @@ func (o EvaluationFormScoringStrategyOutput) Mode() EvaluationFormScoringStrateg
 	return o.ApplyT(func(v EvaluationFormScoringStrategy) EvaluationFormScoringStrategyMode { return v.Mode }).(EvaluationFormScoringStrategyModeOutput)
 }
 
+func (o EvaluationFormScoringStrategyOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v EvaluationFormScoringStrategy) []EvaluationFormScoreThreshold { return v.ScoreThresholds }).(EvaluationFormScoreThresholdArrayOutput)
+}
+
 // The scoring status of the evaluation form.
 //
 //	*Allowed values*: ``ENABLED`` | ``DISABLED``
@@ -4705,6 +5419,15 @@ func (o EvaluationFormScoringStrategyPtrOutput) Mode() EvaluationFormScoringStra
 	}).(EvaluationFormScoringStrategyModePtrOutput)
 }
 
+func (o EvaluationFormScoringStrategyPtrOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormScoringStrategy) []EvaluationFormScoreThreshold {
+		if v == nil {
+			return nil
+		}
+		return v.ScoreThresholds
+	}).(EvaluationFormScoreThresholdArrayOutput)
+}
+
 // The scoring status of the evaluation form.
 //
 //	*Allowed values*: ``ENABLED`` | ``DISABLED``
@@ -4721,12 +5444,16 @@ func (o EvaluationFormScoringStrategyPtrOutput) Status() EvaluationFormScoringSt
 type EvaluationFormSection struct {
 	// The instructions of the section.
 	Instructions *string `pulumi:"instructions"`
+	// The flag to exclude the section from scoring.
+	IsExcludedFromScoring *bool `pulumi:"isExcludedFromScoring"`
 	// The items of the section.
 	//  *Minimum*: 1
 	Items []EvaluationFormItem `pulumi:"items"`
 	// The identifier of the section. An identifier must be unique within the evaluation form.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
+	// The score thresholds for performance categories.
+	ScoreThresholds []EvaluationFormScoreThreshold `pulumi:"scoreThresholds"`
 	// The title of the section.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title string `pulumi:"title"`
@@ -4751,12 +5478,16 @@ type EvaluationFormSectionInput interface {
 type EvaluationFormSectionArgs struct {
 	// The instructions of the section.
 	Instructions pulumi.StringPtrInput `pulumi:"instructions"`
+	// The flag to exclude the section from scoring.
+	IsExcludedFromScoring pulumi.BoolPtrInput `pulumi:"isExcludedFromScoring"`
 	// The items of the section.
 	//  *Minimum*: 1
 	Items EvaluationFormItemArrayInput `pulumi:"items"`
 	// The identifier of the section. An identifier must be unique within the evaluation form.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
+	// The score thresholds for performance categories.
+	ScoreThresholds EvaluationFormScoreThresholdArrayInput `pulumi:"scoreThresholds"`
 	// The title of the section.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 128.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -4849,6 +5580,11 @@ func (o EvaluationFormSectionOutput) Instructions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EvaluationFormSection) *string { return v.Instructions }).(pulumi.StringPtrOutput)
 }
 
+// The flag to exclude the section from scoring.
+func (o EvaluationFormSectionOutput) IsExcludedFromScoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSection) *bool { return v.IsExcludedFromScoring }).(pulumi.BoolPtrOutput)
+}
+
 // The items of the section.
 //
 //	*Minimum*: 1
@@ -4861,6 +5597,11 @@ func (o EvaluationFormSectionOutput) Items() EvaluationFormItemArrayOutput {
 //	*Length Constraints*: Minimum length of 1. Maximum length of 40.
 func (o EvaluationFormSectionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormSection) string { return v.RefId }).(pulumi.StringOutput)
+}
+
+// The score thresholds for performance categories.
+func (o EvaluationFormSectionOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v EvaluationFormSection) []EvaluationFormScoreThreshold { return v.ScoreThresholds }).(EvaluationFormScoreThresholdArrayOutput)
 }
 
 // The title of the section.
@@ -4912,6 +5653,16 @@ func (o EvaluationFormSectionPtrOutput) Instructions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The flag to exclude the section from scoring.
+func (o EvaluationFormSectionPtrOutput) IsExcludedFromScoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsExcludedFromScoring
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The items of the section.
 //
 //	*Minimum*: 1
@@ -4934,6 +5685,16 @@ func (o EvaluationFormSectionPtrOutput) RefId() pulumi.StringPtrOutput {
 		}
 		return &v.RefId
 	}).(pulumi.StringPtrOutput)
+}
+
+// The score thresholds for performance categories.
+func (o EvaluationFormSectionPtrOutput) ScoreThresholds() EvaluationFormScoreThresholdArrayOutput {
+	return o.ApplyT(func(v *EvaluationFormSection) []EvaluationFormScoreThreshold {
+		if v == nil {
+			return nil
+		}
+		return v.ScoreThresholds
+	}).(EvaluationFormScoreThresholdArrayOutput)
 }
 
 // The title of the section.
@@ -5267,6 +6028,8 @@ type EvaluationFormSingleSelectQuestionOption struct {
 	AutomaticFail *bool `pulumi:"automaticFail"`
 	// Whether automatic fail is configured on a single select question.
 	AutomaticFailConfiguration *EvaluationFormAutomaticFailConfiguration `pulumi:"automaticFailConfiguration"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration *EvaluationFormQuestionOptionPointsConfiguration `pulumi:"pointsConfiguration"`
 	// The identifier of the answer option. An identifier must be unique within the question.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId string `pulumi:"refId"`
@@ -5296,6 +6059,8 @@ type EvaluationFormSingleSelectQuestionOptionArgs struct {
 	AutomaticFail pulumi.BoolPtrInput `pulumi:"automaticFail"`
 	// Whether automatic fail is configured on a single select question.
 	AutomaticFailConfiguration EvaluationFormAutomaticFailConfigurationPtrInput `pulumi:"automaticFailConfiguration"`
+	// The points configuration for point-based scoring.
+	PointsConfiguration EvaluationFormQuestionOptionPointsConfigurationPtrInput `pulumi:"pointsConfiguration"`
 	// The identifier of the answer option. An identifier must be unique within the question.
 	//  *Length Constraints*: Minimum length of 1. Maximum length of 40.
 	RefId pulumi.StringInput `pulumi:"refId"`
@@ -5370,6 +6135,13 @@ func (o EvaluationFormSingleSelectQuestionOptionOutput) AutomaticFailConfigurati
 	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *EvaluationFormAutomaticFailConfiguration {
 		return v.AutomaticFailConfiguration
 	}).(EvaluationFormAutomaticFailConfigurationPtrOutput)
+}
+
+// The points configuration for point-based scoring.
+func (o EvaluationFormSingleSelectQuestionOptionOutput) PointsConfiguration() EvaluationFormQuestionOptionPointsConfigurationPtrOutput {
+	return o.ApplyT(func(v EvaluationFormSingleSelectQuestionOption) *EvaluationFormQuestionOptionPointsConfiguration {
+		return v.PointsConfiguration
+	}).(EvaluationFormQuestionOptionPointsConfigurationPtrOutput)
 }
 
 // The identifier of the answer option. An identifier must be unique within the question.
@@ -9379,6 +10151,7 @@ type QueueTag struct {
 
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
+	FlowConfig *QuickConnectFlowQuickConnectConfig `pulumi:"flowConfig"`
 	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 	PhoneConfig *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
 	// The queue configuration. This is required only if QuickConnectType is QUEUE.
@@ -9402,6 +10175,7 @@ type QuickConnectConfigInput interface {
 
 // Configuration settings for the quick connect.
 type QuickConnectConfigArgs struct {
+	FlowConfig QuickConnectFlowQuickConnectConfigPtrInput `pulumi:"flowConfig"`
 	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 	PhoneConfig QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
 	// The queue configuration. This is required only if QuickConnectType is QUEUE.
@@ -9437,6 +10211,10 @@ func (o QuickConnectConfigOutput) ToQuickConnectConfigOutput() QuickConnectConfi
 
 func (o QuickConnectConfigOutput) ToQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectConfigOutput {
 	return o
+}
+
+func (o QuickConnectConfigOutput) FlowConfig() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectFlowQuickConnectConfig { return v.FlowConfig }).(QuickConnectFlowQuickConnectConfigPtrOutput)
 }
 
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
@@ -9483,6 +10261,15 @@ func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
 	}).(QuickConnectConfigOutput)
 }
 
+func (o QuickConnectConfigPtrOutput) FlowConfig() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectFlowQuickConnectConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FlowConfig
+	}).(QuickConnectFlowQuickConnectConfigPtrOutput)
+}
+
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
@@ -9521,6 +10308,142 @@ func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectCo
 		}
 		return v.UserConfig
 	}).(QuickConnectUserQuickConnectConfigPtrOutput)
+}
+
+// The flow configuration. This is required only if QuickConnectType is FLOW.
+type QuickConnectFlowQuickConnectConfig struct {
+	ContactFlowArn string `pulumi:"contactFlowArn"`
+}
+
+// QuickConnectFlowQuickConnectConfigInput is an input type that accepts QuickConnectFlowQuickConnectConfigArgs and QuickConnectFlowQuickConnectConfigOutput values.
+// You can construct a concrete instance of `QuickConnectFlowQuickConnectConfigInput` via:
+//
+//	QuickConnectFlowQuickConnectConfigArgs{...}
+type QuickConnectFlowQuickConnectConfigInput interface {
+	pulumi.Input
+
+	ToQuickConnectFlowQuickConnectConfigOutput() QuickConnectFlowQuickConnectConfigOutput
+	ToQuickConnectFlowQuickConnectConfigOutputWithContext(context.Context) QuickConnectFlowQuickConnectConfigOutput
+}
+
+// The flow configuration. This is required only if QuickConnectType is FLOW.
+type QuickConnectFlowQuickConnectConfigArgs struct {
+	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
+}
+
+func (QuickConnectFlowQuickConnectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectFlowQuickConnectConfig)(nil)).Elem()
+}
+
+func (i QuickConnectFlowQuickConnectConfigArgs) ToQuickConnectFlowQuickConnectConfigOutput() QuickConnectFlowQuickConnectConfigOutput {
+	return i.ToQuickConnectFlowQuickConnectConfigOutputWithContext(context.Background())
+}
+
+func (i QuickConnectFlowQuickConnectConfigArgs) ToQuickConnectFlowQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectFlowQuickConnectConfigOutput)
+}
+
+func (i QuickConnectFlowQuickConnectConfigArgs) ToQuickConnectFlowQuickConnectConfigPtrOutput() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return i.ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i QuickConnectFlowQuickConnectConfigArgs) ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectFlowQuickConnectConfigOutput).ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(ctx)
+}
+
+// QuickConnectFlowQuickConnectConfigPtrInput is an input type that accepts QuickConnectFlowQuickConnectConfigArgs, QuickConnectFlowQuickConnectConfigPtr and QuickConnectFlowQuickConnectConfigPtrOutput values.
+// You can construct a concrete instance of `QuickConnectFlowQuickConnectConfigPtrInput` via:
+//
+//	        QuickConnectFlowQuickConnectConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type QuickConnectFlowQuickConnectConfigPtrInput interface {
+	pulumi.Input
+
+	ToQuickConnectFlowQuickConnectConfigPtrOutput() QuickConnectFlowQuickConnectConfigPtrOutput
+	ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(context.Context) QuickConnectFlowQuickConnectConfigPtrOutput
+}
+
+type quickConnectFlowQuickConnectConfigPtrType QuickConnectFlowQuickConnectConfigArgs
+
+func QuickConnectFlowQuickConnectConfigPtr(v *QuickConnectFlowQuickConnectConfigArgs) QuickConnectFlowQuickConnectConfigPtrInput {
+	return (*quickConnectFlowQuickConnectConfigPtrType)(v)
+}
+
+func (*quickConnectFlowQuickConnectConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectFlowQuickConnectConfig)(nil)).Elem()
+}
+
+func (i *quickConnectFlowQuickConnectConfigPtrType) ToQuickConnectFlowQuickConnectConfigPtrOutput() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return i.ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *quickConnectFlowQuickConnectConfigPtrType) ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectFlowQuickConnectConfigPtrOutput)
+}
+
+// The flow configuration. This is required only if QuickConnectType is FLOW.
+type QuickConnectFlowQuickConnectConfigOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectFlowQuickConnectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectFlowQuickConnectConfig)(nil)).Elem()
+}
+
+func (o QuickConnectFlowQuickConnectConfigOutput) ToQuickConnectFlowQuickConnectConfigOutput() QuickConnectFlowQuickConnectConfigOutput {
+	return o
+}
+
+func (o QuickConnectFlowQuickConnectConfigOutput) ToQuickConnectFlowQuickConnectConfigOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigOutput {
+	return o
+}
+
+func (o QuickConnectFlowQuickConnectConfigOutput) ToQuickConnectFlowQuickConnectConfigPtrOutput() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o.ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (o QuickConnectFlowQuickConnectConfigOutput) ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuickConnectFlowQuickConnectConfig) *QuickConnectFlowQuickConnectConfig {
+		return &v
+	}).(QuickConnectFlowQuickConnectConfigPtrOutput)
+}
+
+func (o QuickConnectFlowQuickConnectConfigOutput) ContactFlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v QuickConnectFlowQuickConnectConfig) string { return v.ContactFlowArn }).(pulumi.StringOutput)
+}
+
+type QuickConnectFlowQuickConnectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectFlowQuickConnectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuickConnectFlowQuickConnectConfig)(nil)).Elem()
+}
+
+func (o QuickConnectFlowQuickConnectConfigPtrOutput) ToQuickConnectFlowQuickConnectConfigPtrOutput() QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectFlowQuickConnectConfigPtrOutput) ToQuickConnectFlowQuickConnectConfigPtrOutputWithContext(ctx context.Context) QuickConnectFlowQuickConnectConfigPtrOutput {
+	return o
+}
+
+func (o QuickConnectFlowQuickConnectConfigPtrOutput) Elem() QuickConnectFlowQuickConnectConfigOutput {
+	return o.ApplyT(func(v *QuickConnectFlowQuickConnectConfig) QuickConnectFlowQuickConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret QuickConnectFlowQuickConnectConfig
+		return ret
+	}).(QuickConnectFlowQuickConnectConfigOutput)
+}
+
+func (o QuickConnectFlowQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuickConnectFlowQuickConnectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContactFlowArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
@@ -10563,6 +11486,7 @@ type RoutingProfileTag struct {
 type RuleActions struct {
 	// Information about the contact category action. The syntax can be empty, for example, ``{}``.
 	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
+	AssignSlaActions             []RuleAssignSlaAction             `pulumi:"assignSlaActions"`
 	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTasksActions"`
 	// Information about the EV action.
@@ -10590,6 +11514,7 @@ type RuleActionsInput interface {
 type RuleActionsArgs struct {
 	// Information about the contact category action. The syntax can be empty, for example, ``{}``.
 	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
+	AssignSlaActions             RuleAssignSlaActionArrayInput             `pulumi:"assignSlaActions"`
 	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTasksActions"`
 	// Information about the EV action.
@@ -10632,6 +11557,10 @@ func (o RuleActionsOutput) ToRuleActionsOutputWithContext(ctx context.Context) R
 // Information about the contact category action. The syntax can be empty, for example, “{}“.
 func (o RuleActionsOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleAssignContactCategoryAction { return v.AssignContactCategoryActions }).(RuleAssignContactCategoryActionArrayOutput)
+}
+
+func (o RuleActionsOutput) AssignSlaActions() RuleAssignSlaActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleAssignSlaAction { return v.AssignSlaActions }).(RuleAssignSlaActionArrayOutput)
 }
 
 func (o RuleActionsOutput) CreateCaseActions() RuleCreateCaseActionArrayOutput {
@@ -10697,6 +11626,15 @@ func (o RuleActionsPtrOutput) AssignContactCategoryActions() RuleAssignContactCa
 		}
 		return v.AssignContactCategoryActions
 	}).(RuleAssignContactCategoryActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) AssignSlaActions() RuleAssignSlaActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleAssignSlaAction {
+		if v == nil {
+			return nil
+		}
+		return v.AssignSlaActions
+	}).(RuleAssignSlaActionArrayOutput)
 }
 
 func (o RuleActionsPtrOutput) CreateCaseActions() RuleCreateCaseActionArrayOutput {
@@ -10854,6 +11792,209 @@ func (o RuleAssignContactCategoryActionArrayOutput) Index(i pulumi.IntInput) Rul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAssignContactCategoryAction {
 		return vs[0].([]RuleAssignContactCategoryAction)[vs[1].(int)]
 	}).(RuleAssignContactCategoryActionOutput)
+}
+
+type RuleAssignSlaAction struct {
+	// The SLA configuration for cases.
+	CaseSlaConfiguration RuleAssignSlaActionCaseSlaConfigurationProperties `pulumi:"caseSlaConfiguration"`
+	// The type of SLA assignment.
+	SlaAssignmentType RuleAssignSlaActionSlaAssignmentType `pulumi:"slaAssignmentType"`
+}
+
+// RuleAssignSlaActionInput is an input type that accepts RuleAssignSlaActionArgs and RuleAssignSlaActionOutput values.
+// You can construct a concrete instance of `RuleAssignSlaActionInput` via:
+//
+//	RuleAssignSlaActionArgs{...}
+type RuleAssignSlaActionInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionOutput() RuleAssignSlaActionOutput
+	ToRuleAssignSlaActionOutputWithContext(context.Context) RuleAssignSlaActionOutput
+}
+
+type RuleAssignSlaActionArgs struct {
+	// The SLA configuration for cases.
+	CaseSlaConfiguration RuleAssignSlaActionCaseSlaConfigurationPropertiesInput `pulumi:"caseSlaConfiguration"`
+	// The type of SLA assignment.
+	SlaAssignmentType RuleAssignSlaActionSlaAssignmentTypeInput `pulumi:"slaAssignmentType"`
+}
+
+func (RuleAssignSlaActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaAction)(nil)).Elem()
+}
+
+func (i RuleAssignSlaActionArgs) ToRuleAssignSlaActionOutput() RuleAssignSlaActionOutput {
+	return i.ToRuleAssignSlaActionOutputWithContext(context.Background())
+}
+
+func (i RuleAssignSlaActionArgs) ToRuleAssignSlaActionOutputWithContext(ctx context.Context) RuleAssignSlaActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignSlaActionOutput)
+}
+
+// RuleAssignSlaActionArrayInput is an input type that accepts RuleAssignSlaActionArray and RuleAssignSlaActionArrayOutput values.
+// You can construct a concrete instance of `RuleAssignSlaActionArrayInput` via:
+//
+//	RuleAssignSlaActionArray{ RuleAssignSlaActionArgs{...} }
+type RuleAssignSlaActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionArrayOutput() RuleAssignSlaActionArrayOutput
+	ToRuleAssignSlaActionArrayOutputWithContext(context.Context) RuleAssignSlaActionArrayOutput
+}
+
+type RuleAssignSlaActionArray []RuleAssignSlaActionInput
+
+func (RuleAssignSlaActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAssignSlaAction)(nil)).Elem()
+}
+
+func (i RuleAssignSlaActionArray) ToRuleAssignSlaActionArrayOutput() RuleAssignSlaActionArrayOutput {
+	return i.ToRuleAssignSlaActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleAssignSlaActionArray) ToRuleAssignSlaActionArrayOutputWithContext(ctx context.Context) RuleAssignSlaActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignSlaActionArrayOutput)
+}
+
+type RuleAssignSlaActionOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaAction)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionOutput) ToRuleAssignSlaActionOutput() RuleAssignSlaActionOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionOutput) ToRuleAssignSlaActionOutputWithContext(ctx context.Context) RuleAssignSlaActionOutput {
+	return o
+}
+
+// The SLA configuration for cases.
+func (o RuleAssignSlaActionOutput) CaseSlaConfiguration() RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
+	return o.ApplyT(func(v RuleAssignSlaAction) RuleAssignSlaActionCaseSlaConfigurationProperties {
+		return v.CaseSlaConfiguration
+	}).(RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput)
+}
+
+// The type of SLA assignment.
+func (o RuleAssignSlaActionOutput) SlaAssignmentType() RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return o.ApplyT(func(v RuleAssignSlaAction) RuleAssignSlaActionSlaAssignmentType { return v.SlaAssignmentType }).(RuleAssignSlaActionSlaAssignmentTypeOutput)
+}
+
+type RuleAssignSlaActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAssignSlaAction)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionArrayOutput) ToRuleAssignSlaActionArrayOutput() RuleAssignSlaActionArrayOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionArrayOutput) ToRuleAssignSlaActionArrayOutputWithContext(ctx context.Context) RuleAssignSlaActionArrayOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionArrayOutput) Index(i pulumi.IntInput) RuleAssignSlaActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAssignSlaAction {
+		return vs[0].([]RuleAssignSlaAction)[vs[1].(int)]
+	}).(RuleAssignSlaActionOutput)
+}
+
+// The SLA configuration for cases.
+type RuleAssignSlaActionCaseSlaConfigurationProperties struct {
+	// The field Id for the SLA.
+	FieldId *string `pulumi:"fieldId"`
+	// The name of the SLA.
+	Name string `pulumi:"name"`
+	// The target field values for the SLA.
+	TargetFieldValues []RuleSlaTargetFieldValue `pulumi:"targetFieldValues"`
+	// The target SLA time in minutes.
+	TargetSlaMinutes float64 `pulumi:"targetSlaMinutes"`
+	// The type of SLA.
+	Type RuleAssignSlaActionCaseSlaConfigurationPropertiesType `pulumi:"type"`
+}
+
+// RuleAssignSlaActionCaseSlaConfigurationPropertiesInput is an input type that accepts RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs and RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `RuleAssignSlaActionCaseSlaConfigurationPropertiesInput` via:
+//
+//	RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs{...}
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutputWithContext(context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput
+}
+
+// The SLA configuration for cases.
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs struct {
+	// The field Id for the SLA.
+	FieldId pulumi.StringPtrInput `pulumi:"fieldId"`
+	// The name of the SLA.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The target field values for the SLA.
+	TargetFieldValues RuleSlaTargetFieldValueArrayInput `pulumi:"targetFieldValues"`
+	// The target SLA time in minutes.
+	TargetSlaMinutes pulumi.Float64Input `pulumi:"targetSlaMinutes"`
+	// The type of SLA.
+	Type RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeInput `pulumi:"type"`
+}
+
+func (RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationProperties)(nil)).Elem()
+}
+
+func (i RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
+	return i.ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput)
+}
+
+// The SLA configuration for cases.
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationProperties)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput {
+	return o
+}
+
+// The field Id for the SLA.
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) FieldId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleAssignSlaActionCaseSlaConfigurationProperties) *string { return v.FieldId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SLA.
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleAssignSlaActionCaseSlaConfigurationProperties) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The target field values for the SLA.
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) TargetFieldValues() RuleSlaTargetFieldValueArrayOutput {
+	return o.ApplyT(func(v RuleAssignSlaActionCaseSlaConfigurationProperties) []RuleSlaTargetFieldValue {
+		return v.TargetFieldValues
+	}).(RuleSlaTargetFieldValueArrayOutput)
+}
+
+// The target SLA time in minutes.
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) TargetSlaMinutes() pulumi.Float64Output {
+	return o.ApplyT(func(v RuleAssignSlaActionCaseSlaConfigurationProperties) float64 { return v.TargetSlaMinutes }).(pulumi.Float64Output)
+}
+
+// The type of SLA.
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput) Type() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return o.ApplyT(func(v RuleAssignSlaActionCaseSlaConfigurationProperties) RuleAssignSlaActionCaseSlaConfigurationPropertiesType {
+		return v.Type
+	}).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput)
 }
 
 type RuleCreateCaseAction struct {
@@ -11356,6 +12497,47 @@ func (i RuleNotificationRecipientTypeArgs) ToRuleNotificationRecipientTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleNotificationRecipientTypeOutput)
 }
 
+func (i RuleNotificationRecipientTypeArgs) ToRuleNotificationRecipientTypePtrOutput() RuleNotificationRecipientTypePtrOutput {
+	return i.ToRuleNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (i RuleNotificationRecipientTypeArgs) ToRuleNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleNotificationRecipientTypeOutput).ToRuleNotificationRecipientTypePtrOutputWithContext(ctx)
+}
+
+// RuleNotificationRecipientTypePtrInput is an input type that accepts RuleNotificationRecipientTypeArgs, RuleNotificationRecipientTypePtr and RuleNotificationRecipientTypePtrOutput values.
+// You can construct a concrete instance of `RuleNotificationRecipientTypePtrInput` via:
+//
+//	        RuleNotificationRecipientTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleNotificationRecipientTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleNotificationRecipientTypePtrOutput() RuleNotificationRecipientTypePtrOutput
+	ToRuleNotificationRecipientTypePtrOutputWithContext(context.Context) RuleNotificationRecipientTypePtrOutput
+}
+
+type ruleNotificationRecipientTypePtrType RuleNotificationRecipientTypeArgs
+
+func RuleNotificationRecipientTypePtr(v *RuleNotificationRecipientTypeArgs) RuleNotificationRecipientTypePtrInput {
+	return (*ruleNotificationRecipientTypePtrType)(v)
+}
+
+func (*ruleNotificationRecipientTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleNotificationRecipientType)(nil)).Elem()
+}
+
+func (i *ruleNotificationRecipientTypePtrType) ToRuleNotificationRecipientTypePtrOutput() RuleNotificationRecipientTypePtrOutput {
+	return i.ToRuleNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (i *ruleNotificationRecipientTypePtrType) ToRuleNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleNotificationRecipientTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleNotificationRecipientTypePtrOutput)
+}
+
 // The type of notification recipient.
 type RuleNotificationRecipientTypeOutput struct{ *pulumi.OutputState }
 
@@ -11371,6 +12553,16 @@ func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypeOutp
 	return o
 }
 
+func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypePtrOutput() RuleNotificationRecipientTypePtrOutput {
+	return o.ToRuleNotificationRecipientTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleNotificationRecipientTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleNotificationRecipientType) *RuleNotificationRecipientType {
+		return &v
+	}).(RuleNotificationRecipientTypePtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the user account.
 func (o RuleNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleNotificationRecipientType) []string { return v.UserArns }).(pulumi.StringArrayOutput)
@@ -11379,6 +12571,50 @@ func (o RuleNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput
 // The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
 func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RuleNotificationRecipientType) map[string]string { return v.UserTags }).(pulumi.StringMapOutput)
+}
+
+type RuleNotificationRecipientTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleNotificationRecipientTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleNotificationRecipientType)(nil)).Elem()
+}
+
+func (o RuleNotificationRecipientTypePtrOutput) ToRuleNotificationRecipientTypePtrOutput() RuleNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o RuleNotificationRecipientTypePtrOutput) ToRuleNotificationRecipientTypePtrOutputWithContext(ctx context.Context) RuleNotificationRecipientTypePtrOutput {
+	return o
+}
+
+func (o RuleNotificationRecipientTypePtrOutput) Elem() RuleNotificationRecipientTypeOutput {
+	return o.ApplyT(func(v *RuleNotificationRecipientType) RuleNotificationRecipientType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleNotificationRecipientType
+		return ret
+	}).(RuleNotificationRecipientTypeOutput)
+}
+
+// The Amazon Resource Name (ARN) of the user account.
+func (o RuleNotificationRecipientTypePtrOutput) UserArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuleNotificationRecipientType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.UserArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
+func (o RuleNotificationRecipientTypePtrOutput) UserTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RuleNotificationRecipientType) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.UserTags
+	}).(pulumi.StringMapOutput)
 }
 
 // Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
@@ -11504,6 +12740,7 @@ type RuleSendNotificationAction struct {
 	// Notification delivery method.
 	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethod `pulumi:"deliveryMethod"`
+	Exclusion      *RuleNotificationRecipientType           `pulumi:"exclusion"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientType `pulumi:"recipient"`
 	// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -11531,6 +12768,7 @@ type RuleSendNotificationActionArgs struct {
 	// Notification delivery method.
 	//  *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethodInput `pulumi:"deliveryMethod"`
+	Exclusion      RuleNotificationRecipientTypePtrInput         `pulumi:"exclusion"`
 	// Notification recipient.
 	Recipient RuleNotificationRecipientTypeInput `pulumi:"recipient"`
 	// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -11608,6 +12846,10 @@ func (o RuleSendNotificationActionOutput) DeliveryMethod() RuleSendNotificationA
 	return o.ApplyT(func(v RuleSendNotificationAction) RuleSendNotificationActionDeliveryMethod { return v.DeliveryMethod }).(RuleSendNotificationActionDeliveryMethodOutput)
 }
 
+func (o RuleSendNotificationActionOutput) Exclusion() RuleNotificationRecipientTypePtrOutput {
+	return o.ApplyT(func(v RuleSendNotificationAction) *RuleNotificationRecipientType { return v.Exclusion }).(RuleNotificationRecipientTypePtrOutput)
+}
+
 // Notification recipient.
 func (o RuleSendNotificationActionOutput) Recipient() RuleNotificationRecipientTypeOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) RuleNotificationRecipientType { return v.Recipient }).(RuleNotificationRecipientTypeOutput)
@@ -11636,6 +12878,100 @@ func (o RuleSendNotificationActionArrayOutput) Index(i pulumi.IntInput) RuleSend
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSendNotificationAction {
 		return vs[0].([]RuleSendNotificationAction)[vs[1].(int)]
 	}).(RuleSendNotificationActionOutput)
+}
+
+type RuleSlaTargetFieldValue struct {
+	StringValue *string `pulumi:"stringValue"`
+}
+
+// RuleSlaTargetFieldValueInput is an input type that accepts RuleSlaTargetFieldValueArgs and RuleSlaTargetFieldValueOutput values.
+// You can construct a concrete instance of `RuleSlaTargetFieldValueInput` via:
+//
+//	RuleSlaTargetFieldValueArgs{...}
+type RuleSlaTargetFieldValueInput interface {
+	pulumi.Input
+
+	ToRuleSlaTargetFieldValueOutput() RuleSlaTargetFieldValueOutput
+	ToRuleSlaTargetFieldValueOutputWithContext(context.Context) RuleSlaTargetFieldValueOutput
+}
+
+type RuleSlaTargetFieldValueArgs struct {
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+}
+
+func (RuleSlaTargetFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSlaTargetFieldValue)(nil)).Elem()
+}
+
+func (i RuleSlaTargetFieldValueArgs) ToRuleSlaTargetFieldValueOutput() RuleSlaTargetFieldValueOutput {
+	return i.ToRuleSlaTargetFieldValueOutputWithContext(context.Background())
+}
+
+func (i RuleSlaTargetFieldValueArgs) ToRuleSlaTargetFieldValueOutputWithContext(ctx context.Context) RuleSlaTargetFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSlaTargetFieldValueOutput)
+}
+
+// RuleSlaTargetFieldValueArrayInput is an input type that accepts RuleSlaTargetFieldValueArray and RuleSlaTargetFieldValueArrayOutput values.
+// You can construct a concrete instance of `RuleSlaTargetFieldValueArrayInput` via:
+//
+//	RuleSlaTargetFieldValueArray{ RuleSlaTargetFieldValueArgs{...} }
+type RuleSlaTargetFieldValueArrayInput interface {
+	pulumi.Input
+
+	ToRuleSlaTargetFieldValueArrayOutput() RuleSlaTargetFieldValueArrayOutput
+	ToRuleSlaTargetFieldValueArrayOutputWithContext(context.Context) RuleSlaTargetFieldValueArrayOutput
+}
+
+type RuleSlaTargetFieldValueArray []RuleSlaTargetFieldValueInput
+
+func (RuleSlaTargetFieldValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSlaTargetFieldValue)(nil)).Elem()
+}
+
+func (i RuleSlaTargetFieldValueArray) ToRuleSlaTargetFieldValueArrayOutput() RuleSlaTargetFieldValueArrayOutput {
+	return i.ToRuleSlaTargetFieldValueArrayOutputWithContext(context.Background())
+}
+
+func (i RuleSlaTargetFieldValueArray) ToRuleSlaTargetFieldValueArrayOutputWithContext(ctx context.Context) RuleSlaTargetFieldValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSlaTargetFieldValueArrayOutput)
+}
+
+type RuleSlaTargetFieldValueOutput struct{ *pulumi.OutputState }
+
+func (RuleSlaTargetFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSlaTargetFieldValue)(nil)).Elem()
+}
+
+func (o RuleSlaTargetFieldValueOutput) ToRuleSlaTargetFieldValueOutput() RuleSlaTargetFieldValueOutput {
+	return o
+}
+
+func (o RuleSlaTargetFieldValueOutput) ToRuleSlaTargetFieldValueOutputWithContext(ctx context.Context) RuleSlaTargetFieldValueOutput {
+	return o
+}
+
+func (o RuleSlaTargetFieldValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSlaTargetFieldValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+type RuleSlaTargetFieldValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleSlaTargetFieldValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleSlaTargetFieldValue)(nil)).Elem()
+}
+
+func (o RuleSlaTargetFieldValueArrayOutput) ToRuleSlaTargetFieldValueArrayOutput() RuleSlaTargetFieldValueArrayOutput {
+	return o
+}
+
+func (o RuleSlaTargetFieldValueArrayOutput) ToRuleSlaTargetFieldValueArrayOutputWithContext(ctx context.Context) RuleSlaTargetFieldValueArrayOutput {
+	return o
+}
+
+func (o RuleSlaTargetFieldValueArrayOutput) Index(i pulumi.IntInput) RuleSlaTargetFieldValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleSlaTargetFieldValue {
+		return vs[0].([]RuleSlaTargetFieldValue)[vs[1].(int)]
+	}).(RuleSlaTargetFieldValueOutput)
 }
 
 type RuleSubmitAutoEvaluationAction struct {
@@ -13355,6 +14691,516 @@ type TaskTemplateTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The Entry Point associated with the test case
+type TestCaseEntryPoint struct {
+	// The chat entry point parameters for the test case
+	ChatEntryPointParameters *TestCaseEntryPointChatEntryPointParametersProperties `pulumi:"chatEntryPointParameters"`
+	// The type of the Entry Point
+	Type *TestCaseEntryPointType `pulumi:"type"`
+	// The voice call entry point parameters for the test case
+	VoiceCallEntryPointParameters *TestCaseEntryPointVoiceCallEntryPointParametersProperties `pulumi:"voiceCallEntryPointParameters"`
+}
+
+// TestCaseEntryPointInput is an input type that accepts TestCaseEntryPointArgs and TestCaseEntryPointOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointInput` via:
+//
+//	TestCaseEntryPointArgs{...}
+type TestCaseEntryPointInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointOutput() TestCaseEntryPointOutput
+	ToTestCaseEntryPointOutputWithContext(context.Context) TestCaseEntryPointOutput
+}
+
+// The Entry Point associated with the test case
+type TestCaseEntryPointArgs struct {
+	// The chat entry point parameters for the test case
+	ChatEntryPointParameters TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput `pulumi:"chatEntryPointParameters"`
+	// The type of the Entry Point
+	Type TestCaseEntryPointTypePtrInput `pulumi:"type"`
+	// The voice call entry point parameters for the test case
+	VoiceCallEntryPointParameters TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput `pulumi:"voiceCallEntryPointParameters"`
+}
+
+func (TestCaseEntryPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPoint)(nil)).Elem()
+}
+
+func (i TestCaseEntryPointArgs) ToTestCaseEntryPointOutput() TestCaseEntryPointOutput {
+	return i.ToTestCaseEntryPointOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointArgs) ToTestCaseEntryPointOutputWithContext(ctx context.Context) TestCaseEntryPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointOutput)
+}
+
+func (i TestCaseEntryPointArgs) ToTestCaseEntryPointPtrOutput() TestCaseEntryPointPtrOutput {
+	return i.ToTestCaseEntryPointPtrOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointArgs) ToTestCaseEntryPointPtrOutputWithContext(ctx context.Context) TestCaseEntryPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointOutput).ToTestCaseEntryPointPtrOutputWithContext(ctx)
+}
+
+// TestCaseEntryPointPtrInput is an input type that accepts TestCaseEntryPointArgs, TestCaseEntryPointPtr and TestCaseEntryPointPtrOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointPtrInput` via:
+//
+//	        TestCaseEntryPointArgs{...}
+//
+//	or:
+//
+//	        nil
+type TestCaseEntryPointPtrInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointPtrOutput() TestCaseEntryPointPtrOutput
+	ToTestCaseEntryPointPtrOutputWithContext(context.Context) TestCaseEntryPointPtrOutput
+}
+
+type testCaseEntryPointPtrType TestCaseEntryPointArgs
+
+func TestCaseEntryPointPtr(v *TestCaseEntryPointArgs) TestCaseEntryPointPtrInput {
+	return (*testCaseEntryPointPtrType)(v)
+}
+
+func (*testCaseEntryPointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPoint)(nil)).Elem()
+}
+
+func (i *testCaseEntryPointPtrType) ToTestCaseEntryPointPtrOutput() TestCaseEntryPointPtrOutput {
+	return i.ToTestCaseEntryPointPtrOutputWithContext(context.Background())
+}
+
+func (i *testCaseEntryPointPtrType) ToTestCaseEntryPointPtrOutputWithContext(ctx context.Context) TestCaseEntryPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointPtrOutput)
+}
+
+// The Entry Point associated with the test case
+type TestCaseEntryPointOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPoint)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointOutput) ToTestCaseEntryPointOutput() TestCaseEntryPointOutput {
+	return o
+}
+
+func (o TestCaseEntryPointOutput) ToTestCaseEntryPointOutputWithContext(ctx context.Context) TestCaseEntryPointOutput {
+	return o
+}
+
+func (o TestCaseEntryPointOutput) ToTestCaseEntryPointPtrOutput() TestCaseEntryPointPtrOutput {
+	return o.ToTestCaseEntryPointPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointOutput) ToTestCaseEntryPointPtrOutputWithContext(ctx context.Context) TestCaseEntryPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestCaseEntryPoint) *TestCaseEntryPoint {
+		return &v
+	}).(TestCaseEntryPointPtrOutput)
+}
+
+// The chat entry point parameters for the test case
+func (o TestCaseEntryPointOutput) ChatEntryPointParameters() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPoint) *TestCaseEntryPointChatEntryPointParametersProperties {
+		return v.ChatEntryPointParameters
+	}).(TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput)
+}
+
+// The type of the Entry Point
+func (o TestCaseEntryPointOutput) Type() TestCaseEntryPointTypePtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPoint) *TestCaseEntryPointType { return v.Type }).(TestCaseEntryPointTypePtrOutput)
+}
+
+// The voice call entry point parameters for the test case
+func (o TestCaseEntryPointOutput) VoiceCallEntryPointParameters() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPoint) *TestCaseEntryPointVoiceCallEntryPointParametersProperties {
+		return v.VoiceCallEntryPointParameters
+	}).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput)
+}
+
+type TestCaseEntryPointPtrOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPoint)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointPtrOutput) ToTestCaseEntryPointPtrOutput() TestCaseEntryPointPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointPtrOutput) ToTestCaseEntryPointPtrOutputWithContext(ctx context.Context) TestCaseEntryPointPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointPtrOutput) Elem() TestCaseEntryPointOutput {
+	return o.ApplyT(func(v *TestCaseEntryPoint) TestCaseEntryPoint {
+		if v != nil {
+			return *v
+		}
+		var ret TestCaseEntryPoint
+		return ret
+	}).(TestCaseEntryPointOutput)
+}
+
+// The chat entry point parameters for the test case
+func (o TestCaseEntryPointPtrOutput) ChatEntryPointParameters() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPoint) *TestCaseEntryPointChatEntryPointParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ChatEntryPointParameters
+	}).(TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput)
+}
+
+// The type of the Entry Point
+func (o TestCaseEntryPointPtrOutput) Type() TestCaseEntryPointTypePtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPoint) *TestCaseEntryPointType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(TestCaseEntryPointTypePtrOutput)
+}
+
+// The voice call entry point parameters for the test case
+func (o TestCaseEntryPointPtrOutput) VoiceCallEntryPointParameters() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPoint) *TestCaseEntryPointVoiceCallEntryPointParametersProperties {
+		if v == nil {
+			return nil
+		}
+		return v.VoiceCallEntryPointParameters
+	}).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput)
+}
+
+// The chat entry point parameters for the test case
+type TestCaseEntryPointChatEntryPointParametersProperties struct {
+	// The flow id used for the TestCase
+	FlowId *string `pulumi:"flowId"`
+}
+
+// TestCaseEntryPointChatEntryPointParametersPropertiesInput is an input type that accepts TestCaseEntryPointChatEntryPointParametersPropertiesArgs and TestCaseEntryPointChatEntryPointParametersPropertiesOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointChatEntryPointParametersPropertiesInput` via:
+//
+//	TestCaseEntryPointChatEntryPointParametersPropertiesArgs{...}
+type TestCaseEntryPointChatEntryPointParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointChatEntryPointParametersPropertiesOutput() TestCaseEntryPointChatEntryPointParametersPropertiesOutput
+	ToTestCaseEntryPointChatEntryPointParametersPropertiesOutputWithContext(context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesOutput
+}
+
+// The chat entry point parameters for the test case
+type TestCaseEntryPointChatEntryPointParametersPropertiesArgs struct {
+	// The flow id used for the TestCase
+	FlowId pulumi.StringPtrInput `pulumi:"flowId"`
+}
+
+func (TestCaseEntryPointChatEntryPointParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointChatEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (i TestCaseEntryPointChatEntryPointParametersPropertiesArgs) ToTestCaseEntryPointChatEntryPointParametersPropertiesOutput() TestCaseEntryPointChatEntryPointParametersPropertiesOutput {
+	return i.ToTestCaseEntryPointChatEntryPointParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointChatEntryPointParametersPropertiesArgs) ToTestCaseEntryPointChatEntryPointParametersPropertiesOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointChatEntryPointParametersPropertiesOutput)
+}
+
+func (i TestCaseEntryPointChatEntryPointParametersPropertiesArgs) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return i.ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointChatEntryPointParametersPropertiesArgs) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointChatEntryPointParametersPropertiesOutput).ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput is an input type that accepts TestCaseEntryPointChatEntryPointParametersPropertiesArgs, TestCaseEntryPointChatEntryPointParametersPropertiesPtr and TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput` via:
+//
+//	        TestCaseEntryPointChatEntryPointParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput
+	ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput
+}
+
+type testCaseEntryPointChatEntryPointParametersPropertiesPtrType TestCaseEntryPointChatEntryPointParametersPropertiesArgs
+
+func TestCaseEntryPointChatEntryPointParametersPropertiesPtr(v *TestCaseEntryPointChatEntryPointParametersPropertiesArgs) TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput {
+	return (*testCaseEntryPointChatEntryPointParametersPropertiesPtrType)(v)
+}
+
+func (*testCaseEntryPointChatEntryPointParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPointChatEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (i *testCaseEntryPointChatEntryPointParametersPropertiesPtrType) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return i.ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *testCaseEntryPointChatEntryPointParametersPropertiesPtrType) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput)
+}
+
+// The chat entry point parameters for the test case
+type TestCaseEntryPointChatEntryPointParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointChatEntryPointParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointChatEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesOutput() TestCaseEntryPointChatEntryPointParametersPropertiesOutput {
+	return o
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesOutput {
+	return o
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o.ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestCaseEntryPointChatEntryPointParametersProperties) *TestCaseEntryPointChatEntryPointParametersProperties {
+		return &v
+	}).(TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput)
+}
+
+// The flow id used for the TestCase
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesOutput) FlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPointChatEntryPointParametersProperties) *string { return v.FlowId }).(pulumi.StringPtrOutput)
+}
+
+type TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPointChatEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput) ToTestCaseEntryPointChatEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput) Elem() TestCaseEntryPointChatEntryPointParametersPropertiesOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointChatEntryPointParametersProperties) TestCaseEntryPointChatEntryPointParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TestCaseEntryPointChatEntryPointParametersProperties
+		return ret
+	}).(TestCaseEntryPointChatEntryPointParametersPropertiesOutput)
+}
+
+// The flow id used for the TestCase
+func (o TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput) FlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointChatEntryPointParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The voice call entry point parameters for the test case
+type TestCaseEntryPointVoiceCallEntryPointParametersProperties struct {
+	// The destination phonenumber of the EntryPoint
+	DestinationPhoneNumber *string `pulumi:"destinationPhoneNumber"`
+	// The flow id used for the TestCase
+	FlowId *string `pulumi:"flowId"`
+	// The source phonenumber of the EntryPoint
+	SourcePhoneNumber *string `pulumi:"sourcePhoneNumber"`
+}
+
+// TestCaseEntryPointVoiceCallEntryPointParametersPropertiesInput is an input type that accepts TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs and TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointVoiceCallEntryPointParametersPropertiesInput` via:
+//
+//	TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs{...}
+type TestCaseEntryPointVoiceCallEntryPointParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput
+	ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutputWithContext(context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput
+}
+
+// The voice call entry point parameters for the test case
+type TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs struct {
+	// The destination phonenumber of the EntryPoint
+	DestinationPhoneNumber pulumi.StringPtrInput `pulumi:"destinationPhoneNumber"`
+	// The flow id used for the TestCase
+	FlowId pulumi.StringPtrInput `pulumi:"flowId"`
+	// The source phonenumber of the EntryPoint
+	SourcePhoneNumber pulumi.StringPtrInput `pulumi:"sourcePhoneNumber"`
+}
+
+func (TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointVoiceCallEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (i TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput {
+	return i.ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput)
+}
+
+func (i TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return i.ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput).ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput is an input type that accepts TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs, TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtr and TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput` via:
+//
+//	        TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput
+	ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput
+}
+
+type testCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrType TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs
+
+func TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtr(v *TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput {
+	return (*testCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrType)(v)
+}
+
+func (*testCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPointVoiceCallEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (i *testCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrType) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return i.ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *testCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrType) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput)
+}
+
+// The voice call entry point parameters for the test case
+type TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointVoiceCallEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput {
+	return o
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput {
+	return o
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o.ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestCaseEntryPointVoiceCallEntryPointParametersProperties) *TestCaseEntryPointVoiceCallEntryPointParametersProperties {
+		return &v
+	}).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput)
+}
+
+// The destination phonenumber of the EntryPoint
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) DestinationPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string {
+		return v.DestinationPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The flow id used for the TestCase
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) FlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string { return v.FlowId }).(pulumi.StringPtrOutput)
+}
+
+// The source phonenumber of the EntryPoint
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput) SourcePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string { return v.SourcePhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+type TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPointVoiceCallEntryPointParametersProperties)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) ToTestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutputWithContext(ctx context.Context) TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) Elem() TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointVoiceCallEntryPointParametersProperties) TestCaseEntryPointVoiceCallEntryPointParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TestCaseEntryPointVoiceCallEntryPointParametersProperties
+		return ret
+	}).(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput)
+}
+
+// The destination phonenumber of the EntryPoint
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) DestinationPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The flow id used for the TestCase
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) FlowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FlowId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source phonenumber of the EntryPoint
+func (o TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput) SourcePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointVoiceCallEntryPointParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourcePhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TestCaseTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type TrafficDistributionGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -13365,7 +15211,8 @@ type TrafficDistributionGroupTag struct {
 
 // After Contact Work configuration.
 type UserAfterContactWorkConfig struct {
-	AfterContactWorkTimeLimit *int `pulumi:"afterContactWorkTimeLimit"`
+	AfterContactWorkMode      *UserAfterContactWorkMode `pulumi:"afterContactWorkMode"`
+	AfterContactWorkTimeLimit *int                      `pulumi:"afterContactWorkTimeLimit"`
 }
 
 // UserAfterContactWorkConfigInput is an input type that accepts UserAfterContactWorkConfigArgs and UserAfterContactWorkConfigOutput values.
@@ -13381,7 +15228,8 @@ type UserAfterContactWorkConfigInput interface {
 
 // After Contact Work configuration.
 type UserAfterContactWorkConfigArgs struct {
-	AfterContactWorkTimeLimit pulumi.IntPtrInput `pulumi:"afterContactWorkTimeLimit"`
+	AfterContactWorkMode      UserAfterContactWorkModePtrInput `pulumi:"afterContactWorkMode"`
+	AfterContactWorkTimeLimit pulumi.IntPtrInput               `pulumi:"afterContactWorkTimeLimit"`
 }
 
 func (UserAfterContactWorkConfigArgs) ElementType() reflect.Type {
@@ -13462,6 +15310,10 @@ func (o UserAfterContactWorkConfigOutput) ToUserAfterContactWorkConfigPtrOutputW
 	}).(UserAfterContactWorkConfigPtrOutput)
 }
 
+func (o UserAfterContactWorkConfigOutput) AfterContactWorkMode() UserAfterContactWorkModePtrOutput {
+	return o.ApplyT(func(v UserAfterContactWorkConfig) *UserAfterContactWorkMode { return v.AfterContactWorkMode }).(UserAfterContactWorkModePtrOutput)
+}
+
 func (o UserAfterContactWorkConfigOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserAfterContactWorkConfig) *int { return v.AfterContactWorkTimeLimit }).(pulumi.IntPtrOutput)
 }
@@ -13488,6 +15340,15 @@ func (o UserAfterContactWorkConfigPtrOutput) Elem() UserAfterContactWorkConfigOu
 		var ret UserAfterContactWorkConfig
 		return ret
 	}).(UserAfterContactWorkConfigOutput)
+}
+
+func (o UserAfterContactWorkConfigPtrOutput) AfterContactWorkMode() UserAfterContactWorkModePtrOutput {
+	return o.ApplyT(func(v *UserAfterContactWorkConfig) *UserAfterContactWorkMode {
+		if v == nil {
+			return nil
+		}
+		return v.AfterContactWorkMode
+	}).(UserAfterContactWorkModePtrOutput)
 }
 
 func (o UserAfterContactWorkConfigPtrOutput) AfterContactWorkTimeLimit() pulumi.IntPtrOutput {
@@ -18064,8 +19925,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionPtrInput)(nil)).Elem(), EvaluationFormQuestionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionAutomationAnswerSourceInput)(nil)).Elem(), EvaluationFormQuestionAutomationAnswerSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionAutomationAnswerSourcePtrInput)(nil)).Elem(), EvaluationFormQuestionAutomationAnswerSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionOptionPointsConfigurationInput)(nil)).Elem(), EvaluationFormQuestionOptionPointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionOptionPointsConfigurationPtrInput)(nil)).Elem(), EvaluationFormQuestionOptionPointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionPointsConfigurationInput)(nil)).Elem(), EvaluationFormQuestionPointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionPointsConfigurationPtrInput)(nil)).Elem(), EvaluationFormQuestionPointsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionScoringConfigurationInput)(nil)).Elem(), EvaluationFormQuestionScoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionScoringConfigurationPtrInput)(nil)).Elem(), EvaluationFormQuestionScoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionTypePropertiesInput)(nil)).Elem(), EvaluationFormQuestionTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionTypePropertiesPtrInput)(nil)).Elem(), EvaluationFormQuestionTypePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoreThresholdInput)(nil)).Elem(), EvaluationFormScoreThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoreThresholdArrayInput)(nil)).Elem(), EvaluationFormScoreThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyInput)(nil)).Elem(), EvaluationFormScoringStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyPtrInput)(nil)).Elem(), EvaluationFormScoringStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSectionInput)(nil)).Elem(), EvaluationFormSectionArgs{})
@@ -18124,6 +19993,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigPtrInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectFlowQuickConnectConfigInput)(nil)).Elem(), QuickConnectFlowQuickConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectFlowQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectFlowQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectQueueQuickConnectConfigInput)(nil)).Elem(), QuickConnectQueueQuickConnectConfigArgs{})
@@ -18142,6 +20013,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionsInput)(nil)).Elem(), RuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionInput)(nil)).Elem(), RuleAssignContactCategoryActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionArrayInput)(nil)).Elem(), RuleAssignContactCategoryActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionInput)(nil)).Elem(), RuleAssignSlaActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionArrayInput)(nil)).Elem(), RuleAssignSlaActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesInput)(nil)).Elem(), RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleCreateCaseActionInput)(nil)).Elem(), RuleCreateCaseActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleCreateCaseActionArrayInput)(nil)).Elem(), RuleCreateCaseActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleEndAssociatedTasksActionInput)(nil)).Elem(), RuleEndAssociatedTasksActionArgs{})
@@ -18152,10 +20026,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldArrayInput)(nil)).Elem(), RuleFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldValueInput)(nil)).Elem(), RuleFieldValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypePtrInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceInput)(nil)).Elem(), RuleReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceMapInput)(nil)).Elem(), RuleReferenceMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSlaTargetFieldValueInput)(nil)).Elem(), RuleSlaTargetFieldValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSlaTargetFieldValueArrayInput)(nil)).Elem(), RuleSlaTargetFieldValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSubmitAutoEvaluationActionInput)(nil)).Elem(), RuleSubmitAutoEvaluationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSubmitAutoEvaluationActionArrayInput)(nil)).Elem(), RuleSubmitAutoEvaluationActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
@@ -18186,6 +20063,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateReadOnlyFieldInfoArrayInput)(nil)).Elem(), TaskTemplateReadOnlyFieldInfoArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateRequiredFieldInfoArrayInput)(nil)).Elem(), TaskTemplateRequiredFieldInfoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointInput)(nil)).Elem(), TestCaseEntryPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointPtrInput)(nil)).Elem(), TestCaseEntryPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointChatEntryPointParametersPropertiesInput)(nil)).Elem(), TestCaseEntryPointChatEntryPointParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointChatEntryPointParametersPropertiesPtrInput)(nil)).Elem(), TestCaseEntryPointChatEntryPointParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointVoiceCallEntryPointParametersPropertiesInput)(nil)).Elem(), TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrInput)(nil)).Elem(), TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigInput)(nil)).Elem(), UserAfterContactWorkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigPtrInput)(nil)).Elem(), UserAfterContactWorkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkConfigPerChannelInput)(nil)).Elem(), UserAfterContactWorkConfigPerChannelArgs{})
@@ -18300,8 +20183,16 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormQuestionPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionAutomationAnswerSourceOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionAutomationAnswerSourcePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionOptionPointsConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionOptionPointsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionPointsConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionPointsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionScoringConfigurationOutput{})
+	pulumi.RegisterOutputType(EvaluationFormQuestionScoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionTypePropertiesOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionTypePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoreThresholdOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoreThresholdArrayOutput{})
 	pulumi.RegisterOutputType(EvaluationFormScoringStrategyOutput{})
 	pulumi.RegisterOutputType(EvaluationFormScoringStrategyPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormSectionOutput{})
@@ -18365,6 +20256,8 @@ func init() {
 	pulumi.RegisterOutputType(QueueOutboundEmailConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(QuickConnectFlowQuickConnectConfigOutput{})
+	pulumi.RegisterOutputType(QuickConnectFlowQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigOutput{})
@@ -18384,6 +20277,9 @@ func init() {
 	pulumi.RegisterOutputType(RuleActionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleAssignContactCategoryActionOutput{})
 	pulumi.RegisterOutputType(RuleAssignContactCategoryActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionCaseSlaConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(RuleCreateCaseActionOutput{})
 	pulumi.RegisterOutputType(RuleCreateCaseActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleEndAssociatedTasksActionOutput{})
@@ -18394,10 +20290,13 @@ func init() {
 	pulumi.RegisterOutputType(RuleFieldArrayOutput{})
 	pulumi.RegisterOutputType(RuleFieldValueOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
+	pulumi.RegisterOutputType(RuleNotificationRecipientTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceOutput{})
 	pulumi.RegisterOutputType(RuleReferenceMapOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleSlaTargetFieldValueOutput{})
+	pulumi.RegisterOutputType(RuleSlaTargetFieldValueArrayOutput{})
 	pulumi.RegisterOutputType(RuleSubmitAutoEvaluationActionOutput{})
 	pulumi.RegisterOutputType(RuleSubmitAutoEvaluationActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionOutput{})
@@ -18428,6 +20327,12 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateReadOnlyFieldInfoArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoOutput{})
 	pulumi.RegisterOutputType(TaskTemplateRequiredFieldInfoArrayOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointPtrOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointChatEntryPointParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointChatEntryPointParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointVoiceCallEntryPointParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserAfterContactWorkConfigOutput{})
 	pulumi.RegisterOutputType(UserAfterContactWorkConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserAfterContactWorkConfigPerChannelOutput{})

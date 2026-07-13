@@ -7697,6 +7697,562 @@ func (o GatewayTargetIamCredentialProviderPtrOutput) Service() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayTargetInferenceConnectorSource struct {
+	ConnectorId string `pulumi:"connectorId"`
+}
+
+// GatewayTargetInferenceConnectorSourceInput is an input type that accepts GatewayTargetInferenceConnectorSourceArgs and GatewayTargetInferenceConnectorSourceOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceConnectorSourceInput` via:
+//
+//	GatewayTargetInferenceConnectorSourceArgs{...}
+type GatewayTargetInferenceConnectorSourceInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceConnectorSourceOutput() GatewayTargetInferenceConnectorSourceOutput
+	ToGatewayTargetInferenceConnectorSourceOutputWithContext(context.Context) GatewayTargetInferenceConnectorSourceOutput
+}
+
+type GatewayTargetInferenceConnectorSourceArgs struct {
+	ConnectorId pulumi.StringInput `pulumi:"connectorId"`
+}
+
+func (GatewayTargetInferenceConnectorSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceConnectorSource)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceConnectorSourceArgs) ToGatewayTargetInferenceConnectorSourceOutput() GatewayTargetInferenceConnectorSourceOutput {
+	return i.ToGatewayTargetInferenceConnectorSourceOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceConnectorSourceArgs) ToGatewayTargetInferenceConnectorSourceOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceConnectorSourceOutput)
+}
+
+type GatewayTargetInferenceConnectorSourceOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceConnectorSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceConnectorSource)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceConnectorSourceOutput) ToGatewayTargetInferenceConnectorSourceOutput() GatewayTargetInferenceConnectorSourceOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorSourceOutput) ToGatewayTargetInferenceConnectorSourceOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorSourceOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorSourceOutput) ConnectorId() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceConnectorSource) string { return v.ConnectorId }).(pulumi.StringOutput)
+}
+
+type GatewayTargetInferenceConnectorSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceConnectorSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetInferenceConnectorSource)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceConnectorSourcePtrOutput) ToGatewayTargetInferenceConnectorSourcePtrOutput() GatewayTargetInferenceConnectorSourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorSourcePtrOutput) ToGatewayTargetInferenceConnectorSourcePtrOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorSourcePtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorSourcePtrOutput) Elem() GatewayTargetInferenceConnectorSourceOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceConnectorSource) GatewayTargetInferenceConnectorSource {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetInferenceConnectorSource
+		return ret
+	}).(GatewayTargetInferenceConnectorSourceOutput)
+}
+
+func (o GatewayTargetInferenceConnectorSourcePtrOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceConnectorSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectorId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetInferenceConnectorTargetConfiguration struct {
+	Source GatewayTargetInferenceConnectorSource `pulumi:"source"`
+}
+
+// GatewayTargetInferenceConnectorTargetConfigurationInput is an input type that accepts GatewayTargetInferenceConnectorTargetConfigurationArgs and GatewayTargetInferenceConnectorTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceConnectorTargetConfigurationInput` via:
+//
+//	GatewayTargetInferenceConnectorTargetConfigurationArgs{...}
+type GatewayTargetInferenceConnectorTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceConnectorTargetConfigurationOutput() GatewayTargetInferenceConnectorTargetConfigurationOutput
+	ToGatewayTargetInferenceConnectorTargetConfigurationOutputWithContext(context.Context) GatewayTargetInferenceConnectorTargetConfigurationOutput
+}
+
+type GatewayTargetInferenceConnectorTargetConfigurationArgs struct {
+	Source GatewayTargetInferenceConnectorSourceInput `pulumi:"source"`
+}
+
+func (GatewayTargetInferenceConnectorTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceConnectorTargetConfigurationArgs) ToGatewayTargetInferenceConnectorTargetConfigurationOutput() GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return i.ToGatewayTargetInferenceConnectorTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceConnectorTargetConfigurationArgs) ToGatewayTargetInferenceConnectorTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceConnectorTargetConfigurationOutput)
+}
+
+type GatewayTargetInferenceConnectorTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceConnectorTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationOutput) ToGatewayTargetInferenceConnectorTargetConfigurationOutput() GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationOutput) ToGatewayTargetInferenceConnectorTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationOutput) Source() GatewayTargetInferenceConnectorSourceOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceConnectorTargetConfiguration) GatewayTargetInferenceConnectorSource {
+		return v.Source
+	}).(GatewayTargetInferenceConnectorSourceOutput)
+}
+
+type GatewayTargetInferenceConnectorTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceConnectorTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetInferenceConnectorTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationPtrOutput) ToGatewayTargetInferenceConnectorTargetConfigurationPtrOutput() GatewayTargetInferenceConnectorTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationPtrOutput) ToGatewayTargetInferenceConnectorTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetInferenceConnectorTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationPtrOutput) Elem() GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceConnectorTargetConfiguration) GatewayTargetInferenceConnectorTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetInferenceConnectorTargetConfiguration
+		return ret
+	}).(GatewayTargetInferenceConnectorTargetConfigurationOutput)
+}
+
+func (o GatewayTargetInferenceConnectorTargetConfigurationPtrOutput) Source() GatewayTargetInferenceConnectorSourcePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceConnectorTargetConfiguration) *GatewayTargetInferenceConnectorSource {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(GatewayTargetInferenceConnectorSourcePtrOutput)
+}
+
+type GatewayTargetInferenceOperationConfiguration struct {
+	Models       []GatewayTargetModelEntry `pulumi:"models"`
+	Path         string                    `pulumi:"path"`
+	ProviderPath *string                   `pulumi:"providerPath"`
+}
+
+// GatewayTargetInferenceOperationConfigurationInput is an input type that accepts GatewayTargetInferenceOperationConfigurationArgs and GatewayTargetInferenceOperationConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceOperationConfigurationInput` via:
+//
+//	GatewayTargetInferenceOperationConfigurationArgs{...}
+type GatewayTargetInferenceOperationConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceOperationConfigurationOutput() GatewayTargetInferenceOperationConfigurationOutput
+	ToGatewayTargetInferenceOperationConfigurationOutputWithContext(context.Context) GatewayTargetInferenceOperationConfigurationOutput
+}
+
+type GatewayTargetInferenceOperationConfigurationArgs struct {
+	Models       GatewayTargetModelEntryArrayInput `pulumi:"models"`
+	Path         pulumi.StringInput                `pulumi:"path"`
+	ProviderPath pulumi.StringPtrInput             `pulumi:"providerPath"`
+}
+
+func (GatewayTargetInferenceOperationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceOperationConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceOperationConfigurationArgs) ToGatewayTargetInferenceOperationConfigurationOutput() GatewayTargetInferenceOperationConfigurationOutput {
+	return i.ToGatewayTargetInferenceOperationConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceOperationConfigurationArgs) ToGatewayTargetInferenceOperationConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceOperationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceOperationConfigurationOutput)
+}
+
+// GatewayTargetInferenceOperationConfigurationArrayInput is an input type that accepts GatewayTargetInferenceOperationConfigurationArray and GatewayTargetInferenceOperationConfigurationArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceOperationConfigurationArrayInput` via:
+//
+//	GatewayTargetInferenceOperationConfigurationArray{ GatewayTargetInferenceOperationConfigurationArgs{...} }
+type GatewayTargetInferenceOperationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceOperationConfigurationArrayOutput() GatewayTargetInferenceOperationConfigurationArrayOutput
+	ToGatewayTargetInferenceOperationConfigurationArrayOutputWithContext(context.Context) GatewayTargetInferenceOperationConfigurationArrayOutput
+}
+
+type GatewayTargetInferenceOperationConfigurationArray []GatewayTargetInferenceOperationConfigurationInput
+
+func (GatewayTargetInferenceOperationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetInferenceOperationConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceOperationConfigurationArray) ToGatewayTargetInferenceOperationConfigurationArrayOutput() GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return i.ToGatewayTargetInferenceOperationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceOperationConfigurationArray) ToGatewayTargetInferenceOperationConfigurationArrayOutputWithContext(ctx context.Context) GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceOperationConfigurationArrayOutput)
+}
+
+type GatewayTargetInferenceOperationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceOperationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceOperationConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceOperationConfigurationOutput) ToGatewayTargetInferenceOperationConfigurationOutput() GatewayTargetInferenceOperationConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceOperationConfigurationOutput) ToGatewayTargetInferenceOperationConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceOperationConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceOperationConfigurationOutput) Models() GatewayTargetModelEntryArrayOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceOperationConfiguration) []GatewayTargetModelEntry { return v.Models }).(GatewayTargetModelEntryArrayOutput)
+}
+
+func (o GatewayTargetInferenceOperationConfigurationOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceOperationConfiguration) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetInferenceOperationConfigurationOutput) ProviderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceOperationConfiguration) *string { return v.ProviderPath }).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetInferenceOperationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceOperationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetInferenceOperationConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceOperationConfigurationArrayOutput) ToGatewayTargetInferenceOperationConfigurationArrayOutput() GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceOperationConfigurationArrayOutput) ToGatewayTargetInferenceOperationConfigurationArrayOutputWithContext(ctx context.Context) GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceOperationConfigurationArrayOutput) Index(i pulumi.IntInput) GatewayTargetInferenceOperationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetInferenceOperationConfiguration {
+		return vs[0].([]GatewayTargetInferenceOperationConfiguration)[vs[1].(int)]
+	}).(GatewayTargetInferenceOperationConfigurationOutput)
+}
+
+type GatewayTargetInferenceProviderTargetConfiguration struct {
+	Endpoint     string                                         `pulumi:"endpoint"`
+	ModelMapping *GatewayTargetModelMapping                     `pulumi:"modelMapping"`
+	Operations   []GatewayTargetInferenceOperationConfiguration `pulumi:"operations"`
+}
+
+// GatewayTargetInferenceProviderTargetConfigurationInput is an input type that accepts GatewayTargetInferenceProviderTargetConfigurationArgs and GatewayTargetInferenceProviderTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceProviderTargetConfigurationInput` via:
+//
+//	GatewayTargetInferenceProviderTargetConfigurationArgs{...}
+type GatewayTargetInferenceProviderTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceProviderTargetConfigurationOutput() GatewayTargetInferenceProviderTargetConfigurationOutput
+	ToGatewayTargetInferenceProviderTargetConfigurationOutputWithContext(context.Context) GatewayTargetInferenceProviderTargetConfigurationOutput
+}
+
+type GatewayTargetInferenceProviderTargetConfigurationArgs struct {
+	Endpoint     pulumi.StringInput                                     `pulumi:"endpoint"`
+	ModelMapping GatewayTargetModelMappingPtrInput                      `pulumi:"modelMapping"`
+	Operations   GatewayTargetInferenceOperationConfigurationArrayInput `pulumi:"operations"`
+}
+
+func (GatewayTargetInferenceProviderTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceProviderTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceProviderTargetConfigurationArgs) ToGatewayTargetInferenceProviderTargetConfigurationOutput() GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return i.ToGatewayTargetInferenceProviderTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceProviderTargetConfigurationArgs) ToGatewayTargetInferenceProviderTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceProviderTargetConfigurationOutput)
+}
+
+type GatewayTargetInferenceProviderTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceProviderTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceProviderTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationOutput) ToGatewayTargetInferenceProviderTargetConfigurationOutput() GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationOutput) ToGatewayTargetInferenceProviderTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceProviderTargetConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationOutput) ModelMapping() GatewayTargetModelMappingPtrOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceProviderTargetConfiguration) *GatewayTargetModelMapping {
+		return v.ModelMapping
+	}).(GatewayTargetModelMappingPtrOutput)
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationOutput) Operations() GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceProviderTargetConfiguration) []GatewayTargetInferenceOperationConfiguration {
+		return v.Operations
+	}).(GatewayTargetInferenceOperationConfigurationArrayOutput)
+}
+
+type GatewayTargetInferenceProviderTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceProviderTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetInferenceProviderTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) ToGatewayTargetInferenceProviderTargetConfigurationPtrOutput() GatewayTargetInferenceProviderTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) ToGatewayTargetInferenceProviderTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetInferenceProviderTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) Elem() GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceProviderTargetConfiguration) GatewayTargetInferenceProviderTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetInferenceProviderTargetConfiguration
+		return ret
+	}).(GatewayTargetInferenceProviderTargetConfigurationOutput)
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceProviderTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) ModelMapping() GatewayTargetModelMappingPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceProviderTargetConfiguration) *GatewayTargetModelMapping {
+		if v == nil {
+			return nil
+		}
+		return v.ModelMapping
+	}).(GatewayTargetModelMappingPtrOutput)
+}
+
+func (o GatewayTargetInferenceProviderTargetConfigurationPtrOutput) Operations() GatewayTargetInferenceOperationConfigurationArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceProviderTargetConfiguration) []GatewayTargetInferenceOperationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Operations
+	}).(GatewayTargetInferenceOperationConfigurationArrayOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration0Properties struct {
+	Connector GatewayTargetInferenceConnectorTargetConfiguration `pulumi:"connector"`
+}
+
+// GatewayTargetInferenceTargetConfiguration0PropertiesInput is an input type that accepts GatewayTargetInferenceTargetConfiguration0PropertiesArgs and GatewayTargetInferenceTargetConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceTargetConfiguration0PropertiesInput` via:
+//
+//	GatewayTargetInferenceTargetConfiguration0PropertiesArgs{...}
+type GatewayTargetInferenceTargetConfiguration0PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceTargetConfiguration0PropertiesOutput() GatewayTargetInferenceTargetConfiguration0PropertiesOutput
+	ToGatewayTargetInferenceTargetConfiguration0PropertiesOutputWithContext(context.Context) GatewayTargetInferenceTargetConfiguration0PropertiesOutput
+}
+
+type GatewayTargetInferenceTargetConfiguration0PropertiesArgs struct {
+	Connector GatewayTargetInferenceConnectorTargetConfigurationInput `pulumi:"connector"`
+}
+
+func (GatewayTargetInferenceTargetConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration0Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceTargetConfiguration0PropertiesArgs) ToGatewayTargetInferenceTargetConfiguration0PropertiesOutput() GatewayTargetInferenceTargetConfiguration0PropertiesOutput {
+	return i.ToGatewayTargetInferenceTargetConfiguration0PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceTargetConfiguration0PropertiesArgs) ToGatewayTargetInferenceTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceTargetConfiguration0PropertiesOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceTargetConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesOutput) ToGatewayTargetInferenceTargetConfiguration0PropertiesOutput() GatewayTargetInferenceTargetConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesOutput) ToGatewayTargetInferenceTargetConfiguration0PropertiesOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration0PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesOutput) Connector() GatewayTargetInferenceConnectorTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceTargetConfiguration0Properties) GatewayTargetInferenceConnectorTargetConfiguration {
+		return v.Connector
+	}).(GatewayTargetInferenceConnectorTargetConfigurationOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetInferenceTargetConfiguration0Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput() GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput) ToGatewayTargetInferenceTargetConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput) Elem() GatewayTargetInferenceTargetConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceTargetConfiguration0Properties) GatewayTargetInferenceTargetConfiguration0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetInferenceTargetConfiguration0Properties
+		return ret
+	}).(GatewayTargetInferenceTargetConfiguration0PropertiesOutput)
+}
+
+func (o GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput) Connector() GatewayTargetInferenceConnectorTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceTargetConfiguration0Properties) *GatewayTargetInferenceConnectorTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Connector
+	}).(GatewayTargetInferenceConnectorTargetConfigurationPtrOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration1Properties struct {
+	Provider GatewayTargetInferenceProviderTargetConfiguration `pulumi:"provider"`
+}
+
+// GatewayTargetInferenceTargetConfiguration1PropertiesInput is an input type that accepts GatewayTargetInferenceTargetConfiguration1PropertiesArgs and GatewayTargetInferenceTargetConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetInferenceTargetConfiguration1PropertiesInput` via:
+//
+//	GatewayTargetInferenceTargetConfiguration1PropertiesArgs{...}
+type GatewayTargetInferenceTargetConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetInferenceTargetConfiguration1PropertiesOutput() GatewayTargetInferenceTargetConfiguration1PropertiesOutput
+	ToGatewayTargetInferenceTargetConfiguration1PropertiesOutputWithContext(context.Context) GatewayTargetInferenceTargetConfiguration1PropertiesOutput
+}
+
+type GatewayTargetInferenceTargetConfiguration1PropertiesArgs struct {
+	Provider GatewayTargetInferenceProviderTargetConfigurationInput `pulumi:"provider"`
+}
+
+func (GatewayTargetInferenceTargetConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetInferenceTargetConfiguration1PropertiesArgs) ToGatewayTargetInferenceTargetConfiguration1PropertiesOutput() GatewayTargetInferenceTargetConfiguration1PropertiesOutput {
+	return i.ToGatewayTargetInferenceTargetConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetInferenceTargetConfiguration1PropertiesArgs) ToGatewayTargetInferenceTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetInferenceTargetConfiguration1PropertiesOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceTargetConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesOutput) ToGatewayTargetInferenceTargetConfiguration1PropertiesOutput() GatewayTargetInferenceTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesOutput) ToGatewayTargetInferenceTargetConfiguration1PropertiesOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesOutput) Provider() GatewayTargetInferenceProviderTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetInferenceTargetConfiguration1Properties) GatewayTargetInferenceProviderTargetConfiguration {
+		return v.Provider
+	}).(GatewayTargetInferenceProviderTargetConfigurationOutput)
+}
+
+type GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetInferenceTargetConfiguration1Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput() GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput) ToGatewayTargetInferenceTargetConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput) Elem() GatewayTargetInferenceTargetConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceTargetConfiguration1Properties) GatewayTargetInferenceTargetConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetInferenceTargetConfiguration1Properties
+		return ret
+	}).(GatewayTargetInferenceTargetConfiguration1PropertiesOutput)
+}
+
+func (o GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput) Provider() GatewayTargetInferenceProviderTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetInferenceTargetConfiguration1Properties) *GatewayTargetInferenceProviderTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(GatewayTargetInferenceProviderTargetConfigurationPtrOutput)
+}
+
 type GatewayTargetManagedResourceDetails struct {
 	Domain                 *string `pulumi:"domain"`
 	ResourceAssociationArn *string `pulumi:"resourceAssociationArn"`
@@ -9099,6 +9655,233 @@ func (o GatewayTargetMetadataConfigurationPtrOutput) AllowedResponseHeaders() pu
 	}).(pulumi.StringArrayOutput)
 }
 
+type GatewayTargetModelEntry struct {
+	Model string `pulumi:"model"`
+}
+
+// GatewayTargetModelEntryInput is an input type that accepts GatewayTargetModelEntryArgs and GatewayTargetModelEntryOutput values.
+// You can construct a concrete instance of `GatewayTargetModelEntryInput` via:
+//
+//	GatewayTargetModelEntryArgs{...}
+type GatewayTargetModelEntryInput interface {
+	pulumi.Input
+
+	ToGatewayTargetModelEntryOutput() GatewayTargetModelEntryOutput
+	ToGatewayTargetModelEntryOutputWithContext(context.Context) GatewayTargetModelEntryOutput
+}
+
+type GatewayTargetModelEntryArgs struct {
+	Model pulumi.StringInput `pulumi:"model"`
+}
+
+func (GatewayTargetModelEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetModelEntry)(nil)).Elem()
+}
+
+func (i GatewayTargetModelEntryArgs) ToGatewayTargetModelEntryOutput() GatewayTargetModelEntryOutput {
+	return i.ToGatewayTargetModelEntryOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetModelEntryArgs) ToGatewayTargetModelEntryOutputWithContext(ctx context.Context) GatewayTargetModelEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetModelEntryOutput)
+}
+
+// GatewayTargetModelEntryArrayInput is an input type that accepts GatewayTargetModelEntryArray and GatewayTargetModelEntryArrayOutput values.
+// You can construct a concrete instance of `GatewayTargetModelEntryArrayInput` via:
+//
+//	GatewayTargetModelEntryArray{ GatewayTargetModelEntryArgs{...} }
+type GatewayTargetModelEntryArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTargetModelEntryArrayOutput() GatewayTargetModelEntryArrayOutput
+	ToGatewayTargetModelEntryArrayOutputWithContext(context.Context) GatewayTargetModelEntryArrayOutput
+}
+
+type GatewayTargetModelEntryArray []GatewayTargetModelEntryInput
+
+func (GatewayTargetModelEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetModelEntry)(nil)).Elem()
+}
+
+func (i GatewayTargetModelEntryArray) ToGatewayTargetModelEntryArrayOutput() GatewayTargetModelEntryArrayOutput {
+	return i.ToGatewayTargetModelEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetModelEntryArray) ToGatewayTargetModelEntryArrayOutputWithContext(ctx context.Context) GatewayTargetModelEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetModelEntryArrayOutput)
+}
+
+type GatewayTargetModelEntryOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetModelEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetModelEntry)(nil)).Elem()
+}
+
+func (o GatewayTargetModelEntryOutput) ToGatewayTargetModelEntryOutput() GatewayTargetModelEntryOutput {
+	return o
+}
+
+func (o GatewayTargetModelEntryOutput) ToGatewayTargetModelEntryOutputWithContext(ctx context.Context) GatewayTargetModelEntryOutput {
+	return o
+}
+
+func (o GatewayTargetModelEntryOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetModelEntry) string { return v.Model }).(pulumi.StringOutput)
+}
+
+type GatewayTargetModelEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetModelEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTargetModelEntry)(nil)).Elem()
+}
+
+func (o GatewayTargetModelEntryArrayOutput) ToGatewayTargetModelEntryArrayOutput() GatewayTargetModelEntryArrayOutput {
+	return o
+}
+
+func (o GatewayTargetModelEntryArrayOutput) ToGatewayTargetModelEntryArrayOutputWithContext(ctx context.Context) GatewayTargetModelEntryArrayOutput {
+	return o
+}
+
+func (o GatewayTargetModelEntryArrayOutput) Index(i pulumi.IntInput) GatewayTargetModelEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTargetModelEntry {
+		return vs[0].([]GatewayTargetModelEntry)[vs[1].(int)]
+	}).(GatewayTargetModelEntryOutput)
+}
+
+type GatewayTargetModelMapping struct {
+	ProviderPrefix *GatewayTargetProviderPrefix `pulumi:"providerPrefix"`
+}
+
+// GatewayTargetModelMappingInput is an input type that accepts GatewayTargetModelMappingArgs and GatewayTargetModelMappingOutput values.
+// You can construct a concrete instance of `GatewayTargetModelMappingInput` via:
+//
+//	GatewayTargetModelMappingArgs{...}
+type GatewayTargetModelMappingInput interface {
+	pulumi.Input
+
+	ToGatewayTargetModelMappingOutput() GatewayTargetModelMappingOutput
+	ToGatewayTargetModelMappingOutputWithContext(context.Context) GatewayTargetModelMappingOutput
+}
+
+type GatewayTargetModelMappingArgs struct {
+	ProviderPrefix GatewayTargetProviderPrefixPtrInput `pulumi:"providerPrefix"`
+}
+
+func (GatewayTargetModelMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetModelMapping)(nil)).Elem()
+}
+
+func (i GatewayTargetModelMappingArgs) ToGatewayTargetModelMappingOutput() GatewayTargetModelMappingOutput {
+	return i.ToGatewayTargetModelMappingOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetModelMappingArgs) ToGatewayTargetModelMappingOutputWithContext(ctx context.Context) GatewayTargetModelMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetModelMappingOutput)
+}
+
+func (i GatewayTargetModelMappingArgs) ToGatewayTargetModelMappingPtrOutput() GatewayTargetModelMappingPtrOutput {
+	return i.ToGatewayTargetModelMappingPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetModelMappingArgs) ToGatewayTargetModelMappingPtrOutputWithContext(ctx context.Context) GatewayTargetModelMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetModelMappingOutput).ToGatewayTargetModelMappingPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetModelMappingPtrInput is an input type that accepts GatewayTargetModelMappingArgs, GatewayTargetModelMappingPtr and GatewayTargetModelMappingPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetModelMappingPtrInput` via:
+//
+//	        GatewayTargetModelMappingArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetModelMappingPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetModelMappingPtrOutput() GatewayTargetModelMappingPtrOutput
+	ToGatewayTargetModelMappingPtrOutputWithContext(context.Context) GatewayTargetModelMappingPtrOutput
+}
+
+type gatewayTargetModelMappingPtrType GatewayTargetModelMappingArgs
+
+func GatewayTargetModelMappingPtr(v *GatewayTargetModelMappingArgs) GatewayTargetModelMappingPtrInput {
+	return (*gatewayTargetModelMappingPtrType)(v)
+}
+
+func (*gatewayTargetModelMappingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetModelMapping)(nil)).Elem()
+}
+
+func (i *gatewayTargetModelMappingPtrType) ToGatewayTargetModelMappingPtrOutput() GatewayTargetModelMappingPtrOutput {
+	return i.ToGatewayTargetModelMappingPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetModelMappingPtrType) ToGatewayTargetModelMappingPtrOutputWithContext(ctx context.Context) GatewayTargetModelMappingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetModelMappingPtrOutput)
+}
+
+type GatewayTargetModelMappingOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetModelMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetModelMapping)(nil)).Elem()
+}
+
+func (o GatewayTargetModelMappingOutput) ToGatewayTargetModelMappingOutput() GatewayTargetModelMappingOutput {
+	return o
+}
+
+func (o GatewayTargetModelMappingOutput) ToGatewayTargetModelMappingOutputWithContext(ctx context.Context) GatewayTargetModelMappingOutput {
+	return o
+}
+
+func (o GatewayTargetModelMappingOutput) ToGatewayTargetModelMappingPtrOutput() GatewayTargetModelMappingPtrOutput {
+	return o.ToGatewayTargetModelMappingPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetModelMappingOutput) ToGatewayTargetModelMappingPtrOutputWithContext(ctx context.Context) GatewayTargetModelMappingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetModelMapping) *GatewayTargetModelMapping {
+		return &v
+	}).(GatewayTargetModelMappingPtrOutput)
+}
+
+func (o GatewayTargetModelMappingOutput) ProviderPrefix() GatewayTargetProviderPrefixPtrOutput {
+	return o.ApplyT(func(v GatewayTargetModelMapping) *GatewayTargetProviderPrefix { return v.ProviderPrefix }).(GatewayTargetProviderPrefixPtrOutput)
+}
+
+type GatewayTargetModelMappingPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetModelMappingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetModelMapping)(nil)).Elem()
+}
+
+func (o GatewayTargetModelMappingPtrOutput) ToGatewayTargetModelMappingPtrOutput() GatewayTargetModelMappingPtrOutput {
+	return o
+}
+
+func (o GatewayTargetModelMappingPtrOutput) ToGatewayTargetModelMappingPtrOutputWithContext(ctx context.Context) GatewayTargetModelMappingPtrOutput {
+	return o
+}
+
+func (o GatewayTargetModelMappingPtrOutput) Elem() GatewayTargetModelMappingOutput {
+	return o.ApplyT(func(v *GatewayTargetModelMapping) GatewayTargetModelMapping {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetModelMapping
+		return ret
+	}).(GatewayTargetModelMappingOutput)
+}
+
+func (o GatewayTargetModelMappingPtrOutput) ProviderPrefix() GatewayTargetProviderPrefixPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetModelMapping) *GatewayTargetProviderPrefix {
+		if v == nil {
+			return nil
+		}
+		return v.ProviderPrefix
+	}).(GatewayTargetProviderPrefixPtrOutput)
+}
+
 type GatewayTargetOAuth2AuthorizationData struct {
 	AuthorizationUrl string  `pulumi:"authorizationUrl"`
 	UserId           *string `pulumi:"userId"`
@@ -9766,6 +10549,154 @@ func (o GatewayTargetPrivateEndpoint1PropertiesPtrOutput) ManagedVpcResource() G
 		}
 		return &v.ManagedVpcResource
 	}).(GatewayTargetManagedVpcResourcePtrOutput)
+}
+
+type GatewayTargetProviderPrefix struct {
+	Separator *string `pulumi:"separator"`
+	Strip     *bool   `pulumi:"strip"`
+}
+
+// GatewayTargetProviderPrefixInput is an input type that accepts GatewayTargetProviderPrefixArgs and GatewayTargetProviderPrefixOutput values.
+// You can construct a concrete instance of `GatewayTargetProviderPrefixInput` via:
+//
+//	GatewayTargetProviderPrefixArgs{...}
+type GatewayTargetProviderPrefixInput interface {
+	pulumi.Input
+
+	ToGatewayTargetProviderPrefixOutput() GatewayTargetProviderPrefixOutput
+	ToGatewayTargetProviderPrefixOutputWithContext(context.Context) GatewayTargetProviderPrefixOutput
+}
+
+type GatewayTargetProviderPrefixArgs struct {
+	Separator pulumi.StringPtrInput `pulumi:"separator"`
+	Strip     pulumi.BoolPtrInput   `pulumi:"strip"`
+}
+
+func (GatewayTargetProviderPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetProviderPrefix)(nil)).Elem()
+}
+
+func (i GatewayTargetProviderPrefixArgs) ToGatewayTargetProviderPrefixOutput() GatewayTargetProviderPrefixOutput {
+	return i.ToGatewayTargetProviderPrefixOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetProviderPrefixArgs) ToGatewayTargetProviderPrefixOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetProviderPrefixOutput)
+}
+
+func (i GatewayTargetProviderPrefixArgs) ToGatewayTargetProviderPrefixPtrOutput() GatewayTargetProviderPrefixPtrOutput {
+	return i.ToGatewayTargetProviderPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetProviderPrefixArgs) ToGatewayTargetProviderPrefixPtrOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetProviderPrefixOutput).ToGatewayTargetProviderPrefixPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetProviderPrefixPtrInput is an input type that accepts GatewayTargetProviderPrefixArgs, GatewayTargetProviderPrefixPtr and GatewayTargetProviderPrefixPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetProviderPrefixPtrInput` via:
+//
+//	        GatewayTargetProviderPrefixArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetProviderPrefixPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetProviderPrefixPtrOutput() GatewayTargetProviderPrefixPtrOutput
+	ToGatewayTargetProviderPrefixPtrOutputWithContext(context.Context) GatewayTargetProviderPrefixPtrOutput
+}
+
+type gatewayTargetProviderPrefixPtrType GatewayTargetProviderPrefixArgs
+
+func GatewayTargetProviderPrefixPtr(v *GatewayTargetProviderPrefixArgs) GatewayTargetProviderPrefixPtrInput {
+	return (*gatewayTargetProviderPrefixPtrType)(v)
+}
+
+func (*gatewayTargetProviderPrefixPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetProviderPrefix)(nil)).Elem()
+}
+
+func (i *gatewayTargetProviderPrefixPtrType) ToGatewayTargetProviderPrefixPtrOutput() GatewayTargetProviderPrefixPtrOutput {
+	return i.ToGatewayTargetProviderPrefixPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetProviderPrefixPtrType) ToGatewayTargetProviderPrefixPtrOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetProviderPrefixPtrOutput)
+}
+
+type GatewayTargetProviderPrefixOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetProviderPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetProviderPrefix)(nil)).Elem()
+}
+
+func (o GatewayTargetProviderPrefixOutput) ToGatewayTargetProviderPrefixOutput() GatewayTargetProviderPrefixOutput {
+	return o
+}
+
+func (o GatewayTargetProviderPrefixOutput) ToGatewayTargetProviderPrefixOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixOutput {
+	return o
+}
+
+func (o GatewayTargetProviderPrefixOutput) ToGatewayTargetProviderPrefixPtrOutput() GatewayTargetProviderPrefixPtrOutput {
+	return o.ToGatewayTargetProviderPrefixPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetProviderPrefixOutput) ToGatewayTargetProviderPrefixPtrOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetProviderPrefix) *GatewayTargetProviderPrefix {
+		return &v
+	}).(GatewayTargetProviderPrefixPtrOutput)
+}
+
+func (o GatewayTargetProviderPrefixOutput) Separator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetProviderPrefix) *string { return v.Separator }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetProviderPrefixOutput) Strip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GatewayTargetProviderPrefix) *bool { return v.Strip }).(pulumi.BoolPtrOutput)
+}
+
+type GatewayTargetProviderPrefixPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetProviderPrefixPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetProviderPrefix)(nil)).Elem()
+}
+
+func (o GatewayTargetProviderPrefixPtrOutput) ToGatewayTargetProviderPrefixPtrOutput() GatewayTargetProviderPrefixPtrOutput {
+	return o
+}
+
+func (o GatewayTargetProviderPrefixPtrOutput) ToGatewayTargetProviderPrefixPtrOutputWithContext(ctx context.Context) GatewayTargetProviderPrefixPtrOutput {
+	return o
+}
+
+func (o GatewayTargetProviderPrefixPtrOutput) Elem() GatewayTargetProviderPrefixOutput {
+	return o.ApplyT(func(v *GatewayTargetProviderPrefix) GatewayTargetProviderPrefix {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetProviderPrefix
+		return ret
+	}).(GatewayTargetProviderPrefixOutput)
+}
+
+func (o GatewayTargetProviderPrefixPtrOutput) Separator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetProviderPrefix) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Separator
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetProviderPrefixPtrOutput) Strip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetProviderPrefix) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Strip
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GatewayTargetRuntimeTargetConfiguration struct {
@@ -10716,6 +11647,88 @@ func (o GatewayTargetTargetConfiguration1PropertiesPtrOutput) Http() pulumi.AnyO
 			return nil
 		}
 		return v.Http
+	}).(pulumi.AnyOutput)
+}
+
+type GatewayTargetTargetConfiguration2Properties struct {
+	Inference interface{} `pulumi:"inference"`
+}
+
+// GatewayTargetTargetConfiguration2PropertiesInput is an input type that accepts GatewayTargetTargetConfiguration2PropertiesArgs and GatewayTargetTargetConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetTargetConfiguration2PropertiesInput` via:
+//
+//	GatewayTargetTargetConfiguration2PropertiesArgs{...}
+type GatewayTargetTargetConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetTargetConfiguration2PropertiesOutput() GatewayTargetTargetConfiguration2PropertiesOutput
+	ToGatewayTargetTargetConfiguration2PropertiesOutputWithContext(context.Context) GatewayTargetTargetConfiguration2PropertiesOutput
+}
+
+type GatewayTargetTargetConfiguration2PropertiesArgs struct {
+	Inference pulumi.Input `pulumi:"inference"`
+}
+
+func (GatewayTargetTargetConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration2Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetTargetConfiguration2PropertiesArgs) ToGatewayTargetTargetConfiguration2PropertiesOutput() GatewayTargetTargetConfiguration2PropertiesOutput {
+	return i.ToGatewayTargetTargetConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetTargetConfiguration2PropertiesArgs) ToGatewayTargetTargetConfiguration2PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetTargetConfiguration2PropertiesOutput)
+}
+
+type GatewayTargetTargetConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetTargetConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetTargetConfiguration2Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesOutput) ToGatewayTargetTargetConfiguration2PropertiesOutput() GatewayTargetTargetConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesOutput) ToGatewayTargetTargetConfiguration2PropertiesOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesOutput) Inference() pulumi.AnyOutput {
+	return o.ApplyT(func(v GatewayTargetTargetConfiguration2Properties) interface{} { return v.Inference }).(pulumi.AnyOutput)
+}
+
+type GatewayTargetTargetConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetTargetConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetTargetConfiguration2Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesPtrOutput) ToGatewayTargetTargetConfiguration2PropertiesPtrOutput() GatewayTargetTargetConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesPtrOutput) ToGatewayTargetTargetConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetTargetConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesPtrOutput) Elem() GatewayTargetTargetConfiguration2PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration2Properties) GatewayTargetTargetConfiguration2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetTargetConfiguration2Properties
+		return ret
+	}).(GatewayTargetTargetConfiguration2PropertiesOutput)
+}
+
+func (o GatewayTargetTargetConfiguration2PropertiesPtrOutput) Inference() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GatewayTargetTargetConfiguration2Properties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Inference
 	}).(pulumi.AnyOutput)
 }
 
@@ -34196,6 +35209,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetHttpTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetHttpTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetIamCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetIamCredentialProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceConnectorSourceInput)(nil)).Elem(), GatewayTargetInferenceConnectorSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceConnectorTargetConfigurationInput)(nil)).Elem(), GatewayTargetInferenceConnectorTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceOperationConfigurationInput)(nil)).Elem(), GatewayTargetInferenceOperationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceOperationConfigurationArrayInput)(nil)).Elem(), GatewayTargetInferenceOperationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceProviderTargetConfigurationInput)(nil)).Elem(), GatewayTargetInferenceProviderTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetInferenceTargetConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetInferenceTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetInferenceTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetManagedVpcResourceInput)(nil)).Elem(), GatewayTargetManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetManagedVpcResourcePtrInput)(nil)).Elem(), GatewayTargetManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpLambdaTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpLambdaTargetConfigurationArgs{})
@@ -34212,6 +35232,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrInput)(nil)).Elem(), GatewayTargetMcpToolSchemaConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetModelEntryInput)(nil)).Elem(), GatewayTargetModelEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetModelEntryArrayInput)(nil)).Elem(), GatewayTargetModelEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetModelMappingInput)(nil)).Elem(), GatewayTargetModelMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetModelMappingPtrInput)(nil)).Elem(), GatewayTargetModelMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPassthroughTargetConfigurationInput)(nil)).Elem(), GatewayTargetPassthroughTargetConfigurationArgs{})
@@ -34219,6 +35243,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint0PropertiesPtrInput)(nil)).Elem(), GatewayTargetPrivateEndpoint0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint1PropertiesInput)(nil)).Elem(), GatewayTargetPrivateEndpoint1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetPrivateEndpoint1PropertiesPtrInput)(nil)).Elem(), GatewayTargetPrivateEndpoint1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetProviderPrefixInput)(nil)).Elem(), GatewayTargetProviderPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetProviderPrefixPtrInput)(nil)).Elem(), GatewayTargetProviderPrefixArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRuntimeTargetConfigurationInput)(nil)).Elem(), GatewayTargetRuntimeTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationPtrInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
@@ -34231,6 +35257,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetStickinessConfigurationPtrInput)(nil)).Elem(), GatewayTargetStickinessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetTargetConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionInput)(nil)).Elem(), GatewayTargetToolDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionArrayInput)(nil)).Elem(), GatewayTargetToolDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema0PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema0PropertiesArgs{})
@@ -34630,6 +35657,18 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetHttpTargetConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetIamCredentialProviderPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceConnectorSourceOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceConnectorSourcePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceConnectorTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceConnectorTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceOperationConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceOperationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceProviderTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceProviderTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceTargetConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceTargetConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceTargetConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetInferenceTargetConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetManagedResourceDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayTargetManagedResourceDetailsArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetManagedVpcResourceOutput{})
@@ -34656,6 +35695,10 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpToolSchemaConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetModelEntryOutput{})
+	pulumi.RegisterOutputType(GatewayTargetModelEntryArrayOutput{})
+	pulumi.RegisterOutputType(GatewayTargetModelMappingOutput{})
+	pulumi.RegisterOutputType(GatewayTargetModelMappingPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuth2AuthorizationDataPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
@@ -34666,6 +35709,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetPrivateEndpoint1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetProviderPrefixOutput{})
+	pulumi.RegisterOutputType(GatewayTargetProviderPrefixPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetRuntimeTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
@@ -34681,6 +35726,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetTargetConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolDefinitionOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolSchema0PropertiesOutput{})

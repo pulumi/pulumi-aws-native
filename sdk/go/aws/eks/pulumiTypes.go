@@ -3705,6 +3705,146 @@ func (o ClusterResourcesVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// The rollback configuration to use for the cluster version rollback.
+type ClusterRollbackConfig struct {
+	// The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// ClusterRollbackConfigInput is an input type that accepts ClusterRollbackConfigArgs and ClusterRollbackConfigOutput values.
+// You can construct a concrete instance of `ClusterRollbackConfigInput` via:
+//
+//	ClusterRollbackConfigArgs{...}
+type ClusterRollbackConfigInput interface {
+	pulumi.Input
+
+	ToClusterRollbackConfigOutput() ClusterRollbackConfigOutput
+	ToClusterRollbackConfigOutputWithContext(context.Context) ClusterRollbackConfigOutput
+}
+
+// The rollback configuration to use for the cluster version rollback.
+type ClusterRollbackConfigArgs struct {
+	// The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (ClusterRollbackConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRollbackConfig)(nil)).Elem()
+}
+
+func (i ClusterRollbackConfigArgs) ToClusterRollbackConfigOutput() ClusterRollbackConfigOutput {
+	return i.ToClusterRollbackConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterRollbackConfigArgs) ToClusterRollbackConfigOutputWithContext(ctx context.Context) ClusterRollbackConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollbackConfigOutput)
+}
+
+func (i ClusterRollbackConfigArgs) ToClusterRollbackConfigPtrOutput() ClusterRollbackConfigPtrOutput {
+	return i.ToClusterRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRollbackConfigArgs) ToClusterRollbackConfigPtrOutputWithContext(ctx context.Context) ClusterRollbackConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollbackConfigOutput).ToClusterRollbackConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterRollbackConfigPtrInput is an input type that accepts ClusterRollbackConfigArgs, ClusterRollbackConfigPtr and ClusterRollbackConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterRollbackConfigPtrInput` via:
+//
+//	        ClusterRollbackConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRollbackConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterRollbackConfigPtrOutput() ClusterRollbackConfigPtrOutput
+	ToClusterRollbackConfigPtrOutputWithContext(context.Context) ClusterRollbackConfigPtrOutput
+}
+
+type clusterRollbackConfigPtrType ClusterRollbackConfigArgs
+
+func ClusterRollbackConfigPtr(v *ClusterRollbackConfigArgs) ClusterRollbackConfigPtrInput {
+	return (*clusterRollbackConfigPtrType)(v)
+}
+
+func (*clusterRollbackConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRollbackConfig)(nil)).Elem()
+}
+
+func (i *clusterRollbackConfigPtrType) ToClusterRollbackConfigPtrOutput() ClusterRollbackConfigPtrOutput {
+	return i.ToClusterRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRollbackConfigPtrType) ToClusterRollbackConfigPtrOutputWithContext(ctx context.Context) ClusterRollbackConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRollbackConfigPtrOutput)
+}
+
+// The rollback configuration to use for the cluster version rollback.
+type ClusterRollbackConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterRollbackConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRollbackConfig)(nil)).Elem()
+}
+
+func (o ClusterRollbackConfigOutput) ToClusterRollbackConfigOutput() ClusterRollbackConfigOutput {
+	return o
+}
+
+func (o ClusterRollbackConfigOutput) ToClusterRollbackConfigOutputWithContext(ctx context.Context) ClusterRollbackConfigOutput {
+	return o
+}
+
+func (o ClusterRollbackConfigOutput) ToClusterRollbackConfigPtrOutput() ClusterRollbackConfigPtrOutput {
+	return o.ToClusterRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRollbackConfigOutput) ToClusterRollbackConfigPtrOutputWithContext(ctx context.Context) ClusterRollbackConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRollbackConfig) *ClusterRollbackConfig {
+		return &v
+	}).(ClusterRollbackConfigPtrOutput)
+}
+
+// The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+func (o ClusterRollbackConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterRollbackConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ClusterRollbackConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRollbackConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRollbackConfig)(nil)).Elem()
+}
+
+func (o ClusterRollbackConfigPtrOutput) ToClusterRollbackConfigPtrOutput() ClusterRollbackConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRollbackConfigPtrOutput) ToClusterRollbackConfigPtrOutputWithContext(ctx context.Context) ClusterRollbackConfigPtrOutput {
+	return o
+}
+
+func (o ClusterRollbackConfigPtrOutput) Elem() ClusterRollbackConfigOutput {
+	return o.ApplyT(func(v *ClusterRollbackConfig) ClusterRollbackConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRollbackConfig
+		return ret
+	}).(ClusterRollbackConfigOutput)
+}
+
+// The timeout in minutes for the version rollback operation. If not specified, defaults to 720 minutes (12 hours).
+func (o ClusterRollbackConfigPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterRollbackConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
 // Todo: add description
 type ClusterStorageConfig struct {
 	// Todo: add description
@@ -6501,6 +6641,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemotePodNetworkInput)(nil)).Elem(), ClusterRemotePodNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemotePodNetworkArrayInput)(nil)).Elem(), ClusterRemotePodNetworkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterResourcesVpcConfigInput)(nil)).Elem(), ClusterResourcesVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollbackConfigInput)(nil)).Elem(), ClusterRollbackConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollbackConfigPtrInput)(nil)).Elem(), ClusterRollbackConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigInput)(nil)).Elem(), ClusterStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageConfigPtrInput)(nil)).Elem(), ClusterStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterUpgradePolicyInput)(nil)).Elem(), ClusterUpgradePolicyArgs{})
@@ -6586,6 +6728,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRemotePodNetworkArrayOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterResourcesVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRollbackConfigOutput{})
+	pulumi.RegisterOutputType(ClusterRollbackConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterStorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyOutput{})

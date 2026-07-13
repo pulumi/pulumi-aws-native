@@ -49,6 +49,7 @@ export interface GetListenerRuleResult {
      * The Amazon Resource Name (ARN) of the rule.
      */
     readonly ruleArn?: string;
+    readonly tags?: outputs.Tag[];
     readonly transforms?: outputs.elasticloadbalancingv2.ListenerRuleTransform[];
 }
 /**

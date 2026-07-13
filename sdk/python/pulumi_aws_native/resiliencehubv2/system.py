@@ -24,6 +24,7 @@ class SystemArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sharing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a System resource.
@@ -31,6 +32,7 @@ class SystemArgs:
         :param pulumi.Input[_builtins.str] description: The description of the system.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting system data.
         :param pulumi.Input[_builtins.str] name: The name of the system.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to the system.
         """
         if description is not None:
@@ -39,6 +41,8 @@ class SystemArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sharing_enabled is not None:
+            pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -79,6 +83,18 @@ class SystemArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
+
+    @sharing_enabled.setter
+    def sharing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "sharing_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -100,6 +116,7 @@ class System(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sharing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -111,6 +128,7 @@ class System(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the system.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting system data.
         :param pulumi.Input[_builtins.str] name: The name of the system.
+        :param pulumi.Input[_builtins.bool] sharing_enabled: Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the system.
         """
         ...
@@ -141,6 +159,7 @@ class System(pulumi.CustomResource):
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sharing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -154,6 +173,7 @@ class System(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["sharing_enabled"] = sharing_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["system_arn"] = None
@@ -187,6 +207,7 @@ class System(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["sharing_enabled"] = None
         __props__.__dict__["system_arn"] = None
         __props__.__dict__["system_id"] = None
         __props__.__dict__["tags"] = None
@@ -224,6 +245,14 @@ class System(pulumi.CustomResource):
         The name of the system.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
 
     @_builtins.property
     @pulumi.getter(name="systemArn")

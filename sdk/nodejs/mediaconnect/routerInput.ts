@@ -50,6 +50,8 @@ export class RouterInput extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     declare public readonly configuration: pulumi.Output<outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties>;
+    declare public readonly contentQualityAnalysisConfiguration: pulumi.Output<outputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationProperties | undefined>;
+    declare public /*out*/ readonly contentQualityAnalysisType: pulumi.Output<enums.mediaconnect.RouterInputRouterContentQualityAnalysisType>;
     /**
      * The timestamp when the router input was created.
      */
@@ -136,6 +138,7 @@ export class RouterInput extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args?.availabilityZone;
             resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["contentQualityAnalysisConfiguration"] = args?.contentQualityAnalysisConfiguration;
             resourceInputs["maintenanceConfiguration"] = args?.maintenanceConfiguration;
             resourceInputs["maximumBitrate"] = args?.maximumBitrate;
             resourceInputs["name"] = args?.name;
@@ -146,6 +149,7 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["transitEncryption"] = args?.transitEncryption;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["contentQualityAnalysisType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
@@ -158,6 +162,8 @@ export class RouterInput extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["contentQualityAnalysisConfiguration"] = undefined /*out*/;
+            resourceInputs["contentQualityAnalysisType"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
@@ -190,6 +196,7 @@ export interface RouterInputArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration4PropertiesArgs>;
+    contentQualityAnalysisConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs>;
     /**
      * The maintenance configuration settings applied to this router input.
      */

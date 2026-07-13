@@ -25,6 +25,8 @@ __all__ = [
     'IndexPropertyMappingMethodProperties',
     'IndexPropertyMappingMethodPropertiesParametersProperties',
     'IndexSettings',
+    'IndexSettingsAnalysisProperties',
+    'IndexSettingsAnalysisPropertiesAnalyzerValueProperties',
     'IndexSettingsIndexProperties',
     'MappingsProperties',
     'SecurityConfigIamFederationConfigOptions',
@@ -243,22 +245,51 @@ class CollectionVectorOptions(dict):
 
 @pulumi.output_type
 class IndexPropertyMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionLevel":
+            suggest = "compression_level"
+        elif key == "spaceType":
+            suggest = "space_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexPropertyMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexPropertyMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexPropertyMapping.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  type: 'IndexPropertyMappingType',
+                 analyzer: Optional[_builtins.str] = None,
+                 compression_level: Optional['IndexPropertyMappingCompressionLevel'] = None,
                  dimension: Optional[_builtins.int] = None,
                  index: Optional[_builtins.bool] = None,
                  method: Optional['outputs.IndexPropertyMappingMethodProperties'] = None,
                  properties: Optional[Mapping[str, 'outputs.IndexPropertyMapping']] = None,
+                 space_type: Optional['IndexPropertyMappingSpaceType'] = None,
                  value: Optional[_builtins.str] = None):
         """
         :param 'IndexPropertyMappingType' type: The field data type. Must be a valid OpenSearch field type.
+        :param _builtins.str analyzer: The analyzer to use for this field (for text and keyword fields)
+        :param 'IndexPropertyMappingCompressionLevel' compression_level: The compression level for knn_vector fields
         :param _builtins.int dimension: Dimension size for vector fields, defines the number of dimensions in the vector
         :param _builtins.bool index: Whether a field should be indexed
         :param 'IndexPropertyMappingMethodProperties' method: Configuration for k-NN search method
         :param Mapping[str, 'IndexPropertyMapping'] properties: Nested fields within an object or nested field type
+        :param 'IndexPropertyMappingSpaceType' space_type: The distance function used for k-NN search (field-level, outside Method)
         :param _builtins.str value: Default value for the field when not specified in a document
         """
         pulumi.set(__self__, "type", type)
+        if analyzer is not None:
+            pulumi.set(__self__, "analyzer", analyzer)
+        if compression_level is not None:
+            pulumi.set(__self__, "compression_level", compression_level)
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
         if index is not None:
@@ -267,6 +298,8 @@ class IndexPropertyMapping(dict):
             pulumi.set(__self__, "method", method)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if space_type is not None:
+            pulumi.set(__self__, "space_type", space_type)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -277,6 +310,22 @@ class IndexPropertyMapping(dict):
         The field data type. Must be a valid OpenSearch field type.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> Optional[_builtins.str]:
+        """
+        The analyzer to use for this field (for text and keyword fields)
+        """
+        return pulumi.get(self, "analyzer")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionLevel")
+    def compression_level(self) -> Optional['IndexPropertyMappingCompressionLevel']:
+        """
+        The compression level for knn_vector fields
+        """
+        return pulumi.get(self, "compression_level")
 
     @_builtins.property
     @pulumi.getter
@@ -309,6 +358,14 @@ class IndexPropertyMapping(dict):
         Nested fields within an object or nested field type
         """
         return pulumi.get(self, "properties")
+
+    @_builtins.property
+    @pulumi.getter(name="spaceType")
+    def space_type(self) -> Optional['IndexPropertyMappingSpaceType']:
+        """
+        The distance function used for k-NN search (field-level, outside Method)
+        """
+        return pulumi.get(self, "space_type")
 
     @_builtins.property
     @pulumi.getter
@@ -451,12 +508,24 @@ class IndexPropertyMappingMethodPropertiesParametersProperties(dict):
 @pulumi.output_type
 class IndexSettings(dict):
     def __init__(__self__, *,
+                 analysis: Optional['outputs.IndexSettingsAnalysisProperties'] = None,
                  index: Optional['outputs.IndexSettingsIndexProperties'] = None):
         """
+        :param 'IndexSettingsAnalysisProperties' analysis: Custom analysis configuration including analyzers, tokenizers, and filters
         :param 'IndexSettingsIndexProperties' index: Index settings.
         """
+        if analysis is not None:
+            pulumi.set(__self__, "analysis", analysis)
         if index is not None:
             pulumi.set(__self__, "index", index)
+
+    @_builtins.property
+    @pulumi.getter
+    def analysis(self) -> Optional['outputs.IndexSettingsAnalysisProperties']:
+        """
+        Custom analysis configuration including analyzers, tokenizers, and filters
+        """
+        return pulumi.get(self, "analysis")
 
     @_builtins.property
     @pulumi.getter
@@ -465,6 +534,102 @@ class IndexSettings(dict):
         Index settings.
         """
         return pulumi.get(self, "index")
+
+
+@pulumi.output_type
+class IndexSettingsAnalysisProperties(dict):
+    """
+    Custom analysis configuration including analyzers, tokenizers, and filters
+    """
+    def __init__(__self__, *,
+                 analyzer: Optional[Mapping[str, 'outputs.IndexSettingsAnalysisPropertiesAnalyzerValueProperties']] = None):
+        """
+        Custom analysis configuration including analyzers, tokenizers, and filters
+
+        :param Mapping[str, 'IndexSettingsAnalysisPropertiesAnalyzerValueProperties'] analyzer: Custom analyzer definitions
+        """
+        if analyzer is not None:
+            pulumi.set(__self__, "analyzer", analyzer)
+
+    @_builtins.property
+    @pulumi.getter
+    def analyzer(self) -> Optional[Mapping[str, 'outputs.IndexSettingsAnalysisPropertiesAnalyzerValueProperties']]:
+        """
+        Custom analyzer definitions
+        """
+        return pulumi.get(self, "analyzer")
+
+
+@pulumi.output_type
+class IndexSettingsAnalysisPropertiesAnalyzerValueProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "charFilter":
+            suggest = "char_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexSettingsAnalysisPropertiesAnalyzerValueProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexSettingsAnalysisPropertiesAnalyzerValueProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexSettingsAnalysisPropertiesAnalyzerValueProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 char_filter: Optional[Sequence[_builtins.str]] = None,
+                 filter: Optional[Sequence[_builtins.str]] = None,
+                 tokenizer: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] char_filter: Character filters to apply
+        :param Sequence[_builtins.str] filter: Token filters to apply
+        :param _builtins.str tokenizer: The tokenizer to use
+        :param _builtins.str type: The analyzer type (e.g. custom, standard, simple)
+        """
+        if char_filter is not None:
+            pulumi.set(__self__, "char_filter", char_filter)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if tokenizer is not None:
+            pulumi.set(__self__, "tokenizer", tokenizer)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="charFilter")
+    def char_filter(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Character filters to apply
+        """
+        return pulumi.get(self, "char_filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Token filters to apply
+        """
+        return pulumi.get(self, "filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def tokenizer(self) -> Optional[_builtins.str]:
+        """
+        The tokenizer to use
+        """
+        return pulumi.get(self, "tokenizer")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The analyzer type (e.g. custom, standard, simple)
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -28,6 +28,7 @@ class ServiceArgs:
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_entry: Optional[pulumi.Input['ServiceDnsEntryArgs']] = None,
+                 idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -53,6 +54,8 @@ class ServiceArgs:
             pulumi.set(__self__, "custom_domain_name", custom_domain_name)
         if dns_entry is not None:
             pulumi.set(__self__, "dns_entry", dns_entry)
+        if idle_timeout_seconds is not None:
+            pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -110,6 +113,15 @@ class ServiceArgs:
         pulumi.set(self, "dns_entry", value)
 
     @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @idle_timeout_seconds.setter
+    def idle_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_timeout_seconds", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -146,6 +158,7 @@ class Service(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_entry: Optional[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -196,6 +209,7 @@ class Service(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_entry: Optional[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 idle_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -211,6 +225,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["custom_domain_name"] = custom_domain_name
             __props__.__dict__["dns_entry"] = dns_entry
+            __props__.__dict__["idle_timeout_seconds"] = idle_timeout_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -249,6 +264,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["custom_domain_name"] = None
         __props__.__dict__["dns_entry"] = None
+        __props__.__dict__["idle_timeout_seconds"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
@@ -313,6 +329,11 @@ class Service(pulumi.CustomResource):
         Describes the DNS information of the service. This field is read-only.
         """
         return pulumi.get(self, "dns_entry")
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "idle_timeout_seconds")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")

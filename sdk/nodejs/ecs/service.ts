@@ -122,6 +122,9 @@ export class Service extends pulumi.CustomResource {
      *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     declare public readonly loadBalancers: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
+    /**
+     * The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+     */
     declare public readonly monitoring: pulumi.Output<outputs.ecs.ServiceMonitoringConfiguration | undefined>;
     /**
      * The name of the Amazon ECS service, such as `sample-webapp` .
@@ -356,6 +359,9 @@ export interface ServiceArgs {
      *   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancerArgs>[]>;
+    /**
+     * The optional monitoring configuration for the service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+     */
     monitoring?: pulumi.Input<inputs.ecs.ServiceMonitoringConfigurationArgs>;
     /**
      * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.

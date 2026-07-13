@@ -60,6 +60,11 @@ export const getUserPoolIdentityProvider: typeof import("./getUserPoolIdentityPr
 export const getUserPoolIdentityProviderOutput: typeof import("./getUserPoolIdentityProvider").getUserPoolIdentityProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolIdentityProvider","getUserPoolIdentityProviderOutput"], () => require("./getUserPoolIdentityProvider"));
 
+export { GetUserPoolRegionalConfigurationAttachmentArgs, GetUserPoolRegionalConfigurationAttachmentResult, GetUserPoolRegionalConfigurationAttachmentOutputArgs } from "./getUserPoolRegionalConfigurationAttachment";
+export const getUserPoolRegionalConfigurationAttachment: typeof import("./getUserPoolRegionalConfigurationAttachment").getUserPoolRegionalConfigurationAttachment = null as any;
+export const getUserPoolRegionalConfigurationAttachmentOutput: typeof import("./getUserPoolRegionalConfigurationAttachment").getUserPoolRegionalConfigurationAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getUserPoolRegionalConfigurationAttachment","getUserPoolRegionalConfigurationAttachmentOutput"], () => require("./getUserPoolRegionalConfigurationAttachment"));
+
 export { GetUserPoolResourceServerArgs, GetUserPoolResourceServerResult, GetUserPoolResourceServerOutputArgs } from "./getUserPoolResourceServer";
 export const getUserPoolResourceServer: typeof import("./getUserPoolResourceServer").getUserPoolResourceServer = null as any;
 export const getUserPoolResourceServerOutput: typeof import("./getUserPoolResourceServer").getUserPoolResourceServerOutput = null as any;
@@ -130,6 +135,16 @@ export type UserPoolIdentityProvider = import("./userPoolIdentityProvider").User
 export const UserPoolIdentityProvider: typeof import("./userPoolIdentityProvider").UserPoolIdentityProvider = null as any;
 utilities.lazyLoad(exports, ["UserPoolIdentityProvider"], () => require("./userPoolIdentityProvider"));
 
+export { UserPoolRegionalConfigurationAttachmentArgs } from "./userPoolRegionalConfigurationAttachment";
+export type UserPoolRegionalConfigurationAttachment = import("./userPoolRegionalConfigurationAttachment").UserPoolRegionalConfigurationAttachment;
+export const UserPoolRegionalConfigurationAttachment: typeof import("./userPoolRegionalConfigurationAttachment").UserPoolRegionalConfigurationAttachment = null as any;
+utilities.lazyLoad(exports, ["UserPoolRegionalConfigurationAttachment"], () => require("./userPoolRegionalConfigurationAttachment"));
+
+export { UserPoolReplicaArgs } from "./userPoolReplica";
+export type UserPoolReplica = import("./userPoolReplica").UserPoolReplica;
+export const UserPoolReplica: typeof import("./userPoolReplica").UserPoolReplica = null as any;
+utilities.lazyLoad(exports, ["UserPoolReplica"], () => require("./userPoolReplica"));
+
 export { UserPoolResourceServerArgs } from "./userPoolResourceServer";
 export type UserPoolResourceServer = import("./userPoolResourceServer").UserPoolResourceServer;
 export const UserPoolResourceServer: typeof import("./userPoolResourceServer").UserPoolResourceServer = null as any;
@@ -185,6 +200,10 @@ const _module = {
                 return new UserPoolGroup(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolIdentityProvider":
                 return new UserPoolIdentityProvider(name, <any>undefined, { urn })
+            case "aws-native:cognito:UserPoolRegionalConfigurationAttachment":
+                return new UserPoolRegionalConfigurationAttachment(name, <any>undefined, { urn })
+            case "aws-native:cognito:UserPoolReplica":
+                return new UserPoolReplica(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolResourceServer":
                 return new UserPoolResourceServer(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolRiskConfigurationAttachment":

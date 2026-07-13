@@ -33,6 +33,10 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly int MinValue;
         /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        public readonly Outputs.EvaluationFormQuestionOptionPointsConfiguration? PointsConfiguration;
+        /// <summary>
         /// The score assigned to answer values within the range option.
         ///  *Minimum*: 0
         ///  *Maximum*: 10
@@ -49,12 +53,15 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             int minValue,
 
+            Outputs.EvaluationFormQuestionOptionPointsConfiguration? pointsConfiguration,
+
             int? score)
         {
             AutomaticFail = automaticFail;
             AutomaticFailConfiguration = automaticFailConfiguration;
             MaxValue = maxValue;
             MinValue = minValue;
+            PointsConfiguration = pointsConfiguration;
             Score = score;
         }
     }

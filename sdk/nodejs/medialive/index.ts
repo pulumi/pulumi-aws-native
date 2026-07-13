@@ -80,6 +80,11 @@ export const getNetwork: typeof import("./getNetwork").getNetwork = null as any;
 export const getNetworkOutput: typeof import("./getNetwork").getNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getNetwork","getNetworkOutput"], () => require("./getNetwork"));
 
+export { GetNodeArgs, GetNodeResult, GetNodeOutputArgs } from "./getNode";
+export const getNode: typeof import("./getNode").getNode = null as any;
+export const getNodeOutput: typeof import("./getNode").getNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getNode","getNodeOutput"], () => require("./getNode"));
+
 export { GetSdiSourceArgs, GetSdiSourceResult, GetSdiSourceOutputArgs } from "./getSdiSource";
 export const getSdiSource: typeof import("./getSdiSource").getSdiSource = null as any;
 export const getSdiSourceOutput: typeof import("./getSdiSource").getSdiSourceOutput = null as any;
@@ -104,6 +109,11 @@ export { NetworkArgs } from "./network";
 export type Network = import("./network").Network;
 export const Network: typeof import("./network").Network = null as any;
 utilities.lazyLoad(exports, ["Network"], () => require("./network"));
+
+export { NodeArgs } from "./node";
+export type Node = import("./node").Node;
+export const Node: typeof import("./node").Node = null as any;
+utilities.lazyLoad(exports, ["Node"], () => require("./node"));
 
 export { SdiSourceArgs } from "./sdiSource";
 export type SdiSource = import("./sdiSource").SdiSource;
@@ -141,6 +151,8 @@ const _module = {
                 return new Multiplexprogram(name, <any>undefined, { urn })
             case "aws-native:medialive:Network":
                 return new Network(name, <any>undefined, { urn })
+            case "aws-native:medialive:Node":
+                return new Node(name, <any>undefined, { urn })
             case "aws-native:medialive:SdiSource":
                 return new SdiSource(name, <any>undefined, { urn })
             case "aws-native:medialive:SignalMap":

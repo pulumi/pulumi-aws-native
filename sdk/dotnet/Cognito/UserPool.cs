@@ -99,6 +99,12 @@ namespace Pulumi.AwsNative.Cognito
         [Output("enabledMfas")]
         public Output<ImmutableArray<string>> EnabledMfas { get; private set; } = null!;
 
+        [Output("issuerConfiguration")]
+        public Output<Outputs.UserPoolIssuerConfiguration?> IssuerConfiguration { get; private set; } = null!;
+
+        [Output("keyConfiguration")]
+        public Output<Outputs.UserPoolKeyConfiguration?> KeyConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         /// </summary>
@@ -380,6 +386,12 @@ namespace Pulumi.AwsNative.Cognito
             get => _enabledMfas ?? (_enabledMfas = new InputList<string>());
             set => _enabledMfas = value;
         }
+
+        [Input("issuerConfiguration")]
+        public Input<Inputs.UserPoolIssuerConfigurationArgs>? IssuerConfiguration { get; set; }
+
+        [Input("keyConfiguration")]
+        public Input<Inputs.UserPoolKeyConfigurationArgs>? KeyConfiguration { get; set; }
 
         /// <summary>
         /// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.

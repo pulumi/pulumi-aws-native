@@ -136,6 +136,10 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly resourceArns: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies the configuration for the resource share
+     */
+    declare public readonly resourceShareConfiguration: pulumi.Output<outputs.ram.ResourceShareConfiguration | undefined>;
+    /**
      * Specifies from which source accounts the service principal has access to the resources in this resource share.
      */
     declare public readonly sources: pulumi.Output<string[] | undefined>;
@@ -164,6 +168,7 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["permissionArns"] = args?.permissionArns;
             resourceInputs["principals"] = args?.principals;
             resourceInputs["resourceArns"] = args?.resourceArns;
+            resourceInputs["resourceShareConfiguration"] = args?.resourceShareConfiguration;
             resourceInputs["sources"] = args?.sources;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -183,11 +188,14 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["permissionArns"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
+            resourceInputs["resourceShareConfiguration"] = undefined /*out*/;
             resourceInputs["sources"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceShareConfiguration.retainSharingOnAccountLeaveOrganization"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceShare.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -226,6 +234,10 @@ export interface ResourceShareArgs {
      * Specifies a list of one or more ARNs of the resources to associate with the resource share.
      */
     resourceArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the configuration for the resource share
+     */
+    resourceShareConfiguration?: pulumi.Input<inputs.ram.ResourceShareConfigurationArgs>;
     /**
      * Specifies from which source accounts the service principal has access to the resources in this resource share.
      */

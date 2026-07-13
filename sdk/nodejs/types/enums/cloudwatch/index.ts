@@ -13,6 +13,16 @@ export const AlarmMuteRuleStatus = {
  */
 export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
 
+export const InsightRuleRuleState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The current state of the rule. Valid values are `ENABLED` and `DISABLED` .
+ */
+export type InsightRuleRuleState = (typeof InsightRuleRuleState)[keyof typeof InsightRuleRuleState];
+
 export const OTelEnrichmentStatus = {
     Running: "RUNNING",
     Stopped: "STOPPED",

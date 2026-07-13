@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// The ARN of the service revision.
         /// </summary>
         public readonly string? ServiceRevisionArn;
+        public readonly string? TaskDefinitionArn;
         /// <summary>
         /// The ARN of the task role for the service revision.
         /// </summary>
@@ -80,6 +81,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             string? serviceRevisionArn,
 
+            string? taskDefinitionArn,
+
             string? taskRoleArn)
         {
             Cpu = cpu;
@@ -92,6 +95,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             PrimaryContainer = primaryContainer;
             ScalingTarget = scalingTarget;
             ServiceRevisionArn = serviceRevisionArn;
+            TaskDefinitionArn = taskDefinitionArn;
             TaskRoleArn = taskRoleArn;
         }
     }

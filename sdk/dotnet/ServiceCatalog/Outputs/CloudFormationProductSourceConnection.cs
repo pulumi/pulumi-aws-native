@@ -14,17 +14,17 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
     public sealed class CloudFormationProductSourceConnection
     {
         /// <summary>
-        /// The connection details based on the connection `Type` .
+        /// The connection details based on the connection Type.
         /// </summary>
-        public readonly Outputs.CloudFormationProductConnectionParameters ConnectionParameters;
+        public readonly Outputs.CloudFormationProductSourceConnectionConnectionParametersProperties ConnectionParameters;
         /// <summary>
-        /// The only supported `SourceConnection` type is Codestar.
+        /// The only supported SourceConnection type is Codestar.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private CloudFormationProductSourceConnection(
-            Outputs.CloudFormationProductConnectionParameters connectionParameters,
+            Outputs.CloudFormationProductSourceConnectionConnectionParametersProperties connectionParameters,
 
             string type)
         {

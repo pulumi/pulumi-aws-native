@@ -111,7 +111,7 @@
       "permissions" : [ "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:UpdatePolicy", "organizations:ListTagsForResource", "organizations:ListTargetsForPolicy", "organizations:TagResource", "organizations:UntagResource", "organizations:DescribePolicy" ]
     },
     "delete" : {
-      "permissions" : [ "organizations:DetachPolicy", "organizations:DeletePolicy" ]
+      "permissions" : [ "organizations:ListTargetsForPolicy", "organizations:DetachPolicy", "organizations:DeletePolicy" ]
     },
     "list" : {
       "handlerSchema" : {

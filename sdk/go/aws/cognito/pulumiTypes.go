@@ -3161,6 +3161,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt()
 type UserPoolDomainCustomDomainConfigType struct {
 	// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn *string `pulumi:"certificateArn"`
+	SecurityPolicy *string `pulumi:"securityPolicy"`
 }
 
 // UserPoolDomainCustomDomainConfigTypeInput is an input type that accepts UserPoolDomainCustomDomainConfigTypeArgs and UserPoolDomainCustomDomainConfigTypeOutput values.
@@ -3177,6 +3178,7 @@ type UserPoolDomainCustomDomainConfigTypeInput interface {
 type UserPoolDomainCustomDomainConfigTypeArgs struct {
 	// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
+	SecurityPolicy pulumi.StringPtrInput `pulumi:"securityPolicy"`
 }
 
 func (UserPoolDomainCustomDomainConfigTypeArgs) ElementType() reflect.Type {
@@ -3261,6 +3263,10 @@ func (o UserPoolDomainCustomDomainConfigTypeOutput) CertificateArn() pulumi.Stri
 	return o.ApplyT(func(v UserPoolDomainCustomDomainConfigType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+func (o UserPoolDomainCustomDomainConfigTypeOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolDomainCustomDomainConfigType) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
+}
+
 type UserPoolDomainCustomDomainConfigTypePtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainCustomDomainConfigTypePtrOutput) ElementType() reflect.Type {
@@ -3292,6 +3298,15 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) CertificateArn() pulumi.S
 			return nil
 		}
 		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolDomainCustomDomainConfigTypePtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolDomainCustomDomainConfigType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4185,6 +4200,287 @@ func (o UserPoolInviteMessageTemplatePtrOutput) SmsMessage() pulumi.StringPtrOut
 			return nil
 		}
 		return v.SmsMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolIssuerConfiguration struct {
+	Type *UserPoolIssuerConfigurationType `pulumi:"type"`
+}
+
+// UserPoolIssuerConfigurationInput is an input type that accepts UserPoolIssuerConfigurationArgs and UserPoolIssuerConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolIssuerConfigurationInput` via:
+//
+//	UserPoolIssuerConfigurationArgs{...}
+type UserPoolIssuerConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolIssuerConfigurationOutput() UserPoolIssuerConfigurationOutput
+	ToUserPoolIssuerConfigurationOutputWithContext(context.Context) UserPoolIssuerConfigurationOutput
+}
+
+type UserPoolIssuerConfigurationArgs struct {
+	Type UserPoolIssuerConfigurationTypePtrInput `pulumi:"type"`
+}
+
+func (UserPoolIssuerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIssuerConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolIssuerConfigurationArgs) ToUserPoolIssuerConfigurationOutput() UserPoolIssuerConfigurationOutput {
+	return i.ToUserPoolIssuerConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolIssuerConfigurationArgs) ToUserPoolIssuerConfigurationOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolIssuerConfigurationOutput)
+}
+
+func (i UserPoolIssuerConfigurationArgs) ToUserPoolIssuerConfigurationPtrOutput() UserPoolIssuerConfigurationPtrOutput {
+	return i.ToUserPoolIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolIssuerConfigurationArgs) ToUserPoolIssuerConfigurationPtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolIssuerConfigurationOutput).ToUserPoolIssuerConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolIssuerConfigurationPtrInput is an input type that accepts UserPoolIssuerConfigurationArgs, UserPoolIssuerConfigurationPtr and UserPoolIssuerConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolIssuerConfigurationPtrInput` via:
+//
+//	        UserPoolIssuerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolIssuerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolIssuerConfigurationPtrOutput() UserPoolIssuerConfigurationPtrOutput
+	ToUserPoolIssuerConfigurationPtrOutputWithContext(context.Context) UserPoolIssuerConfigurationPtrOutput
+}
+
+type userPoolIssuerConfigurationPtrType UserPoolIssuerConfigurationArgs
+
+func UserPoolIssuerConfigurationPtr(v *UserPoolIssuerConfigurationArgs) UserPoolIssuerConfigurationPtrInput {
+	return (*userPoolIssuerConfigurationPtrType)(v)
+}
+
+func (*userPoolIssuerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolIssuerConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolIssuerConfigurationPtrType) ToUserPoolIssuerConfigurationPtrOutput() UserPoolIssuerConfigurationPtrOutput {
+	return i.ToUserPoolIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolIssuerConfigurationPtrType) ToUserPoolIssuerConfigurationPtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolIssuerConfigurationPtrOutput)
+}
+
+type UserPoolIssuerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolIssuerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIssuerConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolIssuerConfigurationOutput) ToUserPoolIssuerConfigurationOutput() UserPoolIssuerConfigurationOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationOutput) ToUserPoolIssuerConfigurationOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationOutput) ToUserPoolIssuerConfigurationPtrOutput() UserPoolIssuerConfigurationPtrOutput {
+	return o.ToUserPoolIssuerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolIssuerConfigurationOutput) ToUserPoolIssuerConfigurationPtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolIssuerConfiguration) *UserPoolIssuerConfiguration {
+		return &v
+	}).(UserPoolIssuerConfigurationPtrOutput)
+}
+
+func (o UserPoolIssuerConfigurationOutput) Type() UserPoolIssuerConfigurationTypePtrOutput {
+	return o.ApplyT(func(v UserPoolIssuerConfiguration) *UserPoolIssuerConfigurationType { return v.Type }).(UserPoolIssuerConfigurationTypePtrOutput)
+}
+
+type UserPoolIssuerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolIssuerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolIssuerConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolIssuerConfigurationPtrOutput) ToUserPoolIssuerConfigurationPtrOutput() UserPoolIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationPtrOutput) ToUserPoolIssuerConfigurationPtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationPtrOutput) Elem() UserPoolIssuerConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolIssuerConfiguration) UserPoolIssuerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolIssuerConfiguration
+		return ret
+	}).(UserPoolIssuerConfigurationOutput)
+}
+
+func (o UserPoolIssuerConfigurationPtrOutput) Type() UserPoolIssuerConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolIssuerConfiguration) *UserPoolIssuerConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(UserPoolIssuerConfigurationTypePtrOutput)
+}
+
+type UserPoolKeyConfiguration struct {
+	KeyType   *UserPoolEncryptionKeyType `pulumi:"keyType"`
+	KmsKeyArn *string                    `pulumi:"kmsKeyArn"`
+}
+
+// UserPoolKeyConfigurationInput is an input type that accepts UserPoolKeyConfigurationArgs and UserPoolKeyConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolKeyConfigurationInput` via:
+//
+//	UserPoolKeyConfigurationArgs{...}
+type UserPoolKeyConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolKeyConfigurationOutput() UserPoolKeyConfigurationOutput
+	ToUserPoolKeyConfigurationOutputWithContext(context.Context) UserPoolKeyConfigurationOutput
+}
+
+type UserPoolKeyConfigurationArgs struct {
+	KeyType   UserPoolEncryptionKeyTypePtrInput `pulumi:"keyType"`
+	KmsKeyArn pulumi.StringPtrInput             `pulumi:"kmsKeyArn"`
+}
+
+func (UserPoolKeyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolKeyConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolKeyConfigurationArgs) ToUserPoolKeyConfigurationOutput() UserPoolKeyConfigurationOutput {
+	return i.ToUserPoolKeyConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolKeyConfigurationArgs) ToUserPoolKeyConfigurationOutputWithContext(ctx context.Context) UserPoolKeyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolKeyConfigurationOutput)
+}
+
+func (i UserPoolKeyConfigurationArgs) ToUserPoolKeyConfigurationPtrOutput() UserPoolKeyConfigurationPtrOutput {
+	return i.ToUserPoolKeyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolKeyConfigurationArgs) ToUserPoolKeyConfigurationPtrOutputWithContext(ctx context.Context) UserPoolKeyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolKeyConfigurationOutput).ToUserPoolKeyConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolKeyConfigurationPtrInput is an input type that accepts UserPoolKeyConfigurationArgs, UserPoolKeyConfigurationPtr and UserPoolKeyConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolKeyConfigurationPtrInput` via:
+//
+//	        UserPoolKeyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolKeyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolKeyConfigurationPtrOutput() UserPoolKeyConfigurationPtrOutput
+	ToUserPoolKeyConfigurationPtrOutputWithContext(context.Context) UserPoolKeyConfigurationPtrOutput
+}
+
+type userPoolKeyConfigurationPtrType UserPoolKeyConfigurationArgs
+
+func UserPoolKeyConfigurationPtr(v *UserPoolKeyConfigurationArgs) UserPoolKeyConfigurationPtrInput {
+	return (*userPoolKeyConfigurationPtrType)(v)
+}
+
+func (*userPoolKeyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolKeyConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolKeyConfigurationPtrType) ToUserPoolKeyConfigurationPtrOutput() UserPoolKeyConfigurationPtrOutput {
+	return i.ToUserPoolKeyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolKeyConfigurationPtrType) ToUserPoolKeyConfigurationPtrOutputWithContext(ctx context.Context) UserPoolKeyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolKeyConfigurationPtrOutput)
+}
+
+type UserPoolKeyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolKeyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolKeyConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolKeyConfigurationOutput) ToUserPoolKeyConfigurationOutput() UserPoolKeyConfigurationOutput {
+	return o
+}
+
+func (o UserPoolKeyConfigurationOutput) ToUserPoolKeyConfigurationOutputWithContext(ctx context.Context) UserPoolKeyConfigurationOutput {
+	return o
+}
+
+func (o UserPoolKeyConfigurationOutput) ToUserPoolKeyConfigurationPtrOutput() UserPoolKeyConfigurationPtrOutput {
+	return o.ToUserPoolKeyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolKeyConfigurationOutput) ToUserPoolKeyConfigurationPtrOutputWithContext(ctx context.Context) UserPoolKeyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolKeyConfiguration) *UserPoolKeyConfiguration {
+		return &v
+	}).(UserPoolKeyConfigurationPtrOutput)
+}
+
+func (o UserPoolKeyConfigurationOutput) KeyType() UserPoolEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v UserPoolKeyConfiguration) *UserPoolEncryptionKeyType { return v.KeyType }).(UserPoolEncryptionKeyTypePtrOutput)
+}
+
+func (o UserPoolKeyConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolKeyConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolKeyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolKeyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolKeyConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolKeyConfigurationPtrOutput) ToUserPoolKeyConfigurationPtrOutput() UserPoolKeyConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolKeyConfigurationPtrOutput) ToUserPoolKeyConfigurationPtrOutputWithContext(ctx context.Context) UserPoolKeyConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolKeyConfigurationPtrOutput) Elem() UserPoolKeyConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolKeyConfiguration) UserPoolKeyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolKeyConfiguration
+		return ret
+	}).(UserPoolKeyConfigurationOutput)
+}
+
+func (o UserPoolKeyConfigurationPtrOutput) KeyType() UserPoolEncryptionKeyTypePtrOutput {
+	return o.ApplyT(func(v *UserPoolKeyConfiguration) *UserPoolEncryptionKeyType {
+		if v == nil {
+			return nil
+		}
+		return v.KeyType
+	}).(UserPoolEncryptionKeyTypePtrOutput)
+}
+
+func (o UserPoolKeyConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolKeyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5434,6 +5730,1313 @@ func (o UserPoolRecoveryOptionArrayOutput) Index(i pulumi.IntInput) UserPoolReco
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolRecoveryOption {
 		return vs[0].([]UserPoolRecoveryOption)[vs[1].(int)]
 	}).(UserPoolRecoveryOptionOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomEmailSender struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolRegionalConfigurationAttachmentCustomEmailSenderInput is an input type that accepts UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs and UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentCustomEmailSenderInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs{...}
+type UserPoolRegionalConfigurationAttachmentCustomEmailSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput
+	ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomEmailSender)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput).ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs, UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtr and UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentCustomEmailSenderPtrType UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs
+
+func UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtr(v *UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentCustomEmailSenderPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentCustomEmailSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentCustomEmailSender)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentCustomEmailSenderPtrType) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentCustomEmailSenderPtrType) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentCustomEmailSender) *UserPoolRegionalConfigurationAttachmentCustomEmailSender {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentCustomEmailSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentCustomEmailSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) ToUserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomEmailSender) UserPoolRegionalConfigurationAttachmentCustomEmailSender {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentCustomEmailSender
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomSmsSender struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolRegionalConfigurationAttachmentCustomSmsSenderInput is an input type that accepts UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs and UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentCustomSmsSenderInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs{...}
+type UserPoolRegionalConfigurationAttachmentCustomSmsSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput
+	ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomSmsSender)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput).ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs, UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtr and UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentCustomSmsSenderPtrType UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs
+
+func UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtr(v *UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentCustomSmsSenderPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentCustomSmsSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentCustomSmsSender)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentCustomSmsSenderPtrType) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentCustomSmsSenderPtrType) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomSmsSender)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentCustomSmsSender) *UserPoolRegionalConfigurationAttachmentCustomSmsSender {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentCustomSmsSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentCustomSmsSender) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentCustomSmsSender)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) ToUserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomSmsSender) UserPoolRegionalConfigurationAttachmentCustomSmsSender {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentCustomSmsSender
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomSmsSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentCustomSmsSender) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentEmailConfiguration struct {
+	ConfigurationSet    *string `pulumi:"configurationSet"`
+	EmailSendingAccount *string `pulumi:"emailSendingAccount"`
+	From                *string `pulumi:"from"`
+	ReplyToEmailAddress *string `pulumi:"replyToEmailAddress"`
+	SourceArn           *string `pulumi:"sourceArn"`
+}
+
+// UserPoolRegionalConfigurationAttachmentEmailConfigurationInput is an input type that accepts UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs and UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentEmailConfigurationInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{...}
+type UserPoolRegionalConfigurationAttachmentEmailConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput
+	ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs struct {
+	ConfigurationSet    pulumi.StringPtrInput `pulumi:"configurationSet"`
+	EmailSendingAccount pulumi.StringPtrInput `pulumi:"emailSendingAccount"`
+	From                pulumi.StringPtrInput `pulumi:"from"`
+	ReplyToEmailAddress pulumi.StringPtrInput `pulumi:"replyToEmailAddress"`
+	SourceArn           pulumi.StringPtrInput `pulumi:"sourceArn"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput).ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs, UserPoolRegionalConfigurationAttachmentEmailConfigurationPtr and UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentEmailConfigurationPtrType UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs
+
+func UserPoolRegionalConfigurationAttachmentEmailConfigurationPtr(v *UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentEmailConfigurationPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentEmailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentEmailConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentEmailConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentEmailConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *UserPoolRegionalConfigurationAttachmentEmailConfiguration {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ConfigurationSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string { return v.ConfigurationSet }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) EmailSendingAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		return v.EmailSendingAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		return v.ReplyToEmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentEmailConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) UserPoolRegionalConfigurationAttachmentEmailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentEmailConfiguration
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) ConfigurationSet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationSet
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) EmailSendingAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailSendingAccount
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) ReplyToEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyToEmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentEmailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentInboundFederation struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolRegionalConfigurationAttachmentInboundFederationInput is an input type that accepts UserPoolRegionalConfigurationAttachmentInboundFederationArgs and UserPoolRegionalConfigurationAttachmentInboundFederationOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentInboundFederationInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentInboundFederationArgs{...}
+type UserPoolRegionalConfigurationAttachmentInboundFederationInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentInboundFederationOutput() UserPoolRegionalConfigurationAttachmentInboundFederationOutput
+	ToUserPoolRegionalConfigurationAttachmentInboundFederationOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentInboundFederationArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentInboundFederationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederation)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentInboundFederationArgs) ToUserPoolRegionalConfigurationAttachmentInboundFederationOutput() UserPoolRegionalConfigurationAttachmentInboundFederationOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentInboundFederationOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentInboundFederationArgs) ToUserPoolRegionalConfigurationAttachmentInboundFederationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentInboundFederationOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentInboundFederationArgs) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentInboundFederationArgs) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentInboundFederationOutput).ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentInboundFederationArgs, UserPoolRegionalConfigurationAttachmentInboundFederationPtr and UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentInboundFederationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentInboundFederationPtrType UserPoolRegionalConfigurationAttachmentInboundFederationArgs
+
+func UserPoolRegionalConfigurationAttachmentInboundFederationPtr(v *UserPoolRegionalConfigurationAttachmentInboundFederationArgs) UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentInboundFederationPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentInboundFederationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentInboundFederation)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentInboundFederationPtrType) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentInboundFederationPtrType) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentInboundFederationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentInboundFederationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederation)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationOutput() UserPoolRegionalConfigurationAttachmentInboundFederationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentInboundFederation) *UserPoolRegionalConfigurationAttachmentInboundFederation {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentInboundFederation) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentInboundFederation) *string { return v.LambdaVersion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentInboundFederation)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) ToUserPoolRegionalConfigurationAttachmentInboundFederationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentInboundFederationOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentInboundFederation) UserPoolRegionalConfigurationAttachmentInboundFederation {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentInboundFederation
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentInboundFederationOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentInboundFederation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentInboundFederation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentLambdaConfig struct {
+	CreateAuthChallenge         *string                                                          `pulumi:"createAuthChallenge"`
+	CustomEmailSender           *UserPoolRegionalConfigurationAttachmentCustomEmailSender        `pulumi:"customEmailSender"`
+	CustomMessage               *string                                                          `pulumi:"customMessage"`
+	CustomSmsSender             *UserPoolRegionalConfigurationAttachmentCustomSmsSender          `pulumi:"customSmsSender"`
+	DefineAuthChallenge         *string                                                          `pulumi:"defineAuthChallenge"`
+	InboundFederation           *UserPoolRegionalConfigurationAttachmentInboundFederation        `pulumi:"inboundFederation"`
+	KmsKeyId                    *string                                                          `pulumi:"kmsKeyId"`
+	PostAuthentication          *string                                                          `pulumi:"postAuthentication"`
+	PostConfirmation            *string                                                          `pulumi:"postConfirmation"`
+	PreAuthentication           *string                                                          `pulumi:"preAuthentication"`
+	PreSignUp                   *string                                                          `pulumi:"preSignUp"`
+	PreTokenGeneration          *string                                                          `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfig    *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
+	UserMigration               *string                                                          `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse *string                                                          `pulumi:"verifyAuthChallengeResponse"`
+}
+
+// UserPoolRegionalConfigurationAttachmentLambdaConfigInput is an input type that accepts UserPoolRegionalConfigurationAttachmentLambdaConfigArgs and UserPoolRegionalConfigurationAttachmentLambdaConfigOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentLambdaConfigInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentLambdaConfigArgs{...}
+type UserPoolRegionalConfigurationAttachmentLambdaConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigOutput
+	ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentLambdaConfigArgs struct {
+	CreateAuthChallenge         pulumi.StringPtrInput                                                   `pulumi:"createAuthChallenge"`
+	CustomEmailSender           UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput        `pulumi:"customEmailSender"`
+	CustomMessage               pulumi.StringPtrInput                                                   `pulumi:"customMessage"`
+	CustomSmsSender             UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput          `pulumi:"customSmsSender"`
+	DefineAuthChallenge         pulumi.StringPtrInput                                                   `pulumi:"defineAuthChallenge"`
+	InboundFederation           UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput        `pulumi:"inboundFederation"`
+	KmsKeyId                    pulumi.StringPtrInput                                                   `pulumi:"kmsKeyId"`
+	PostAuthentication          pulumi.StringPtrInput                                                   `pulumi:"postAuthentication"`
+	PostConfirmation            pulumi.StringPtrInput                                                   `pulumi:"postConfirmation"`
+	PreAuthentication           pulumi.StringPtrInput                                                   `pulumi:"preAuthentication"`
+	PreSignUp                   pulumi.StringPtrInput                                                   `pulumi:"preSignUp"`
+	PreTokenGeneration          pulumi.StringPtrInput                                                   `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfig    UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
+	UserMigration               pulumi.StringPtrInput                                                   `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse pulumi.StringPtrInput                                                   `pulumi:"verifyAuthChallengeResponse"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentLambdaConfig)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentLambdaConfigOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentLambdaConfigOutput).ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentLambdaConfigPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentLambdaConfigArgs, UserPoolRegionalConfigurationAttachmentLambdaConfigPtr and UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentLambdaConfigPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentLambdaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentLambdaConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentLambdaConfigPtrType UserPoolRegionalConfigurationAttachmentLambdaConfigArgs
+
+func UserPoolRegionalConfigurationAttachmentLambdaConfigPtr(v *UserPoolRegionalConfigurationAttachmentLambdaConfigArgs) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentLambdaConfigPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentLambdaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentLambdaConfig)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentLambdaConfigPtrType) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentLambdaConfigPtrType) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentLambdaConfig)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentLambdaConfig {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.CreateAuthChallenge }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) CustomEmailSender() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentCustomEmailSender {
+		return v.CustomEmailSender
+	}).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) CustomSmsSender() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentCustomSmsSender {
+		return v.CustomSmsSender
+	}).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) InboundFederation() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentInboundFederation {
+		return v.InboundFederation
+	}).(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PostAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.PostAuthentication }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PostConfirmation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.PostConfirmation }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PreAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.PreAuthentication }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PreSignUp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.PreSignUp }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) PreTokenGenerationConfig() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig {
+		return v.PreTokenGenerationConfig
+	}).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) UserMigration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string { return v.UserMigration }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigOutput) VerifyAuthChallengeResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		return v.VerifyAuthChallengeResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentLambdaConfig)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput() UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) ToUserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentLambdaConfigOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) UserPoolRegionalConfigurationAttachmentLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentLambdaConfig
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentLambdaConfigOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreateAuthChallenge
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) CustomEmailSender() UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentCustomEmailSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEmailSender
+	}).(UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) CustomSmsSender() UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentCustomSmsSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSmsSender
+	}).(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefineAuthChallenge
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) InboundFederation() UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentInboundFederation {
+		if v == nil {
+			return nil
+		}
+		return v.InboundFederation
+	}).(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PostAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAuthentication
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PostConfirmation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostConfirmation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PreAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreAuthentication
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreSignUp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreTokenGeneration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PreTokenGenerationConfig
+	}).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) UserMigration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserMigration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerifyAuthChallengeResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig struct {
+	LambdaArn     *string `pulumi:"lambdaArn"`
+	LambdaVersion *string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigInput is an input type that accepts UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs and UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs{...}
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput
+	ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs struct {
+	LambdaArn     pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	LambdaVersion pulumi.StringPtrInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput).ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs, UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtr and UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrType UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs
+
+func UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtr(v *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrType) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrType) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) *string {
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) ToUserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentSmsConfiguration struct {
+	ExternalId   *string `pulumi:"externalId"`
+	SnsCallerArn *string `pulumi:"snsCallerArn"`
+	SnsRegion    *string `pulumi:"snsRegion"`
+}
+
+// UserPoolRegionalConfigurationAttachmentSmsConfigurationInput is an input type that accepts UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs and UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentSmsConfigurationInput` via:
+//
+//	UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs{...}
+type UserPoolRegionalConfigurationAttachmentSmsConfigurationInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput
+	ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput
+}
+
+type UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs struct {
+	ExternalId   pulumi.StringPtrInput `pulumi:"externalId"`
+	SnsCallerArn pulumi.StringPtrInput `pulumi:"snsCallerArn"`
+	SnsRegion    pulumi.StringPtrInput `pulumi:"snsRegion"`
+}
+
+func (UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentSmsConfiguration)(nil)).Elem()
+}
+
+func (i UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput)
+}
+
+func (i UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput).ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrInput is an input type that accepts UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs, UserPoolRegionalConfigurationAttachmentSmsConfigurationPtr and UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrInput` via:
+//
+//	        UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput
+	ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput
+}
+
+type userPoolRegionalConfigurationAttachmentSmsConfigurationPtrType UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs
+
+func UserPoolRegionalConfigurationAttachmentSmsConfigurationPtr(v *UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrInput {
+	return (*userPoolRegionalConfigurationAttachmentSmsConfigurationPtrType)(v)
+}
+
+func (*userPoolRegionalConfigurationAttachmentSmsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentSmsConfiguration)(nil)).Elem()
+}
+
+func (i *userPoolRegionalConfigurationAttachmentSmsConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return i.ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolRegionalConfigurationAttachmentSmsConfigurationPtrType) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return o.ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *UserPoolRegionalConfigurationAttachmentSmsConfiguration {
+		return &v
+	}).(UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) SnsCallerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string { return v.SnsCallerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string { return v.SnsRegion }).(pulumi.StringPtrOutput)
+}
+
+type UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolRegionalConfigurationAttachmentSmsConfiguration)(nil)).Elem()
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput() UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) ToUserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput {
+	return o
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) Elem() UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentSmsConfiguration) UserPoolRegionalConfigurationAttachmentSmsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolRegionalConfigurationAttachmentSmsConfiguration
+		return ret
+	}).(UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) SnsCallerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsCallerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput) SnsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolRegionalConfigurationAttachmentSmsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsRegion
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserPoolResourceServerResourceServerScopeType struct {
@@ -8295,6 +9898,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInboundFederationPtrInput)(nil)).Elem(), UserPoolInboundFederationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInviteMessageTemplateInput)(nil)).Elem(), UserPoolInviteMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolInviteMessageTemplatePtrInput)(nil)).Elem(), UserPoolInviteMessageTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationInput)(nil)).Elem(), UserPoolIssuerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationPtrInput)(nil)).Elem(), UserPoolIssuerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolKeyConfigurationInput)(nil)).Elem(), UserPoolKeyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolKeyConfigurationPtrInput)(nil)).Elem(), UserPoolKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigInput)(nil)).Elem(), UserPoolLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigPtrInput)(nil)).Elem(), UserPoolLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolNumberAttributeConstraintsInput)(nil)).Elem(), UserPoolNumberAttributeConstraintsArgs{})
@@ -8307,6 +9914,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPreTokenGenerationConfigPtrInput)(nil)).Elem(), UserPoolPreTokenGenerationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRecoveryOptionInput)(nil)).Elem(), UserPoolRecoveryOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRecoveryOptionArrayInput)(nil)).Elem(), UserPoolRecoveryOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomEmailSenderInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentCustomEmailSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomSmsSenderInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfigurationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentInboundFederationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentInboundFederationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentInboundFederationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentLambdaConfigInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentLambdaConfigPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentSmsConfigurationInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrInput)(nil)).Elem(), UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolResourceServerResourceServerScopeTypeInput)(nil)).Elem(), UserPoolResourceServerResourceServerScopeTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolResourceServerResourceServerScopeTypeArrayInput)(nil)).Elem(), UserPoolResourceServerResourceServerScopeTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeInput)(nil)).Elem(), UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs{})
@@ -8395,6 +10016,10 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolInboundFederationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolInviteMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolInviteMessageTemplatePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolIssuerConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolIssuerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolKeyConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolNumberAttributeConstraintsOutput{})
@@ -8407,6 +10032,20 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolPreTokenGenerationConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolRecoveryOptionOutput{})
 	pulumi.RegisterOutputType(UserPoolRecoveryOptionArrayOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentCustomEmailSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentCustomEmailSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentCustomSmsSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentCustomSmsSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEmailConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentEmailConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentInboundFederationOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentInboundFederationPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentLambdaConfigOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentSmsConfigurationOutput{})
+	pulumi.RegisterOutputType(UserPoolRegionalConfigurationAttachmentSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolResourceServerResourceServerScopeTypeOutput{})
 	pulumi.RegisterOutputType(UserPoolResourceServerResourceServerScopeTypeArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput{})

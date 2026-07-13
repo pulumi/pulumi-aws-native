@@ -13,6 +13,1634 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AlgorithmCategoricalParameterRangeSpecification struct {
+	Values []string `pulumi:"values"`
+}
+
+// AlgorithmCategoricalParameterRangeSpecificationInput is an input type that accepts AlgorithmCategoricalParameterRangeSpecificationArgs and AlgorithmCategoricalParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmCategoricalParameterRangeSpecificationInput` via:
+//
+//	AlgorithmCategoricalParameterRangeSpecificationArgs{...}
+type AlgorithmCategoricalParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmCategoricalParameterRangeSpecificationOutput() AlgorithmCategoricalParameterRangeSpecificationOutput
+	ToAlgorithmCategoricalParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmCategoricalParameterRangeSpecificationOutput
+}
+
+type AlgorithmCategoricalParameterRangeSpecificationArgs struct {
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlgorithmCategoricalParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmCategoricalParameterRangeSpecificationArgs) ToAlgorithmCategoricalParameterRangeSpecificationOutput() AlgorithmCategoricalParameterRangeSpecificationOutput {
+	return i.ToAlgorithmCategoricalParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmCategoricalParameterRangeSpecificationArgs) ToAlgorithmCategoricalParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmCategoricalParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmCategoricalParameterRangeSpecificationArgs) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutput() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmCategoricalParameterRangeSpecificationArgs) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmCategoricalParameterRangeSpecificationOutput).ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmCategoricalParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmCategoricalParameterRangeSpecificationArgs, AlgorithmCategoricalParameterRangeSpecificationPtr and AlgorithmCategoricalParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmCategoricalParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmCategoricalParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmCategoricalParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmCategoricalParameterRangeSpecificationPtrOutput() AlgorithmCategoricalParameterRangeSpecificationPtrOutput
+	ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmCategoricalParameterRangeSpecificationPtrOutput
+}
+
+type algorithmCategoricalParameterRangeSpecificationPtrType AlgorithmCategoricalParameterRangeSpecificationArgs
+
+func AlgorithmCategoricalParameterRangeSpecificationPtr(v *AlgorithmCategoricalParameterRangeSpecificationArgs) AlgorithmCategoricalParameterRangeSpecificationPtrInput {
+	return (*algorithmCategoricalParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmCategoricalParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmCategoricalParameterRangeSpecificationPtrType) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutput() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmCategoricalParameterRangeSpecificationPtrType) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmCategoricalParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmCategoricalParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationOutput) ToAlgorithmCategoricalParameterRangeSpecificationOutput() AlgorithmCategoricalParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationOutput) ToAlgorithmCategoricalParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationOutput) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutput() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationOutput) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmCategoricalParameterRangeSpecification) *AlgorithmCategoricalParameterRangeSpecification {
+		return &v
+	}).(AlgorithmCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmCategoricalParameterRangeSpecification) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmCategoricalParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmCategoricalParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmCategoricalParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationPtrOutput) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutput() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationPtrOutput) ToAlgorithmCategoricalParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationPtrOutput) Elem() AlgorithmCategoricalParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmCategoricalParameterRangeSpecification) AlgorithmCategoricalParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmCategoricalParameterRangeSpecification
+		return ret
+	}).(AlgorithmCategoricalParameterRangeSpecificationOutput)
+}
+
+func (o AlgorithmCategoricalParameterRangeSpecificationPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmCategoricalParameterRangeSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmChannelSpecification struct {
+	Description               *string                                                      `pulumi:"description"`
+	IsRequired                *bool                                                        `pulumi:"isRequired"`
+	Name                      string                                                       `pulumi:"name"`
+	SupportedCompressionTypes []AlgorithmChannelSpecificationSupportedCompressionTypesItem `pulumi:"supportedCompressionTypes"`
+	SupportedContentTypes     []string                                                     `pulumi:"supportedContentTypes"`
+	SupportedInputModes       []AlgorithmChannelSpecificationSupportedInputModesItem       `pulumi:"supportedInputModes"`
+}
+
+// AlgorithmChannelSpecificationInput is an input type that accepts AlgorithmChannelSpecificationArgs and AlgorithmChannelSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmChannelSpecificationInput` via:
+//
+//	AlgorithmChannelSpecificationArgs{...}
+type AlgorithmChannelSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationOutput() AlgorithmChannelSpecificationOutput
+	ToAlgorithmChannelSpecificationOutputWithContext(context.Context) AlgorithmChannelSpecificationOutput
+}
+
+type AlgorithmChannelSpecificationArgs struct {
+	Description               pulumi.StringPtrInput                                                `pulumi:"description"`
+	IsRequired                pulumi.BoolPtrInput                                                  `pulumi:"isRequired"`
+	Name                      pulumi.StringInput                                                   `pulumi:"name"`
+	SupportedCompressionTypes AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput `pulumi:"supportedCompressionTypes"`
+	SupportedContentTypes     pulumi.StringArrayInput                                              `pulumi:"supportedContentTypes"`
+	SupportedInputModes       AlgorithmChannelSpecificationSupportedInputModesItemArrayInput       `pulumi:"supportedInputModes"`
+}
+
+func (AlgorithmChannelSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmChannelSpecificationArgs) ToAlgorithmChannelSpecificationOutput() AlgorithmChannelSpecificationOutput {
+	return i.ToAlgorithmChannelSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmChannelSpecificationArgs) ToAlgorithmChannelSpecificationOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmChannelSpecificationOutput)
+}
+
+// AlgorithmChannelSpecificationArrayInput is an input type that accepts AlgorithmChannelSpecificationArray and AlgorithmChannelSpecificationArrayOutput values.
+// You can construct a concrete instance of `AlgorithmChannelSpecificationArrayInput` via:
+//
+//	AlgorithmChannelSpecificationArray{ AlgorithmChannelSpecificationArgs{...} }
+type AlgorithmChannelSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationArrayOutput() AlgorithmChannelSpecificationArrayOutput
+	ToAlgorithmChannelSpecificationArrayOutputWithContext(context.Context) AlgorithmChannelSpecificationArrayOutput
+}
+
+type AlgorithmChannelSpecificationArray []AlgorithmChannelSpecificationInput
+
+func (AlgorithmChannelSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmChannelSpecificationArray) ToAlgorithmChannelSpecificationArrayOutput() AlgorithmChannelSpecificationArrayOutput {
+	return i.ToAlgorithmChannelSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmChannelSpecificationArray) ToAlgorithmChannelSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmChannelSpecificationArrayOutput)
+}
+
+type AlgorithmChannelSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationOutput) ToAlgorithmChannelSpecificationOutput() AlgorithmChannelSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationOutput) ToAlgorithmChannelSpecificationOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmChannelSpecificationOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlgorithmChannelSpecificationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmChannelSpecificationOutput) SupportedCompressionTypes() AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) []AlgorithmChannelSpecificationSupportedCompressionTypesItem {
+		return v.SupportedCompressionTypes
+	}).(AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput)
+}
+
+func (o AlgorithmChannelSpecificationOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) []string { return v.SupportedContentTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmChannelSpecificationOutput) SupportedInputModes() AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput {
+	return o.ApplyT(func(v AlgorithmChannelSpecification) []AlgorithmChannelSpecificationSupportedInputModesItem {
+		return v.SupportedInputModes
+	}).(AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput)
+}
+
+type AlgorithmChannelSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationArrayOutput) ToAlgorithmChannelSpecificationArrayOutput() AlgorithmChannelSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationArrayOutput) ToAlgorithmChannelSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationArrayOutput) Index(i pulumi.IntInput) AlgorithmChannelSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmChannelSpecification {
+		return vs[0].([]AlgorithmChannelSpecification)[vs[1].(int)]
+	}).(AlgorithmChannelSpecificationOutput)
+}
+
+type AlgorithmContinuousParameterRangeSpecification struct {
+	MaxValue string `pulumi:"maxValue"`
+	MinValue string `pulumi:"minValue"`
+}
+
+// AlgorithmContinuousParameterRangeSpecificationInput is an input type that accepts AlgorithmContinuousParameterRangeSpecificationArgs and AlgorithmContinuousParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmContinuousParameterRangeSpecificationInput` via:
+//
+//	AlgorithmContinuousParameterRangeSpecificationArgs{...}
+type AlgorithmContinuousParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmContinuousParameterRangeSpecificationOutput() AlgorithmContinuousParameterRangeSpecificationOutput
+	ToAlgorithmContinuousParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmContinuousParameterRangeSpecificationOutput
+}
+
+type AlgorithmContinuousParameterRangeSpecificationArgs struct {
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (AlgorithmContinuousParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmContinuousParameterRangeSpecificationArgs) ToAlgorithmContinuousParameterRangeSpecificationOutput() AlgorithmContinuousParameterRangeSpecificationOutput {
+	return i.ToAlgorithmContinuousParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmContinuousParameterRangeSpecificationArgs) ToAlgorithmContinuousParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmContinuousParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmContinuousParameterRangeSpecificationArgs) ToAlgorithmContinuousParameterRangeSpecificationPtrOutput() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmContinuousParameterRangeSpecificationArgs) ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmContinuousParameterRangeSpecificationOutput).ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmContinuousParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmContinuousParameterRangeSpecificationArgs, AlgorithmContinuousParameterRangeSpecificationPtr and AlgorithmContinuousParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmContinuousParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmContinuousParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmContinuousParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmContinuousParameterRangeSpecificationPtrOutput() AlgorithmContinuousParameterRangeSpecificationPtrOutput
+	ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmContinuousParameterRangeSpecificationPtrOutput
+}
+
+type algorithmContinuousParameterRangeSpecificationPtrType AlgorithmContinuousParameterRangeSpecificationArgs
+
+func AlgorithmContinuousParameterRangeSpecificationPtr(v *AlgorithmContinuousParameterRangeSpecificationArgs) AlgorithmContinuousParameterRangeSpecificationPtrInput {
+	return (*algorithmContinuousParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmContinuousParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmContinuousParameterRangeSpecificationPtrType) ToAlgorithmContinuousParameterRangeSpecificationPtrOutput() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmContinuousParameterRangeSpecificationPtrType) ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmContinuousParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmContinuousParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmContinuousParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) ToAlgorithmContinuousParameterRangeSpecificationOutput() AlgorithmContinuousParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) ToAlgorithmContinuousParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) ToAlgorithmContinuousParameterRangeSpecificationPtrOutput() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmContinuousParameterRangeSpecification) *AlgorithmContinuousParameterRangeSpecification {
+		return &v
+	}).(AlgorithmContinuousParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) MaxValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmContinuousParameterRangeSpecification) string { return v.MaxValue }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationOutput) MinValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmContinuousParameterRangeSpecification) string { return v.MinValue }).(pulumi.StringOutput)
+}
+
+type AlgorithmContinuousParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmContinuousParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmContinuousParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationPtrOutput) ToAlgorithmContinuousParameterRangeSpecificationPtrOutput() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationPtrOutput) ToAlgorithmContinuousParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationPtrOutput) Elem() AlgorithmContinuousParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmContinuousParameterRangeSpecification) AlgorithmContinuousParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmContinuousParameterRangeSpecification
+		return ret
+	}).(AlgorithmContinuousParameterRangeSpecificationOutput)
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationPtrOutput) MaxValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmContinuousParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmContinuousParameterRangeSpecificationPtrOutput) MinValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmContinuousParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmHyperParameterSpecification struct {
+	DefaultValue *string                                  `pulumi:"defaultValue"`
+	Description  *string                                  `pulumi:"description"`
+	IsRequired   *bool                                    `pulumi:"isRequired"`
+	IsTunable    *bool                                    `pulumi:"isTunable"`
+	Name         string                                   `pulumi:"name"`
+	Range        *AlgorithmParameterRange                 `pulumi:"range"`
+	Type         AlgorithmHyperParameterSpecificationType `pulumi:"type"`
+}
+
+// AlgorithmHyperParameterSpecificationInput is an input type that accepts AlgorithmHyperParameterSpecificationArgs and AlgorithmHyperParameterSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmHyperParameterSpecificationInput` via:
+//
+//	AlgorithmHyperParameterSpecificationArgs{...}
+type AlgorithmHyperParameterSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterSpecificationOutput() AlgorithmHyperParameterSpecificationOutput
+	ToAlgorithmHyperParameterSpecificationOutputWithContext(context.Context) AlgorithmHyperParameterSpecificationOutput
+}
+
+type AlgorithmHyperParameterSpecificationArgs struct {
+	DefaultValue pulumi.StringPtrInput                         `pulumi:"defaultValue"`
+	Description  pulumi.StringPtrInput                         `pulumi:"description"`
+	IsRequired   pulumi.BoolPtrInput                           `pulumi:"isRequired"`
+	IsTunable    pulumi.BoolPtrInput                           `pulumi:"isTunable"`
+	Name         pulumi.StringInput                            `pulumi:"name"`
+	Range        AlgorithmParameterRangePtrInput               `pulumi:"range"`
+	Type         AlgorithmHyperParameterSpecificationTypeInput `pulumi:"type"`
+}
+
+func (AlgorithmHyperParameterSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmHyperParameterSpecificationArgs) ToAlgorithmHyperParameterSpecificationOutput() AlgorithmHyperParameterSpecificationOutput {
+	return i.ToAlgorithmHyperParameterSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmHyperParameterSpecificationArgs) ToAlgorithmHyperParameterSpecificationOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmHyperParameterSpecificationOutput)
+}
+
+// AlgorithmHyperParameterSpecificationArrayInput is an input type that accepts AlgorithmHyperParameterSpecificationArray and AlgorithmHyperParameterSpecificationArrayOutput values.
+// You can construct a concrete instance of `AlgorithmHyperParameterSpecificationArrayInput` via:
+//
+//	AlgorithmHyperParameterSpecificationArray{ AlgorithmHyperParameterSpecificationArgs{...} }
+type AlgorithmHyperParameterSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterSpecificationArrayOutput() AlgorithmHyperParameterSpecificationArrayOutput
+	ToAlgorithmHyperParameterSpecificationArrayOutputWithContext(context.Context) AlgorithmHyperParameterSpecificationArrayOutput
+}
+
+type AlgorithmHyperParameterSpecificationArray []AlgorithmHyperParameterSpecificationInput
+
+func (AlgorithmHyperParameterSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmHyperParameterSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmHyperParameterSpecificationArray) ToAlgorithmHyperParameterSpecificationArrayOutput() AlgorithmHyperParameterSpecificationArrayOutput {
+	return i.ToAlgorithmHyperParameterSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmHyperParameterSpecificationArray) ToAlgorithmHyperParameterSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmHyperParameterSpecificationArrayOutput)
+}
+
+type AlgorithmHyperParameterSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) ToAlgorithmHyperParameterSpecificationOutput() AlgorithmHyperParameterSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) ToAlgorithmHyperParameterSpecificationOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) IsRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) *bool { return v.IsRequired }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) IsTunable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) *bool { return v.IsTunable }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) Range() AlgorithmParameterRangePtrOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) *AlgorithmParameterRange { return v.Range }).(AlgorithmParameterRangePtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationOutput) Type() AlgorithmHyperParameterSpecificationTypeOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterSpecification) AlgorithmHyperParameterSpecificationType { return v.Type }).(AlgorithmHyperParameterSpecificationTypeOutput)
+}
+
+type AlgorithmHyperParameterSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmHyperParameterSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterSpecificationArrayOutput) ToAlgorithmHyperParameterSpecificationArrayOutput() AlgorithmHyperParameterSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationArrayOutput) ToAlgorithmHyperParameterSpecificationArrayOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationArrayOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationArrayOutput) Index(i pulumi.IntInput) AlgorithmHyperParameterSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmHyperParameterSpecification {
+		return vs[0].([]AlgorithmHyperParameterSpecification)[vs[1].(int)]
+	}).(AlgorithmHyperParameterSpecificationOutput)
+}
+
+type AlgorithmHyperParameterTuningJobObjective struct {
+	MetricName string                                        `pulumi:"metricName"`
+	Type       AlgorithmHyperParameterTuningJobObjectiveType `pulumi:"type"`
+}
+
+// AlgorithmHyperParameterTuningJobObjectiveInput is an input type that accepts AlgorithmHyperParameterTuningJobObjectiveArgs and AlgorithmHyperParameterTuningJobObjectiveOutput values.
+// You can construct a concrete instance of `AlgorithmHyperParameterTuningJobObjectiveInput` via:
+//
+//	AlgorithmHyperParameterTuningJobObjectiveArgs{...}
+type AlgorithmHyperParameterTuningJobObjectiveInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterTuningJobObjectiveOutput() AlgorithmHyperParameterTuningJobObjectiveOutput
+	ToAlgorithmHyperParameterTuningJobObjectiveOutputWithContext(context.Context) AlgorithmHyperParameterTuningJobObjectiveOutput
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveArgs struct {
+	MetricName pulumi.StringInput                                 `pulumi:"metricName"`
+	Type       AlgorithmHyperParameterTuningJobObjectiveTypeInput `pulumi:"type"`
+}
+
+func (AlgorithmHyperParameterTuningJobObjectiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjective)(nil)).Elem()
+}
+
+func (i AlgorithmHyperParameterTuningJobObjectiveArgs) ToAlgorithmHyperParameterTuningJobObjectiveOutput() AlgorithmHyperParameterTuningJobObjectiveOutput {
+	return i.ToAlgorithmHyperParameterTuningJobObjectiveOutputWithContext(context.Background())
+}
+
+func (i AlgorithmHyperParameterTuningJobObjectiveArgs) ToAlgorithmHyperParameterTuningJobObjectiveOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmHyperParameterTuningJobObjectiveOutput)
+}
+
+// AlgorithmHyperParameterTuningJobObjectiveArrayInput is an input type that accepts AlgorithmHyperParameterTuningJobObjectiveArray and AlgorithmHyperParameterTuningJobObjectiveArrayOutput values.
+// You can construct a concrete instance of `AlgorithmHyperParameterTuningJobObjectiveArrayInput` via:
+//
+//	AlgorithmHyperParameterTuningJobObjectiveArray{ AlgorithmHyperParameterTuningJobObjectiveArgs{...} }
+type AlgorithmHyperParameterTuningJobObjectiveArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterTuningJobObjectiveArrayOutput() AlgorithmHyperParameterTuningJobObjectiveArrayOutput
+	ToAlgorithmHyperParameterTuningJobObjectiveArrayOutputWithContext(context.Context) AlgorithmHyperParameterTuningJobObjectiveArrayOutput
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveArray []AlgorithmHyperParameterTuningJobObjectiveInput
+
+func (AlgorithmHyperParameterTuningJobObjectiveArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmHyperParameterTuningJobObjective)(nil)).Elem()
+}
+
+func (i AlgorithmHyperParameterTuningJobObjectiveArray) ToAlgorithmHyperParameterTuningJobObjectiveArrayOutput() AlgorithmHyperParameterTuningJobObjectiveArrayOutput {
+	return i.ToAlgorithmHyperParameterTuningJobObjectiveArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmHyperParameterTuningJobObjectiveArray) ToAlgorithmHyperParameterTuningJobObjectiveArrayOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmHyperParameterTuningJobObjectiveArrayOutput)
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterTuningJobObjectiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjective)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveOutput) ToAlgorithmHyperParameterTuningJobObjectiveOutput() AlgorithmHyperParameterTuningJobObjectiveOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveOutput) ToAlgorithmHyperParameterTuningJobObjectiveOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveOutput) MetricName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterTuningJobObjective) string { return v.MetricName }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveOutput) Type() AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return o.ApplyT(func(v AlgorithmHyperParameterTuningJobObjective) AlgorithmHyperParameterTuningJobObjectiveType {
+		return v.Type
+	}).(AlgorithmHyperParameterTuningJobObjectiveTypeOutput)
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterTuningJobObjectiveArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmHyperParameterTuningJobObjective)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveArrayOutput) ToAlgorithmHyperParameterTuningJobObjectiveArrayOutput() AlgorithmHyperParameterTuningJobObjectiveArrayOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveArrayOutput) ToAlgorithmHyperParameterTuningJobObjectiveArrayOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveArrayOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveArrayOutput) Index(i pulumi.IntInput) AlgorithmHyperParameterTuningJobObjectiveOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmHyperParameterTuningJobObjective {
+		return vs[0].([]AlgorithmHyperParameterTuningJobObjective)[vs[1].(int)]
+	}).(AlgorithmHyperParameterTuningJobObjectiveOutput)
+}
+
+type AlgorithmInferenceSpecification struct {
+	Containers                              []AlgorithmModelPackageContainerDefinition `pulumi:"containers"`
+	SupportedContentTypes                   []string                                   `pulumi:"supportedContentTypes"`
+	SupportedRealtimeInferenceInstanceTypes []string                                   `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	SupportedResponseMimeTypes              []string                                   `pulumi:"supportedResponseMimeTypes"`
+	SupportedTransformInstanceTypes         []string                                   `pulumi:"supportedTransformInstanceTypes"`
+}
+
+// AlgorithmInferenceSpecificationInput is an input type that accepts AlgorithmInferenceSpecificationArgs and AlgorithmInferenceSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationInput` via:
+//
+//	AlgorithmInferenceSpecificationArgs{...}
+type AlgorithmInferenceSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput
+	ToAlgorithmInferenceSpecificationOutputWithContext(context.Context) AlgorithmInferenceSpecificationOutput
+}
+
+type AlgorithmInferenceSpecificationArgs struct {
+	Containers                              AlgorithmModelPackageContainerDefinitionArrayInput `pulumi:"containers"`
+	SupportedContentTypes                   pulumi.StringArrayInput                            `pulumi:"supportedContentTypes"`
+	SupportedRealtimeInferenceInstanceTypes pulumi.StringArrayInput                            `pulumi:"supportedRealtimeInferenceInstanceTypes"`
+	SupportedResponseMimeTypes              pulumi.StringArrayInput                            `pulumi:"supportedResponseMimeTypes"`
+	SupportedTransformInstanceTypes         pulumi.StringArrayInput                            `pulumi:"supportedTransformInstanceTypes"`
+}
+
+func (AlgorithmInferenceSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput {
+	return i.ToAlgorithmInferenceSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationOutput)
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmInferenceSpecificationArgs) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationOutput).ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmInferenceSpecificationPtrInput is an input type that accepts AlgorithmInferenceSpecificationArgs, AlgorithmInferenceSpecificationPtr and AlgorithmInferenceSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmInferenceSpecificationPtrInput` via:
+//
+//	        AlgorithmInferenceSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmInferenceSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput
+	ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Context) AlgorithmInferenceSpecificationPtrOutput
+}
+
+type algorithmInferenceSpecificationPtrType AlgorithmInferenceSpecificationArgs
+
+func AlgorithmInferenceSpecificationPtr(v *AlgorithmInferenceSpecificationArgs) AlgorithmInferenceSpecificationPtrInput {
+	return (*algorithmInferenceSpecificationPtrType)(v)
+}
+
+func (*algorithmInferenceSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (i *algorithmInferenceSpecificationPtrType) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return i.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmInferenceSpecificationPtrType) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmInferenceSpecificationPtrOutput)
+}
+
+type AlgorithmInferenceSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationOutput() AlgorithmInferenceSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return o.ToAlgorithmInferenceSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmInferenceSpecificationOutput) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmInferenceSpecification) *AlgorithmInferenceSpecification {
+		return &v
+	}).(AlgorithmInferenceSpecificationPtrOutput)
+}
+
+func (o AlgorithmInferenceSpecificationOutput) Containers() AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []AlgorithmModelPackageContainerDefinition {
+		return v.Containers
+	}).(AlgorithmModelPackageContainerDefinitionArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedContentTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedRealtimeInferenceInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedResponseMimeTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmInferenceSpecification) []string { return v.SupportedTransformInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmInferenceSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmInferenceSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmInferenceSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) ToAlgorithmInferenceSpecificationPtrOutput() AlgorithmInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) ToAlgorithmInferenceSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmInferenceSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) Elem() AlgorithmInferenceSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) AlgorithmInferenceSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmInferenceSpecification
+		return ret
+	}).(AlgorithmInferenceSpecificationOutput)
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) Containers() AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []AlgorithmModelPackageContainerDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(AlgorithmModelPackageContainerDefinitionArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedRealtimeInferenceInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedRealtimeInferenceInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedResponseMimeTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedResponseMimeTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmInferenceSpecificationPtrOutput) SupportedTransformInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlgorithmInferenceSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedTransformInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlgorithmIntegerParameterRangeSpecification struct {
+	MaxValue string `pulumi:"maxValue"`
+	MinValue string `pulumi:"minValue"`
+}
+
+// AlgorithmIntegerParameterRangeSpecificationInput is an input type that accepts AlgorithmIntegerParameterRangeSpecificationArgs and AlgorithmIntegerParameterRangeSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmIntegerParameterRangeSpecificationInput` via:
+//
+//	AlgorithmIntegerParameterRangeSpecificationArgs{...}
+type AlgorithmIntegerParameterRangeSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmIntegerParameterRangeSpecificationOutput() AlgorithmIntegerParameterRangeSpecificationOutput
+	ToAlgorithmIntegerParameterRangeSpecificationOutputWithContext(context.Context) AlgorithmIntegerParameterRangeSpecificationOutput
+}
+
+type AlgorithmIntegerParameterRangeSpecificationArgs struct {
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (AlgorithmIntegerParameterRangeSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmIntegerParameterRangeSpecificationArgs) ToAlgorithmIntegerParameterRangeSpecificationOutput() AlgorithmIntegerParameterRangeSpecificationOutput {
+	return i.ToAlgorithmIntegerParameterRangeSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmIntegerParameterRangeSpecificationArgs) ToAlgorithmIntegerParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmIntegerParameterRangeSpecificationOutput)
+}
+
+func (i AlgorithmIntegerParameterRangeSpecificationArgs) ToAlgorithmIntegerParameterRangeSpecificationPtrOutput() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmIntegerParameterRangeSpecificationArgs) ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmIntegerParameterRangeSpecificationOutput).ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(ctx)
+}
+
+// AlgorithmIntegerParameterRangeSpecificationPtrInput is an input type that accepts AlgorithmIntegerParameterRangeSpecificationArgs, AlgorithmIntegerParameterRangeSpecificationPtr and AlgorithmIntegerParameterRangeSpecificationPtrOutput values.
+// You can construct a concrete instance of `AlgorithmIntegerParameterRangeSpecificationPtrInput` via:
+//
+//	        AlgorithmIntegerParameterRangeSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmIntegerParameterRangeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmIntegerParameterRangeSpecificationPtrOutput() AlgorithmIntegerParameterRangeSpecificationPtrOutput
+	ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(context.Context) AlgorithmIntegerParameterRangeSpecificationPtrOutput
+}
+
+type algorithmIntegerParameterRangeSpecificationPtrType AlgorithmIntegerParameterRangeSpecificationArgs
+
+func AlgorithmIntegerParameterRangeSpecificationPtr(v *AlgorithmIntegerParameterRangeSpecificationArgs) AlgorithmIntegerParameterRangeSpecificationPtrInput {
+	return (*algorithmIntegerParameterRangeSpecificationPtrType)(v)
+}
+
+func (*algorithmIntegerParameterRangeSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (i *algorithmIntegerParameterRangeSpecificationPtrType) ToAlgorithmIntegerParameterRangeSpecificationPtrOutput() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return i.ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmIntegerParameterRangeSpecificationPtrType) ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmIntegerParameterRangeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmIntegerParameterRangeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) ToAlgorithmIntegerParameterRangeSpecificationOutput() AlgorithmIntegerParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) ToAlgorithmIntegerParameterRangeSpecificationOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) ToAlgorithmIntegerParameterRangeSpecificationPtrOutput() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o.ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmIntegerParameterRangeSpecification) *AlgorithmIntegerParameterRangeSpecification {
+		return &v
+	}).(AlgorithmIntegerParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) MaxValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmIntegerParameterRangeSpecification) string { return v.MaxValue }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationOutput) MinValue() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmIntegerParameterRangeSpecification) string { return v.MinValue }).(pulumi.StringOutput)
+}
+
+type AlgorithmIntegerParameterRangeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmIntegerParameterRangeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmIntegerParameterRangeSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationPtrOutput) ToAlgorithmIntegerParameterRangeSpecificationPtrOutput() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationPtrOutput) ToAlgorithmIntegerParameterRangeSpecificationPtrOutputWithContext(ctx context.Context) AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationPtrOutput) Elem() AlgorithmIntegerParameterRangeSpecificationOutput {
+	return o.ApplyT(func(v *AlgorithmIntegerParameterRangeSpecification) AlgorithmIntegerParameterRangeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmIntegerParameterRangeSpecification
+		return ret
+	}).(AlgorithmIntegerParameterRangeSpecificationOutput)
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationPtrOutput) MaxValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmIntegerParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxValue
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmIntegerParameterRangeSpecificationPtrOutput) MinValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmIntegerParameterRangeSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmMetricDefinition struct {
+	Name  string `pulumi:"name"`
+	Regex string `pulumi:"regex"`
+}
+
+// AlgorithmMetricDefinitionInput is an input type that accepts AlgorithmMetricDefinitionArgs and AlgorithmMetricDefinitionOutput values.
+// You can construct a concrete instance of `AlgorithmMetricDefinitionInput` via:
+//
+//	AlgorithmMetricDefinitionArgs{...}
+type AlgorithmMetricDefinitionInput interface {
+	pulumi.Input
+
+	ToAlgorithmMetricDefinitionOutput() AlgorithmMetricDefinitionOutput
+	ToAlgorithmMetricDefinitionOutputWithContext(context.Context) AlgorithmMetricDefinitionOutput
+}
+
+type AlgorithmMetricDefinitionArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Regex pulumi.StringInput `pulumi:"regex"`
+}
+
+func (AlgorithmMetricDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmMetricDefinitionArgs) ToAlgorithmMetricDefinitionOutput() AlgorithmMetricDefinitionOutput {
+	return i.ToAlgorithmMetricDefinitionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmMetricDefinitionArgs) ToAlgorithmMetricDefinitionOutputWithContext(ctx context.Context) AlgorithmMetricDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmMetricDefinitionOutput)
+}
+
+// AlgorithmMetricDefinitionArrayInput is an input type that accepts AlgorithmMetricDefinitionArray and AlgorithmMetricDefinitionArrayOutput values.
+// You can construct a concrete instance of `AlgorithmMetricDefinitionArrayInput` via:
+//
+//	AlgorithmMetricDefinitionArray{ AlgorithmMetricDefinitionArgs{...} }
+type AlgorithmMetricDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmMetricDefinitionArrayOutput() AlgorithmMetricDefinitionArrayOutput
+	ToAlgorithmMetricDefinitionArrayOutputWithContext(context.Context) AlgorithmMetricDefinitionArrayOutput
+}
+
+type AlgorithmMetricDefinitionArray []AlgorithmMetricDefinitionInput
+
+func (AlgorithmMetricDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmMetricDefinitionArray) ToAlgorithmMetricDefinitionArrayOutput() AlgorithmMetricDefinitionArrayOutput {
+	return i.ToAlgorithmMetricDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmMetricDefinitionArray) ToAlgorithmMetricDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmMetricDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmMetricDefinitionArrayOutput)
+}
+
+type AlgorithmMetricDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmMetricDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmMetricDefinitionOutput) ToAlgorithmMetricDefinitionOutput() AlgorithmMetricDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmMetricDefinitionOutput) ToAlgorithmMetricDefinitionOutputWithContext(ctx context.Context) AlgorithmMetricDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmMetricDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmMetricDefinitionOutput) Regex() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmMetricDefinition) string { return v.Regex }).(pulumi.StringOutput)
+}
+
+type AlgorithmMetricDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmMetricDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmMetricDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmMetricDefinitionArrayOutput) ToAlgorithmMetricDefinitionArrayOutput() AlgorithmMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmMetricDefinitionArrayOutput) ToAlgorithmMetricDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmMetricDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmMetricDefinitionArrayOutput) Index(i pulumi.IntInput) AlgorithmMetricDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmMetricDefinition {
+		return vs[0].([]AlgorithmMetricDefinition)[vs[1].(int)]
+	}).(AlgorithmMetricDefinitionOutput)
+}
+
+type AlgorithmModelInput struct {
+	DataInputConfig string `pulumi:"dataInputConfig"`
+}
+
+// AlgorithmModelInputInput is an input type that accepts AlgorithmModelInputArgs and AlgorithmModelInputOutput values.
+// You can construct a concrete instance of `AlgorithmModelInputInput` via:
+//
+//	AlgorithmModelInputArgs{...}
+type AlgorithmModelInputInput interface {
+	pulumi.Input
+
+	ToAlgorithmModelInputOutput() AlgorithmModelInputOutput
+	ToAlgorithmModelInputOutputWithContext(context.Context) AlgorithmModelInputOutput
+}
+
+type AlgorithmModelInputArgs struct {
+	DataInputConfig pulumi.StringInput `pulumi:"dataInputConfig"`
+}
+
+func (AlgorithmModelInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmModelInput)(nil)).Elem()
+}
+
+func (i AlgorithmModelInputArgs) ToAlgorithmModelInputOutput() AlgorithmModelInputOutput {
+	return i.ToAlgorithmModelInputOutputWithContext(context.Background())
+}
+
+func (i AlgorithmModelInputArgs) ToAlgorithmModelInputOutputWithContext(ctx context.Context) AlgorithmModelInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmModelInputOutput)
+}
+
+func (i AlgorithmModelInputArgs) ToAlgorithmModelInputPtrOutput() AlgorithmModelInputPtrOutput {
+	return i.ToAlgorithmModelInputPtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmModelInputArgs) ToAlgorithmModelInputPtrOutputWithContext(ctx context.Context) AlgorithmModelInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmModelInputOutput).ToAlgorithmModelInputPtrOutputWithContext(ctx)
+}
+
+// AlgorithmModelInputPtrInput is an input type that accepts AlgorithmModelInputArgs, AlgorithmModelInputPtr and AlgorithmModelInputPtrOutput values.
+// You can construct a concrete instance of `AlgorithmModelInputPtrInput` via:
+//
+//	        AlgorithmModelInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmModelInputPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmModelInputPtrOutput() AlgorithmModelInputPtrOutput
+	ToAlgorithmModelInputPtrOutputWithContext(context.Context) AlgorithmModelInputPtrOutput
+}
+
+type algorithmModelInputPtrType AlgorithmModelInputArgs
+
+func AlgorithmModelInputPtr(v *AlgorithmModelInputArgs) AlgorithmModelInputPtrInput {
+	return (*algorithmModelInputPtrType)(v)
+}
+
+func (*algorithmModelInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmModelInput)(nil)).Elem()
+}
+
+func (i *algorithmModelInputPtrType) ToAlgorithmModelInputPtrOutput() AlgorithmModelInputPtrOutput {
+	return i.ToAlgorithmModelInputPtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmModelInputPtrType) ToAlgorithmModelInputPtrOutputWithContext(ctx context.Context) AlgorithmModelInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmModelInputPtrOutput)
+}
+
+type AlgorithmModelInputOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmModelInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmModelInput)(nil)).Elem()
+}
+
+func (o AlgorithmModelInputOutput) ToAlgorithmModelInputOutput() AlgorithmModelInputOutput {
+	return o
+}
+
+func (o AlgorithmModelInputOutput) ToAlgorithmModelInputOutputWithContext(ctx context.Context) AlgorithmModelInputOutput {
+	return o
+}
+
+func (o AlgorithmModelInputOutput) ToAlgorithmModelInputPtrOutput() AlgorithmModelInputPtrOutput {
+	return o.ToAlgorithmModelInputPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmModelInputOutput) ToAlgorithmModelInputPtrOutputWithContext(ctx context.Context) AlgorithmModelInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmModelInput) *AlgorithmModelInput {
+		return &v
+	}).(AlgorithmModelInputPtrOutput)
+}
+
+func (o AlgorithmModelInputOutput) DataInputConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmModelInput) string { return v.DataInputConfig }).(pulumi.StringOutput)
+}
+
+type AlgorithmModelInputPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmModelInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmModelInput)(nil)).Elem()
+}
+
+func (o AlgorithmModelInputPtrOutput) ToAlgorithmModelInputPtrOutput() AlgorithmModelInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmModelInputPtrOutput) ToAlgorithmModelInputPtrOutputWithContext(ctx context.Context) AlgorithmModelInputPtrOutput {
+	return o
+}
+
+func (o AlgorithmModelInputPtrOutput) Elem() AlgorithmModelInputOutput {
+	return o.ApplyT(func(v *AlgorithmModelInput) AlgorithmModelInput {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmModelInput
+		return ret
+	}).(AlgorithmModelInputOutput)
+}
+
+func (o AlgorithmModelInputPtrOutput) DataInputConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlgorithmModelInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataInputConfig
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmModelPackageContainerDefinition struct {
+	ContainerHostname *string              `pulumi:"containerHostname"`
+	Environment       map[string]string    `pulumi:"environment"`
+	Framework         *string              `pulumi:"framework"`
+	FrameworkVersion  *string              `pulumi:"frameworkVersion"`
+	Image             string               `pulumi:"image"`
+	ImageDigest       *string              `pulumi:"imageDigest"`
+	IsCheckpoint      *bool                `pulumi:"isCheckpoint"`
+	ModelInput        *AlgorithmModelInput `pulumi:"modelInput"`
+	NearestModelName  *string              `pulumi:"nearestModelName"`
+}
+
+// AlgorithmModelPackageContainerDefinitionInput is an input type that accepts AlgorithmModelPackageContainerDefinitionArgs and AlgorithmModelPackageContainerDefinitionOutput values.
+// You can construct a concrete instance of `AlgorithmModelPackageContainerDefinitionInput` via:
+//
+//	AlgorithmModelPackageContainerDefinitionArgs{...}
+type AlgorithmModelPackageContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToAlgorithmModelPackageContainerDefinitionOutput() AlgorithmModelPackageContainerDefinitionOutput
+	ToAlgorithmModelPackageContainerDefinitionOutputWithContext(context.Context) AlgorithmModelPackageContainerDefinitionOutput
+}
+
+type AlgorithmModelPackageContainerDefinitionArgs struct {
+	ContainerHostname pulumi.StringPtrInput       `pulumi:"containerHostname"`
+	Environment       pulumi.StringMapInput       `pulumi:"environment"`
+	Framework         pulumi.StringPtrInput       `pulumi:"framework"`
+	FrameworkVersion  pulumi.StringPtrInput       `pulumi:"frameworkVersion"`
+	Image             pulumi.StringInput          `pulumi:"image"`
+	ImageDigest       pulumi.StringPtrInput       `pulumi:"imageDigest"`
+	IsCheckpoint      pulumi.BoolPtrInput         `pulumi:"isCheckpoint"`
+	ModelInput        AlgorithmModelInputPtrInput `pulumi:"modelInput"`
+	NearestModelName  pulumi.StringPtrInput       `pulumi:"nearestModelName"`
+}
+
+func (AlgorithmModelPackageContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmModelPackageContainerDefinitionArgs) ToAlgorithmModelPackageContainerDefinitionOutput() AlgorithmModelPackageContainerDefinitionOutput {
+	return i.ToAlgorithmModelPackageContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i AlgorithmModelPackageContainerDefinitionArgs) ToAlgorithmModelPackageContainerDefinitionOutputWithContext(ctx context.Context) AlgorithmModelPackageContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmModelPackageContainerDefinitionOutput)
+}
+
+// AlgorithmModelPackageContainerDefinitionArrayInput is an input type that accepts AlgorithmModelPackageContainerDefinitionArray and AlgorithmModelPackageContainerDefinitionArrayOutput values.
+// You can construct a concrete instance of `AlgorithmModelPackageContainerDefinitionArrayInput` via:
+//
+//	AlgorithmModelPackageContainerDefinitionArray{ AlgorithmModelPackageContainerDefinitionArgs{...} }
+type AlgorithmModelPackageContainerDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmModelPackageContainerDefinitionArrayOutput() AlgorithmModelPackageContainerDefinitionArrayOutput
+	ToAlgorithmModelPackageContainerDefinitionArrayOutputWithContext(context.Context) AlgorithmModelPackageContainerDefinitionArrayOutput
+}
+
+type AlgorithmModelPackageContainerDefinitionArray []AlgorithmModelPackageContainerDefinitionInput
+
+func (AlgorithmModelPackageContainerDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (i AlgorithmModelPackageContainerDefinitionArray) ToAlgorithmModelPackageContainerDefinitionArrayOutput() AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return i.ToAlgorithmModelPackageContainerDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmModelPackageContainerDefinitionArray) ToAlgorithmModelPackageContainerDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmModelPackageContainerDefinitionArrayOutput)
+}
+
+type AlgorithmModelPackageContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmModelPackageContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) ToAlgorithmModelPackageContainerDefinitionOutput() AlgorithmModelPackageContainerDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) ToAlgorithmModelPackageContainerDefinitionOutputWithContext(ctx context.Context) AlgorithmModelPackageContainerDefinitionOutput {
+	return o
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) ContainerHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) Framework() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *string { return v.Framework }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) FrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *string { return v.FrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) ImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *string { return v.ImageDigest }).(pulumi.StringPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) IsCheckpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *bool { return v.IsCheckpoint }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) ModelInput() AlgorithmModelInputPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *AlgorithmModelInput { return v.ModelInput }).(AlgorithmModelInputPtrOutput)
+}
+
+func (o AlgorithmModelPackageContainerDefinitionOutput) NearestModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmModelPackageContainerDefinition) *string { return v.NearestModelName }).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmModelPackageContainerDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmModelPackageContainerDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmModelPackageContainerDefinition)(nil)).Elem()
+}
+
+func (o AlgorithmModelPackageContainerDefinitionArrayOutput) ToAlgorithmModelPackageContainerDefinitionArrayOutput() AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmModelPackageContainerDefinitionArrayOutput) ToAlgorithmModelPackageContainerDefinitionArrayOutputWithContext(ctx context.Context) AlgorithmModelPackageContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o AlgorithmModelPackageContainerDefinitionArrayOutput) Index(i pulumi.IntInput) AlgorithmModelPackageContainerDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmModelPackageContainerDefinition {
+		return vs[0].([]AlgorithmModelPackageContainerDefinition)[vs[1].(int)]
+	}).(AlgorithmModelPackageContainerDefinitionOutput)
+}
+
+type AlgorithmParameterRange struct {
+	CategoricalParameterRangeSpecification *AlgorithmCategoricalParameterRangeSpecification `pulumi:"categoricalParameterRangeSpecification"`
+	ContinuousParameterRangeSpecification  *AlgorithmContinuousParameterRangeSpecification  `pulumi:"continuousParameterRangeSpecification"`
+	IntegerParameterRangeSpecification     *AlgorithmIntegerParameterRangeSpecification     `pulumi:"integerParameterRangeSpecification"`
+}
+
+// AlgorithmParameterRangeInput is an input type that accepts AlgorithmParameterRangeArgs and AlgorithmParameterRangeOutput values.
+// You can construct a concrete instance of `AlgorithmParameterRangeInput` via:
+//
+//	AlgorithmParameterRangeArgs{...}
+type AlgorithmParameterRangeInput interface {
+	pulumi.Input
+
+	ToAlgorithmParameterRangeOutput() AlgorithmParameterRangeOutput
+	ToAlgorithmParameterRangeOutputWithContext(context.Context) AlgorithmParameterRangeOutput
+}
+
+type AlgorithmParameterRangeArgs struct {
+	CategoricalParameterRangeSpecification AlgorithmCategoricalParameterRangeSpecificationPtrInput `pulumi:"categoricalParameterRangeSpecification"`
+	ContinuousParameterRangeSpecification  AlgorithmContinuousParameterRangeSpecificationPtrInput  `pulumi:"continuousParameterRangeSpecification"`
+	IntegerParameterRangeSpecification     AlgorithmIntegerParameterRangeSpecificationPtrInput     `pulumi:"integerParameterRangeSpecification"`
+}
+
+func (AlgorithmParameterRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmParameterRange)(nil)).Elem()
+}
+
+func (i AlgorithmParameterRangeArgs) ToAlgorithmParameterRangeOutput() AlgorithmParameterRangeOutput {
+	return i.ToAlgorithmParameterRangeOutputWithContext(context.Background())
+}
+
+func (i AlgorithmParameterRangeArgs) ToAlgorithmParameterRangeOutputWithContext(ctx context.Context) AlgorithmParameterRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmParameterRangeOutput)
+}
+
+func (i AlgorithmParameterRangeArgs) ToAlgorithmParameterRangePtrOutput() AlgorithmParameterRangePtrOutput {
+	return i.ToAlgorithmParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (i AlgorithmParameterRangeArgs) ToAlgorithmParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmParameterRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmParameterRangeOutput).ToAlgorithmParameterRangePtrOutputWithContext(ctx)
+}
+
+// AlgorithmParameterRangePtrInput is an input type that accepts AlgorithmParameterRangeArgs, AlgorithmParameterRangePtr and AlgorithmParameterRangePtrOutput values.
+// You can construct a concrete instance of `AlgorithmParameterRangePtrInput` via:
+//
+//	        AlgorithmParameterRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlgorithmParameterRangePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmParameterRangePtrOutput() AlgorithmParameterRangePtrOutput
+	ToAlgorithmParameterRangePtrOutputWithContext(context.Context) AlgorithmParameterRangePtrOutput
+}
+
+type algorithmParameterRangePtrType AlgorithmParameterRangeArgs
+
+func AlgorithmParameterRangePtr(v *AlgorithmParameterRangeArgs) AlgorithmParameterRangePtrInput {
+	return (*algorithmParameterRangePtrType)(v)
+}
+
+func (*algorithmParameterRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmParameterRange)(nil)).Elem()
+}
+
+func (i *algorithmParameterRangePtrType) ToAlgorithmParameterRangePtrOutput() AlgorithmParameterRangePtrOutput {
+	return i.ToAlgorithmParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (i *algorithmParameterRangePtrType) ToAlgorithmParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmParameterRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmParameterRangePtrOutput)
+}
+
+type AlgorithmParameterRangeOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmParameterRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmParameterRange)(nil)).Elem()
+}
+
+func (o AlgorithmParameterRangeOutput) ToAlgorithmParameterRangeOutput() AlgorithmParameterRangeOutput {
+	return o
+}
+
+func (o AlgorithmParameterRangeOutput) ToAlgorithmParameterRangeOutputWithContext(ctx context.Context) AlgorithmParameterRangeOutput {
+	return o
+}
+
+func (o AlgorithmParameterRangeOutput) ToAlgorithmParameterRangePtrOutput() AlgorithmParameterRangePtrOutput {
+	return o.ToAlgorithmParameterRangePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmParameterRangeOutput) ToAlgorithmParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmParameterRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmParameterRange) *AlgorithmParameterRange {
+		return &v
+	}).(AlgorithmParameterRangePtrOutput)
+}
+
+func (o AlgorithmParameterRangeOutput) CategoricalParameterRangeSpecification() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmParameterRange) *AlgorithmCategoricalParameterRangeSpecification {
+		return v.CategoricalParameterRangeSpecification
+	}).(AlgorithmCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmParameterRangeOutput) ContinuousParameterRangeSpecification() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmParameterRange) *AlgorithmContinuousParameterRangeSpecification {
+		return v.ContinuousParameterRangeSpecification
+	}).(AlgorithmContinuousParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmParameterRangeOutput) IntegerParameterRangeSpecification() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v AlgorithmParameterRange) *AlgorithmIntegerParameterRangeSpecification {
+		return v.IntegerParameterRangeSpecification
+	}).(AlgorithmIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmParameterRangePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmParameterRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmParameterRange)(nil)).Elem()
+}
+
+func (o AlgorithmParameterRangePtrOutput) ToAlgorithmParameterRangePtrOutput() AlgorithmParameterRangePtrOutput {
+	return o
+}
+
+func (o AlgorithmParameterRangePtrOutput) ToAlgorithmParameterRangePtrOutputWithContext(ctx context.Context) AlgorithmParameterRangePtrOutput {
+	return o
+}
+
+func (o AlgorithmParameterRangePtrOutput) Elem() AlgorithmParameterRangeOutput {
+	return o.ApplyT(func(v *AlgorithmParameterRange) AlgorithmParameterRange {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmParameterRange
+		return ret
+	}).(AlgorithmParameterRangeOutput)
+}
+
+func (o AlgorithmParameterRangePtrOutput) CategoricalParameterRangeSpecification() AlgorithmCategoricalParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmParameterRange) *AlgorithmCategoricalParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.CategoricalParameterRangeSpecification
+	}).(AlgorithmCategoricalParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmParameterRangePtrOutput) ContinuousParameterRangeSpecification() AlgorithmContinuousParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmParameterRange) *AlgorithmContinuousParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.ContinuousParameterRangeSpecification
+	}).(AlgorithmContinuousParameterRangeSpecificationPtrOutput)
+}
+
+func (o AlgorithmParameterRangePtrOutput) IntegerParameterRangeSpecification() AlgorithmIntegerParameterRangeSpecificationPtrOutput {
+	return o.ApplyT(func(v *AlgorithmParameterRange) *AlgorithmIntegerParameterRangeSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.IntegerParameterRangeSpecification
+	}).(AlgorithmIntegerParameterRangeSpecificationPtrOutput)
+}
+
+type AlgorithmTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type AlgorithmTrainingSpecification struct {
+	MetricDefinitions                  []AlgorithmMetricDefinition                 `pulumi:"metricDefinitions"`
+	SupportedHyperParameters           []AlgorithmHyperParameterSpecification      `pulumi:"supportedHyperParameters"`
+	SupportedTrainingInstanceTypes     []string                                    `pulumi:"supportedTrainingInstanceTypes"`
+	SupportedTuningJobObjectiveMetrics []AlgorithmHyperParameterTuningJobObjective `pulumi:"supportedTuningJobObjectiveMetrics"`
+	SupportsDistributedTraining        *bool                                       `pulumi:"supportsDistributedTraining"`
+	TrainingChannels                   []AlgorithmChannelSpecification             `pulumi:"trainingChannels"`
+	TrainingImage                      string                                      `pulumi:"trainingImage"`
+	TrainingImageDigest                *string                                     `pulumi:"trainingImageDigest"`
+}
+
+// AlgorithmTrainingSpecificationInput is an input type that accepts AlgorithmTrainingSpecificationArgs and AlgorithmTrainingSpecificationOutput values.
+// You can construct a concrete instance of `AlgorithmTrainingSpecificationInput` via:
+//
+//	AlgorithmTrainingSpecificationArgs{...}
+type AlgorithmTrainingSpecificationInput interface {
+	pulumi.Input
+
+	ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput
+	ToAlgorithmTrainingSpecificationOutputWithContext(context.Context) AlgorithmTrainingSpecificationOutput
+}
+
+type AlgorithmTrainingSpecificationArgs struct {
+	MetricDefinitions                  AlgorithmMetricDefinitionArrayInput                 `pulumi:"metricDefinitions"`
+	SupportedHyperParameters           AlgorithmHyperParameterSpecificationArrayInput      `pulumi:"supportedHyperParameters"`
+	SupportedTrainingInstanceTypes     pulumi.StringArrayInput                             `pulumi:"supportedTrainingInstanceTypes"`
+	SupportedTuningJobObjectiveMetrics AlgorithmHyperParameterTuningJobObjectiveArrayInput `pulumi:"supportedTuningJobObjectiveMetrics"`
+	SupportsDistributedTraining        pulumi.BoolPtrInput                                 `pulumi:"supportsDistributedTraining"`
+	TrainingChannels                   AlgorithmChannelSpecificationArrayInput             `pulumi:"trainingChannels"`
+	TrainingImage                      pulumi.StringInput                                  `pulumi:"trainingImage"`
+	TrainingImageDigest                pulumi.StringPtrInput                               `pulumi:"trainingImageDigest"`
+}
+
+func (AlgorithmTrainingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput {
+	return i.ToAlgorithmTrainingSpecificationOutputWithContext(context.Background())
+}
+
+func (i AlgorithmTrainingSpecificationArgs) ToAlgorithmTrainingSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmTrainingSpecificationOutput)
+}
+
+type AlgorithmTrainingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmTrainingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmTrainingSpecification)(nil)).Elem()
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationOutput() AlgorithmTrainingSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationOutput) ToAlgorithmTrainingSpecificationOutputWithContext(ctx context.Context) AlgorithmTrainingSpecificationOutput {
+	return o
+}
+
+func (o AlgorithmTrainingSpecificationOutput) MetricDefinitions() AlgorithmMetricDefinitionArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmMetricDefinition { return v.MetricDefinitions }).(AlgorithmMetricDefinitionArrayOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) SupportedHyperParameters() AlgorithmHyperParameterSpecificationArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmHyperParameterSpecification {
+		return v.SupportedHyperParameters
+	}).(AlgorithmHyperParameterSpecificationArrayOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) SupportedTrainingInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []string { return v.SupportedTrainingInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) SupportedTuningJobObjectiveMetrics() AlgorithmHyperParameterTuningJobObjectiveArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmHyperParameterTuningJobObjective {
+		return v.SupportedTuningJobObjectiveMetrics
+	}).(AlgorithmHyperParameterTuningJobObjectiveArrayOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) SupportsDistributedTraining() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) *bool { return v.SupportsDistributedTraining }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) TrainingChannels() AlgorithmChannelSpecificationArrayOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) []AlgorithmChannelSpecification { return v.TrainingChannels }).(AlgorithmChannelSpecificationArrayOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) TrainingImage() pulumi.StringOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) string { return v.TrainingImage }).(pulumi.StringOutput)
+}
+
+func (o AlgorithmTrainingSpecificationOutput) TrainingImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlgorithmTrainingSpecification) *string { return v.TrainingImageDigest }).(pulumi.StringPtrOutput)
+}
+
 // The configuration for the kernels in a SageMaker image running as a CodeEditor app.
 type AppImageConfigCodeEditorAppImageConfig struct {
 	// The container configuration for a SageMaker image.
@@ -14866,6 +16494,11 @@ func (o FeatureGroupTtlDurationPtrOutput) Value() pulumi.IntPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.IntPtrOutput)
+}
+
+type HubTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
 // A key-value pair to associate with a resource.
@@ -44309,6 +45942,146 @@ func (o ProjectTemplateProviderDetailArrayOutput) Index(i pulumi.IntInput) Proje
 	}).(ProjectTemplateProviderDetailOutput)
 }
 
+// The Amazon S3 storage configuration for the hub.
+type S3StorageConfigProperties struct {
+	// The Amazon S3 bucket prefix for hosting hub content.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// S3StorageConfigPropertiesInput is an input type that accepts S3StorageConfigPropertiesArgs and S3StorageConfigPropertiesOutput values.
+// You can construct a concrete instance of `S3StorageConfigPropertiesInput` via:
+//
+//	S3StorageConfigPropertiesArgs{...}
+type S3StorageConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToS3StorageConfigPropertiesOutput() S3StorageConfigPropertiesOutput
+	ToS3StorageConfigPropertiesOutputWithContext(context.Context) S3StorageConfigPropertiesOutput
+}
+
+// The Amazon S3 storage configuration for the hub.
+type S3StorageConfigPropertiesArgs struct {
+	// The Amazon S3 bucket prefix for hosting hub content.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (S3StorageConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3StorageConfigProperties)(nil)).Elem()
+}
+
+func (i S3StorageConfigPropertiesArgs) ToS3StorageConfigPropertiesOutput() S3StorageConfigPropertiesOutput {
+	return i.ToS3StorageConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i S3StorageConfigPropertiesArgs) ToS3StorageConfigPropertiesOutputWithContext(ctx context.Context) S3StorageConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3StorageConfigPropertiesOutput)
+}
+
+func (i S3StorageConfigPropertiesArgs) ToS3StorageConfigPropertiesPtrOutput() S3StorageConfigPropertiesPtrOutput {
+	return i.ToS3StorageConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i S3StorageConfigPropertiesArgs) ToS3StorageConfigPropertiesPtrOutputWithContext(ctx context.Context) S3StorageConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3StorageConfigPropertiesOutput).ToS3StorageConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// S3StorageConfigPropertiesPtrInput is an input type that accepts S3StorageConfigPropertiesArgs, S3StorageConfigPropertiesPtr and S3StorageConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `S3StorageConfigPropertiesPtrInput` via:
+//
+//	        S3StorageConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3StorageConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToS3StorageConfigPropertiesPtrOutput() S3StorageConfigPropertiesPtrOutput
+	ToS3StorageConfigPropertiesPtrOutputWithContext(context.Context) S3StorageConfigPropertiesPtrOutput
+}
+
+type s3storageConfigPropertiesPtrType S3StorageConfigPropertiesArgs
+
+func S3StorageConfigPropertiesPtr(v *S3StorageConfigPropertiesArgs) S3StorageConfigPropertiesPtrInput {
+	return (*s3storageConfigPropertiesPtrType)(v)
+}
+
+func (*s3storageConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3StorageConfigProperties)(nil)).Elem()
+}
+
+func (i *s3storageConfigPropertiesPtrType) ToS3StorageConfigPropertiesPtrOutput() S3StorageConfigPropertiesPtrOutput {
+	return i.ToS3StorageConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *s3storageConfigPropertiesPtrType) ToS3StorageConfigPropertiesPtrOutputWithContext(ctx context.Context) S3StorageConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3StorageConfigPropertiesPtrOutput)
+}
+
+// The Amazon S3 storage configuration for the hub.
+type S3StorageConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (S3StorageConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3StorageConfigProperties)(nil)).Elem()
+}
+
+func (o S3StorageConfigPropertiesOutput) ToS3StorageConfigPropertiesOutput() S3StorageConfigPropertiesOutput {
+	return o
+}
+
+func (o S3StorageConfigPropertiesOutput) ToS3StorageConfigPropertiesOutputWithContext(ctx context.Context) S3StorageConfigPropertiesOutput {
+	return o
+}
+
+func (o S3StorageConfigPropertiesOutput) ToS3StorageConfigPropertiesPtrOutput() S3StorageConfigPropertiesPtrOutput {
+	return o.ToS3StorageConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o S3StorageConfigPropertiesOutput) ToS3StorageConfigPropertiesPtrOutputWithContext(ctx context.Context) S3StorageConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3StorageConfigProperties) *S3StorageConfigProperties {
+		return &v
+	}).(S3StorageConfigPropertiesPtrOutput)
+}
+
+// The Amazon S3 bucket prefix for hosting hub content.
+func (o S3StorageConfigPropertiesOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3StorageConfigProperties) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type S3StorageConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (S3StorageConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3StorageConfigProperties)(nil)).Elem()
+}
+
+func (o S3StorageConfigPropertiesPtrOutput) ToS3StorageConfigPropertiesPtrOutput() S3StorageConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o S3StorageConfigPropertiesPtrOutput) ToS3StorageConfigPropertiesPtrOutputWithContext(ctx context.Context) S3StorageConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o S3StorageConfigPropertiesPtrOutput) Elem() S3StorageConfigPropertiesOutput {
+	return o.ApplyT(func(v *S3StorageConfigProperties) S3StorageConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret S3StorageConfigProperties
+		return ret
+	}).(S3StorageConfigPropertiesOutput)
+}
+
+// The Amazon S3 bucket prefix for hosting hub content.
+func (o S3StorageConfigPropertiesPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3StorageConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // Provisioned ServiceCatalog  Details
 type ServiceCatalogProvisionedProductDetailsProperties struct {
 	// The ID of the provisioned product.
@@ -51141,6 +52914,29 @@ func (o UserProfileUserSettingsPtrOutput) StudioWebPortalSettings() UserProfileS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmCategoricalParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmCategoricalParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationInput)(nil)).Elem(), AlgorithmChannelSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationArrayInput)(nil)).Elem(), AlgorithmChannelSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmContinuousParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmContinuousParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmContinuousParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmContinuousParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterSpecificationInput)(nil)).Elem(), AlgorithmHyperParameterSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterSpecificationArrayInput)(nil)).Elem(), AlgorithmHyperParameterSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveInput)(nil)).Elem(), AlgorithmHyperParameterTuningJobObjectiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveArrayInput)(nil)).Elem(), AlgorithmHyperParameterTuningJobObjectiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmInferenceSpecificationPtrInput)(nil)).Elem(), AlgorithmInferenceSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmIntegerParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmIntegerParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmIntegerParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmIntegerParameterRangeSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmMetricDefinitionInput)(nil)).Elem(), AlgorithmMetricDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmMetricDefinitionArrayInput)(nil)).Elem(), AlgorithmMetricDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmModelInputInput)(nil)).Elem(), AlgorithmModelInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmModelInputPtrInput)(nil)).Elem(), AlgorithmModelInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmModelPackageContainerDefinitionInput)(nil)).Elem(), AlgorithmModelPackageContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmModelPackageContainerDefinitionArrayInput)(nil)).Elem(), AlgorithmModelPackageContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmParameterRangeInput)(nil)).Elem(), AlgorithmParameterRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmParameterRangePtrInput)(nil)).Elem(), AlgorithmParameterRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmTrainingSpecificationInput)(nil)).Elem(), AlgorithmTrainingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigContainerConfigInput)(nil)).Elem(), AppImageConfigContainerConfigArgs{})
@@ -51668,6 +53464,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectProvisioningParameterArrayInput)(nil)).Elem(), ProjectProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTemplateProviderDetailInput)(nil)).Elem(), ProjectTemplateProviderDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectTemplateProviderDetailArrayInput)(nil)).Elem(), ProjectTemplateProviderDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3StorageConfigPropertiesInput)(nil)).Elem(), S3StorageConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3StorageConfigPropertiesPtrInput)(nil)).Elem(), S3StorageConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisionedProductDetailsPropertiesPtrInput)(nil)).Elem(), ServiceCatalogProvisionedProductDetailsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCatalogProvisioningDetailsPropertiesInput)(nil)).Elem(), ServiceCatalogProvisioningDetailsPropertiesArgs{})
@@ -51750,6 +53548,29 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileStudioWebPortalSettingsPtrInput)(nil)).Elem(), UserProfileStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
+	pulumi.RegisterOutputType(AlgorithmCategoricalParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmCategoricalParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmContinuousParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmContinuousParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterTuningJobObjectiveOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterTuningJobObjectiveArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmInferenceSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmIntegerParameterRangeSpecificationOutput{})
+	pulumi.RegisterOutputType(AlgorithmIntegerParameterRangeSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmMetricDefinitionOutput{})
+	pulumi.RegisterOutputType(AlgorithmMetricDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmModelInputOutput{})
+	pulumi.RegisterOutputType(AlgorithmModelInputPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmModelPackageContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(AlgorithmModelPackageContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmParameterRangeOutput{})
+	pulumi.RegisterOutputType(AlgorithmParameterRangePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmTrainingSpecificationOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigContainerConfigOutput{})
@@ -52287,6 +54108,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProjectTemplateProviderDetailOutput{})
 	pulumi.RegisterOutputType(ProjectTemplateProviderDetailArrayOutput{})
+	pulumi.RegisterOutputType(S3StorageConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(S3StorageConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisionedProductDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCatalogProvisioningDetailsPropertiesOutput{})

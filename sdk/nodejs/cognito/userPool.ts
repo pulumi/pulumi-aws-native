@@ -95,6 +95,8 @@ export class UserPool extends pulumi.CustomResource {
      * Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
      */
     declare public readonly enabledMfas: pulumi.Output<string[] | undefined>;
+    declare public readonly issuerConfiguration: pulumi.Output<outputs.cognito.UserPoolIssuerConfiguration | undefined>;
+    declare public readonly keyConfiguration: pulumi.Output<outputs.cognito.UserPoolKeyConfiguration | undefined>;
     /**
      * A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
      */
@@ -218,6 +220,8 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["emailVerificationMessage"] = args?.emailVerificationMessage;
             resourceInputs["emailVerificationSubject"] = args?.emailVerificationSubject;
             resourceInputs["enabledMfas"] = args?.enabledMfas;
+            resourceInputs["issuerConfiguration"] = args?.issuerConfiguration;
+            resourceInputs["keyConfiguration"] = args?.keyConfiguration;
             resourceInputs["lambdaConfig"] = args?.lambdaConfig;
             resourceInputs["mfaConfiguration"] = args?.mfaConfiguration;
             resourceInputs["policies"] = args?.policies;
@@ -254,6 +258,8 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["emailVerificationMessage"] = undefined /*out*/;
             resourceInputs["emailVerificationSubject"] = undefined /*out*/;
             resourceInputs["enabledMfas"] = undefined /*out*/;
+            resourceInputs["issuerConfiguration"] = undefined /*out*/;
+            resourceInputs["keyConfiguration"] = undefined /*out*/;
             resourceInputs["lambdaConfig"] = undefined /*out*/;
             resourceInputs["mfaConfiguration"] = undefined /*out*/;
             resourceInputs["policies"] = undefined /*out*/;
@@ -339,6 +345,8 @@ export interface UserPoolArgs {
      * Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
      */
     enabledMfas?: pulumi.Input<pulumi.Input<string>[]>;
+    issuerConfiguration?: pulumi.Input<inputs.cognito.UserPoolIssuerConfigurationArgs>;
+    keyConfiguration?: pulumi.Input<inputs.cognito.UserPoolKeyConfigurationArgs>;
     /**
      * A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
      */

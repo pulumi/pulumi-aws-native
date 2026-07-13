@@ -17,6 +17,18 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AlgorithmCategoricalParameterRangeSpecification',
+    'AlgorithmChannelSpecification',
+    'AlgorithmContinuousParameterRangeSpecification',
+    'AlgorithmHyperParameterSpecification',
+    'AlgorithmHyperParameterTuningJobObjective',
+    'AlgorithmInferenceSpecification',
+    'AlgorithmIntegerParameterRangeSpecification',
+    'AlgorithmMetricDefinition',
+    'AlgorithmModelInput',
+    'AlgorithmModelPackageContainerDefinition',
+    'AlgorithmParameterRange',
+    'AlgorithmTrainingSpecification',
     'AppImageConfigCodeEditorAppImageConfig',
     'AppImageConfigContainerConfig',
     'AppImageConfigCustomImageContainerEnvironmentVariable',
@@ -306,6 +318,7 @@ __all__ = [
     'ProjectCfnTemplateProviderDetail',
     'ProjectProvisioningParameter',
     'ProjectTemplateProviderDetail',
+    'S3StorageConfigProperties',
     'ServiceCatalogProvisionedProductDetailsProperties',
     'ServiceCatalogProvisioningDetailsProperties',
     'SpaceAppLifecycleManagement',
@@ -348,6 +361,648 @@ __all__ = [
     'UserProfileStudioWebPortalSettings',
     'UserProfileUserSettings',
 ]
+
+@pulumi.output_type
+class AlgorithmCategoricalParameterRangeSpecification(dict):
+    def __init__(__self__, *,
+                 values: Sequence[_builtins.str]):
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class AlgorithmChannelSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedInputModes":
+            suggest = "supported_input_modes"
+        elif key == "isRequired":
+            suggest = "is_required"
+        elif key == "supportedCompressionTypes":
+            suggest = "supported_compression_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmChannelSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmChannelSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmChannelSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 supported_content_types: Sequence[_builtins.str],
+                 supported_input_modes: Sequence['AlgorithmChannelSpecificationSupportedInputModesItem'],
+                 description: Optional[_builtins.str] = None,
+                 is_required: Optional[_builtins.bool] = None,
+                 supported_compression_types: Optional[Sequence['AlgorithmChannelSpecificationSupportedCompressionTypesItem']] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "supported_content_types", supported_content_types)
+        pulumi.set(__self__, "supported_input_modes", supported_input_modes)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if supported_compression_types is not None:
+            pulumi.set(__self__, "supported_compression_types", supported_compression_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "supported_content_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedInputModes")
+    def supported_input_modes(self) -> Sequence['AlgorithmChannelSpecificationSupportedInputModesItem']:
+        return pulumi.get(self, "supported_input_modes")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_required")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedCompressionTypes")
+    def supported_compression_types(self) -> Optional[Sequence['AlgorithmChannelSpecificationSupportedCompressionTypesItem']]:
+        return pulumi.get(self, "supported_compression_types")
+
+
+@pulumi.output_type
+class AlgorithmContinuousParameterRangeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmContinuousParameterRangeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmContinuousParameterRangeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmContinuousParameterRangeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class AlgorithmHyperParameterSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "isRequired":
+            suggest = "is_required"
+        elif key == "isTunable":
+            suggest = "is_tunable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmHyperParameterSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmHyperParameterSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmHyperParameterSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: 'AlgorithmHyperParameterSpecificationType',
+                 default_value: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 is_required: Optional[_builtins.bool] = None,
+                 is_tunable: Optional[_builtins.bool] = None,
+                 range: Optional['outputs.AlgorithmParameterRange'] = None):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_required is not None:
+            pulumi.set(__self__, "is_required", is_required)
+        if is_tunable is not None:
+            pulumi.set(__self__, "is_tunable", is_tunable)
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'AlgorithmHyperParameterSpecificationType':
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="isRequired")
+    def is_required(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_required")
+
+    @_builtins.property
+    @pulumi.getter(name="isTunable")
+    def is_tunable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_tunable")
+
+    @_builtins.property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.AlgorithmParameterRange']:
+        return pulumi.get(self, "range")
+
+
+@pulumi.output_type
+class AlgorithmHyperParameterTuningJobObjective(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmHyperParameterTuningJobObjective. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmHyperParameterTuningJobObjective.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmHyperParameterTuningJobObjective.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: _builtins.str,
+                 type: 'AlgorithmHyperParameterTuningJobObjectiveType'):
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        return pulumi.get(self, "metric_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'AlgorithmHyperParameterTuningJobObjectiveType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AlgorithmInferenceSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedContentTypes":
+            suggest = "supported_content_types"
+        elif key == "supportedRealtimeInferenceInstanceTypes":
+            suggest = "supported_realtime_inference_instance_types"
+        elif key == "supportedResponseMimeTypes":
+            suggest = "supported_response_mime_types"
+        elif key == "supportedTransformInstanceTypes":
+            suggest = "supported_transform_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmInferenceSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmInferenceSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmInferenceSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Sequence['outputs.AlgorithmModelPackageContainerDefinition'],
+                 supported_content_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_realtime_inference_instance_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_response_mime_types: Optional[Sequence[_builtins.str]] = None,
+                 supported_transform_instance_types: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "containers", containers)
+        if supported_content_types is not None:
+            pulumi.set(__self__, "supported_content_types", supported_content_types)
+        if supported_realtime_inference_instance_types is not None:
+            pulumi.set(__self__, "supported_realtime_inference_instance_types", supported_realtime_inference_instance_types)
+        if supported_response_mime_types is not None:
+            pulumi.set(__self__, "supported_response_mime_types", supported_response_mime_types)
+        if supported_transform_instance_types is not None:
+            pulumi.set(__self__, "supported_transform_instance_types", supported_transform_instance_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def containers(self) -> Sequence['outputs.AlgorithmModelPackageContainerDefinition']:
+        return pulumi.get(self, "containers")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedContentTypes")
+    def supported_content_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "supported_content_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedRealtimeInferenceInstanceTypes")
+    def supported_realtime_inference_instance_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "supported_realtime_inference_instance_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedResponseMimeTypes")
+    def supported_response_mime_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "supported_response_mime_types")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTransformInstanceTypes")
+    def supported_transform_instance_types(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "supported_transform_instance_types")
+
+
+@pulumi.output_type
+class AlgorithmIntegerParameterRangeSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+        elif key == "minValue":
+            suggest = "min_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmIntegerParameterRangeSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmIntegerParameterRangeSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmIntegerParameterRangeSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.str,
+                 min_value: _builtins.str):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.str:
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter(name="minValue")
+    def min_value(self) -> _builtins.str:
+        return pulumi.get(self, "min_value")
+
+
+@pulumi.output_type
+class AlgorithmMetricDefinition(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 regex: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regex", regex)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def regex(self) -> _builtins.str:
+        return pulumi.get(self, "regex")
+
+
+@pulumi.output_type
+class AlgorithmModelInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataInputConfig":
+            suggest = "data_input_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmModelInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmModelInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmModelInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_input_config: _builtins.str):
+        pulumi.set(__self__, "data_input_config", data_input_config)
+
+    @_builtins.property
+    @pulumi.getter(name="dataInputConfig")
+    def data_input_config(self) -> _builtins.str:
+        return pulumi.get(self, "data_input_config")
+
+
+@pulumi.output_type
+class AlgorithmModelPackageContainerDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerHostname":
+            suggest = "container_hostname"
+        elif key == "frameworkVersion":
+            suggest = "framework_version"
+        elif key == "imageDigest":
+            suggest = "image_digest"
+        elif key == "isCheckpoint":
+            suggest = "is_checkpoint"
+        elif key == "modelInput":
+            suggest = "model_input"
+        elif key == "nearestModelName":
+            suggest = "nearest_model_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmModelPackageContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmModelPackageContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmModelPackageContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: _builtins.str,
+                 container_hostname: Optional[_builtins.str] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 framework: Optional[_builtins.str] = None,
+                 framework_version: Optional[_builtins.str] = None,
+                 image_digest: Optional[_builtins.str] = None,
+                 is_checkpoint: Optional[_builtins.bool] = None,
+                 model_input: Optional['outputs.AlgorithmModelInput'] = None,
+                 nearest_model_name: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "image", image)
+        if container_hostname is not None:
+            pulumi.set(__self__, "container_hostname", container_hostname)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if image_digest is not None:
+            pulumi.set(__self__, "image_digest", image_digest)
+        if is_checkpoint is not None:
+            pulumi.set(__self__, "is_checkpoint", is_checkpoint)
+        if model_input is not None:
+            pulumi.set(__self__, "model_input", model_input)
+        if nearest_model_name is not None:
+            pulumi.set(__self__, "nearest_model_name", nearest_model_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> _builtins.str:
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="containerHostname")
+    def container_hostname(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_hostname")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def framework(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "framework")
+
+    @_builtins.property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "framework_version")
+
+    @_builtins.property
+    @pulumi.getter(name="imageDigest")
+    def image_digest(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "image_digest")
+
+    @_builtins.property
+    @pulumi.getter(name="isCheckpoint")
+    def is_checkpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_checkpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="modelInput")
+    def model_input(self) -> Optional['outputs.AlgorithmModelInput']:
+        return pulumi.get(self, "model_input")
+
+    @_builtins.property
+    @pulumi.getter(name="nearestModelName")
+    def nearest_model_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "nearest_model_name")
+
+
+@pulumi.output_type
+class AlgorithmParameterRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "categoricalParameterRangeSpecification":
+            suggest = "categorical_parameter_range_specification"
+        elif key == "continuousParameterRangeSpecification":
+            suggest = "continuous_parameter_range_specification"
+        elif key == "integerParameterRangeSpecification":
+            suggest = "integer_parameter_range_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmParameterRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmParameterRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmParameterRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 categorical_parameter_range_specification: Optional['outputs.AlgorithmCategoricalParameterRangeSpecification'] = None,
+                 continuous_parameter_range_specification: Optional['outputs.AlgorithmContinuousParameterRangeSpecification'] = None,
+                 integer_parameter_range_specification: Optional['outputs.AlgorithmIntegerParameterRangeSpecification'] = None):
+        if categorical_parameter_range_specification is not None:
+            pulumi.set(__self__, "categorical_parameter_range_specification", categorical_parameter_range_specification)
+        if continuous_parameter_range_specification is not None:
+            pulumi.set(__self__, "continuous_parameter_range_specification", continuous_parameter_range_specification)
+        if integer_parameter_range_specification is not None:
+            pulumi.set(__self__, "integer_parameter_range_specification", integer_parameter_range_specification)
+
+    @_builtins.property
+    @pulumi.getter(name="categoricalParameterRangeSpecification")
+    def categorical_parameter_range_specification(self) -> Optional['outputs.AlgorithmCategoricalParameterRangeSpecification']:
+        return pulumi.get(self, "categorical_parameter_range_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="continuousParameterRangeSpecification")
+    def continuous_parameter_range_specification(self) -> Optional['outputs.AlgorithmContinuousParameterRangeSpecification']:
+        return pulumi.get(self, "continuous_parameter_range_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="integerParameterRangeSpecification")
+    def integer_parameter_range_specification(self) -> Optional['outputs.AlgorithmIntegerParameterRangeSpecification']:
+        return pulumi.get(self, "integer_parameter_range_specification")
+
+
+@pulumi.output_type
+class AlgorithmTrainingSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportedTrainingInstanceTypes":
+            suggest = "supported_training_instance_types"
+        elif key == "trainingChannels":
+            suggest = "training_channels"
+        elif key == "trainingImage":
+            suggest = "training_image"
+        elif key == "metricDefinitions":
+            suggest = "metric_definitions"
+        elif key == "supportedHyperParameters":
+            suggest = "supported_hyper_parameters"
+        elif key == "supportedTuningJobObjectiveMetrics":
+            suggest = "supported_tuning_job_objective_metrics"
+        elif key == "supportsDistributedTraining":
+            suggest = "supports_distributed_training"
+        elif key == "trainingImageDigest":
+            suggest = "training_image_digest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlgorithmTrainingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlgorithmTrainingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlgorithmTrainingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supported_training_instance_types: Sequence[_builtins.str],
+                 training_channels: Sequence['outputs.AlgorithmChannelSpecification'],
+                 training_image: _builtins.str,
+                 metric_definitions: Optional[Sequence['outputs.AlgorithmMetricDefinition']] = None,
+                 supported_hyper_parameters: Optional[Sequence['outputs.AlgorithmHyperParameterSpecification']] = None,
+                 supported_tuning_job_objective_metrics: Optional[Sequence['outputs.AlgorithmHyperParameterTuningJobObjective']] = None,
+                 supports_distributed_training: Optional[_builtins.bool] = None,
+                 training_image_digest: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "supported_training_instance_types", supported_training_instance_types)
+        pulumi.set(__self__, "training_channels", training_channels)
+        pulumi.set(__self__, "training_image", training_image)
+        if metric_definitions is not None:
+            pulumi.set(__self__, "metric_definitions", metric_definitions)
+        if supported_hyper_parameters is not None:
+            pulumi.set(__self__, "supported_hyper_parameters", supported_hyper_parameters)
+        if supported_tuning_job_objective_metrics is not None:
+            pulumi.set(__self__, "supported_tuning_job_objective_metrics", supported_tuning_job_objective_metrics)
+        if supports_distributed_training is not None:
+            pulumi.set(__self__, "supports_distributed_training", supports_distributed_training)
+        if training_image_digest is not None:
+            pulumi.set(__self__, "training_image_digest", training_image_digest)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTrainingInstanceTypes")
+    def supported_training_instance_types(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "supported_training_instance_types")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingChannels")
+    def training_channels(self) -> Sequence['outputs.AlgorithmChannelSpecification']:
+        return pulumi.get(self, "training_channels")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImage")
+    def training_image(self) -> _builtins.str:
+        return pulumi.get(self, "training_image")
+
+    @_builtins.property
+    @pulumi.getter(name="metricDefinitions")
+    def metric_definitions(self) -> Optional[Sequence['outputs.AlgorithmMetricDefinition']]:
+        return pulumi.get(self, "metric_definitions")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedHyperParameters")
+    def supported_hyper_parameters(self) -> Optional[Sequence['outputs.AlgorithmHyperParameterSpecification']]:
+        return pulumi.get(self, "supported_hyper_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="supportedTuningJobObjectiveMetrics")
+    def supported_tuning_job_objective_metrics(self) -> Optional[Sequence['outputs.AlgorithmHyperParameterTuningJobObjective']]:
+        return pulumi.get(self, "supported_tuning_job_objective_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="supportsDistributedTraining")
+    def supports_distributed_training(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "supports_distributed_training")
+
+    @_builtins.property
+    @pulumi.getter(name="trainingImageDigest")
+    def training_image_digest(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "training_image_digest")
+
 
 @pulumi.output_type
 class AppImageConfigCodeEditorAppImageConfig(dict):
@@ -18412,6 +19067,47 @@ class ProjectTemplateProviderDetail(dict):
         Details about a CloudFormation template provider configuration and associated provisioning information.
         """
         return pulumi.get(self, "cfn_template_provider_detail")
+
+
+@pulumi.output_type
+class S3StorageConfigProperties(dict):
+    """
+    The Amazon S3 storage configuration for the hub.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3StorageConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3StorageConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3StorageConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: Optional[_builtins.str] = None):
+        """
+        The Amazon S3 storage configuration for the hub.
+
+        :param _builtins.str s3_output_path: The Amazon S3 bucket prefix for hosting hub content.
+        """
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 bucket prefix for hosting hub content.
+        """
+        return pulumi.get(self, "s3_output_path")
 
 
 @pulumi.output_type

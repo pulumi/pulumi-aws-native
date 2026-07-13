@@ -61,7 +61,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
     /**
      * The ARN of the task execution role for the service revision.
      */
-    declare public readonly executionRoleArn: pulumi.Output<string>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * The health check path for this service revision.
      */
@@ -81,7 +81,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
     /**
      * The primary container configuration for this service revision.
      */
-    declare public readonly primaryContainer: pulumi.Output<outputs.ecs.ExpressGatewayServiceExpressGatewayContainer>;
+    declare public readonly primaryContainer: pulumi.Output<outputs.ecs.ExpressGatewayServiceExpressGatewayContainer | undefined>;
     /**
      * The auto-scaling configuration for this service revision.
      */
@@ -99,6 +99,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      * The metadata applied to the Express service.
      */
     declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    declare public readonly taskDefinitionArn: pulumi.Output<string | undefined>;
     /**
      * The ARN of the task role for the service revision.
      */
@@ -119,14 +120,8 @@ export class ExpressGatewayService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.executionRoleArn === undefined && !opts.urn) {
-                throw new Error("Missing required property 'executionRoleArn'");
-            }
             if (args?.infrastructureRoleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'infrastructureRoleArn'");
-            }
-            if (args?.primaryContainer === undefined && !opts.urn) {
-                throw new Error("Missing required property 'primaryContainer'");
             }
             resourceInputs["cluster"] = args?.cluster;
             resourceInputs["cpu"] = args?.cpu;
@@ -139,6 +134,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             resourceInputs["scalingTarget"] = args?.scalingTarget;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskDefinitionArn"] = args?.taskDefinitionArn;
             resourceInputs["taskRoleArn"] = args?.taskRoleArn;
             resourceInputs["activeConfigurations"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -165,6 +161,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             resourceInputs["serviceName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["taskDefinitionArn"] = undefined /*out*/;
             resourceInputs["taskRoleArn"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -190,7 +187,7 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The ARN of the task execution role for the service revision.
      */
-    executionRoleArn: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * The health check path for this service revision.
      */
@@ -210,7 +207,7 @@ export interface ExpressGatewayServiceArgs {
     /**
      * The primary container configuration for this service revision.
      */
-    primaryContainer: pulumi.Input<inputs.ecs.ExpressGatewayServiceExpressGatewayContainerArgs>;
+    primaryContainer?: pulumi.Input<inputs.ecs.ExpressGatewayServiceExpressGatewayContainerArgs>;
     /**
      * The auto-scaling configuration for this service revision.
      */
@@ -223,6 +220,7 @@ export interface ExpressGatewayServiceArgs {
      * The metadata applied to the Express service.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    taskDefinitionArn?: pulumi.Input<string>;
     /**
      * The ARN of the task role for the service revision.
      */

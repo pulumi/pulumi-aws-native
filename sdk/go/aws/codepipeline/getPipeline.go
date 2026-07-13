@@ -29,6 +29,8 @@ type LookupPipelineArgs struct {
 }
 
 type LookupPipelineResult struct {
+	// The Amazon Resource Name (ARN) of the pipeline.
+	Arn *string `pulumi:"arn"`
 	// The S3 bucket where artifacts for the pipeline are stored.
 	ArtifactStore *PipelineArtifactStore `pulumi:"artifactStore"`
 	// A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
@@ -83,6 +85,11 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutput() LookupPipelin
 
 func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx context.Context) LookupPipelineResultOutput {
 	return o
+}
+
+// The Amazon Resource Name (ARN) of the pipeline.
+func (o LookupPipelineResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The S3 bucket where artifacts for the pipeline are stored.

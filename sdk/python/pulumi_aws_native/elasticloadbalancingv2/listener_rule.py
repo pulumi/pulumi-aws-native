@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ListenerRuleArgs', 'ListenerRule']
@@ -25,6 +27,7 @@ class ListenerRuleArgs:
                  conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
                  priority: pulumi.Input[_builtins.int],
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]] = None):
         """
         The set of arguments for constructing a ListenerRule resource.
@@ -42,6 +45,8 @@ class ListenerRuleArgs:
         pulumi.set(__self__, "priority", priority)
         if listener_arn is not None:
             pulumi.set(__self__, "listener_arn", listener_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if transforms is not None:
             pulumi.set(__self__, "transforms", transforms)
 
@@ -98,6 +103,15 @@ class ListenerRuleArgs:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
     def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleTransformArgs']]]]:
         return pulumi.get(self, "transforms")
 
@@ -116,6 +130,7 @@ class ListenerRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -163,6 +178,7 @@ class ListenerRule(pulumi.CustomResource):
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
                  listener_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -183,6 +199,7 @@ class ListenerRule(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["transforms"] = transforms
             __props__.__dict__["is_default"] = None
             __props__.__dict__["rule_arn"] = None
@@ -216,6 +233,7 @@ class ListenerRule(pulumi.CustomResource):
         __props__.__dict__["listener_arn"] = None
         __props__.__dict__["priority"] = None
         __props__.__dict__["rule_arn"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["transforms"] = None
         return ListenerRule(resource_name, opts=opts, __props__=__props__)
 
@@ -269,6 +287,11 @@ class ListenerRule(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the rule.
         """
         return pulumi.get(self, "rule_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter

@@ -345,23 +345,13 @@ class CapacityProviderInstanceRequirementsArgs:
 
 class CapacityProviderLoggingConfigArgsDict(TypedDict):
     log_group: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The log group name.
-    """
     system_log_level: NotRequired[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]
-    """
-    System log granularity level
-    """
 
 @pulumi.input_type
 class CapacityProviderLoggingConfigArgs:
     def __init__(__self__, *,
                  log_group: Optional[pulumi.Input[_builtins.str]] = None,
                  system_log_level: Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']] = None):
-        """
-        :param pulumi.Input[_builtins.str] log_group: The log group name.
-        :param pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel'] system_log_level: System log granularity level
-        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if system_log_level is not None:
@@ -370,9 +360,6 @@ class CapacityProviderLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The log group name.
-        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -382,9 +369,6 @@ class CapacityProviderLoggingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]:
-        """
-        System log granularity level
-        """
         return pulumi.get(self, "system_log_level")
 
     @system_log_level.setter
@@ -426,14 +410,29 @@ class CapacityProviderPermissionsConfigArgs:
 
 
 class CapacityProviderPropagateTagsConfigArgsDict(TypedDict):
+    """
+    Configuration that defines how tags are propagated to managed resources.
+    """
     explicit_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgsDict']]]]
+    """
+    A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+    """
     mode: NotRequired[pulumi.Input['CapacityProviderPropagateTagsMode']]
+    """
+    The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+    """
 
 @pulumi.input_type
 class CapacityProviderPropagateTagsConfigArgs:
     def __init__(__self__, *,
                  explicit_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
                  mode: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']] = None):
+        """
+        Configuration that defines how tags are propagated to managed resources.
+
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]] explicit_tags: A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+        :param pulumi.Input['CapacityProviderPropagateTagsMode'] mode: The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+        """
         if explicit_tags is not None:
             pulumi.set(__self__, "explicit_tags", explicit_tags)
         if mode is not None:
@@ -442,6 +441,9 @@ class CapacityProviderPropagateTagsConfigArgs:
     @_builtins.property
     @pulumi.getter(name="explicitTags")
     def explicit_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]:
+        """
+        A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+        """
         return pulumi.get(self, "explicit_tags")
 
     @explicit_tags.setter
@@ -451,6 +453,9 @@ class CapacityProviderPropagateTagsConfigArgs:
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsMode']]:
+        """
+        The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -639,26 +644,17 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
 
 class CapacityProviderTelemetryConfigArgsDict(TypedDict):
     logging_config: NotRequired[pulumi.Input['CapacityProviderLoggingConfigArgsDict']]
-    """
-    The logging configuration for the capacity provider.
-    """
 
 @pulumi.input_type
 class CapacityProviderTelemetryConfigArgs:
     def __init__(__self__, *,
                  logging_config: Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']] = None):
-        """
-        :param pulumi.Input['CapacityProviderLoggingConfigArgs'] logging_config: The logging configuration for the capacity provider.
-        """
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']]:
-        """
-        The logging configuration for the capacity provider.
-        """
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
@@ -1817,6 +1813,7 @@ class FunctionCodeArgsDict(TypedDict):
     """
     The Amazon S3 key of the deployment package.
     """
+    s3_object_storage_mode: NotRequired[pulumi.Input['FunctionCodeS3ObjectStorageMode']]
     s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
     """
     For versioned objects, the version of the deployment package object to use.
@@ -1840,6 +1837,7 @@ class FunctionCodeArgs:
                  image_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 s3_object_storage_mode: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']] = None,
                  s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
                  source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  zip_file: Optional[pulumi.Input[_builtins.str]] = None):
@@ -1865,6 +1863,8 @@ class FunctionCodeArgs:
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
             pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_storage_mode is not None:
+            pulumi.set(__self__, "s3_object_storage_mode", s3_object_storage_mode)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if source_kms_key_arn is not None:
@@ -1907,6 +1907,15 @@ class FunctionCodeArgs:
     @s3_key.setter
     def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3ObjectStorageMode")
+    def s3_object_storage_mode(self) -> Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]:
+        return pulumi.get(self, "s3_object_storage_mode")
+
+    @s3_object_storage_mode.setter
+    def s3_object_storage_mode(self, value: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]):
+        pulumi.set(self, "s3_object_storage_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
@@ -1991,6 +2000,7 @@ class FunctionDurableConfigArgsDict(TypedDict):
     """
     The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
     """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
     retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
     """
     The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
@@ -2000,6 +2010,7 @@ class FunctionDurableConfigArgsDict(TypedDict):
 class FunctionDurableConfigArgs:
     def __init__(__self__, *,
                  execution_timeout: pulumi.Input[_builtins.int],
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
@@ -2008,6 +2019,8 @@ class FunctionDurableConfigArgs:
         :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
 
@@ -2022,6 +2035,15 @@ class FunctionDurableConfigArgs:
     @execution_timeout.setter
     def execution_timeout(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "execution_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")

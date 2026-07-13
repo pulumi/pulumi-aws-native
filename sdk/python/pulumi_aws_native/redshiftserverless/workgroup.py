@@ -53,11 +53,11 @@ class WorkgroupInitArgs:
         :param pulumi.Input[_builtins.int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         :param pulumi.Input['WorkgroupPerformanceTargetArgs'] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
-        :param pulumi.Input[_builtins.str] recovery_point_id: The recovery point id to restore from.
+        :param pulumi.Input[_builtins.str] recovery_point_id: The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore from.
-        :param pulumi.Input[_builtins.str] snapshot_name: The snapshot name to restore from.
-        :param pulumi.Input[_builtins.str] snapshot_owner_account: The Amazon Web Services account that owns the snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
+        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
+        :param pulumi.Input[_builtins.str] snapshot_owner_account: The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The map of the key-value pairs used to tag the workgroup.
         :param pulumi.Input[_builtins.str] track_name: An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
@@ -201,7 +201,7 @@ class WorkgroupInitArgs:
     @pulumi.getter(name="recoveryPointId")
     def recovery_point_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The recovery point id to restore from.
+        The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "recovery_point_id")
 
@@ -225,7 +225,7 @@ class WorkgroupInitArgs:
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the snapshot to restore from.
+        The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_arn")
 
@@ -237,7 +237,7 @@ class WorkgroupInitArgs:
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The snapshot name to restore from.
+        The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -249,7 +249,7 @@ class WorkgroupInitArgs:
     @pulumi.getter(name="snapshotOwnerAccount")
     def snapshot_owner_account(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Web Services account that owns the snapshot.
+        The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_owner_account")
 
@@ -357,11 +357,11 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         :param pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[_builtins.bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
-        :param pulumi.Input[_builtins.str] recovery_point_id: The recovery point id to restore from.
+        :param pulumi.Input[_builtins.str] recovery_point_id: The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
-        :param pulumi.Input[_builtins.str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore from.
-        :param pulumi.Input[_builtins.str] snapshot_name: The snapshot name to restore from.
-        :param pulumi.Input[_builtins.str] snapshot_owner_account: The Amazon Web Services account that owns the snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_arn: The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
+        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
+        :param pulumi.Input[_builtins.str] snapshot_owner_account: The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The map of the key-value pairs used to tag the workgroup.
         :param pulumi.Input[_builtins.str] track_name: An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
@@ -550,7 +550,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="recoveryPointId")
     def recovery_point_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The recovery point id to restore from.
+        The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "recovery_point_id")
 
@@ -566,7 +566,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotArn")
     def snapshot_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the snapshot to restore from.
+        The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_arn")
 
@@ -574,7 +574,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The snapshot name to restore from.
+        The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_name")
 
@@ -582,7 +582,7 @@ class Workgroup(pulumi.CustomResource):
     @pulumi.getter(name="snapshotOwnerAccount")
     def snapshot_owner_account(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Web Services account that owns the snapshot.
+        The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         """
         return pulumi.get(self, "snapshot_owner_account")
 

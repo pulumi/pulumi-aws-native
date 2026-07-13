@@ -13,16 +13,16 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
     public sealed class KeyspaceReplicationSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("regionList")]
-        private InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem>? _regionList;
+        private InputList<string>? _regionList;
 
         /// <summary>
         /// Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
         /// 
         /// To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
         /// </summary>
-        public InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem> RegionList
+        public InputList<string> RegionList
         {
-            get => _regionList ?? (_regionList = new InputList<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem>());
+            get => _regionList ?? (_regionList = new InputList<string>());
             set => _regionList = value;
         }
 

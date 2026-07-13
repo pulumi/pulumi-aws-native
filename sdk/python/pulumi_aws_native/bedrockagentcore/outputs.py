@@ -80,6 +80,12 @@ __all__ = [
     'GatewayTargetHttpTargetConfiguration0Properties',
     'GatewayTargetHttpTargetConfiguration1Properties',
     'GatewayTargetIamCredentialProvider',
+    'GatewayTargetInferenceConnectorSource',
+    'GatewayTargetInferenceConnectorTargetConfiguration',
+    'GatewayTargetInferenceOperationConfiguration',
+    'GatewayTargetInferenceProviderTargetConfiguration',
+    'GatewayTargetInferenceTargetConfiguration0Properties',
+    'GatewayTargetInferenceTargetConfiguration1Properties',
     'GatewayTargetManagedResourceDetails',
     'GatewayTargetManagedVpcResource',
     'GatewayTargetMcpLambdaTargetConfiguration',
@@ -93,11 +99,14 @@ __all__ = [
     'GatewayTargetMcpToolSchemaConfiguration0Properties',
     'GatewayTargetMcpToolSchemaConfiguration1Properties',
     'GatewayTargetMetadataConfiguration',
+    'GatewayTargetModelEntry',
+    'GatewayTargetModelMapping',
     'GatewayTargetOAuth2AuthorizationData',
     'GatewayTargetOAuthCredentialProvider',
     'GatewayTargetPassthroughTargetConfiguration',
     'GatewayTargetPrivateEndpoint0Properties',
     'GatewayTargetPrivateEndpoint1Properties',
+    'GatewayTargetProviderPrefix',
     'GatewayTargetRuntimeTargetConfiguration',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
@@ -105,6 +114,7 @@ __all__ = [
     'GatewayTargetStickinessConfiguration',
     'GatewayTargetTargetConfiguration0Properties',
     'GatewayTargetTargetConfiguration1Properties',
+    'GatewayTargetTargetConfiguration2Properties',
     'GatewayTargetToolDefinition',
     'GatewayTargetToolSchema0Properties',
     'GatewayTargetToolSchema1Properties',
@@ -2658,6 +2668,161 @@ class GatewayTargetIamCredentialProvider(dict):
 
 
 @pulumi.output_type
+class GatewayTargetInferenceConnectorSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetInferenceConnectorSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetInferenceConnectorSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetInferenceConnectorSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: _builtins.str):
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> _builtins.str:
+        return pulumi.get(self, "connector_id")
+
+
+@pulumi.output_type
+class GatewayTargetInferenceConnectorTargetConfiguration(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.GatewayTargetInferenceConnectorSource'):
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.GatewayTargetInferenceConnectorSource':
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class GatewayTargetInferenceOperationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerPath":
+            suggest = "provider_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetInferenceOperationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetInferenceOperationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetInferenceOperationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 models: Optional[Sequence['outputs.GatewayTargetModelEntry']] = None,
+                 provider_path: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "path", path)
+        if models is not None:
+            pulumi.set(__self__, "models", models)
+        if provider_path is not None:
+            pulumi.set(__self__, "provider_path", provider_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def models(self) -> Optional[Sequence['outputs.GatewayTargetModelEntry']]:
+        return pulumi.get(self, "models")
+
+    @_builtins.property
+    @pulumi.getter(name="providerPath")
+    def provider_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "provider_path")
+
+
+@pulumi.output_type
+class GatewayTargetInferenceProviderTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelMapping":
+            suggest = "model_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetInferenceProviderTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetInferenceProviderTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetInferenceProviderTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 model_mapping: Optional['outputs.GatewayTargetModelMapping'] = None,
+                 operations: Optional[Sequence['outputs.GatewayTargetInferenceOperationConfiguration']] = None):
+        pulumi.set(__self__, "endpoint", endpoint)
+        if model_mapping is not None:
+            pulumi.set(__self__, "model_mapping", model_mapping)
+        if operations is not None:
+            pulumi.set(__self__, "operations", operations)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="modelMapping")
+    def model_mapping(self) -> Optional['outputs.GatewayTargetModelMapping']:
+        return pulumi.get(self, "model_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def operations(self) -> Optional[Sequence['outputs.GatewayTargetInferenceOperationConfiguration']]:
+        return pulumi.get(self, "operations")
+
+
+@pulumi.output_type
+class GatewayTargetInferenceTargetConfiguration0Properties(dict):
+    def __init__(__self__, *,
+                 connector: 'outputs.GatewayTargetInferenceConnectorTargetConfiguration'):
+        pulumi.set(__self__, "connector", connector)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> 'outputs.GatewayTargetInferenceConnectorTargetConfiguration':
+        return pulumi.get(self, "connector")
+
+
+@pulumi.output_type
+class GatewayTargetInferenceTargetConfiguration1Properties(dict):
+    def __init__(__self__, *,
+                 provider: 'outputs.GatewayTargetInferenceProviderTargetConfiguration'):
+        pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> 'outputs.GatewayTargetInferenceProviderTargetConfiguration':
+        return pulumi.get(self, "provider")
+
+
+@pulumi.output_type
 class GatewayTargetManagedResourceDetails(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3116,6 +3281,48 @@ class GatewayTargetMetadataConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayTargetModelEntry(dict):
+    def __init__(__self__, *,
+                 model: _builtins.str):
+        pulumi.set(__self__, "model", model)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> _builtins.str:
+        return pulumi.get(self, "model")
+
+
+@pulumi.output_type
+class GatewayTargetModelMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerPrefix":
+            suggest = "provider_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetModelMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetModelMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetModelMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_prefix: Optional['outputs.GatewayTargetProviderPrefix'] = None):
+        if provider_prefix is not None:
+            pulumi.set(__self__, "provider_prefix", provider_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="providerPrefix")
+    def provider_prefix(self) -> Optional['outputs.GatewayTargetProviderPrefix']:
+        return pulumi.get(self, "provider_prefix")
+
+
+@pulumi.output_type
 class GatewayTargetOAuth2AuthorizationData(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3339,6 +3546,27 @@ class GatewayTargetPrivateEndpoint1Properties(dict):
 
 
 @pulumi.output_type
+class GatewayTargetProviderPrefix(dict):
+    def __init__(__self__, *,
+                 separator: Optional[_builtins.str] = None,
+                 strip: Optional[_builtins.bool] = None):
+        if separator is not None:
+            pulumi.set(__self__, "separator", separator)
+        if strip is not None:
+            pulumi.set(__self__, "strip", strip)
+
+    @_builtins.property
+    @pulumi.getter
+    def separator(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "separator")
+
+    @_builtins.property
+    @pulumi.getter
+    def strip(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip")
+
+
+@pulumi.output_type
 class GatewayTargetRuntimeTargetConfiguration(dict):
     def __init__(__self__, *,
                  arn: _builtins.str,
@@ -3519,6 +3747,18 @@ class GatewayTargetTargetConfiguration1Properties(dict):
     @pulumi.getter
     def http(self) -> Any:
         return pulumi.get(self, "http")
+
+
+@pulumi.output_type
+class GatewayTargetTargetConfiguration2Properties(dict):
+    def __init__(__self__, *,
+                 inference: Any):
+        pulumi.set(__self__, "inference", inference)
+
+    @_builtins.property
+    @pulumi.getter
+    def inference(self) -> Any:
+        return pulumi.get(self, "inference")
 
 
 @pulumi.output_type

@@ -27,6 +27,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _assignContactCategoryActions = value;
         }
 
+        [Input("assignSlaActions")]
+        private InputList<Inputs.RuleAssignSlaActionArgs>? _assignSlaActions;
+        public InputList<Inputs.RuleAssignSlaActionArgs> AssignSlaActions
+        {
+            get => _assignSlaActions ?? (_assignSlaActions = new InputList<Inputs.RuleAssignSlaActionArgs>());
+            set => _assignSlaActions = value;
+        }
+
         [Input("createCaseActions")]
         private InputList<Inputs.RuleCreateCaseActionArgs>? _createCaseActions;
         public InputList<Inputs.RuleCreateCaseActionArgs> CreateCaseActions

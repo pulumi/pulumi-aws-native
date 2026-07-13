@@ -33,8 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSet{}
 	case "aws-native:quicksight:DataSource":
 		r = &DataSource{}
+	case "aws-native:quicksight:Flow":
+		r = &Flow{}
 	case "aws-native:quicksight:Folder":
 		r = &Folder{}
+	case "aws-native:quicksight:OAuthClientApplication":
+		r = &OAuthClientApplication{}
 	case "aws-native:quicksight:RefreshSchedule":
 		r = &RefreshSchedule{}
 	case "aws-native:quicksight:Template":

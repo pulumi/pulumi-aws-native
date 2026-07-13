@@ -26,6 +26,10 @@ export interface GetPipelineArgs {
 
 export interface GetPipelineResult {
     /**
+     * The Amazon Resource Name (ARN) of the pipeline.
+     */
+    readonly arn?: string;
+    /**
      * The S3 bucket where artifacts for the pipeline are stored.
      */
     readonly artifactStore?: outputs.codepipeline.PipelineArtifactStore;

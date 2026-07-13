@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly Outputs.ImagePipelineImageScanningConfiguration? ImageScanningConfiguration;
         /// <summary>
+        /// The tags to be applied to images created by this pipeline.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ImageTags;
+        /// <summary>
         /// The image tests configuration of the image pipeline.
         /// </summary>
         public readonly Outputs.ImagePipelineImageTestsConfiguration? ImageTestsConfiguration;
@@ -148,6 +152,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Outputs.ImagePipelineImageScanningConfiguration? imageScanningConfiguration,
 
+            ImmutableDictionary<string, string>? imageTags,
+
             Outputs.ImagePipelineImageTestsConfiguration? imageTestsConfiguration,
 
             string? infrastructureConfigurationArn,
@@ -171,6 +177,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             ExecutionRole = executionRole;
             ImageRecipeArn = imageRecipeArn;
             ImageScanningConfiguration = imageScanningConfiguration;
+            ImageTags = imageTags;
             ImageTestsConfiguration = imageTestsConfiguration;
             InfrastructureConfigurationArn = infrastructureConfigurationArn;
             LoggingConfiguration = loggingConfiguration;

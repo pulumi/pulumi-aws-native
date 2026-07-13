@@ -26,13 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouterInputResult:
-    def __init__(__self__, arn=None, configuration=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
+    def __init__(__self__, arn=None, configuration=None, content_quality_analysis_configuration=None, content_quality_analysis_type=None, created_at=None, id=None, input_type=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, routed_outputs=None, routing_scope=None, state=None, tags=None, tier=None, transit_encryption=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
+        if content_quality_analysis_configuration and not isinstance(content_quality_analysis_configuration, dict):
+            raise TypeError("Expected argument 'content_quality_analysis_configuration' to be a dict")
+        pulumi.set(__self__, "content_quality_analysis_configuration", content_quality_analysis_configuration)
+        if content_quality_analysis_type and not isinstance(content_quality_analysis_type, str):
+            raise TypeError("Expected argument 'content_quality_analysis_type' to be a str")
+        pulumi.set(__self__, "content_quality_analysis_type", content_quality_analysis_type)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -91,6 +97,16 @@ class GetRouterInputResult:
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
         return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisConfiguration")
+    def content_quality_analysis_configuration(self) -> Optional['outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties']:
+        return pulumi.get(self, "content_quality_analysis_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisType")
+    def content_quality_analysis_type(self) -> Optional['RouterInputRouterContentQualityAnalysisType']:
+        return pulumi.get(self, "content_quality_analysis_type")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -221,6 +237,8 @@ class AwaitableGetRouterInputResult(GetRouterInputResult):
         return GetRouterInputResult(
             arn=self.arn,
             configuration=self.configuration,
+            content_quality_analysis_configuration=self.content_quality_analysis_configuration,
+            content_quality_analysis_type=self.content_quality_analysis_type,
             created_at=self.created_at,
             id=self.id,
             input_type=self.input_type,
@@ -254,6 +272,8 @@ def get_router_input(arn: Optional[_builtins.str] = None,
     return AwaitableGetRouterInputResult(
         arn=pulumi.get(__ret__, 'arn'),
         configuration=pulumi.get(__ret__, 'configuration'),
+        content_quality_analysis_configuration=pulumi.get(__ret__, 'content_quality_analysis_configuration'),
+        content_quality_analysis_type=pulumi.get(__ret__, 'content_quality_analysis_type'),
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         input_type=pulumi.get(__ret__, 'input_type'),
@@ -284,6 +304,8 @@ def get_router_input_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetRouterInputResult(
         arn=pulumi.get(__response__, 'arn'),
         configuration=pulumi.get(__response__, 'configuration'),
+        content_quality_analysis_configuration=pulumi.get(__response__, 'content_quality_analysis_configuration'),
+        content_quality_analysis_type=pulumi.get(__response__, 'content_quality_analysis_type'),
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         input_type=pulumi.get(__response__, 'input_type'),

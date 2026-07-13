@@ -103,7 +103,7 @@ class Index(pulumi.CustomResource):
                  settings: Optional[pulumi.Input[Union['IndexSettingsArgs', 'IndexSettingsArgsDict']]] = None,
                  __props__=None):
         """
-        An OpenSearch Serverless index resource
+        Resource Type definition for AWS::OpenSearchServerless::Index
 
 
         :param str resource_name: The name of the resource.
@@ -120,7 +120,7 @@ class Index(pulumi.CustomResource):
                  args: IndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An OpenSearch Serverless index resource
+        Resource Type definition for AWS::OpenSearchServerless::Index
 
 
         :param str resource_name: The name of the resource.
@@ -158,7 +158,7 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["mappings"] = mappings
             __props__.__dict__["settings"] = settings
             __props__.__dict__["uuid"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionEndpoint", "indexName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionEndpoint", "indexName", "settings.analysis"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Index, __self__).__init__(
             'aws-native:opensearchserverless:Index',

@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectorV2Args', 'ConnectorV2']
@@ -181,6 +180,9 @@ class ConnectorV2(pulumi.CustomResource):
             __props__.__dict__["connector_id"] = None
             __props__.__dict__["connector_status"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["enablement_status"] = None
+            __props__.__dict__["enablement_status_reason"] = None
+            __props__.__dict__["issues"] = None
             __props__.__dict__["last_checked_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["message"] = None
@@ -213,6 +215,9 @@ class ConnectorV2(pulumi.CustomResource):
         __props__.__dict__["connector_status"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["enablement_status"] = None
+        __props__.__dict__["enablement_status_reason"] = None
+        __props__.__dict__["issues"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["last_checked_at"] = None
         __props__.__dict__["last_updated_at"] = None
@@ -240,7 +245,7 @@ class ConnectorV2(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="connectorStatus")
-    def connector_status(self) -> pulumi.Output['ConnectorV2ConnectorStatus']:
+    def connector_status(self) -> pulumi.Output[_builtins.str]:
         """
         The status of the connector
         """
@@ -261,6 +266,30 @@ class ConnectorV2(pulumi.CustomResource):
         A description of the connector
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enablementStatus")
+    def enablement_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        The enablement status of the connector
+        """
+        return pulumi.get(self, "enablement_status")
+
+    @_builtins.property
+    @pulumi.getter(name="enablementStatusReason")
+    def enablement_status_reason(self) -> pulumi.Output[_builtins.str]:
+        """
+        The reason for the enablement status of the connector
+        """
+        return pulumi.get(self, "enablement_status_reason")
+
+    @_builtins.property
+    @pulumi.getter
+    def issues(self) -> pulumi.Output[Sequence['outputs.ConnectorV2HealthIssue']]:
+        """
+        The list of health issues associated with the connector
+        """
+        return pulumi.get(self, "issues")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

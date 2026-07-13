@@ -33,6 +33,8 @@ type LookupSystemResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the system.
 	Description *string `pulumi:"description"`
+	// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+	SharingEnabled *bool `pulumi:"sharingEnabled"`
 	// The ARN of the system.
 	SystemArn *string `pulumi:"systemArn"`
 	// The system ID.
@@ -83,6 +85,11 @@ func (o LookupSystemResultOutput) CreatedAt() pulumi.StringPtrOutput {
 // The description of the system.
 func (o LookupSystemResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSystemResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+func (o LookupSystemResultOutput) SharingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSystemResult) *bool { return v.SharingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the system.

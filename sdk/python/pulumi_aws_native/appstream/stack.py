@@ -24,6 +24,7 @@ __all__ = ['StackArgs', 'Stack']
 class StackArgs:
     def __init__(__self__, *,
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]] = None,
+                 agent_access_config: Optional[pulumi.Input['StackAgentAccessConfigArgs']] = None,
                  application_settings: Optional[pulumi.Input['StackApplicationSettingsArgs']] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_redirection: Optional[pulumi.Input['StackContentRedirectionArgs']] = None,
@@ -42,6 +43,7 @@ class StackArgs:
         The set of arguments for constructing a Stack resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        :param pulumi.Input['StackAgentAccessConfigArgs'] agent_access_config: The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
         :param pulumi.Input['StackApplicationSettingsArgs'] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: The stack attributes to delete.
         :param pulumi.Input['StackContentRedirectionArgs'] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
@@ -59,6 +61,8 @@ class StackArgs:
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if agent_access_config is not None:
+            pulumi.set(__self__, "agent_access_config", agent_access_config)
         if application_settings is not None:
             pulumi.set(__self__, "application_settings", application_settings)
         if attributes_to_delete is not None:
@@ -99,6 +103,18 @@ class StackArgs:
     @access_endpoints.setter
     def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackAccessEndpointArgs']]]]):
         pulumi.set(self, "access_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentAccessConfig")
+    def agent_access_config(self) -> Optional[pulumi.Input['StackAgentAccessConfigArgs']]:
+        """
+        The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        """
+        return pulumi.get(self, "agent_access_config")
+
+    @agent_access_config.setter
+    def agent_access_config(self, value: Optional[pulumi.Input['StackAgentAccessConfigArgs']]):
+        pulumi.set(self, "agent_access_config", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationSettings")
@@ -276,6 +292,7 @@ class Stack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
+                 agent_access_config: Optional[pulumi.Input[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']]] = None,
                  application_settings: Optional[pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_redirection: Optional[pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
@@ -298,6 +315,7 @@ class Stack(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+        :param pulumi.Input[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']] agent_access_config: The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
         :param pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']] application_settings: The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes_to_delete: The stack attributes to delete.
         :param pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']] content_redirection: The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
@@ -339,6 +357,7 @@ class Stack(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackAccessEndpointArgs', 'StackAccessEndpointArgsDict']]]]] = None,
+                 agent_access_config: Optional[pulumi.Input[Union['StackAgentAccessConfigArgs', 'StackAgentAccessConfigArgsDict']]] = None,
                  application_settings: Optional[pulumi.Input[Union['StackApplicationSettingsArgs', 'StackApplicationSettingsArgsDict']]] = None,
                  attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  content_redirection: Optional[pulumi.Input[Union['StackContentRedirectionArgs', 'StackContentRedirectionArgsDict']]] = None,
@@ -363,6 +382,7 @@ class Stack(pulumi.CustomResource):
             __props__ = StackArgs.__new__(StackArgs)
 
             __props__.__dict__["access_endpoints"] = access_endpoints
+            __props__.__dict__["agent_access_config"] = agent_access_config
             __props__.__dict__["application_settings"] = application_settings
             __props__.__dict__["attributes_to_delete"] = attributes_to_delete
             __props__.__dict__["content_redirection"] = content_redirection
@@ -402,6 +422,7 @@ class Stack(pulumi.CustomResource):
         __props__ = StackArgs.__new__(StackArgs)
 
         __props__.__dict__["access_endpoints"] = None
+        __props__.__dict__["agent_access_config"] = None
         __props__.__dict__["application_settings"] = None
         __props__.__dict__["attributes_to_delete"] = None
         __props__.__dict__["content_redirection"] = None
@@ -425,6 +446,14 @@ class Stack(pulumi.CustomResource):
         The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="agentAccessConfig")
+    def agent_access_config(self) -> pulumi.Output[Optional['outputs.StackAgentAccessConfig']]:
+        """
+        The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        """
+        return pulumi.get(self, "agent_access_config")
 
     @_builtins.property
     @pulumi.getter(name="applicationSettings")

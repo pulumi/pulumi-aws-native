@@ -76,6 +76,7 @@ namespace Pulumi.AwsNative.Ssm
     [OutputType]
     public sealed class GetParameterResult
     {
+        public readonly string? Arn;
         /// <summary>
         /// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.Ssm
 
         [OutputConstructor]
         private GetParameterResult(
+            string? arn,
+
             Pulumi.AwsNative.Ssm.ParameterDataType? dataType,
 
             ImmutableDictionary<string, string>? tags,
@@ -105,6 +108,7 @@ namespace Pulumi.AwsNative.Ssm
 
             string? value)
         {
+            Arn = arn;
             DataType = dataType;
             Tags = tags;
             Type = type;

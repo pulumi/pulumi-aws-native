@@ -39,6 +39,7 @@
       "permissions" : [ "appconfig:GetEnvironment", "appconfig:DeleteEnvironment" ]
     }
   },
+  "additionalIdentifiers" : [ [ "/properties/ApplicationId", "/properties/Name" ] ],
   "writeOnlyProperties" : [ "/properties/DeletionProtectionCheck" ],
   "additionalProperties" : false,
   "definitions" : {

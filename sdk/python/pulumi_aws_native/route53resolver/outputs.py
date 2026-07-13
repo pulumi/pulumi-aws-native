@@ -21,6 +21,7 @@ __all__ = [
     'FirewallRuleGroupFirewallAdvancedThreatCategoryConfig',
     'FirewallRuleGroupFirewallRule',
     'FirewallRuleGroupFirewallRuleType',
+    'FirewallRuleGroupPartnerThreatProtectionConfig',
     'ResolverEndpointIpAddressRequest',
     'ResolverRuleTargetAddress',
 ]
@@ -124,7 +125,8 @@ class FirewallRuleGroupFirewallRule(dict):
                  firewall_domain_redirection_action: Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction'] = None,
                  firewall_rule_type: Optional['outputs.FirewallRuleGroupFirewallRuleType'] = None,
                  firewall_threat_protection_id: Optional[_builtins.str] = None,
-                 qtype: Optional[_builtins.str] = None):
+                 qtype: Optional[_builtins.str] = None,
+                 status: Optional['FirewallRuleGroupFirewallRuleStatus'] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List or advanced rule type
 
@@ -141,6 +143,7 @@ class FirewallRuleGroupFirewallRule(dict):
         :param 'FirewallRuleGroupFirewallRuleType' firewall_rule_type: Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
         :param _builtins.str firewall_threat_protection_id: ResourceId
         :param _builtins.str qtype: Qtype
+        :param 'FirewallRuleGroupFirewallRuleStatus' status: The status of the firewall rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "priority", priority)
@@ -166,6 +169,8 @@ class FirewallRuleGroupFirewallRule(dict):
             pulumi.set(__self__, "firewall_threat_protection_id", firewall_threat_protection_id)
         if qtype is not None:
             pulumi.set(__self__, "qtype", qtype)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @_builtins.property
     @pulumi.getter
@@ -271,6 +276,14 @@ class FirewallRuleGroupFirewallRule(dict):
         """
         return pulumi.get(self, "qtype")
 
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['FirewallRuleGroupFirewallRuleStatus']:
+        """
+        The status of the firewall rule.
+        """
+        return pulumi.get(self, "status")
+
 
 @pulumi.output_type
 class FirewallRuleGroupFirewallRuleType(dict):
@@ -284,6 +297,8 @@ class FirewallRuleGroupFirewallRuleType(dict):
             suggest = "firewall_advanced_content_category"
         elif key == "firewallAdvancedThreatCategory":
             suggest = "firewall_advanced_threat_category"
+        elif key == "partnerThreatProtection":
+            suggest = "partner_threat_protection"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallRuleGroupFirewallRuleType. Access the value via the '{suggest}' property getter instead.")
@@ -298,7 +313,8 @@ class FirewallRuleGroupFirewallRuleType(dict):
 
     def __init__(__self__, *,
                  firewall_advanced_content_category: Optional['outputs.FirewallRuleGroupFirewallAdvancedContentCategoryConfig'] = None,
-                 firewall_advanced_threat_category: Optional['outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig'] = None):
+                 firewall_advanced_threat_category: Optional['outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig'] = None,
+                 partner_threat_protection: Optional['outputs.FirewallRuleGroupPartnerThreatProtectionConfig'] = None):
         """
         Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
         """
@@ -306,6 +322,8 @@ class FirewallRuleGroupFirewallRuleType(dict):
             pulumi.set(__self__, "firewall_advanced_content_category", firewall_advanced_content_category)
         if firewall_advanced_threat_category is not None:
             pulumi.set(__self__, "firewall_advanced_threat_category", firewall_advanced_threat_category)
+        if partner_threat_protection is not None:
+            pulumi.set(__self__, "partner_threat_protection", partner_threat_protection)
 
     @_builtins.property
     @pulumi.getter(name="firewallAdvancedContentCategory")
@@ -316,6 +334,34 @@ class FirewallRuleGroupFirewallRuleType(dict):
     @pulumi.getter(name="firewallAdvancedThreatCategory")
     def firewall_advanced_threat_category(self) -> Optional['outputs.FirewallRuleGroupFirewallAdvancedThreatCategoryConfig']:
         return pulumi.get(self, "firewall_advanced_threat_category")
+
+    @_builtins.property
+    @pulumi.getter(name="partnerThreatProtection")
+    def partner_threat_protection(self) -> Optional['outputs.FirewallRuleGroupPartnerThreatProtectionConfig']:
+        return pulumi.get(self, "partner_threat_protection")
+
+
+@pulumi.output_type
+class FirewallRuleGroupPartnerThreatProtectionConfig(dict):
+    """
+    Configuration for a partner threat protection rule type.
+    """
+    def __init__(__self__, *,
+                 partner: _builtins.str):
+        """
+        Configuration for a partner threat protection rule type.
+
+        :param _builtins.str partner: The partner identifier value.
+        """
+        pulumi.set(__self__, "partner", partner)
+
+    @_builtins.property
+    @pulumi.getter
+    def partner(self) -> _builtins.str:
+        """
+        The partner identifier value.
+        """
+        return pulumi.get(self, "partner")
 
 
 @pulumi.output_type

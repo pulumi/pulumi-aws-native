@@ -55,7 +55,9 @@ type LookupUserPoolResult struct {
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
 	EmailVerificationMessage *string `pulumi:"emailVerificationMessage"`
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
-	EmailVerificationSubject *string `pulumi:"emailVerificationSubject"`
+	EmailVerificationSubject *string                      `pulumi:"emailVerificationSubject"`
+	IssuerConfiguration      *UserPoolIssuerConfiguration `pulumi:"issuerConfiguration"`
+	KeyConfiguration         *UserPoolKeyConfiguration    `pulumi:"keyConfiguration"`
 	// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
 	// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
@@ -211,6 +213,14 @@ func (o LookupUserPoolResultOutput) EmailVerificationMessage() pulumi.StringPtrO
 // This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
 func (o LookupUserPoolResultOutput) EmailVerificationSubject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.EmailVerificationSubject }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) IssuerConfiguration() UserPoolIssuerConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolIssuerConfiguration { return v.IssuerConfiguration }).(UserPoolIssuerConfigurationPtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) KeyConfiguration() UserPoolKeyConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolKeyConfiguration { return v.KeyConfiguration }).(UserPoolKeyConfigurationPtrOutput)
 }
 
 // A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.

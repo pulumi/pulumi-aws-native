@@ -113,10 +113,10 @@
       "permissions" : [ "profile:CreateEventStream", "iam:PutRolePolicy", "kinesis:DescribeStreamSummary", "profile:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetEventStream", "kinesis:DescribeStreamSummary" ]
+      "permissions" : [ "profile:GetEventStream", "profile:ListTagsForResource", "kinesis:DescribeStreamSummary" ]
     },
     "update" : {
-      "permissions" : [ "kinesis:DescribeStreamSummary", "profile:GetEventStream", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "kinesis:DescribeStreamSummary", "profile:GetEventStream", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteEventStream", "iam:DeleteRolePolicy" ]

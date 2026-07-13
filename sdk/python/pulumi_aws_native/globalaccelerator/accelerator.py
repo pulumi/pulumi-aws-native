@@ -23,6 +23,9 @@ __all__ = ['AcceleratorArgs', 'Accelerator']
 class AcceleratorArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 flow_logs_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,6 +34,9 @@ class AcceleratorArgs:
         The set of arguments for constructing a Accelerator resource.
 
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
+        :param pulumi.Input[_builtins.bool] flow_logs_enabled: Indicates whether flow logs are enabled for the accelerator.
+        :param pulumi.Input[_builtins.str] flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs.
+        :param pulumi.Input[_builtins.str] flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs.
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[_builtins.str] name: Name of accelerator.
@@ -40,6 +46,12 @@ class AcceleratorArgs:
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if flow_logs_enabled is not None:
+            pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
+        if flow_logs_s3_bucket is not None:
+            pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
+        if flow_logs_s3_prefix is not None:
+            pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if ip_addresses is not None:
@@ -60,6 +72,42 @@ class AcceleratorArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsEnabled")
+    def flow_logs_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates whether flow logs are enabled for the accelerator.
+        """
+        return pulumi.get(self, "flow_logs_enabled")
+
+    @flow_logs_enabled.setter
+    def flow_logs_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "flow_logs_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Bucket")
+    def flow_logs_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_bucket")
+
+    @flow_logs_s3_bucket.setter
+    def flow_logs_s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "flow_logs_s3_bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Prefix")
+    def flow_logs_s3_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The prefix for the location in the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_prefix")
+
+    @flow_logs_s3_prefix.setter
+    def flow_logs_s3_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "flow_logs_s3_prefix", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
@@ -119,6 +167,9 @@ class Accelerator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 flow_logs_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -131,6 +182,9 @@ class Accelerator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether an accelerator is enabled. The value is true or false.
+        :param pulumi.Input[_builtins.bool] flow_logs_enabled: Indicates whether flow logs are enabled for the accelerator.
+        :param pulumi.Input[_builtins.str] flow_logs_s3_bucket: The name of the Amazon S3 bucket for the flow logs.
+        :param pulumi.Input[_builtins.str] flow_logs_s3_prefix: The prefix for the location in the Amazon S3 bucket for the flow logs.
         :param pulumi.Input['AcceleratorIpAddressType'] ip_address_type: IP Address type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses from BYOIP Prefix pool.
         :param pulumi.Input[_builtins.str] name: Name of accelerator.
@@ -164,6 +218,9 @@ class Accelerator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 flow_logs_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
+                 flow_logs_s3_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input['AcceleratorIpAddressType']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -178,6 +235,9 @@ class Accelerator(pulumi.CustomResource):
             __props__ = AcceleratorArgs.__new__(AcceleratorArgs)
 
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["flow_logs_enabled"] = flow_logs_enabled
+            __props__.__dict__["flow_logs_s3_bucket"] = flow_logs_s3_bucket
+            __props__.__dict__["flow_logs_s3_prefix"] = flow_logs_s3_prefix
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["ip_addresses"] = ip_addresses
             __props__.__dict__["name"] = name
@@ -213,6 +273,9 @@ class Accelerator(pulumi.CustomResource):
         __props__.__dict__["dns_name"] = None
         __props__.__dict__["dual_stack_dns_name"] = None
         __props__.__dict__["enabled"] = None
+        __props__.__dict__["flow_logs_enabled"] = None
+        __props__.__dict__["flow_logs_s3_bucket"] = None
+        __props__.__dict__["flow_logs_s3_prefix"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["ip_addresses"] = None
         __props__.__dict__["ipv4_addresses"] = None
@@ -252,6 +315,30 @@ class Accelerator(pulumi.CustomResource):
         Indicates whether an accelerator is enabled. The value is true or false.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsEnabled")
+    def flow_logs_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates whether flow logs are enabled for the accelerator.
+        """
+        return pulumi.get(self, "flow_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Bucket")
+    def flow_logs_s3_bucket(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Prefix")
+    def flow_logs_s3_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The prefix for the location in the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_prefix")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")

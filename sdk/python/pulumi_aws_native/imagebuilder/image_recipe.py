@@ -26,6 +26,7 @@ class ImageRecipeArgs:
                  version: pulumi.Input[_builtins.str],
                  additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
                  ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ami_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,7 @@ class ImageRecipeArgs:
         :param pulumi.Input[_builtins.str] version: The version of the image recipe.
         :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ami_watermarks: The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
@@ -52,6 +54,8 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "additional_instance_configuration", additional_instance_configuration)
         if ami_tags is not None:
             pulumi.set(__self__, "ami_tags", ami_tags)
+        if ami_watermarks is not None:
+            pulumi.set(__self__, "ami_watermarks", ami_watermarks)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if components is not None:
@@ -112,6 +116,18 @@ class ImageRecipeArgs:
     @ami_tags.setter
     def ami_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ami_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="amiWatermarks")
+    def ami_watermarks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+        """
+        return pulumi.get(self, "ami_watermarks")
+
+    @ami_watermarks.setter
+    def ami_watermarks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ami_watermarks", value)
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
@@ -194,6 +210,7 @@ class ImageRecipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
                  ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ami_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -211,6 +228,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ami_watermarks: The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
@@ -247,6 +265,7 @@ class ImageRecipe(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_instance_configuration: Optional[pulumi.Input[Union['ImageRecipeAdditionalInstanceConfigurationArgs', 'ImageRecipeAdditionalInstanceConfigurationArgsDict']]] = None,
                  ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ami_watermarks: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeInstanceBlockDeviceMappingArgs', 'ImageRecipeInstanceBlockDeviceMappingArgsDict']]]]] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentConfigurationArgs', 'ImageRecipeComponentConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -266,6 +285,7 @@ class ImageRecipe(pulumi.CustomResource):
 
             __props__.__dict__["additional_instance_configuration"] = additional_instance_configuration
             __props__.__dict__["ami_tags"] = ami_tags
+            __props__.__dict__["ami_watermarks"] = ami_watermarks
             __props__.__dict__["block_device_mappings"] = block_device_mappings
             __props__.__dict__["components"] = components
             __props__.__dict__["description"] = description
@@ -280,7 +300,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalInstanceConfiguration", "amiTags.*", "amiWatermarks[*]", "blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageRecipe, __self__).__init__(
             'aws-native:imagebuilder:ImageRecipe',
@@ -306,6 +326,7 @@ class ImageRecipe(pulumi.CustomResource):
 
         __props__.__dict__["additional_instance_configuration"] = None
         __props__.__dict__["ami_tags"] = None
+        __props__.__dict__["ami_watermarks"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["components"] = None
@@ -333,6 +354,14 @@ class ImageRecipe(pulumi.CustomResource):
         The tags to apply to the AMI created by this image recipe.
         """
         return pulumi.get(self, "ami_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="amiWatermarks")
+    def ami_watermarks(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+        """
+        return pulumi.get(self, "ami_watermarks")
 
     @_builtins.property
     @pulumi.getter

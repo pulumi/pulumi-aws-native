@@ -2,6 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CloudFormationProductProductType = {
+    CloudFormationTemplate: "CLOUD_FORMATION_TEMPLATE",
+    MarketplaceAmi: "MARKETPLACE_AMI",
+    MarketplaceCar: "MARKETPLACE_CAR",
+    TerraformOpenSource: "TERRAFORM_OPEN_SOURCE",
+    TerraformCloud: "TERRAFORM_CLOUD",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The type of product.
+ */
+export type CloudFormationProductProductType = (typeof CloudFormationProductProductType)[keyof typeof CloudFormationProductProductType];
+
+export const CloudFormationProductProvisioningArtifactPropertiesType = {
+    CloudFormationTemplate: "CLOUD_FORMATION_TEMPLATE",
+    MarketplaceAmi: "MARKETPLACE_AMI",
+    MarketplaceCar: "MARKETPLACE_CAR",
+    TerraformOpenSource: "TERRAFORM_OPEN_SOURCE",
+    TerraformCloud: "TERRAFORM_CLOUD",
+    External: "EXTERNAL",
+} as const;
+
+/**
+ * The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+ */
+export type CloudFormationProductProvisioningArtifactPropertiesType = (typeof CloudFormationProductProvisioningArtifactPropertiesType)[keyof typeof CloudFormationProductProvisioningArtifactPropertiesType];
+
 export const CloudFormationProvisionedProductAcceptLanguage = {
     En: "en",
     Jp: "jp",

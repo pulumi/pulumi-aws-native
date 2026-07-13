@@ -48,6 +48,47 @@ func (i ConnectivityInfoPropertiesArgs) ToConnectivityInfoPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityInfoPropertiesOutput)
 }
 
+func (i ConnectivityInfoPropertiesArgs) ToConnectivityInfoPropertiesPtrOutput() ConnectivityInfoPropertiesPtrOutput {
+	return i.ToConnectivityInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectivityInfoPropertiesArgs) ToConnectivityInfoPropertiesPtrOutputWithContext(ctx context.Context) ConnectivityInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityInfoPropertiesOutput).ToConnectivityInfoPropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectivityInfoPropertiesPtrInput is an input type that accepts ConnectivityInfoPropertiesArgs, ConnectivityInfoPropertiesPtr and ConnectivityInfoPropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectivityInfoPropertiesPtrInput` via:
+//
+//	        ConnectivityInfoPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectivityInfoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectivityInfoPropertiesPtrOutput() ConnectivityInfoPropertiesPtrOutput
+	ToConnectivityInfoPropertiesPtrOutputWithContext(context.Context) ConnectivityInfoPropertiesPtrOutput
+}
+
+type connectivityInfoPropertiesPtrType ConnectivityInfoPropertiesArgs
+
+func ConnectivityInfoPropertiesPtr(v *ConnectivityInfoPropertiesArgs) ConnectivityInfoPropertiesPtrInput {
+	return (*connectivityInfoPropertiesPtrType)(v)
+}
+
+func (*connectivityInfoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectivityInfoProperties)(nil)).Elem()
+}
+
+func (i *connectivityInfoPropertiesPtrType) ToConnectivityInfoPropertiesPtrOutput() ConnectivityInfoPropertiesPtrOutput {
+	return i.ToConnectivityInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectivityInfoPropertiesPtrType) ToConnectivityInfoPropertiesPtrOutputWithContext(ctx context.Context) ConnectivityInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityInfoPropertiesPtrOutput)
+}
+
 // The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
 type ConnectivityInfoPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -63,9 +104,53 @@ func (o ConnectivityInfoPropertiesOutput) ToConnectivityInfoPropertiesOutputWith
 	return o
 }
 
+func (o ConnectivityInfoPropertiesOutput) ToConnectivityInfoPropertiesPtrOutput() ConnectivityInfoPropertiesPtrOutput {
+	return o.ToConnectivityInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectivityInfoPropertiesOutput) ToConnectivityInfoPropertiesPtrOutputWithContext(ctx context.Context) ConnectivityInfoPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectivityInfoProperties) *ConnectivityInfoProperties {
+		return &v
+	}).(ConnectivityInfoPropertiesPtrOutput)
+}
+
 // The unique IDs for private route server peers.
 func (o ConnectivityInfoPropertiesOutput) PrivateRouteServerPeerings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectivityInfoProperties) []string { return v.PrivateRouteServerPeerings }).(pulumi.StringArrayOutput)
+}
+
+type ConnectivityInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectivityInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectivityInfoProperties)(nil)).Elem()
+}
+
+func (o ConnectivityInfoPropertiesPtrOutput) ToConnectivityInfoPropertiesPtrOutput() ConnectivityInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectivityInfoPropertiesPtrOutput) ToConnectivityInfoPropertiesPtrOutputWithContext(ctx context.Context) ConnectivityInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectivityInfoPropertiesPtrOutput) Elem() ConnectivityInfoPropertiesOutput {
+	return o.ApplyT(func(v *ConnectivityInfoProperties) ConnectivityInfoProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectivityInfoProperties
+		return ret
+	}).(ConnectivityInfoPropertiesOutput)
+}
+
+// The unique IDs for private route server peers.
+func (o ConnectivityInfoPropertiesPtrOutput) PrivateRouteServerPeerings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectivityInfoProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateRouteServerPeerings
+	}).(pulumi.StringArrayOutput)
 }
 
 type EnvironmentCheck struct {
@@ -874,6 +959,47 @@ func (i LicenseInfoPropertiesArgs) ToLicenseInfoPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseInfoPropertiesOutput)
 }
 
+func (i LicenseInfoPropertiesArgs) ToLicenseInfoPropertiesPtrOutput() LicenseInfoPropertiesPtrOutput {
+	return i.ToLicenseInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i LicenseInfoPropertiesArgs) ToLicenseInfoPropertiesPtrOutputWithContext(ctx context.Context) LicenseInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseInfoPropertiesOutput).ToLicenseInfoPropertiesPtrOutputWithContext(ctx)
+}
+
+// LicenseInfoPropertiesPtrInput is an input type that accepts LicenseInfoPropertiesArgs, LicenseInfoPropertiesPtr and LicenseInfoPropertiesPtrOutput values.
+// You can construct a concrete instance of `LicenseInfoPropertiesPtrInput` via:
+//
+//	        LicenseInfoPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LicenseInfoPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToLicenseInfoPropertiesPtrOutput() LicenseInfoPropertiesPtrOutput
+	ToLicenseInfoPropertiesPtrOutputWithContext(context.Context) LicenseInfoPropertiesPtrOutput
+}
+
+type licenseInfoPropertiesPtrType LicenseInfoPropertiesArgs
+
+func LicenseInfoPropertiesPtr(v *LicenseInfoPropertiesArgs) LicenseInfoPropertiesPtrInput {
+	return (*licenseInfoPropertiesPtrType)(v)
+}
+
+func (*licenseInfoPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseInfoProperties)(nil)).Elem()
+}
+
+func (i *licenseInfoPropertiesPtrType) ToLicenseInfoPropertiesPtrOutput() LicenseInfoPropertiesPtrOutput {
+	return i.ToLicenseInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *licenseInfoPropertiesPtrType) ToLicenseInfoPropertiesPtrOutputWithContext(ctx context.Context) LicenseInfoPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseInfoPropertiesPtrOutput)
+}
+
 // The license information for an EVS environment
 type LicenseInfoPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -889,6 +1015,16 @@ func (o LicenseInfoPropertiesOutput) ToLicenseInfoPropertiesOutputWithContext(ct
 	return o
 }
 
+func (o LicenseInfoPropertiesOutput) ToLicenseInfoPropertiesPtrOutput() LicenseInfoPropertiesPtrOutput {
+	return o.ToLicenseInfoPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o LicenseInfoPropertiesOutput) ToLicenseInfoPropertiesPtrOutputWithContext(ctx context.Context) LicenseInfoPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseInfoProperties) *LicenseInfoProperties {
+		return &v
+	}).(LicenseInfoPropertiesPtrOutput)
+}
+
 // The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
 func (o LicenseInfoPropertiesOutput) SolutionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.SolutionKey }).(pulumi.StringOutput)
@@ -897,6 +1033,50 @@ func (o LicenseInfoPropertiesOutput) SolutionKey() pulumi.StringOutput {
 // The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
 func (o LicenseInfoPropertiesOutput) VsanKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseInfoProperties) string { return v.VsanKey }).(pulumi.StringOutput)
+}
+
+type LicenseInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LicenseInfoPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LicenseInfoProperties)(nil)).Elem()
+}
+
+func (o LicenseInfoPropertiesPtrOutput) ToLicenseInfoPropertiesPtrOutput() LicenseInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o LicenseInfoPropertiesPtrOutput) ToLicenseInfoPropertiesPtrOutputWithContext(ctx context.Context) LicenseInfoPropertiesPtrOutput {
+	return o
+}
+
+func (o LicenseInfoPropertiesPtrOutput) Elem() LicenseInfoPropertiesOutput {
+	return o.ApplyT(func(v *LicenseInfoProperties) LicenseInfoProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseInfoProperties
+		return ret
+	}).(LicenseInfoPropertiesOutput)
+}
+
+// The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must cover a minimum of 256 cores.
+func (o LicenseInfoPropertiesPtrOutput) SolutionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SolutionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VSAN license key. This license unlocks vSAN features. The vSAN license key must provide at least 110 TiB of vSAN capacity.
+func (o LicenseInfoPropertiesPtrOutput) VsanKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LicenseInfoProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VsanKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
@@ -1110,6 +1290,47 @@ func (i VcfHostnamesPropertiesArgs) ToVcfHostnamesPropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VcfHostnamesPropertiesOutput)
 }
 
+func (i VcfHostnamesPropertiesArgs) ToVcfHostnamesPropertiesPtrOutput() VcfHostnamesPropertiesPtrOutput {
+	return i.ToVcfHostnamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i VcfHostnamesPropertiesArgs) ToVcfHostnamesPropertiesPtrOutputWithContext(ctx context.Context) VcfHostnamesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VcfHostnamesPropertiesOutput).ToVcfHostnamesPropertiesPtrOutputWithContext(ctx)
+}
+
+// VcfHostnamesPropertiesPtrInput is an input type that accepts VcfHostnamesPropertiesArgs, VcfHostnamesPropertiesPtr and VcfHostnamesPropertiesPtrOutput values.
+// You can construct a concrete instance of `VcfHostnamesPropertiesPtrInput` via:
+//
+//	        VcfHostnamesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type VcfHostnamesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToVcfHostnamesPropertiesPtrOutput() VcfHostnamesPropertiesPtrOutput
+	ToVcfHostnamesPropertiesPtrOutputWithContext(context.Context) VcfHostnamesPropertiesPtrOutput
+}
+
+type vcfHostnamesPropertiesPtrType VcfHostnamesPropertiesArgs
+
+func VcfHostnamesPropertiesPtr(v *VcfHostnamesPropertiesArgs) VcfHostnamesPropertiesPtrInput {
+	return (*vcfHostnamesPropertiesPtrType)(v)
+}
+
+func (*vcfHostnamesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VcfHostnamesProperties)(nil)).Elem()
+}
+
+func (i *vcfHostnamesPropertiesPtrType) ToVcfHostnamesPropertiesPtrOutput() VcfHostnamesPropertiesPtrOutput {
+	return i.ToVcfHostnamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *vcfHostnamesPropertiesPtrType) ToVcfHostnamesPropertiesPtrOutputWithContext(ctx context.Context) VcfHostnamesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VcfHostnamesPropertiesPtrOutput)
+}
+
 // The DNS hostnames to be used by the VCF management appliances in your environment.
 //
 // For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
@@ -1125,6 +1346,16 @@ func (o VcfHostnamesPropertiesOutput) ToVcfHostnamesPropertiesOutput() VcfHostna
 
 func (o VcfHostnamesPropertiesOutput) ToVcfHostnamesPropertiesOutputWithContext(ctx context.Context) VcfHostnamesPropertiesOutput {
 	return o
+}
+
+func (o VcfHostnamesPropertiesOutput) ToVcfHostnamesPropertiesPtrOutput() VcfHostnamesPropertiesPtrOutput {
+	return o.ToVcfHostnamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o VcfHostnamesPropertiesOutput) ToVcfHostnamesPropertiesPtrOutputWithContext(ctx context.Context) VcfHostnamesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VcfHostnamesProperties) *VcfHostnamesProperties {
+		return &v
+	}).(VcfHostnamesPropertiesPtrOutput)
 }
 
 // The hostname for VMware Cloud Builder.
@@ -1172,8 +1403,123 @@ func (o VcfHostnamesPropertiesOutput) VCenter() pulumi.StringOutput {
 	return o.ApplyT(func(v VcfHostnamesProperties) string { return v.VCenter }).(pulumi.StringOutput)
 }
 
+type VcfHostnamesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (VcfHostnamesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VcfHostnamesProperties)(nil)).Elem()
+}
+
+func (o VcfHostnamesPropertiesPtrOutput) ToVcfHostnamesPropertiesPtrOutput() VcfHostnamesPropertiesPtrOutput {
+	return o
+}
+
+func (o VcfHostnamesPropertiesPtrOutput) ToVcfHostnamesPropertiesPtrOutputWithContext(ctx context.Context) VcfHostnamesPropertiesPtrOutput {
+	return o
+}
+
+func (o VcfHostnamesPropertiesPtrOutput) Elem() VcfHostnamesPropertiesOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) VcfHostnamesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VcfHostnamesProperties
+		return ret
+	}).(VcfHostnamesPropertiesOutput)
+}
+
+// The hostname for VMware Cloud Builder.
+func (o VcfHostnamesPropertiesPtrOutput) CloudBuilder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudBuilder
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VMware NSX hostname.
+func (o VcfHostnamesPropertiesPtrOutput) Nsx() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Nsx
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for the first NSX Edge node.
+func (o VcfHostnamesPropertiesPtrOutput) NsxEdge1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NsxEdge1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for the second NSX Edge node.
+func (o VcfHostnamesPropertiesPtrOutput) NsxEdge2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NsxEdge2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for the first VMware NSX Manager virtual machine (VM).
+func (o VcfHostnamesPropertiesPtrOutput) NsxManager1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NsxManager1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for the second VMware NSX Manager virtual machine (VM).
+func (o VcfHostnamesPropertiesPtrOutput) NsxManager2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NsxManager2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for the third VMware NSX Manager virtual machine (VM).
+func (o VcfHostnamesPropertiesPtrOutput) NsxManager3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NsxManager3
+	}).(pulumi.StringPtrOutput)
+}
+
+// The hostname for SDDC Manager.
+func (o VcfHostnamesPropertiesPtrOutput) SddcManager() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SddcManager
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VMware vCenter hostname.
+func (o VcfHostnamesPropertiesPtrOutput) VCenter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VcfHostnamesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VCenter
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectivityInfoPropertiesInput)(nil)).Elem(), ConnectivityInfoPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectivityInfoPropertiesPtrInput)(nil)).Elem(), ConnectivityInfoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHostInfoForCreateInput)(nil)).Elem(), EnvironmentHostInfoForCreateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHostInfoForCreateArrayInput)(nil)).Elem(), EnvironmentHostInfoForCreateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentInitialVlanInfoInput)(nil)).Elem(), EnvironmentInitialVlanInfoArgs{})
@@ -1181,10 +1527,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InitialVlansPropertiesInput)(nil)).Elem(), InitialVlansPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InitialVlansPropertiesPtrInput)(nil)).Elem(), InitialVlansPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseInfoPropertiesInput)(nil)).Elem(), LicenseInfoPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseInfoPropertiesPtrInput)(nil)).Elem(), LicenseInfoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccessSecurityGroupsPropertiesInput)(nil)).Elem(), ServiceAccessSecurityGroupsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAccessSecurityGroupsPropertiesPtrInput)(nil)).Elem(), ServiceAccessSecurityGroupsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VcfHostnamesPropertiesInput)(nil)).Elem(), VcfHostnamesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VcfHostnamesPropertiesPtrInput)(nil)).Elem(), VcfHostnamesPropertiesArgs{})
 	pulumi.RegisterOutputType(ConnectivityInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectivityInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentCheckOutput{})
 	pulumi.RegisterOutputType(EnvironmentCheckArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentHostInfoForCreateOutput{})
@@ -1196,7 +1545,9 @@ func init() {
 	pulumi.RegisterOutputType(InitialVlansPropertiesOutput{})
 	pulumi.RegisterOutputType(InitialVlansPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(LicenseInfoPropertiesOutput{})
+	pulumi.RegisterOutputType(LicenseInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccessSecurityGroupsPropertiesOutput{})
 	pulumi.RegisterOutputType(ServiceAccessSecurityGroupsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VcfHostnamesPropertiesOutput{})
+	pulumi.RegisterOutputType(VcfHostnamesPropertiesPtrOutput{})
 }

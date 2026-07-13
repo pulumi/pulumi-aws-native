@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
         /// </summary>
         public readonly int ExecutionTimeout;
+        public readonly string? KmsKeyArn;
         /// <summary>
         /// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         /// </summary>
@@ -29,9 +30,12 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         private FunctionDurableConfig(
             int executionTimeout,
 
+            string? kmsKeyArn,
+
             int? retentionPeriodInDays)
         {
             ExecutionTimeout = executionTimeout;
+            KmsKeyArn = kmsKeyArn;
             RetentionPeriodInDays = retentionPeriodInDays;
         }
     }

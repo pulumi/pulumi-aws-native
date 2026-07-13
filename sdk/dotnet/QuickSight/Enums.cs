@@ -8459,6 +8459,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         public static DataSetUseAs RlsRules { get; } = new DataSetUseAs("RLS_RULES");
+        public static DataSetUseAs Catalog { get; } = new DataSetUseAs("CATALOG");
 
         public static bool operator ==(DataSetUseAs left, DataSetUseAs right) => left.Equals(right);
         public static bool operator !=(DataSetUseAs left, DataSetUseAs right) => !left.Equals(right);
@@ -8659,6 +8660,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Appflow { get; } = new DataSourceType("APPFLOW");
         public static DataSourceType Impala { get; } = new DataSourceType("IMPALA");
         public static DataSourceType Glue { get; } = new DataSourceType("GLUE");
+        public static DataSourceType GlueDataCatalog { get; } = new DataSourceType("GLUE_DATA_CATALOG");
         public static DataSourceType GoogleDrive { get; } = new DataSourceType("GOOGLE_DRIVE");
         public static DataSourceType Confluence { get; } = new DataSourceType("CONFLUENCE");
         public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
@@ -8666,6 +8668,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType WebCrawler { get; } = new DataSourceType("WEB_CRAWLER");
         public static DataSourceType Box { get; } = new DataSourceType("BOX");
         public static DataSourceType Googlesheets { get; } = new DataSourceType("GOOGLESHEETS");
+        public static DataSourceType Atlan { get; } = new DataSourceType("ATLAN");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -8675,6 +8678,35 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceType other && Equals(other);
         public bool Equals(DataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowPublishState : IEquatable<FlowPublishState>
+    {
+        private readonly string _value;
+
+        private FlowPublishState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowPublishState Published { get; } = new FlowPublishState("PUBLISHED");
+        public static FlowPublishState Draft { get; } = new FlowPublishState("DRAFT");
+        public static FlowPublishState PendingApproval { get; } = new FlowPublishState("PENDING_APPROVAL");
+
+        public static bool operator ==(FlowPublishState left, FlowPublishState right) => left.Equals(right);
+        public static bool operator !=(FlowPublishState left, FlowPublishState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowPublishState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowPublishState other && Equals(other);
+        public bool Equals(FlowPublishState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8731,6 +8763,97 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FolderType other && Equals(other);
         public bool Equals(FolderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuthClientApplicationDataSourceType : IEquatable<OAuthClientApplicationDataSourceType>
+    {
+        private readonly string _value;
+
+        private OAuthClientApplicationDataSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuthClientApplicationDataSourceType AdobeAnalytics { get; } = new OAuthClientApplicationDataSourceType("ADOBE_ANALYTICS");
+        public static OAuthClientApplicationDataSourceType AmazonElasticsearch { get; } = new OAuthClientApplicationDataSourceType("AMAZON_ELASTICSEARCH");
+        public static OAuthClientApplicationDataSourceType AmazonOpensearch { get; } = new OAuthClientApplicationDataSourceType("AMAZON_OPENSEARCH");
+        public static OAuthClientApplicationDataSourceType Athena { get; } = new OAuthClientApplicationDataSourceType("ATHENA");
+        public static OAuthClientApplicationDataSourceType Aurora { get; } = new OAuthClientApplicationDataSourceType("AURORA");
+        public static OAuthClientApplicationDataSourceType AuroraPostgresql { get; } = new OAuthClientApplicationDataSourceType("AURORA_POSTGRESQL");
+        public static OAuthClientApplicationDataSourceType AwsIotAnalytics { get; } = new OAuthClientApplicationDataSourceType("AWS_IOT_ANALYTICS");
+        public static OAuthClientApplicationDataSourceType Bigquery { get; } = new OAuthClientApplicationDataSourceType("BIGQUERY");
+        public static OAuthClientApplicationDataSourceType Confluence { get; } = new OAuthClientApplicationDataSourceType("CONFLUENCE");
+        public static OAuthClientApplicationDataSourceType Databricks { get; } = new OAuthClientApplicationDataSourceType("DATABRICKS");
+        public static OAuthClientApplicationDataSourceType Exasol { get; } = new OAuthClientApplicationDataSourceType("EXASOL");
+        public static OAuthClientApplicationDataSourceType Github { get; } = new OAuthClientApplicationDataSourceType("GITHUB");
+        public static OAuthClientApplicationDataSourceType Googlesheets { get; } = new OAuthClientApplicationDataSourceType("GOOGLESHEETS");
+        public static OAuthClientApplicationDataSourceType GoogleDrive { get; } = new OAuthClientApplicationDataSourceType("GOOGLE_DRIVE");
+        public static OAuthClientApplicationDataSourceType Jira { get; } = new OAuthClientApplicationDataSourceType("JIRA");
+        public static OAuthClientApplicationDataSourceType Mariadb { get; } = new OAuthClientApplicationDataSourceType("MARIADB");
+        public static OAuthClientApplicationDataSourceType Mysql { get; } = new OAuthClientApplicationDataSourceType("MYSQL");
+        public static OAuthClientApplicationDataSourceType OneDrive { get; } = new OAuthClientApplicationDataSourceType("ONE_DRIVE");
+        public static OAuthClientApplicationDataSourceType Oracle { get; } = new OAuthClientApplicationDataSourceType("ORACLE");
+        public static OAuthClientApplicationDataSourceType Postgresql { get; } = new OAuthClientApplicationDataSourceType("POSTGRESQL");
+        public static OAuthClientApplicationDataSourceType Presto { get; } = new OAuthClientApplicationDataSourceType("PRESTO");
+        public static OAuthClientApplicationDataSourceType Qbusiness { get; } = new OAuthClientApplicationDataSourceType("QBUSINESS");
+        public static OAuthClientApplicationDataSourceType Redshift { get; } = new OAuthClientApplicationDataSourceType("REDSHIFT");
+        public static OAuthClientApplicationDataSourceType S3 { get; } = new OAuthClientApplicationDataSourceType("S3");
+        public static OAuthClientApplicationDataSourceType S3KnowledgeBase { get; } = new OAuthClientApplicationDataSourceType("S3_KNOWLEDGE_BASE");
+        public static OAuthClientApplicationDataSourceType S3Tables { get; } = new OAuthClientApplicationDataSourceType("S3_TABLES");
+        public static OAuthClientApplicationDataSourceType Salesforce { get; } = new OAuthClientApplicationDataSourceType("SALESFORCE");
+        public static OAuthClientApplicationDataSourceType Servicenow { get; } = new OAuthClientApplicationDataSourceType("SERVICENOW");
+        public static OAuthClientApplicationDataSourceType Sharepoint { get; } = new OAuthClientApplicationDataSourceType("SHAREPOINT");
+        public static OAuthClientApplicationDataSourceType Snowflake { get; } = new OAuthClientApplicationDataSourceType("SNOWFLAKE");
+        public static OAuthClientApplicationDataSourceType Spark { get; } = new OAuthClientApplicationDataSourceType("SPARK");
+        public static OAuthClientApplicationDataSourceType Sqlserver { get; } = new OAuthClientApplicationDataSourceType("SQLSERVER");
+        public static OAuthClientApplicationDataSourceType Starburst { get; } = new OAuthClientApplicationDataSourceType("STARBURST");
+        public static OAuthClientApplicationDataSourceType Teradata { get; } = new OAuthClientApplicationDataSourceType("TERADATA");
+        public static OAuthClientApplicationDataSourceType Timestream { get; } = new OAuthClientApplicationDataSourceType("TIMESTREAM");
+        public static OAuthClientApplicationDataSourceType Trino { get; } = new OAuthClientApplicationDataSourceType("TRINO");
+        public static OAuthClientApplicationDataSourceType Twitter { get; } = new OAuthClientApplicationDataSourceType("TWITTER");
+        public static OAuthClientApplicationDataSourceType WebCrawler { get; } = new OAuthClientApplicationDataSourceType("WEB_CRAWLER");
+
+        public static bool operator ==(OAuthClientApplicationDataSourceType left, OAuthClientApplicationDataSourceType right) => left.Equals(right);
+        public static bool operator !=(OAuthClientApplicationDataSourceType left, OAuthClientApplicationDataSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(OAuthClientApplicationDataSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuthClientApplicationDataSourceType other && Equals(other);
+        public bool Equals(OAuthClientApplicationDataSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OAuthClientApplicationOAuthClientAuthenticationType : IEquatable<OAuthClientApplicationOAuthClientAuthenticationType>
+    {
+        private readonly string _value;
+
+        private OAuthClientApplicationOAuthClientAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OAuthClientApplicationOAuthClientAuthenticationType Token { get; } = new OAuthClientApplicationOAuthClientAuthenticationType("TOKEN");
+
+        public static bool operator ==(OAuthClientApplicationOAuthClientAuthenticationType left, OAuthClientApplicationOAuthClientAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(OAuthClientApplicationOAuthClientAuthenticationType left, OAuthClientApplicationOAuthClientAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(OAuthClientApplicationOAuthClientAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuthClientApplicationOAuthClientAuthenticationType other && Equals(other);
+        public bool Equals(OAuthClientApplicationOAuthClientAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

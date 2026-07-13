@@ -42,6 +42,10 @@ __all__ = [
     'NetworkIpPoolArgsDict',
     'NetworkRouteArgs',
     'NetworkRouteArgsDict',
+    'NodeInterfaceMappingArgs',
+    'NodeInterfaceMappingArgsDict',
+    'NodeSdiSourceMappingArgs',
+    'NodeSdiSourceMappingArgsDict',
 ]
 
 class ClusterInterfaceMappingArgsDict(TypedDict):
@@ -822,5 +826,153 @@ class NetworkRouteArgs:
     @gateway.setter
     def gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gateway", value)
+
+
+class NodeInterfaceMappingArgsDict(TypedDict):
+    """
+    Node interface mapping.
+    """
+    logical_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logical name for this interface.
+    """
+    network_interface_mode: NotRequired[pulumi.Input['NodeInterfaceMappingNetworkInterfaceMode']]
+    """
+    The network interface mode.
+    """
+    physical_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The physical interface name.
+    """
+
+@pulumi.input_type
+class NodeInterfaceMappingArgs:
+    def __init__(__self__, *,
+                 logical_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_mode: Optional[pulumi.Input['NodeInterfaceMappingNetworkInterfaceMode']] = None,
+                 physical_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Node interface mapping.
+
+        :param pulumi.Input[_builtins.str] logical_interface_name: The logical name for this interface.
+        :param pulumi.Input['NodeInterfaceMappingNetworkInterfaceMode'] network_interface_mode: The network interface mode.
+        :param pulumi.Input[_builtins.str] physical_interface_name: The physical interface name.
+        """
+        if logical_interface_name is not None:
+            pulumi.set(__self__, "logical_interface_name", logical_interface_name)
+        if network_interface_mode is not None:
+            pulumi.set(__self__, "network_interface_mode", network_interface_mode)
+        if physical_interface_name is not None:
+            pulumi.set(__self__, "physical_interface_name", physical_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalInterfaceName")
+    def logical_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The logical name for this interface.
+        """
+        return pulumi.get(self, "logical_interface_name")
+
+    @logical_interface_name.setter
+    def logical_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "logical_interface_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceMode")
+    def network_interface_mode(self) -> Optional[pulumi.Input['NodeInterfaceMappingNetworkInterfaceMode']]:
+        """
+        The network interface mode.
+        """
+        return pulumi.get(self, "network_interface_mode")
+
+    @network_interface_mode.setter
+    def network_interface_mode(self, value: Optional[pulumi.Input['NodeInterfaceMappingNetworkInterfaceMode']]):
+        pulumi.set(self, "network_interface_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="physicalInterfaceName")
+    def physical_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The physical interface name.
+        """
+        return pulumi.get(self, "physical_interface_name")
+
+    @physical_interface_name.setter
+    def physical_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "physical_interface_name", value)
+
+
+class NodeSdiSourceMappingArgsDict(TypedDict):
+    """
+    SDI source mapping.
+    """
+    card_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The card number.
+    """
+    channel_number: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The channel number.
+    """
+    sdi_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SDI source.
+    """
+
+@pulumi.input_type
+class NodeSdiSourceMappingArgs:
+    def __init__(__self__, *,
+                 card_number: Optional[pulumi.Input[_builtins.int]] = None,
+                 channel_number: Optional[pulumi.Input[_builtins.int]] = None,
+                 sdi_source: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        SDI source mapping.
+
+        :param pulumi.Input[_builtins.int] card_number: The card number.
+        :param pulumi.Input[_builtins.int] channel_number: The channel number.
+        :param pulumi.Input[_builtins.str] sdi_source: The SDI source.
+        """
+        if card_number is not None:
+            pulumi.set(__self__, "card_number", card_number)
+        if channel_number is not None:
+            pulumi.set(__self__, "channel_number", channel_number)
+        if sdi_source is not None:
+            pulumi.set(__self__, "sdi_source", sdi_source)
+
+    @_builtins.property
+    @pulumi.getter(name="cardNumber")
+    def card_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The card number.
+        """
+        return pulumi.get(self, "card_number")
+
+    @card_number.setter
+    def card_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "card_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelNumber")
+    def channel_number(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The channel number.
+        """
+        return pulumi.get(self, "channel_number")
+
+    @channel_number.setter
+    def channel_number(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "channel_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdiSource")
+    def sdi_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The SDI source.
+        """
+        return pulumi.get(self, "sdi_source")
+
+    @sdi_source.setter
+    def sdi_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sdi_source", value)
 
 

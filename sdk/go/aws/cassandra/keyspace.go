@@ -69,10 +69,10 @@ import (
 //				KeyspaceName: pulumi.String("MultiRegionKeyspace"),
 //				ReplicationSpecification: &cassandra.KeyspaceReplicationSpecificationArgs{
 //					ReplicationStrategy: cassandra.KeyspaceReplicationSpecificationReplicationStrategyMultiRegion,
-//					RegionList: cassandra.KeyspaceRegionListItemArray{
-//						cassandra.KeyspaceRegionListItemUsEast1,
-//						cassandra.KeyspaceRegionListItemUsWest2,
-//						cassandra.KeyspaceRegionListItemEuWest1,
+//					RegionList: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-west-2"),
+//						pulumi.String("eu-west-1"),
 //					},
 //				},
 //			})
@@ -102,10 +102,10 @@ import (
 //				KeyspaceName: pulumi.String("MultiRegionKeyspace"),
 //				ReplicationSpecification: &cassandra.KeyspaceReplicationSpecificationArgs{
 //					ReplicationStrategy: cassandra.KeyspaceReplicationSpecificationReplicationStrategyMultiRegion,
-//					RegionList: cassandra.KeyspaceRegionListItemArray{
-//						cassandra.KeyspaceRegionListItemUsEast1,
-//						cassandra.KeyspaceRegionListItemUsWest2,
-//						cassandra.KeyspaceRegionListItemEuWest1,
+//					RegionList: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-west-2"),
+//						pulumi.String("eu-west-1"),
 //					},
 //				},
 //			})

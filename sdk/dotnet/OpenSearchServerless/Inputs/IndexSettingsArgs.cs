@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
     public sealed class IndexSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Custom analysis configuration including analyzers, tokenizers, and filters
+        /// </summary>
+        [Input("analysis")]
+        public Input<Inputs.IndexSettingsAnalysisPropertiesArgs>? Analysis { get; set; }
+
+        /// <summary>
         /// Index settings.
         /// </summary>
         [Input("index")]

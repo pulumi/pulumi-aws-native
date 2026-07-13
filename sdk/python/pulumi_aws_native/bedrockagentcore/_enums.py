@@ -345,6 +345,7 @@ class GatewayTargetSchemaType(_builtins.str, Enum):
 class GatewayTargetTargetProtocolType(_builtins.str, Enum):
     MCP = "MCP"
     HTTP = "HTTP"
+    INFERENCE = "INFERENCE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayTargetTargetStatus")

@@ -25,6 +25,8 @@ __all__ = [
     'ConfigurationAggregatorAccountAggregationSource',
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConformancePackInputParameter',
+    'ConnectorAzureConnectorConfiguration',
+    'ConnectorConfiguration',
     'OrganizationConformancePackConformancePackInputParameter',
     'RemediationConfigurationExecutionControls',
     'RemediationConfigurationSsmControls',
@@ -581,6 +583,83 @@ class ConformancePackInputParameter(dict):
         Another part of the key-value pair.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class ConnectorAzureConnectorConfiguration(dict):
+    """
+    Configuration for connecting to Microsoft Azure.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientIdentifier":
+            suggest = "client_identifier"
+        elif key == "tenantIdentifier":
+            suggest = "tenant_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAzureConnectorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAzureConnectorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAzureConnectorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_identifier: _builtins.str,
+                 tenant_identifier: _builtins.str):
+        """
+        Configuration for connecting to Microsoft Azure.
+
+        :param _builtins.str client_identifier: The Azure client (application) identifier.
+        :param _builtins.str tenant_identifier: The Azure tenant identifier.
+        """
+        pulumi.set(__self__, "client_identifier", client_identifier)
+        pulumi.set(__self__, "tenant_identifier", tenant_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clientIdentifier")
+    def client_identifier(self) -> _builtins.str:
+        """
+        The Azure client (application) identifier.
+        """
+        return pulumi.get(self, "client_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIdentifier")
+    def tenant_identifier(self) -> _builtins.str:
+        """
+        The Azure tenant identifier.
+        """
+        return pulumi.get(self, "tenant_identifier")
+
+
+@pulumi.output_type
+class ConnectorConfiguration(dict):
+    """
+    The configuration for the connector. Specify the third-party cloud provider configuration.
+    """
+    def __init__(__self__, *,
+                 azure: Optional['outputs.ConnectorAzureConnectorConfiguration'] = None):
+        """
+        The configuration for the connector. Specify the third-party cloud provider configuration.
+
+        :param 'ConnectorAzureConnectorConfiguration' azure: The configuration for connecting to Microsoft Azure.
+        """
+        if azure is not None:
+            pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> Optional['outputs.ConnectorAzureConnectorConfiguration']:
+        """
+        The configuration for connecting to Microsoft Azure.
+        """
+        return pulumi.get(self, "azure")
 
 
 @pulumi.output_type

@@ -33,6 +33,8 @@ __all__ = [
     'ImageBuilderVolumeConfig',
     'ImageBuilderVpcConfig',
     'StackAccessEndpoint',
+    'StackAgentAccessConfig',
+    'StackAgentAccessSetting',
     'StackApplicationSettings',
     'StackContentRedirection',
     'StackStorageConnector',
@@ -806,6 +808,163 @@ class StackAccessEndpoint(dict):
 
 
 @pulumi.output_type
+class StackAgentAccessConfig(dict):
+    """
+    The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "screenImageFormat":
+            suggest = "screen_image_format"
+        elif key == "screenResolution":
+            suggest = "screen_resolution"
+        elif key == "s3BucketArn":
+            suggest = "s3_bucket_arn"
+        elif key == "screenshotsUploadEnabled":
+            suggest = "screenshots_upload_enabled"
+        elif key == "userControlMode":
+            suggest = "user_control_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackAgentAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackAgentAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackAgentAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 screen_image_format: _builtins.str,
+                 screen_resolution: _builtins.str,
+                 settings: Sequence['outputs.StackAgentAccessSetting'],
+                 s3_bucket_arn: Optional[_builtins.str] = None,
+                 screenshots_upload_enabled: Optional[_builtins.bool] = None,
+                 user_control_mode: Optional[_builtins.str] = None):
+        """
+        The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+
+        :param _builtins.str screen_image_format: The image format for agent screen captures.
+        :param _builtins.str screen_resolution: The screen resolution for the agent streaming environment.
+        :param Sequence['StackAgentAccessSetting'] settings: The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+        :param _builtins.str s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        :param _builtins.bool screenshots_upload_enabled: Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+        :param _builtins.str user_control_mode: The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+        """
+        pulumi.set(__self__, "screen_image_format", screen_image_format)
+        pulumi.set(__self__, "screen_resolution", screen_resolution)
+        pulumi.set(__self__, "settings", settings)
+        if s3_bucket_arn is not None:
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if screenshots_upload_enabled is not None:
+            pulumi.set(__self__, "screenshots_upload_enabled", screenshots_upload_enabled)
+        if user_control_mode is not None:
+            pulumi.set(__self__, "user_control_mode", user_control_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="screenImageFormat")
+    def screen_image_format(self) -> _builtins.str:
+        """
+        The image format for agent screen captures.
+        """
+        return pulumi.get(self, "screen_image_format")
+
+    @_builtins.property
+    @pulumi.getter(name="screenResolution")
+    def screen_resolution(self) -> _builtins.str:
+        """
+        The screen resolution for the agent streaming environment.
+        """
+        return pulumi.get(self, "screen_resolution")
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> Sequence['outputs.StackAgentAccessSetting']:
+        """
+        The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+        """
+        return pulumi.get(self, "settings")
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="screenshotsUploadEnabled")
+    def screenshots_upload_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+        """
+        return pulumi.get(self, "screenshots_upload_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="userControlMode")
+    def user_control_mode(self) -> Optional[_builtins.str]:
+        """
+        The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+        """
+        return pulumi.get(self, "user_control_mode")
+
+
+@pulumi.output_type
+class StackAgentAccessSetting(dict):
+    """
+    A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentAction":
+            suggest = "agent_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackAgentAccessSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackAgentAccessSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackAgentAccessSetting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_action: _builtins.str,
+                 permission: _builtins.str):
+        """
+        A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+
+        :param _builtins.str agent_action: The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+        :param _builtins.str permission: Whether the agent action is enabled or disabled.
+        """
+        pulumi.set(__self__, "agent_action", agent_action)
+        pulumi.set(__self__, "permission", permission)
+
+    @_builtins.property
+    @pulumi.getter(name="agentAction")
+    def agent_action(self) -> _builtins.str:
+        """
+        The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+        """
+        return pulumi.get(self, "agent_action")
+
+    @_builtins.property
+    @pulumi.getter
+    def permission(self) -> _builtins.str:
+        """
+        Whether the agent action is enabled or disabled.
+        """
+        return pulumi.get(self, "permission")
+
+
+@pulumi.output_type
 class StackApplicationSettings(dict):
     """
     The persistent application settings for users of a stack.
@@ -834,7 +993,7 @@ class StackApplicationSettings(dict):
         The persistent application settings for users of a stack.
 
         :param _builtins.bool enabled: Enables or disables persistent application settings for users during their streaming sessions.
-        :param _builtins.str settings_group: The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        :param _builtins.str settings_group: The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
         """
         pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
@@ -852,7 +1011,7 @@ class StackApplicationSettings(dict):
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> Optional[_builtins.str]:
         """
-        The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
         """
         return pulumi.get(self, "settings_group")
 

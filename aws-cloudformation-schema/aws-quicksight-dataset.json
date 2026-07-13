@@ -444,7 +444,7 @@
         "TargetColumnId" : {
           "minLength" : 1,
           "type" : "string",
-          "maxLength" : 64
+          "maxLength" : 256
         }
       },
       "required" : [ "SourceColumnId", "TargetColumnId" ]
@@ -803,7 +803,7 @@
     },
     "DataSetUseAs" : {
       "type" : "string",
-      "enum" : [ "RLS_RULES" ]
+      "enum" : [ "RLS_RULES", "CATALOG" ]
     },
     "StringDatasetParameterDefaultValues" : {
       "description" : "<p>The default values of a string parameter.</p>",
@@ -1307,7 +1307,7 @@
         },
         "Columns" : {
           "minItems" : 0,
-          "maxItems" : 256,
+          "maxItems" : 512,
           "description" : "<p>Calculated columns to create.</p>",
           "type" : "array",
           "items" : {
@@ -1813,9 +1813,12 @@
       "properties" : {
         "ColumnNames" : {
           "minItems" : 1,
+          "maxItems" : 2000,
           "type" : "array",
           "items" : {
-            "type" : "string"
+            "minLength" : 1,
+            "type" : "string",
+            "maxLength" : 127
           }
         },
         "ColumnProperties" : {

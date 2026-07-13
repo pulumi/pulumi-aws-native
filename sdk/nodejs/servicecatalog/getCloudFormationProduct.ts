@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
+ * Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
  */
 export function getCloudFormationProduct(args: GetCloudFormationProductArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudFormationProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,17 +18,13 @@ export function getCloudFormationProduct(args: GetCloudFormationProductArgs, opt
 }
 
 export interface GetCloudFormationProductArgs {
+    /**
+     * The ID of the product, such as prod-tsjbmal34qvek
+     */
     id: string;
 }
 
 export interface GetCloudFormationProductResult {
-    /**
-     * The language code.
-     *
-     * - `jp` - Japanese
-     * - `zh` - Chinese
-     */
-    readonly acceptLanguage?: string;
     /**
      * The description of the product.
      */
@@ -37,6 +33,9 @@ export interface GetCloudFormationProductResult {
      * The distributor of the product.
      */
     readonly distributor?: string;
+    /**
+     * The ID of the product, such as prod-tsjbmal34qvek
+     */
     readonly id?: string;
     /**
      * The name of the product.
@@ -53,13 +52,13 @@ export interface GetCloudFormationProductResult {
     /**
      * The type of product.
      */
-    readonly productType?: string;
+    readonly productType?: enums.servicecatalog.CloudFormationProductProductType;
     /**
-     * The IDs of the provisioning artifacts.
+     * The IDs of the provisioning artifacts
      */
     readonly provisioningArtifactIds?: string;
     /**
-     * The names of the provisioning artifacts.
+     * The names of the provisioning artifacts
      */
     readonly provisioningArtifactNames?: string;
     /**
@@ -67,13 +66,7 @@ export interface GetCloudFormationProductResult {
      */
     readonly provisioningArtifactParameters?: outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[];
     /**
-     * This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
-     *
-     * If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
-     */
-    readonly replaceProvisioningArtifacts?: boolean;
-    /**
-     * A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
+     * A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
      */
     readonly sourceConnection?: outputs.servicecatalog.CloudFormationProductSourceConnection;
     /**
@@ -86,8 +79,6 @@ export interface GetCloudFormationProductResult {
     readonly supportEmail?: string;
     /**
      * The contact URL for product support.
-     *
-     * `^https?:\/\//` / is the pattern used to validate SupportUrl.
      */
     readonly supportUrl?: string;
     /**
@@ -96,7 +87,7 @@ export interface GetCloudFormationProductResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
+ * Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
  */
 export function getCloudFormationProductOutput(args: GetCloudFormationProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFormationProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,5 +97,8 @@ export function getCloudFormationProductOutput(args: GetCloudFormationProductOut
 }
 
 export interface GetCloudFormationProductOutputArgs {
+    /**
+     * The ID of the product, such as prod-tsjbmal34qvek
+     */
     id: pulumi.Input<string>;
 }

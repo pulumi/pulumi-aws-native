@@ -8,10 +8,13 @@ from enum import Enum
 
 __all__ = [
     'PentestAuthenticationProviderType',
+    'PentestCleanUpStrategy',
     'PentestCodeRemediationStrategy',
     'PentestNetworkTrafficRuleEffect',
     'PentestNetworkTrafficRuleNetworkTrafficRuleType',
     'PentestRiskType',
+    'PentestSkillType',
+    'SecurityRequirementPackStatus',
     'TargetDomainDnsVerificationDnsRecordType',
     'TargetDomainVerificationDetailsMethod',
     'TargetDomainVerificationMethod',
@@ -28,6 +31,15 @@ class PentestAuthenticationProviderType(_builtins.str, Enum):
     AWS_LAMBDA = "AWS_LAMBDA"
     AWS_IAM_ROLE = "AWS_IAM_ROLE"
     AWS_INTERNAL = "AWS_INTERNAL"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestCleanUpStrategy")
+class PentestCleanUpStrategy(_builtins.str, Enum):
+    """
+    Strategy for cleaning up resources after pentest job completion
+    """
+    BEST_EFFORT_DELETE = "BEST_EFFORT_DELETE"
+    RETAIN_ALL = "RETAIN_ALL"
 
 
 @pulumi.type_token("aws-native:securityagent:PentestCodeRemediationStrategy")
@@ -89,6 +101,24 @@ class PentestRiskType(_builtins.str, Enum):
     DATABASE_ACCESS = "DATABASE_ACCESS"
     OUTBOUND_SERVICE_REQUEST = "OUTBOUND_SERVICE_REQUEST"
     UNKNOWN = "UNKNOWN"
+
+
+@pulumi.type_token("aws-native:securityagent:PentestSkillType")
+class PentestSkillType(_builtins.str, Enum):
+    """
+    Type of managed skill that can be disabled for a pentest
+    """
+    FINDING_PERSONALIZATION = "FINDING_PERSONALIZATION"
+    LOGIN_OPTIMIZATION = "LOGIN_OPTIMIZATION"
+
+
+@pulumi.type_token("aws-native:securityagent:SecurityRequirementPackStatus")
+class SecurityRequirementPackStatus(_builtins.str, Enum):
+    """
+    Whether the pack is enabled or disabled
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:securityagent:TargetDomainDnsVerificationDnsRecordType")

@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// Information about the contact category action. The syntax can be empty, for example, ``{}``.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleAssignContactCategoryAction> AssignContactCategoryActions;
+        public readonly ImmutableArray<Outputs.RuleAssignSlaAction> AssignSlaActions;
         public readonly ImmutableArray<Outputs.RuleCreateCaseAction> CreateCaseActions;
         public readonly ImmutableArray<Outputs.RuleEndAssociatedTasksAction> EndAssociatedTasksActions;
         /// <summary>
@@ -41,6 +42,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         private RuleActions(
             ImmutableArray<Outputs.RuleAssignContactCategoryAction> assignContactCategoryActions,
 
+            ImmutableArray<Outputs.RuleAssignSlaAction> assignSlaActions,
+
             ImmutableArray<Outputs.RuleCreateCaseAction> createCaseActions,
 
             ImmutableArray<Outputs.RuleEndAssociatedTasksAction> endAssociatedTasksActions,
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             ImmutableArray<Outputs.RuleUpdateCaseAction> updateCaseActions)
         {
             AssignContactCategoryActions = assignContactCategoryActions;
+            AssignSlaActions = assignSlaActions;
             CreateCaseActions = createCaseActions;
             EndAssociatedTasksActions = endAssociatedTasksActions;
             EventBridgeActions = eventBridgeActions;

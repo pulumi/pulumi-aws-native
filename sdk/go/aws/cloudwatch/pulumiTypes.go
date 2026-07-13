@@ -1052,6 +1052,11 @@ type DashboardTag struct {
 	Value string `pulumi:"value"`
 }
 
+type InsightRuleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The schedule configuration for the scheduled query.
 type LogAlarmScheduleConfiguration struct {
 	// The number of seconds into the past to end the query window.

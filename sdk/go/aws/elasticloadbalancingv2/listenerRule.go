@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -33,6 +34,7 @@ type ListenerRule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn    pulumi.StringOutput              `pulumi:"ruleArn"`
+	Tags       aws.TagArrayOutput               `pulumi:"tags"`
 	Transforms ListenerRuleTransformArrayOutput `pulumi:"transforms"`
 }
 
@@ -100,6 +102,7 @@ type listenerRuleArgs struct {
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 	Priority   int                     `pulumi:"priority"`
+	Tags       []aws.Tag               `pulumi:"tags"`
 	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
@@ -116,6 +119,7 @@ type ListenerRuleArgs struct {
 	// The rule priority. A listener can't have multiple rules with the same priority.
 	//  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
 	Priority   pulumi.IntInput
+	Tags       aws.TagArrayInput
 	Transforms ListenerRuleTransformArrayInput
 }
 
@@ -190,6 +194,10 @@ func (o ListenerRuleOutput) Priority() pulumi.IntOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o ListenerRuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerRule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerRuleOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ListenerRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o ListenerRuleOutput) Transforms() ListenerRuleTransformArrayOutput {

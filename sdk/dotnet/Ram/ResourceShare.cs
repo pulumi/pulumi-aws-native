@@ -166,6 +166,12 @@ namespace Pulumi.AwsNative.Ram
         public Output<ImmutableArray<string>> ResourceArns { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the configuration for the resource share
+        /// </summary>
+        [Output("resourceShareConfiguration")]
+        public Output<Outputs.ResourceShareConfiguration?> ResourceShareConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies from which source accounts the service principal has access to the resources in this resource share.
         /// </summary>
         [Output("sources")]
@@ -206,6 +212,10 @@ namespace Pulumi.AwsNative.Ram
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "resourceShareConfiguration.retainSharingOnAccountLeaveOrganization",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -285,6 +295,12 @@ namespace Pulumi.AwsNative.Ram
             get => _resourceArns ?? (_resourceArns = new InputList<string>());
             set => _resourceArns = value;
         }
+
+        /// <summary>
+        /// Specifies the configuration for the resource share
+        /// </summary>
+        [Input("resourceShareConfiguration")]
+        public Input<Inputs.ResourceShareConfigurationArgs>? ResourceShareConfiguration { get; set; }
 
         [Input("sources")]
         private InputList<string>? _sources;

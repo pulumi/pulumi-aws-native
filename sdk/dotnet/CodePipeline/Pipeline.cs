@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.CodePipeline
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the pipeline.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The S3 bucket where artifacts for the pipeline are stored.
         /// </summary>
         [Output("artifactStore")]

@@ -66,6 +66,10 @@ export class ConformancePack extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) of the conformance pack.
+     */
+    declare public /*out*/ readonly conformancePackArn: pulumi.Output<string>;
+    /**
      * A list of ConformancePackInputParameter objects.
      */
     declare public readonly conformancePackInputParameters: pulumi.Output<outputs.configuration.ConformancePackInputParameter[] | undefined>;
@@ -81,6 +85,10 @@ export class ConformancePack extends pulumi.CustomResource {
      * The prefix for delivery S3 bucket.
      */
     declare public readonly deliveryS3KeyPrefix: pulumi.Output<string | undefined>;
+    /**
+     * The tags for the conformance pack.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
      */
@@ -109,14 +117,18 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["conformancePackName"] = args?.conformancePackName;
             resourceInputs["deliveryS3Bucket"] = args?.deliveryS3Bucket;
             resourceInputs["deliveryS3KeyPrefix"] = args?.deliveryS3KeyPrefix;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["templateBody"] = args?.templateBody;
             resourceInputs["templateS3Uri"] = args?.templateS3Uri;
             resourceInputs["templateSsmDocumentDetails"] = args?.templateSsmDocumentDetails;
+            resourceInputs["conformancePackArn"] = undefined /*out*/;
         } else {
+            resourceInputs["conformancePackArn"] = undefined /*out*/;
             resourceInputs["conformancePackInputParameters"] = undefined /*out*/;
             resourceInputs["conformancePackName"] = undefined /*out*/;
             resourceInputs["deliveryS3Bucket"] = undefined /*out*/;
             resourceInputs["deliveryS3KeyPrefix"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateBody"] = undefined /*out*/;
             resourceInputs["templateS3Uri"] = undefined /*out*/;
             resourceInputs["templateSsmDocumentDetails"] = undefined /*out*/;
@@ -148,6 +160,10 @@ export interface ConformancePackArgs {
      * The prefix for delivery S3 bucket.
      */
     deliveryS3KeyPrefix?: pulumi.Input<string>;
+    /**
+     * The tags for the conformance pack.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
      */

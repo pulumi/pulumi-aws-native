@@ -489,6 +489,13 @@ export const GatewayState = {
  */
 export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];
 
+export const RouterInputContentQualityAnalysisState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type RouterInputContentQualityAnalysisState = (typeof RouterInputContentQualityAnalysisState)[keyof typeof RouterInputContentQualityAnalysisState];
+
 export const RouterInputDay = {
     Monday: "MONDAY",
     Tuesday: "TUESDAY",
@@ -551,6 +558,12 @@ export const RouterInputProtocol = {
 } as const;
 
 export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof RouterInputProtocol];
+
+export const RouterInputRouterContentQualityAnalysisType = {
+    ContentLevel: "CONTENT_LEVEL",
+} as const;
+
+export type RouterInputRouterContentQualityAnalysisType = (typeof RouterInputRouterContentQualityAnalysisType)[keyof typeof RouterInputRouterContentQualityAnalysisType];
 
 export const RouterInputRoutingScope = {
     Regional: "REGIONAL",

@@ -7,6 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AlgorithmChannelSpecificationSupportedCompressionTypesItem',
+    'AlgorithmChannelSpecificationSupportedInputModesItem',
+    'AlgorithmHyperParameterSpecificationType',
+    'AlgorithmHyperParameterTuningJobObjectiveType',
     'AppResourceSpecInstanceType',
     'AppType',
     'ClusterAutoScalingConfigAutoScalerType',
@@ -49,6 +53,7 @@ __all__ = [
     'FeatureGroupTableFormat',
     'FeatureGroupThroughputMode',
     'FeatureGroupUnit',
+    'HubStatus',
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
@@ -148,6 +153,33 @@ __all__ = [
     'UserProfileUserSettingsAutoMountHomeEfs',
     'UserProfileUserSettingsStudioWebPortal',
 ]
+
+
+@pulumi.type_token("aws-native:sagemaker:AlgorithmChannelSpecificationSupportedCompressionTypesItem")
+class AlgorithmChannelSpecificationSupportedCompressionTypesItem(_builtins.str, Enum):
+    NONE = "None"
+    GZIP = "Gzip"
+
+
+@pulumi.type_token("aws-native:sagemaker:AlgorithmChannelSpecificationSupportedInputModesItem")
+class AlgorithmChannelSpecificationSupportedInputModesItem(_builtins.str, Enum):
+    PIPE = "Pipe"
+    FILE = "File"
+    FAST_FILE = "FastFile"
+
+
+@pulumi.type_token("aws-native:sagemaker:AlgorithmHyperParameterSpecificationType")
+class AlgorithmHyperParameterSpecificationType(_builtins.str, Enum):
+    INTEGER = "Integer"
+    CONTINUOUS = "Continuous"
+    CATEGORICAL = "Categorical"
+    FREE_TEXT = "FreeText"
+
+
+@pulumi.type_token("aws-native:sagemaker:AlgorithmHyperParameterTuningJobObjectiveType")
+class AlgorithmHyperParameterTuningJobObjectiveType(_builtins.str, Enum):
+    MAXIMIZE = "Maximize"
+    MINIMIZE = "Minimize"
 
 
 @pulumi.type_token("aws-native:sagemaker:AppResourceSpecInstanceType")
@@ -887,6 +919,20 @@ class FeatureGroupUnit(_builtins.str, Enum):
     HOURS = "Hours"
     DAYS = "Days"
     WEEKS = "Weeks"
+
+
+@pulumi.type_token("aws-native:sagemaker:HubStatus")
+class HubStatus(_builtins.str, Enum):
+    """
+    The status of the hub.
+    """
+    IN_SERVICE = "InService"
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    CREATE_FAILED = "CreateFailed"
+    UPDATE_FAILED = "UpdateFailed"
+    DELETE_FAILED = "DeleteFailed"
 
 
 @pulumi.type_token("aws-native:sagemaker:ImageVersionJobType")
