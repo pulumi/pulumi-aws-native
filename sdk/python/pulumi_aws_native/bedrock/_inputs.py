@@ -11905,7 +11905,7 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     Contains details about the model used to create vector embeddings for a managed knowledge base.
     """
-    embedding_model_arn: pulumi.Input[_builtins.str]
+    embedding_model_arn: NotRequired[pulumi.Input[_builtins.str]]
     """
     The ARN of the model used to create vector embeddings for the knowledge base.
     """
@@ -11916,7 +11916,7 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
-                 embedding_model_arn: pulumi.Input[_builtins.str],
+                 embedding_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
                  embedding_model_type: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None):
@@ -11925,7 +11925,8 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
 
         :param pulumi.Input[_builtins.str] embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         """
-        pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
+        if embedding_model_arn is not None:
+            pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
             pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
         if embedding_model_type is not None:
@@ -11935,14 +11936,14 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelArn")
-    def embedding_model_arn(self) -> pulumi.Input[_builtins.str]:
+    def embedding_model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ARN of the model used to create vector embeddings for the knowledge base.
         """
         return pulumi.get(self, "embedding_model_arn")
 
     @embedding_model_arn.setter
-    def embedding_model_arn(self, value: pulumi.Input[_builtins.str]):
+    def embedding_model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "embedding_model_arn", value)
 
     @_builtins.property

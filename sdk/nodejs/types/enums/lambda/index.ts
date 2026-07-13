@@ -18,9 +18,6 @@ export const CapacityProviderLoggingConfigSystemLogLevel = {
     Warn: "WARN",
 } as const;
 
-/**
- * System log granularity level
- */
 export type CapacityProviderLoggingConfigSystemLogLevel = (typeof CapacityProviderLoggingConfigSystemLogLevel)[keyof typeof CapacityProviderLoggingConfigSystemLogLevel];
 
 export const CapacityProviderPredefinedMetricType = {
@@ -173,6 +170,13 @@ export const FunctionArchitecturesItem = {
 } as const;
 
 export type FunctionArchitecturesItem = (typeof FunctionArchitecturesItem)[keyof typeof FunctionArchitecturesItem];
+
+export const FunctionCodeS3ObjectStorageMode = {
+    Copy: "COPY",
+    Reference: "REFERENCE",
+} as const;
+
+export type FunctionCodeS3ObjectStorageMode = (typeof FunctionCodeS3ObjectStorageMode)[keyof typeof FunctionCodeS3ObjectStorageMode];
 
 export const FunctionLoggingConfigApplicationLogLevel = {
     Trace: "TRACE",

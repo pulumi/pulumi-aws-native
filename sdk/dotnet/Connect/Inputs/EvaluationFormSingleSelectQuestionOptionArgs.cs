@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<Inputs.EvaluationFormAutomaticFailConfigurationArgs>? AutomaticFailConfiguration { get; set; }
 
         /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        [Input("pointsConfiguration")]
+        public Input<Inputs.EvaluationFormQuestionOptionPointsConfigurationArgs>? PointsConfiguration { get; set; }
+
+        /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>

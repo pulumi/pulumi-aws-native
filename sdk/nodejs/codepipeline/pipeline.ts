@@ -38,6 +38,10 @@ export class Pipeline extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the pipeline.
+     */
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
      * The S3 bucket where artifacts for the pipeline are stored.
      */
     declare public readonly artifactStore: pulumi.Output<outputs.codepipeline.PipelineArtifactStore | undefined>;
@@ -119,8 +123,10 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["triggers"] = args?.triggers;
             resourceInputs["variables"] = args?.variables;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["artifactStore"] = undefined /*out*/;
             resourceInputs["artifactStores"] = undefined /*out*/;
             resourceInputs["disableInboundStageTransitions"] = undefined /*out*/;

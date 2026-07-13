@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// The configuration for a specific set of metrics to collect for a service.
+    /// </summary>
     public sealed class ServiceMetricConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricNames", required: true)]
         private InputList<Pulumi.AwsNative.Ecs.ServiceMetricConfigurationMetricNamesItem>? _metricNames;
+
+        /// <summary>
+        /// The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Ecs.ServiceMetricConfigurationMetricNamesItem> MetricNames
         {
             get => _metricNames ?? (_metricNames = new InputList<Pulumi.AwsNative.Ecs.ServiceMetricConfigurationMetricNamesItem>());
             set => _metricNames = value;
         }
 
+        /// <summary>
+        /// The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+        /// </summary>
         [Input("resolutionSeconds", required: true)]
         public Input<int> ResolutionSeconds { get; set; } = null!;
 

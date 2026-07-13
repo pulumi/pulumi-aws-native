@@ -30,6 +30,8 @@ export interface GetRouterInputResult {
      */
     readonly arn?: string;
     readonly configuration?: outputs.mediaconnect.RouterInputConfiguration0Properties | outputs.mediaconnect.RouterInputConfiguration1Properties | outputs.mediaconnect.RouterInputConfiguration2Properties | outputs.mediaconnect.RouterInputConfiguration3Properties | outputs.mediaconnect.RouterInputConfiguration4Properties;
+    readonly contentQualityAnalysisConfiguration?: outputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationProperties;
+    readonly contentQualityAnalysisType?: enums.mediaconnect.RouterInputRouterContentQualityAnalysisType;
     /**
      * The timestamp when the router input was created.
      */

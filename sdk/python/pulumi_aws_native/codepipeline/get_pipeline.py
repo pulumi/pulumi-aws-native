@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, execution_mode=None, pipeline_type=None, role_arn=None, stages=None, tags=None, triggers=None, variables=None, version=None):
+    def __init__(__self__, arn=None, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, execution_mode=None, pipeline_type=None, role_arn=None, stages=None, tags=None, triggers=None, variables=None, version=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if artifact_store and not isinstance(artifact_store, dict):
             raise TypeError("Expected argument 'artifact_store' to be a dict")
         pulumi.set(__self__, "artifact_store", artifact_store)
@@ -60,6 +63,14 @@ class GetPipelineResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the pipeline.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")
@@ -156,6 +167,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
+            arn=self.arn,
             artifact_store=self.artifact_store,
             artifact_stores=self.artifact_stores,
             disable_inbound_stage_transitions=self.disable_inbound_stage_transitions,
@@ -183,6 +195,7 @@ def get_pipeline(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:codepipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
+        arn=pulumi.get(__ret__, 'arn'),
         artifact_store=pulumi.get(__ret__, 'artifact_store'),
         artifact_stores=pulumi.get(__ret__, 'artifact_stores'),
         disable_inbound_stage_transitions=pulumi.get(__ret__, 'disable_inbound_stage_transitions'),
@@ -207,6 +220,7 @@ def get_pipeline_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codepipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
+        arn=pulumi.get(__response__, 'arn'),
         artifact_store=pulumi.get(__response__, 'artifact_store'),
         artifact_stores=pulumi.get(__response__, 'artifact_stores'),
         disable_inbound_stage_transitions=pulumi.get(__response__, 'disable_inbound_stage_transitions'),

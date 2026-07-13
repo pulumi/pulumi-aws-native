@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetParameterResult:
-    def __init__(__self__, data_type=None, tags=None, type=None, value=None):
+    def __init__(__self__, arn=None, data_type=None, tags=None, type=None, value=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if data_type and not isinstance(data_type, str):
             raise TypeError("Expected argument 'data_type' to be a str")
         pulumi.set(__self__, "data_type", data_type)
@@ -37,6 +40,11 @@ class GetParameterResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dataType")
@@ -79,6 +87,7 @@ class AwaitableGetParameterResult(GetParameterResult):
         if False:
             yield self
         return GetParameterResult(
+            arn=self.arn,
             data_type=self.data_type,
             tags=self.tags,
             type=self.type,
@@ -104,6 +113,7 @@ def get_parameter(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult).value
 
     return AwaitableGetParameterResult(
+        arn=pulumi.get(__ret__, 'arn'),
         data_type=pulumi.get(__ret__, 'data_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
@@ -126,6 +136,7 @@ def get_parameter_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult)
     return __ret__.apply(lambda __response__: GetParameterResult(
+        arn=pulumi.get(__response__, 'arn'),
         data_type=pulumi.get(__response__, 'data_type'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

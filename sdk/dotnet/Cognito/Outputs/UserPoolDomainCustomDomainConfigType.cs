@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         /// </summary>
         public readonly string? CertificateArn;
+        public readonly string? SecurityPolicy;
 
         [OutputConstructor]
-        private UserPoolDomainCustomDomainConfigType(string? certificateArn)
+        private UserPoolDomainCustomDomainConfigType(
+            string? certificateArn,
+
+            string? securityPolicy)
         {
             CertificateArn = certificateArn;
+            SecurityPolicy = securityPolicy;
         }
     }
 }

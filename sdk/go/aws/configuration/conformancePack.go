@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -71,6 +72,8 @@ import (
 type ConformancePack struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) of the conformance pack.
+	ConformancePackArn pulumi.StringOutput `pulumi:"conformancePackArn"`
 	// A list of ConformancePackInputParameter objects.
 	ConformancePackInputParameters ConformancePackInputParameterArrayOutput `pulumi:"conformancePackInputParameters"`
 	// Name of the conformance pack which will be assigned as the unique identifier.
@@ -79,6 +82,8 @@ type ConformancePack struct {
 	DeliveryS3Bucket pulumi.StringPtrOutput `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
 	DeliveryS3KeyPrefix pulumi.StringPtrOutput `pulumi:"deliveryS3KeyPrefix"`
+	// The tags for the conformance pack.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
 	TemplateBody pulumi.StringPtrOutput `pulumi:"templateBody"`
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
@@ -139,6 +144,8 @@ type conformancePackArgs struct {
 	DeliveryS3Bucket *string `pulumi:"deliveryS3Bucket"`
 	// The prefix for delivery S3 bucket.
 	DeliveryS3KeyPrefix *string `pulumi:"deliveryS3KeyPrefix"`
+	// The tags for the conformance pack.
+	Tags []aws.Tag `pulumi:"tags"`
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
 	TemplateBody *string `pulumi:"templateBody"`
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
@@ -157,6 +164,8 @@ type ConformancePackArgs struct {
 	DeliveryS3Bucket pulumi.StringPtrInput
 	// The prefix for delivery S3 bucket.
 	DeliveryS3KeyPrefix pulumi.StringPtrInput
+	// The tags for the conformance pack.
+	Tags aws.TagArrayInput
 	// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
 	TemplateBody pulumi.StringPtrInput
 	// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
@@ -202,6 +211,11 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 	return o
 }
 
+// Amazon Resource Name (ARN) of the conformance pack.
+func (o ConformancePackOutput) ConformancePackArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConformancePack) pulumi.StringOutput { return v.ConformancePackArn }).(pulumi.StringOutput)
+}
+
 // A list of ConformancePackInputParameter objects.
 func (o ConformancePackOutput) ConformancePackInputParameters() ConformancePackInputParameterArrayOutput {
 	return o.ApplyT(func(v *ConformancePack) ConformancePackInputParameterArrayOutput {
@@ -222,6 +236,11 @@ func (o ConformancePackOutput) DeliveryS3Bucket() pulumi.StringPtrOutput {
 // The prefix for delivery S3 bucket.
 func (o ConformancePackOutput) DeliveryS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConformancePack) pulumi.StringPtrOutput { return v.DeliveryS3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The tags for the conformance pack.
+func (o ConformancePackOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ConformancePack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.

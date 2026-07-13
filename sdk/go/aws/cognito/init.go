@@ -43,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserPoolGroup{}
 	case "aws-native:cognito:UserPoolIdentityProvider":
 		r = &UserPoolIdentityProvider{}
+	case "aws-native:cognito:UserPoolRegionalConfigurationAttachment":
+		r = &UserPoolRegionalConfigurationAttachment{}
+	case "aws-native:cognito:UserPoolReplica":
+		r = &UserPoolReplica{}
 	case "aws-native:cognito:UserPoolResourceServer":
 		r = &UserPoolResourceServer{}
 	case "aws-native:cognito:UserPoolRiskConfigurationAttachment":

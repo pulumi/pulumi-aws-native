@@ -10,6 +10,762 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlgorithmChannelSpecificationSupportedCompressionTypesItem string
+
+const (
+	AlgorithmChannelSpecificationSupportedCompressionTypesItemNone = AlgorithmChannelSpecificationSupportedCompressionTypesItem("None")
+	AlgorithmChannelSpecificationSupportedCompressionTypesItemGzip = AlgorithmChannelSpecificationSupportedCompressionTypesItem("Gzip")
+)
+
+func (AlgorithmChannelSpecificationSupportedCompressionTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return pulumi.ToOutput(e).(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return e.ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return AlgorithmChannelSpecificationSupportedCompressionTypesItem(e).ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutputWithContext(ctx).ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmChannelSpecificationSupportedCompressionTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return o.ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmChannelSpecificationSupportedCompressionTypesItem) *AlgorithmChannelSpecificationSupportedCompressionTypesItem {
+		return &v
+	}).(AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmChannelSpecificationSupportedCompressionTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmChannelSpecificationSupportedCompressionTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) Elem() AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return o.ApplyT(func(v *AlgorithmChannelSpecificationSupportedCompressionTypesItem) AlgorithmChannelSpecificationSupportedCompressionTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmChannelSpecificationSupportedCompressionTypesItem
+		return ret
+	}).(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlgorithmChannelSpecificationSupportedCompressionTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlgorithmChannelSpecificationSupportedCompressionTypesItemInput is an input type that accepts values of the AlgorithmChannelSpecificationSupportedCompressionTypesItem enum
+// A concrete instance of `AlgorithmChannelSpecificationSupportedCompressionTypesItemInput` can be one of the following:
+//
+//	AlgorithmChannelSpecificationSupportedCompressionTypesItemNone
+//	AlgorithmChannelSpecificationSupportedCompressionTypesItemGzip
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput
+}
+
+var algorithmChannelSpecificationSupportedCompressionTypesItemPtrType = reflect.TypeOf((**AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput
+}
+
+type algorithmChannelSpecificationSupportedCompressionTypesItemPtr string
+
+func AlgorithmChannelSpecificationSupportedCompressionTypesItemPtr(v string) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrInput {
+	return (*algorithmChannelSpecificationSupportedCompressionTypesItemPtr)(&v)
+}
+
+func (*algorithmChannelSpecificationSupportedCompressionTypesItemPtr) ElementType() reflect.Type {
+	return algorithmChannelSpecificationSupportedCompressionTypesItemPtrType
+}
+
+func (in *algorithmChannelSpecificationSupportedCompressionTypesItemPtr) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput)
+}
+
+func (in *algorithmChannelSpecificationSupportedCompressionTypesItemPtr) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput)
+}
+
+// AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput is an input type that accepts AlgorithmChannelSpecificationSupportedCompressionTypesItemArray and AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput values.
+// You can construct a concrete instance of `AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput` via:
+//
+//	AlgorithmChannelSpecificationSupportedCompressionTypesItemArray{ AlgorithmChannelSpecificationSupportedCompressionTypesItemArgs{...} }
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput
+	ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput
+}
+
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemArray []AlgorithmChannelSpecificationSupportedCompressionTypesItem
+
+func (AlgorithmChannelSpecificationSupportedCompressionTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+}
+
+func (i AlgorithmChannelSpecificationSupportedCompressionTypesItemArray) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput {
+	return i.ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmChannelSpecificationSupportedCompressionTypesItemArray) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput)
+}
+
+type AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecificationSupportedCompressionTypesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput() AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput) ToAlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput) Index(i pulumi.IntInput) AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmChannelSpecificationSupportedCompressionTypesItem {
+		return vs[0].([]AlgorithmChannelSpecificationSupportedCompressionTypesItem)[vs[1].(int)]
+	}).(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput)
+}
+
+type AlgorithmChannelSpecificationSupportedInputModesItem string
+
+const (
+	AlgorithmChannelSpecificationSupportedInputModesItemPipe     = AlgorithmChannelSpecificationSupportedInputModesItem("Pipe")
+	AlgorithmChannelSpecificationSupportedInputModesItemFile     = AlgorithmChannelSpecificationSupportedInputModesItem("File")
+	AlgorithmChannelSpecificationSupportedInputModesItemFastFile = AlgorithmChannelSpecificationSupportedInputModesItem("FastFile")
+)
+
+func (AlgorithmChannelSpecificationSupportedInputModesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToAlgorithmChannelSpecificationSupportedInputModesItemOutput() AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return pulumi.ToOutput(e).(AlgorithmChannelSpecificationSupportedInputModesItemOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToAlgorithmChannelSpecificationSupportedInputModesItemOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlgorithmChannelSpecificationSupportedInputModesItemOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutput() AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return e.ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return AlgorithmChannelSpecificationSupportedInputModesItem(e).ToAlgorithmChannelSpecificationSupportedInputModesItemOutputWithContext(ctx).ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(ctx)
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmChannelSpecificationSupportedInputModesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlgorithmChannelSpecificationSupportedInputModesItemOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedInputModesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemOutput() AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutput() AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return o.ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmChannelSpecificationSupportedInputModesItem) *AlgorithmChannelSpecificationSupportedInputModesItem {
+		return &v
+	}).(AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmChannelSpecificationSupportedInputModesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmChannelSpecificationSupportedInputModesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutput() AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) Elem() AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return o.ApplyT(func(v *AlgorithmChannelSpecificationSupportedInputModesItem) AlgorithmChannelSpecificationSupportedInputModesItem {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmChannelSpecificationSupportedInputModesItem
+		return ret
+	}).(AlgorithmChannelSpecificationSupportedInputModesItemOutput)
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlgorithmChannelSpecificationSupportedInputModesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlgorithmChannelSpecificationSupportedInputModesItemInput is an input type that accepts values of the AlgorithmChannelSpecificationSupportedInputModesItem enum
+// A concrete instance of `AlgorithmChannelSpecificationSupportedInputModesItemInput` can be one of the following:
+//
+//	AlgorithmChannelSpecificationSupportedInputModesItemPipe
+//	AlgorithmChannelSpecificationSupportedInputModesItemFile
+//	AlgorithmChannelSpecificationSupportedInputModesItemFastFile
+type AlgorithmChannelSpecificationSupportedInputModesItemInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedInputModesItemOutput() AlgorithmChannelSpecificationSupportedInputModesItemOutput
+	ToAlgorithmChannelSpecificationSupportedInputModesItemOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedInputModesItemOutput
+}
+
+var algorithmChannelSpecificationSupportedInputModesItemPtrType = reflect.TypeOf((**AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+
+type AlgorithmChannelSpecificationSupportedInputModesItemPtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutput() AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput
+	ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput
+}
+
+type algorithmChannelSpecificationSupportedInputModesItemPtr string
+
+func AlgorithmChannelSpecificationSupportedInputModesItemPtr(v string) AlgorithmChannelSpecificationSupportedInputModesItemPtrInput {
+	return (*algorithmChannelSpecificationSupportedInputModesItemPtr)(&v)
+}
+
+func (*algorithmChannelSpecificationSupportedInputModesItemPtr) ElementType() reflect.Type {
+	return algorithmChannelSpecificationSupportedInputModesItemPtrType
+}
+
+func (in *algorithmChannelSpecificationSupportedInputModesItemPtr) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutput() AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return pulumi.ToOutput(in).(AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput)
+}
+
+func (in *algorithmChannelSpecificationSupportedInputModesItemPtr) ToAlgorithmChannelSpecificationSupportedInputModesItemPtrOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput)
+}
+
+// AlgorithmChannelSpecificationSupportedInputModesItemArrayInput is an input type that accepts AlgorithmChannelSpecificationSupportedInputModesItemArray and AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput values.
+// You can construct a concrete instance of `AlgorithmChannelSpecificationSupportedInputModesItemArrayInput` via:
+//
+//	AlgorithmChannelSpecificationSupportedInputModesItemArray{ AlgorithmChannelSpecificationSupportedInputModesItemArgs{...} }
+type AlgorithmChannelSpecificationSupportedInputModesItemArrayInput interface {
+	pulumi.Input
+
+	ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutput() AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput
+	ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutputWithContext(context.Context) AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput
+}
+
+type AlgorithmChannelSpecificationSupportedInputModesItemArray []AlgorithmChannelSpecificationSupportedInputModesItem
+
+func (AlgorithmChannelSpecificationSupportedInputModesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+}
+
+func (i AlgorithmChannelSpecificationSupportedInputModesItemArray) ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutput() AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput {
+	return i.ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutputWithContext(context.Background())
+}
+
+func (i AlgorithmChannelSpecificationSupportedInputModesItemArray) ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput)
+}
+
+type AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlgorithmChannelSpecificationSupportedInputModesItem)(nil)).Elem()
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutput() AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput) ToAlgorithmChannelSpecificationSupportedInputModesItemArrayOutputWithContext(ctx context.Context) AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput {
+	return o
+}
+
+func (o AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput) Index(i pulumi.IntInput) AlgorithmChannelSpecificationSupportedInputModesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlgorithmChannelSpecificationSupportedInputModesItem {
+		return vs[0].([]AlgorithmChannelSpecificationSupportedInputModesItem)[vs[1].(int)]
+	}).(AlgorithmChannelSpecificationSupportedInputModesItemOutput)
+}
+
+type AlgorithmHyperParameterSpecificationType string
+
+const (
+	AlgorithmHyperParameterSpecificationTypeInteger     = AlgorithmHyperParameterSpecificationType("Integer")
+	AlgorithmHyperParameterSpecificationTypeContinuous  = AlgorithmHyperParameterSpecificationType("Continuous")
+	AlgorithmHyperParameterSpecificationTypeCategorical = AlgorithmHyperParameterSpecificationType("Categorical")
+	AlgorithmHyperParameterSpecificationTypeFreeText    = AlgorithmHyperParameterSpecificationType("FreeText")
+)
+
+func (AlgorithmHyperParameterSpecificationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterSpecificationType)(nil)).Elem()
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToAlgorithmHyperParameterSpecificationTypeOutput() AlgorithmHyperParameterSpecificationTypeOutput {
+	return pulumi.ToOutput(e).(AlgorithmHyperParameterSpecificationTypeOutput)
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToAlgorithmHyperParameterSpecificationTypeOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlgorithmHyperParameterSpecificationTypeOutput)
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToAlgorithmHyperParameterSpecificationTypePtrOutput() AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return e.ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return AlgorithmHyperParameterSpecificationType(e).ToAlgorithmHyperParameterSpecificationTypeOutputWithContext(ctx).ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(ctx)
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmHyperParameterSpecificationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlgorithmHyperParameterSpecificationTypeOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterSpecificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterSpecificationType)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToAlgorithmHyperParameterSpecificationTypeOutput() AlgorithmHyperParameterSpecificationTypeOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToAlgorithmHyperParameterSpecificationTypeOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypeOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToAlgorithmHyperParameterSpecificationTypePtrOutput() AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return o.ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmHyperParameterSpecificationType) *AlgorithmHyperParameterSpecificationType {
+		return &v
+	}).(AlgorithmHyperParameterSpecificationTypePtrOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmHyperParameterSpecificationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterSpecificationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmHyperParameterSpecificationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmHyperParameterSpecificationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterSpecificationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmHyperParameterSpecificationType)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterSpecificationTypePtrOutput) ToAlgorithmHyperParameterSpecificationTypePtrOutput() AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationTypePtrOutput) ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterSpecificationTypePtrOutput) Elem() AlgorithmHyperParameterSpecificationTypeOutput {
+	return o.ApplyT(func(v *AlgorithmHyperParameterSpecificationType) AlgorithmHyperParameterSpecificationType {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmHyperParameterSpecificationType
+		return ret
+	}).(AlgorithmHyperParameterSpecificationTypeOutput)
+}
+
+func (o AlgorithmHyperParameterSpecificationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterSpecificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlgorithmHyperParameterSpecificationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlgorithmHyperParameterSpecificationTypeInput is an input type that accepts values of the AlgorithmHyperParameterSpecificationType enum
+// A concrete instance of `AlgorithmHyperParameterSpecificationTypeInput` can be one of the following:
+//
+//	AlgorithmHyperParameterSpecificationTypeInteger
+//	AlgorithmHyperParameterSpecificationTypeContinuous
+//	AlgorithmHyperParameterSpecificationTypeCategorical
+//	AlgorithmHyperParameterSpecificationTypeFreeText
+type AlgorithmHyperParameterSpecificationTypeInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterSpecificationTypeOutput() AlgorithmHyperParameterSpecificationTypeOutput
+	ToAlgorithmHyperParameterSpecificationTypeOutputWithContext(context.Context) AlgorithmHyperParameterSpecificationTypeOutput
+}
+
+var algorithmHyperParameterSpecificationTypePtrType = reflect.TypeOf((**AlgorithmHyperParameterSpecificationType)(nil)).Elem()
+
+type AlgorithmHyperParameterSpecificationTypePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterSpecificationTypePtrOutput() AlgorithmHyperParameterSpecificationTypePtrOutput
+	ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(context.Context) AlgorithmHyperParameterSpecificationTypePtrOutput
+}
+
+type algorithmHyperParameterSpecificationTypePtr string
+
+func AlgorithmHyperParameterSpecificationTypePtr(v string) AlgorithmHyperParameterSpecificationTypePtrInput {
+	return (*algorithmHyperParameterSpecificationTypePtr)(&v)
+}
+
+func (*algorithmHyperParameterSpecificationTypePtr) ElementType() reflect.Type {
+	return algorithmHyperParameterSpecificationTypePtrType
+}
+
+func (in *algorithmHyperParameterSpecificationTypePtr) ToAlgorithmHyperParameterSpecificationTypePtrOutput() AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return pulumi.ToOutput(in).(AlgorithmHyperParameterSpecificationTypePtrOutput)
+}
+
+func (in *algorithmHyperParameterSpecificationTypePtr) ToAlgorithmHyperParameterSpecificationTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterSpecificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlgorithmHyperParameterSpecificationTypePtrOutput)
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveType string
+
+const (
+	AlgorithmHyperParameterTuningJobObjectiveTypeMaximize = AlgorithmHyperParameterTuningJobObjectiveType("Maximize")
+	AlgorithmHyperParameterTuningJobObjectiveTypeMinimize = AlgorithmHyperParameterTuningJobObjectiveType("Minimize")
+)
+
+func (AlgorithmHyperParameterTuningJobObjectiveType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveType)(nil)).Elem()
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToAlgorithmHyperParameterTuningJobObjectiveTypeOutput() AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return pulumi.ToOutput(e).(AlgorithmHyperParameterTuningJobObjectiveTypeOutput)
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToAlgorithmHyperParameterTuningJobObjectiveTypeOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AlgorithmHyperParameterTuningJobObjectiveTypeOutput)
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutput() AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return e.ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return AlgorithmHyperParameterTuningJobObjectiveType(e).ToAlgorithmHyperParameterTuningJobObjectiveTypeOutputWithContext(ctx).ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(ctx)
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AlgorithmHyperParameterTuningJobObjectiveType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveTypeOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveType)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypeOutput() AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypeOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutput() AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return o.ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlgorithmHyperParameterTuningJobObjectiveType) *AlgorithmHyperParameterTuningJobObjectiveType {
+		return &v
+	}).(AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput)
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmHyperParameterTuningJobObjectiveType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlgorithmHyperParameterTuningJobObjectiveType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlgorithmHyperParameterTuningJobObjectiveType)(nil)).Elem()
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutput() AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return o
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) Elem() AlgorithmHyperParameterTuningJobObjectiveTypeOutput {
+	return o.ApplyT(func(v *AlgorithmHyperParameterTuningJobObjectiveType) AlgorithmHyperParameterTuningJobObjectiveType {
+		if v != nil {
+			return *v
+		}
+		var ret AlgorithmHyperParameterTuningJobObjectiveType
+		return ret
+	}).(AlgorithmHyperParameterTuningJobObjectiveTypeOutput)
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlgorithmHyperParameterTuningJobObjectiveType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AlgorithmHyperParameterTuningJobObjectiveTypeInput is an input type that accepts values of the AlgorithmHyperParameterTuningJobObjectiveType enum
+// A concrete instance of `AlgorithmHyperParameterTuningJobObjectiveTypeInput` can be one of the following:
+//
+//	AlgorithmHyperParameterTuningJobObjectiveTypeMaximize
+//	AlgorithmHyperParameterTuningJobObjectiveTypeMinimize
+type AlgorithmHyperParameterTuningJobObjectiveTypeInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterTuningJobObjectiveTypeOutput() AlgorithmHyperParameterTuningJobObjectiveTypeOutput
+	ToAlgorithmHyperParameterTuningJobObjectiveTypeOutputWithContext(context.Context) AlgorithmHyperParameterTuningJobObjectiveTypeOutput
+}
+
+var algorithmHyperParameterTuningJobObjectiveTypePtrType = reflect.TypeOf((**AlgorithmHyperParameterTuningJobObjectiveType)(nil)).Elem()
+
+type AlgorithmHyperParameterTuningJobObjectiveTypePtrInput interface {
+	pulumi.Input
+
+	ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutput() AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput
+	ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(context.Context) AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput
+}
+
+type algorithmHyperParameterTuningJobObjectiveTypePtr string
+
+func AlgorithmHyperParameterTuningJobObjectiveTypePtr(v string) AlgorithmHyperParameterTuningJobObjectiveTypePtrInput {
+	return (*algorithmHyperParameterTuningJobObjectiveTypePtr)(&v)
+}
+
+func (*algorithmHyperParameterTuningJobObjectiveTypePtr) ElementType() reflect.Type {
+	return algorithmHyperParameterTuningJobObjectiveTypePtrType
+}
+
+func (in *algorithmHyperParameterTuningJobObjectiveTypePtr) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutput() AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return pulumi.ToOutput(in).(AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput)
+}
+
+func (in *algorithmHyperParameterTuningJobObjectiveTypePtr) ToAlgorithmHyperParameterTuningJobObjectiveTypePtrOutputWithContext(ctx context.Context) AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput)
+}
+
 // The instance type that the image version runs on.
 type AppResourceSpecInstanceType string
 
@@ -7812,6 +8568,102 @@ func (in *featureGroupUnitPtr) ToFeatureGroupUnitPtrOutput() FeatureGroupUnitPtr
 
 func (in *featureGroupUnitPtr) ToFeatureGroupUnitPtrOutputWithContext(ctx context.Context) FeatureGroupUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupUnitPtrOutput)
+}
+
+// The status of the hub.
+type HubStatus string
+
+const (
+	HubStatusInService    = HubStatus("InService")
+	HubStatusCreating     = HubStatus("Creating")
+	HubStatusUpdating     = HubStatus("Updating")
+	HubStatusDeleting     = HubStatus("Deleting")
+	HubStatusCreateFailed = HubStatus("CreateFailed")
+	HubStatusUpdateFailed = HubStatus("UpdateFailed")
+	HubStatusDeleteFailed = HubStatus("DeleteFailed")
+)
+
+type HubStatusOutput struct{ *pulumi.OutputState }
+
+func (HubStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubStatus)(nil)).Elem()
+}
+
+func (o HubStatusOutput) ToHubStatusOutput() HubStatusOutput {
+	return o
+}
+
+func (o HubStatusOutput) ToHubStatusOutputWithContext(ctx context.Context) HubStatusOutput {
+	return o
+}
+
+func (o HubStatusOutput) ToHubStatusPtrOutput() HubStatusPtrOutput {
+	return o.ToHubStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HubStatusOutput) ToHubStatusPtrOutputWithContext(ctx context.Context) HubStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubStatus) *HubStatus {
+		return &v
+	}).(HubStatusPtrOutput)
+}
+
+func (o HubStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HubStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HubStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HubStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HubStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HubStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HubStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HubStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubStatus)(nil)).Elem()
+}
+
+func (o HubStatusPtrOutput) ToHubStatusPtrOutput() HubStatusPtrOutput {
+	return o
+}
+
+func (o HubStatusPtrOutput) ToHubStatusPtrOutputWithContext(ctx context.Context) HubStatusPtrOutput {
+	return o
+}
+
+func (o HubStatusPtrOutput) Elem() HubStatusOutput {
+	return o.ApplyT(func(v *HubStatus) HubStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HubStatus
+		return ret
+	}).(HubStatusOutput)
+}
+
+func (o HubStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HubStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HubStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 // Indicates SageMaker job type compatibility.
@@ -24589,6 +25441,16 @@ func (in *userProfileUserSettingsStudioWebPortalPtr) ToUserProfileUserSettingsSt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItem("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItem("None"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedInputModesItemInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedInputModesItem("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedInputModesItemPtrInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedInputModesItem("Pipe"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedInputModesItemArrayInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedInputModesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterSpecificationTypeInput)(nil)).Elem(), AlgorithmHyperParameterSpecificationType("Integer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterSpecificationTypePtrInput)(nil)).Elem(), AlgorithmHyperParameterSpecificationType("Integer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveTypeInput)(nil)).Elem(), AlgorithmHyperParameterTuningJobObjectiveType("Maximize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmHyperParameterTuningJobObjectiveTypePtrInput)(nil)).Elem(), AlgorithmHyperParameterTuningJobObjectiveType("Maximize"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypeInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTypeInput)(nil)).Elem(), AppType("JupyterServer"))
@@ -24856,6 +25718,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), UserProfileUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedInputModesItemOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedInputModesItemPtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedInputModesItemArrayOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterSpecificationTypeOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterSpecificationTypePtrOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterTuningJobObjectiveTypeOutput{})
+	pulumi.RegisterOutputType(AlgorithmHyperParameterTuningJobObjectiveTypePtrOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
@@ -24944,6 +25816,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupThroughputModePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupUnitOutput{})
 	pulumi.RegisterOutputType(FeatureGroupUnitPtrOutput{})
+	pulumi.RegisterOutputType(HubStatusOutput{})
+	pulumi.RegisterOutputType(HubStatusPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypeOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypePtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionProcessorOutput{})

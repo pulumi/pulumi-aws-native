@@ -14,13 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CloudFormationProductCodeStarParameters struct {
-	// The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+	// The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
 	ArtifactPath string `pulumi:"artifactPath"`
 	// The specific branch where the artifact resides.
 	Branch string `pulumi:"branch"`
 	// The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
 	ConnectionArn string `pulumi:"connectionArn"`
-	// The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+	// The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
 	Repository string `pulumi:"repository"`
 }
 
@@ -36,13 +36,13 @@ type CloudFormationProductCodeStarParametersInput interface {
 }
 
 type CloudFormationProductCodeStarParametersArgs struct {
-	// The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+	// The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
 	ArtifactPath pulumi.StringInput `pulumi:"artifactPath"`
 	// The specific branch where the artifact resides.
 	Branch pulumi.StringInput `pulumi:"branch"`
 	// The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
 	ConnectionArn pulumi.StringInput `pulumi:"connectionArn"`
-	// The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+	// The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
 
@@ -123,7 +123,7 @@ func (o CloudFormationProductCodeStarParametersOutput) ToCloudFormationProductCo
 	}).(CloudFormationProductCodeStarParametersPtrOutput)
 }
 
-// The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+// The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
 func (o CloudFormationProductCodeStarParametersOutput) ArtifactPath() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.ArtifactPath }).(pulumi.StringOutput)
 }
@@ -138,7 +138,7 @@ func (o CloudFormationProductCodeStarParametersOutput) ConnectionArn() pulumi.St
 	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.ConnectionArn }).(pulumi.StringOutput)
 }
 
-// The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+// The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
 func (o CloudFormationProductCodeStarParametersOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProductCodeStarParameters) string { return v.Repository }).(pulumi.StringOutput)
 }
@@ -167,7 +167,7 @@ func (o CloudFormationProductCodeStarParametersPtrOutput) Elem() CloudFormationP
 	}).(CloudFormationProductCodeStarParametersOutput)
 }
 
-// The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
+// The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
 func (o CloudFormationProductCodeStarParametersPtrOutput) ArtifactPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
 		if v == nil {
@@ -197,7 +197,7 @@ func (o CloudFormationProductCodeStarParametersPtrOutput) ConnectionArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
+// The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
 func (o CloudFormationProductCodeStarParametersPtrOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProductCodeStarParameters) *string {
 		if v == nil {
@@ -207,167 +207,21 @@ func (o CloudFormationProductCodeStarParametersPtrOutput) Repository() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-type CloudFormationProductConnectionParameters struct {
-	// Provides `ConnectionType` details.
-	CodeStar *CloudFormationProductCodeStarParameters `pulumi:"codeStar"`
-}
-
-// CloudFormationProductConnectionParametersInput is an input type that accepts CloudFormationProductConnectionParametersArgs and CloudFormationProductConnectionParametersOutput values.
-// You can construct a concrete instance of `CloudFormationProductConnectionParametersInput` via:
-//
-//	CloudFormationProductConnectionParametersArgs{...}
-type CloudFormationProductConnectionParametersInput interface {
-	pulumi.Input
-
-	ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput
-	ToCloudFormationProductConnectionParametersOutputWithContext(context.Context) CloudFormationProductConnectionParametersOutput
-}
-
-type CloudFormationProductConnectionParametersArgs struct {
-	// Provides `ConnectionType` details.
-	CodeStar CloudFormationProductCodeStarParametersPtrInput `pulumi:"codeStar"`
-}
-
-func (CloudFormationProductConnectionParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProductConnectionParameters)(nil)).Elem()
-}
-
-func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput {
-	return i.ToCloudFormationProductConnectionParametersOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersOutput)
-}
-
-func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
-	return i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
-}
-
-func (i CloudFormationProductConnectionParametersArgs) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersOutput).ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx)
-}
-
-// CloudFormationProductConnectionParametersPtrInput is an input type that accepts CloudFormationProductConnectionParametersArgs, CloudFormationProductConnectionParametersPtr and CloudFormationProductConnectionParametersPtrOutput values.
-// You can construct a concrete instance of `CloudFormationProductConnectionParametersPtrInput` via:
-//
-//	        CloudFormationProductConnectionParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type CloudFormationProductConnectionParametersPtrInput interface {
-	pulumi.Input
-
-	ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput
-	ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Context) CloudFormationProductConnectionParametersPtrOutput
-}
-
-type cloudFormationProductConnectionParametersPtrType CloudFormationProductConnectionParametersArgs
-
-func CloudFormationProductConnectionParametersPtr(v *CloudFormationProductConnectionParametersArgs) CloudFormationProductConnectionParametersPtrInput {
-	return (*cloudFormationProductConnectionParametersPtrType)(v)
-}
-
-func (*cloudFormationProductConnectionParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFormationProductConnectionParameters)(nil)).Elem()
-}
-
-func (i *cloudFormationProductConnectionParametersPtrType) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
-	return i.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *cloudFormationProductConnectionParametersPtrType) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductConnectionParametersPtrOutput)
-}
-
-type CloudFormationProductConnectionParametersOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProductConnectionParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationProductConnectionParameters)(nil)).Elem()
-}
-
-func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersOutput() CloudFormationProductConnectionParametersOutput {
-	return o
-}
-
-func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersOutput {
-	return o
-}
-
-func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
-	return o.ToCloudFormationProductConnectionParametersPtrOutputWithContext(context.Background())
-}
-
-func (o CloudFormationProductConnectionParametersOutput) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductConnectionParameters) *CloudFormationProductConnectionParameters {
-		return &v
-	}).(CloudFormationProductConnectionParametersPtrOutput)
-}
-
-// Provides `ConnectionType` details.
-func (o CloudFormationProductConnectionParametersOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
-	return o.ApplyT(func(v CloudFormationProductConnectionParameters) *CloudFormationProductCodeStarParameters {
-		return v.CodeStar
-	}).(CloudFormationProductCodeStarParametersPtrOutput)
-}
-
-type CloudFormationProductConnectionParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationProductConnectionParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFormationProductConnectionParameters)(nil)).Elem()
-}
-
-func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProductConnectionParametersPtrOutput() CloudFormationProductConnectionParametersPtrOutput {
-	return o
-}
-
-func (o CloudFormationProductConnectionParametersPtrOutput) ToCloudFormationProductConnectionParametersPtrOutputWithContext(ctx context.Context) CloudFormationProductConnectionParametersPtrOutput {
-	return o
-}
-
-func (o CloudFormationProductConnectionParametersPtrOutput) Elem() CloudFormationProductConnectionParametersOutput {
-	return o.ApplyT(func(v *CloudFormationProductConnectionParameters) CloudFormationProductConnectionParameters {
-		if v != nil {
-			return *v
-		}
-		var ret CloudFormationProductConnectionParameters
-		return ret
-	}).(CloudFormationProductConnectionParametersOutput)
-}
-
-// Provides `ConnectionType` details.
-func (o CloudFormationProductConnectionParametersPtrOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
-	return o.ApplyT(func(v *CloudFormationProductConnectionParameters) *CloudFormationProductCodeStarParameters {
-		if v == nil {
-			return nil
-		}
-		return v.CodeStar
-	}).(CloudFormationProductCodeStarParametersPtrOutput)
-}
-
 type CloudFormationProductProvisioningArtifactProperties struct {
 	// The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
 	Description *string `pulumi:"description"`
 	// If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
 	DisableTemplateValidation *bool `pulumi:"disableTemplateValidation"`
-	// Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
+	// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
 	//
-	// The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+	// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
 	//
-	// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
-	//
-	// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-	Info interface{} `pulumi:"info"`
+	// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+	Info CloudFormationProductProvisioningArtifactPropertiesInfoProperties `pulumi:"info"`
 	// The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
 	Name *string `pulumi:"name"`
-	// The type of provisioning artifact.
-	//
-	// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-	// - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
-	// - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
-	// - `EXTERNAL` - External configuration file
-	Type *string `pulumi:"type"`
+	// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+	Type *CloudFormationProductProvisioningArtifactPropertiesType `pulumi:"type"`
 }
 
 // CloudFormationProductProvisioningArtifactPropertiesInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesArgs and CloudFormationProductProvisioningArtifactPropertiesOutput values.
@@ -386,23 +240,16 @@ type CloudFormationProductProvisioningArtifactPropertiesArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
 	DisableTemplateValidation pulumi.BoolPtrInput `pulumi:"disableTemplateValidation"`
-	// Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
+	// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
 	//
-	// The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+	// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
 	//
-	// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
-	//
-	// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-	Info pulumi.Input `pulumi:"info"`
+	// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+	Info CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesInput `pulumi:"info"`
 	// The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of provisioning artifact.
-	//
-	// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-	// - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
-	// - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
-	// - `EXTERNAL` - External configuration file
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+	Type CloudFormationProductProvisioningArtifactPropertiesTypePtrInput `pulumi:"type"`
 }
 
 func (CloudFormationProductProvisioningArtifactPropertiesArgs) ElementType() reflect.Type {
@@ -466,15 +313,15 @@ func (o CloudFormationProductProvisioningArtifactPropertiesOutput) DisableTempla
 	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *bool { return v.DisableTemplateValidation }).(pulumi.BoolPtrOutput)
 }
 
-// Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
+// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
 //
-// The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
 //
-// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
-//
-// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
-func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Info() pulumi.AnyOutput {
-	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) interface{} { return v.Info }).(pulumi.AnyOutput)
+// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Info() CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) CloudFormationProductProvisioningArtifactPropertiesInfoProperties {
+		return v.Info
+	}).(CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput)
 }
 
 // The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
@@ -482,14 +329,11 @@ func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Name() pulumi
 	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of provisioning artifact.
-//
-// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
-// - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
-// - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
-// - `EXTERNAL` - External configuration file
-func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+func (o CloudFormationProductProvisioningArtifactPropertiesOutput) Type() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactProperties) *CloudFormationProductProvisioningArtifactPropertiesType {
+		return v.Type
+	}).(CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput)
 }
 
 type CloudFormationProductProvisioningArtifactPropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -512,10 +356,90 @@ func (o CloudFormationProductProvisioningArtifactPropertiesArrayOutput) Index(i 
 	}).(CloudFormationProductProvisioningArtifactPropertiesOutput)
 }
 
+// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+//
+// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+//
+// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+type CloudFormationProductProvisioningArtifactPropertiesInfoProperties struct {
+	// The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+	ImportFromPhysicalId *string `pulumi:"importFromPhysicalId"`
+	// The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+	LoadTemplateFromUrl *string `pulumi:"loadTemplateFromUrl"`
+}
+
+// CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesInput is an input type that accepts CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs and CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput values.
+// You can construct a concrete instance of `CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesInput` via:
+//
+//	CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs{...}
+type CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput
+	ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutputWithContext(context.Context) CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput
+}
+
+// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+//
+// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+//
+// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+type CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs struct {
+	// The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+	ImportFromPhysicalId pulumi.StringPtrInput `pulumi:"importFromPhysicalId"`
+	// The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+	LoadTemplateFromUrl pulumi.StringPtrInput `pulumi:"loadTemplateFromUrl"`
+}
+
+func (CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInfoProperties)(nil)).Elem()
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs) ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput {
+	return i.ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs) ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput)
+}
+
+// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+//
+// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+//
+// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+type CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInfoProperties)(nil)).Elem()
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput) ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput() CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput) ToCloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput {
+	return o
+}
+
+// The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+func (o CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput) ImportFromPhysicalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactPropertiesInfoProperties) *string {
+		return v.ImportFromPhysicalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+func (o CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput) LoadTemplateFromUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductProvisioningArtifactPropertiesInfoProperties) *string {
+		return v.LoadTemplateFromUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type CloudFormationProductSourceConnection struct {
-	// The connection details based on the connection `Type` .
-	ConnectionParameters CloudFormationProductConnectionParameters `pulumi:"connectionParameters"`
-	// The only supported `SourceConnection` type is Codestar.
+	// The connection details based on the connection Type.
+	ConnectionParameters CloudFormationProductSourceConnectionConnectionParametersProperties `pulumi:"connectionParameters"`
+	// The only supported SourceConnection type is Codestar.
 	Type string `pulumi:"type"`
 }
 
@@ -531,9 +455,9 @@ type CloudFormationProductSourceConnectionInput interface {
 }
 
 type CloudFormationProductSourceConnectionArgs struct {
-	// The connection details based on the connection `Type` .
-	ConnectionParameters CloudFormationProductConnectionParametersInput `pulumi:"connectionParameters"`
-	// The only supported `SourceConnection` type is Codestar.
+	// The connection details based on the connection Type.
+	ConnectionParameters CloudFormationProductSourceConnectionConnectionParametersPropertiesInput `pulumi:"connectionParameters"`
+	// The only supported SourceConnection type is Codestar.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -614,14 +538,14 @@ func (o CloudFormationProductSourceConnectionOutput) ToCloudFormationProductSour
 	}).(CloudFormationProductSourceConnectionPtrOutput)
 }
 
-// The connection details based on the connection `Type` .
-func (o CloudFormationProductSourceConnectionOutput) ConnectionParameters() CloudFormationProductConnectionParametersOutput {
-	return o.ApplyT(func(v CloudFormationProductSourceConnection) CloudFormationProductConnectionParameters {
+// The connection details based on the connection Type.
+func (o CloudFormationProductSourceConnectionOutput) ConnectionParameters() CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return o.ApplyT(func(v CloudFormationProductSourceConnection) CloudFormationProductSourceConnectionConnectionParametersProperties {
 		return v.ConnectionParameters
-	}).(CloudFormationProductConnectionParametersOutput)
+	}).(CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput)
 }
 
-// The only supported `SourceConnection` type is Codestar.
+// The only supported SourceConnection type is Codestar.
 func (o CloudFormationProductSourceConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProductSourceConnection) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -650,17 +574,17 @@ func (o CloudFormationProductSourceConnectionPtrOutput) Elem() CloudFormationPro
 	}).(CloudFormationProductSourceConnectionOutput)
 }
 
-// The connection details based on the connection `Type` .
-func (o CloudFormationProductSourceConnectionPtrOutput) ConnectionParameters() CloudFormationProductConnectionParametersPtrOutput {
-	return o.ApplyT(func(v *CloudFormationProductSourceConnection) *CloudFormationProductConnectionParameters {
+// The connection details based on the connection Type.
+func (o CloudFormationProductSourceConnectionPtrOutput) ConnectionParameters() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnection) *CloudFormationProductSourceConnectionConnectionParametersProperties {
 		if v == nil {
 			return nil
 		}
 		return &v.ConnectionParameters
-	}).(CloudFormationProductConnectionParametersPtrOutput)
+	}).(CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput)
 }
 
-// The only supported `SourceConnection` type is Codestar.
+// The only supported SourceConnection type is Codestar.
 func (o CloudFormationProductSourceConnectionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProductSourceConnection) *string {
 		if v == nil {
@@ -670,10 +594,148 @@ func (o CloudFormationProductSourceConnectionPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The connection details based on the connection Type.
+type CloudFormationProductSourceConnectionConnectionParametersProperties struct {
+	CodeStar *CloudFormationProductCodeStarParameters `pulumi:"codeStar"`
+}
+
+// CloudFormationProductSourceConnectionConnectionParametersPropertiesInput is an input type that accepts CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs and CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput values.
+// You can construct a concrete instance of `CloudFormationProductSourceConnectionConnectionParametersPropertiesInput` via:
+//
+//	CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs{...}
+type CloudFormationProductSourceConnectionConnectionParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput
+	ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutputWithContext(context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput
+}
+
+// The connection details based on the connection Type.
+type CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs struct {
+	CodeStar CloudFormationProductCodeStarParametersPtrInput `pulumi:"codeStar"`
+}
+
+func (CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductSourceConnectionConnectionParametersProperties)(nil)).Elem()
+}
+
+func (i CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return i.ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput)
+}
+
+func (i CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return i.ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput).ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrInput is an input type that accepts CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs, CloudFormationProductSourceConnectionConnectionParametersPropertiesPtr and CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrInput` via:
+//
+//	        CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput
+	ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput
+}
+
+type cloudFormationProductSourceConnectionConnectionParametersPropertiesPtrType CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs
+
+func CloudFormationProductSourceConnectionConnectionParametersPropertiesPtr(v *CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrInput {
+	return (*cloudFormationProductSourceConnectionConnectionParametersPropertiesPtrType)(v)
+}
+
+func (*cloudFormationProductSourceConnectionConnectionParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductSourceConnectionConnectionParametersProperties)(nil)).Elem()
+}
+
+func (i *cloudFormationProductSourceConnectionConnectionParametersPropertiesPtrType) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return i.ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *cloudFormationProductSourceConnectionConnectionParametersPropertiesPtrType) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput)
+}
+
+// The connection details based on the connection Type.
+type CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductSourceConnectionConnectionParametersProperties)(nil)).Elem()
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return o.ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductSourceConnectionConnectionParametersProperties) *CloudFormationProductSourceConnectionConnectionParametersProperties {
+		return &v
+	}).(CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput)
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ApplyT(func(v CloudFormationProductSourceConnectionConnectionParametersProperties) *CloudFormationProductCodeStarParameters {
+		return v.CodeStar
+	}).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
+type CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductSourceConnectionConnectionParametersProperties)(nil)).Elem()
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput() CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput) ToCloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutputWithContext(ctx context.Context) CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput) Elem() CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnectionConnectionParametersProperties) CloudFormationProductSourceConnectionConnectionParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductSourceConnectionConnectionParametersProperties
+		return ret
+	}).(CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput)
+}
+
+func (o CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput) CodeStar() CloudFormationProductCodeStarParametersPtrOutput {
+	return o.ApplyT(func(v *CloudFormationProductSourceConnectionConnectionParametersProperties) *CloudFormationProductCodeStarParameters {
+		if v == nil {
+			return nil
+		}
+		return v.CodeStar
+	}).(CloudFormationProductCodeStarParametersPtrOutput)
+}
+
 type CloudFormationProductTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
-	// The value for this key.
+	// The tag value
 	Value string `pulumi:"value"`
 }
 
@@ -1343,12 +1405,13 @@ func (o ServiceActionDefinitionParameterArrayOutput) Index(i pulumi.IntInput) Se
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductCodeStarParametersInput)(nil)).Elem(), CloudFormationProductCodeStarParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductCodeStarParametersPtrInput)(nil)).Elem(), CloudFormationProductCodeStarParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductConnectionParametersInput)(nil)).Elem(), CloudFormationProductConnectionParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductConnectionParametersPtrInput)(nil)).Elem(), CloudFormationProductConnectionParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesArrayInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionPtrInput)(nil)).Elem(), CloudFormationProductSourceConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionConnectionParametersPropertiesInput)(nil)).Elem(), CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrInput)(nil)).Elem(), CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesArgs{})
@@ -1357,12 +1420,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionParameterArrayInput)(nil)).Elem(), ServiceActionDefinitionParameterArray{})
 	pulumi.RegisterOutputType(CloudFormationProductCodeStarParametersOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductCodeStarParametersPtrOutput{})
-	pulumi.RegisterOutputType(CloudFormationProductConnectionParametersOutput{})
-	pulumi.RegisterOutputType(CloudFormationProductConnectionParametersPtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionOutput{})
 	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionPtrOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionConnectionParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductSourceConnectionConnectionParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesOutput{})

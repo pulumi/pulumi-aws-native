@@ -118,6 +118,7 @@ AWS::B2BI::Capability
 AWS::B2BI::Partnership
 AWS::B2BI::Profile
 AWS::B2BI::Transformer
+AWS::BCM::Dashboard
 AWS::BCMDataExports::Export
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
@@ -195,6 +196,9 @@ AWS::Cassandra::Keyspace
 AWS::Cassandra::Table
 AWS::Cassandra::Type
 AWS::CertificateManager::Account
+AWS::CertificateManager::AcmeDomainValidation
+AWS::CertificateManager::AcmeEndpoint
+AWS::CertificateManager::AcmeExternalAccountBinding
 AWS::Chatbot::CustomAction
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
@@ -250,6 +254,7 @@ AWS::CloudWatch::Alarm
 AWS::CloudWatch::AlarmMuteRule
 AWS::CloudWatch::CompositeAlarm
 AWS::CloudWatch::Dashboard
+AWS::CloudWatch::InsightRule
 AWS::CloudWatch::LogAlarm
 AWS::CloudWatch::MetricStream
 AWS::CloudWatch::OTelEnrichment
@@ -281,6 +286,8 @@ AWS::Cognito::UserPoolClient
 AWS::Cognito::UserPoolDomain
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolIdentityProvider
+AWS::Cognito::UserPoolRegionalConfigurationAttachment
+AWS::Cognito::UserPoolReplica
 AWS::Cognito::UserPoolResourceServer
 AWS::Cognito::UserPoolRiskConfigurationAttachment
 AWS::Cognito::UserPoolUICustomizationAttachment
@@ -293,6 +300,7 @@ AWS::Config::AggregationAuthorization
 AWS::Config::ConfigRule
 AWS::Config::ConfigurationAggregator
 AWS::Config::ConformancePack
+AWS::Config::Connector
 AWS::Config::OrganizationConformancePack
 AWS::Config::RemediationConfiguration
 AWS::Config::StoredQuery
@@ -323,6 +331,7 @@ AWS::Connect::Rule
 AWS::Connect::SecurityKey
 AWS::Connect::SecurityProfile
 AWS::Connect::TaskTemplate
+AWS::Connect::TestCase
 AWS::Connect::TrafficDistributionGroup
 AWS::Connect::User
 AWS::Connect::UserHierarchyGroup
@@ -653,6 +662,7 @@ AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
 AWS::Glue::Catalog
 AWS::Glue::Crawler
+AWS::Glue::DataCatalogEncryptionSettings
 AWS::Glue::Database
 AWS::Glue::IdentityCenterConfiguration
 AWS::Glue::Integration
@@ -905,6 +915,7 @@ AWS::MediaLive::EventBridgeRuleTemplateGroup
 AWS::MediaLive::Multiplex
 AWS::MediaLive::Multiplexprogram
 AWS::MediaLive::Network
+AWS::MediaLive::Node
 AWS::MediaLive::SdiSource
 AWS::MediaLive::SignalMap
 AWS::MediaPackage::Asset
@@ -1004,6 +1015,7 @@ AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
+AWS::Outposts::Site
 AWS::PCAConnectorAD::Connector
 AWS::PCAConnectorAD::DirectoryRegistration
 AWS::PCAConnectorAD::ServicePrincipalName
@@ -1043,7 +1055,9 @@ AWS::QuickSight::CustomPermissions
 AWS::QuickSight::Dashboard
 AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource
+AWS::QuickSight::Flow
 AWS::QuickSight::Folder
+AWS::QuickSight::OAuthClientApplication
 AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Template
 AWS::QuickSight::Theme
@@ -1232,6 +1246,7 @@ AWS::SSO::Assignment
 AWS::SSO::Instance
 AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet
+AWS::SageMaker::Algorithm
 AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
 AWS::SageMaker::Cluster
@@ -1241,6 +1256,7 @@ AWS::SageMaker::DeviceFleet
 AWS::SageMaker::Domain
 AWS::SageMaker::Endpoint
 AWS::SageMaker::FeatureGroup
+AWS::SageMaker::Hub
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
 AWS::SageMaker::InferenceComponent
@@ -1271,11 +1287,13 @@ AWS::SecretsManager::SecretTargetAttachment
 AWS::SecurityAgent::AgentSpace
 AWS::SecurityAgent::Application
 AWS::SecurityAgent::Pentest
+AWS::SecurityAgent::SecurityRequirementPack
 AWS::SecurityAgent::TargetDomain
 AWS::SecurityHub::AggregatorV2
 AWS::SecurityHub::AutomationRule
 AWS::SecurityHub::AutomationRuleV2
 AWS::SecurityHub::ConfigurationPolicy
+AWS::SecurityHub::Connector
 AWS::SecurityHub::ConnectorV2
 AWS::SecurityHub::DelegatedAdmin
 AWS::SecurityHub::FindingAggregator

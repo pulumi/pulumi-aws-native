@@ -17,6 +17,20 @@ from .. import _utilities
 __all__ = [
     'AccountExpiryEventsConfigurationArgs',
     'AccountExpiryEventsConfigurationArgsDict',
+    'AcmeDomainValidationDnsPrevalidationOptionsArgs',
+    'AcmeDomainValidationDnsPrevalidationOptionsArgsDict',
+    'AcmeDomainValidationDomainScopeArgs',
+    'AcmeDomainValidationDomainScopeArgsDict',
+    'AcmeDomainValidationPrevalidationOptionsArgs',
+    'AcmeDomainValidationPrevalidationOptionsArgsDict',
+    'AcmeEndpointCertificateAuthorityArgs',
+    'AcmeEndpointCertificateAuthorityArgsDict',
+    'AcmeEndpointPublicCertificateAuthorityArgs',
+    'AcmeEndpointPublicCertificateAuthorityArgsDict',
+    'AcmeEndpointTagArgs',
+    'AcmeEndpointTagArgsDict',
+    'AcmeExternalAccountBindingExpirationArgs',
+    'AcmeExternalAccountBindingExpirationArgsDict',
 ]
 
 class AccountExpiryEventsConfigurationArgsDict(TypedDict):
@@ -46,5 +60,314 @@ class AccountExpiryEventsConfigurationArgs:
     @days_before_expiry.setter
     def days_before_expiry(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "days_before_expiry", value)
+
+
+class AcmeDomainValidationDnsPrevalidationOptionsArgsDict(TypedDict):
+    """
+    DNS-based prevalidation options for the domain validation.
+    """
+    domain_scope: NotRequired[pulumi.Input['AcmeDomainValidationDomainScopeArgsDict']]
+    hosted_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+    """
+
+@pulumi.input_type
+class AcmeDomainValidationDnsPrevalidationOptionsArgs:
+    def __init__(__self__, *,
+                 domain_scope: Optional[pulumi.Input['AcmeDomainValidationDomainScopeArgs']] = None,
+                 hosted_zone_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        DNS-based prevalidation options for the domain validation.
+
+        :param pulumi.Input[_builtins.str] hosted_zone_id: The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+        """
+        if domain_scope is not None:
+            pulumi.set(__self__, "domain_scope", domain_scope)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="domainScope")
+    def domain_scope(self) -> Optional[pulumi.Input['AcmeDomainValidationDomainScopeArgs']]:
+        return pulumi.get(self, "domain_scope")
+
+    @domain_scope.setter
+    def domain_scope(self, value: Optional[pulumi.Input['AcmeDomainValidationDomainScopeArgs']]):
+        pulumi.set(self, "domain_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @hosted_zone_id.setter
+    def hosted_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "hosted_zone_id", value)
+
+
+class AcmeDomainValidationDomainScopeArgsDict(TypedDict):
+    """
+    Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+    """
+    exact_domain: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether certificates may be issued for the exact domain.
+    """
+    subdomains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether certificates may be issued for subdomains of the domain.
+    """
+    wildcards: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether wildcard certificates may be issued for the domain.
+    """
+
+@pulumi.input_type
+class AcmeDomainValidationDomainScopeArgs:
+    def __init__(__self__, *,
+                 exact_domain: Optional[pulumi.Input[_builtins.str]] = None,
+                 subdomains: Optional[pulumi.Input[_builtins.str]] = None,
+                 wildcards: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+
+        :param pulumi.Input[_builtins.str] exact_domain: Whether certificates may be issued for the exact domain.
+        :param pulumi.Input[_builtins.str] subdomains: Whether certificates may be issued for subdomains of the domain.
+        :param pulumi.Input[_builtins.str] wildcards: Whether wildcard certificates may be issued for the domain.
+        """
+        if exact_domain is not None:
+            pulumi.set(__self__, "exact_domain", exact_domain)
+        if subdomains is not None:
+            pulumi.set(__self__, "subdomains", subdomains)
+        if wildcards is not None:
+            pulumi.set(__self__, "wildcards", wildcards)
+
+    @_builtins.property
+    @pulumi.getter(name="exactDomain")
+    def exact_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether certificates may be issued for the exact domain.
+        """
+        return pulumi.get(self, "exact_domain")
+
+    @exact_domain.setter
+    def exact_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "exact_domain", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subdomains(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether certificates may be issued for subdomains of the domain.
+        """
+        return pulumi.get(self, "subdomains")
+
+    @subdomains.setter
+    def subdomains(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "subdomains", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def wildcards(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Whether wildcard certificates may be issued for the domain.
+        """
+        return pulumi.get(self, "wildcards")
+
+    @wildcards.setter
+    def wildcards(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "wildcards", value)
+
+
+class AcmeDomainValidationPrevalidationOptionsArgsDict(TypedDict):
+    """
+    Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+    """
+    dns_prevalidation: pulumi.Input['AcmeDomainValidationDnsPrevalidationOptionsArgsDict']
+
+@pulumi.input_type
+class AcmeDomainValidationPrevalidationOptionsArgs:
+    def __init__(__self__, *,
+                 dns_prevalidation: pulumi.Input['AcmeDomainValidationDnsPrevalidationOptionsArgs']):
+        """
+        Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+        """
+        pulumi.set(__self__, "dns_prevalidation", dns_prevalidation)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsPrevalidation")
+    def dns_prevalidation(self) -> pulumi.Input['AcmeDomainValidationDnsPrevalidationOptionsArgs']:
+        return pulumi.get(self, "dns_prevalidation")
+
+    @dns_prevalidation.setter
+    def dns_prevalidation(self, value: pulumi.Input['AcmeDomainValidationDnsPrevalidationOptionsArgs']):
+        pulumi.set(self, "dns_prevalidation", value)
+
+
+class AcmeEndpointCertificateAuthorityArgsDict(TypedDict):
+    """
+    The certificate authority configuration for the ACME endpoint.
+    """
+    public_certificate_authority: pulumi.Input['AcmeEndpointPublicCertificateAuthorityArgsDict']
+
+@pulumi.input_type
+class AcmeEndpointCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 public_certificate_authority: pulumi.Input['AcmeEndpointPublicCertificateAuthorityArgs']):
+        """
+        The certificate authority configuration for the ACME endpoint.
+        """
+        pulumi.set(__self__, "public_certificate_authority", public_certificate_authority)
+
+    @_builtins.property
+    @pulumi.getter(name="publicCertificateAuthority")
+    def public_certificate_authority(self) -> pulumi.Input['AcmeEndpointPublicCertificateAuthorityArgs']:
+        return pulumi.get(self, "public_certificate_authority")
+
+    @public_certificate_authority.setter
+    def public_certificate_authority(self, value: pulumi.Input['AcmeEndpointPublicCertificateAuthorityArgs']):
+        pulumi.set(self, "public_certificate_authority", value)
+
+
+class AcmeEndpointPublicCertificateAuthorityArgsDict(TypedDict):
+    """
+    Configuration for the public certificate authority.
+    """
+    allowed_key_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The allowed key algorithms for certificates issued via this endpoint.
+    """
+
+@pulumi.input_type
+class AcmeEndpointPublicCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 allowed_key_algorithms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for the public certificate authority.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_key_algorithms: The allowed key algorithms for certificates issued via this endpoint.
+        """
+        if allowed_key_algorithms is not None:
+            pulumi.set(__self__, "allowed_key_algorithms", allowed_key_algorithms)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedKeyAlgorithms")
+    def allowed_key_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The allowed key algorithms for certificates issued via this endpoint.
+        """
+        return pulumi.get(self, "allowed_key_algorithms")
+
+    @allowed_key_algorithms.setter
+    def allowed_key_algorithms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_key_algorithms", value)
+
+
+class AcmeEndpointTagArgsDict(TypedDict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key name of the tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the tag.
+    """
+
+@pulumi.input_type
+class AcmeEndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        A key-value pair to associate with a resource.
+
+        :param pulumi.Input[_builtins.str] key: The key name of the tag.
+        :param pulumi.Input[_builtins.str] value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key name of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class AcmeExternalAccountBindingExpirationArgsDict(TypedDict):
+    """
+    The expiration configuration for the external account binding.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The time unit for the expiration value.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The expiration value.
+    """
+
+@pulumi.input_type
+class AcmeExternalAccountBindingExpirationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        The expiration configuration for the external account binding.
+
+        :param pulumi.Input[_builtins.str] type: The time unit for the expiration value.
+        :param pulumi.Input[_builtins.int] value: The expiration value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The time unit for the expiration value.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        The expiration value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
 
 

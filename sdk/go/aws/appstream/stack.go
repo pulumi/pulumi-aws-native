@@ -18,6 +18,8 @@ type Stack struct {
 
 	// The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 	AccessEndpoints StackAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
+	// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+	AgentAccessConfig StackAgentAccessConfigPtrOutput `pulumi:"agentAccessConfig"`
 	// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 	ApplicationSettings StackApplicationSettingsPtrOutput `pulumi:"applicationSettings"`
 	// The stack attributes to delete.
@@ -94,6 +96,8 @@ func (StackState) ElementType() reflect.Type {
 type stackArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
+	// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+	AgentAccessConfig *StackAgentAccessConfig `pulumi:"agentAccessConfig"`
 	// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
 	// The stack attributes to delete.
@@ -128,6 +132,8 @@ type stackArgs struct {
 type StackArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 	AccessEndpoints StackAccessEndpointArrayInput
+	// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+	AgentAccessConfig StackAgentAccessConfigPtrInput
 	// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 	ApplicationSettings StackApplicationSettingsPtrInput
 	// The stack attributes to delete.
@@ -198,6 +204,11 @@ func (o StackOutput) ToStackOutputWithContext(ctx context.Context) StackOutput {
 // The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 func (o StackOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *Stack) StackAccessEndpointArrayOutput { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
+}
+
+// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+func (o StackOutput) AgentAccessConfig() StackAgentAccessConfigPtrOutput {
+	return o.ApplyT(func(v *Stack) StackAgentAccessConfigPtrOutput { return v.AgentAccessConfig }).(StackAgentAccessConfigPtrOutput)
 }
 
 // The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.

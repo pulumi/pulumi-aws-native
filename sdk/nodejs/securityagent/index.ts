@@ -30,6 +30,11 @@ export const getPentest: typeof import("./getPentest").getPentest = null as any;
 export const getPentestOutput: typeof import("./getPentest").getPentestOutput = null as any;
 utilities.lazyLoad(exports, ["getPentest","getPentestOutput"], () => require("./getPentest"));
 
+export { GetSecurityRequirementPackArgs, GetSecurityRequirementPackResult, GetSecurityRequirementPackOutputArgs } from "./getSecurityRequirementPack";
+export const getSecurityRequirementPack: typeof import("./getSecurityRequirementPack").getSecurityRequirementPack = null as any;
+export const getSecurityRequirementPackOutput: typeof import("./getSecurityRequirementPack").getSecurityRequirementPackOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityRequirementPack","getSecurityRequirementPackOutput"], () => require("./getSecurityRequirementPack"));
+
 export { GetTargetDomainArgs, GetTargetDomainResult, GetTargetDomainOutputArgs } from "./getTargetDomain";
 export const getTargetDomain: typeof import("./getTargetDomain").getTargetDomain = null as any;
 export const getTargetDomainOutput: typeof import("./getTargetDomain").getTargetDomainOutput = null as any;
@@ -39,6 +44,11 @@ export { PentestArgs } from "./pentest";
 export type Pentest = import("./pentest").Pentest;
 export const Pentest: typeof import("./pentest").Pentest = null as any;
 utilities.lazyLoad(exports, ["Pentest"], () => require("./pentest"));
+
+export { SecurityRequirementPackArgs } from "./securityRequirementPack";
+export type SecurityRequirementPack = import("./securityRequirementPack").SecurityRequirementPack;
+export const SecurityRequirementPack: typeof import("./securityRequirementPack").SecurityRequirementPack = null as any;
+utilities.lazyLoad(exports, ["SecurityRequirementPack"], () => require("./securityRequirementPack"));
 
 export { TargetDomainArgs } from "./targetDomain";
 export type TargetDomain = import("./targetDomain").TargetDomain;
@@ -59,6 +69,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:securityagent:Pentest":
                 return new Pentest(name, <any>undefined, { urn })
+            case "aws-native:securityagent:SecurityRequirementPack":
+                return new SecurityRequirementPack(name, <any>undefined, { urn })
             case "aws-native:securityagent:TargetDomain":
                 return new TargetDomain(name, <any>undefined, { urn })
             default:

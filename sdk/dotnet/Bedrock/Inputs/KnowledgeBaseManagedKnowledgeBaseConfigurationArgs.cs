@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// <summary>
         /// The ARN of the model used to create vector embeddings for the knowledge base.
         /// </summary>
-        [Input("embeddingModelArn", required: true)]
-        public Input<string> EmbeddingModelArn { get; set; } = null!;
+        [Input("embeddingModelArn")]
+        public Input<string>? EmbeddingModelArn { get; set; }
 
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.KnowledgeBaseEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }

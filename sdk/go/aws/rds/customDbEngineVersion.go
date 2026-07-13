@@ -30,6 +30,9 @@ type CustomDbEngineVersion struct {
 	//  Valid values:
 	//   +   ``custom-oracle-ee``
 	//   +   ``custom-oracle-ee-cdb``
+	//   +   ``sqlserver-dev-ee``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
 	//  *Constraints:* Minimum length is 1. Maximum length is 60.
@@ -126,6 +129,9 @@ type customDbEngineVersionArgs struct {
 	//  Valid values:
 	//   +   ``custom-oracle-ee``
 	//   +   ``custom-oracle-ee-cdb``
+	//   +   ``sqlserver-dev-ee``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
 	Engine string `pulumi:"engine"`
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
 	//  *Constraints:* Minimum length is 1. Maximum length is 60.
@@ -165,6 +171,9 @@ type CustomDbEngineVersionArgs struct {
 	//  Valid values:
 	//   +   ``custom-oracle-ee``
 	//   +   ``custom-oracle-ee-cdb``
+	//   +   ``sqlserver-dev-ee``
+	//   +   ``sqlserver-ee``
+	//   +   ``sqlserver-se``
 	Engine pulumi.StringInput
 	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
 	//  *Constraints:* Minimum length is 1. Maximum length is 60.
@@ -257,6 +266,9 @@ func (o CustomDbEngineVersionOutput) Description() pulumi.StringPtrOutput {
 //	Valid values:
 //	 +   ``custom-oracle-ee``
 //	 +   ``custom-oracle-ee-cdb``
+//	 +   ``sqlserver-dev-ee``
+//	 +   ``sqlserver-ee``
+//	 +   ``sqlserver-se``
 func (o CustomDbEngineVersionOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }

@@ -5476,6 +5476,430 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) ServiceEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The configuration settings for an Azure CSPM provider
+type ConnectorAzureProviderConfiguration struct {
+	// The ARN of the AWS Config connector used for the Azure integration
+	AwsConfigConnectorArn string `pulumi:"awsConfigConnectorArn"`
+	// The list of Azure regions to include in the connector scope
+	AzureRegions       []string                         `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorAzureScopeConfiguration `pulumi:"scopeConfiguration"`
+}
+
+// ConnectorAzureProviderConfigurationInput is an input type that accepts ConnectorAzureProviderConfigurationArgs and ConnectorAzureProviderConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorAzureProviderConfigurationInput` via:
+//
+//	ConnectorAzureProviderConfigurationArgs{...}
+type ConnectorAzureProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput
+	ToConnectorAzureProviderConfigurationOutputWithContext(context.Context) ConnectorAzureProviderConfigurationOutput
+}
+
+// The configuration settings for an Azure CSPM provider
+type ConnectorAzureProviderConfigurationArgs struct {
+	// The ARN of the AWS Config connector used for the Azure integration
+	AwsConfigConnectorArn pulumi.StringInput `pulumi:"awsConfigConnectorArn"`
+	// The list of Azure regions to include in the connector scope
+	AzureRegions       pulumi.StringArrayInput               `pulumi:"azureRegions"`
+	ScopeConfiguration ConnectorAzureScopeConfigurationInput `pulumi:"scopeConfiguration"`
+}
+
+func (ConnectorAzureProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput {
+	return i.ToConnectorAzureProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureProviderConfigurationArgs) ToConnectorAzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureProviderConfigurationOutput)
+}
+
+// The configuration settings for an Azure CSPM provider
+type ConnectorAzureProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationOutput() ConnectorAzureProviderConfigurationOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ToConnectorAzureProviderConfigurationOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationOutput {
+	return o
+}
+
+// The ARN of the AWS Config connector used for the Azure integration
+func (o ConnectorAzureProviderConfigurationOutput) AwsConfigConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) string { return v.AwsConfigConnectorArn }).(pulumi.StringOutput)
+}
+
+// The list of Azure regions to include in the connector scope
+func (o ConnectorAzureProviderConfigurationOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) []string { return v.AzureRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorAzureProviderConfigurationOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationOutput {
+	return o.ApplyT(func(v ConnectorAzureProviderConfiguration) ConnectorAzureScopeConfiguration {
+		return v.ScopeConfiguration
+	}).(ConnectorAzureScopeConfigurationOutput)
+}
+
+type ConnectorAzureProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureProviderConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ToConnectorAzureProviderConfigurationPtrOutput() ConnectorAzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ToConnectorAzureProviderConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) Elem() ConnectorAzureProviderConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) ConnectorAzureProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAzureProviderConfiguration
+		return ret
+	}).(ConnectorAzureProviderConfigurationOutput)
+}
+
+// The ARN of the AWS Config connector used for the Azure integration
+func (o ConnectorAzureProviderConfigurationPtrOutput) AwsConfigConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsConfigConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of Azure regions to include in the connector scope
+func (o ConnectorAzureProviderConfigurationPtrOutput) AzureRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureRegions
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConnectorAzureProviderConfigurationPtrOutput) ScopeConfiguration() ConnectorAzureScopeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureProviderConfiguration) *ConnectorAzureScopeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeConfiguration
+	}).(ConnectorAzureScopeConfigurationPtrOutput)
+}
+
+// The scope configuration for an Azure connector
+type ConnectorAzureScopeConfiguration struct {
+	// The scope type for the Azure connector
+	ScopeType ConnectorAzureScopeConfigurationScopeType `pulumi:"scopeType"`
+	// The list of scope values for the Azure connector
+	ScopeValues []string `pulumi:"scopeValues"`
+}
+
+// ConnectorAzureScopeConfigurationInput is an input type that accepts ConnectorAzureScopeConfigurationArgs and ConnectorAzureScopeConfigurationOutput values.
+// You can construct a concrete instance of `ConnectorAzureScopeConfigurationInput` via:
+//
+//	ConnectorAzureScopeConfigurationArgs{...}
+type ConnectorAzureScopeConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectorAzureScopeConfigurationOutput() ConnectorAzureScopeConfigurationOutput
+	ToConnectorAzureScopeConfigurationOutputWithContext(context.Context) ConnectorAzureScopeConfigurationOutput
+}
+
+// The scope configuration for an Azure connector
+type ConnectorAzureScopeConfigurationArgs struct {
+	// The scope type for the Azure connector
+	ScopeType ConnectorAzureScopeConfigurationScopeTypeInput `pulumi:"scopeType"`
+	// The list of scope values for the Azure connector
+	ScopeValues pulumi.StringArrayInput `pulumi:"scopeValues"`
+}
+
+func (ConnectorAzureScopeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfiguration)(nil)).Elem()
+}
+
+func (i ConnectorAzureScopeConfigurationArgs) ToConnectorAzureScopeConfigurationOutput() ConnectorAzureScopeConfigurationOutput {
+	return i.ToConnectorAzureScopeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectorAzureScopeConfigurationArgs) ToConnectorAzureScopeConfigurationOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAzureScopeConfigurationOutput)
+}
+
+// The scope configuration for an Azure connector
+type ConnectorAzureScopeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureScopeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorAzureScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureScopeConfigurationOutput) ToConnectorAzureScopeConfigurationOutput() ConnectorAzureScopeConfigurationOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationOutput) ToConnectorAzureScopeConfigurationOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationOutput {
+	return o
+}
+
+// The scope type for the Azure connector
+func (o ConnectorAzureScopeConfigurationOutput) ScopeType() ConnectorAzureScopeConfigurationScopeTypeOutput {
+	return o.ApplyT(func(v ConnectorAzureScopeConfiguration) ConnectorAzureScopeConfigurationScopeType { return v.ScopeType }).(ConnectorAzureScopeConfigurationScopeTypeOutput)
+}
+
+// The list of scope values for the Azure connector
+func (o ConnectorAzureScopeConfigurationOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectorAzureScopeConfiguration) []string { return v.ScopeValues }).(pulumi.StringArrayOutput)
+}
+
+type ConnectorAzureScopeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorAzureScopeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorAzureScopeConfiguration)(nil)).Elem()
+}
+
+func (o ConnectorAzureScopeConfigurationPtrOutput) ToConnectorAzureScopeConfigurationPtrOutput() ConnectorAzureScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationPtrOutput) ToConnectorAzureScopeConfigurationPtrOutputWithContext(ctx context.Context) ConnectorAzureScopeConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectorAzureScopeConfigurationPtrOutput) Elem() ConnectorAzureScopeConfigurationOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfiguration) ConnectorAzureScopeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorAzureScopeConfiguration
+		return ret
+	}).(ConnectorAzureScopeConfigurationOutput)
+}
+
+// The scope type for the Azure connector
+func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeType() ConnectorAzureScopeConfigurationScopeTypePtrOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfiguration) *ConnectorAzureScopeConfigurationScopeType {
+		if v == nil {
+			return nil
+		}
+		return &v.ScopeType
+	}).(ConnectorAzureScopeConfigurationScopeTypePtrOutput)
+}
+
+// The list of scope values for the Azure connector
+func (o ConnectorAzureScopeConfigurationPtrOutput) ScopeValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectorAzureScopeConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ScopeValues
+	}).(pulumi.StringArrayOutput)
+}
+
+// A health issue associated with the connector
+type ConnectorHealthIssue struct {
+	// The code identifying the type of health issue
+	Code string `pulumi:"code"`
+	// The message describing the health issue
+	Message string `pulumi:"message"`
+}
+
+// A health issue associated with the connector
+type ConnectorHealthIssueOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthIssueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorHealthIssue)(nil)).Elem()
+}
+
+func (o ConnectorHealthIssueOutput) ToConnectorHealthIssueOutput() ConnectorHealthIssueOutput {
+	return o
+}
+
+func (o ConnectorHealthIssueOutput) ToConnectorHealthIssueOutputWithContext(ctx context.Context) ConnectorHealthIssueOutput {
+	return o
+}
+
+// The code identifying the type of health issue
+func (o ConnectorHealthIssueOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorHealthIssue) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The message describing the health issue
+func (o ConnectorHealthIssueOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorHealthIssue) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type ConnectorHealthIssueArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorHealthIssueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorHealthIssue)(nil)).Elem()
+}
+
+func (o ConnectorHealthIssueArrayOutput) ToConnectorHealthIssueArrayOutput() ConnectorHealthIssueArrayOutput {
+	return o
+}
+
+func (o ConnectorHealthIssueArrayOutput) ToConnectorHealthIssueArrayOutputWithContext(ctx context.Context) ConnectorHealthIssueArrayOutput {
+	return o
+}
+
+func (o ConnectorHealthIssueArrayOutput) Index(i pulumi.IntInput) ConnectorHealthIssueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorHealthIssue {
+		return vs[0].([]ConnectorHealthIssue)[vs[1].(int)]
+	}).(ConnectorHealthIssueOutput)
+}
+
+// The CSPM provider configuration for the connector
+type ConnectorProvider struct {
+	Azure ConnectorAzureProviderConfiguration `pulumi:"azure"`
+}
+
+// ConnectorProviderInput is an input type that accepts ConnectorProviderArgs and ConnectorProviderOutput values.
+// You can construct a concrete instance of `ConnectorProviderInput` via:
+//
+//	ConnectorProviderArgs{...}
+type ConnectorProviderInput interface {
+	pulumi.Input
+
+	ToConnectorProviderOutput() ConnectorProviderOutput
+	ToConnectorProviderOutputWithContext(context.Context) ConnectorProviderOutput
+}
+
+// The CSPM provider configuration for the connector
+type ConnectorProviderArgs struct {
+	Azure ConnectorAzureProviderConfigurationInput `pulumi:"azure"`
+}
+
+func (ConnectorProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProvider)(nil)).Elem()
+}
+
+func (i ConnectorProviderArgs) ToConnectorProviderOutput() ConnectorProviderOutput {
+	return i.ToConnectorProviderOutputWithContext(context.Background())
+}
+
+func (i ConnectorProviderArgs) ToConnectorProviderOutputWithContext(ctx context.Context) ConnectorProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProviderOutput)
+}
+
+// The CSPM provider configuration for the connector
+type ConnectorProviderOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorProvider)(nil)).Elem()
+}
+
+func (o ConnectorProviderOutput) ToConnectorProviderOutput() ConnectorProviderOutput {
+	return o
+}
+
+func (o ConnectorProviderOutput) ToConnectorProviderOutputWithContext(ctx context.Context) ConnectorProviderOutput {
+	return o
+}
+
+func (o ConnectorProviderOutput) Azure() ConnectorAzureProviderConfigurationOutput {
+	return o.ApplyT(func(v ConnectorProvider) ConnectorAzureProviderConfiguration { return v.Azure }).(ConnectorAzureProviderConfigurationOutput)
+}
+
+type ConnectorProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorProvider)(nil)).Elem()
+}
+
+func (o ConnectorProviderPtrOutput) ToConnectorProviderPtrOutput() ConnectorProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorProviderPtrOutput) ToConnectorProviderPtrOutputWithContext(ctx context.Context) ConnectorProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorProviderPtrOutput) Elem() ConnectorProviderOutput {
+	return o.ApplyT(func(v *ConnectorProvider) ConnectorProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorProvider
+		return ret
+	}).(ConnectorProviderOutput)
+}
+
+func (o ConnectorProviderPtrOutput) Azure() ConnectorAzureProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectorProvider) *ConnectorAzureProviderConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.Azure
+	}).(ConnectorAzureProviderConfigurationPtrOutput)
+}
+
+// A health issue associated with the connector
+type ConnectorV2HealthIssue struct {
+	// The code identifying the type of health issue
+	Code string `pulumi:"code"`
+	// The message describing the health issue
+	Message string `pulumi:"message"`
+}
+
+// A health issue associated with the connector
+type ConnectorV2HealthIssueOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2HealthIssueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2HealthIssue)(nil)).Elem()
+}
+
+func (o ConnectorV2HealthIssueOutput) ToConnectorV2HealthIssueOutput() ConnectorV2HealthIssueOutput {
+	return o
+}
+
+func (o ConnectorV2HealthIssueOutput) ToConnectorV2HealthIssueOutputWithContext(ctx context.Context) ConnectorV2HealthIssueOutput {
+	return o
+}
+
+// The code identifying the type of health issue
+func (o ConnectorV2HealthIssueOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2HealthIssue) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The message describing the health issue
+func (o ConnectorV2HealthIssueOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectorV2HealthIssue) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type ConnectorV2HealthIssueArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2HealthIssueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectorV2HealthIssue)(nil)).Elem()
+}
+
+func (o ConnectorV2HealthIssueArrayOutput) ToConnectorV2HealthIssueArrayOutput() ConnectorV2HealthIssueArrayOutput {
+	return o
+}
+
+func (o ConnectorV2HealthIssueArrayOutput) ToConnectorV2HealthIssueArrayOutputWithContext(ctx context.Context) ConnectorV2HealthIssueArrayOutput {
+	return o
+}
+
+func (o ConnectorV2HealthIssueArrayOutput) Index(i pulumi.IntInput) ConnectorV2HealthIssueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectorV2HealthIssue {
+		return vs[0].([]ConnectorV2HealthIssue)[vs[1].(int)]
+	}).(ConnectorV2HealthIssueOutput)
+}
+
 // The third-party provider configuration for the connector
 type ConnectorV2Provider struct {
 }
@@ -9212,6 +9636,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityControlsConfigurationPtrInput)(nil)).Elem(), ConfigurationPolicySecurityControlsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityHubPolicyInput)(nil)).Elem(), ConfigurationPolicySecurityHubPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityHubPolicyPtrInput)(nil)).Elem(), ConfigurationPolicySecurityHubPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureProviderConfigurationInput)(nil)).Elem(), ConnectorAzureProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAzureScopeConfigurationInput)(nil)).Elem(), ConnectorAzureScopeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorProviderInput)(nil)).Elem(), ConnectorProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ProviderInput)(nil)).Elem(), ConnectorV2ProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightAwsSecurityFindingFiltersInput)(nil)).Elem(), InsightAwsSecurityFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterInput)(nil)).Elem(), InsightBooleanFilterArgs{})
@@ -9300,6 +9727,16 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityControlsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityHubPolicyOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityHubPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectorAzureScopeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthIssueOutput{})
+	pulumi.RegisterOutputType(ConnectorHealthIssueArrayOutput{})
+	pulumi.RegisterOutputType(ConnectorProviderOutput{})
+	pulumi.RegisterOutputType(ConnectorProviderPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2HealthIssueOutput{})
+	pulumi.RegisterOutputType(ConnectorV2HealthIssueArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ProviderOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ProviderPtrOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersOutput{})

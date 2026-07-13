@@ -22,6 +22,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("mode", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormScoringStrategyMode> Mode { get; set; } = null!;
 
+        [Input("scoreThresholds")]
+        private InputList<Inputs.EvaluationFormScoreThresholdArgs>? _scoreThresholds;
+        public InputList<Inputs.EvaluationFormScoreThresholdArgs> ScoreThresholds
+        {
+            get => _scoreThresholds ?? (_scoreThresholds = new InputList<Inputs.EvaluationFormScoreThresholdArgs>());
+            set => _scoreThresholds = value;
+        }
+
         /// <summary>
         /// The scoring status of the evaluation form.
         ///  *Allowed values*: ``ENABLED`` | ``DISABLED``

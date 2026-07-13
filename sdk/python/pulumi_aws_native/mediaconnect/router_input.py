@@ -29,6 +29,7 @@ class RouterInputArgs:
                  routing_scope: pulumi.Input['RouterInputRoutingScope'],
                  tier: pulumi.Input['RouterInputTier'],
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_quality_analysis_configuration: Optional[pulumi.Input['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgs']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -53,6 +54,8 @@ class RouterInputArgs:
         pulumi.set(__self__, "tier", tier)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if content_quality_analysis_configuration is not None:
+            pulumi.set(__self__, "content_quality_analysis_configuration", content_quality_analysis_configuration)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
@@ -120,6 +123,15 @@ class RouterInputArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisConfiguration")
+    def content_quality_analysis_configuration(self) -> Optional[pulumi.Input['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "content_quality_analysis_configuration")
+
+    @content_quality_analysis_configuration.setter
+    def content_quality_analysis_configuration(self, value: Optional[pulumi.Input['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs']]):
+        pulumi.set(self, "content_quality_analysis_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
@@ -190,6 +202,7 @@ class RouterInput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
+                 content_quality_analysis_configuration: Optional[pulumi.Input[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -242,6 +255,7 @@ class RouterInput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
+                 content_quality_analysis_configuration: Optional[pulumi.Input[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -263,6 +277,7 @@ class RouterInput(pulumi.CustomResource):
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["content_quality_analysis_configuration"] = content_quality_analysis_configuration
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
             if maximum_bitrate is None and not opts.urn:
                 raise TypeError("Missing required property 'maximum_bitrate'")
@@ -279,6 +294,7 @@ class RouterInput(pulumi.CustomResource):
             __props__.__dict__["transit_encryption"] = transit_encryption
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["content_quality_analysis_type"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["input_type"] = None
             __props__.__dict__["ip_address"] = None
@@ -314,6 +330,8 @@ class RouterInput(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
+        __props__.__dict__["content_quality_analysis_configuration"] = None
+        __props__.__dict__["content_quality_analysis_type"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["input_type"] = None
         __props__.__dict__["ip_address"] = None
@@ -359,6 +377,16 @@ class RouterInput(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisConfiguration")
+    def content_quality_analysis_configuration(self) -> pulumi.Output[Optional['outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties']]:
+        return pulumi.get(self, "content_quality_analysis_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisType")
+    def content_quality_analysis_type(self) -> pulumi.Output['RouterInputRouterContentQualityAnalysisType']:
+        return pulumi.get(self, "content_quality_analysis_type")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

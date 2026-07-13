@@ -7,9 +7,9 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/IdentityPoolTags",
-    "permissions" : [ "cognito-identity:TagResource", "cognito-identity:UntagResource" ]
+    "permissions" : [ "cognito-identity:TagResource", "cognito-identity:UntagResource", "cognito-identity:ListTagsForResource" ]
   },
   "definitions" : {
     "Tag" : {
@@ -155,7 +155,7 @@
       "permissions" : [ "cognito-identity:CreateIdentityPool", "cognito-sync:SetIdentityPoolConfiguration", "cognito-sync:SetCognitoEvents", "cognito-identity:TagResource", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "cognito-identity:DescribeIdentityPool" ]
+      "permissions" : [ "cognito-identity:DescribeIdentityPool", "cognito-identity:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "cognito-identity:UpdateIdentityPool", "cognito-identity:DescribeIdentityPool", "cognito-sync:SetIdentityPoolConfiguration", "cognito-sync:SetCognitoEvents", "cognito-identity:TagResource", "cognito-identity:UntagResource", "iam:PassRole" ]

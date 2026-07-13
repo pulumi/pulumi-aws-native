@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetStackResult:
-    def __init__(__self__, access_endpoints=None, application_settings=None, content_redirection=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
+    def __init__(__self__, access_endpoints=None, agent_access_config=None, application_settings=None, content_redirection=None, description=None, display_name=None, embed_host_domains=None, feedback_url=None, redirect_url=None, storage_connectors=None, streaming_experience_settings=None, tags=None, user_settings=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if agent_access_config and not isinstance(agent_access_config, dict):
+            raise TypeError("Expected argument 'agent_access_config' to be a dict")
+        pulumi.set(__self__, "agent_access_config", agent_access_config)
         if application_settings and not isinstance(application_settings, dict):
             raise TypeError("Expected argument 'application_settings' to be a dict")
         pulumi.set(__self__, "application_settings", application_settings)
@@ -70,6 +73,14 @@ class GetStackResult:
         The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="agentAccessConfig")
+    def agent_access_config(self) -> Optional['outputs.StackAgentAccessConfig']:
+        """
+        The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        """
+        return pulumi.get(self, "agent_access_config")
 
     @_builtins.property
     @pulumi.getter(name="applicationSettings")
@@ -167,6 +178,7 @@ class AwaitableGetStackResult(GetStackResult):
             yield self
         return GetStackResult(
             access_endpoints=self.access_endpoints,
+            agent_access_config=self.agent_access_config,
             application_settings=self.application_settings,
             content_redirection=self.content_redirection,
             description=self.description,
@@ -195,6 +207,7 @@ def get_stack(name: Optional[_builtins.str] = None,
 
     return AwaitableGetStackResult(
         access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
+        agent_access_config=pulumi.get(__ret__, 'agent_access_config'),
         application_settings=pulumi.get(__ret__, 'application_settings'),
         content_redirection=pulumi.get(__ret__, 'content_redirection'),
         description=pulumi.get(__ret__, 'description'),
@@ -220,6 +233,7 @@ def get_stack_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getStack', __args__, opts=opts, typ=GetStackResult)
     return __ret__.apply(lambda __response__: GetStackResult(
         access_endpoints=pulumi.get(__response__, 'access_endpoints'),
+        agent_access_config=pulumi.get(__response__, 'agent_access_config'),
         application_settings=pulumi.get(__response__, 'application_settings'),
         content_redirection=pulumi.get(__response__, 'content_redirection'),
         description=pulumi.get(__response__, 'description'),

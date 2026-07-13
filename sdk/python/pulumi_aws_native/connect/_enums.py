@@ -27,6 +27,7 @@ __all__ = [
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
     'EvaluationFormQuestionAutomationAnswerSourceSourceType',
     'EvaluationFormQuestionQuestionType',
+    'EvaluationFormScoreThresholdPerformanceCategory',
     'EvaluationFormScoringStrategyMode',
     'EvaluationFormScoringStrategyStatus',
     'EvaluationFormSingleSelectQuestionPropertiesDisplayAs',
@@ -50,6 +51,8 @@ __all__ = [
     'RoutingProfileAgentAvailabilityTimer',
     'RoutingProfileBehaviorType',
     'RoutingProfileChannel',
+    'RuleAssignSlaActionCaseSlaConfigurationPropertiesType',
+    'RuleAssignSlaActionSlaAssignmentType',
     'RulePublishStatus',
     'RuleReferenceType',
     'RuleSendNotificationActionContentType',
@@ -59,7 +62,10 @@ __all__ = [
     'SecurityProfilePrimaryAttributeValueAccessType',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
+    'TestCaseEntryPointType',
+    'TestCaseStatus',
     'TrafficDistributionGroupStatus',
+    'UserAfterContactWorkMode',
     'UserChannel',
     'UserPhoneType',
     'UserVoiceEnhancementMode',
@@ -284,6 +290,15 @@ class EvaluationFormQuestionQuestionType(_builtins.str, Enum):
     DATETIME = "DATETIME"
 
 
+@pulumi.type_token("aws-native:connect:EvaluationFormScoreThresholdPerformanceCategory")
+class EvaluationFormScoreThresholdPerformanceCategory(_builtins.str, Enum):
+    """
+    The performance category name.
+    """
+    NEEDS_IMPROVEMENT = "NEEDS_IMPROVEMENT"
+    EXCEEDS_EXPECTATIONS = "EXCEEDS_EXPECTATIONS"
+
+
 @pulumi.type_token("aws-native:connect:EvaluationFormScoringStrategyMode")
 class EvaluationFormScoringStrategyMode(_builtins.str, Enum):
     """
@@ -292,6 +307,7 @@ class EvaluationFormScoringStrategyMode(_builtins.str, Enum):
     """
     QUESTION_ONLY = "QUESTION_ONLY"
     SECTION_ONLY = "SECTION_ONLY"
+    POINTS_BASED = "POINTS_BASED"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormScoringStrategyStatus")
@@ -505,6 +521,7 @@ class QuickConnectType(_builtins.str, Enum):
     PHONE_NUMBER = "PHONE_NUMBER"
     QUEUE = "QUEUE"
     USER = "USER"
+    FLOW = "FLOW"
 
 
 @pulumi.type_token("aws-native:connect:RoutingProfileAgentAvailabilityTimer")
@@ -534,6 +551,22 @@ class RoutingProfileChannel(_builtins.str, Enum):
     CHAT = "CHAT"
     TASK = "TASK"
     EMAIL = "EMAIL"
+
+
+@pulumi.type_token("aws-native:connect:RuleAssignSlaActionCaseSlaConfigurationPropertiesType")
+class RuleAssignSlaActionCaseSlaConfigurationPropertiesType(_builtins.str, Enum):
+    """
+    The type of SLA.
+    """
+    CASE_FIELD = "CaseField"
+
+
+@pulumi.type_token("aws-native:connect:RuleAssignSlaActionSlaAssignmentType")
+class RuleAssignSlaActionSlaAssignmentType(_builtins.str, Enum):
+    """
+    The type of SLA assignment.
+    """
+    CASES = "CASES"
 
 
 @pulumi.type_token("aws-native:connect:RulePublishStatus")
@@ -583,6 +616,7 @@ class RuleTriggerEventSourceEventSourceName(_builtins.str, Enum):
     """
     The name of the event source.
     """
+    ON_EMAIL_ANALYSIS_AVAILABLE = "OnEmailAnalysisAvailable"
     ON_CONTACT_EVALUATION_SUBMIT = "OnContactEvaluationSubmit"
     ON_POST_CALL_ANALYSIS_AVAILABLE = "OnPostCallAnalysisAvailable"
     ON_REAL_TIME_CALL_ANALYSIS_AVAILABLE = "OnRealTimeCallAnalysisAvailable"
@@ -594,6 +628,10 @@ class RuleTriggerEventSourceEventSourceName(_builtins.str, Enum):
     ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
     ON_CASE_CREATE = "OnCaseCreate"
     ON_CASE_UPDATE = "OnCaseUpdate"
+    ON_SLA_BREACH = "OnSlaBreach"
+    ON_SCHEDULE_PUBLISH = "OnSchedulePublish"
+    ON_SCHEDULE_UPDATE = "OnScheduleUpdate"
+    ON_SCHEDULE_TIME_OFF_REQUEST_ACTIVITY = "OnScheduleTimeOffRequestActivity"
 
 
 @pulumi.type_token("aws-native:connect:SecurityProfileApplicationType")
@@ -643,6 +681,24 @@ class TaskTemplateStatus(_builtins.str, Enum):
     INACTIVE = "INACTIVE"
 
 
+@pulumi.type_token("aws-native:connect:TestCaseEntryPointType")
+class TestCaseEntryPointType(_builtins.str, Enum):
+    """
+    The type of the Entry Point
+    """
+    VOICE_CALL = "VOICE_CALL"
+    CHAT = "CHAT"
+
+
+@pulumi.type_token("aws-native:connect:TestCaseStatus")
+class TestCaseStatus(_builtins.str, Enum):
+    """
+    The status of the test case.
+    """
+    SAVED = "SAVED"
+    PUBLISHED = "PUBLISHED"
+
+
 @pulumi.type_token("aws-native:connect:TrafficDistributionGroupStatus")
 class TrafficDistributionGroupStatus(_builtins.str, Enum):
     """
@@ -654,6 +710,16 @@ class TrafficDistributionGroupStatus(_builtins.str, Enum):
     PENDING_DELETION = "PENDING_DELETION"
     DELETION_FAILED = "DELETION_FAILED"
     UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
+
+
+@pulumi.type_token("aws-native:connect:UserAfterContactWorkMode")
+class UserAfterContactWorkMode(_builtins.str, Enum):
+    """
+    The after contact work (ACW) mode for the channel.
+    """
+    ON = "ON"
+    OFF = "OFF"
+    ON_DEMAND = "ON_DEMAND"
 
 
 @pulumi.type_token("aws-native:connect:UserChannel")

@@ -14,9 +14,11 @@ __all__ = [
     'CollectionServerlessVectorAcceleration',
     'CollectionStandbyReplicas',
     'CollectionType',
+    'IndexPropertyMappingCompressionLevel',
     'IndexPropertyMappingMethodPropertiesEngine',
     'IndexPropertyMappingMethodPropertiesName',
     'IndexPropertyMappingMethodPropertiesSpaceType',
+    'IndexPropertyMappingSpaceType',
     'IndexPropertyMappingType',
     'LifecyclePolicyType',
     'SecurityConfigType',
@@ -88,6 +90,19 @@ class CollectionType(_builtins.str, Enum):
     VECTORSEARCH = "VECTORSEARCH"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingCompressionLevel")
+class IndexPropertyMappingCompressionLevel(_builtins.str, Enum):
+    """
+    The compression level for knn_vector fields
+    """
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_16X = "16x"
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_32X = "32x"
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_8X = "8x"
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_4X = "4x"
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_2X = "2x"
+    INDEX_PROPERTY_MAPPING_COMPRESSION_LEVEL_1X = "1x"
+
+
 @pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingMethodPropertiesEngine")
 class IndexPropertyMappingMethodPropertiesEngine(_builtins.str, Enum):
     """
@@ -120,6 +135,19 @@ class IndexPropertyMappingMethodPropertiesSpaceType(_builtins.str, Enum):
     HAMMING = "hamming"
 
 
+@pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingSpaceType")
+class IndexPropertyMappingSpaceType(_builtins.str, Enum):
+    """
+    The distance function used for k-NN search (field-level, outside Method)
+    """
+    L2 = "l2"
+    L1 = "l1"
+    LINF = "linf"
+    COSINESIMIL = "cosinesimil"
+    INNERPRODUCT = "innerproduct"
+    HAMMING = "hamming"
+
+
 @pulumi.type_token("aws-native:opensearchserverless:IndexPropertyMappingType")
 class IndexPropertyMappingType(_builtins.str, Enum):
     """
@@ -127,6 +155,8 @@ class IndexPropertyMappingType(_builtins.str, Enum):
     """
     TEXT = "text"
     KNN_VECTOR = "knn_vector"
+    KEYWORD = "keyword"
+    INTEGER = "integer"
 
 
 @pulumi.type_token("aws-native:opensearchserverless:LifecyclePolicyType")

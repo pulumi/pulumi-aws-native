@@ -3400,6 +3400,172 @@ func (in *evaluationFormQuestionQuestionTypePtr) ToEvaluationFormQuestionQuestio
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormQuestionQuestionTypePtrOutput)
 }
 
+// The performance category name.
+type EvaluationFormScoreThresholdPerformanceCategory string
+
+const (
+	EvaluationFormScoreThresholdPerformanceCategoryNeedsImprovement    = EvaluationFormScoreThresholdPerformanceCategory("NEEDS_IMPROVEMENT")
+	EvaluationFormScoreThresholdPerformanceCategoryExceedsExpectations = EvaluationFormScoreThresholdPerformanceCategory("EXCEEDS_EXPECTATIONS")
+)
+
+func (EvaluationFormScoreThresholdPerformanceCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoreThresholdPerformanceCategory)(nil)).Elem()
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToEvaluationFormScoreThresholdPerformanceCategoryOutput() EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return pulumi.ToOutput(e).(EvaluationFormScoreThresholdPerformanceCategoryOutput)
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToEvaluationFormScoreThresholdPerformanceCategoryOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EvaluationFormScoreThresholdPerformanceCategoryOutput)
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutput() EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return e.ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return EvaluationFormScoreThresholdPerformanceCategory(e).ToEvaluationFormScoreThresholdPerformanceCategoryOutputWithContext(ctx).ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(ctx)
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EvaluationFormScoreThresholdPerformanceCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EvaluationFormScoreThresholdPerformanceCategoryOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoreThresholdPerformanceCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EvaluationFormScoreThresholdPerformanceCategory)(nil)).Elem()
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToEvaluationFormScoreThresholdPerformanceCategoryOutput() EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToEvaluationFormScoreThresholdPerformanceCategoryOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutput() EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return o.ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EvaluationFormScoreThresholdPerformanceCategory) *EvaluationFormScoreThresholdPerformanceCategory {
+		return &v
+	}).(EvaluationFormScoreThresholdPerformanceCategoryPtrOutput)
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoreThresholdPerformanceCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EvaluationFormScoreThresholdPerformanceCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EvaluationFormScoreThresholdPerformanceCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EvaluationFormScoreThresholdPerformanceCategory)(nil)).Elem()
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutput() EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return o
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) Elem() EvaluationFormScoreThresholdPerformanceCategoryOutput {
+	return o.ApplyT(func(v *EvaluationFormScoreThresholdPerformanceCategory) EvaluationFormScoreThresholdPerformanceCategory {
+		if v != nil {
+			return *v
+		}
+		var ret EvaluationFormScoreThresholdPerformanceCategory
+		return ret
+	}).(EvaluationFormScoreThresholdPerformanceCategoryOutput)
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EvaluationFormScoreThresholdPerformanceCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EvaluationFormScoreThresholdPerformanceCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EvaluationFormScoreThresholdPerformanceCategoryInput is an input type that accepts values of the EvaluationFormScoreThresholdPerformanceCategory enum
+// A concrete instance of `EvaluationFormScoreThresholdPerformanceCategoryInput` can be one of the following:
+//
+//	EvaluationFormScoreThresholdPerformanceCategoryNeedsImprovement
+//	EvaluationFormScoreThresholdPerformanceCategoryExceedsExpectations
+type EvaluationFormScoreThresholdPerformanceCategoryInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoreThresholdPerformanceCategoryOutput() EvaluationFormScoreThresholdPerformanceCategoryOutput
+	ToEvaluationFormScoreThresholdPerformanceCategoryOutputWithContext(context.Context) EvaluationFormScoreThresholdPerformanceCategoryOutput
+}
+
+var evaluationFormScoreThresholdPerformanceCategoryPtrType = reflect.TypeOf((**EvaluationFormScoreThresholdPerformanceCategory)(nil)).Elem()
+
+type EvaluationFormScoreThresholdPerformanceCategoryPtrInput interface {
+	pulumi.Input
+
+	ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutput() EvaluationFormScoreThresholdPerformanceCategoryPtrOutput
+	ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(context.Context) EvaluationFormScoreThresholdPerformanceCategoryPtrOutput
+}
+
+type evaluationFormScoreThresholdPerformanceCategoryPtr string
+
+func EvaluationFormScoreThresholdPerformanceCategoryPtr(v string) EvaluationFormScoreThresholdPerformanceCategoryPtrInput {
+	return (*evaluationFormScoreThresholdPerformanceCategoryPtr)(&v)
+}
+
+func (*evaluationFormScoreThresholdPerformanceCategoryPtr) ElementType() reflect.Type {
+	return evaluationFormScoreThresholdPerformanceCategoryPtrType
+}
+
+func (in *evaluationFormScoreThresholdPerformanceCategoryPtr) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutput() EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return pulumi.ToOutput(in).(EvaluationFormScoreThresholdPerformanceCategoryPtrOutput)
+}
+
+func (in *evaluationFormScoreThresholdPerformanceCategoryPtr) ToEvaluationFormScoreThresholdPerformanceCategoryPtrOutputWithContext(ctx context.Context) EvaluationFormScoreThresholdPerformanceCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormScoreThresholdPerformanceCategoryPtrOutput)
+}
+
 // The scoring mode of the evaluation form.
 //
 //	*Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``
@@ -3408,6 +3574,7 @@ type EvaluationFormScoringStrategyMode string
 const (
 	EvaluationFormScoringStrategyModeQuestionOnly = EvaluationFormScoringStrategyMode("QUESTION_ONLY")
 	EvaluationFormScoringStrategyModeSectionOnly  = EvaluationFormScoringStrategyMode("SECTION_ONLY")
+	EvaluationFormScoringStrategyModePointsBased  = EvaluationFormScoringStrategyMode("POINTS_BASED")
 )
 
 func (EvaluationFormScoringStrategyMode) ElementType() reflect.Type {
@@ -3534,6 +3701,7 @@ func (o EvaluationFormScoringStrategyModePtrOutput) ToStringPtrOutputWithContext
 //
 //	EvaluationFormScoringStrategyModeQuestionOnly
 //	EvaluationFormScoringStrategyModeSectionOnly
+//	EvaluationFormScoringStrategyModePointsBased
 type EvaluationFormScoringStrategyModeInput interface {
 	pulumi.Input
 
@@ -6493,6 +6661,7 @@ const (
 	QuickConnectTypePhoneNumber = QuickConnectType("PHONE_NUMBER")
 	QuickConnectTypeQueue       = QuickConnectType("QUEUE")
 	QuickConnectTypeUser        = QuickConnectType("USER")
+	QuickConnectTypeFlow        = QuickConnectType("FLOW")
 )
 
 func (QuickConnectType) ElementType() reflect.Type {
@@ -6620,6 +6789,7 @@ func (o QuickConnectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	QuickConnectTypePhoneNumber
 //	QuickConnectTypeQueue
 //	QuickConnectTypeUser
+//	QuickConnectTypeFlow
 type QuickConnectTypeInput interface {
 	pulumi.Input
 
@@ -7154,6 +7324,334 @@ func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutput() RoutingPr
 
 func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutputWithContext(ctx context.Context) RoutingProfileChannelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileChannelPtrOutput)
+}
+
+// The type of SLA.
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesType string
+
+const (
+	RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeCaseField = RuleAssignSlaActionCaseSlaConfigurationPropertiesType("CaseField")
+)
+
+func (RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesType)(nil)).Elem()
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return pulumi.ToOutput(e).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput)
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput)
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return e.ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return RuleAssignSlaActionCaseSlaConfigurationPropertiesType(e).ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutputWithContext(ctx).ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesType)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return o.ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleAssignSlaActionCaseSlaConfigurationPropertiesType) *RuleAssignSlaActionCaseSlaConfigurationPropertiesType {
+		return &v
+	}).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput)
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleAssignSlaActionCaseSlaConfigurationPropertiesType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleAssignSlaActionCaseSlaConfigurationPropertiesType)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) Elem() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput {
+	return o.ApplyT(func(v *RuleAssignSlaActionCaseSlaConfigurationPropertiesType) RuleAssignSlaActionCaseSlaConfigurationPropertiesType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleAssignSlaActionCaseSlaConfigurationPropertiesType
+		return ret
+	}).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput)
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleAssignSlaActionCaseSlaConfigurationPropertiesType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeInput is an input type that accepts values of the RuleAssignSlaActionCaseSlaConfigurationPropertiesType enum
+// A concrete instance of `RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeInput` can be one of the following:
+//
+//	RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeCaseField
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutputWithContext(context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput
+}
+
+var ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrType = reflect.TypeOf((**RuleAssignSlaActionCaseSlaConfigurationPropertiesType)(nil)).Elem()
+
+type RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput
+	ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput
+}
+
+type ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr string
+
+func RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr(v string) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrInput {
+	return (*ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr)(&v)
+}
+
+func (*ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr) ElementType() reflect.Type {
+	return ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrType
+}
+
+func (in *ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput() RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput)
+}
+
+func (in *ruleAssignSlaActionCaseSlaConfigurationPropertiesTypePtr) ToRuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput)
+}
+
+// The type of SLA assignment.
+type RuleAssignSlaActionSlaAssignmentType string
+
+const (
+	RuleAssignSlaActionSlaAssignmentTypeCases = RuleAssignSlaActionSlaAssignmentType("CASES")
+)
+
+func (RuleAssignSlaActionSlaAssignmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentType)(nil)).Elem()
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToRuleAssignSlaActionSlaAssignmentTypeOutput() RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return pulumi.ToOutput(e).(RuleAssignSlaActionSlaAssignmentTypeOutput)
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToRuleAssignSlaActionSlaAssignmentTypeOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleAssignSlaActionSlaAssignmentTypeOutput)
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToRuleAssignSlaActionSlaAssignmentTypePtrOutput() RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return e.ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return RuleAssignSlaActionSlaAssignmentType(e).ToRuleAssignSlaActionSlaAssignmentTypeOutputWithContext(ctx).ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(ctx)
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuleAssignSlaActionSlaAssignmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuleAssignSlaActionSlaAssignmentTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionSlaAssignmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentType)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToRuleAssignSlaActionSlaAssignmentTypeOutput() RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToRuleAssignSlaActionSlaAssignmentTypeOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToRuleAssignSlaActionSlaAssignmentTypePtrOutput() RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return o.ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleAssignSlaActionSlaAssignmentType) *RuleAssignSlaActionSlaAssignmentType {
+		return &v
+	}).(RuleAssignSlaActionSlaAssignmentTypePtrOutput)
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleAssignSlaActionSlaAssignmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleAssignSlaActionSlaAssignmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleAssignSlaActionSlaAssignmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleAssignSlaActionSlaAssignmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleAssignSlaActionSlaAssignmentType)(nil)).Elem()
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypePtrOutput) ToRuleAssignSlaActionSlaAssignmentTypePtrOutput() RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypePtrOutput) ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return o
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypePtrOutput) Elem() RuleAssignSlaActionSlaAssignmentTypeOutput {
+	return o.ApplyT(func(v *RuleAssignSlaActionSlaAssignmentType) RuleAssignSlaActionSlaAssignmentType {
+		if v != nil {
+			return *v
+		}
+		var ret RuleAssignSlaActionSlaAssignmentType
+		return ret
+	}).(RuleAssignSlaActionSlaAssignmentTypeOutput)
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleAssignSlaActionSlaAssignmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleAssignSlaActionSlaAssignmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuleAssignSlaActionSlaAssignmentTypeInput is an input type that accepts values of the RuleAssignSlaActionSlaAssignmentType enum
+// A concrete instance of `RuleAssignSlaActionSlaAssignmentTypeInput` can be one of the following:
+//
+//	RuleAssignSlaActionSlaAssignmentTypeCases
+type RuleAssignSlaActionSlaAssignmentTypeInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionSlaAssignmentTypeOutput() RuleAssignSlaActionSlaAssignmentTypeOutput
+	ToRuleAssignSlaActionSlaAssignmentTypeOutputWithContext(context.Context) RuleAssignSlaActionSlaAssignmentTypeOutput
+}
+
+var ruleAssignSlaActionSlaAssignmentTypePtrType = reflect.TypeOf((**RuleAssignSlaActionSlaAssignmentType)(nil)).Elem()
+
+type RuleAssignSlaActionSlaAssignmentTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleAssignSlaActionSlaAssignmentTypePtrOutput() RuleAssignSlaActionSlaAssignmentTypePtrOutput
+	ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(context.Context) RuleAssignSlaActionSlaAssignmentTypePtrOutput
+}
+
+type ruleAssignSlaActionSlaAssignmentTypePtr string
+
+func RuleAssignSlaActionSlaAssignmentTypePtr(v string) RuleAssignSlaActionSlaAssignmentTypePtrInput {
+	return (*ruleAssignSlaActionSlaAssignmentTypePtr)(&v)
+}
+
+func (*ruleAssignSlaActionSlaAssignmentTypePtr) ElementType() reflect.Type {
+	return ruleAssignSlaActionSlaAssignmentTypePtrType
+}
+
+func (in *ruleAssignSlaActionSlaAssignmentTypePtr) ToRuleAssignSlaActionSlaAssignmentTypePtrOutput() RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleAssignSlaActionSlaAssignmentTypePtrOutput)
+}
+
+func (in *ruleAssignSlaActionSlaAssignmentTypePtr) ToRuleAssignSlaActionSlaAssignmentTypePtrOutputWithContext(ctx context.Context) RuleAssignSlaActionSlaAssignmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleAssignSlaActionSlaAssignmentTypePtrOutput)
 }
 
 // The publish status of the rule.
@@ -7836,17 +8334,22 @@ func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationAct
 type RuleTriggerEventSourceEventSourceName string
 
 const (
-	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit       = RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit")
-	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable")
-	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable")
-	RuleTriggerEventSourceEventSourceNameOnRealTimeChatAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeChatAnalysisAvailable")
-	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable")
-	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate           = RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate")
-	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate     = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")
-	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate          = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
-	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate              = RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate")
-	RuleTriggerEventSourceEventSourceNameOnCaseCreate                    = RuleTriggerEventSourceEventSourceName("OnCaseCreate")
-	RuleTriggerEventSourceEventSourceNameOnCaseUpdate                    = RuleTriggerEventSourceEventSourceName("OnCaseUpdate")
+	RuleTriggerEventSourceEventSourceNameOnEmailAnalysisAvailable         = RuleTriggerEventSourceEventSourceName("OnEmailAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit        = RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit")
+	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable      = RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable  = RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnRealTimeChatAnalysisAvailable  = RuleTriggerEventSourceEventSourceName("OnRealTimeChatAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable      = RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate            = RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate")
+	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate      = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")
+	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate           = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
+	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate               = RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate")
+	RuleTriggerEventSourceEventSourceNameOnCaseCreate                     = RuleTriggerEventSourceEventSourceName("OnCaseCreate")
+	RuleTriggerEventSourceEventSourceNameOnCaseUpdate                     = RuleTriggerEventSourceEventSourceName("OnCaseUpdate")
+	RuleTriggerEventSourceEventSourceNameOnSlaBreach                      = RuleTriggerEventSourceEventSourceName("OnSlaBreach")
+	RuleTriggerEventSourceEventSourceNameOnSchedulePublish                = RuleTriggerEventSourceEventSourceName("OnSchedulePublish")
+	RuleTriggerEventSourceEventSourceNameOnScheduleUpdate                 = RuleTriggerEventSourceEventSourceName("OnScheduleUpdate")
+	RuleTriggerEventSourceEventSourceNameOnScheduleTimeOffRequestActivity = RuleTriggerEventSourceEventSourceName("OnScheduleTimeOffRequestActivity")
 )
 
 func (RuleTriggerEventSourceEventSourceName) ElementType() reflect.Type {
@@ -7971,6 +8474,7 @@ func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToStringPtrOutputWithCon
 // RuleTriggerEventSourceEventSourceNameInput is an input type that accepts values of the RuleTriggerEventSourceEventSourceName enum
 // A concrete instance of `RuleTriggerEventSourceEventSourceNameInput` can be one of the following:
 //
+//	RuleTriggerEventSourceEventSourceNameOnEmailAnalysisAvailable
 //	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit
 //	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable
 //	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable
@@ -7982,6 +8486,10 @@ func (o RuleTriggerEventSourceEventSourceNamePtrOutput) ToStringPtrOutputWithCon
 //	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate
 //	RuleTriggerEventSourceEventSourceNameOnCaseCreate
 //	RuleTriggerEventSourceEventSourceNameOnCaseUpdate
+//	RuleTriggerEventSourceEventSourceNameOnSlaBreach
+//	RuleTriggerEventSourceEventSourceNameOnSchedulePublish
+//	RuleTriggerEventSourceEventSourceNameOnScheduleUpdate
+//	RuleTriggerEventSourceEventSourceNameOnScheduleTimeOffRequestActivity
 type RuleTriggerEventSourceEventSourceNameInput interface {
 	pulumi.Input
 
@@ -8702,6 +9210,338 @@ func (in *taskTemplateStatusPtr) ToTaskTemplateStatusPtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(TaskTemplateStatusPtrOutput)
 }
 
+// The type of the Entry Point
+type TestCaseEntryPointType string
+
+const (
+	TestCaseEntryPointTypeVoiceCall = TestCaseEntryPointType("VOICE_CALL")
+	TestCaseEntryPointTypeChat      = TestCaseEntryPointType("CHAT")
+)
+
+func (TestCaseEntryPointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointType)(nil)).Elem()
+}
+
+func (e TestCaseEntryPointType) ToTestCaseEntryPointTypeOutput() TestCaseEntryPointTypeOutput {
+	return pulumi.ToOutput(e).(TestCaseEntryPointTypeOutput)
+}
+
+func (e TestCaseEntryPointType) ToTestCaseEntryPointTypeOutputWithContext(ctx context.Context) TestCaseEntryPointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TestCaseEntryPointTypeOutput)
+}
+
+func (e TestCaseEntryPointType) ToTestCaseEntryPointTypePtrOutput() TestCaseEntryPointTypePtrOutput {
+	return e.ToTestCaseEntryPointTypePtrOutputWithContext(context.Background())
+}
+
+func (e TestCaseEntryPointType) ToTestCaseEntryPointTypePtrOutputWithContext(ctx context.Context) TestCaseEntryPointTypePtrOutput {
+	return TestCaseEntryPointType(e).ToTestCaseEntryPointTypeOutputWithContext(ctx).ToTestCaseEntryPointTypePtrOutputWithContext(ctx)
+}
+
+func (e TestCaseEntryPointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TestCaseEntryPointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TestCaseEntryPointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TestCaseEntryPointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TestCaseEntryPointTypeOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseEntryPointType)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointTypeOutput) ToTestCaseEntryPointTypeOutput() TestCaseEntryPointTypeOutput {
+	return o
+}
+
+func (o TestCaseEntryPointTypeOutput) ToTestCaseEntryPointTypeOutputWithContext(ctx context.Context) TestCaseEntryPointTypeOutput {
+	return o
+}
+
+func (o TestCaseEntryPointTypeOutput) ToTestCaseEntryPointTypePtrOutput() TestCaseEntryPointTypePtrOutput {
+	return o.ToTestCaseEntryPointTypePtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointTypeOutput) ToTestCaseEntryPointTypePtrOutputWithContext(ctx context.Context) TestCaseEntryPointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestCaseEntryPointType) *TestCaseEntryPointType {
+		return &v
+	}).(TestCaseEntryPointTypePtrOutput)
+}
+
+func (o TestCaseEntryPointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TestCaseEntryPointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TestCaseEntryPointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TestCaseEntryPointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TestCaseEntryPointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TestCaseEntryPointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseEntryPointType)(nil)).Elem()
+}
+
+func (o TestCaseEntryPointTypePtrOutput) ToTestCaseEntryPointTypePtrOutput() TestCaseEntryPointTypePtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointTypePtrOutput) ToTestCaseEntryPointTypePtrOutputWithContext(ctx context.Context) TestCaseEntryPointTypePtrOutput {
+	return o
+}
+
+func (o TestCaseEntryPointTypePtrOutput) Elem() TestCaseEntryPointTypeOutput {
+	return o.ApplyT(func(v *TestCaseEntryPointType) TestCaseEntryPointType {
+		if v != nil {
+			return *v
+		}
+		var ret TestCaseEntryPointType
+		return ret
+	}).(TestCaseEntryPointTypeOutput)
+}
+
+func (o TestCaseEntryPointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseEntryPointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TestCaseEntryPointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TestCaseEntryPointTypeInput is an input type that accepts values of the TestCaseEntryPointType enum
+// A concrete instance of `TestCaseEntryPointTypeInput` can be one of the following:
+//
+//	TestCaseEntryPointTypeVoiceCall
+//	TestCaseEntryPointTypeChat
+type TestCaseEntryPointTypeInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointTypeOutput() TestCaseEntryPointTypeOutput
+	ToTestCaseEntryPointTypeOutputWithContext(context.Context) TestCaseEntryPointTypeOutput
+}
+
+var testCaseEntryPointTypePtrType = reflect.TypeOf((**TestCaseEntryPointType)(nil)).Elem()
+
+type TestCaseEntryPointTypePtrInput interface {
+	pulumi.Input
+
+	ToTestCaseEntryPointTypePtrOutput() TestCaseEntryPointTypePtrOutput
+	ToTestCaseEntryPointTypePtrOutputWithContext(context.Context) TestCaseEntryPointTypePtrOutput
+}
+
+type testCaseEntryPointTypePtr string
+
+func TestCaseEntryPointTypePtr(v string) TestCaseEntryPointTypePtrInput {
+	return (*testCaseEntryPointTypePtr)(&v)
+}
+
+func (*testCaseEntryPointTypePtr) ElementType() reflect.Type {
+	return testCaseEntryPointTypePtrType
+}
+
+func (in *testCaseEntryPointTypePtr) ToTestCaseEntryPointTypePtrOutput() TestCaseEntryPointTypePtrOutput {
+	return pulumi.ToOutput(in).(TestCaseEntryPointTypePtrOutput)
+}
+
+func (in *testCaseEntryPointTypePtr) ToTestCaseEntryPointTypePtrOutputWithContext(ctx context.Context) TestCaseEntryPointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TestCaseEntryPointTypePtrOutput)
+}
+
+// The status of the test case.
+type TestCaseStatus string
+
+const (
+	TestCaseStatusSaved     = TestCaseStatus("SAVED")
+	TestCaseStatusPublished = TestCaseStatus("PUBLISHED")
+)
+
+func (TestCaseStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseStatus)(nil)).Elem()
+}
+
+func (e TestCaseStatus) ToTestCaseStatusOutput() TestCaseStatusOutput {
+	return pulumi.ToOutput(e).(TestCaseStatusOutput)
+}
+
+func (e TestCaseStatus) ToTestCaseStatusOutputWithContext(ctx context.Context) TestCaseStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TestCaseStatusOutput)
+}
+
+func (e TestCaseStatus) ToTestCaseStatusPtrOutput() TestCaseStatusPtrOutput {
+	return e.ToTestCaseStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TestCaseStatus) ToTestCaseStatusPtrOutputWithContext(ctx context.Context) TestCaseStatusPtrOutput {
+	return TestCaseStatus(e).ToTestCaseStatusOutputWithContext(ctx).ToTestCaseStatusPtrOutputWithContext(ctx)
+}
+
+func (e TestCaseStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TestCaseStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TestCaseStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TestCaseStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TestCaseStatusOutput struct{ *pulumi.OutputState }
+
+func (TestCaseStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TestCaseStatus)(nil)).Elem()
+}
+
+func (o TestCaseStatusOutput) ToTestCaseStatusOutput() TestCaseStatusOutput {
+	return o
+}
+
+func (o TestCaseStatusOutput) ToTestCaseStatusOutputWithContext(ctx context.Context) TestCaseStatusOutput {
+	return o
+}
+
+func (o TestCaseStatusOutput) ToTestCaseStatusPtrOutput() TestCaseStatusPtrOutput {
+	return o.ToTestCaseStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseStatusOutput) ToTestCaseStatusPtrOutputWithContext(ctx context.Context) TestCaseStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TestCaseStatus) *TestCaseStatus {
+		return &v
+	}).(TestCaseStatusPtrOutput)
+}
+
+func (o TestCaseStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TestCaseStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TestCaseStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TestCaseStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TestCaseStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TestCaseStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TestCaseStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TestCaseStatus)(nil)).Elem()
+}
+
+func (o TestCaseStatusPtrOutput) ToTestCaseStatusPtrOutput() TestCaseStatusPtrOutput {
+	return o
+}
+
+func (o TestCaseStatusPtrOutput) ToTestCaseStatusPtrOutputWithContext(ctx context.Context) TestCaseStatusPtrOutput {
+	return o
+}
+
+func (o TestCaseStatusPtrOutput) Elem() TestCaseStatusOutput {
+	return o.ApplyT(func(v *TestCaseStatus) TestCaseStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TestCaseStatus
+		return ret
+	}).(TestCaseStatusOutput)
+}
+
+func (o TestCaseStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TestCaseStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TestCaseStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TestCaseStatusInput is an input type that accepts values of the TestCaseStatus enum
+// A concrete instance of `TestCaseStatusInput` can be one of the following:
+//
+//	TestCaseStatusSaved
+//	TestCaseStatusPublished
+type TestCaseStatusInput interface {
+	pulumi.Input
+
+	ToTestCaseStatusOutput() TestCaseStatusOutput
+	ToTestCaseStatusOutputWithContext(context.Context) TestCaseStatusOutput
+}
+
+var testCaseStatusPtrType = reflect.TypeOf((**TestCaseStatus)(nil)).Elem()
+
+type TestCaseStatusPtrInput interface {
+	pulumi.Input
+
+	ToTestCaseStatusPtrOutput() TestCaseStatusPtrOutput
+	ToTestCaseStatusPtrOutputWithContext(context.Context) TestCaseStatusPtrOutput
+}
+
+type testCaseStatusPtr string
+
+func TestCaseStatusPtr(v string) TestCaseStatusPtrInput {
+	return (*testCaseStatusPtr)(&v)
+}
+
+func (*testCaseStatusPtr) ElementType() reflect.Type {
+	return testCaseStatusPtrType
+}
+
+func (in *testCaseStatusPtr) ToTestCaseStatusPtrOutput() TestCaseStatusPtrOutput {
+	return pulumi.ToOutput(in).(TestCaseStatusPtrOutput)
+}
+
+func (in *testCaseStatusPtr) ToTestCaseStatusPtrOutputWithContext(ctx context.Context) TestCaseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TestCaseStatusPtrOutput)
+}
+
 // The status of the traffic distribution group.
 type TrafficDistributionGroupStatus string
 
@@ -8795,6 +9635,174 @@ func (o TrafficDistributionGroupStatusPtrOutput) ToStringPtrOutputWithContext(ct
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// The after contact work (ACW) mode for the channel.
+type UserAfterContactWorkMode string
+
+const (
+	UserAfterContactWorkModeOn       = UserAfterContactWorkMode("ON")
+	UserAfterContactWorkModeOff      = UserAfterContactWorkMode("OFF")
+	UserAfterContactWorkModeOnDemand = UserAfterContactWorkMode("ON_DEMAND")
+)
+
+func (UserAfterContactWorkMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkMode)(nil)).Elem()
+}
+
+func (e UserAfterContactWorkMode) ToUserAfterContactWorkModeOutput() UserAfterContactWorkModeOutput {
+	return pulumi.ToOutput(e).(UserAfterContactWorkModeOutput)
+}
+
+func (e UserAfterContactWorkMode) ToUserAfterContactWorkModeOutputWithContext(ctx context.Context) UserAfterContactWorkModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserAfterContactWorkModeOutput)
+}
+
+func (e UserAfterContactWorkMode) ToUserAfterContactWorkModePtrOutput() UserAfterContactWorkModePtrOutput {
+	return e.ToUserAfterContactWorkModePtrOutputWithContext(context.Background())
+}
+
+func (e UserAfterContactWorkMode) ToUserAfterContactWorkModePtrOutputWithContext(ctx context.Context) UserAfterContactWorkModePtrOutput {
+	return UserAfterContactWorkMode(e).ToUserAfterContactWorkModeOutputWithContext(ctx).ToUserAfterContactWorkModePtrOutputWithContext(ctx)
+}
+
+func (e UserAfterContactWorkMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserAfterContactWorkMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserAfterContactWorkMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserAfterContactWorkMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserAfterContactWorkModeOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAfterContactWorkMode)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkModeOutput) ToUserAfterContactWorkModeOutput() UserAfterContactWorkModeOutput {
+	return o
+}
+
+func (o UserAfterContactWorkModeOutput) ToUserAfterContactWorkModeOutputWithContext(ctx context.Context) UserAfterContactWorkModeOutput {
+	return o
+}
+
+func (o UserAfterContactWorkModeOutput) ToUserAfterContactWorkModePtrOutput() UserAfterContactWorkModePtrOutput {
+	return o.ToUserAfterContactWorkModePtrOutputWithContext(context.Background())
+}
+
+func (o UserAfterContactWorkModeOutput) ToUserAfterContactWorkModePtrOutputWithContext(ctx context.Context) UserAfterContactWorkModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAfterContactWorkMode) *UserAfterContactWorkMode {
+		return &v
+	}).(UserAfterContactWorkModePtrOutput)
+}
+
+func (o UserAfterContactWorkModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserAfterContactWorkModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserAfterContactWorkMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserAfterContactWorkModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserAfterContactWorkModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserAfterContactWorkMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserAfterContactWorkModePtrOutput struct{ *pulumi.OutputState }
+
+func (UserAfterContactWorkModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserAfterContactWorkMode)(nil)).Elem()
+}
+
+func (o UserAfterContactWorkModePtrOutput) ToUserAfterContactWorkModePtrOutput() UserAfterContactWorkModePtrOutput {
+	return o
+}
+
+func (o UserAfterContactWorkModePtrOutput) ToUserAfterContactWorkModePtrOutputWithContext(ctx context.Context) UserAfterContactWorkModePtrOutput {
+	return o
+}
+
+func (o UserAfterContactWorkModePtrOutput) Elem() UserAfterContactWorkModeOutput {
+	return o.ApplyT(func(v *UserAfterContactWorkMode) UserAfterContactWorkMode {
+		if v != nil {
+			return *v
+		}
+		var ret UserAfterContactWorkMode
+		return ret
+	}).(UserAfterContactWorkModeOutput)
+}
+
+func (o UserAfterContactWorkModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserAfterContactWorkModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserAfterContactWorkMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserAfterContactWorkModeInput is an input type that accepts values of the UserAfterContactWorkMode enum
+// A concrete instance of `UserAfterContactWorkModeInput` can be one of the following:
+//
+//	UserAfterContactWorkModeOn
+//	UserAfterContactWorkModeOff
+//	UserAfterContactWorkModeOnDemand
+type UserAfterContactWorkModeInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkModeOutput() UserAfterContactWorkModeOutput
+	ToUserAfterContactWorkModeOutputWithContext(context.Context) UserAfterContactWorkModeOutput
+}
+
+var userAfterContactWorkModePtrType = reflect.TypeOf((**UserAfterContactWorkMode)(nil)).Elem()
+
+type UserAfterContactWorkModePtrInput interface {
+	pulumi.Input
+
+	ToUserAfterContactWorkModePtrOutput() UserAfterContactWorkModePtrOutput
+	ToUserAfterContactWorkModePtrOutputWithContext(context.Context) UserAfterContactWorkModePtrOutput
+}
+
+type userAfterContactWorkModePtr string
+
+func UserAfterContactWorkModePtr(v string) UserAfterContactWorkModePtrInput {
+	return (*userAfterContactWorkModePtr)(&v)
+}
+
+func (*userAfterContactWorkModePtr) ElementType() reflect.Type {
+	return userAfterContactWorkModePtrType
+}
+
+func (in *userAfterContactWorkModePtr) ToUserAfterContactWorkModePtrOutput() UserAfterContactWorkModePtrOutput {
+	return pulumi.ToOutput(in).(UserAfterContactWorkModePtrOutput)
+}
+
+func (in *userAfterContactWorkModePtr) ToUserAfterContactWorkModePtrOutputWithContext(ctx context.Context) UserAfterContactWorkModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserAfterContactWorkModePtrOutput)
 }
 
 // The channels that agents can handle in the Contact Control Panel (CCP).
@@ -9853,6 +10861,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionAutomationAnswerSourceSourceTypePtrInput)(nil)).Elem(), EvaluationFormQuestionAutomationAnswerSourceSourceType("CONTACT_LENS_DATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionQuestionTypeInput)(nil)).Elem(), EvaluationFormQuestionQuestionType("NUMERIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormQuestionQuestionTypePtrInput)(nil)).Elem(), EvaluationFormQuestionQuestionType("NUMERIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoreThresholdPerformanceCategoryInput)(nil)).Elem(), EvaluationFormScoreThresholdPerformanceCategory("NEEDS_IMPROVEMENT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoreThresholdPerformanceCategoryPtrInput)(nil)).Elem(), EvaluationFormScoreThresholdPerformanceCategory("NEEDS_IMPROVEMENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyModeInput)(nil)).Elem(), EvaluationFormScoringStrategyMode("QUESTION_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyModePtrInput)(nil)).Elem(), EvaluationFormScoringStrategyMode("QUESTION_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormScoringStrategyStatusInput)(nil)).Elem(), EvaluationFormScoringStrategyStatus("ENABLED"))
@@ -9895,6 +10905,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileBehaviorTypePtrInput)(nil)).Elem(), RoutingProfileBehaviorType("ROUTE_CURRENT_CHANNEL_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RoutingProfileChannelPtrInput)(nil)).Elem(), RoutingProfileChannel("VOICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeInput)(nil)).Elem(), RuleAssignSlaActionCaseSlaConfigurationPropertiesType("CaseField"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrInput)(nil)).Elem(), RuleAssignSlaActionCaseSlaConfigurationPropertiesType("CaseField"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentTypeInput)(nil)).Elem(), RuleAssignSlaActionSlaAssignmentType("CASES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignSlaActionSlaAssignmentTypePtrInput)(nil)).Elem(), RuleAssignSlaActionSlaAssignmentType("CASES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RulePublishStatusPtrInput)(nil)).Elem(), RulePublishStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleReferenceTypeInput)(nil)).Elem(), RuleReferenceType("URL"))
@@ -9903,8 +10917,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionContentTypePtrInput)(nil)).Elem(), RuleSendNotificationActionContentType("PLAIN_TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodPtrInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnEmailAnalysisAvailable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnEmailAnalysisAvailable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationTypeInput)(nil)).Elem(), SecurityProfileApplicationType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationTypePtrInput)(nil)).Elem(), SecurityProfileApplicationType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessTypeInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueAccessType("ALLOW"))
@@ -9913,6 +10927,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointTypeInput)(nil)).Elem(), TestCaseEntryPointType("VOICE_CALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseEntryPointTypePtrInput)(nil)).Elem(), TestCaseEntryPointType("VOICE_CALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseStatusInput)(nil)).Elem(), TestCaseStatus("SAVED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TestCaseStatusPtrInput)(nil)).Elem(), TestCaseStatus("SAVED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkModeInput)(nil)).Elem(), UserAfterContactWorkMode("ON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserAfterContactWorkModePtrInput)(nil)).Elem(), UserAfterContactWorkMode("ON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelInput)(nil)).Elem(), UserChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserChannelPtrInput)(nil)).Elem(), UserChannel("VOICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
@@ -9965,6 +10985,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormQuestionAutomationAnswerSourceSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionQuestionTypeOutput{})
 	pulumi.RegisterOutputType(EvaluationFormQuestionQuestionTypePtrOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoreThresholdPerformanceCategoryOutput{})
+	pulumi.RegisterOutputType(EvaluationFormScoreThresholdPerformanceCategoryPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormScoringStrategyModeOutput{})
 	pulumi.RegisterOutputType(EvaluationFormScoringStrategyModePtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormScoringStrategyStatusOutput{})
@@ -10011,6 +11033,10 @@ func init() {
 	pulumi.RegisterOutputType(RoutingProfileBehaviorTypePtrOutput{})
 	pulumi.RegisterOutputType(RoutingProfileChannelOutput{})
 	pulumi.RegisterOutputType(RoutingProfileChannelPtrOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypeOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionCaseSlaConfigurationPropertiesTypePtrOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionSlaAssignmentTypeOutput{})
+	pulumi.RegisterOutputType(RuleAssignSlaActionSlaAssignmentTypePtrOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusOutput{})
 	pulumi.RegisterOutputType(RulePublishStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuleReferenceTypeOutput{})
@@ -10029,8 +11055,14 @@ func init() {
 	pulumi.RegisterOutputType(TaskTemplateFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusPtrOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointTypeOutput{})
+	pulumi.RegisterOutputType(TestCaseEntryPointTypePtrOutput{})
+	pulumi.RegisterOutputType(TestCaseStatusOutput{})
+	pulumi.RegisterOutputType(TestCaseStatusPtrOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusOutput{})
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkModeOutput{})
+	pulumi.RegisterOutputType(UserAfterContactWorkModePtrOutput{})
 	pulumi.RegisterOutputType(UserChannelOutput{})
 	pulumi.RegisterOutputType(UserChannelPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})

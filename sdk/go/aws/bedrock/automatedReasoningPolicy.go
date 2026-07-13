@@ -49,7 +49,6 @@ func NewAutomatedReasoningPolicy(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"forceDelete",
 		"kmsKeyId",
 	})
 	opts = append(opts, replaceOnChanges)

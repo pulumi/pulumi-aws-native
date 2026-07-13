@@ -75,7 +75,7 @@ export class GatewayTarget extends pulumi.CustomResource {
     /**
      * The target configuration for the Smithy model target.
      */
-    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration2Properties>;
     /**
      * The target ID for the gateway target.
      */
@@ -167,5 +167,5 @@ export interface GatewayTargetArgs {
     /**
      * The target configuration for the Smithy model target.
      */
-    targetConfiguration: pulumi.Input<inputs.bedrockagentcore.GatewayTargetTargetConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetTargetConfiguration1PropertiesArgs>;
+    targetConfiguration: pulumi.Input<inputs.bedrockagentcore.GatewayTargetTargetConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetTargetConfiguration1PropertiesArgs | inputs.bedrockagentcore.GatewayTargetTargetConfiguration2PropertiesArgs>;
 }

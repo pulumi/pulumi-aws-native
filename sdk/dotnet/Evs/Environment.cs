@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Evs
         /// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
         /// </summary>
         [Output("connectivityInfo")]
-        public Output<Outputs.ConnectivityInfoProperties> ConnectivityInfo { get; private set; } = null!;
+        public Output<Outputs.ConnectivityInfoProperties?> ConnectivityInfo { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the environment was created. For example: `1749081600.000` .
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Evs
         /// The license information for an EVS environment
         /// </summary>
         [Output("licenseInfo")]
-        public Output<Outputs.LicenseInfoProperties> LicenseInfo { get; private set; } = null!;
+        public Output<Outputs.LicenseInfoProperties?> LicenseInfo { get; private set; } = null!;
 
         /// <summary>
         /// The date and time that the environment was modified. For example: `1749081600.000` .
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.Evs
         /// The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
         /// </summary>
         [Output("siteId")]
-        public Output<string> SiteId { get; private set; } = null!;
+        public Output<string?> SiteId { get; private set; } = null!;
 
         /// <summary>
         /// A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.Evs
         /// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
         /// </summary>
         [Output("vcfHostnames")]
-        public Output<Outputs.VcfHostnamesProperties> VcfHostnames { get; private set; } = null!;
+        public Output<Outputs.VcfHostnamesProperties?> VcfHostnames { get; private set; } = null!;
 
         /// <summary>
         /// The VCF version of the environment.
@@ -217,8 +217,8 @@ namespace Pulumi.AwsNative.Evs
         /// <summary>
         /// The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
         /// </summary>
-        [Input("connectivityInfo", required: true)]
-        public Input<Inputs.ConnectivityInfoPropertiesArgs> ConnectivityInfo { get; set; } = null!;
+        [Input("connectivityInfo")]
+        public Input<Inputs.ConnectivityInfoPropertiesArgs>? ConnectivityInfo { get; set; }
 
         /// <summary>
         /// The name of an EVS environment
@@ -255,8 +255,8 @@ namespace Pulumi.AwsNative.Evs
         /// <summary>
         /// The license information for an EVS environment
         /// </summary>
-        [Input("licenseInfo", required: true)]
-        public Input<Inputs.LicenseInfoPropertiesArgs> LicenseInfo { get; set; } = null!;
+        [Input("licenseInfo")]
+        public Input<Inputs.LicenseInfoPropertiesArgs>? LicenseInfo { get; set; }
 
         /// <summary>
         /// The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
@@ -273,8 +273,8 @@ namespace Pulumi.AwsNative.Evs
         /// <summary>
         /// The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
         /// </summary>
-        [Input("siteId", required: true)]
-        public Input<string> SiteId { get; set; } = null!;
+        [Input("siteId")]
+        public Input<string>? SiteId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
@@ -299,8 +299,8 @@ namespace Pulumi.AwsNative.Evs
         /// 
         /// For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
         /// </summary>
-        [Input("vcfHostnames", required: true)]
-        public Input<Inputs.VcfHostnamesPropertiesArgs> VcfHostnames { get; set; } = null!;
+        [Input("vcfHostnames")]
+        public Input<Inputs.VcfHostnamesPropertiesArgs>? VcfHostnames { get; set; }
 
         /// <summary>
         /// The VCF version of the environment.

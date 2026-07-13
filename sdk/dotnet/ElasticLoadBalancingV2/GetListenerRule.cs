@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The Amazon Resource Name (ARN) of the rule.
         /// </summary>
         public readonly string? RuleArn;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         public readonly ImmutableArray<Outputs.ListenerRuleTransform> Transforms;
 
         [OutputConstructor]
@@ -103,6 +104,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? ruleArn,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             ImmutableArray<Outputs.ListenerRuleTransform> transforms)
         {
             Actions = actions;
@@ -110,6 +113,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             IsDefault = isDefault;
             Priority = priority;
             RuleArn = ruleArn;
+            Tags = tags;
             Transforms = transforms;
         }
     }

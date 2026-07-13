@@ -68,6 +68,8 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public readonly string? Arn;
         public readonly object? Configuration;
+        public readonly Outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties? ContentQualityAnalysisConfiguration;
+        public readonly Pulumi.AwsNative.MediaConnect.RouterInputRouterContentQualityAnalysisType? ContentQualityAnalysisType;
         /// <summary>
         /// The timestamp when the router input was created.
         /// </summary>
@@ -135,6 +137,10 @@ namespace Pulumi.AwsNative.MediaConnect
 
             object? configuration,
 
+            Outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties? contentQualityAnalysisConfiguration,
+
+            Pulumi.AwsNative.MediaConnect.RouterInputRouterContentQualityAnalysisType? contentQualityAnalysisType,
+
             string? createdAt,
 
             string? id,
@@ -167,6 +173,8 @@ namespace Pulumi.AwsNative.MediaConnect
         {
             Arn = arn;
             Configuration = configuration;
+            ContentQualityAnalysisConfiguration = contentQualityAnalysisConfiguration;
+            ContentQualityAnalysisType = contentQualityAnalysisType;
             CreatedAt = createdAt;
             Id = id;
             InputType = inputType;

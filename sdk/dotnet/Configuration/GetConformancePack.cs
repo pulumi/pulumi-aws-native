@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class GetConformancePackResult
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the conformance pack.
+        /// </summary>
+        public readonly string? ConformancePackArn;
+        /// <summary>
         /// A list of ConformancePackInputParameter objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConformancePackInputParameter> ConformancePackInputParameters;
@@ -75,18 +79,28 @@ namespace Pulumi.AwsNative.Configuration
         /// The prefix for delivery S3 bucket.
         /// </summary>
         public readonly string? DeliveryS3KeyPrefix;
+        /// <summary>
+        /// The tags for the conformance pack.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetConformancePackResult(
+            string? conformancePackArn,
+
             ImmutableArray<Outputs.ConformancePackInputParameter> conformancePackInputParameters,
 
             string? deliveryS3Bucket,
 
-            string? deliveryS3KeyPrefix)
+            string? deliveryS3KeyPrefix,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ConformancePackArn = conformancePackArn;
             ConformancePackInputParameters = conformancePackInputParameters;
             DeliveryS3Bucket = deliveryS3Bucket;
             DeliveryS3KeyPrefix = deliveryS3KeyPrefix;
+            Tags = tags;
         }
     }
 }

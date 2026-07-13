@@ -15,6 +15,11 @@ export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
 utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
 
+export { DataCatalogEncryptionSettingsArgs } from "./dataCatalogEncryptionSettings";
+export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings;
+export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
+utilities.lazyLoad(exports, ["DataCatalogEncryptionSettings"], () => require("./dataCatalogEncryptionSettings"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -29,6 +34,11 @@ export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCra
 export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
 export const getCrawlerOutput: typeof import("./getCrawler").getCrawlerOutput = null as any;
 utilities.lazyLoad(exports, ["getCrawler","getCrawlerOutput"], () => require("./getCrawler"));
+
+export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsResult, GetDataCatalogEncryptionSettingsOutputArgs } from "./getDataCatalogEncryptionSettings";
+export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
+export const getDataCatalogEncryptionSettingsOutput: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getDataCatalogEncryptionSettings","getDataCatalogEncryptionSettingsOutput"], () => require("./getDataCatalogEncryptionSettings"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -142,6 +152,8 @@ const _module = {
                 return new Catalog(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
+            case "aws-native:glue:DataCatalogEncryptionSettings":
+                return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws-native:glue:IdentityCenterConfiguration":

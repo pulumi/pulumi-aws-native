@@ -31,6 +31,8 @@ type LookupStackArgs struct {
 type LookupStackResult struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 	AccessEndpoints []StackAccessEndpoint `pulumi:"accessEndpoints"`
+	// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+	AgentAccessConfig *StackAgentAccessConfig `pulumi:"agentAccessConfig"`
 	// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 	ApplicationSettings *StackApplicationSettings `pulumi:"applicationSettings"`
 	// The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
@@ -90,6 +92,11 @@ func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx contex
 // The list of virtual private cloud (VPC) interface endpoint objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
 func (o LookupStackResultOutput) AccessEndpoints() StackAccessEndpointArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackAccessEndpoint { return v.AccessEndpoints }).(StackAccessEndpointArrayOutput)
+}
+
+// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+func (o LookupStackResultOutput) AgentAccessConfig() StackAgentAccessConfigPtrOutput {
+	return o.ApplyT(func(v LookupStackResult) *StackAgentAccessConfig { return v.AgentAccessConfig }).(StackAgentAccessConfigPtrOutput)
 }
 
 // The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.

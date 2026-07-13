@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
-        /// The recovery point id to restore from.
+        /// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Output("recoveryPointId")]
         public Output<string?> RecoveryPointId { get; private set; } = null!;
@@ -76,19 +76,19 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the snapshot to restore from.
+        /// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Output("snapshotArn")]
         public Output<string?> SnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The snapshot name to restore from.
+        /// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Output("snapshotName")]
         public Output<string?> SnapshotName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Web Services account that owns the snapshot.
+        /// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         /// </summary>
         [Output("snapshotOwnerAccount")]
         public Output<string?> SnapshotOwnerAccount { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The recovery point id to restore from.
+        /// The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Input("recoveryPointId")]
         public Input<string>? RecoveryPointId { get; set; }
@@ -246,19 +246,19 @@ namespace Pulumi.AwsNative.RedshiftServerless
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the snapshot to restore from.
+        /// The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Input("snapshotArn")]
         public Input<string>? SnapshotArn { get; set; }
 
         /// <summary>
-        /// The snapshot name to restore from.
+        /// The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
 
         /// <summary>
-        /// The Amazon Web Services account that owns the snapshot.
+        /// The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
         /// </summary>
         [Input("snapshotOwnerAccount")]
         public Input<string>? SnapshotOwnerAccount { get; set; }

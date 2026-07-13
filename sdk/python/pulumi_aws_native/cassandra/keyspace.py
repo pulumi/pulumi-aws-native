@@ -154,9 +154,9 @@ class Keyspace(pulumi.CustomResource):
             replication_specification={
                 "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
                 "region_list": [
-                    aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
-                    aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
-                    aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
+                    "us-east-1",
+                    "us-west-2",
+                    "eu-west-1",
                 ],
             })
 
@@ -172,9 +172,9 @@ class Keyspace(pulumi.CustomResource):
             replication_specification={
                 "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
                 "region_list": [
-                    aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
-                    aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
-                    aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
+                    "us-east-1",
+                    "us-west-2",
+                    "eu-west-1",
                 ],
             })
 
@@ -236,9 +236,9 @@ class Keyspace(pulumi.CustomResource):
             replication_specification={
                 "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
                 "region_list": [
-                    aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
-                    aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
-                    aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
+                    "us-east-1",
+                    "us-west-2",
+                    "eu-west-1",
                 ],
             })
 
@@ -254,9 +254,9 @@ class Keyspace(pulumi.CustomResource):
             replication_specification={
                 "replication_strategy": aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MULTI_REGION,
                 "region_list": [
-                    aws_native.cassandra.KeyspaceRegionListItem.US_EAST1,
-                    aws_native.cassandra.KeyspaceRegionListItem.US_WEST2,
-                    aws_native.cassandra.KeyspaceRegionListItem.EU_WEST1,
+                    "us-east-1",
+                    "us-west-2",
+                    "eu-west-1",
                 ],
             })
 

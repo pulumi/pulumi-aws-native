@@ -26,10 +26,6 @@ export interface GetKeyspaceArgs {
 
 export interface GetKeyspaceResult {
     /**
-     * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
-     */
-    readonly clientSideTimestampsEnabled?: boolean;
-    /**
      * Specifies the `ReplicationStrategy` of a keyspace. The options are:
      *
      * - `SINGLE_REGION` for a single Region keyspace (optional) or

@@ -25,6 +25,11 @@ export type ConfigurationPolicy = import("./configurationPolicy").ConfigurationP
 export const ConfigurationPolicy: typeof import("./configurationPolicy").ConfigurationPolicy = null as any;
 utilities.lazyLoad(exports, ["ConfigurationPolicy"], () => require("./configurationPolicy"));
 
+export { ConnectorArgs } from "./connector";
+export type Connector = import("./connector").Connector;
+export const Connector: typeof import("./connector").Connector = null as any;
+utilities.lazyLoad(exports, ["Connector"], () => require("./connector"));
+
 export { ConnectorV2Args } from "./connectorV2";
 export type ConnectorV2 = import("./connectorV2").ConnectorV2;
 export const ConnectorV2: typeof import("./connectorV2").ConnectorV2 = null as any;
@@ -59,6 +64,11 @@ export { GetConfigurationPolicyArgs, GetConfigurationPolicyResult, GetConfigurat
 export const getConfigurationPolicy: typeof import("./getConfigurationPolicy").getConfigurationPolicy = null as any;
 export const getConfigurationPolicyOutput: typeof import("./getConfigurationPolicy").getConfigurationPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationPolicy","getConfigurationPolicyOutput"], () => require("./getConfigurationPolicy"));
+
+export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
+export const getConnector: typeof import("./getConnector").getConnector = null as any;
+export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
 export { GetConnectorV2Args, GetConnectorV2Result, GetConnectorV2OutputArgs } from "./getConnectorV2";
 export const getConnectorV2: typeof import("./getConnectorV2").getConnectorV2 = null as any;
@@ -171,6 +181,8 @@ const _module = {
                 return new AutomationRuleV2(name, <any>undefined, { urn })
             case "aws-native:securityhub:ConfigurationPolicy":
                 return new ConfigurationPolicy(name, <any>undefined, { urn })
+            case "aws-native:securityhub:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws-native:securityhub:ConnectorV2":
                 return new ConnectorV2(name, <any>undefined, { urn })
             case "aws-native:securityhub:DelegatedAdmin":

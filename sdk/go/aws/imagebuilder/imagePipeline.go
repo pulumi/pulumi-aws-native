@@ -33,6 +33,8 @@ type ImagePipeline struct {
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
+	// The tags to be applied to images created by this pipeline.
+	ImageTags pulumi.StringMapOutput `pulumi:"imageTags"`
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -109,6 +111,8 @@ type imagePipelineArgs struct {
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration *ImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
+	// The tags to be applied to images created by this pipeline.
+	ImageTags map[string]string `pulumi:"imageTags"`
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration *ImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -143,6 +147,8 @@ type ImagePipelineArgs struct {
 	ImageRecipeArn pulumi.StringPtrInput
 	// Contains settings for vulnerability scans.
 	ImageScanningConfiguration ImagePipelineImageScanningConfigurationPtrInput
+	// The tags to be applied to images created by this pipeline.
+	ImageTags pulumi.StringMapInput
 	// The image tests configuration of the image pipeline.
 	ImageTestsConfiguration ImagePipelineImageTestsConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
@@ -243,6 +249,11 @@ func (o ImagePipelineOutput) ImageScanningConfiguration() ImagePipelineImageScan
 	return o.ApplyT(func(v *ImagePipeline) ImagePipelineImageScanningConfigurationPtrOutput {
 		return v.ImageScanningConfiguration
 	}).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+// The tags to be applied to images created by this pipeline.
+func (o ImagePipelineOutput) ImageTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.ImageTags }).(pulumi.StringMapOutput)
 }
 
 // The image tests configuration of the image pipeline.

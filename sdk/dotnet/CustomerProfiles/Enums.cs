@@ -483,6 +483,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static EventTriggerPeriodUnit Minutes { get; } = new EventTriggerPeriodUnit("MINUTES");
         public static EventTriggerPeriodUnit Hours { get; } = new EventTriggerPeriodUnit("HOURS");
         public static EventTriggerPeriodUnit Days { get; } = new EventTriggerPeriodUnit("DAYS");
         public static EventTriggerPeriodUnit Weeks { get; } = new EventTriggerPeriodUnit("WEEKS");

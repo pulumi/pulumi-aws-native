@@ -13,6 +13,7 @@ from .custom_permissions import *
 from .dashboard import *
 from .data_set import *
 from .data_source import *
+from .flow import *
 from .folder import *
 from .get_action_connector import *
 from .get_analysis import *
@@ -20,11 +21,14 @@ from .get_custom_permissions import *
 from .get_dashboard import *
 from .get_data_set import *
 from .get_data_source import *
+from .get_flow import *
 from .get_folder import *
+from .get_o_auth_client_application import *
 from .get_template import *
 from .get_theme import *
 from .get_topic import *
 from .get_vpc_connection import *
+from .o_auth_client_application import *
 from .refresh_schedule import *
 from .template import *
 from .theme import *

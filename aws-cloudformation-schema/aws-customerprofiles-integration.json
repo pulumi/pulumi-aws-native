@@ -452,13 +452,13 @@
       "permissions" : [ "profile:GetIntegration", "profile:PutIntegration", "appflow:CreateFlow", "app-integrations:CreateEventIntegrationAssociation", "app-integrations:GetEventIntegration", "connect:DescribeInstance", "ds:DescribeDirectories", "events:ListTargetsByRule", "events:PutRule", "events:PutTargets", "events:PutEvents", "profile:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetIntegration" ]
+      "permissions" : [ "profile:GetIntegration", "profile:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteIntegration", "appflow:DeleteFlow", "app-integrations:ListEventIntegrationAssociations", "app-integrations:DeleteEventIntegrationAssociation", "events:RemoveTargets", "events:ListTargetsByRule", "events:DeleteRule" ]
     },
     "update" : {
-      "permissions" : [ "profile:PutIntegration", "profile:GetIntegration", "appflow:CreateFlow", "app-integrations:GetEventIntegration", "app-integrations:CreateEventIntegrationAssociation", "app-integrations:ListEventIntegrationAssociations", "app-integrations:DeleteEventIntegrationAssociation", "events:ListTargetsByRule", "events:RemoveTargets", "events:DeleteRule", "events:PutRule", "events:PutTargets", "events:PutEvents", "profile:UntagResource", "profile:TagResource", "connect:DescribeInstance", "ds:DescribeDirectories" ]
+      "permissions" : [ "profile:PutIntegration", "profile:GetIntegration", "appflow:CreateFlow", "app-integrations:GetEventIntegration", "app-integrations:CreateEventIntegrationAssociation", "app-integrations:ListEventIntegrationAssociations", "app-integrations:DeleteEventIntegrationAssociation", "events:ListTargetsByRule", "events:RemoveTargets", "events:DeleteRule", "events:PutRule", "events:PutTargets", "events:PutEvents", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource", "connect:DescribeInstance", "ds:DescribeDirectories" ]
     },
     "list" : {
       "handlerSchema" : {

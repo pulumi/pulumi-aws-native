@@ -222,10 +222,10 @@
       "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetProfileObjectType", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "profile:GetProfileObjectType", "profile:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:UntagResource", "profile:TagResource", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "profile:GetProfileObjectType", "profile:PutProfileObjectType", "profile:UntagResource", "profile:TagResource", "profile:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "profile:DeleteProfileObjectType" ]

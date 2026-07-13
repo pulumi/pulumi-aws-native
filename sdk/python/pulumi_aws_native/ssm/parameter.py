@@ -481,6 +481,7 @@ class Parameter(pulumi.CustomResource):
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
+            __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Parameter, __self__).__init__(
@@ -506,6 +507,7 @@ class Parameter(pulumi.CustomResource):
         __props__ = ParameterArgs.__new__(ParameterArgs)
 
         __props__.__dict__["allowed_pattern"] = None
+        __props__.__dict__["arn"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -523,6 +525,11 @@ class Parameter(pulumi.CustomResource):
         A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="dataType")

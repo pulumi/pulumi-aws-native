@@ -80,6 +80,18 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Indicates whether flow logs are enabled for the accelerator.
+        /// </summary>
+        public readonly bool? FlowLogsEnabled;
+        /// <summary>
+        /// The name of the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        public readonly string? FlowLogsS3Bucket;
+        /// <summary>
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        public readonly string? FlowLogsS3Prefix;
+        /// <summary>
         /// IP Address type.
         /// </summary>
         public readonly Pulumi.AwsNative.GlobalAccelerator.AcceleratorIpAddressType? IpAddressType;
@@ -116,6 +128,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
 
             bool? enabled,
 
+            bool? flowLogsEnabled,
+
+            string? flowLogsS3Bucket,
+
+            string? flowLogsS3Prefix,
+
             Pulumi.AwsNative.GlobalAccelerator.AcceleratorIpAddressType? ipAddressType,
 
             ImmutableArray<string> ipAddresses,
@@ -132,6 +150,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
             DnsName = dnsName;
             DualStackDnsName = dualStackDnsName;
             Enabled = enabled;
+            FlowLogsEnabled = flowLogsEnabled;
+            FlowLogsS3Bucket = flowLogsS3Bucket;
+            FlowLogsS3Prefix = flowLogsS3Prefix;
             IpAddressType = ipAddressType;
             IpAddresses = ipAddresses;
             Ipv4Addresses = ipv4Addresses;

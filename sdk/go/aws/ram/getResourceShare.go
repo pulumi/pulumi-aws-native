@@ -43,6 +43,8 @@ type LookupResourceShareResult struct {
 	Name *string `pulumi:"name"`
 	// The ID of the AWS account that owns the resource share.
 	OwningAccountId *string `pulumi:"owningAccountId"`
+	// Specifies the configuration for the resource share
+	ResourceShareConfiguration *ResourceShareConfiguration `pulumi:"resourceShareConfiguration"`
 	// The current status of the resource share.
 	Status *ResourceShareStatus `pulumi:"status"`
 	// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
@@ -114,6 +116,11 @@ func (o LookupResourceShareResultOutput) Name() pulumi.StringPtrOutput {
 // The ID of the AWS account that owns the resource share.
 func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.OwningAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for the resource share
+func (o LookupResourceShareResultOutput) ResourceShareConfiguration() ResourceShareConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *ResourceShareConfiguration { return v.ResourceShareConfiguration }).(ResourceShareConfigurationPtrOutput)
 }
 
 // The current status of the resource share.

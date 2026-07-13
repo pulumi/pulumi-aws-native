@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderTelemetryConfig
     {
-        /// <summary>
-        /// The logging configuration for the capacity provider.
-        /// </summary>
         public readonly Outputs.CapacityProviderLoggingConfig? LoggingConfig;
 
         [OutputConstructor]

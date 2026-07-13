@@ -65,6 +65,7 @@ export class ListenerRule extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the rule.
      */
     declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     declare public readonly transforms: pulumi.Output<outputs.elasticloadbalancingv2.ListenerRuleTransform[] | undefined>;
 
     /**
@@ -91,6 +92,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["conditions"] = args?.conditions;
             resourceInputs["listenerArn"] = args?.listenerArn;
             resourceInputs["priority"] = args?.priority;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["transforms"] = args?.transforms;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
@@ -101,6 +103,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["listenerArn"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transforms"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -133,5 +136,6 @@ export interface ListenerRuleArgs {
      *  If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
     priority: pulumi.Input<number>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     transforms?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleTransformArgs>[]>;
 }

@@ -41,6 +41,37 @@ namespace Pulumi.AwsNative.SecurityAgent
     }
 
     /// <summary>
+    /// Strategy for cleaning up resources after pentest job completion
+    /// </summary>
+    [EnumType]
+    public readonly struct PentestCleanUpStrategy : IEquatable<PentestCleanUpStrategy>
+    {
+        private readonly string _value;
+
+        private PentestCleanUpStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestCleanUpStrategy BestEffortDelete { get; } = new PentestCleanUpStrategy("BEST_EFFORT_DELETE");
+        public static PentestCleanUpStrategy RetainAll { get; } = new PentestCleanUpStrategy("RETAIN_ALL");
+
+        public static bool operator ==(PentestCleanUpStrategy left, PentestCleanUpStrategy right) => left.Equals(right);
+        public static bool operator !=(PentestCleanUpStrategy left, PentestCleanUpStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(PentestCleanUpStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestCleanUpStrategy other && Equals(other);
+        public bool Equals(PentestCleanUpStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Strategy for remediating code vulnerabilities discovered during the pentest
     /// </summary>
     [EnumType]
@@ -182,6 +213,68 @@ namespace Pulumi.AwsNative.SecurityAgent
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PentestRiskType other && Equals(other);
         public bool Equals(PentestRiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed skill that can be disabled for a pentest
+    /// </summary>
+    [EnumType]
+    public readonly struct PentestSkillType : IEquatable<PentestSkillType>
+    {
+        private readonly string _value;
+
+        private PentestSkillType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PentestSkillType FindingPersonalization { get; } = new PentestSkillType("FINDING_PERSONALIZATION");
+        public static PentestSkillType LoginOptimization { get; } = new PentestSkillType("LOGIN_OPTIMIZATION");
+
+        public static bool operator ==(PentestSkillType left, PentestSkillType right) => left.Equals(right);
+        public static bool operator !=(PentestSkillType left, PentestSkillType right) => !left.Equals(right);
+
+        public static explicit operator string(PentestSkillType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PentestSkillType other && Equals(other);
+        public bool Equals(PentestSkillType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the pack is enabled or disabled
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRequirementPackStatus : IEquatable<SecurityRequirementPackStatus>
+    {
+        private readonly string _value;
+
+        private SecurityRequirementPackStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRequirementPackStatus Enabled { get; } = new SecurityRequirementPackStatus("ENABLED");
+        public static SecurityRequirementPackStatus Disabled { get; } = new SecurityRequirementPackStatus("DISABLED");
+
+        public static bool operator ==(SecurityRequirementPackStatus left, SecurityRequirementPackStatus right) => left.Equals(right);
+        public static bool operator !=(SecurityRequirementPackStatus left, SecurityRequirementPackStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRequirementPackStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRequirementPackStatus other && Equals(other);
+        public bool Equals(SecurityRequirementPackStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

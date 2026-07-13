@@ -1877,6 +1877,82 @@
       }
     }
   },
+  "aws-native:certificatemanager:AcmeDomainValidation": {
+    "cfTypeName": "AWS::CertificateManager::AcmeDomainValidation",
+    "properties": {
+      "acmeEndpointArn": {
+        "type": "string",
+        "description": "The ARN of the ACME endpoint this domain validation is associated with."
+      },
+      "domainName": {
+        "type": "string",
+        "description": "The domain name to validate."
+      },
+      "prevalidationOptions": {
+        "$ref": "#/types/aws-native:certificatemanager:AcmeDomainValidationPrevalidationOptions"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags associated with the domain validation."
+      }
+    }
+  },
+  "aws-native:certificatemanager:AcmeEndpoint": {
+    "cfTypeName": "AWS::CertificateManager::AcmeEndpoint",
+    "properties": {
+      "authorizationBehavior": {
+        "type": "string",
+        "description": "The authorization behavior for the ACME endpoint."
+      },
+      "certificateAuthority": {
+        "$ref": "#/types/aws-native:certificatemanager:AcmeEndpointCertificateAuthority"
+      },
+      "certificateTags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:certificatemanager:AcmeEndpointTag"
+        },
+        "description": "Tags applied to certificates issued via this endpoint."
+      },
+      "contact": {
+        "type": "string",
+        "description": "Whether contact information is required for the ACME endpoint."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags associated with the ACME endpoint."
+      }
+    }
+  },
+  "aws-native:certificatemanager:AcmeExternalAccountBinding": {
+    "cfTypeName": "AWS::CertificateManager::AcmeExternalAccountBinding",
+    "properties": {
+      "acmeEndpointArn": {
+        "type": "string",
+        "description": "The ARN of the ACME endpoint this binding is associated with."
+      },
+      "expiration": {
+        "$ref": "#/types/aws-native:certificatemanager:AcmeExternalAccountBindingExpiration"
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The IAM role ARN for cross-account access."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags associated with the external account binding."
+      }
+    }
+  },
   "aws-native:cleanrooms:Membership": {
     "cfTypeName": "AWS::CleanRooms::Membership",
     "properties": {
@@ -2660,6 +2736,50 @@
       }
     }
   },
+  "aws-native:cognito:UserPoolRegionalConfigurationAttachment": {
+    "cfTypeName": "AWS::Cognito::UserPoolRegionalConfigurationAttachment",
+    "properties": {
+      "emailConfiguration": {
+        "$ref": "#/types/aws-native:cognito:UserPoolRegionalConfigurationAttachmentEmailConfiguration"
+      },
+      "lambdaConfig": {
+        "$ref": "#/types/aws-native:cognito:UserPoolRegionalConfigurationAttachmentLambdaConfig"
+      },
+      "smsConfiguration": {
+        "$ref": "#/types/aws-native:cognito:UserPoolRegionalConfigurationAttachmentSmsConfiguration"
+      },
+      "status": {
+        "type": "string",
+        "description": "The status of the replica. Set to ACTIVE or INACTIVE."
+      },
+      "userPoolId": {
+        "type": "string"
+      },
+      "userPoolTags": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "aws-native:cognito:UserPoolReplica": {
+    "cfTypeName": "AWS::Cognito::UserPoolReplica",
+    "properties": {
+      "regionName": {
+        "type": "string"
+      },
+      "userPoolId": {
+        "type": "string"
+      },
+      "userPoolTagsAtCreate": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      }
+    }
+  },
   "aws-native:cognito:UserPoolRiskConfigurationAttachment": {
     "cfTypeName": "AWS::Cognito::UserPoolRiskConfigurationAttachment",
     "properties": {
@@ -2736,6 +2856,22 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the AggregationAuthorization."
+      }
+    }
+  },
+  "aws-native:configuration:Connector": {
+    "cfTypeName": "AWS::Config::Connector",
+    "properties": {
+      "connectorConfiguration": {
+        "$ref": "#/types/aws-native:configuration:ConnectorConfiguration",
+        "description": "The configuration for the connector that specifies the third-party cloud provider connection details."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the connector."
       }
     }
   },
@@ -9119,6 +9255,12 @@
         "type": "integer",
         "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update."
       },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
       "transforms": {
         "type": "array",
         "items": {
@@ -9697,6 +9839,24 @@
       "protocol": {
         "$ref": "#/types/aws-native:globalaccelerator:ListenerProtocol",
         "description": "The protocol for the listener."
+      }
+    }
+  },
+  "aws-native:glue:DataCatalogEncryptionSettings": {
+    "cfTypeName": "AWS::Glue::DataCatalogEncryptionSettings",
+    "properties": {
+      "catalogId": {
+        "type": "string",
+        "description": "The ID of the Data Catalog in which the settings are created."
+      },
+      "dataCatalogEncryptionSettings": {
+        "$ref": "#/types/aws-native:glue:DataCatalogEncryptionSettings",
+        "description": "Contains configuration information for maintaining Data Catalog security.",
+        "language": {
+          "csharp": {
+            "name": "DataCatalogEncryptionSettingsValue"
+          }
+        }
       }
     }
   },
@@ -11157,7 +11317,7 @@
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
+        "description": "Indicates whether the permission applies when the function is invoked through a function URL."
       },
       "principal": {
         "type": "string",
@@ -13673,7 +13833,7 @@
       },
       "engine": {
         "type": "string",
-        "description": "The database engine to use for your custom engine version (CEV).\n Valid values:\n  +   ``custom-oracle-ee`` \n  +   ``custom-oracle-ee-cdb``"
+        "description": "The database engine to use for your custom engine version (CEV).\n Valid values:\n  +   ``custom-oracle-ee`` \n  +   ``custom-oracle-ee-cdb`` \n  +   ``sqlserver-dev-ee`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se``"
       },
       "engineVersion": {
         "type": "string",
@@ -15643,9 +15803,20 @@
         "$ref": "#/types/aws-native:securityagent:PentestAssets",
         "description": "Collection of assets to be tested or used during the penetration test"
       },
+      "cleanUpStrategy": {
+        "$ref": "#/types/aws-native:securityagent:PentestCleanUpStrategy",
+        "description": "Strategy for cleaning up resources after pentest job completion"
+      },
       "codeRemediationStrategy": {
         "$ref": "#/types/aws-native:securityagent:PentestCodeRemediationStrategy",
         "description": "Strategy for code remediation on findings"
+      },
+      "disableManagedSkills": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:securityagent:PentestSkillType"
+        },
+        "description": "A list of managed skills to disable for this pentest"
       },
       "excludeRiskTypes": {
         "type": "array",

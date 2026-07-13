@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
         /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        public readonly Outputs.EvaluationFormQuestionOptionPointsConfiguration? PointsConfiguration;
+        /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.
         ///  *Length Constraints*: Minimum length of 1. Maximum length of 40.
         /// </summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             Outputs.EvaluationFormAutomaticFailConfiguration? automaticFailConfiguration,
 
+            Outputs.EvaluationFormQuestionOptionPointsConfiguration? pointsConfiguration,
+
             string refId,
 
             int? score,
@@ -55,6 +61,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         {
             AutomaticFail = automaticFail;
             AutomaticFailConfiguration = automaticFailConfiguration;
+            PointsConfiguration = pointsConfiguration;
             RefId = refId;
             Score = score;
             Text = text;

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        /// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
         /// </summary>
         [Input("settingsGroup")]
         public Input<string>? SettingsGroup { get; set; }

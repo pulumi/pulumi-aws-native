@@ -52,6 +52,11 @@ __all__ = [
     'ConfigurationPolicySecurityControlCustomParameter',
     'ConfigurationPolicySecurityControlsConfiguration',
     'ConfigurationPolicySecurityHubPolicy',
+    'ConnectorAzureProviderConfiguration',
+    'ConnectorAzureScopeConfiguration',
+    'ConnectorHealthIssue',
+    'ConnectorProvider',
+    'ConnectorV2HealthIssue',
     'ConnectorV2Provider',
     'InsightAwsSecurityFindingFilters',
     'InsightBooleanFilter',
@@ -2659,6 +2664,208 @@ class ConfigurationPolicySecurityHubPolicy(dict):
         Indicates whether Security Hub is enabled in the policy.
         """
         return pulumi.get(self, "service_enabled")
+
+
+@pulumi.output_type
+class ConnectorAzureProviderConfiguration(dict):
+    """
+    The configuration settings for an Azure CSPM provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsConfigConnectorArn":
+            suggest = "aws_config_connector_arn"
+        elif key == "azureRegions":
+            suggest = "azure_regions"
+        elif key == "scopeConfiguration":
+            suggest = "scope_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAzureProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAzureProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAzureProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_config_connector_arn: _builtins.str,
+                 azure_regions: Sequence[_builtins.str],
+                 scope_configuration: 'outputs.ConnectorAzureScopeConfiguration'):
+        """
+        The configuration settings for an Azure CSPM provider
+
+        :param _builtins.str aws_config_connector_arn: The ARN of the AWS Config connector used for the Azure integration
+        :param Sequence[_builtins.str] azure_regions: The list of Azure regions to include in the connector scope
+        """
+        pulumi.set(__self__, "aws_config_connector_arn", aws_config_connector_arn)
+        pulumi.set(__self__, "azure_regions", azure_regions)
+        pulumi.set(__self__, "scope_configuration", scope_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="awsConfigConnectorArn")
+    def aws_config_connector_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Config connector used for the Azure integration
+        """
+        return pulumi.get(self, "aws_config_connector_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="azureRegions")
+    def azure_regions(self) -> Sequence[_builtins.str]:
+        """
+        The list of Azure regions to include in the connector scope
+        """
+        return pulumi.get(self, "azure_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConfiguration")
+    def scope_configuration(self) -> 'outputs.ConnectorAzureScopeConfiguration':
+        return pulumi.get(self, "scope_configuration")
+
+
+@pulumi.output_type
+class ConnectorAzureScopeConfiguration(dict):
+    """
+    The scope configuration for an Azure connector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scopeType":
+            suggest = "scope_type"
+        elif key == "scopeValues":
+            suggest = "scope_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorAzureScopeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorAzureScopeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorAzureScopeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope_type: 'ConnectorAzureScopeConfigurationScopeType',
+                 scope_values: Optional[Sequence[_builtins.str]] = None):
+        """
+        The scope configuration for an Azure connector
+
+        :param 'ConnectorAzureScopeConfigurationScopeType' scope_type: The scope type for the Azure connector
+        :param Sequence[_builtins.str] scope_values: The list of scope values for the Azure connector
+        """
+        pulumi.set(__self__, "scope_type", scope_type)
+        if scope_values is not None:
+            pulumi.set(__self__, "scope_values", scope_values)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeType")
+    def scope_type(self) -> 'ConnectorAzureScopeConfigurationScopeType':
+        """
+        The scope type for the Azure connector
+        """
+        return pulumi.get(self, "scope_type")
+
+    @_builtins.property
+    @pulumi.getter(name="scopeValues")
+    def scope_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The list of scope values for the Azure connector
+        """
+        return pulumi.get(self, "scope_values")
+
+
+@pulumi.output_type
+class ConnectorHealthIssue(dict):
+    """
+    A health issue associated with the connector
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 message: _builtins.str):
+        """
+        A health issue associated with the connector
+
+        :param _builtins.str code: The code identifying the type of health issue
+        :param _builtins.str message: The message describing the health issue
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The code identifying the type of health issue
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The message describing the health issue
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ConnectorProvider(dict):
+    """
+    The CSPM provider configuration for the connector
+    """
+    def __init__(__self__, *,
+                 azure: 'outputs.ConnectorAzureProviderConfiguration'):
+        """
+        The CSPM provider configuration for the connector
+        """
+        pulumi.set(__self__, "azure", azure)
+
+    @_builtins.property
+    @pulumi.getter
+    def azure(self) -> 'outputs.ConnectorAzureProviderConfiguration':
+        return pulumi.get(self, "azure")
+
+
+@pulumi.output_type
+class ConnectorV2HealthIssue(dict):
+    """
+    A health issue associated with the connector
+    """
+    def __init__(__self__, *,
+                 code: _builtins.str,
+                 message: _builtins.str):
+        """
+        A health issue associated with the connector
+
+        :param _builtins.str code: The code identifying the type of health issue
+        :param _builtins.str message: The message describing the health issue
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> _builtins.str:
+        """
+        The code identifying the type of health issue
+        """
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> _builtins.str:
+        """
+        The message describing the health issue
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type

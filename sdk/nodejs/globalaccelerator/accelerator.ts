@@ -54,6 +54,18 @@ export class Accelerator extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether flow logs are enabled for the accelerator.
+     */
+    declare public readonly flowLogsEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the Amazon S3 bucket for the flow logs.
+     */
+    declare public readonly flowLogsS3Bucket: pulumi.Output<string | undefined>;
+    /**
+     * The prefix for the location in the Amazon S3 bucket for the flow logs.
+     */
+    declare public readonly flowLogsS3Prefix: pulumi.Output<string | undefined>;
+    /**
      * IP Address type.
      */
     declare public readonly ipAddressType: pulumi.Output<enums.globalaccelerator.AcceleratorIpAddressType | undefined>;
@@ -92,6 +104,9 @@ export class Accelerator extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["flowLogsEnabled"] = args?.flowLogsEnabled;
+            resourceInputs["flowLogsS3Bucket"] = args?.flowLogsS3Bucket;
+            resourceInputs["flowLogsS3Prefix"] = args?.flowLogsS3Prefix;
             resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["ipAddresses"] = args?.ipAddresses;
             resourceInputs["name"] = args?.name;
@@ -106,6 +121,9 @@ export class Accelerator extends pulumi.CustomResource {
             resourceInputs["dnsName"] = undefined /*out*/;
             resourceInputs["dualStackDnsName"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["flowLogsEnabled"] = undefined /*out*/;
+            resourceInputs["flowLogsS3Bucket"] = undefined /*out*/;
+            resourceInputs["flowLogsS3Prefix"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["ipAddresses"] = undefined /*out*/;
             resourceInputs["ipv4Addresses"] = undefined /*out*/;
@@ -126,6 +144,18 @@ export interface AcceleratorArgs {
      * Indicates whether an accelerator is enabled. The value is true or false.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether flow logs are enabled for the accelerator.
+     */
+    flowLogsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the Amazon S3 bucket for the flow logs.
+     */
+    flowLogsS3Bucket?: pulumi.Input<string>;
+    /**
+     * The prefix for the location in the Amazon S3 bucket for the flow logs.
+     */
+    flowLogsS3Prefix?: pulumi.Input<string>;
     /**
      * IP Address type.
      */

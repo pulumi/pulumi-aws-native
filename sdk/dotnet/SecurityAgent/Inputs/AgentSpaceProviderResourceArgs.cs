@@ -11,15 +11,33 @@ namespace Pulumi.AwsNative.SecurityAgent.Inputs
 {
 
     /// <summary>
-    /// Selected Resource (eg: Code Repository) from an Integration
+    /// Selected Resource (eg: Code Repository, Document) from an Integration
     /// </summary>
     public sealed class AgentSpaceProviderResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bitbucketCapabilities")]
+        public Input<Inputs.AgentSpaceBitbucketCapabilitiesResourceArgs>? BitbucketCapabilities { get; set; }
+
+        [Input("bitbucketRepository")]
+        public Input<Inputs.AgentSpaceBitbucketRepositoryResourceArgs>? BitbucketRepository { get; set; }
+
+        [Input("confluenceCapabilities")]
+        public Input<Inputs.AgentSpaceConfluenceCapabilitiesResourceArgs>? ConfluenceCapabilities { get; set; }
+
+        [Input("confluenceDocument")]
+        public Input<Inputs.AgentSpaceConfluenceDocumentResourceArgs>? ConfluenceDocument { get; set; }
+
         [Input("gitHubCapabilities")]
         public Input<Inputs.AgentSpaceGitHubCapabilitiesResourceArgs>? GitHubCapabilities { get; set; }
 
         [Input("gitHubRepository")]
         public Input<Inputs.AgentSpaceGitHubRepositoryResourceArgs>? GitHubRepository { get; set; }
+
+        [Input("gitLabCapabilities")]
+        public Input<Inputs.AgentSpaceGitLabCapabilitiesResourceArgs>? GitLabCapabilities { get; set; }
+
+        [Input("gitLabRepository")]
+        public Input<Inputs.AgentSpaceGitLabRepositoryResourceArgs>? GitLabRepository { get; set; }
 
         public AgentSpaceProviderResourceArgs()
         {

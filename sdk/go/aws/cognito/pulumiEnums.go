@@ -1031,6 +1031,336 @@ func (in *userPoolClientRefreshTokenRotationFeaturePtr) ToUserPoolClientRefreshT
 	return pulumi.ToOutputWithContext(ctx, in).(UserPoolClientRefreshTokenRotationFeaturePtrOutput)
 }
 
+type UserPoolEncryptionKeyType string
+
+const (
+	UserPoolEncryptionKeyTypeAwsOwnedKey        = UserPoolEncryptionKeyType("AWS_OWNED_KEY")
+	UserPoolEncryptionKeyTypeCustomerManagedKey = UserPoolEncryptionKeyType("CUSTOMER_MANAGED_KEY")
+)
+
+func (UserPoolEncryptionKeyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEncryptionKeyType)(nil)).Elem()
+}
+
+func (e UserPoolEncryptionKeyType) ToUserPoolEncryptionKeyTypeOutput() UserPoolEncryptionKeyTypeOutput {
+	return pulumi.ToOutput(e).(UserPoolEncryptionKeyTypeOutput)
+}
+
+func (e UserPoolEncryptionKeyType) ToUserPoolEncryptionKeyTypeOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolEncryptionKeyTypeOutput)
+}
+
+func (e UserPoolEncryptionKeyType) ToUserPoolEncryptionKeyTypePtrOutput() UserPoolEncryptionKeyTypePtrOutput {
+	return e.ToUserPoolEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolEncryptionKeyType) ToUserPoolEncryptionKeyTypePtrOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypePtrOutput {
+	return UserPoolEncryptionKeyType(e).ToUserPoolEncryptionKeyTypeOutputWithContext(ctx).ToUserPoolEncryptionKeyTypePtrOutputWithContext(ctx)
+}
+
+func (e UserPoolEncryptionKeyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolEncryptionKeyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolEncryptionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolEncryptionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolEncryptionKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEncryptionKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolEncryptionKeyType)(nil)).Elem()
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToUserPoolEncryptionKeyTypeOutput() UserPoolEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToUserPoolEncryptionKeyTypeOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypeOutput {
+	return o
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToUserPoolEncryptionKeyTypePtrOutput() UserPoolEncryptionKeyTypePtrOutput {
+	return o.ToUserPoolEncryptionKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToUserPoolEncryptionKeyTypePtrOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolEncryptionKeyType) *UserPoolEncryptionKeyType {
+		return &v
+	}).(UserPoolEncryptionKeyTypePtrOutput)
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolEncryptionKeyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolEncryptionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolEncryptionKeyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolEncryptionKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolEncryptionKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolEncryptionKeyType)(nil)).Elem()
+}
+
+func (o UserPoolEncryptionKeyTypePtrOutput) ToUserPoolEncryptionKeyTypePtrOutput() UserPoolEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o UserPoolEncryptionKeyTypePtrOutput) ToUserPoolEncryptionKeyTypePtrOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypePtrOutput {
+	return o
+}
+
+func (o UserPoolEncryptionKeyTypePtrOutput) Elem() UserPoolEncryptionKeyTypeOutput {
+	return o.ApplyT(func(v *UserPoolEncryptionKeyType) UserPoolEncryptionKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolEncryptionKeyType
+		return ret
+	}).(UserPoolEncryptionKeyTypeOutput)
+}
+
+func (o UserPoolEncryptionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolEncryptionKeyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolEncryptionKeyTypeInput is an input type that accepts values of the UserPoolEncryptionKeyType enum
+// A concrete instance of `UserPoolEncryptionKeyTypeInput` can be one of the following:
+//
+//	UserPoolEncryptionKeyTypeAwsOwnedKey
+//	UserPoolEncryptionKeyTypeCustomerManagedKey
+type UserPoolEncryptionKeyTypeInput interface {
+	pulumi.Input
+
+	ToUserPoolEncryptionKeyTypeOutput() UserPoolEncryptionKeyTypeOutput
+	ToUserPoolEncryptionKeyTypeOutputWithContext(context.Context) UserPoolEncryptionKeyTypeOutput
+}
+
+var userPoolEncryptionKeyTypePtrType = reflect.TypeOf((**UserPoolEncryptionKeyType)(nil)).Elem()
+
+type UserPoolEncryptionKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToUserPoolEncryptionKeyTypePtrOutput() UserPoolEncryptionKeyTypePtrOutput
+	ToUserPoolEncryptionKeyTypePtrOutputWithContext(context.Context) UserPoolEncryptionKeyTypePtrOutput
+}
+
+type userPoolEncryptionKeyTypePtr string
+
+func UserPoolEncryptionKeyTypePtr(v string) UserPoolEncryptionKeyTypePtrInput {
+	return (*userPoolEncryptionKeyTypePtr)(&v)
+}
+
+func (*userPoolEncryptionKeyTypePtr) ElementType() reflect.Type {
+	return userPoolEncryptionKeyTypePtrType
+}
+
+func (in *userPoolEncryptionKeyTypePtr) ToUserPoolEncryptionKeyTypePtrOutput() UserPoolEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutput(in).(UserPoolEncryptionKeyTypePtrOutput)
+}
+
+func (in *userPoolEncryptionKeyTypePtr) ToUserPoolEncryptionKeyTypePtrOutputWithContext(ctx context.Context) UserPoolEncryptionKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolEncryptionKeyTypePtrOutput)
+}
+
+type UserPoolIssuerConfigurationType string
+
+const (
+	UserPoolIssuerConfigurationTypeOriginal = UserPoolIssuerConfigurationType("ORIGINAL")
+	UserPoolIssuerConfigurationTypeUpdated  = UserPoolIssuerConfigurationType("UPDATED")
+)
+
+func (UserPoolIssuerConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIssuerConfigurationType)(nil)).Elem()
+}
+
+func (e UserPoolIssuerConfigurationType) ToUserPoolIssuerConfigurationTypeOutput() UserPoolIssuerConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(UserPoolIssuerConfigurationTypeOutput)
+}
+
+func (e UserPoolIssuerConfigurationType) ToUserPoolIssuerConfigurationTypeOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserPoolIssuerConfigurationTypeOutput)
+}
+
+func (e UserPoolIssuerConfigurationType) ToUserPoolIssuerConfigurationTypePtrOutput() UserPoolIssuerConfigurationTypePtrOutput {
+	return e.ToUserPoolIssuerConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolIssuerConfigurationType) ToUserPoolIssuerConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypePtrOutput {
+	return UserPoolIssuerConfigurationType(e).ToUserPoolIssuerConfigurationTypeOutputWithContext(ctx).ToUserPoolIssuerConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e UserPoolIssuerConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolIssuerConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserPoolIssuerConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserPoolIssuerConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserPoolIssuerConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (UserPoolIssuerConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolIssuerConfigurationType)(nil)).Elem()
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToUserPoolIssuerConfigurationTypeOutput() UserPoolIssuerConfigurationTypeOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToUserPoolIssuerConfigurationTypeOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypeOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToUserPoolIssuerConfigurationTypePtrOutput() UserPoolIssuerConfigurationTypePtrOutput {
+	return o.ToUserPoolIssuerConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToUserPoolIssuerConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolIssuerConfigurationType) *UserPoolIssuerConfigurationType {
+		return &v
+	}).(UserPoolIssuerConfigurationTypePtrOutput)
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolIssuerConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolIssuerConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserPoolIssuerConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolIssuerConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolIssuerConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolIssuerConfigurationType)(nil)).Elem()
+}
+
+func (o UserPoolIssuerConfigurationTypePtrOutput) ToUserPoolIssuerConfigurationTypePtrOutput() UserPoolIssuerConfigurationTypePtrOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationTypePtrOutput) ToUserPoolIssuerConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypePtrOutput {
+	return o
+}
+
+func (o UserPoolIssuerConfigurationTypePtrOutput) Elem() UserPoolIssuerConfigurationTypeOutput {
+	return o.ApplyT(func(v *UserPoolIssuerConfigurationType) UserPoolIssuerConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolIssuerConfigurationType
+		return ret
+	}).(UserPoolIssuerConfigurationTypeOutput)
+}
+
+func (o UserPoolIssuerConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolIssuerConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserPoolIssuerConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserPoolIssuerConfigurationTypeInput is an input type that accepts values of the UserPoolIssuerConfigurationType enum
+// A concrete instance of `UserPoolIssuerConfigurationTypeInput` can be one of the following:
+//
+//	UserPoolIssuerConfigurationTypeOriginal
+//	UserPoolIssuerConfigurationTypeUpdated
+type UserPoolIssuerConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToUserPoolIssuerConfigurationTypeOutput() UserPoolIssuerConfigurationTypeOutput
+	ToUserPoolIssuerConfigurationTypeOutputWithContext(context.Context) UserPoolIssuerConfigurationTypeOutput
+}
+
+var userPoolIssuerConfigurationTypePtrType = reflect.TypeOf((**UserPoolIssuerConfigurationType)(nil)).Elem()
+
+type UserPoolIssuerConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToUserPoolIssuerConfigurationTypePtrOutput() UserPoolIssuerConfigurationTypePtrOutput
+	ToUserPoolIssuerConfigurationTypePtrOutputWithContext(context.Context) UserPoolIssuerConfigurationTypePtrOutput
+}
+
+type userPoolIssuerConfigurationTypePtr string
+
+func UserPoolIssuerConfigurationTypePtr(v string) UserPoolIssuerConfigurationTypePtrInput {
+	return (*userPoolIssuerConfigurationTypePtr)(&v)
+}
+
+func (*userPoolIssuerConfigurationTypePtr) ElementType() reflect.Type {
+	return userPoolIssuerConfigurationTypePtrType
+}
+
+func (in *userPoolIssuerConfigurationTypePtr) ToUserPoolIssuerConfigurationTypePtrOutput() UserPoolIssuerConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(UserPoolIssuerConfigurationTypePtrOutput)
+}
+
+func (in *userPoolIssuerConfigurationTypePtr) ToUserPoolIssuerConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolIssuerConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserPoolIssuerConfigurationTypePtrOutput)
+}
+
 // The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 type UserPoolTier string
 
@@ -1377,6 +1707,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TermsSourceTypePtrInput)(nil)).Elem(), TermsSourceType("LINK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeatureInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientRefreshTokenRotationFeaturePtrInput)(nil)).Elem(), UserPoolClientRefreshTokenRotationFeature("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEncryptionKeyTypeInput)(nil)).Elem(), UserPoolEncryptionKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolEncryptionKeyTypePtrInput)(nil)).Elem(), UserPoolEncryptionKeyType("AWS_OWNED_KEY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationTypeInput)(nil)).Elem(), UserPoolIssuerConfigurationType("ORIGINAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolIssuerConfigurationTypePtrInput)(nil)).Elem(), UserPoolIssuerConfigurationType("ORIGINAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolTierPtrInput)(nil)).Elem(), UserPoolTier("LITE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolWebAuthnFactorConfigurationInput)(nil)).Elem(), UserPoolWebAuthnFactorConfiguration("SINGLE_FACTOR"))
@@ -1393,6 +1727,10 @@ func init() {
 	pulumi.RegisterOutputType(TermsSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeatureOutput{})
 	pulumi.RegisterOutputType(UserPoolClientRefreshTokenRotationFeaturePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolEncryptionKeyTypeOutput{})
+	pulumi.RegisterOutputType(UserPoolEncryptionKeyTypePtrOutput{})
+	pulumi.RegisterOutputType(UserPoolIssuerConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(UserPoolIssuerConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolTierOutput{})
 	pulumi.RegisterOutputType(UserPoolTierPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolWebAuthnFactorConfigurationOutput{})

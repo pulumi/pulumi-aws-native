@@ -43,7 +43,8 @@ type LookupServiceResult struct {
 	// Describes the DNS information of the service. This field is read-only.
 	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
 	// The ID of the service.
-	Id *string `pulumi:"id"`
+	Id                 *string `pulumi:"id"`
+	IdleTimeoutSeconds *int    `pulumi:"idleTimeoutSeconds"`
 	// The date and time that the service was last updated, specified in ISO-8601 format.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The status of the service.
@@ -115,6 +116,10 @@ func (o LookupServiceResultOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 // The ID of the service.
 func (o LookupServiceResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServiceResultOutput) IdleTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *int { return v.IdleTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The date and time that the service was last updated, specified in ISO-8601 format.

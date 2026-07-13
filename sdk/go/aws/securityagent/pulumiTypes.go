@@ -248,6 +248,324 @@ func (o AgentSpaceAwsResourcesPtrOutput) Vpcs() AgentSpaceVpcConfigArrayOutput {
 	}).(AgentSpaceVpcConfigArrayOutput)
 }
 
+// Bitbucket repository capabilities
+type AgentSpaceBitbucketCapabilitiesResource struct {
+	// Enables Code Review in the repository
+	LeaveComments *bool `pulumi:"leaveComments"`
+	// Enables creation of pull requests with automated fixes
+	RemediateCode *bool `pulumi:"remediateCode"`
+}
+
+// AgentSpaceBitbucketCapabilitiesResourceInput is an input type that accepts AgentSpaceBitbucketCapabilitiesResourceArgs and AgentSpaceBitbucketCapabilitiesResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceBitbucketCapabilitiesResourceInput` via:
+//
+//	AgentSpaceBitbucketCapabilitiesResourceArgs{...}
+type AgentSpaceBitbucketCapabilitiesResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceBitbucketCapabilitiesResourceOutput() AgentSpaceBitbucketCapabilitiesResourceOutput
+	ToAgentSpaceBitbucketCapabilitiesResourceOutputWithContext(context.Context) AgentSpaceBitbucketCapabilitiesResourceOutput
+}
+
+// Bitbucket repository capabilities
+type AgentSpaceBitbucketCapabilitiesResourceArgs struct {
+	// Enables Code Review in the repository
+	LeaveComments pulumi.BoolPtrInput `pulumi:"leaveComments"`
+	// Enables creation of pull requests with automated fixes
+	RemediateCode pulumi.BoolPtrInput `pulumi:"remediateCode"`
+}
+
+func (AgentSpaceBitbucketCapabilitiesResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResource)(nil)).Elem()
+}
+
+func (i AgentSpaceBitbucketCapabilitiesResourceArgs) ToAgentSpaceBitbucketCapabilitiesResourceOutput() AgentSpaceBitbucketCapabilitiesResourceOutput {
+	return i.ToAgentSpaceBitbucketCapabilitiesResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceBitbucketCapabilitiesResourceArgs) ToAgentSpaceBitbucketCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketCapabilitiesResourceOutput)
+}
+
+func (i AgentSpaceBitbucketCapabilitiesResourceArgs) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutput() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceBitbucketCapabilitiesResourceArgs) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketCapabilitiesResourceOutput).ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceBitbucketCapabilitiesResourcePtrInput is an input type that accepts AgentSpaceBitbucketCapabilitiesResourceArgs, AgentSpaceBitbucketCapabilitiesResourcePtr and AgentSpaceBitbucketCapabilitiesResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceBitbucketCapabilitiesResourcePtrInput` via:
+//
+//	        AgentSpaceBitbucketCapabilitiesResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceBitbucketCapabilitiesResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceBitbucketCapabilitiesResourcePtrOutput() AgentSpaceBitbucketCapabilitiesResourcePtrOutput
+	ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(context.Context) AgentSpaceBitbucketCapabilitiesResourcePtrOutput
+}
+
+type agentSpaceBitbucketCapabilitiesResourcePtrType AgentSpaceBitbucketCapabilitiesResourceArgs
+
+func AgentSpaceBitbucketCapabilitiesResourcePtr(v *AgentSpaceBitbucketCapabilitiesResourceArgs) AgentSpaceBitbucketCapabilitiesResourcePtrInput {
+	return (*agentSpaceBitbucketCapabilitiesResourcePtrType)(v)
+}
+
+func (*agentSpaceBitbucketCapabilitiesResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceBitbucketCapabilitiesResource)(nil)).Elem()
+}
+
+func (i *agentSpaceBitbucketCapabilitiesResourcePtrType) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutput() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceBitbucketCapabilitiesResourcePtrType) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketCapabilitiesResourcePtrOutput)
+}
+
+// Bitbucket repository capabilities
+type AgentSpaceBitbucketCapabilitiesResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceBitbucketCapabilitiesResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) ToAgentSpaceBitbucketCapabilitiesResourceOutput() AgentSpaceBitbucketCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) ToAgentSpaceBitbucketCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutput() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return o.ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceBitbucketCapabilitiesResource) *AgentSpaceBitbucketCapabilitiesResource {
+		return &v
+	}).(AgentSpaceBitbucketCapabilitiesResourcePtrOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceBitbucketCapabilitiesResource) *bool { return v.LeaveComments }).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of pull requests with automated fixes
+func (o AgentSpaceBitbucketCapabilitiesResourceOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceBitbucketCapabilitiesResource) *bool { return v.RemediateCode }).(pulumi.BoolPtrOutput)
+}
+
+type AgentSpaceBitbucketCapabilitiesResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceBitbucketCapabilitiesResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceBitbucketCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourcePtrOutput) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutput() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourcePtrOutput) ToAgentSpaceBitbucketCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketCapabilitiesResourcePtrOutput) Elem() AgentSpaceBitbucketCapabilitiesResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketCapabilitiesResource) AgentSpaceBitbucketCapabilitiesResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceBitbucketCapabilitiesResource
+		return ret
+	}).(AgentSpaceBitbucketCapabilitiesResourceOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceBitbucketCapabilitiesResourcePtrOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LeaveComments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of pull requests with automated fixes
+func (o AgentSpaceBitbucketCapabilitiesResourcePtrOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemediateCode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Bitbucket repository details
+type AgentSpaceBitbucketRepositoryResource struct {
+	// Bitbucket repository name
+	Name string `pulumi:"name"`
+	// Bitbucket workspace slug owning the repository
+	Workspace string `pulumi:"workspace"`
+}
+
+// AgentSpaceBitbucketRepositoryResourceInput is an input type that accepts AgentSpaceBitbucketRepositoryResourceArgs and AgentSpaceBitbucketRepositoryResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceBitbucketRepositoryResourceInput` via:
+//
+//	AgentSpaceBitbucketRepositoryResourceArgs{...}
+type AgentSpaceBitbucketRepositoryResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceBitbucketRepositoryResourceOutput() AgentSpaceBitbucketRepositoryResourceOutput
+	ToAgentSpaceBitbucketRepositoryResourceOutputWithContext(context.Context) AgentSpaceBitbucketRepositoryResourceOutput
+}
+
+// Bitbucket repository details
+type AgentSpaceBitbucketRepositoryResourceArgs struct {
+	// Bitbucket repository name
+	Name pulumi.StringInput `pulumi:"name"`
+	// Bitbucket workspace slug owning the repository
+	Workspace pulumi.StringInput `pulumi:"workspace"`
+}
+
+func (AgentSpaceBitbucketRepositoryResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceBitbucketRepositoryResource)(nil)).Elem()
+}
+
+func (i AgentSpaceBitbucketRepositoryResourceArgs) ToAgentSpaceBitbucketRepositoryResourceOutput() AgentSpaceBitbucketRepositoryResourceOutput {
+	return i.ToAgentSpaceBitbucketRepositoryResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceBitbucketRepositoryResourceArgs) ToAgentSpaceBitbucketRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketRepositoryResourceOutput)
+}
+
+func (i AgentSpaceBitbucketRepositoryResourceArgs) ToAgentSpaceBitbucketRepositoryResourcePtrOutput() AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceBitbucketRepositoryResourceArgs) ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketRepositoryResourceOutput).ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceBitbucketRepositoryResourcePtrInput is an input type that accepts AgentSpaceBitbucketRepositoryResourceArgs, AgentSpaceBitbucketRepositoryResourcePtr and AgentSpaceBitbucketRepositoryResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceBitbucketRepositoryResourcePtrInput` via:
+//
+//	        AgentSpaceBitbucketRepositoryResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceBitbucketRepositoryResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceBitbucketRepositoryResourcePtrOutput() AgentSpaceBitbucketRepositoryResourcePtrOutput
+	ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(context.Context) AgentSpaceBitbucketRepositoryResourcePtrOutput
+}
+
+type agentSpaceBitbucketRepositoryResourcePtrType AgentSpaceBitbucketRepositoryResourceArgs
+
+func AgentSpaceBitbucketRepositoryResourcePtr(v *AgentSpaceBitbucketRepositoryResourceArgs) AgentSpaceBitbucketRepositoryResourcePtrInput {
+	return (*agentSpaceBitbucketRepositoryResourcePtrType)(v)
+}
+
+func (*agentSpaceBitbucketRepositoryResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceBitbucketRepositoryResource)(nil)).Elem()
+}
+
+func (i *agentSpaceBitbucketRepositoryResourcePtrType) ToAgentSpaceBitbucketRepositoryResourcePtrOutput() AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceBitbucketRepositoryResourcePtrType) ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceBitbucketRepositoryResourcePtrOutput)
+}
+
+// Bitbucket repository details
+type AgentSpaceBitbucketRepositoryResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceBitbucketRepositoryResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceBitbucketRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceBitbucketRepositoryResourceOutput) ToAgentSpaceBitbucketRepositoryResourceOutput() AgentSpaceBitbucketRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketRepositoryResourceOutput) ToAgentSpaceBitbucketRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketRepositoryResourceOutput) ToAgentSpaceBitbucketRepositoryResourcePtrOutput() AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return o.ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceBitbucketRepositoryResourceOutput) ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceBitbucketRepositoryResource) *AgentSpaceBitbucketRepositoryResource {
+		return &v
+	}).(AgentSpaceBitbucketRepositoryResourcePtrOutput)
+}
+
+// Bitbucket repository name
+func (o AgentSpaceBitbucketRepositoryResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceBitbucketRepositoryResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bitbucket workspace slug owning the repository
+func (o AgentSpaceBitbucketRepositoryResourceOutput) Workspace() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceBitbucketRepositoryResource) string { return v.Workspace }).(pulumi.StringOutput)
+}
+
+type AgentSpaceBitbucketRepositoryResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceBitbucketRepositoryResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceBitbucketRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceBitbucketRepositoryResourcePtrOutput) ToAgentSpaceBitbucketRepositoryResourcePtrOutput() AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketRepositoryResourcePtrOutput) ToAgentSpaceBitbucketRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceBitbucketRepositoryResourcePtrOutput) Elem() AgentSpaceBitbucketRepositoryResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketRepositoryResource) AgentSpaceBitbucketRepositoryResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceBitbucketRepositoryResource
+		return ret
+	}).(AgentSpaceBitbucketRepositoryResourceOutput)
+}
+
+// Bitbucket repository name
+func (o AgentSpaceBitbucketRepositoryResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bitbucket workspace slug owning the repository
+func (o AgentSpaceBitbucketRepositoryResourcePtrOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceBitbucketRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Workspace
+	}).(pulumi.StringPtrOutput)
+}
+
 // Details of code review settings
 type AgentSpaceCodeReviewSettings struct {
 	// Whether Controls are utilized for code review analysis
@@ -405,6 +723,400 @@ func (o AgentSpaceCodeReviewSettingsPtrOutput) GeneralPurposeScanning() pulumi.B
 		}
 		return &v.GeneralPurposeScanning
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Confluence document capabilities
+type AgentSpaceConfluenceCapabilitiesResource struct {
+	// Enables creation of new Confluence documents in the same space
+	CreateDocument *bool `pulumi:"createDocument"`
+	// Enables read access to the document content
+	FetchDocument *bool `pulumi:"fetchDocument"`
+	// Enables updates to the document
+	UpdateDocument *bool `pulumi:"updateDocument"`
+}
+
+// AgentSpaceConfluenceCapabilitiesResourceInput is an input type that accepts AgentSpaceConfluenceCapabilitiesResourceArgs and AgentSpaceConfluenceCapabilitiesResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceConfluenceCapabilitiesResourceInput` via:
+//
+//	AgentSpaceConfluenceCapabilitiesResourceArgs{...}
+type AgentSpaceConfluenceCapabilitiesResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceConfluenceCapabilitiesResourceOutput() AgentSpaceConfluenceCapabilitiesResourceOutput
+	ToAgentSpaceConfluenceCapabilitiesResourceOutputWithContext(context.Context) AgentSpaceConfluenceCapabilitiesResourceOutput
+}
+
+// Confluence document capabilities
+type AgentSpaceConfluenceCapabilitiesResourceArgs struct {
+	// Enables creation of new Confluence documents in the same space
+	CreateDocument pulumi.BoolPtrInput `pulumi:"createDocument"`
+	// Enables read access to the document content
+	FetchDocument pulumi.BoolPtrInput `pulumi:"fetchDocument"`
+	// Enables updates to the document
+	UpdateDocument pulumi.BoolPtrInput `pulumi:"updateDocument"`
+}
+
+func (AgentSpaceConfluenceCapabilitiesResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceConfluenceCapabilitiesResource)(nil)).Elem()
+}
+
+func (i AgentSpaceConfluenceCapabilitiesResourceArgs) ToAgentSpaceConfluenceCapabilitiesResourceOutput() AgentSpaceConfluenceCapabilitiesResourceOutput {
+	return i.ToAgentSpaceConfluenceCapabilitiesResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceConfluenceCapabilitiesResourceArgs) ToAgentSpaceConfluenceCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceCapabilitiesResourceOutput)
+}
+
+func (i AgentSpaceConfluenceCapabilitiesResourceArgs) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutput() AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceConfluenceCapabilitiesResourceArgs) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceCapabilitiesResourceOutput).ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceConfluenceCapabilitiesResourcePtrInput is an input type that accepts AgentSpaceConfluenceCapabilitiesResourceArgs, AgentSpaceConfluenceCapabilitiesResourcePtr and AgentSpaceConfluenceCapabilitiesResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceConfluenceCapabilitiesResourcePtrInput` via:
+//
+//	        AgentSpaceConfluenceCapabilitiesResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceConfluenceCapabilitiesResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceConfluenceCapabilitiesResourcePtrOutput() AgentSpaceConfluenceCapabilitiesResourcePtrOutput
+	ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(context.Context) AgentSpaceConfluenceCapabilitiesResourcePtrOutput
+}
+
+type agentSpaceConfluenceCapabilitiesResourcePtrType AgentSpaceConfluenceCapabilitiesResourceArgs
+
+func AgentSpaceConfluenceCapabilitiesResourcePtr(v *AgentSpaceConfluenceCapabilitiesResourceArgs) AgentSpaceConfluenceCapabilitiesResourcePtrInput {
+	return (*agentSpaceConfluenceCapabilitiesResourcePtrType)(v)
+}
+
+func (*agentSpaceConfluenceCapabilitiesResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceConfluenceCapabilitiesResource)(nil)).Elem()
+}
+
+func (i *agentSpaceConfluenceCapabilitiesResourcePtrType) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutput() AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceConfluenceCapabilitiesResourcePtrType) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceCapabilitiesResourcePtrOutput)
+}
+
+// Confluence document capabilities
+type AgentSpaceConfluenceCapabilitiesResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceConfluenceCapabilitiesResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceConfluenceCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) ToAgentSpaceConfluenceCapabilitiesResourceOutput() AgentSpaceConfluenceCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) ToAgentSpaceConfluenceCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutput() AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return o.ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceConfluenceCapabilitiesResource) *AgentSpaceConfluenceCapabilitiesResource {
+		return &v
+	}).(AgentSpaceConfluenceCapabilitiesResourcePtrOutput)
+}
+
+// Enables creation of new Confluence documents in the same space
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) CreateDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceCapabilitiesResource) *bool { return v.CreateDocument }).(pulumi.BoolPtrOutput)
+}
+
+// Enables read access to the document content
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) FetchDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceCapabilitiesResource) *bool { return v.FetchDocument }).(pulumi.BoolPtrOutput)
+}
+
+// Enables updates to the document
+func (o AgentSpaceConfluenceCapabilitiesResourceOutput) UpdateDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceCapabilitiesResource) *bool { return v.UpdateDocument }).(pulumi.BoolPtrOutput)
+}
+
+type AgentSpaceConfluenceCapabilitiesResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceConfluenceCapabilitiesResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceConfluenceCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutput() AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) ToAgentSpaceConfluenceCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) Elem() AgentSpaceConfluenceCapabilitiesResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceCapabilitiesResource) AgentSpaceConfluenceCapabilitiesResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceConfluenceCapabilitiesResource
+		return ret
+	}).(AgentSpaceConfluenceCapabilitiesResourceOutput)
+}
+
+// Enables creation of new Confluence documents in the same space
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) CreateDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateDocument
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables read access to the document content
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) FetchDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FetchDocument
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables updates to the document
+func (o AgentSpaceConfluenceCapabilitiesResourcePtrOutput) UpdateDocument() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateDocument
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Confluence document details
+type AgentSpaceConfluenceDocumentResource struct {
+	// Customer-supplied logical name for the Confluence document
+	Name string `pulumi:"name"`
+	// Confluence page identifier
+	PageId string `pulumi:"pageId"`
+	// Confluence space key containing the document
+	SpaceKey string `pulumi:"spaceKey"`
+	// Read-only human-readable title of the containing space, populated from service-side metadata
+	SpaceTitle *string `pulumi:"spaceTitle"`
+	// Read-only human-readable title of the page, populated from service-side metadata
+	Title *string `pulumi:"title"`
+}
+
+// AgentSpaceConfluenceDocumentResourceInput is an input type that accepts AgentSpaceConfluenceDocumentResourceArgs and AgentSpaceConfluenceDocumentResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceConfluenceDocumentResourceInput` via:
+//
+//	AgentSpaceConfluenceDocumentResourceArgs{...}
+type AgentSpaceConfluenceDocumentResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceConfluenceDocumentResourceOutput() AgentSpaceConfluenceDocumentResourceOutput
+	ToAgentSpaceConfluenceDocumentResourceOutputWithContext(context.Context) AgentSpaceConfluenceDocumentResourceOutput
+}
+
+// Confluence document details
+type AgentSpaceConfluenceDocumentResourceArgs struct {
+	// Customer-supplied logical name for the Confluence document
+	Name pulumi.StringInput `pulumi:"name"`
+	// Confluence page identifier
+	PageId pulumi.StringInput `pulumi:"pageId"`
+	// Confluence space key containing the document
+	SpaceKey pulumi.StringInput `pulumi:"spaceKey"`
+	// Read-only human-readable title of the containing space, populated from service-side metadata
+	SpaceTitle pulumi.StringPtrInput `pulumi:"spaceTitle"`
+	// Read-only human-readable title of the page, populated from service-side metadata
+	Title pulumi.StringPtrInput `pulumi:"title"`
+}
+
+func (AgentSpaceConfluenceDocumentResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceConfluenceDocumentResource)(nil)).Elem()
+}
+
+func (i AgentSpaceConfluenceDocumentResourceArgs) ToAgentSpaceConfluenceDocumentResourceOutput() AgentSpaceConfluenceDocumentResourceOutput {
+	return i.ToAgentSpaceConfluenceDocumentResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceConfluenceDocumentResourceArgs) ToAgentSpaceConfluenceDocumentResourceOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceDocumentResourceOutput)
+}
+
+func (i AgentSpaceConfluenceDocumentResourceArgs) ToAgentSpaceConfluenceDocumentResourcePtrOutput() AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return i.ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceConfluenceDocumentResourceArgs) ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceDocumentResourceOutput).ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceConfluenceDocumentResourcePtrInput is an input type that accepts AgentSpaceConfluenceDocumentResourceArgs, AgentSpaceConfluenceDocumentResourcePtr and AgentSpaceConfluenceDocumentResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceConfluenceDocumentResourcePtrInput` via:
+//
+//	        AgentSpaceConfluenceDocumentResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceConfluenceDocumentResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceConfluenceDocumentResourcePtrOutput() AgentSpaceConfluenceDocumentResourcePtrOutput
+	ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(context.Context) AgentSpaceConfluenceDocumentResourcePtrOutput
+}
+
+type agentSpaceConfluenceDocumentResourcePtrType AgentSpaceConfluenceDocumentResourceArgs
+
+func AgentSpaceConfluenceDocumentResourcePtr(v *AgentSpaceConfluenceDocumentResourceArgs) AgentSpaceConfluenceDocumentResourcePtrInput {
+	return (*agentSpaceConfluenceDocumentResourcePtrType)(v)
+}
+
+func (*agentSpaceConfluenceDocumentResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceConfluenceDocumentResource)(nil)).Elem()
+}
+
+func (i *agentSpaceConfluenceDocumentResourcePtrType) ToAgentSpaceConfluenceDocumentResourcePtrOutput() AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return i.ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceConfluenceDocumentResourcePtrType) ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceConfluenceDocumentResourcePtrOutput)
+}
+
+// Confluence document details
+type AgentSpaceConfluenceDocumentResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceConfluenceDocumentResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceConfluenceDocumentResource)(nil)).Elem()
+}
+
+func (o AgentSpaceConfluenceDocumentResourceOutput) ToAgentSpaceConfluenceDocumentResourceOutput() AgentSpaceConfluenceDocumentResourceOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceDocumentResourceOutput) ToAgentSpaceConfluenceDocumentResourceOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourceOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceDocumentResourceOutput) ToAgentSpaceConfluenceDocumentResourcePtrOutput() AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return o.ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceConfluenceDocumentResourceOutput) ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceConfluenceDocumentResource) *AgentSpaceConfluenceDocumentResource {
+		return &v
+	}).(AgentSpaceConfluenceDocumentResourcePtrOutput)
+}
+
+// Customer-supplied logical name for the Confluence document
+func (o AgentSpaceConfluenceDocumentResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceDocumentResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Confluence page identifier
+func (o AgentSpaceConfluenceDocumentResourceOutput) PageId() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceDocumentResource) string { return v.PageId }).(pulumi.StringOutput)
+}
+
+// Confluence space key containing the document
+func (o AgentSpaceConfluenceDocumentResourceOutput) SpaceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceDocumentResource) string { return v.SpaceKey }).(pulumi.StringOutput)
+}
+
+// Read-only human-readable title of the containing space, populated from service-side metadata
+func (o AgentSpaceConfluenceDocumentResourceOutput) SpaceTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceDocumentResource) *string { return v.SpaceTitle }).(pulumi.StringPtrOutput)
+}
+
+// Read-only human-readable title of the page, populated from service-side metadata
+func (o AgentSpaceConfluenceDocumentResourceOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentSpaceConfluenceDocumentResource) *string { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+type AgentSpaceConfluenceDocumentResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceConfluenceDocumentResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceConfluenceDocumentResource)(nil)).Elem()
+}
+
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) ToAgentSpaceConfluenceDocumentResourcePtrOutput() AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) ToAgentSpaceConfluenceDocumentResourcePtrOutputWithContext(ctx context.Context) AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) Elem() AgentSpaceConfluenceDocumentResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) AgentSpaceConfluenceDocumentResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceConfluenceDocumentResource
+		return ret
+	}).(AgentSpaceConfluenceDocumentResourceOutput)
+}
+
+// Customer-supplied logical name for the Confluence document
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Confluence page identifier
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) PageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Confluence space key containing the document
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) SpaceKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SpaceKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only human-readable title of the containing space, populated from service-side metadata
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) SpaceTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceTitle
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only human-readable title of the page, populated from service-side metadata
+func (o AgentSpaceConfluenceDocumentResourcePtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceConfluenceDocumentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Title
+	}).(pulumi.StringPtrOutput)
 }
 
 // GitHub repository capabilities
@@ -725,6 +1437,324 @@ func (o AgentSpaceGitHubRepositoryResourcePtrOutput) Owner() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// GitLab repository capabilities
+type AgentSpaceGitLabCapabilitiesResource struct {
+	// Enables Code Review in the repository
+	LeaveComments *bool `pulumi:"leaveComments"`
+	// Enables creation of merge requests with automated fixes
+	RemediateCode *bool `pulumi:"remediateCode"`
+}
+
+// AgentSpaceGitLabCapabilitiesResourceInput is an input type that accepts AgentSpaceGitLabCapabilitiesResourceArgs and AgentSpaceGitLabCapabilitiesResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceGitLabCapabilitiesResourceInput` via:
+//
+//	AgentSpaceGitLabCapabilitiesResourceArgs{...}
+type AgentSpaceGitLabCapabilitiesResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceGitLabCapabilitiesResourceOutput() AgentSpaceGitLabCapabilitiesResourceOutput
+	ToAgentSpaceGitLabCapabilitiesResourceOutputWithContext(context.Context) AgentSpaceGitLabCapabilitiesResourceOutput
+}
+
+// GitLab repository capabilities
+type AgentSpaceGitLabCapabilitiesResourceArgs struct {
+	// Enables Code Review in the repository
+	LeaveComments pulumi.BoolPtrInput `pulumi:"leaveComments"`
+	// Enables creation of merge requests with automated fixes
+	RemediateCode pulumi.BoolPtrInput `pulumi:"remediateCode"`
+}
+
+func (AgentSpaceGitLabCapabilitiesResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceGitLabCapabilitiesResource)(nil)).Elem()
+}
+
+func (i AgentSpaceGitLabCapabilitiesResourceArgs) ToAgentSpaceGitLabCapabilitiesResourceOutput() AgentSpaceGitLabCapabilitiesResourceOutput {
+	return i.ToAgentSpaceGitLabCapabilitiesResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceGitLabCapabilitiesResourceArgs) ToAgentSpaceGitLabCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabCapabilitiesResourceOutput)
+}
+
+func (i AgentSpaceGitLabCapabilitiesResourceArgs) ToAgentSpaceGitLabCapabilitiesResourcePtrOutput() AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceGitLabCapabilitiesResourceArgs) ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabCapabilitiesResourceOutput).ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceGitLabCapabilitiesResourcePtrInput is an input type that accepts AgentSpaceGitLabCapabilitiesResourceArgs, AgentSpaceGitLabCapabilitiesResourcePtr and AgentSpaceGitLabCapabilitiesResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceGitLabCapabilitiesResourcePtrInput` via:
+//
+//	        AgentSpaceGitLabCapabilitiesResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceGitLabCapabilitiesResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceGitLabCapabilitiesResourcePtrOutput() AgentSpaceGitLabCapabilitiesResourcePtrOutput
+	ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(context.Context) AgentSpaceGitLabCapabilitiesResourcePtrOutput
+}
+
+type agentSpaceGitLabCapabilitiesResourcePtrType AgentSpaceGitLabCapabilitiesResourceArgs
+
+func AgentSpaceGitLabCapabilitiesResourcePtr(v *AgentSpaceGitLabCapabilitiesResourceArgs) AgentSpaceGitLabCapabilitiesResourcePtrInput {
+	return (*agentSpaceGitLabCapabilitiesResourcePtrType)(v)
+}
+
+func (*agentSpaceGitLabCapabilitiesResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceGitLabCapabilitiesResource)(nil)).Elem()
+}
+
+func (i *agentSpaceGitLabCapabilitiesResourcePtrType) ToAgentSpaceGitLabCapabilitiesResourcePtrOutput() AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return i.ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceGitLabCapabilitiesResourcePtrType) ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabCapabilitiesResourcePtrOutput)
+}
+
+// GitLab repository capabilities
+type AgentSpaceGitLabCapabilitiesResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceGitLabCapabilitiesResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceGitLabCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) ToAgentSpaceGitLabCapabilitiesResourceOutput() AgentSpaceGitLabCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) ToAgentSpaceGitLabCapabilitiesResourceOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourceOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) ToAgentSpaceGitLabCapabilitiesResourcePtrOutput() AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return o.ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceGitLabCapabilitiesResource) *AgentSpaceGitLabCapabilitiesResource {
+		return &v
+	}).(AgentSpaceGitLabCapabilitiesResourcePtrOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceGitLabCapabilitiesResource) *bool { return v.LeaveComments }).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of merge requests with automated fixes
+func (o AgentSpaceGitLabCapabilitiesResourceOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AgentSpaceGitLabCapabilitiesResource) *bool { return v.RemediateCode }).(pulumi.BoolPtrOutput)
+}
+
+type AgentSpaceGitLabCapabilitiesResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceGitLabCapabilitiesResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceGitLabCapabilitiesResource)(nil)).Elem()
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourcePtrOutput) ToAgentSpaceGitLabCapabilitiesResourcePtrOutput() AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourcePtrOutput) ToAgentSpaceGitLabCapabilitiesResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabCapabilitiesResourcePtrOutput) Elem() AgentSpaceGitLabCapabilitiesResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabCapabilitiesResource) AgentSpaceGitLabCapabilitiesResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceGitLabCapabilitiesResource
+		return ret
+	}).(AgentSpaceGitLabCapabilitiesResourceOutput)
+}
+
+// Enables Code Review in the repository
+func (o AgentSpaceGitLabCapabilitiesResourcePtrOutput) LeaveComments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LeaveComments
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of merge requests with automated fixes
+func (o AgentSpaceGitLabCapabilitiesResourcePtrOutput) RemediateCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabCapabilitiesResource) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemediateCode
+	}).(pulumi.BoolPtrOutput)
+}
+
+// GitLab repository details
+type AgentSpaceGitLabRepositoryResource struct {
+	// GitLab project name
+	Name string `pulumi:"name"`
+	// GitLab project namespace (user, group, or subgroup path)
+	Namespace string `pulumi:"namespace"`
+}
+
+// AgentSpaceGitLabRepositoryResourceInput is an input type that accepts AgentSpaceGitLabRepositoryResourceArgs and AgentSpaceGitLabRepositoryResourceOutput values.
+// You can construct a concrete instance of `AgentSpaceGitLabRepositoryResourceInput` via:
+//
+//	AgentSpaceGitLabRepositoryResourceArgs{...}
+type AgentSpaceGitLabRepositoryResourceInput interface {
+	pulumi.Input
+
+	ToAgentSpaceGitLabRepositoryResourceOutput() AgentSpaceGitLabRepositoryResourceOutput
+	ToAgentSpaceGitLabRepositoryResourceOutputWithContext(context.Context) AgentSpaceGitLabRepositoryResourceOutput
+}
+
+// GitLab repository details
+type AgentSpaceGitLabRepositoryResourceArgs struct {
+	// GitLab project name
+	Name pulumi.StringInput `pulumi:"name"`
+	// GitLab project namespace (user, group, or subgroup path)
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+}
+
+func (AgentSpaceGitLabRepositoryResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceGitLabRepositoryResource)(nil)).Elem()
+}
+
+func (i AgentSpaceGitLabRepositoryResourceArgs) ToAgentSpaceGitLabRepositoryResourceOutput() AgentSpaceGitLabRepositoryResourceOutput {
+	return i.ToAgentSpaceGitLabRepositoryResourceOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceGitLabRepositoryResourceArgs) ToAgentSpaceGitLabRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabRepositoryResourceOutput)
+}
+
+func (i AgentSpaceGitLabRepositoryResourceArgs) ToAgentSpaceGitLabRepositoryResourcePtrOutput() AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AgentSpaceGitLabRepositoryResourceArgs) ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabRepositoryResourceOutput).ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(ctx)
+}
+
+// AgentSpaceGitLabRepositoryResourcePtrInput is an input type that accepts AgentSpaceGitLabRepositoryResourceArgs, AgentSpaceGitLabRepositoryResourcePtr and AgentSpaceGitLabRepositoryResourcePtrOutput values.
+// You can construct a concrete instance of `AgentSpaceGitLabRepositoryResourcePtrInput` via:
+//
+//	        AgentSpaceGitLabRepositoryResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentSpaceGitLabRepositoryResourcePtrInput interface {
+	pulumi.Input
+
+	ToAgentSpaceGitLabRepositoryResourcePtrOutput() AgentSpaceGitLabRepositoryResourcePtrOutput
+	ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(context.Context) AgentSpaceGitLabRepositoryResourcePtrOutput
+}
+
+type agentSpaceGitLabRepositoryResourcePtrType AgentSpaceGitLabRepositoryResourceArgs
+
+func AgentSpaceGitLabRepositoryResourcePtr(v *AgentSpaceGitLabRepositoryResourceArgs) AgentSpaceGitLabRepositoryResourcePtrInput {
+	return (*agentSpaceGitLabRepositoryResourcePtrType)(v)
+}
+
+func (*agentSpaceGitLabRepositoryResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceGitLabRepositoryResource)(nil)).Elem()
+}
+
+func (i *agentSpaceGitLabRepositoryResourcePtrType) ToAgentSpaceGitLabRepositoryResourcePtrOutput() AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return i.ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *agentSpaceGitLabRepositoryResourcePtrType) ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceGitLabRepositoryResourcePtrOutput)
+}
+
+// GitLab repository details
+type AgentSpaceGitLabRepositoryResourceOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceGitLabRepositoryResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentSpaceGitLabRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceGitLabRepositoryResourceOutput) ToAgentSpaceGitLabRepositoryResourceOutput() AgentSpaceGitLabRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabRepositoryResourceOutput) ToAgentSpaceGitLabRepositoryResourceOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourceOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabRepositoryResourceOutput) ToAgentSpaceGitLabRepositoryResourcePtrOutput() AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return o.ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AgentSpaceGitLabRepositoryResourceOutput) ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentSpaceGitLabRepositoryResource) *AgentSpaceGitLabRepositoryResource {
+		return &v
+	}).(AgentSpaceGitLabRepositoryResourcePtrOutput)
+}
+
+// GitLab project name
+func (o AgentSpaceGitLabRepositoryResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceGitLabRepositoryResource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// GitLab project namespace (user, group, or subgroup path)
+func (o AgentSpaceGitLabRepositoryResourceOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentSpaceGitLabRepositoryResource) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+type AgentSpaceGitLabRepositoryResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AgentSpaceGitLabRepositoryResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentSpaceGitLabRepositoryResource)(nil)).Elem()
+}
+
+func (o AgentSpaceGitLabRepositoryResourcePtrOutput) ToAgentSpaceGitLabRepositoryResourcePtrOutput() AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabRepositoryResourcePtrOutput) ToAgentSpaceGitLabRepositoryResourcePtrOutputWithContext(ctx context.Context) AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return o
+}
+
+func (o AgentSpaceGitLabRepositoryResourcePtrOutput) Elem() AgentSpaceGitLabRepositoryResourceOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabRepositoryResource) AgentSpaceGitLabRepositoryResource {
+		if v != nil {
+			return *v
+		}
+		var ret AgentSpaceGitLabRepositoryResource
+		return ret
+	}).(AgentSpaceGitLabRepositoryResourceOutput)
+}
+
+// GitLab project name
+func (o AgentSpaceGitLabRepositoryResourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitLab project namespace (user, group, or subgroup path)
+func (o AgentSpaceGitLabRepositoryResourcePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentSpaceGitLabRepositoryResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
 // Integrated Resource details
 type AgentSpaceIntegratedResource struct {
 	// Unique identifier of the Provider Integration
@@ -834,10 +1864,16 @@ func (o AgentSpaceIntegratedResourceArrayOutput) Index(i pulumi.IntInput) AgentS
 	}).(AgentSpaceIntegratedResourceOutput)
 }
 
-// Selected Resource (eg: Code Repository) from an Integration
+// Selected Resource (eg: Code Repository, Document) from an Integration
 type AgentSpaceProviderResource struct {
-	GitHubCapabilities *AgentSpaceGitHubCapabilitiesResource `pulumi:"gitHubCapabilities"`
-	GitHubRepository   *AgentSpaceGitHubRepositoryResource   `pulumi:"gitHubRepository"`
+	BitbucketCapabilities  *AgentSpaceBitbucketCapabilitiesResource  `pulumi:"bitbucketCapabilities"`
+	BitbucketRepository    *AgentSpaceBitbucketRepositoryResource    `pulumi:"bitbucketRepository"`
+	ConfluenceCapabilities *AgentSpaceConfluenceCapabilitiesResource `pulumi:"confluenceCapabilities"`
+	ConfluenceDocument     *AgentSpaceConfluenceDocumentResource     `pulumi:"confluenceDocument"`
+	GitHubCapabilities     *AgentSpaceGitHubCapabilitiesResource     `pulumi:"gitHubCapabilities"`
+	GitHubRepository       *AgentSpaceGitHubRepositoryResource       `pulumi:"gitHubRepository"`
+	GitLabCapabilities     *AgentSpaceGitLabCapabilitiesResource     `pulumi:"gitLabCapabilities"`
+	GitLabRepository       *AgentSpaceGitLabRepositoryResource       `pulumi:"gitLabRepository"`
 }
 
 // AgentSpaceProviderResourceInput is an input type that accepts AgentSpaceProviderResourceArgs and AgentSpaceProviderResourceOutput values.
@@ -851,10 +1887,16 @@ type AgentSpaceProviderResourceInput interface {
 	ToAgentSpaceProviderResourceOutputWithContext(context.Context) AgentSpaceProviderResourceOutput
 }
 
-// Selected Resource (eg: Code Repository) from an Integration
+// Selected Resource (eg: Code Repository, Document) from an Integration
 type AgentSpaceProviderResourceArgs struct {
-	GitHubCapabilities AgentSpaceGitHubCapabilitiesResourcePtrInput `pulumi:"gitHubCapabilities"`
-	GitHubRepository   AgentSpaceGitHubRepositoryResourcePtrInput   `pulumi:"gitHubRepository"`
+	BitbucketCapabilities  AgentSpaceBitbucketCapabilitiesResourcePtrInput  `pulumi:"bitbucketCapabilities"`
+	BitbucketRepository    AgentSpaceBitbucketRepositoryResourcePtrInput    `pulumi:"bitbucketRepository"`
+	ConfluenceCapabilities AgentSpaceConfluenceCapabilitiesResourcePtrInput `pulumi:"confluenceCapabilities"`
+	ConfluenceDocument     AgentSpaceConfluenceDocumentResourcePtrInput     `pulumi:"confluenceDocument"`
+	GitHubCapabilities     AgentSpaceGitHubCapabilitiesResourcePtrInput     `pulumi:"gitHubCapabilities"`
+	GitHubRepository       AgentSpaceGitHubRepositoryResourcePtrInput       `pulumi:"gitHubRepository"`
+	GitLabCapabilities     AgentSpaceGitLabCapabilitiesResourcePtrInput     `pulumi:"gitLabCapabilities"`
+	GitLabRepository       AgentSpaceGitLabRepositoryResourcePtrInput       `pulumi:"gitLabRepository"`
 }
 
 func (AgentSpaceProviderResourceArgs) ElementType() reflect.Type {
@@ -894,7 +1936,7 @@ func (i AgentSpaceProviderResourceArray) ToAgentSpaceProviderResourceArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AgentSpaceProviderResourceArrayOutput)
 }
 
-// Selected Resource (eg: Code Repository) from an Integration
+// Selected Resource (eg: Code Repository, Document) from an Integration
 type AgentSpaceProviderResourceOutput struct{ *pulumi.OutputState }
 
 func (AgentSpaceProviderResourceOutput) ElementType() reflect.Type {
@@ -909,12 +1951,42 @@ func (o AgentSpaceProviderResourceOutput) ToAgentSpaceProviderResourceOutputWith
 	return o
 }
 
+func (o AgentSpaceProviderResourceOutput) BitbucketCapabilities() AgentSpaceBitbucketCapabilitiesResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceBitbucketCapabilitiesResource {
+		return v.BitbucketCapabilities
+	}).(AgentSpaceBitbucketCapabilitiesResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) BitbucketRepository() AgentSpaceBitbucketRepositoryResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceBitbucketRepositoryResource {
+		return v.BitbucketRepository
+	}).(AgentSpaceBitbucketRepositoryResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) ConfluenceCapabilities() AgentSpaceConfluenceCapabilitiesResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceConfluenceCapabilitiesResource {
+		return v.ConfluenceCapabilities
+	}).(AgentSpaceConfluenceCapabilitiesResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) ConfluenceDocument() AgentSpaceConfluenceDocumentResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceConfluenceDocumentResource { return v.ConfluenceDocument }).(AgentSpaceConfluenceDocumentResourcePtrOutput)
+}
+
 func (o AgentSpaceProviderResourceOutput) GitHubCapabilities() AgentSpaceGitHubCapabilitiesResourcePtrOutput {
 	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceGitHubCapabilitiesResource { return v.GitHubCapabilities }).(AgentSpaceGitHubCapabilitiesResourcePtrOutput)
 }
 
 func (o AgentSpaceProviderResourceOutput) GitHubRepository() AgentSpaceGitHubRepositoryResourcePtrOutput {
 	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceGitHubRepositoryResource { return v.GitHubRepository }).(AgentSpaceGitHubRepositoryResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) GitLabCapabilities() AgentSpaceGitLabCapabilitiesResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceGitLabCapabilitiesResource { return v.GitLabCapabilities }).(AgentSpaceGitLabCapabilitiesResourcePtrOutput)
+}
+
+func (o AgentSpaceProviderResourceOutput) GitLabRepository() AgentSpaceGitLabRepositoryResourcePtrOutput {
+	return o.ApplyT(func(v AgentSpaceProviderResource) *AgentSpaceGitLabRepositoryResource { return v.GitLabRepository }).(AgentSpaceGitLabRepositoryResourcePtrOutput)
 }
 
 type AgentSpaceProviderResourceArrayOutput struct{ *pulumi.OutputState }
@@ -1938,7 +3010,7 @@ func (o PentestCustomHeaderArrayOutput) Index(i pulumi.IntInput) PentestCustomHe
 	}).(PentestCustomHeaderOutput)
 }
 
-// A document stored in S3 that provides context for the pentest
+// A document attached to the pentest, uploaded to S3
 type PentestDocumentInfo struct {
 	// Artifact identifier
 	ArtifactId *string `pulumi:"artifactId"`
@@ -1957,7 +3029,7 @@ type PentestDocumentInfoInput interface {
 	ToPentestDocumentInfoOutputWithContext(context.Context) PentestDocumentInfoOutput
 }
 
-// A document stored in S3 that provides context for the pentest
+// A document attached to the pentest, uploaded to S3
 type PentestDocumentInfoArgs struct {
 	// Artifact identifier
 	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
@@ -2002,7 +3074,7 @@ func (i PentestDocumentInfoArray) ToPentestDocumentInfoArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PentestDocumentInfoArrayOutput)
 }
 
-// A document stored in S3 that provides context for the pentest
+// A document attached to the pentest, uploaded to S3
 type PentestDocumentInfoOutput struct{ *pulumi.OutputState }
 
 func (PentestDocumentInfoOutput) ElementType() reflect.Type {
@@ -2809,6 +3881,147 @@ func (o PentestVpcConfigPtrOutput) VpcArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SecurityRequirementPackSecurityRequirement struct {
+	// Description of the security requirement
+	Description string `pulumi:"description"`
+	// Security domain this requirement belongs to
+	Domain string `pulumi:"domain"`
+	// How to evaluate compliance with this requirement
+	Evaluation string `pulumi:"evaluation"`
+	// Name of the security requirement
+	Name string `pulumi:"name"`
+	// How to remediate non-compliance
+	Remediation *string `pulumi:"remediation"`
+}
+
+// SecurityRequirementPackSecurityRequirementInput is an input type that accepts SecurityRequirementPackSecurityRequirementArgs and SecurityRequirementPackSecurityRequirementOutput values.
+// You can construct a concrete instance of `SecurityRequirementPackSecurityRequirementInput` via:
+//
+//	SecurityRequirementPackSecurityRequirementArgs{...}
+type SecurityRequirementPackSecurityRequirementInput interface {
+	pulumi.Input
+
+	ToSecurityRequirementPackSecurityRequirementOutput() SecurityRequirementPackSecurityRequirementOutput
+	ToSecurityRequirementPackSecurityRequirementOutputWithContext(context.Context) SecurityRequirementPackSecurityRequirementOutput
+}
+
+type SecurityRequirementPackSecurityRequirementArgs struct {
+	// Description of the security requirement
+	Description pulumi.StringInput `pulumi:"description"`
+	// Security domain this requirement belongs to
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// How to evaluate compliance with this requirement
+	Evaluation pulumi.StringInput `pulumi:"evaluation"`
+	// Name of the security requirement
+	Name pulumi.StringInput `pulumi:"name"`
+	// How to remediate non-compliance
+	Remediation pulumi.StringPtrInput `pulumi:"remediation"`
+}
+
+func (SecurityRequirementPackSecurityRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRequirementPackSecurityRequirement)(nil)).Elem()
+}
+
+func (i SecurityRequirementPackSecurityRequirementArgs) ToSecurityRequirementPackSecurityRequirementOutput() SecurityRequirementPackSecurityRequirementOutput {
+	return i.ToSecurityRequirementPackSecurityRequirementOutputWithContext(context.Background())
+}
+
+func (i SecurityRequirementPackSecurityRequirementArgs) ToSecurityRequirementPackSecurityRequirementOutputWithContext(ctx context.Context) SecurityRequirementPackSecurityRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityRequirementPackSecurityRequirementOutput)
+}
+
+// SecurityRequirementPackSecurityRequirementArrayInput is an input type that accepts SecurityRequirementPackSecurityRequirementArray and SecurityRequirementPackSecurityRequirementArrayOutput values.
+// You can construct a concrete instance of `SecurityRequirementPackSecurityRequirementArrayInput` via:
+//
+//	SecurityRequirementPackSecurityRequirementArray{ SecurityRequirementPackSecurityRequirementArgs{...} }
+type SecurityRequirementPackSecurityRequirementArrayInput interface {
+	pulumi.Input
+
+	ToSecurityRequirementPackSecurityRequirementArrayOutput() SecurityRequirementPackSecurityRequirementArrayOutput
+	ToSecurityRequirementPackSecurityRequirementArrayOutputWithContext(context.Context) SecurityRequirementPackSecurityRequirementArrayOutput
+}
+
+type SecurityRequirementPackSecurityRequirementArray []SecurityRequirementPackSecurityRequirementInput
+
+func (SecurityRequirementPackSecurityRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityRequirementPackSecurityRequirement)(nil)).Elem()
+}
+
+func (i SecurityRequirementPackSecurityRequirementArray) ToSecurityRequirementPackSecurityRequirementArrayOutput() SecurityRequirementPackSecurityRequirementArrayOutput {
+	return i.ToSecurityRequirementPackSecurityRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityRequirementPackSecurityRequirementArray) ToSecurityRequirementPackSecurityRequirementArrayOutputWithContext(ctx context.Context) SecurityRequirementPackSecurityRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityRequirementPackSecurityRequirementArrayOutput)
+}
+
+type SecurityRequirementPackSecurityRequirementOutput struct{ *pulumi.OutputState }
+
+func (SecurityRequirementPackSecurityRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityRequirementPackSecurityRequirement)(nil)).Elem()
+}
+
+func (o SecurityRequirementPackSecurityRequirementOutput) ToSecurityRequirementPackSecurityRequirementOutput() SecurityRequirementPackSecurityRequirementOutput {
+	return o
+}
+
+func (o SecurityRequirementPackSecurityRequirementOutput) ToSecurityRequirementPackSecurityRequirementOutputWithContext(ctx context.Context) SecurityRequirementPackSecurityRequirementOutput {
+	return o
+}
+
+// Description of the security requirement
+func (o SecurityRequirementPackSecurityRequirementOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityRequirementPackSecurityRequirement) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Security domain this requirement belongs to
+func (o SecurityRequirementPackSecurityRequirementOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityRequirementPackSecurityRequirement) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// How to evaluate compliance with this requirement
+func (o SecurityRequirementPackSecurityRequirementOutput) Evaluation() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityRequirementPackSecurityRequirement) string { return v.Evaluation }).(pulumi.StringOutput)
+}
+
+// Name of the security requirement
+func (o SecurityRequirementPackSecurityRequirementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityRequirementPackSecurityRequirement) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// How to remediate non-compliance
+func (o SecurityRequirementPackSecurityRequirementOutput) Remediation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityRequirementPackSecurityRequirement) *string { return v.Remediation }).(pulumi.StringPtrOutput)
+}
+
+type SecurityRequirementPackSecurityRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityRequirementPackSecurityRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityRequirementPackSecurityRequirement)(nil)).Elem()
+}
+
+func (o SecurityRequirementPackSecurityRequirementArrayOutput) ToSecurityRequirementPackSecurityRequirementArrayOutput() SecurityRequirementPackSecurityRequirementArrayOutput {
+	return o
+}
+
+func (o SecurityRequirementPackSecurityRequirementArrayOutput) ToSecurityRequirementPackSecurityRequirementArrayOutputWithContext(ctx context.Context) SecurityRequirementPackSecurityRequirementArrayOutput {
+	return o
+}
+
+func (o SecurityRequirementPackSecurityRequirementArrayOutput) Index(i pulumi.IntInput) SecurityRequirementPackSecurityRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityRequirementPackSecurityRequirement {
+		return vs[0].([]SecurityRequirementPackSecurityRequirement)[vs[1].(int)]
+	}).(SecurityRequirementPackSecurityRequirementOutput)
+}
+
+// A key-value pair to associate with a resource
+type SecurityRequirementPackTag struct {
+	// The key name of the tag
+	Key string `pulumi:"key"`
+	// The value for the tag
+	Value string `pulumi:"value"`
+}
+
 // Represents DNS TXT verification details
 type TargetDomainDnsVerification struct {
 	// Record name to be added in DNS for target domain
@@ -3079,12 +4292,24 @@ func (o TargetDomainVerificationDetailsPtrOutput) Method() TargetDomainVerificat
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAwsResourcesInput)(nil)).Elem(), AgentSpaceAwsResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceAwsResourcesPtrInput)(nil)).Elem(), AgentSpaceAwsResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceBitbucketCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceBitbucketCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketRepositoryResourceInput)(nil)).Elem(), AgentSpaceBitbucketRepositoryResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceBitbucketRepositoryResourcePtrInput)(nil)).Elem(), AgentSpaceBitbucketRepositoryResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceCodeReviewSettingsInput)(nil)).Elem(), AgentSpaceCodeReviewSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceCodeReviewSettingsPtrInput)(nil)).Elem(), AgentSpaceCodeReviewSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceConfluenceCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceConfluenceCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceConfluenceCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceConfluenceCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceConfluenceDocumentResourceInput)(nil)).Elem(), AgentSpaceConfluenceDocumentResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceConfluenceDocumentResourcePtrInput)(nil)).Elem(), AgentSpaceConfluenceDocumentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitHubCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceGitHubCapabilitiesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitHubCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceGitHubCapabilitiesResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitHubRepositoryResourceInput)(nil)).Elem(), AgentSpaceGitHubRepositoryResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitHubRepositoryResourcePtrInput)(nil)).Elem(), AgentSpaceGitHubRepositoryResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitLabCapabilitiesResourceInput)(nil)).Elem(), AgentSpaceGitLabCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitLabCapabilitiesResourcePtrInput)(nil)).Elem(), AgentSpaceGitLabCapabilitiesResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitLabRepositoryResourceInput)(nil)).Elem(), AgentSpaceGitLabRepositoryResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceGitLabRepositoryResourcePtrInput)(nil)).Elem(), AgentSpaceGitLabRepositoryResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIntegratedResourceInput)(nil)).Elem(), AgentSpaceIntegratedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceIntegratedResourceArrayInput)(nil)).Elem(), AgentSpaceIntegratedResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentSpaceProviderResourceInput)(nil)).Elem(), AgentSpaceProviderResourceArgs{})
@@ -3116,14 +4341,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSourceCodeRepositoryArrayInput)(nil)).Elem(), PentestSourceCodeRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigInput)(nil)).Elem(), PentestVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigPtrInput)(nil)).Elem(), PentestVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementArrayInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArray{})
 	pulumi.RegisterOutputType(AgentSpaceAwsResourcesOutput{})
 	pulumi.RegisterOutputType(AgentSpaceAwsResourcesPtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceBitbucketCapabilitiesResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceBitbucketCapabilitiesResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceBitbucketRepositoryResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceBitbucketRepositoryResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceCodeReviewSettingsOutput{})
 	pulumi.RegisterOutputType(AgentSpaceCodeReviewSettingsPtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceConfluenceCapabilitiesResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceConfluenceCapabilitiesResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceConfluenceDocumentResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceConfluenceDocumentResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceGitHubCapabilitiesResourceOutput{})
 	pulumi.RegisterOutputType(AgentSpaceGitHubCapabilitiesResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceGitHubRepositoryResourceOutput{})
 	pulumi.RegisterOutputType(AgentSpaceGitHubRepositoryResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceGitLabCapabilitiesResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceGitLabCapabilitiesResourcePtrOutput{})
+	pulumi.RegisterOutputType(AgentSpaceGitLabRepositoryResourceOutput{})
+	pulumi.RegisterOutputType(AgentSpaceGitLabRepositoryResourcePtrOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIntegratedResourceOutput{})
 	pulumi.RegisterOutputType(AgentSpaceIntegratedResourceArrayOutput{})
 	pulumi.RegisterOutputType(AgentSpaceProviderResourceOutput{})
@@ -3156,6 +4395,8 @@ func init() {
 	pulumi.RegisterOutputType(PentestSourceCodeRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(SecurityRequirementPackSecurityRequirementOutput{})
+	pulumi.RegisterOutputType(SecurityRequirementPackSecurityRequirementArrayOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationOutput{})
 	pulumi.RegisterOutputType(TargetDomainDnsVerificationPtrOutput{})
 	pulumi.RegisterOutputType(TargetDomainHttpVerificationOutput{})

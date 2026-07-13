@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     replicationSpecification: {
  *         replicationStrategy: aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MultiRegion,
  *         regionList: [
- *             aws_native.cassandra.KeyspaceRegionListItem.UsEast1,
- *             aws_native.cassandra.KeyspaceRegionListItem.UsWest2,
- *             aws_native.cassandra.KeyspaceRegionListItem.EuWest1,
+ *             "us-east-1",
+ *             "us-west-2",
+ *             "eu-west-1",
  *         ],
  *     },
  * });
@@ -62,9 +62,9 @@ import * as utilities from "../utilities";
  *     replicationSpecification: {
  *         replicationStrategy: aws_native.cassandra.KeyspaceReplicationSpecificationReplicationStrategy.MultiRegion,
  *         regionList: [
- *             aws_native.cassandra.KeyspaceRegionListItem.UsEast1,
- *             aws_native.cassandra.KeyspaceRegionListItem.UsWest2,
- *             aws_native.cassandra.KeyspaceRegionListItem.EuWest1,
+ *             "us-east-1",
+ *             "us-west-2",
+ *             "eu-west-1",
  *         ],
  *     },
  * });

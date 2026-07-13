@@ -29,14 +29,35 @@
         }
       },
       "required" : [ "ParameterName", "ParameterValue" ]
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Value", "Key" ]
     }
   },
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "config:TagResource", "config:UntagResource", "config:ListTagsForResource" ]
   },
   "properties" : {
     "ConformancePackName" : {
@@ -96,25 +117,39 @@
       },
       "minItems" : 0,
       "maxItems" : 60
+    },
+    "ConformancePackArn" : {
+      "description" : "Amazon Resource Name (ARN) of the conformance pack.",
+      "type" : "string"
+    },
+    "Tags" : {
+      "description" : "The tags for the conformance pack.",
+      "type" : "array",
+      "maxItems" : 50,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "additionalProperties" : false,
   "required" : [ "ConformancePackName" ],
+  "readOnlyProperties" : [ "/properties/ConformancePackArn" ],
   "writeOnlyProperties" : [ "/properties/TemplateBody", "/properties/TemplateS3Uri", "/properties/TemplateSSMDocumentDetails" ],
   "createOnlyProperties" : [ "/properties/ConformancePackName" ],
   "primaryIdentifier" : [ "/properties/ConformancePackName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "config:DescribeConformancePacks", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "config:DescribeConformancePacks", "config:TagResource", "config:ListTagsForResource", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "config:DescribeConformancePacks" ]
+      "permissions" : [ "config:DescribeConformancePacks", "config:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
+      "permissions" : [ "config:PutConformancePack", "config:DescribeConformancePackStatus", "config:DescribeConformancePacks", "config:TagResource", "config:UntagResource", "config:ListTagsForResource", "s3:GetObject", "s3:GetBucketAcl", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "config:DeleteConformancePack", "config:DescribeConformancePackStatus" ]
+      "permissions" : [ "config:DeleteConformancePack", "config:DescribeConformancePackStatus", "config:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "config:DescribeConformancePacks" ]

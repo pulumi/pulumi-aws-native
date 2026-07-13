@@ -109,7 +109,6 @@ namespace Pulumi.AwsNative.Bedrock
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "forceDelete",
                     "kmsKeyId",
                 },
             };

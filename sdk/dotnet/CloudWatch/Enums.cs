@@ -40,6 +40,37 @@ namespace Pulumi.AwsNative.CloudWatch
     }
 
     /// <summary>
+    /// The current state of the rule. Valid values are `ENABLED` and `DISABLED` .
+    /// </summary>
+    [EnumType]
+    public readonly struct InsightRuleRuleState : IEquatable<InsightRuleRuleState>
+    {
+        private readonly string _value;
+
+        private InsightRuleRuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InsightRuleRuleState Enabled { get; } = new InsightRuleRuleState("ENABLED");
+        public static InsightRuleRuleState Disabled { get; } = new InsightRuleRuleState("DISABLED");
+
+        public static bool operator ==(InsightRuleRuleState left, InsightRuleRuleState right) => left.Equals(right);
+        public static bool operator !=(InsightRuleRuleState left, InsightRuleRuleState right) => !left.Equals(right);
+
+        public static explicit operator string(InsightRuleRuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InsightRuleRuleState other && Equals(other);
+        public bool Equals(InsightRuleRuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Current status of OTel enrichment (RUNNING or STOPPED).
     /// </summary>
     [EnumType]

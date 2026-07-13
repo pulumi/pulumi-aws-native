@@ -50237,6 +50237,153 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowPermission struct {
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
+}
+
+// FlowPermissionInput is an input type that accepts FlowPermissionArgs and FlowPermissionOutput values.
+// You can construct a concrete instance of `FlowPermissionInput` via:
+//
+//	FlowPermissionArgs{...}
+type FlowPermissionInput interface {
+	pulumi.Input
+
+	ToFlowPermissionOutput() FlowPermissionOutput
+	ToFlowPermissionOutputWithContext(context.Context) FlowPermissionOutput
+}
+
+type FlowPermissionArgs struct {
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
+}
+
+func (FlowPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPermission)(nil)).Elem()
+}
+
+func (i FlowPermissionArgs) ToFlowPermissionOutput() FlowPermissionOutput {
+	return i.ToFlowPermissionOutputWithContext(context.Background())
+}
+
+func (i FlowPermissionArgs) ToFlowPermissionOutputWithContext(ctx context.Context) FlowPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPermissionOutput)
+}
+
+// FlowPermissionArrayInput is an input type that accepts FlowPermissionArray and FlowPermissionArrayOutput values.
+// You can construct a concrete instance of `FlowPermissionArrayInput` via:
+//
+//	FlowPermissionArray{ FlowPermissionArgs{...} }
+type FlowPermissionArrayInput interface {
+	pulumi.Input
+
+	ToFlowPermissionArrayOutput() FlowPermissionArrayOutput
+	ToFlowPermissionArrayOutputWithContext(context.Context) FlowPermissionArrayOutput
+}
+
+type FlowPermissionArray []FlowPermissionInput
+
+func (FlowPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowPermission)(nil)).Elem()
+}
+
+func (i FlowPermissionArray) ToFlowPermissionArrayOutput() FlowPermissionArrayOutput {
+	return i.ToFlowPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i FlowPermissionArray) ToFlowPermissionArrayOutputWithContext(ctx context.Context) FlowPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowPermissionArrayOutput)
+}
+
+type FlowPermissionOutput struct{ *pulumi.OutputState }
+
+func (FlowPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowPermission)(nil)).Elem()
+}
+
+func (o FlowPermissionOutput) ToFlowPermissionOutput() FlowPermissionOutput {
+	return o
+}
+
+func (o FlowPermissionOutput) ToFlowPermissionOutputWithContext(ctx context.Context) FlowPermissionOutput {
+	return o
+}
+
+func (o FlowPermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o FlowPermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowPermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+type FlowPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowPermission)(nil)).Elem()
+}
+
+func (o FlowPermissionArrayOutput) ToFlowPermissionArrayOutput() FlowPermissionArrayOutput {
+	return o
+}
+
+func (o FlowPermissionArrayOutput) ToFlowPermissionArrayOutputWithContext(ctx context.Context) FlowPermissionArrayOutput {
+	return o
+}
+
+func (o FlowPermissionArrayOutput) Index(i pulumi.IntInput) FlowPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowPermission {
+		return vs[0].([]FlowPermission)[vs[1].(int)]
+	}).(FlowPermissionOutput)
+}
+
+type FlowStepAliasMapping struct {
+	StepAlias string `pulumi:"stepAlias"`
+	StepId    string `pulumi:"stepId"`
+}
+
+type FlowStepAliasMappingOutput struct{ *pulumi.OutputState }
+
+func (FlowStepAliasMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowStepAliasMapping)(nil)).Elem()
+}
+
+func (o FlowStepAliasMappingOutput) ToFlowStepAliasMappingOutput() FlowStepAliasMappingOutput {
+	return o
+}
+
+func (o FlowStepAliasMappingOutput) ToFlowStepAliasMappingOutputWithContext(ctx context.Context) FlowStepAliasMappingOutput {
+	return o
+}
+
+func (o FlowStepAliasMappingOutput) StepAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowStepAliasMapping) string { return v.StepAlias }).(pulumi.StringOutput)
+}
+
+func (o FlowStepAliasMappingOutput) StepId() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowStepAliasMapping) string { return v.StepId }).(pulumi.StringOutput)
+}
+
+type FlowStepAliasMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowStepAliasMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowStepAliasMapping)(nil)).Elem()
+}
+
+func (o FlowStepAliasMappingArrayOutput) ToFlowStepAliasMappingArrayOutput() FlowStepAliasMappingArrayOutput {
+	return o
+}
+
+func (o FlowStepAliasMappingArrayOutput) ToFlowStepAliasMappingArrayOutputWithContext(ctx context.Context) FlowStepAliasMappingArrayOutput {
+	return o
+}
+
+func (o FlowStepAliasMappingArrayOutput) Index(i pulumi.IntInput) FlowStepAliasMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowStepAliasMapping {
+		return vs[0].([]FlowStepAliasMapping)[vs[1].(int)]
+	}).(FlowStepAliasMappingOutput)
+}
+
 // <p>Permission for the resource.</p>
 type FolderResourcePermission struct {
 	// <p>The IAM action to grant or revoke permissions on.</p>
@@ -50396,6 +50543,146 @@ type FolderTag struct {
 	// <p>Tag key.</p>
 	Key string `pulumi:"key"`
 	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+type OAuthClientApplicationIdentityProviderVpcConnectionProperties struct {
+	VpcConnectionArn string `pulumi:"vpcConnectionArn"`
+}
+
+// OAuthClientApplicationIdentityProviderVpcConnectionPropertiesInput is an input type that accepts OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs and OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput values.
+// You can construct a concrete instance of `OAuthClientApplicationIdentityProviderVpcConnectionPropertiesInput` via:
+//
+//	OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{...}
+type OAuthClientApplicationIdentityProviderVpcConnectionPropertiesInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput
+	ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutputWithContext(context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput
+}
+
+type OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs struct {
+	VpcConnectionArn pulumi.StringInput `pulumi:"vpcConnectionArn"`
+}
+
+func (OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionProperties)(nil)).Elem()
+}
+
+func (i OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput {
+	return i.ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutputWithContext(context.Background())
+}
+
+func (i OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput)
+}
+
+func (i OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return i.ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput).ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(ctx)
+}
+
+// OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput is an input type that accepts OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs, OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtr and OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput values.
+// You can construct a concrete instance of `OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput` via:
+//
+//	        OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput
+	ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput
+}
+
+type oauthClientApplicationIdentityProviderVpcConnectionPropertiesPtrType OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs
+
+func OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtr(v *OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput {
+	return (*oauthClientApplicationIdentityProviderVpcConnectionPropertiesPtrType)(v)
+}
+
+func (*oauthClientApplicationIdentityProviderVpcConnectionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthClientApplicationIdentityProviderVpcConnectionProperties)(nil)).Elem()
+}
+
+func (i *oauthClientApplicationIdentityProviderVpcConnectionPropertiesPtrType) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return i.ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *oauthClientApplicationIdentityProviderVpcConnectionPropertiesPtrType) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput)
+}
+
+type OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionProperties)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput {
+	return o
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput {
+	return o
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return o.ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuthClientApplicationIdentityProviderVpcConnectionProperties) *OAuthClientApplicationIdentityProviderVpcConnectionProperties {
+		return &v
+	}).(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput)
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput) VpcConnectionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OAuthClientApplicationIdentityProviderVpcConnectionProperties) string {
+		return v.VpcConnectionArn
+	}).(pulumi.StringOutput)
+}
+
+type OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OAuthClientApplicationIdentityProviderVpcConnectionProperties)(nil)).Elem()
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput) ToOAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutputWithContext(ctx context.Context) OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput) Elem() OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput {
+	return o.ApplyT(func(v *OAuthClientApplicationIdentityProviderVpcConnectionProperties) OAuthClientApplicationIdentityProviderVpcConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OAuthClientApplicationIdentityProviderVpcConnectionProperties
+		return ret
+	}).(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput)
+}
+
+func (o OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OAuthClientApplicationIdentityProviderVpcConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcConnectionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type OAuthClientApplicationTag struct {
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -83318,655 +83605,6 @@ func (o TemplateFreeFormLayoutConfigurationPtrOutput) Elements() TemplateFreeFor
 	}).(TemplateFreeFormLayoutElementArrayOutput)
 }
 
-type TemplateFreeFormLayoutElement struct {
-	// The background style configuration of a free-form layout element.
-	BackgroundStyle *TemplateFreeFormLayoutElementBackgroundStyle `pulumi:"backgroundStyle"`
-	// The border style configuration of a free-form layout element.
-	BorderStyle *TemplateFreeFormLayoutElementBorderStyle `pulumi:"borderStyle"`
-	// A unique identifier for an element within a free-form layout.
-	ElementId string `pulumi:"elementId"`
-	// The type of element.
-	ElementType_ TemplateLayoutElementType `pulumi:"elementType"`
-	// String based length that is composed of value and unit in px
-	Height string `pulumi:"height"`
-	// The loading animation configuration of a free-form layout element.
-	LoadingAnimation *TemplateLoadingAnimation `pulumi:"loadingAnimation"`
-	// The rendering rules that determine when an element should be displayed within a free-form layout.
-	RenderingRules []TemplateSheetElementRenderingRule `pulumi:"renderingRules"`
-	// The border style configuration of a free-form layout element. This border style is used when the element is selected.
-	SelectedBorderStyle *TemplateFreeFormLayoutElementBorderStyle `pulumi:"selectedBorderStyle"`
-	// The visibility of an element within a free-form layout.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
-	// String based length that is composed of value and unit in px
-	Width string `pulumi:"width"`
-	// String based length that is composed of value and unit in px
-	XAxisLocation string `pulumi:"xAxisLocation"`
-	// String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
-	YAxisLocation string `pulumi:"yAxisLocation"`
-}
-
-// TemplateFreeFormLayoutElementInput is an input type that accepts TemplateFreeFormLayoutElementArgs and TemplateFreeFormLayoutElementOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementInput` via:
-//
-//	TemplateFreeFormLayoutElementArgs{...}
-type TemplateFreeFormLayoutElementInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementOutput() TemplateFreeFormLayoutElementOutput
-	ToTemplateFreeFormLayoutElementOutputWithContext(context.Context) TemplateFreeFormLayoutElementOutput
-}
-
-type TemplateFreeFormLayoutElementArgs struct {
-	// The background style configuration of a free-form layout element.
-	BackgroundStyle TemplateFreeFormLayoutElementBackgroundStylePtrInput `pulumi:"backgroundStyle"`
-	// The border style configuration of a free-form layout element.
-	BorderStyle TemplateFreeFormLayoutElementBorderStylePtrInput `pulumi:"borderStyle"`
-	// A unique identifier for an element within a free-form layout.
-	ElementId pulumi.StringInput `pulumi:"elementId"`
-	// The type of element.
-	ElementType_ TemplateLayoutElementTypeInput `pulumi:"elementType"`
-	// String based length that is composed of value and unit in px
-	Height pulumi.StringInput `pulumi:"height"`
-	// The loading animation configuration of a free-form layout element.
-	LoadingAnimation TemplateLoadingAnimationPtrInput `pulumi:"loadingAnimation"`
-	// The rendering rules that determine when an element should be displayed within a free-form layout.
-	RenderingRules TemplateSheetElementRenderingRuleArrayInput `pulumi:"renderingRules"`
-	// The border style configuration of a free-form layout element. This border style is used when the element is selected.
-	SelectedBorderStyle TemplateFreeFormLayoutElementBorderStylePtrInput `pulumi:"selectedBorderStyle"`
-	// The visibility of an element within a free-form layout.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
-	// String based length that is composed of value and unit in px
-	Width pulumi.StringInput `pulumi:"width"`
-	// String based length that is composed of value and unit in px
-	XAxisLocation pulumi.StringInput `pulumi:"xAxisLocation"`
-	// String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
-	YAxisLocation pulumi.StringInput `pulumi:"yAxisLocation"`
-}
-
-func (TemplateFreeFormLayoutElementArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElement)(nil)).Elem()
-}
-
-func (i TemplateFreeFormLayoutElementArgs) ToTemplateFreeFormLayoutElementOutput() TemplateFreeFormLayoutElementOutput {
-	return i.ToTemplateFreeFormLayoutElementOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementArgs) ToTemplateFreeFormLayoutElementOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementOutput)
-}
-
-// TemplateFreeFormLayoutElementArrayInput is an input type that accepts TemplateFreeFormLayoutElementArray and TemplateFreeFormLayoutElementArrayOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementArrayInput` via:
-//
-//	TemplateFreeFormLayoutElementArray{ TemplateFreeFormLayoutElementArgs{...} }
-type TemplateFreeFormLayoutElementArrayInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementArrayOutput() TemplateFreeFormLayoutElementArrayOutput
-	ToTemplateFreeFormLayoutElementArrayOutputWithContext(context.Context) TemplateFreeFormLayoutElementArrayOutput
-}
-
-type TemplateFreeFormLayoutElementArray []TemplateFreeFormLayoutElementInput
-
-func (TemplateFreeFormLayoutElementArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFreeFormLayoutElement)(nil)).Elem()
-}
-
-func (i TemplateFreeFormLayoutElementArray) ToTemplateFreeFormLayoutElementArrayOutput() TemplateFreeFormLayoutElementArrayOutput {
-	return i.ToTemplateFreeFormLayoutElementArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementArray) ToTemplateFreeFormLayoutElementArrayOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementArrayOutput)
-}
-
-type TemplateFreeFormLayoutElementOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElement)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementOutput) ToTemplateFreeFormLayoutElementOutput() TemplateFreeFormLayoutElementOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementOutput) ToTemplateFreeFormLayoutElementOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementOutput {
-	return o
-}
-
-// The background style configuration of a free-form layout element.
-func (o TemplateFreeFormLayoutElementOutput) BackgroundStyle() TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateFreeFormLayoutElementBackgroundStyle {
-		return v.BackgroundStyle
-	}).(TemplateFreeFormLayoutElementBackgroundStylePtrOutput)
-}
-
-// The border style configuration of a free-form layout element.
-func (o TemplateFreeFormLayoutElementOutput) BorderStyle() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateFreeFormLayoutElementBorderStyle { return v.BorderStyle }).(TemplateFreeFormLayoutElementBorderStylePtrOutput)
-}
-
-// A unique identifier for an element within a free-form layout.
-func (o TemplateFreeFormLayoutElementOutput) ElementId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.ElementId }).(pulumi.StringOutput)
-}
-
-// The type of element.
-func (o TemplateFreeFormLayoutElementOutput) GetElementType_() TemplateLayoutElementTypeOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) TemplateLayoutElementType { return v.ElementType_ }).(TemplateLayoutElementTypeOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateFreeFormLayoutElementOutput) Height() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.Height }).(pulumi.StringOutput)
-}
-
-// The loading animation configuration of a free-form layout element.
-func (o TemplateFreeFormLayoutElementOutput) LoadingAnimation() TemplateLoadingAnimationPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateLoadingAnimation { return v.LoadingAnimation }).(TemplateLoadingAnimationPtrOutput)
-}
-
-// The rendering rules that determine when an element should be displayed within a free-form layout.
-func (o TemplateFreeFormLayoutElementOutput) RenderingRules() TemplateSheetElementRenderingRuleArrayOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) []TemplateSheetElementRenderingRule { return v.RenderingRules }).(TemplateSheetElementRenderingRuleArrayOutput)
-}
-
-// The border style configuration of a free-form layout element. This border style is used when the element is selected.
-func (o TemplateFreeFormLayoutElementOutput) SelectedBorderStyle() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateFreeFormLayoutElementBorderStyle {
-		return v.SelectedBorderStyle
-	}).(TemplateFreeFormLayoutElementBorderStylePtrOutput)
-}
-
-// The visibility of an element within a free-form layout.
-func (o TemplateFreeFormLayoutElementOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateFreeFormLayoutElementOutput) Width() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.Width }).(pulumi.StringOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateFreeFormLayoutElementOutput) XAxisLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.XAxisLocation }).(pulumi.StringOutput)
-}
-
-// String based length that is composed of value and unit in px with Integer.MAX_VALUE as maximum value
-func (o TemplateFreeFormLayoutElementOutput) YAxisLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.YAxisLocation }).(pulumi.StringOutput)
-}
-
-type TemplateFreeFormLayoutElementArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFreeFormLayoutElement)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementArrayOutput) ToTemplateFreeFormLayoutElementArrayOutput() TemplateFreeFormLayoutElementArrayOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementArrayOutput) ToTemplateFreeFormLayoutElementArrayOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementArrayOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementArrayOutput) Index(i pulumi.IntInput) TemplateFreeFormLayoutElementOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateFreeFormLayoutElement {
-		return vs[0].([]TemplateFreeFormLayoutElement)[vs[1].(int)]
-	}).(TemplateFreeFormLayoutElementOutput)
-}
-
-type TemplateFreeFormLayoutElementBackgroundStyle struct {
-	// The background color of a free-form layout element.
-	Color *string `pulumi:"color"`
-	// The background visibility of a free-form layout element.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
-}
-
-// TemplateFreeFormLayoutElementBackgroundStyleInput is an input type that accepts TemplateFreeFormLayoutElementBackgroundStyleArgs and TemplateFreeFormLayoutElementBackgroundStyleOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementBackgroundStyleInput` via:
-//
-//	TemplateFreeFormLayoutElementBackgroundStyleArgs{...}
-type TemplateFreeFormLayoutElementBackgroundStyleInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementBackgroundStyleOutput() TemplateFreeFormLayoutElementBackgroundStyleOutput
-	ToTemplateFreeFormLayoutElementBackgroundStyleOutputWithContext(context.Context) TemplateFreeFormLayoutElementBackgroundStyleOutput
-}
-
-type TemplateFreeFormLayoutElementBackgroundStyleArgs struct {
-	// The background color of a free-form layout element.
-	Color pulumi.StringPtrInput `pulumi:"color"`
-	// The background visibility of a free-form layout element.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (TemplateFreeFormLayoutElementBackgroundStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElementBackgroundStyle)(nil)).Elem()
-}
-
-func (i TemplateFreeFormLayoutElementBackgroundStyleArgs) ToTemplateFreeFormLayoutElementBackgroundStyleOutput() TemplateFreeFormLayoutElementBackgroundStyleOutput {
-	return i.ToTemplateFreeFormLayoutElementBackgroundStyleOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementBackgroundStyleArgs) ToTemplateFreeFormLayoutElementBackgroundStyleOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBackgroundStyleOutput)
-}
-
-func (i TemplateFreeFormLayoutElementBackgroundStyleArgs) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutput() TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return i.ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementBackgroundStyleArgs) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBackgroundStyleOutput).ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(ctx)
-}
-
-// TemplateFreeFormLayoutElementBackgroundStylePtrInput is an input type that accepts TemplateFreeFormLayoutElementBackgroundStyleArgs, TemplateFreeFormLayoutElementBackgroundStylePtr and TemplateFreeFormLayoutElementBackgroundStylePtrOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementBackgroundStylePtrInput` via:
-//
-//	        TemplateFreeFormLayoutElementBackgroundStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFreeFormLayoutElementBackgroundStylePtrInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementBackgroundStylePtrOutput() TemplateFreeFormLayoutElementBackgroundStylePtrOutput
-	ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(context.Context) TemplateFreeFormLayoutElementBackgroundStylePtrOutput
-}
-
-type templateFreeFormLayoutElementBackgroundStylePtrType TemplateFreeFormLayoutElementBackgroundStyleArgs
-
-func TemplateFreeFormLayoutElementBackgroundStylePtr(v *TemplateFreeFormLayoutElementBackgroundStyleArgs) TemplateFreeFormLayoutElementBackgroundStylePtrInput {
-	return (*templateFreeFormLayoutElementBackgroundStylePtrType)(v)
-}
-
-func (*templateFreeFormLayoutElementBackgroundStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutElementBackgroundStyle)(nil)).Elem()
-}
-
-func (i *templateFreeFormLayoutElementBackgroundStylePtrType) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutput() TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return i.ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(context.Background())
-}
-
-func (i *templateFreeFormLayoutElementBackgroundStylePtrType) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBackgroundStylePtrOutput)
-}
-
-type TemplateFreeFormLayoutElementBackgroundStyleOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementBackgroundStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElementBackgroundStyle)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) ToTemplateFreeFormLayoutElementBackgroundStyleOutput() TemplateFreeFormLayoutElementBackgroundStyleOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) ToTemplateFreeFormLayoutElementBackgroundStyleOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStyleOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutput() TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return o.ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFreeFormLayoutElementBackgroundStyle) *TemplateFreeFormLayoutElementBackgroundStyle {
-		return &v
-	}).(TemplateFreeFormLayoutElementBackgroundStylePtrOutput)
-}
-
-// The background color of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElementBackgroundStyle) *string { return v.Color }).(pulumi.StringPtrOutput)
-}
-
-// The background visibility of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBackgroundStyleOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElementBackgroundStyle) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
-}
-
-type TemplateFreeFormLayoutElementBackgroundStylePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementBackgroundStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutElementBackgroundStyle)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStylePtrOutput) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutput() TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStylePtrOutput) ToTemplateFreeFormLayoutElementBackgroundStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBackgroundStylePtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBackgroundStylePtrOutput) Elem() TemplateFreeFormLayoutElementBackgroundStyleOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBackgroundStyle) TemplateFreeFormLayoutElementBackgroundStyle {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFreeFormLayoutElementBackgroundStyle
-		return ret
-	}).(TemplateFreeFormLayoutElementBackgroundStyleOutput)
-}
-
-// The background color of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBackgroundStylePtrOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBackgroundStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Color
-	}).(pulumi.StringPtrOutput)
-}
-
-// The background visibility of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBackgroundStylePtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBackgroundStyle) *TemplateVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
-}
-
-type TemplateFreeFormLayoutElementBorderStyle struct {
-	// The border color of a free-form layout element.
-	Color *string `pulumi:"color"`
-	// The border visibility of a free-form layout element.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
-}
-
-// TemplateFreeFormLayoutElementBorderStyleInput is an input type that accepts TemplateFreeFormLayoutElementBorderStyleArgs and TemplateFreeFormLayoutElementBorderStyleOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementBorderStyleInput` via:
-//
-//	TemplateFreeFormLayoutElementBorderStyleArgs{...}
-type TemplateFreeFormLayoutElementBorderStyleInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementBorderStyleOutput() TemplateFreeFormLayoutElementBorderStyleOutput
-	ToTemplateFreeFormLayoutElementBorderStyleOutputWithContext(context.Context) TemplateFreeFormLayoutElementBorderStyleOutput
-}
-
-type TemplateFreeFormLayoutElementBorderStyleArgs struct {
-	// The border color of a free-form layout element.
-	Color pulumi.StringPtrInput `pulumi:"color"`
-	// The border visibility of a free-form layout element.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
-}
-
-func (TemplateFreeFormLayoutElementBorderStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElementBorderStyle)(nil)).Elem()
-}
-
-func (i TemplateFreeFormLayoutElementBorderStyleArgs) ToTemplateFreeFormLayoutElementBorderStyleOutput() TemplateFreeFormLayoutElementBorderStyleOutput {
-	return i.ToTemplateFreeFormLayoutElementBorderStyleOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementBorderStyleArgs) ToTemplateFreeFormLayoutElementBorderStyleOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBorderStyleOutput)
-}
-
-func (i TemplateFreeFormLayoutElementBorderStyleArgs) ToTemplateFreeFormLayoutElementBorderStylePtrOutput() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return i.ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutElementBorderStyleArgs) ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBorderStyleOutput).ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(ctx)
-}
-
-// TemplateFreeFormLayoutElementBorderStylePtrInput is an input type that accepts TemplateFreeFormLayoutElementBorderStyleArgs, TemplateFreeFormLayoutElementBorderStylePtr and TemplateFreeFormLayoutElementBorderStylePtrOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutElementBorderStylePtrInput` via:
-//
-//	        TemplateFreeFormLayoutElementBorderStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFreeFormLayoutElementBorderStylePtrInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutElementBorderStylePtrOutput() TemplateFreeFormLayoutElementBorderStylePtrOutput
-	ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(context.Context) TemplateFreeFormLayoutElementBorderStylePtrOutput
-}
-
-type templateFreeFormLayoutElementBorderStylePtrType TemplateFreeFormLayoutElementBorderStyleArgs
-
-func TemplateFreeFormLayoutElementBorderStylePtr(v *TemplateFreeFormLayoutElementBorderStyleArgs) TemplateFreeFormLayoutElementBorderStylePtrInput {
-	return (*templateFreeFormLayoutElementBorderStylePtrType)(v)
-}
-
-func (*templateFreeFormLayoutElementBorderStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutElementBorderStyle)(nil)).Elem()
-}
-
-func (i *templateFreeFormLayoutElementBorderStylePtrType) ToTemplateFreeFormLayoutElementBorderStylePtrOutput() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return i.ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(context.Background())
-}
-
-func (i *templateFreeFormLayoutElementBorderStylePtrType) ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutElementBorderStylePtrOutput)
-}
-
-type TemplateFreeFormLayoutElementBorderStyleOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementBorderStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutElementBorderStyle)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) ToTemplateFreeFormLayoutElementBorderStyleOutput() TemplateFreeFormLayoutElementBorderStyleOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) ToTemplateFreeFormLayoutElementBorderStyleOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStyleOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) ToTemplateFreeFormLayoutElementBorderStylePtrOutput() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o.ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFreeFormLayoutElementBorderStyle) *TemplateFreeFormLayoutElementBorderStyle {
-		return &v
-	}).(TemplateFreeFormLayoutElementBorderStylePtrOutput)
-}
-
-// The border color of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElementBorderStyle) *string { return v.Color }).(pulumi.StringPtrOutput)
-}
-
-// The border visibility of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBorderStyleOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutElementBorderStyle) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
-}
-
-type TemplateFreeFormLayoutElementBorderStylePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutElementBorderStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutElementBorderStyle)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutElementBorderStylePtrOutput) ToTemplateFreeFormLayoutElementBorderStylePtrOutput() TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBorderStylePtrOutput) ToTemplateFreeFormLayoutElementBorderStylePtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutElementBorderStylePtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutElementBorderStylePtrOutput) Elem() TemplateFreeFormLayoutElementBorderStyleOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBorderStyle) TemplateFreeFormLayoutElementBorderStyle {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFreeFormLayoutElementBorderStyle
-		return ret
-	}).(TemplateFreeFormLayoutElementBorderStyleOutput)
-}
-
-// The border color of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBorderStylePtrOutput) Color() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBorderStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Color
-	}).(pulumi.StringPtrOutput)
-}
-
-// The border visibility of a free-form layout element.
-func (o TemplateFreeFormLayoutElementBorderStylePtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutElementBorderStyle) *TemplateVisibility {
-		if v == nil {
-			return nil
-		}
-		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
-}
-
-type TemplateFreeFormLayoutScreenCanvasSizeOptions struct {
-	// String based length that is composed of value and unit in px
-	OptimizedViewPortWidth string `pulumi:"optimizedViewPortWidth"`
-}
-
-// TemplateFreeFormLayoutScreenCanvasSizeOptionsInput is an input type that accepts TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs and TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutScreenCanvasSizeOptionsInput` via:
-//
-//	TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs{...}
-type TemplateFreeFormLayoutScreenCanvasSizeOptionsInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput
-	ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutputWithContext(context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput
-}
-
-type TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs struct {
-	// String based length that is composed of value and unit in px
-	OptimizedViewPortWidth pulumi.StringInput `pulumi:"optimizedViewPortWidth"`
-}
-
-func (TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutScreenCanvasSizeOptions)(nil)).Elem()
-}
-
-func (i TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput {
-	return i.ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput)
-}
-
-func (i TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return i.ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput).ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx)
-}
-
-// TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrInput is an input type that accepts TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs, TemplateFreeFormLayoutScreenCanvasSizeOptionsPtr and TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput values.
-// You can construct a concrete instance of `TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrInput` via:
-//
-//	        TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrInput interface {
-	pulumi.Input
-
-	ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput
-	ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput
-}
-
-type templateFreeFormLayoutScreenCanvasSizeOptionsPtrType TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs
-
-func TemplateFreeFormLayoutScreenCanvasSizeOptionsPtr(v *TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrInput {
-	return (*templateFreeFormLayoutScreenCanvasSizeOptionsPtrType)(v)
-}
-
-func (*templateFreeFormLayoutScreenCanvasSizeOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutScreenCanvasSizeOptions)(nil)).Elem()
-}
-
-func (i *templateFreeFormLayoutScreenCanvasSizeOptionsPtrType) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return i.ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *templateFreeFormLayoutScreenCanvasSizeOptionsPtrType) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput)
-}
-
-type TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFreeFormLayoutScreenCanvasSizeOptions)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return o.ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateFreeFormLayoutScreenCanvasSizeOptions) *TemplateFreeFormLayoutScreenCanvasSizeOptions {
-		return &v
-	}).(TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput) OptimizedViewPortWidth() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateFreeFormLayoutScreenCanvasSizeOptions) string { return v.OptimizedViewPortWidth }).(pulumi.StringOutput)
-}
-
-type TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateFreeFormLayoutScreenCanvasSizeOptions)(nil)).Elem()
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput() TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput) ToTemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput {
-	return o
-}
-
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput) Elem() TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutScreenCanvasSizeOptions) TemplateFreeFormLayoutScreenCanvasSizeOptions {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateFreeFormLayoutScreenCanvasSizeOptions
-		return ret
-	}).(TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput)
-}
-
-// String based length that is composed of value and unit in px
-func (o TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput) OptimizedViewPortWidth() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateFreeFormLayoutScreenCanvasSizeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OptimizedViewPortWidth
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineLabelConfigurationInput)(nil)).Elem(), DashboardReferenceLineLabelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardReferenceLineLabelConfigurationPtrInput)(nil)).Elem(), DashboardReferenceLineLabelConfigurationArgs{})
@@ -84559,8 +84197,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTrinoParametersPtrInput)(nil)).Elem(), DataSourceTrinoParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConnectionPropertiesPtrInput)(nil)).Elem(), DataSourceVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPermissionInput)(nil)).Elem(), FlowPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowPermissionArrayInput)(nil)).Elem(), FlowPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderResourcePermissionInput)(nil)).Elem(), FolderResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FolderResourcePermissionArrayInput)(nil)).Elem(), FolderResourcePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionPropertiesInput)(nil)).Elem(), OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput)(nil)).Elem(), OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapInput)(nil)).Elem(), RefreshScheduleMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapPtrInput)(nil)).Elem(), RefreshScheduleMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapScheduleFrequencyPropertiesInput)(nil)).Elem(), RefreshScheduleMapScheduleFrequencyPropertiesArgs{})
@@ -84941,14 +84583,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutCanvasSizeOptionsPtrInput)(nil)).Elem(), TemplateFreeFormLayoutCanvasSizeOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutConfigurationInput)(nil)).Elem(), TemplateFreeFormLayoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutConfigurationPtrInput)(nil)).Elem(), TemplateFreeFormLayoutConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementInput)(nil)).Elem(), TemplateFreeFormLayoutElementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementArrayInput)(nil)).Elem(), TemplateFreeFormLayoutElementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementBackgroundStyleInput)(nil)).Elem(), TemplateFreeFormLayoutElementBackgroundStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementBackgroundStylePtrInput)(nil)).Elem(), TemplateFreeFormLayoutElementBackgroundStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementBorderStyleInput)(nil)).Elem(), TemplateFreeFormLayoutElementBorderStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutElementBorderStylePtrInput)(nil)).Elem(), TemplateFreeFormLayoutElementBorderStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutScreenCanvasSizeOptionsInput)(nil)).Elem(), TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrInput)(nil)).Elem(), TemplateFreeFormLayoutScreenCanvasSizeOptionsArgs{})
 	pulumi.RegisterOutputType(DashboardReferenceLineLabelConfigurationOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineLabelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardReferenceLineStaticDataConfigurationOutput{})
@@ -85546,8 +85180,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceTrinoParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FlowPermissionOutput{})
+	pulumi.RegisterOutputType(FlowPermissionArrayOutput{})
+	pulumi.RegisterOutputType(FlowStepAliasMappingOutput{})
+	pulumi.RegisterOutputType(FlowStepAliasMappingArrayOutput{})
 	pulumi.RegisterOutputType(FolderResourcePermissionOutput{})
 	pulumi.RegisterOutputType(FolderResourcePermissionArrayOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput{})
+	pulumi.RegisterOutputType(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapScheduleFrequencyPropertiesOutput{})
@@ -85932,12 +85572,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFreeFormLayoutConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateFreeFormLayoutConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementArrayOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementBackgroundStyleOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementBackgroundStylePtrOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementBorderStyleOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutElementBorderStylePtrOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutScreenCanvasSizeOptionsOutput{})
-	pulumi.RegisterOutputType(TemplateFreeFormLayoutScreenCanvasSizeOptionsPtrOutput{})
 }

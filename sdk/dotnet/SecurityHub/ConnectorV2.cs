@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The status of the connector
         /// </summary>
         [Output("connectorStatus")]
-        public Output<Pulumi.AwsNative.SecurityHub.ConnectorV2ConnectorStatus> ConnectorStatus { get; private set; } = null!;
+        public Output<string> ConnectorStatus { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the V2 connector was created.
@@ -44,6 +44,24 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The enablement status of the connector
+        /// </summary>
+        [Output("enablementStatus")]
+        public Output<string> EnablementStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The reason for the enablement status of the connector
+        /// </summary>
+        [Output("enablementStatusReason")]
+        public Output<string> EnablementStatusReason { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of health issues associated with the connector
+        /// </summary>
+        [Output("issues")]
+        public Output<ImmutableArray<Outputs.ConnectorV2HealthIssue>> Issues { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of KMS key used for the connector

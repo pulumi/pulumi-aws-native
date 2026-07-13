@@ -23,6 +23,7 @@ import * as autoscaling from "./autoscaling";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
+import * as bcm from "./bcm";
 import * as bcmdataexports from "./bcmdataexports";
 import * as bcmpricingcalculator from "./bcmpricingcalculator";
 import * as bedrock from "./bedrock";
@@ -141,6 +142,7 @@ import * as opensearchserverless from "./opensearchserverless";
 import * as opensearchservice from "./opensearchservice";
 import * as organizations from "./organizations";
 import * as osis from "./osis";
+import * as outposts from "./outposts";
 import * as panorama from "./panorama";
 import * as paymentcryptography from "./paymentcryptography";
 import * as pcaconnectorad from "./pcaconnectorad";
@@ -231,6 +233,7 @@ export {
     b2bi,
     backup,
     batch,
+    bcm,
     bcmdataexports,
     bcmpricingcalculator,
     bedrock,
@@ -349,6 +352,7 @@ export {
     opensearchservice,
     organizations,
     osis,
+    outposts,
     panorama,
     paymentcryptography,
     pcaconnectorad,

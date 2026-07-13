@@ -507,7 +507,7 @@
   "required" : [ "Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "athena:CreateWorkGroup", "athena:TagResource", "iam:PassRole", "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:AbortMultipartUpload", "s3:PutObject", "s3:ListMultipartUploadParts", "kms:Decrypt", "kms:GenerateDataKey" ]
+      "permissions" : [ "athena:CreateWorkGroup", "athena:TagResource", "iam:PassRole", "iam:CreateServiceLinkedRole", "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:AbortMultipartUpload", "s3:PutObject", "s3:ListMultipartUploadParts", "kms:Decrypt", "kms:GenerateDataKey" ]
     },
     "read" : {
       "permissions" : [ "athena:GetWorkGroup", "athena:ListTagsForResource" ]
@@ -525,14 +525,14 @@
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/WorkGroupConfiguration/EngineVersion/EffectiveEngineVersion", "/properties/WorkGroupConfigurationUpdates/EngineVersion/EffectiveEngineVersion" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "deprecatedProperties" : [ "/properties/WorkGroupConfigurationUpdates" ],
-  "writeOnlyProperties" : [ "/properties/WorkGroupConfigurationUpdates", "/properties/RecursiveDeleteOption", "/properties/WorkGroupConfiguration/AdditionalConfiguration" ],
+  "writeOnlyProperties" : [ "/properties/WorkGroupConfigurationUpdates", "/properties/RecursiveDeleteOption", "/properties/WorkGroupConfiguration/AdditionalConfiguration", "/properties/WorkGroupConfiguration/EngineConfiguration/CoordinatorDpuSize", "/properties/WorkGroupConfiguration/EngineConfiguration/MaxConcurrentDpus", "/properties/WorkGroupConfiguration/EngineConfiguration/DefaultExecutorDpuSize", "/properties/WorkGroupConfiguration/EngineConfiguration/AdditionalConfigs", "/properties/WorkGroupConfiguration/EngineConfiguration/SparkProperties" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "additionalProperties" : false,
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
+    "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "athena:UntagResource", "athena:TagResource", "athena:ListTagsForResource" ]
   }

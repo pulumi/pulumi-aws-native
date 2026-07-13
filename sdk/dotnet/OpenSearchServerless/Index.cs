@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.OpenSearchServerless
 {
     /// <summary>
-    /// An OpenSearch Serverless index resource
+    /// Resource Type definition for AWS::OpenSearchServerless::Index
     /// </summary>
     [AwsNativeResourceType("aws-native:opensearchserverless:Index")]
     public partial class Index : global::Pulumi.CustomResource
@@ -72,6 +72,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                 {
                     "collectionEndpoint",
                     "indexName",
+                    "settings.analysis",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -10,10 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+    /// </summary>
     public sealed class ServiceMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricConfigurations", required: true)]
         private InputList<Inputs.ServiceMetricConfigurationArgs>? _metricConfigurations;
+
+        /// <summary>
+        /// The list of metric configurations for the service monitoring.
+        /// </summary>
         public InputList<Inputs.ServiceMetricConfigurationArgs> MetricConfigurations
         {
             get => _metricConfigurations ?? (_metricConfigurations = new InputList<Inputs.ServiceMetricConfigurationArgs>());

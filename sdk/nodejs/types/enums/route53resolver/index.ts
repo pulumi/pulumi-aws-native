@@ -101,6 +101,17 @@ export const FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction = {
  */
 export type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction = (typeof FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction)[keyof typeof FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction];
 
+export const FirewallRuleGroupFirewallRuleStatus = {
+    Complete: "COMPLETE",
+    Creating: "CREATING",
+    CreationFailed: "CREATION_FAILED",
+} as const;
+
+/**
+ * The status of the firewall rule.
+ */
+export type FirewallRuleGroupFirewallRuleStatus = (typeof FirewallRuleGroupFirewallRuleStatus)[keyof typeof FirewallRuleGroupFirewallRuleStatus];
+
 export const FirewallRuleGroupShareStatus = {
     NotShared: "NOT_SHARED",
     SharedWithMe: "SHARED_WITH_ME",

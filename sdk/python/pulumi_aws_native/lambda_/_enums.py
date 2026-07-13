@@ -23,6 +23,7 @@ __all__ = [
     'EventSourceMappingSchemaValidationConfigAttribute',
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
+    'FunctionCodeS3ObjectStorageMode',
     'FunctionLoggingConfigApplicationLogLevel',
     'FunctionLoggingConfigLogFormat',
     'FunctionLoggingConfigSystemLogLevel',
@@ -60,9 +61,6 @@ class CapacityProviderArchitecture(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:lambda:CapacityProviderLoggingConfigSystemLogLevel")
 class CapacityProviderLoggingConfigSystemLogLevel(_builtins.str, Enum):
-    """
-    System log granularity level
-    """
     DEBUG = "DEBUG"
     INFO = "INFO"
     WARN = "WARN"
@@ -203,6 +201,12 @@ class EventSourceMappingSourceAccessConfigurationType(_builtins.str, Enum):
 class FunctionArchitecturesItem(_builtins.str, Enum):
     X8664 = "x86_64"
     ARM64 = "arm64"
+
+
+@pulumi.type_token("aws-native:lambda:FunctionCodeS3ObjectStorageMode")
+class FunctionCodeS3ObjectStorageMode(_builtins.str, Enum):
+    COPY = "COPY"
+    REFERENCE = "REFERENCE"
 
 
 @pulumi.type_token("aws-native:lambda:FunctionLoggingConfigApplicationLogLevel")

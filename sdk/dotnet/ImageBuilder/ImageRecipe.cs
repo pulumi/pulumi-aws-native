@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<ImmutableDictionary<string, string>?> AmiTags { get; private set; } = null!;
 
         /// <summary>
+        /// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+        /// </summary>
+        [Output("amiWatermarks")]
+        public Output<ImmutableArray<string>> AmiWatermarks { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe.
         /// </summary>
         [Output("arn")]
@@ -112,6 +118,9 @@ namespace Pulumi.AwsNative.ImageBuilder
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "additionalInstanceConfiguration",
+                    "amiTags.*",
+                    "amiWatermarks[*]",
                     "blockDeviceMappings[*]",
                     "components[*]",
                     "description",
@@ -158,6 +167,18 @@ namespace Pulumi.AwsNative.ImageBuilder
         {
             get => _amiTags ?? (_amiTags = new InputMap<string>());
             set => _amiTags = value;
+        }
+
+        [Input("amiWatermarks")]
+        private InputList<string>? _amiWatermarks;
+
+        /// <summary>
+        /// The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
+        /// </summary>
+        public InputList<string> AmiWatermarks
+        {
+            get => _amiWatermarks ?? (_amiWatermarks = new InputList<string>());
+            set => _amiWatermarks = value;
         }
 
         [Input("blockDeviceMappings")]

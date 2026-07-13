@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// <summary>
         /// The status of the connector
         /// </summary>
-        public readonly Pulumi.AwsNative.SecurityHub.ConnectorV2ConnectorStatus? ConnectorStatus;
+        public readonly string? ConnectorStatus;
         /// <summary>
         /// The timestamp when the V2 connector was created.
         /// </summary>
@@ -83,6 +83,18 @@ namespace Pulumi.AwsNative.SecurityHub
         /// A description of the connector
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The enablement status of the connector
+        /// </summary>
+        public readonly string? EnablementStatus;
+        /// <summary>
+        /// The reason for the enablement status of the connector
+        /// </summary>
+        public readonly string? EnablementStatusReason;
+        /// <summary>
+        /// The list of health issues associated with the connector
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConnectorV2HealthIssue> Issues;
         /// <summary>
         /// The most recent timestamp when the V2 connector was checked on health status.
         /// </summary>
@@ -110,11 +122,17 @@ namespace Pulumi.AwsNative.SecurityHub
 
             string? connectorId,
 
-            Pulumi.AwsNative.SecurityHub.ConnectorV2ConnectorStatus? connectorStatus,
+            string? connectorStatus,
 
             string? createdAt,
 
             string? description,
+
+            string? enablementStatus,
+
+            string? enablementStatusReason,
+
+            ImmutableArray<Outputs.ConnectorV2HealthIssue> issues,
 
             string? lastCheckedAt,
 
@@ -131,6 +149,9 @@ namespace Pulumi.AwsNative.SecurityHub
             ConnectorStatus = connectorStatus;
             CreatedAt = createdAt;
             Description = description;
+            EnablementStatus = enablementStatus;
+            EnablementStatusReason = enablementStatusReason;
+            Issues = issues;
             LastCheckedAt = lastCheckedAt;
             LastUpdatedAt = lastUpdatedAt;
             Message = message;

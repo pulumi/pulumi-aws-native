@@ -74,10 +74,18 @@ __all__ = [
     'EvaluationFormNumericQuestionPropertyValueAutomationArgsDict',
     'EvaluationFormQuestionAutomationAnswerSourceArgs',
     'EvaluationFormQuestionAutomationAnswerSourceArgsDict',
+    'EvaluationFormQuestionOptionPointsConfigurationArgs',
+    'EvaluationFormQuestionOptionPointsConfigurationArgsDict',
+    'EvaluationFormQuestionPointsConfigurationArgs',
+    'EvaluationFormQuestionPointsConfigurationArgsDict',
+    'EvaluationFormQuestionScoringConfigurationArgs',
+    'EvaluationFormQuestionScoringConfigurationArgsDict',
     'EvaluationFormQuestionTypePropertiesArgs',
     'EvaluationFormQuestionTypePropertiesArgsDict',
     'EvaluationFormQuestionArgs',
     'EvaluationFormQuestionArgsDict',
+    'EvaluationFormScoreThresholdArgs',
+    'EvaluationFormScoreThresholdArgsDict',
     'EvaluationFormScoringStrategyArgs',
     'EvaluationFormScoringStrategyArgsDict',
     'EvaluationFormSectionArgs',
@@ -142,6 +150,8 @@ __all__ = [
     'QueueOutboundEmailConfigArgsDict',
     'QuickConnectConfigArgs',
     'QuickConnectConfigArgsDict',
+    'QuickConnectFlowQuickConnectConfigArgs',
+    'QuickConnectFlowQuickConnectConfigArgsDict',
     'QuickConnectPhoneNumberQuickConnectConfigArgs',
     'QuickConnectPhoneNumberQuickConnectConfigArgsDict',
     'QuickConnectQueueQuickConnectConfigArgs',
@@ -162,6 +172,10 @@ __all__ = [
     'RuleActionsArgsDict',
     'RuleAssignContactCategoryActionArgs',
     'RuleAssignContactCategoryActionArgsDict',
+    'RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs',
+    'RuleAssignSlaActionCaseSlaConfigurationPropertiesArgsDict',
+    'RuleAssignSlaActionArgs',
+    'RuleAssignSlaActionArgsDict',
     'RuleCreateCaseActionArgs',
     'RuleCreateCaseActionArgsDict',
     'RuleEndAssociatedTasksActionArgs',
@@ -178,6 +192,8 @@ __all__ = [
     'RuleReferenceArgsDict',
     'RuleSendNotificationActionArgs',
     'RuleSendNotificationActionArgsDict',
+    'RuleSlaTargetFieldValueArgs',
+    'RuleSlaTargetFieldValueArgsDict',
     'RuleSubmitAutoEvaluationActionArgs',
     'RuleSubmitAutoEvaluationActionArgsDict',
     'RuleTaskActionArgs',
@@ -210,6 +226,12 @@ __all__ = [
     'TaskTemplateReadOnlyFieldInfoArgsDict',
     'TaskTemplateRequiredFieldInfoArgs',
     'TaskTemplateRequiredFieldInfoArgsDict',
+    'TestCaseEntryPointChatEntryPointParametersPropertiesArgs',
+    'TestCaseEntryPointChatEntryPointParametersPropertiesArgsDict',
+    'TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs',
+    'TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgsDict',
+    'TestCaseEntryPointArgs',
+    'TestCaseEntryPointArgsDict',
     'UserAfterContactWorkConfigPerChannelArgs',
     'UserAfterContactWorkConfigPerChannelArgsDict',
     'UserAfterContactWorkConfigArgs',
@@ -1263,20 +1285,48 @@ class EvaluationFormMultiSelectQuestionOptionArgsDict(TypedDict):
     """
     Display text for this option.
     """
+    automatic_fail: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+    """
+    automatic_fail_configuration: NotRequired[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgsDict']]
+    points_configuration: NotRequired[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgsDict']]
+    """
+    The points configuration for point-based scoring.
+    """
+    score: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The score assigned to the answer option.
+    """
 
 @pulumi.input_type
 class EvaluationFormMultiSelectQuestionOptionArgs:
     def __init__(__self__, *,
                  ref_id: pulumi.Input[_builtins.str],
-                 text: pulumi.Input[_builtins.str]):
+                 text: pulumi.Input[_builtins.str],
+                 automatic_fail: Optional[pulumi.Input[_builtins.bool]] = None,
+                 automatic_fail_configuration: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']] = None,
+                 points_configuration: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']] = None,
+                 score: Optional[pulumi.Input[_builtins.int]] = None):
         """
         An option for a multi-select question in an evaluation form.
 
         :param pulumi.Input[_builtins.str] ref_id: Reference identifier for this option.
         :param pulumi.Input[_builtins.str] text: Display text for this option.
+        :param pulumi.Input[_builtins.bool] automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs'] points_configuration: The points configuration for point-based scoring.
+        :param pulumi.Input[_builtins.int] score: The score assigned to the answer option.
         """
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "text", text)
+        if automatic_fail is not None:
+            pulumi.set(__self__, "automatic_fail", automatic_fail)
+        if automatic_fail_configuration is not None:
+            pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
+        if score is not None:
+            pulumi.set(__self__, "score", score)
 
     @_builtins.property
     @pulumi.getter(name="refId")
@@ -1301,6 +1351,51 @@ class EvaluationFormMultiSelectQuestionOptionArgs:
     @text.setter
     def text(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFail")
+    def automatic_fail(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        """
+        return pulumi.get(self, "automatic_fail")
+
+    @automatic_fail.setter
+    def automatic_fail(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "automatic_fail", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticFailConfiguration")
+    def automatic_fail_configuration(self) -> Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']]:
+        return pulumi.get(self, "automatic_fail_configuration")
+
+    @automatic_fail_configuration.setter
+    def automatic_fail_configuration(self, value: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']]):
+        pulumi.set(self, "automatic_fail_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @points_configuration.setter
+    def points_configuration(self, value: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]):
+        pulumi.set(self, "points_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def score(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The score assigned to the answer option.
+        """
+        return pulumi.get(self, "score")
+
+    @score.setter
+    def score(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "score", value)
 
 
 class EvaluationFormMultiSelectQuestionPropertiesArgsDict(TypedDict):
@@ -1521,6 +1616,10 @@ class EvaluationFormNumericQuestionOptionArgsDict(TypedDict):
     """
     A configuration for automatic fail.
     """
+    points_configuration: NotRequired[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgsDict']]
+    """
+    The points configuration for point-based scoring.
+    """
     score: NotRequired[pulumi.Input[_builtins.int]]
     """
     The score assigned to answer values within the range option.
@@ -1535,6 +1634,7 @@ class EvaluationFormNumericQuestionOptionArgs:
                  min_value: pulumi.Input[_builtins.int],
                  automatic_fail: Optional[pulumi.Input[_builtins.bool]] = None,
                  automatic_fail_configuration: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']] = None,
+                 points_configuration: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']] = None,
                  score: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about the option range used for scoring in numeric questions.
@@ -1543,6 +1643,7 @@ class EvaluationFormNumericQuestionOptionArgs:
         :param pulumi.Input[_builtins.int] min_value: The minimum answer value of the range option.
         :param pulumi.Input[_builtins.bool] automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         :param pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs'] automatic_fail_configuration: A configuration for automatic fail.
+        :param pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs'] points_configuration: The points configuration for point-based scoring.
         :param pulumi.Input[_builtins.int] score: The score assigned to answer values within the range option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -1553,6 +1654,8 @@ class EvaluationFormNumericQuestionOptionArgs:
             pulumi.set(__self__, "automatic_fail", automatic_fail)
         if automatic_fail_configuration is not None:
             pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -1603,6 +1706,18 @@ class EvaluationFormNumericQuestionOptionArgs:
     @automatic_fail_configuration.setter
     def automatic_fail_configuration(self, value: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']]):
         pulumi.set(self, "automatic_fail_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @points_configuration.setter
+    def points_configuration(self, value: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]):
+        pulumi.set(self, "points_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1777,6 +1892,207 @@ class EvaluationFormQuestionAutomationAnswerSourceArgs:
         pulumi.set(self, "source_type", value)
 
 
+class EvaluationFormQuestionOptionPointsConfigurationArgsDict(TypedDict):
+    """
+    Information about the points configuration for an answer option.
+    """
+    point_value: pulumi.Input[_builtins.int]
+    """
+    The point value assigned to the answer option.
+    """
+    is_bonus: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to mark the option as a bonus option.
+    """
+
+@pulumi.input_type
+class EvaluationFormQuestionOptionPointsConfigurationArgs:
+    def __init__(__self__, *,
+                 point_value: pulumi.Input[_builtins.int],
+                 is_bonus: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Information about the points configuration for an answer option.
+
+        :param pulumi.Input[_builtins.int] point_value: The point value assigned to the answer option.
+        :param pulumi.Input[_builtins.bool] is_bonus: The flag to mark the option as a bonus option.
+        """
+        pulumi.set(__self__, "point_value", point_value)
+        if is_bonus is not None:
+            pulumi.set(__self__, "is_bonus", is_bonus)
+
+    @_builtins.property
+    @pulumi.getter(name="pointValue")
+    def point_value(self) -> pulumi.Input[_builtins.int]:
+        """
+        The point value assigned to the answer option.
+        """
+        return pulumi.get(self, "point_value")
+
+    @point_value.setter
+    def point_value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "point_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isBonus")
+    def is_bonus(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The flag to mark the option as a bonus option.
+        """
+        return pulumi.get(self, "is_bonus")
+
+    @is_bonus.setter
+    def is_bonus(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_bonus", value)
+
+
+class EvaluationFormQuestionPointsConfigurationArgsDict(TypedDict):
+    """
+    Information about the points configuration for a question.
+    """
+    is_bonus: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to mark the question as a bonus question.
+    """
+    max_point_value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum point value.
+    """
+    min_point_value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum point value.
+    """
+
+@pulumi.input_type
+class EvaluationFormQuestionPointsConfigurationArgs:
+    def __init__(__self__, *,
+                 is_bonus: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_point_value: Optional[pulumi.Input[_builtins.int]] = None,
+                 min_point_value: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Information about the points configuration for a question.
+
+        :param pulumi.Input[_builtins.bool] is_bonus: The flag to mark the question as a bonus question.
+        :param pulumi.Input[_builtins.int] max_point_value: The maximum point value.
+        :param pulumi.Input[_builtins.int] min_point_value: The minimum point value.
+        """
+        if is_bonus is not None:
+            pulumi.set(__self__, "is_bonus", is_bonus)
+        if max_point_value is not None:
+            pulumi.set(__self__, "max_point_value", max_point_value)
+        if min_point_value is not None:
+            pulumi.set(__self__, "min_point_value", min_point_value)
+
+    @_builtins.property
+    @pulumi.getter(name="isBonus")
+    def is_bonus(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The flag to mark the question as a bonus question.
+        """
+        return pulumi.get(self, "is_bonus")
+
+    @is_bonus.setter
+    def is_bonus(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_bonus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxPointValue")
+    def max_point_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum point value.
+        """
+        return pulumi.get(self, "max_point_value")
+
+    @max_point_value.setter
+    def max_point_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_point_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minPointValue")
+    def min_point_value(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum point value.
+        """
+        return pulumi.get(self, "min_point_value")
+
+    @min_point_value.setter
+    def min_point_value(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_point_value", value)
+
+
+class EvaluationFormQuestionScoringConfigurationArgsDict(TypedDict):
+    """
+    Scoring configuration for a question in an evaluation form.
+    """
+    is_excluded_from_scoring: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to exclude the question from scoring.
+    """
+    points_configuration: NotRequired[pulumi.Input['EvaluationFormQuestionPointsConfigurationArgsDict']]
+    """
+    The points configuration for point-based scoring.
+    """
+    score_thresholds: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgsDict']]]]
+    """
+    The score thresholds for performance categories.
+    """
+
+@pulumi.input_type
+class EvaluationFormQuestionScoringConfigurationArgs:
+    def __init__(__self__, *,
+                 is_excluded_from_scoring: Optional[pulumi.Input[_builtins.bool]] = None,
+                 points_configuration: Optional[pulumi.Input['EvaluationFormQuestionPointsConfigurationArgs']] = None,
+                 score_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]] = None):
+        """
+        Scoring configuration for a question in an evaluation form.
+
+        :param pulumi.Input[_builtins.bool] is_excluded_from_scoring: The flag to exclude the question from scoring.
+        :param pulumi.Input['EvaluationFormQuestionPointsConfigurationArgs'] points_configuration: The points configuration for point-based scoring.
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]] score_thresholds: The score thresholds for performance categories.
+        """
+        if is_excluded_from_scoring is not None:
+            pulumi.set(__self__, "is_excluded_from_scoring", is_excluded_from_scoring)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="isExcludedFromScoring")
+    def is_excluded_from_scoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The flag to exclude the question from scoring.
+        """
+        return pulumi.get(self, "is_excluded_from_scoring")
+
+    @is_excluded_from_scoring.setter
+    def is_excluded_from_scoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_excluded_from_scoring", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional[pulumi.Input['EvaluationFormQuestionPointsConfigurationArgs']]:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @points_configuration.setter
+    def points_configuration(self, value: Optional[pulumi.Input['EvaluationFormQuestionPointsConfigurationArgs']]):
+        pulumi.set(self, "points_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]:
+        """
+        The score thresholds for performance categories.
+        """
+        return pulumi.get(self, "score_thresholds")
+
+    @score_thresholds.setter
+    def score_thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]):
+        pulumi.set(self, "score_thresholds", value)
+
+
 class EvaluationFormQuestionTypePropertiesArgsDict(TypedDict):
     """
     Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
@@ -1907,6 +2223,10 @@ class EvaluationFormQuestionArgsDict(TypedDict):
     """
     The properties of the type of question. Text questions do not have to define question type properties.
     """
+    scoring_configuration: NotRequired[pulumi.Input['EvaluationFormQuestionScoringConfigurationArgsDict']]
+    """
+    The scoring configuration of the question.
+    """
     weight: NotRequired[pulumi.Input[_builtins.float]]
     """
     The scoring weight of the section.
@@ -1924,6 +2244,7 @@ class EvaluationFormQuestionArgs:
                  instructions: Optional[pulumi.Input[_builtins.str]] = None,
                  not_applicable_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  question_type_properties: Optional[pulumi.Input['EvaluationFormQuestionTypePropertiesArgs']] = None,
+                 scoring_configuration: Optional[pulumi.Input['EvaluationFormQuestionScoringConfigurationArgs']] = None,
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Information about a question from an evaluation form.
@@ -1939,6 +2260,7 @@ class EvaluationFormQuestionArgs:
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param pulumi.Input[_builtins.bool] not_applicable_enabled: The flag to enable not applicable answers to the question.
         :param pulumi.Input['EvaluationFormQuestionTypePropertiesArgs'] question_type_properties: The properties of the type of question. Text questions do not have to define question type properties.
+        :param pulumi.Input['EvaluationFormQuestionScoringConfigurationArgs'] scoring_configuration: The scoring configuration of the question.
         :param pulumi.Input[_builtins.float] weight: The scoring weight of the section.
                 *Minimum*: 0
                 *Maximum*: 100
@@ -1954,6 +2276,8 @@ class EvaluationFormQuestionArgs:
             pulumi.set(__self__, "not_applicable_enabled", not_applicable_enabled)
         if question_type_properties is not None:
             pulumi.set(__self__, "question_type_properties", question_type_properties)
+        if scoring_configuration is not None:
+            pulumi.set(__self__, "scoring_configuration", scoring_configuration)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -2046,6 +2370,18 @@ class EvaluationFormQuestionArgs:
         pulumi.set(self, "question_type_properties", value)
 
     @_builtins.property
+    @pulumi.getter(name="scoringConfiguration")
+    def scoring_configuration(self) -> Optional[pulumi.Input['EvaluationFormQuestionScoringConfigurationArgs']]:
+        """
+        The scoring configuration of the question.
+        """
+        return pulumi.get(self, "scoring_configuration")
+
+    @scoring_configuration.setter
+    def scoring_configuration(self, value: Optional[pulumi.Input['EvaluationFormQuestionScoringConfigurationArgs']]):
+        pulumi.set(self, "scoring_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
@@ -2058,6 +2394,79 @@ class EvaluationFormQuestionArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "weight", value)
+
+
+class EvaluationFormScoreThresholdArgsDict(TypedDict):
+    """
+    Information about a score threshold for a performance category.
+    """
+    performance_category: pulumi.Input['EvaluationFormScoreThresholdPerformanceCategory']
+    """
+    The performance category name.
+    """
+    max_score_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The maximum score percentage for the performance category.
+    """
+    min_score_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum score percentage for the performance category.
+    """
+
+@pulumi.input_type
+class EvaluationFormScoreThresholdArgs:
+    def __init__(__self__, *,
+                 performance_category: pulumi.Input['EvaluationFormScoreThresholdPerformanceCategory'],
+                 max_score_percentage: Optional[pulumi.Input[_builtins.float]] = None,
+                 min_score_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        Information about a score threshold for a performance category.
+
+        :param pulumi.Input['EvaluationFormScoreThresholdPerformanceCategory'] performance_category: The performance category name.
+        :param pulumi.Input[_builtins.float] max_score_percentage: The maximum score percentage for the performance category.
+        :param pulumi.Input[_builtins.float] min_score_percentage: The minimum score percentage for the performance category.
+        """
+        pulumi.set(__self__, "performance_category", performance_category)
+        if max_score_percentage is not None:
+            pulumi.set(__self__, "max_score_percentage", max_score_percentage)
+        if min_score_percentage is not None:
+            pulumi.set(__self__, "min_score_percentage", min_score_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="performanceCategory")
+    def performance_category(self) -> pulumi.Input['EvaluationFormScoreThresholdPerformanceCategory']:
+        """
+        The performance category name.
+        """
+        return pulumi.get(self, "performance_category")
+
+    @performance_category.setter
+    def performance_category(self, value: pulumi.Input['EvaluationFormScoreThresholdPerformanceCategory']):
+        pulumi.set(self, "performance_category", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxScorePercentage")
+    def max_score_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The maximum score percentage for the performance category.
+        """
+        return pulumi.get(self, "max_score_percentage")
+
+    @max_score_percentage.setter
+    def max_score_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "max_score_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minScorePercentage")
+    def min_score_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The minimum score percentage for the performance category.
+        """
+        return pulumi.get(self, "min_score_percentage")
+
+    @min_score_percentage.setter
+    def min_score_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "min_score_percentage", value)
 
 
 class EvaluationFormScoringStrategyArgsDict(TypedDict):
@@ -2074,12 +2483,14 @@ class EvaluationFormScoringStrategyArgsDict(TypedDict):
     The scoring status of the evaluation form.
      *Allowed values*: ``ENABLED`` | ``DISABLED``
     """
+    score_thresholds: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgsDict']]]]
 
 @pulumi.input_type
 class EvaluationFormScoringStrategyArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['EvaluationFormScoringStrategyMode'],
-                 status: pulumi.Input['EvaluationFormScoringStrategyStatus']):
+                 status: pulumi.Input['EvaluationFormScoringStrategyStatus'],
+                 score_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]] = None):
         """
         A scoring strategy of the evaluation form.
 
@@ -2090,6 +2501,8 @@ class EvaluationFormScoringStrategyArgs:
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "status", status)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
 
     @_builtins.property
     @pulumi.getter
@@ -2117,6 +2530,15 @@ class EvaluationFormScoringStrategyArgs:
     def status(self, value: pulumi.Input['EvaluationFormScoringStrategyStatus']):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]:
+        return pulumi.get(self, "score_thresholds")
+
+    @score_thresholds.setter
+    def score_thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]):
+        pulumi.set(self, "score_thresholds", value)
+
 
 class EvaluationFormSectionArgsDict(TypedDict):
     """
@@ -2136,10 +2558,18 @@ class EvaluationFormSectionArgsDict(TypedDict):
     """
     The instructions of the section.
     """
+    is_excluded_from_scoring: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The flag to exclude the section from scoring.
+    """
     items: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgsDict']]]]
     """
     The items of the section.
      *Minimum*: 1
+    """
+    score_thresholds: NotRequired[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgsDict']]]]
+    """
+    The score thresholds for performance categories.
     """
     weight: NotRequired[pulumi.Input[_builtins.float]]
     """
@@ -2154,7 +2584,9 @@ class EvaluationFormSectionArgs:
                  ref_id: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  instructions: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_excluded_from_scoring: Optional[pulumi.Input[_builtins.bool]] = None,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]]] = None,
+                 score_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]] = None,
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Information about a section from an evaluation form. A section can contain sections and/or questions. Evaluation forms can only contain sections and subsections (two level nesting).
@@ -2164,8 +2596,10 @@ class EvaluationFormSectionArgs:
         :param pulumi.Input[_builtins.str] title: The title of the section.
                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
         :param pulumi.Input[_builtins.str] instructions: The instructions of the section.
+        :param pulumi.Input[_builtins.bool] is_excluded_from_scoring: The flag to exclude the section from scoring.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]] items: The items of the section.
                 *Minimum*: 1
+        :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]] score_thresholds: The score thresholds for performance categories.
         :param pulumi.Input[_builtins.float] weight: The scoring weight of the section.
                 *Minimum*: 0 
                 *Maximum*: 100
@@ -2174,8 +2608,12 @@ class EvaluationFormSectionArgs:
         pulumi.set(__self__, "title", title)
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
+        if is_excluded_from_scoring is not None:
+            pulumi.set(__self__, "is_excluded_from_scoring", is_excluded_from_scoring)
         if items is not None:
             pulumi.set(__self__, "items", items)
+        if score_thresholds is not None:
+            pulumi.set(__self__, "score_thresholds", score_thresholds)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -2218,6 +2656,18 @@ class EvaluationFormSectionArgs:
         pulumi.set(self, "instructions", value)
 
     @_builtins.property
+    @pulumi.getter(name="isExcludedFromScoring")
+    def is_excluded_from_scoring(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The flag to exclude the section from scoring.
+        """
+        return pulumi.get(self, "is_excluded_from_scoring")
+
+    @is_excluded_from_scoring.setter
+    def is_excluded_from_scoring(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_excluded_from_scoring", value)
+
+    @_builtins.property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]]]:
         """
@@ -2229,6 +2679,18 @@ class EvaluationFormSectionArgs:
     @items.setter
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]]]):
         pulumi.set(self, "items", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scoreThresholds")
+    def score_thresholds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]:
+        """
+        The score thresholds for performance categories.
+        """
+        return pulumi.get(self, "score_thresholds")
+
+    @score_thresholds.setter
+    def score_thresholds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormScoreThresholdArgs']]]]):
+        pulumi.set(self, "score_thresholds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2383,6 +2845,10 @@ class EvaluationFormSingleSelectQuestionOptionArgsDict(TypedDict):
     """
     Whether automatic fail is configured on a single select question.
     """
+    points_configuration: NotRequired[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgsDict']]
+    """
+    The points configuration for point-based scoring.
+    """
     score: NotRequired[pulumi.Input[_builtins.int]]
     """
     The score assigned to the answer option.
@@ -2397,6 +2863,7 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
                  text: pulumi.Input[_builtins.str],
                  automatic_fail: Optional[pulumi.Input[_builtins.bool]] = None,
                  automatic_fail_configuration: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']] = None,
+                 points_configuration: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']] = None,
                  score: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Information about the automation configuration in single select questions.
@@ -2407,6 +2874,7 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
         :param pulumi.Input[_builtins.bool] automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         :param pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs'] automatic_fail_configuration: Whether automatic fail is configured on a single select question.
+        :param pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs'] points_configuration: The points configuration for point-based scoring.
         :param pulumi.Input[_builtins.int] score: The score assigned to the answer option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -2417,6 +2885,8 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
             pulumi.set(__self__, "automatic_fail", automatic_fail)
         if automatic_fail_configuration is not None:
             pulumi.set(__self__, "automatic_fail_configuration", automatic_fail_configuration)
+        if points_configuration is not None:
+            pulumi.set(__self__, "points_configuration", points_configuration)
         if score is not None:
             pulumi.set(__self__, "score", score)
 
@@ -2469,6 +2939,18 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
     @automatic_fail_configuration.setter
     def automatic_fail_configuration(self, value: Optional[pulumi.Input['EvaluationFormAutomaticFailConfigurationArgs']]):
         pulumi.set(self, "automatic_fail_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pointsConfiguration")
+    def points_configuration(self) -> Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]:
+        """
+        The points configuration for point-based scoring.
+        """
+        return pulumi.get(self, "points_configuration")
+
+    @points_configuration.setter
+    def points_configuration(self, value: Optional[pulumi.Input['EvaluationFormQuestionOptionPointsConfigurationArgs']]):
+        pulumi.set(self, "points_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -4129,6 +4611,7 @@ class QuickConnectConfigArgsDict(TypedDict):
     """
     The type of quick connect. In the Connect Customer console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     """
+    flow_config: NotRequired[pulumi.Input['QuickConnectFlowQuickConnectConfigArgsDict']]
     phone_config: NotRequired[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgsDict']]
     """
     The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
@@ -4146,6 +4629,7 @@ class QuickConnectConfigArgsDict(TypedDict):
 class QuickConnectConfigArgs:
     def __init__(__self__, *,
                  quick_connect_type: pulumi.Input['QuickConnectType'],
+                 flow_config: Optional[pulumi.Input['QuickConnectFlowQuickConnectConfigArgs']] = None,
                  phone_config: Optional[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs']] = None,
                  queue_config: Optional[pulumi.Input['QuickConnectQueueQuickConnectConfigArgs']] = None,
                  user_config: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']] = None):
@@ -4158,6 +4642,8 @@ class QuickConnectConfigArgs:
         :param pulumi.Input['QuickConnectUserQuickConnectConfigArgs'] user_config: The user configuration. This is required only if QuickConnectType is USER.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
+        if flow_config is not None:
+            pulumi.set(__self__, "flow_config", flow_config)
         if phone_config is not None:
             pulumi.set(__self__, "phone_config", phone_config)
         if queue_config is not None:
@@ -4176,6 +4662,15 @@ class QuickConnectConfigArgs:
     @quick_connect_type.setter
     def quick_connect_type(self, value: pulumi.Input['QuickConnectType']):
         pulumi.set(self, "quick_connect_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowConfig")
+    def flow_config(self) -> Optional[pulumi.Input['QuickConnectFlowQuickConnectConfigArgs']]:
+        return pulumi.get(self, "flow_config")
+
+    @flow_config.setter
+    def flow_config(self, value: Optional[pulumi.Input['QuickConnectFlowQuickConnectConfigArgs']]):
+        pulumi.set(self, "flow_config", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneConfig")
@@ -4212,6 +4707,31 @@ class QuickConnectConfigArgs:
     @user_config.setter
     def user_config(self, value: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']]):
         pulumi.set(self, "user_config", value)
+
+
+class QuickConnectFlowQuickConnectConfigArgsDict(TypedDict):
+    """
+    The flow configuration. This is required only if QuickConnectType is FLOW.
+    """
+    contact_flow_arn: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class QuickConnectFlowQuickConnectConfigArgs:
+    def __init__(__self__, *,
+                 contact_flow_arn: pulumi.Input[_builtins.str]):
+        """
+        The flow configuration. This is required only if QuickConnectType is FLOW.
+        """
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="contactFlowArn")
+    def contact_flow_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "contact_flow_arn")
+
+    @contact_flow_arn.setter
+    def contact_flow_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "contact_flow_arn", value)
 
 
 class QuickConnectPhoneNumberQuickConnectConfigArgsDict(TypedDict):
@@ -4638,6 +5158,7 @@ class RuleActionsArgsDict(TypedDict):
     """
     Information about the contact category action. The syntax can be empty, for example, ``{}``.
     """
+    assign_sla_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleAssignSlaActionArgsDict']]]]
     create_case_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleCreateCaseActionArgsDict']]]]
     end_associated_tasks_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgsDict']]]]
     event_bridge_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgsDict']]]]
@@ -4659,6 +5180,7 @@ class RuleActionsArgsDict(TypedDict):
 class RuleActionsArgs:
     def __init__(__self__, *,
                  assign_contact_category_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]]] = None,
+                 assign_sla_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignSlaActionArgs']]]] = None,
                  create_case_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleCreateCaseActionArgs']]]] = None,
                  end_associated_tasks_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEndAssociatedTasksActionArgs']]]] = None,
                  event_bridge_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]] = None,
@@ -4676,6 +5198,8 @@ class RuleActionsArgs:
         """
         if assign_contact_category_actions is not None:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
+        if assign_sla_actions is not None:
+            pulumi.set(__self__, "assign_sla_actions", assign_sla_actions)
         if create_case_actions is not None:
             pulumi.set(__self__, "create_case_actions", create_case_actions)
         if end_associated_tasks_actions is not None:
@@ -4702,6 +5226,15 @@ class RuleActionsArgs:
     @assign_contact_category_actions.setter
     def assign_contact_category_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]]]):
         pulumi.set(self, "assign_contact_category_actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assignSlaActions")
+    def assign_sla_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignSlaActionArgs']]]]:
+        return pulumi.get(self, "assign_sla_actions")
+
+    @assign_sla_actions.setter
+    def assign_sla_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignSlaActionArgs']]]]):
+        pulumi.set(self, "assign_sla_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="createCaseActions")
@@ -4789,6 +5322,164 @@ class RuleAssignContactCategoryActionArgs:
         The definition for assigning contact category action.
         """
         pass
+
+
+class RuleAssignSlaActionCaseSlaConfigurationPropertiesArgsDict(TypedDict):
+    """
+    The SLA configuration for cases.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the SLA.
+    """
+    target_sla_minutes: pulumi.Input[_builtins.float]
+    """
+    The target SLA time in minutes.
+    """
+    type: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType']
+    """
+    The type of SLA.
+    """
+    field_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field Id for the SLA.
+    """
+    target_field_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgsDict']]]]
+    """
+    The target field values for the SLA.
+    """
+
+@pulumi.input_type
+class RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 target_sla_minutes: pulumi.Input[_builtins.float],
+                 type: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType'],
+                 field_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_field_values: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgs']]]] = None):
+        """
+        The SLA configuration for cases.
+
+        :param pulumi.Input[_builtins.str] name: The name of the SLA.
+        :param pulumi.Input[_builtins.float] target_sla_minutes: The target SLA time in minutes.
+        :param pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType'] type: The type of SLA.
+        :param pulumi.Input[_builtins.str] field_id: The field Id for the SLA.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgs']]] target_field_values: The target field values for the SLA.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "target_sla_minutes", target_sla_minutes)
+        pulumi.set(__self__, "type", type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if target_field_values is not None:
+            pulumi.set(__self__, "target_field_values", target_field_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the SLA.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetSlaMinutes")
+    def target_sla_minutes(self) -> pulumi.Input[_builtins.float]:
+        """
+        The target SLA time in minutes.
+        """
+        return pulumi.get(self, "target_sla_minutes")
+
+    @target_sla_minutes.setter
+    def target_sla_minutes(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "target_sla_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType']:
+        """
+        The type of SLA.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The field Id for the SLA.
+        """
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetFieldValues")
+    def target_field_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgs']]]]:
+        """
+        The target field values for the SLA.
+        """
+        return pulumi.get(self, "target_field_values")
+
+    @target_field_values.setter
+    def target_field_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgs']]]]):
+        pulumi.set(self, "target_field_values", value)
+
+
+class RuleAssignSlaActionArgsDict(TypedDict):
+    case_sla_configuration: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgsDict']
+    """
+    The SLA configuration for cases.
+    """
+    sla_assignment_type: pulumi.Input['RuleAssignSlaActionSlaAssignmentType']
+    """
+    The type of SLA assignment.
+    """
+
+@pulumi.input_type
+class RuleAssignSlaActionArgs:
+    def __init__(__self__, *,
+                 case_sla_configuration: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs'],
+                 sla_assignment_type: pulumi.Input['RuleAssignSlaActionSlaAssignmentType']):
+        """
+        :param pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs'] case_sla_configuration: The SLA configuration for cases.
+        :param pulumi.Input['RuleAssignSlaActionSlaAssignmentType'] sla_assignment_type: The type of SLA assignment.
+        """
+        pulumi.set(__self__, "case_sla_configuration", case_sla_configuration)
+        pulumi.set(__self__, "sla_assignment_type", sla_assignment_type)
+
+    @_builtins.property
+    @pulumi.getter(name="caseSlaConfiguration")
+    def case_sla_configuration(self) -> pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs']:
+        """
+        The SLA configuration for cases.
+        """
+        return pulumi.get(self, "case_sla_configuration")
+
+    @case_sla_configuration.setter
+    def case_sla_configuration(self, value: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs']):
+        pulumi.set(self, "case_sla_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="slaAssignmentType")
+    def sla_assignment_type(self) -> pulumi.Input['RuleAssignSlaActionSlaAssignmentType']:
+        """
+        The type of SLA assignment.
+        """
+        return pulumi.get(self, "sla_assignment_type")
+
+    @sla_assignment_type.setter
+    def sla_assignment_type(self, value: pulumi.Input['RuleAssignSlaActionSlaAssignmentType']):
+        pulumi.set(self, "sla_assignment_type", value)
 
 
 class RuleCreateCaseActionArgsDict(TypedDict):
@@ -5097,6 +5788,7 @@ class RuleSendNotificationActionArgsDict(TypedDict):
     """
     Notification recipient.
     """
+    exclusion: NotRequired[pulumi.Input['RuleNotificationRecipientTypeArgsDict']]
     subject: NotRequired[pulumi.Input[_builtins.str]]
     """
     The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -5109,6 +5801,7 @@ class RuleSendNotificationActionArgs:
                  content_type: pulumi.Input['RuleSendNotificationActionContentType'],
                  delivery_method: pulumi.Input['RuleSendNotificationActionDeliveryMethod'],
                  recipient: pulumi.Input['RuleNotificationRecipientTypeArgs'],
+                 exclusion: Optional[pulumi.Input['RuleNotificationRecipientTypeArgs']] = None,
                  subject: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Information about the send notification action.
@@ -5125,6 +5818,8 @@ class RuleSendNotificationActionArgs:
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "delivery_method", delivery_method)
         pulumi.set(__self__, "recipient", recipient)
+        if exclusion is not None:
+            pulumi.set(__self__, "exclusion", exclusion)
         if subject is not None:
             pulumi.set(__self__, "subject", subject)
 
@@ -5180,6 +5875,15 @@ class RuleSendNotificationActionArgs:
 
     @_builtins.property
     @pulumi.getter
+    def exclusion(self) -> Optional[pulumi.Input['RuleNotificationRecipientTypeArgs']]:
+        return pulumi.get(self, "exclusion")
+
+    @exclusion.setter
+    def exclusion(self, value: Optional[pulumi.Input['RuleNotificationRecipientTypeArgs']]):
+        pulumi.set(self, "exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter
     def subject(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
@@ -5189,6 +5893,26 @@ class RuleSendNotificationActionArgs:
     @subject.setter
     def subject(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subject", value)
+
+
+class RuleSlaTargetFieldValueArgsDict(TypedDict):
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+
+@pulumi.input_type
+class RuleSlaTargetFieldValueArgs:
+    def __init__(__self__, *,
+                 string_value: Optional[pulumi.Input[_builtins.str]] = None):
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "string_value", value)
 
 
 class RuleSubmitAutoEvaluationActionArgsDict(TypedDict):
@@ -5940,6 +6664,188 @@ class TaskTemplateRequiredFieldInfoArgs:
         pulumi.set(self, "id", value)
 
 
+class TestCaseEntryPointChatEntryPointParametersPropertiesArgsDict(TypedDict):
+    """
+    The chat entry point parameters for the test case
+    """
+    flow_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The flow id used for the TestCase
+    """
+
+@pulumi.input_type
+class TestCaseEntryPointChatEntryPointParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 flow_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The chat entry point parameters for the test case
+
+        :param pulumi.Input[_builtins.str] flow_id: The flow id used for the TestCase
+        """
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The flow id used for the TestCase
+        """
+        return pulumi.get(self, "flow_id")
+
+    @flow_id.setter
+    def flow_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "flow_id", value)
+
+
+class TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgsDict(TypedDict):
+    """
+    The voice call entry point parameters for the test case
+    """
+    destination_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The destination phonenumber of the EntryPoint
+    """
+    flow_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The flow id used for the TestCase
+    """
+    source_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source phonenumber of the EntryPoint
+    """
+
+@pulumi.input_type
+class TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 destination_phone_number: Optional[pulumi.Input[_builtins.str]] = None,
+                 flow_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The voice call entry point parameters for the test case
+
+        :param pulumi.Input[_builtins.str] destination_phone_number: The destination phonenumber of the EntryPoint
+        :param pulumi.Input[_builtins.str] flow_id: The flow id used for the TestCase
+        :param pulumi.Input[_builtins.str] source_phone_number: The source phonenumber of the EntryPoint
+        """
+        if destination_phone_number is not None:
+            pulumi.set(__self__, "destination_phone_number", destination_phone_number)
+        if flow_id is not None:
+            pulumi.set(__self__, "flow_id", flow_id)
+        if source_phone_number is not None:
+            pulumi.set(__self__, "source_phone_number", source_phone_number)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPhoneNumber")
+    def destination_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The destination phonenumber of the EntryPoint
+        """
+        return pulumi.get(self, "destination_phone_number")
+
+    @destination_phone_number.setter
+    def destination_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "destination_phone_number", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowId")
+    def flow_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The flow id used for the TestCase
+        """
+        return pulumi.get(self, "flow_id")
+
+    @flow_id.setter
+    def flow_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "flow_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePhoneNumber")
+    def source_phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The source phonenumber of the EntryPoint
+        """
+        return pulumi.get(self, "source_phone_number")
+
+    @source_phone_number.setter
+    def source_phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source_phone_number", value)
+
+
+class TestCaseEntryPointArgsDict(TypedDict):
+    """
+    The Entry Point associated with the test case
+    """
+    chat_entry_point_parameters: NotRequired[pulumi.Input['TestCaseEntryPointChatEntryPointParametersPropertiesArgsDict']]
+    """
+    The chat entry point parameters for the test case
+    """
+    type: NotRequired[pulumi.Input['TestCaseEntryPointType']]
+    """
+    The type of the Entry Point
+    """
+    voice_call_entry_point_parameters: NotRequired[pulumi.Input['TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgsDict']]
+    """
+    The voice call entry point parameters for the test case
+    """
+
+@pulumi.input_type
+class TestCaseEntryPointArgs:
+    def __init__(__self__, *,
+                 chat_entry_point_parameters: Optional[pulumi.Input['TestCaseEntryPointChatEntryPointParametersPropertiesArgs']] = None,
+                 type: Optional[pulumi.Input['TestCaseEntryPointType']] = None,
+                 voice_call_entry_point_parameters: Optional[pulumi.Input['TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs']] = None):
+        """
+        The Entry Point associated with the test case
+
+        :param pulumi.Input['TestCaseEntryPointChatEntryPointParametersPropertiesArgs'] chat_entry_point_parameters: The chat entry point parameters for the test case
+        :param pulumi.Input['TestCaseEntryPointType'] type: The type of the Entry Point
+        :param pulumi.Input['TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs'] voice_call_entry_point_parameters: The voice call entry point parameters for the test case
+        """
+        if chat_entry_point_parameters is not None:
+            pulumi.set(__self__, "chat_entry_point_parameters", chat_entry_point_parameters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if voice_call_entry_point_parameters is not None:
+            pulumi.set(__self__, "voice_call_entry_point_parameters", voice_call_entry_point_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="chatEntryPointParameters")
+    def chat_entry_point_parameters(self) -> Optional[pulumi.Input['TestCaseEntryPointChatEntryPointParametersPropertiesArgs']]:
+        """
+        The chat entry point parameters for the test case
+        """
+        return pulumi.get(self, "chat_entry_point_parameters")
+
+    @chat_entry_point_parameters.setter
+    def chat_entry_point_parameters(self, value: Optional[pulumi.Input['TestCaseEntryPointChatEntryPointParametersPropertiesArgs']]):
+        pulumi.set(self, "chat_entry_point_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['TestCaseEntryPointType']]:
+        """
+        The type of the Entry Point
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['TestCaseEntryPointType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="voiceCallEntryPointParameters")
+    def voice_call_entry_point_parameters(self) -> Optional[pulumi.Input['TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs']]:
+        """
+        The voice call entry point parameters for the test case
+        """
+        return pulumi.get(self, "voice_call_entry_point_parameters")
+
+    @voice_call_entry_point_parameters.setter
+    def voice_call_entry_point_parameters(self, value: Optional[pulumi.Input['TestCaseEntryPointVoiceCallEntryPointParametersPropertiesArgs']]):
+        pulumi.set(self, "voice_call_entry_point_parameters", value)
+
+
 class UserAfterContactWorkConfigPerChannelArgsDict(TypedDict):
     """
     After Contact Work configuration per channel.
@@ -5994,17 +6900,30 @@ class UserAfterContactWorkConfigArgsDict(TypedDict):
     """
     After Contact Work configuration.
     """
+    after_contact_work_mode: NotRequired[pulumi.Input['UserAfterContactWorkMode']]
     after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class UserAfterContactWorkConfigArgs:
     def __init__(__self__, *,
+                 after_contact_work_mode: Optional[pulumi.Input['UserAfterContactWorkMode']] = None,
                  after_contact_work_time_limit: Optional[pulumi.Input[_builtins.int]] = None):
         """
         After Contact Work configuration.
         """
+        if after_contact_work_mode is not None:
+            pulumi.set(__self__, "after_contact_work_mode", after_contact_work_mode)
         if after_contact_work_time_limit is not None:
             pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="afterContactWorkMode")
+    def after_contact_work_mode(self) -> Optional[pulumi.Input['UserAfterContactWorkMode']]:
+        return pulumi.get(self, "after_contact_work_mode")
+
+    @after_contact_work_mode.setter
+    def after_contact_work_mode(self, value: Optional[pulumi.Input['UserAfterContactWorkMode']]):
+        pulumi.set(self, "after_contact_work_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="afterContactWorkTimeLimit")

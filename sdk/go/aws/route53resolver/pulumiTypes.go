@@ -337,6 +337,8 @@ type FirewallRuleGroupFirewallRule struct {
 	Priority int `pulumi:"priority"`
 	// Qtype
 	Qtype *string `pulumi:"qtype"`
+	// The status of the firewall rule.
+	Status *FirewallRuleGroupFirewallRuleStatus `pulumi:"status"`
 }
 
 // FirewallRuleGroupFirewallRuleInput is an input type that accepts FirewallRuleGroupFirewallRuleArgs and FirewallRuleGroupFirewallRuleOutput values.
@@ -378,6 +380,8 @@ type FirewallRuleGroupFirewallRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Qtype
 	Qtype pulumi.StringPtrInput `pulumi:"qtype"`
+	// The status of the firewall rule.
+	Status FirewallRuleGroupFirewallRuleStatusPtrInput `pulumi:"status"`
 }
 
 func (FirewallRuleGroupFirewallRuleArgs) ElementType() reflect.Type {
@@ -507,6 +511,11 @@ func (o FirewallRuleGroupFirewallRuleOutput) Qtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.Qtype }).(pulumi.StringPtrOutput)
 }
 
+// The status of the firewall rule.
+func (o FirewallRuleGroupFirewallRuleOutput) Status() FirewallRuleGroupFirewallRuleStatusPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleStatus { return v.Status }).(FirewallRuleGroupFirewallRuleStatusPtrOutput)
+}
+
 type FirewallRuleGroupFirewallRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupFirewallRuleArrayOutput) ElementType() reflect.Type {
@@ -531,6 +540,7 @@ func (o FirewallRuleGroupFirewallRuleArrayOutput) Index(i pulumi.IntInput) Firew
 type FirewallRuleGroupFirewallRuleType struct {
 	FirewallAdvancedContentCategory *FirewallRuleGroupFirewallAdvancedContentCategoryConfig `pulumi:"firewallAdvancedContentCategory"`
 	FirewallAdvancedThreatCategory  *FirewallRuleGroupFirewallAdvancedThreatCategoryConfig  `pulumi:"firewallAdvancedThreatCategory"`
+	PartnerThreatProtection         *FirewallRuleGroupPartnerThreatProtectionConfig         `pulumi:"partnerThreatProtection"`
 }
 
 // FirewallRuleGroupFirewallRuleTypeInput is an input type that accepts FirewallRuleGroupFirewallRuleTypeArgs and FirewallRuleGroupFirewallRuleTypeOutput values.
@@ -548,6 +558,7 @@ type FirewallRuleGroupFirewallRuleTypeInput interface {
 type FirewallRuleGroupFirewallRuleTypeArgs struct {
 	FirewallAdvancedContentCategory FirewallRuleGroupFirewallAdvancedContentCategoryConfigPtrInput `pulumi:"firewallAdvancedContentCategory"`
 	FirewallAdvancedThreatCategory  FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrInput  `pulumi:"firewallAdvancedThreatCategory"`
+	PartnerThreatProtection         FirewallRuleGroupPartnerThreatProtectionConfigPtrInput         `pulumi:"partnerThreatProtection"`
 }
 
 func (FirewallRuleGroupFirewallRuleTypeArgs) ElementType() reflect.Type {
@@ -640,6 +651,12 @@ func (o FirewallRuleGroupFirewallRuleTypeOutput) FirewallAdvancedThreatCategory(
 	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
 }
 
+func (o FirewallRuleGroupFirewallRuleTypeOutput) PartnerThreatProtection() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupPartnerThreatProtectionConfig {
+		return v.PartnerThreatProtection
+	}).(FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput)
+}
+
 type FirewallRuleGroupFirewallRuleTypePtrOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupFirewallRuleTypePtrOutput) ElementType() reflect.Type {
@@ -680,6 +697,155 @@ func (o FirewallRuleGroupFirewallRuleTypePtrOutput) FirewallAdvancedThreatCatego
 		}
 		return v.FirewallAdvancedThreatCategory
 	}).(FirewallRuleGroupFirewallAdvancedThreatCategoryConfigPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleTypePtrOutput) PartnerThreatProtection() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleType) *FirewallRuleGroupPartnerThreatProtectionConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PartnerThreatProtection
+	}).(FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput)
+}
+
+// Configuration for a partner threat protection rule type.
+type FirewallRuleGroupPartnerThreatProtectionConfig struct {
+	// The partner identifier value.
+	Partner string `pulumi:"partner"`
+}
+
+// FirewallRuleGroupPartnerThreatProtectionConfigInput is an input type that accepts FirewallRuleGroupPartnerThreatProtectionConfigArgs and FirewallRuleGroupPartnerThreatProtectionConfigOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupPartnerThreatProtectionConfigInput` via:
+//
+//	FirewallRuleGroupPartnerThreatProtectionConfigArgs{...}
+type FirewallRuleGroupPartnerThreatProtectionConfigInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupPartnerThreatProtectionConfigOutput() FirewallRuleGroupPartnerThreatProtectionConfigOutput
+	ToFirewallRuleGroupPartnerThreatProtectionConfigOutputWithContext(context.Context) FirewallRuleGroupPartnerThreatProtectionConfigOutput
+}
+
+// Configuration for a partner threat protection rule type.
+type FirewallRuleGroupPartnerThreatProtectionConfigArgs struct {
+	// The partner identifier value.
+	Partner pulumi.StringInput `pulumi:"partner"`
+}
+
+func (FirewallRuleGroupPartnerThreatProtectionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupPartnerThreatProtectionConfig)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupPartnerThreatProtectionConfigArgs) ToFirewallRuleGroupPartnerThreatProtectionConfigOutput() FirewallRuleGroupPartnerThreatProtectionConfigOutput {
+	return i.ToFirewallRuleGroupPartnerThreatProtectionConfigOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupPartnerThreatProtectionConfigArgs) ToFirewallRuleGroupPartnerThreatProtectionConfigOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupPartnerThreatProtectionConfigOutput)
+}
+
+func (i FirewallRuleGroupPartnerThreatProtectionConfigArgs) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutput() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return i.ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupPartnerThreatProtectionConfigArgs) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupPartnerThreatProtectionConfigOutput).ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(ctx)
+}
+
+// FirewallRuleGroupPartnerThreatProtectionConfigPtrInput is an input type that accepts FirewallRuleGroupPartnerThreatProtectionConfigArgs, FirewallRuleGroupPartnerThreatProtectionConfigPtr and FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupPartnerThreatProtectionConfigPtrInput` via:
+//
+//	        FirewallRuleGroupPartnerThreatProtectionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FirewallRuleGroupPartnerThreatProtectionConfigPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutput() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput
+	ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(context.Context) FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput
+}
+
+type firewallRuleGroupPartnerThreatProtectionConfigPtrType FirewallRuleGroupPartnerThreatProtectionConfigArgs
+
+func FirewallRuleGroupPartnerThreatProtectionConfigPtr(v *FirewallRuleGroupPartnerThreatProtectionConfigArgs) FirewallRuleGroupPartnerThreatProtectionConfigPtrInput {
+	return (*firewallRuleGroupPartnerThreatProtectionConfigPtrType)(v)
+}
+
+func (*firewallRuleGroupPartnerThreatProtectionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupPartnerThreatProtectionConfig)(nil)).Elem()
+}
+
+func (i *firewallRuleGroupPartnerThreatProtectionConfigPtrType) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutput() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return i.ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *firewallRuleGroupPartnerThreatProtectionConfigPtrType) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput)
+}
+
+// Configuration for a partner threat protection rule type.
+type FirewallRuleGroupPartnerThreatProtectionConfigOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupPartnerThreatProtectionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupPartnerThreatProtectionConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigOutput() FirewallRuleGroupPartnerThreatProtectionConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigOutput {
+	return o
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutput() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o.ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupPartnerThreatProtectionConfig) *FirewallRuleGroupPartnerThreatProtectionConfig {
+		return &v
+	}).(FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput)
+}
+
+// The partner identifier value.
+func (o FirewallRuleGroupPartnerThreatProtectionConfigOutput) Partner() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupPartnerThreatProtectionConfig) string { return v.Partner }).(pulumi.StringOutput)
+}
+
+type FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupPartnerThreatProtectionConfig)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutput() FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput) ToFirewallRuleGroupPartnerThreatProtectionConfigPtrOutputWithContext(ctx context.Context) FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput) Elem() FirewallRuleGroupPartnerThreatProtectionConfigOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupPartnerThreatProtectionConfig) FirewallRuleGroupPartnerThreatProtectionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupPartnerThreatProtectionConfig
+		return ret
+	}).(FirewallRuleGroupPartnerThreatProtectionConfigOutput)
+}
+
+// The partner identifier value.
+func (o FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput) Partner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupPartnerThreatProtectionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Partner
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -977,6 +1143,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleArrayInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleTypeInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupPartnerThreatProtectionConfigInput)(nil)).Elem(), FirewallRuleGroupPartnerThreatProtectionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupPartnerThreatProtectionConfigPtrInput)(nil)).Elem(), FirewallRuleGroupPartnerThreatProtectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointIpAddressRequestArrayInput)(nil)).Elem(), ResolverEndpointIpAddressRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressInput)(nil)).Elem(), ResolverRuleTargetAddressArgs{})
@@ -989,6 +1157,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupPartnerThreatProtectionConfigOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupPartnerThreatProtectionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointIpAddressRequestArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleTargetAddressOutput{})

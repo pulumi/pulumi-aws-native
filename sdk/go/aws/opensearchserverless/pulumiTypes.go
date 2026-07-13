@@ -590,6 +590,10 @@ func (o CollectionVectorOptionsPtrOutput) ServerlessVectorAcceleration() Collect
 }
 
 type IndexPropertyMapping struct {
+	// The analyzer to use for this field (for text and keyword fields)
+	Analyzer *string `pulumi:"analyzer"`
+	// The compression level for knn_vector fields
+	CompressionLevel *IndexPropertyMappingCompressionLevel `pulumi:"compressionLevel"`
 	// Dimension size for vector fields, defines the number of dimensions in the vector
 	Dimension *int `pulumi:"dimension"`
 	// Whether a field should be indexed
@@ -598,6 +602,8 @@ type IndexPropertyMapping struct {
 	Method *IndexPropertyMappingMethodProperties `pulumi:"method"`
 	// Nested fields within an object or nested field type
 	Properties map[string]IndexPropertyMapping `pulumi:"properties"`
+	// The distance function used for k-NN search (field-level, outside Method)
+	SpaceType *IndexPropertyMappingSpaceType `pulumi:"spaceType"`
 	// The field data type. Must be a valid OpenSearch field type.
 	Type IndexPropertyMappingType `pulumi:"type"`
 	// Default value for the field when not specified in a document
@@ -616,6 +622,10 @@ type IndexPropertyMappingInput interface {
 }
 
 type IndexPropertyMappingArgs struct {
+	// The analyzer to use for this field (for text and keyword fields)
+	Analyzer pulumi.StringPtrInput `pulumi:"analyzer"`
+	// The compression level for knn_vector fields
+	CompressionLevel IndexPropertyMappingCompressionLevelPtrInput `pulumi:"compressionLevel"`
 	// Dimension size for vector fields, defines the number of dimensions in the vector
 	Dimension pulumi.IntPtrInput `pulumi:"dimension"`
 	// Whether a field should be indexed
@@ -624,6 +634,8 @@ type IndexPropertyMappingArgs struct {
 	Method IndexPropertyMappingMethodPropertiesPtrInput `pulumi:"method"`
 	// Nested fields within an object or nested field type
 	Properties IndexPropertyMappingMapInput `pulumi:"properties"`
+	// The distance function used for k-NN search (field-level, outside Method)
+	SpaceType IndexPropertyMappingSpaceTypePtrInput `pulumi:"spaceType"`
 	// The field data type. Must be a valid OpenSearch field type.
 	Type IndexPropertyMappingTypeInput `pulumi:"type"`
 	// Default value for the field when not specified in a document
@@ -681,6 +693,16 @@ func (o IndexPropertyMappingOutput) ToIndexPropertyMappingOutputWithContext(ctx 
 	return o
 }
 
+// The analyzer to use for this field (for text and keyword fields)
+func (o IndexPropertyMappingOutput) Analyzer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *string { return v.Analyzer }).(pulumi.StringPtrOutput)
+}
+
+// The compression level for knn_vector fields
+func (o IndexPropertyMappingOutput) CompressionLevel() IndexPropertyMappingCompressionLevelPtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *IndexPropertyMappingCompressionLevel { return v.CompressionLevel }).(IndexPropertyMappingCompressionLevelPtrOutput)
+}
+
 // Dimension size for vector fields, defines the number of dimensions in the vector
 func (o IndexPropertyMappingOutput) Dimension() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IndexPropertyMapping) *int { return v.Dimension }).(pulumi.IntPtrOutput)
@@ -699,6 +721,11 @@ func (o IndexPropertyMappingOutput) Method() IndexPropertyMappingMethodPropertie
 // Nested fields within an object or nested field type
 func (o IndexPropertyMappingOutput) Properties() IndexPropertyMappingMapOutput {
 	return o.ApplyT(func(v IndexPropertyMapping) map[string]IndexPropertyMapping { return v.Properties }).(IndexPropertyMappingMapOutput)
+}
+
+// The distance function used for k-NN search (field-level, outside Method)
+func (o IndexPropertyMappingOutput) SpaceType() IndexPropertyMappingSpaceTypePtrOutput {
+	return o.ApplyT(func(v IndexPropertyMapping) *IndexPropertyMappingSpaceType { return v.SpaceType }).(IndexPropertyMappingSpaceTypePtrOutput)
 }
 
 // The field data type. Must be a valid OpenSearch field type.
@@ -1094,6 +1121,8 @@ func (o IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput) M() p
 }
 
 type IndexSettings struct {
+	// Custom analysis configuration including analyzers, tokenizers, and filters
+	Analysis *IndexSettingsAnalysisProperties `pulumi:"analysis"`
 	// Index settings.
 	Index *IndexSettingsIndexProperties `pulumi:"index"`
 }
@@ -1110,6 +1139,8 @@ type IndexSettingsInput interface {
 }
 
 type IndexSettingsArgs struct {
+	// Custom analysis configuration including analyzers, tokenizers, and filters
+	Analysis IndexSettingsAnalysisPropertiesPtrInput `pulumi:"analysis"`
 	// Index settings.
 	Index IndexSettingsIndexPropertiesPtrInput `pulumi:"index"`
 }
@@ -1191,6 +1222,11 @@ func (o IndexSettingsOutput) ToIndexSettingsPtrOutputWithContext(ctx context.Con
 	}).(IndexSettingsPtrOutput)
 }
 
+// Custom analysis configuration including analyzers, tokenizers, and filters
+func (o IndexSettingsOutput) Analysis() IndexSettingsAnalysisPropertiesPtrOutput {
+	return o.ApplyT(func(v IndexSettings) *IndexSettingsAnalysisProperties { return v.Analysis }).(IndexSettingsAnalysisPropertiesPtrOutput)
+}
+
 // Index settings.
 func (o IndexSettingsOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 	return o.ApplyT(func(v IndexSettings) *IndexSettingsIndexProperties { return v.Index }).(IndexSettingsIndexPropertiesPtrOutput)
@@ -1220,6 +1256,16 @@ func (o IndexSettingsPtrOutput) Elem() IndexSettingsOutput {
 	}).(IndexSettingsOutput)
 }
 
+// Custom analysis configuration including analyzers, tokenizers, and filters
+func (o IndexSettingsPtrOutput) Analysis() IndexSettingsAnalysisPropertiesPtrOutput {
+	return o.ApplyT(func(v *IndexSettings) *IndexSettingsAnalysisProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Analysis
+	}).(IndexSettingsAnalysisPropertiesPtrOutput)
+}
+
 // Index settings.
 func (o IndexSettingsPtrOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 	return o.ApplyT(func(v *IndexSettings) *IndexSettingsIndexProperties {
@@ -1228,6 +1274,272 @@ func (o IndexSettingsPtrOutput) Index() IndexSettingsIndexPropertiesPtrOutput {
 		}
 		return v.Index
 	}).(IndexSettingsIndexPropertiesPtrOutput)
+}
+
+// Custom analysis configuration including analyzers, tokenizers, and filters
+type IndexSettingsAnalysisProperties struct {
+	// Custom analyzer definitions
+	Analyzer map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties `pulumi:"analyzer"`
+}
+
+// IndexSettingsAnalysisPropertiesInput is an input type that accepts IndexSettingsAnalysisPropertiesArgs and IndexSettingsAnalysisPropertiesOutput values.
+// You can construct a concrete instance of `IndexSettingsAnalysisPropertiesInput` via:
+//
+//	IndexSettingsAnalysisPropertiesArgs{...}
+type IndexSettingsAnalysisPropertiesInput interface {
+	pulumi.Input
+
+	ToIndexSettingsAnalysisPropertiesOutput() IndexSettingsAnalysisPropertiesOutput
+	ToIndexSettingsAnalysisPropertiesOutputWithContext(context.Context) IndexSettingsAnalysisPropertiesOutput
+}
+
+// Custom analysis configuration including analyzers, tokenizers, and filters
+type IndexSettingsAnalysisPropertiesArgs struct {
+	// Custom analyzer definitions
+	Analyzer IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapInput `pulumi:"analyzer"`
+}
+
+func (IndexSettingsAnalysisPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsAnalysisProperties)(nil)).Elem()
+}
+
+func (i IndexSettingsAnalysisPropertiesArgs) ToIndexSettingsAnalysisPropertiesOutput() IndexSettingsAnalysisPropertiesOutput {
+	return i.ToIndexSettingsAnalysisPropertiesOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsAnalysisPropertiesArgs) ToIndexSettingsAnalysisPropertiesOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsAnalysisPropertiesOutput)
+}
+
+func (i IndexSettingsAnalysisPropertiesArgs) ToIndexSettingsAnalysisPropertiesPtrOutput() IndexSettingsAnalysisPropertiesPtrOutput {
+	return i.ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsAnalysisPropertiesArgs) ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsAnalysisPropertiesOutput).ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(ctx)
+}
+
+// IndexSettingsAnalysisPropertiesPtrInput is an input type that accepts IndexSettingsAnalysisPropertiesArgs, IndexSettingsAnalysisPropertiesPtr and IndexSettingsAnalysisPropertiesPtrOutput values.
+// You can construct a concrete instance of `IndexSettingsAnalysisPropertiesPtrInput` via:
+//
+//	        IndexSettingsAnalysisPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexSettingsAnalysisPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIndexSettingsAnalysisPropertiesPtrOutput() IndexSettingsAnalysisPropertiesPtrOutput
+	ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(context.Context) IndexSettingsAnalysisPropertiesPtrOutput
+}
+
+type indexSettingsAnalysisPropertiesPtrType IndexSettingsAnalysisPropertiesArgs
+
+func IndexSettingsAnalysisPropertiesPtr(v *IndexSettingsAnalysisPropertiesArgs) IndexSettingsAnalysisPropertiesPtrInput {
+	return (*indexSettingsAnalysisPropertiesPtrType)(v)
+}
+
+func (*indexSettingsAnalysisPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettingsAnalysisProperties)(nil)).Elem()
+}
+
+func (i *indexSettingsAnalysisPropertiesPtrType) ToIndexSettingsAnalysisPropertiesPtrOutput() IndexSettingsAnalysisPropertiesPtrOutput {
+	return i.ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *indexSettingsAnalysisPropertiesPtrType) ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsAnalysisPropertiesPtrOutput)
+}
+
+// Custom analysis configuration including analyzers, tokenizers, and filters
+type IndexSettingsAnalysisPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsAnalysisPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsAnalysisProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsAnalysisPropertiesOutput) ToIndexSettingsAnalysisPropertiesOutput() IndexSettingsAnalysisPropertiesOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesOutput) ToIndexSettingsAnalysisPropertiesOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesOutput) ToIndexSettingsAnalysisPropertiesPtrOutput() IndexSettingsAnalysisPropertiesPtrOutput {
+	return o.ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IndexSettingsAnalysisPropertiesOutput) ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexSettingsAnalysisProperties) *IndexSettingsAnalysisProperties {
+		return &v
+	}).(IndexSettingsAnalysisPropertiesPtrOutput)
+}
+
+// Custom analyzer definitions
+func (o IndexSettingsAnalysisPropertiesOutput) Analyzer() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return o.ApplyT(func(v IndexSettingsAnalysisProperties) map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties {
+		return v.Analyzer
+	}).(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput)
+}
+
+type IndexSettingsAnalysisPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsAnalysisPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexSettingsAnalysisProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsAnalysisPropertiesPtrOutput) ToIndexSettingsAnalysisPropertiesPtrOutput() IndexSettingsAnalysisPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesPtrOutput) ToIndexSettingsAnalysisPropertiesPtrOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesPtrOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesPtrOutput) Elem() IndexSettingsAnalysisPropertiesOutput {
+	return o.ApplyT(func(v *IndexSettingsAnalysisProperties) IndexSettingsAnalysisProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IndexSettingsAnalysisProperties
+		return ret
+	}).(IndexSettingsAnalysisPropertiesOutput)
+}
+
+// Custom analyzer definitions
+func (o IndexSettingsAnalysisPropertiesPtrOutput) Analyzer() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return o.ApplyT(func(v *IndexSettingsAnalysisProperties) map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Analyzer
+	}).(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput)
+}
+
+type IndexSettingsAnalysisPropertiesAnalyzerValueProperties struct {
+	// Character filters to apply
+	CharFilter []string `pulumi:"charFilter"`
+	// Token filters to apply
+	Filter []string `pulumi:"filter"`
+	// The tokenizer to use
+	Tokenizer *string `pulumi:"tokenizer"`
+	// The analyzer type (e.g. custom, standard, simple)
+	Type *string `pulumi:"type"`
+}
+
+// IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesInput is an input type that accepts IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs and IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput values.
+// You can construct a concrete instance of `IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesInput` via:
+//
+//	IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs{...}
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesInput interface {
+	pulumi.Input
+
+	ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput
+	ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutputWithContext(context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput
+}
+
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs struct {
+	// Character filters to apply
+	CharFilter pulumi.StringArrayInput `pulumi:"charFilter"`
+	// Token filters to apply
+	Filter pulumi.StringArrayInput `pulumi:"filter"`
+	// The tokenizer to use
+	Tokenizer pulumi.StringPtrInput `pulumi:"tokenizer"`
+	// The analyzer type (e.g. custom, standard, simple)
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsAnalysisPropertiesAnalyzerValueProperties)(nil)).Elem()
+}
+
+func (i IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput {
+	return i.ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput)
+}
+
+// IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapInput is an input type that accepts IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap and IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput values.
+// You can construct a concrete instance of `IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapInput` via:
+//
+//	IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap{ "key": IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs{...} }
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapInput interface {
+	pulumi.Input
+
+	ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput
+	ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutputWithContext(context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput
+}
+
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap map[string]IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesInput
+
+func (IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties)(nil)).Elem()
+}
+
+func (i IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return i.ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutputWithContext(context.Background())
+}
+
+func (i IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput)
+}
+
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexSettingsAnalysisPropertiesAnalyzerValueProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput {
+	return o
+}
+
+// Character filters to apply
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) CharFilter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IndexSettingsAnalysisPropertiesAnalyzerValueProperties) []string { return v.CharFilter }).(pulumi.StringArrayOutput)
+}
+
+// Token filters to apply
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) Filter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IndexSettingsAnalysisPropertiesAnalyzerValueProperties) []string { return v.Filter }).(pulumi.StringArrayOutput)
+}
+
+// The tokenizer to use
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) Tokenizer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexSettingsAnalysisPropertiesAnalyzerValueProperties) *string { return v.Tokenizer }).(pulumi.StringPtrOutput)
+}
+
+// The analyzer type (e.g. custom, standard, simple)
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexSettingsAnalysisPropertiesAnalyzerValueProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties)(nil)).Elem()
+}
+
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput() IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput) ToIndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutputWithContext(ctx context.Context) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput {
+	return o
+}
+
+func (o IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput) MapIndex(k pulumi.StringInput) IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IndexSettingsAnalysisPropertiesAnalyzerValueProperties {
+		return vs[0].(map[string]IndexSettingsAnalysisPropertiesAnalyzerValueProperties)[vs[1].(string)]
+	}).(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput)
 }
 
 // Index settings.
@@ -2173,6 +2485,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesParametersPropertiesPtrInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsInput)(nil)).Elem(), IndexSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsPtrInput)(nil)).Elem(), IndexSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsAnalysisPropertiesInput)(nil)).Elem(), IndexSettingsAnalysisPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsAnalysisPropertiesPtrInput)(nil)).Elem(), IndexSettingsAnalysisPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesInput)(nil)).Elem(), IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapInput)(nil)).Elem(), IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsIndexPropertiesInput)(nil)).Elem(), IndexSettingsIndexPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexSettingsIndexPropertiesPtrInput)(nil)).Elem(), IndexSettingsIndexPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MappingsPropertiesInput)(nil)).Elem(), MappingsPropertiesArgs{})
@@ -2199,6 +2515,10 @@ func init() {
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IndexSettingsOutput{})
 	pulumi.RegisterOutputType(IndexSettingsPtrOutput{})
+	pulumi.RegisterOutputType(IndexSettingsAnalysisPropertiesOutput{})
+	pulumi.RegisterOutputType(IndexSettingsAnalysisPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesOutput{})
+	pulumi.RegisterOutputType(IndexSettingsAnalysisPropertiesAnalyzerValuePropertiesMapOutput{})
 	pulumi.RegisterOutputType(IndexSettingsIndexPropertiesOutput{})
 	pulumi.RegisterOutputType(IndexSettingsIndexPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MappingsPropertiesOutput{})

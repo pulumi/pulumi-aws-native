@@ -16,6 +16,7 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleConfidenceThreshold',
     'FirewallRuleGroupFirewallRuleDnsThreatProtection',
     'FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction',
+    'FirewallRuleGroupFirewallRuleStatus',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
     'OutpostResolverStatus',
@@ -120,6 +121,16 @@ class FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(_builtins.str
     """
     INSPECT_REDIRECTION_DOMAIN = "INSPECT_REDIRECTION_DOMAIN"
     TRUST_REDIRECTION_DOMAIN = "TRUST_REDIRECTION_DOMAIN"
+
+
+@pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleStatus")
+class FirewallRuleGroupFirewallRuleStatus(_builtins.str, Enum):
+    """
+    The status of the firewall rule.
+    """
+    COMPLETE = "COMPLETE"
+    CREATING = "CREATING"
+    CREATION_FAILED = "CREATION_FAILED"
 
 
 @pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupShareStatus")

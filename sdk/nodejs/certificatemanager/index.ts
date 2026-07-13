@@ -10,10 +10,40 @@ export type Account = import("./account").Account;
 export const Account: typeof import("./account").Account = null as any;
 utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
+export { AcmeDomainValidationArgs } from "./acmeDomainValidation";
+export type AcmeDomainValidation = import("./acmeDomainValidation").AcmeDomainValidation;
+export const AcmeDomainValidation: typeof import("./acmeDomainValidation").AcmeDomainValidation = null as any;
+utilities.lazyLoad(exports, ["AcmeDomainValidation"], () => require("./acmeDomainValidation"));
+
+export { AcmeEndpointArgs } from "./acmeEndpoint";
+export type AcmeEndpoint = import("./acmeEndpoint").AcmeEndpoint;
+export const AcmeEndpoint: typeof import("./acmeEndpoint").AcmeEndpoint = null as any;
+utilities.lazyLoad(exports, ["AcmeEndpoint"], () => require("./acmeEndpoint"));
+
+export { AcmeExternalAccountBindingArgs } from "./acmeExternalAccountBinding";
+export type AcmeExternalAccountBinding = import("./acmeExternalAccountBinding").AcmeExternalAccountBinding;
+export const AcmeExternalAccountBinding: typeof import("./acmeExternalAccountBinding").AcmeExternalAccountBinding = null as any;
+utilities.lazyLoad(exports, ["AcmeExternalAccountBinding"], () => require("./acmeExternalAccountBinding"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
+export { GetAcmeDomainValidationArgs, GetAcmeDomainValidationResult, GetAcmeDomainValidationOutputArgs } from "./getAcmeDomainValidation";
+export const getAcmeDomainValidation: typeof import("./getAcmeDomainValidation").getAcmeDomainValidation = null as any;
+export const getAcmeDomainValidationOutput: typeof import("./getAcmeDomainValidation").getAcmeDomainValidationOutput = null as any;
+utilities.lazyLoad(exports, ["getAcmeDomainValidation","getAcmeDomainValidationOutput"], () => require("./getAcmeDomainValidation"));
+
+export { GetAcmeEndpointArgs, GetAcmeEndpointResult, GetAcmeEndpointOutputArgs } from "./getAcmeEndpoint";
+export const getAcmeEndpoint: typeof import("./getAcmeEndpoint").getAcmeEndpoint = null as any;
+export const getAcmeEndpointOutput: typeof import("./getAcmeEndpoint").getAcmeEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getAcmeEndpoint","getAcmeEndpointOutput"], () => require("./getAcmeEndpoint"));
+
+export { GetAcmeExternalAccountBindingArgs, GetAcmeExternalAccountBindingResult, GetAcmeExternalAccountBindingOutputArgs } from "./getAcmeExternalAccountBinding";
+export const getAcmeExternalAccountBinding: typeof import("./getAcmeExternalAccountBinding").getAcmeExternalAccountBinding = null as any;
+export const getAcmeExternalAccountBindingOutput: typeof import("./getAcmeExternalAccountBinding").getAcmeExternalAccountBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getAcmeExternalAccountBinding","getAcmeExternalAccountBindingOutput"], () => require("./getAcmeExternalAccountBinding"));
 
 
 const _module = {
@@ -22,6 +52,12 @@ const _module = {
         switch (type) {
             case "aws-native:certificatemanager:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "aws-native:certificatemanager:AcmeDomainValidation":
+                return new AcmeDomainValidation(name, <any>undefined, { urn })
+            case "aws-native:certificatemanager:AcmeEndpoint":
+                return new AcmeEndpoint(name, <any>undefined, { urn })
+            case "aws-native:certificatemanager:AcmeExternalAccountBinding":
+                return new AcmeExternalAccountBinding(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

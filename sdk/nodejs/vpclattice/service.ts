@@ -68,6 +68,7 @@ export class Service extends pulumi.CustomResource {
      * Describes the DNS information of the service. This field is read-only.
      */
     declare public readonly dnsEntry: pulumi.Output<outputs.vpclattice.ServiceDnsEntry | undefined>;
+    declare public readonly idleTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * The date and time that the service was last updated, specified in ISO-8601 format.
      */
@@ -102,6 +103,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = args?.certificateArn;
             resourceInputs["customDomainName"] = args?.customDomainName;
             resourceInputs["dnsEntry"] = args?.dnsEntry;
+            resourceInputs["idleTimeoutSeconds"] = args?.idleTimeoutSeconds;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -117,6 +119,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customDomainName"] = undefined /*out*/;
             resourceInputs["dnsEntry"] = undefined /*out*/;
+            resourceInputs["idleTimeoutSeconds"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -152,6 +155,7 @@ export interface ServiceArgs {
      * Describes the DNS information of the service. This field is read-only.
      */
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceDnsEntryArgs>;
+    idleTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
      *

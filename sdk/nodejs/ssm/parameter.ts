@@ -152,6 +152,7 @@ export class Parameter extends pulumi.CustomResource {
      * A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
      */
     declare public readonly allowedPattern: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
      */
@@ -216,8 +217,10 @@ export class Parameter extends pulumi.CustomResource {
             resourceInputs["tier"] = args?.tier;
             resourceInputs["type"] = args?.type;
             resourceInputs["value"] = args?.value;
+            resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["allowedPattern"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

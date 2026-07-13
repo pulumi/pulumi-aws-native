@@ -373,6 +373,9 @@
   "deprecatedProperties" : [ "/properties/CacheSecurityGroupNames" ],
   "createOnlyProperties" : [ "/properties/AtRestEncryptionEnabled", "/properties/CacheSubnetGroupName", "/properties/DataTieringEnabled", "/properties/GlobalReplicationGroupId", "/properties/KmsKeyId", "/properties/NetworkType", "/properties/Port", "/properties/PreferredCacheClusterAZs", "/properties/ReplicationGroupId", "/properties/SnapshotArns", "/properties/SnapshotName" ],
   "conditionalCreateOnlyProperties" : [ "/properties/AuthToken", "/properties/NodeGroupConfiguration" ],
+  "propertyTransform" : {
+    "/properties/ReplicationGroupId" : "$lowercase(ReplicationGroupId)"
+  },
   "primaryIdentifier" : [ "/properties/ReplicationGroupId" ],
   "readOnlyProperties" : [ "/properties/ConfigurationEndPoint", "/properties/ConfigurationEndPoint/Address", "/properties/ConfigurationEndPoint/Port", "/properties/PrimaryEndPoint", "/properties/PrimaryEndPoint/Address", "/properties/PrimaryEndPoint/Port", "/properties/ReadEndPoint", "/properties/ReadEndPoint/Addresses", "/properties/ReadEndPoint/AddressesList", "/properties/ReadEndPoint/Ports", "/properties/ReadEndPoint/PortsList", "/properties/ReaderEndPoint", "/properties/ReaderEndPoint/Address", "/properties/ReaderEndPoint/Port", "/properties/EffectiveDurability" ],
   "writeOnlyProperties" : [ "/properties/AuthToken", "/properties/CacheParameterGroupName", "/properties/CacheSecurityGroupNames", "/properties/CacheSubnetGroupName", "/properties/EngineVersion", "/properties/NotificationTopicArn", "/properties/PreferredMaintenanceWindow", "/properties/SecurityGroupIds", "/properties/SnapshotArns", "/properties/SnapshotName", "/properties/NodeGroupConfiguration", "/properties/NumNodeGroups", "/properties/KmsKeyId", "/properties/PrimaryClusterId", "/properties/PreferredCacheClusterAZs" ],

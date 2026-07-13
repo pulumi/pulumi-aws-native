@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
         /// 
         /// To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem> RegionList;
+        public readonly ImmutableArray<string> RegionList;
         /// <summary>
         /// The options are:
         /// 
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 
         [OutputConstructor]
         private KeyspaceReplicationSpecification(
-            ImmutableArray<Pulumi.AwsNative.Cassandra.KeyspaceRegionListItem> regionList,
+            ImmutableArray<string> regionList,
 
             Pulumi.AwsNative.Cassandra.KeyspaceReplicationSpecificationReplicationStrategy? replicationStrategy)
         {

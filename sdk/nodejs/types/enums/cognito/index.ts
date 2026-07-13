@@ -62,6 +62,20 @@ export const UserPoolClientRefreshTokenRotationFeature = {
  */
 export type UserPoolClientRefreshTokenRotationFeature = (typeof UserPoolClientRefreshTokenRotationFeature)[keyof typeof UserPoolClientRefreshTokenRotationFeature];
 
+export const UserPoolEncryptionKeyType = {
+    AwsOwnedKey: "AWS_OWNED_KEY",
+    CustomerManagedKey: "CUSTOMER_MANAGED_KEY",
+} as const;
+
+export type UserPoolEncryptionKeyType = (typeof UserPoolEncryptionKeyType)[keyof typeof UserPoolEncryptionKeyType];
+
+export const UserPoolIssuerConfigurationType = {
+    Original: "ORIGINAL",
+    Updated: "UPDATED",
+} as const;
+
+export type UserPoolIssuerConfigurationType = (typeof UserPoolIssuerConfigurationType)[keyof typeof UserPoolIssuerConfigurationType];
+
 export const UserPoolTier = {
     Lite: "LITE",
     Essentials: "ESSENTIALS",

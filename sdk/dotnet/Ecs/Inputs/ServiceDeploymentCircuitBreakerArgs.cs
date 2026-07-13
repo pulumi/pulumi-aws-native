@@ -23,11 +23,17 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("enable", required: true)]
         public Input<bool> Enable { get; set; } = null!;
 
+        [Input("resetOnHealthyTask")]
+        public Input<bool>? ResetOnHealthyTask { get; set; }
+
         /// <summary>
         /// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         /// </summary>
         [Input("rollback", required: true)]
         public Input<bool> Rollback { get; set; } = null!;
+
+        [Input("thresholdConfiguration")]
+        public Input<Inputs.ServiceThresholdConfigurationArgs>? ThresholdConfiguration { get; set; }
 
         public ServiceDeploymentCircuitBreakerArgs()
         {

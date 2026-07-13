@@ -227,6 +227,12 @@ namespace Pulumi.AwsNative.Ecs
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("v100");
         public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem L40s { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l40s");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem L4 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l4");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem GaudiHl205 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Inferentia2 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("inferentia2");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Trainium { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("trainium");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem Trainium2 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("trainium2");
+        public static CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem U30 { get; } = new CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("u30");
 
         public static bool operator ==(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem left, CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
@@ -1297,6 +1303,35 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceSchedulingStrategy other && Equals(other);
         public bool Equals(ServiceSchedulingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceThresholdConfigurationType : IEquatable<ServiceThresholdConfigurationType>
+    {
+        private readonly string _value;
+
+        private ServiceThresholdConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceThresholdConfigurationType Count { get; } = new ServiceThresholdConfigurationType("COUNT");
+        public static ServiceThresholdConfigurationType BoundedPercent { get; } = new ServiceThresholdConfigurationType("BOUNDED_PERCENT");
+        public static ServiceThresholdConfigurationType UnboundedPercent { get; } = new ServiceThresholdConfigurationType("UNBOUNDED_PERCENT");
+
+        public static bool operator ==(ServiceThresholdConfigurationType left, ServiceThresholdConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ServiceThresholdConfigurationType left, ServiceThresholdConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceThresholdConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceThresholdConfigurationType other && Equals(other);
+        public bool Equals(ServiceThresholdConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

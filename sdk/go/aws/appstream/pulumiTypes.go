@@ -1978,11 +1978,355 @@ func (o StackAccessEndpointArrayOutput) Index(i pulumi.IntInput) StackAccessEndp
 	}).(StackAccessEndpointOutput)
 }
 
+// The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+type StackAgentAccessConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	S3BucketArn *string `pulumi:"s3BucketArn"`
+	// The image format for agent screen captures.
+	ScreenImageFormat string `pulumi:"screenImageFormat"`
+	// The screen resolution for the agent streaming environment.
+	ScreenResolution string `pulumi:"screenResolution"`
+	// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+	ScreenshotsUploadEnabled *bool `pulumi:"screenshotsUploadEnabled"`
+	// The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+	Settings []StackAgentAccessSetting `pulumi:"settings"`
+	// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+	UserControlMode *string `pulumi:"userControlMode"`
+}
+
+// StackAgentAccessConfigInput is an input type that accepts StackAgentAccessConfigArgs and StackAgentAccessConfigOutput values.
+// You can construct a concrete instance of `StackAgentAccessConfigInput` via:
+//
+//	StackAgentAccessConfigArgs{...}
+type StackAgentAccessConfigInput interface {
+	pulumi.Input
+
+	ToStackAgentAccessConfigOutput() StackAgentAccessConfigOutput
+	ToStackAgentAccessConfigOutputWithContext(context.Context) StackAgentAccessConfigOutput
+}
+
+// The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+type StackAgentAccessConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+	S3BucketArn pulumi.StringPtrInput `pulumi:"s3BucketArn"`
+	// The image format for agent screen captures.
+	ScreenImageFormat pulumi.StringInput `pulumi:"screenImageFormat"`
+	// The screen resolution for the agent streaming environment.
+	ScreenResolution pulumi.StringInput `pulumi:"screenResolution"`
+	// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+	ScreenshotsUploadEnabled pulumi.BoolPtrInput `pulumi:"screenshotsUploadEnabled"`
+	// The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+	Settings StackAgentAccessSettingArrayInput `pulumi:"settings"`
+	// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+	UserControlMode pulumi.StringPtrInput `pulumi:"userControlMode"`
+}
+
+func (StackAgentAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAgentAccessConfig)(nil)).Elem()
+}
+
+func (i StackAgentAccessConfigArgs) ToStackAgentAccessConfigOutput() StackAgentAccessConfigOutput {
+	return i.ToStackAgentAccessConfigOutputWithContext(context.Background())
+}
+
+func (i StackAgentAccessConfigArgs) ToStackAgentAccessConfigOutputWithContext(ctx context.Context) StackAgentAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAgentAccessConfigOutput)
+}
+
+func (i StackAgentAccessConfigArgs) ToStackAgentAccessConfigPtrOutput() StackAgentAccessConfigPtrOutput {
+	return i.ToStackAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i StackAgentAccessConfigArgs) ToStackAgentAccessConfigPtrOutputWithContext(ctx context.Context) StackAgentAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAgentAccessConfigOutput).ToStackAgentAccessConfigPtrOutputWithContext(ctx)
+}
+
+// StackAgentAccessConfigPtrInput is an input type that accepts StackAgentAccessConfigArgs, StackAgentAccessConfigPtr and StackAgentAccessConfigPtrOutput values.
+// You can construct a concrete instance of `StackAgentAccessConfigPtrInput` via:
+//
+//	        StackAgentAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackAgentAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToStackAgentAccessConfigPtrOutput() StackAgentAccessConfigPtrOutput
+	ToStackAgentAccessConfigPtrOutputWithContext(context.Context) StackAgentAccessConfigPtrOutput
+}
+
+type stackAgentAccessConfigPtrType StackAgentAccessConfigArgs
+
+func StackAgentAccessConfigPtr(v *StackAgentAccessConfigArgs) StackAgentAccessConfigPtrInput {
+	return (*stackAgentAccessConfigPtrType)(v)
+}
+
+func (*stackAgentAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackAgentAccessConfig)(nil)).Elem()
+}
+
+func (i *stackAgentAccessConfigPtrType) ToStackAgentAccessConfigPtrOutput() StackAgentAccessConfigPtrOutput {
+	return i.ToStackAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *stackAgentAccessConfigPtrType) ToStackAgentAccessConfigPtrOutputWithContext(ctx context.Context) StackAgentAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAgentAccessConfigPtrOutput)
+}
+
+// The configuration for agent access on a stack. Agent access enables AI agents to interact with desktop applications during streaming sessions.
+type StackAgentAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (StackAgentAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAgentAccessConfig)(nil)).Elem()
+}
+
+func (o StackAgentAccessConfigOutput) ToStackAgentAccessConfigOutput() StackAgentAccessConfigOutput {
+	return o
+}
+
+func (o StackAgentAccessConfigOutput) ToStackAgentAccessConfigOutputWithContext(ctx context.Context) StackAgentAccessConfigOutput {
+	return o
+}
+
+func (o StackAgentAccessConfigOutput) ToStackAgentAccessConfigPtrOutput() StackAgentAccessConfigPtrOutput {
+	return o.ToStackAgentAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o StackAgentAccessConfigOutput) ToStackAgentAccessConfigPtrOutputWithContext(ctx context.Context) StackAgentAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackAgentAccessConfig) *StackAgentAccessConfig {
+		return &v
+	}).(StackAgentAccessConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+func (o StackAgentAccessConfigOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) *string { return v.S3BucketArn }).(pulumi.StringPtrOutput)
+}
+
+// The image format for agent screen captures.
+func (o StackAgentAccessConfigOutput) ScreenImageFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) string { return v.ScreenImageFormat }).(pulumi.StringOutput)
+}
+
+// The screen resolution for the agent streaming environment.
+func (o StackAgentAccessConfigOutput) ScreenResolution() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) string { return v.ScreenResolution }).(pulumi.StringOutput)
+}
+
+// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+func (o StackAgentAccessConfigOutput) ScreenshotsUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) *bool { return v.ScreenshotsUploadEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+func (o StackAgentAccessConfigOutput) Settings() StackAgentAccessSettingArrayOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) []StackAgentAccessSetting { return v.Settings }).(StackAgentAccessSettingArrayOutput)
+}
+
+// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+func (o StackAgentAccessConfigOutput) UserControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackAgentAccessConfig) *string { return v.UserControlMode }).(pulumi.StringPtrOutput)
+}
+
+type StackAgentAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (StackAgentAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackAgentAccessConfig)(nil)).Elem()
+}
+
+func (o StackAgentAccessConfigPtrOutput) ToStackAgentAccessConfigPtrOutput() StackAgentAccessConfigPtrOutput {
+	return o
+}
+
+func (o StackAgentAccessConfigPtrOutput) ToStackAgentAccessConfigPtrOutputWithContext(ctx context.Context) StackAgentAccessConfigPtrOutput {
+	return o
+}
+
+func (o StackAgentAccessConfigPtrOutput) Elem() StackAgentAccessConfigOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) StackAgentAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret StackAgentAccessConfig
+		return ret
+	}).(StackAgentAccessConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon S3 bucket where agent screenshots are stored. Required when ScreenshotsUploadEnabled is true.
+func (o StackAgentAccessConfigPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image format for agent screen captures.
+func (o StackAgentAccessConfigPtrOutput) ScreenImageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScreenImageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The screen resolution for the agent streaming environment.
+func (o StackAgentAccessConfigPtrOutput) ScreenResolution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ScreenResolution
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether screenshot uploads to Amazon S3 are enabled for agent sessions.
+func (o StackAgentAccessConfigPtrOutput) ScreenshotsUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ScreenshotsUploadEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The list of agent access settings that define permissions for each agent action. You must specify at least one setting.
+func (o StackAgentAccessConfigPtrOutput) Settings() StackAgentAccessSettingArrayOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) []StackAgentAccessSetting {
+		if v == nil {
+			return nil
+		}
+		return v.Settings
+	}).(StackAgentAccessSettingArrayOutput)
+}
+
+// The user control mode for agent sessions. This setting determines how users can interact with agent sessions. Valid values are VIEW_ONLY, VIEW_STOP, and DISABLED.
+func (o StackAgentAccessConfigPtrOutput) UserControlMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackAgentAccessConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserControlMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type StackAgentAccessSetting struct {
+	// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+	AgentAction string `pulumi:"agentAction"`
+	// Whether the agent action is enabled or disabled.
+	Permission string `pulumi:"permission"`
+}
+
+// StackAgentAccessSettingInput is an input type that accepts StackAgentAccessSettingArgs and StackAgentAccessSettingOutput values.
+// You can construct a concrete instance of `StackAgentAccessSettingInput` via:
+//
+//	StackAgentAccessSettingArgs{...}
+type StackAgentAccessSettingInput interface {
+	pulumi.Input
+
+	ToStackAgentAccessSettingOutput() StackAgentAccessSettingOutput
+	ToStackAgentAccessSettingOutputWithContext(context.Context) StackAgentAccessSettingOutput
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type StackAgentAccessSettingArgs struct {
+	// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+	AgentAction pulumi.StringInput `pulumi:"agentAction"`
+	// Whether the agent action is enabled or disabled.
+	Permission pulumi.StringInput `pulumi:"permission"`
+}
+
+func (StackAgentAccessSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAgentAccessSetting)(nil)).Elem()
+}
+
+func (i StackAgentAccessSettingArgs) ToStackAgentAccessSettingOutput() StackAgentAccessSettingOutput {
+	return i.ToStackAgentAccessSettingOutputWithContext(context.Background())
+}
+
+func (i StackAgentAccessSettingArgs) ToStackAgentAccessSettingOutputWithContext(ctx context.Context) StackAgentAccessSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAgentAccessSettingOutput)
+}
+
+// StackAgentAccessSettingArrayInput is an input type that accepts StackAgentAccessSettingArray and StackAgentAccessSettingArrayOutput values.
+// You can construct a concrete instance of `StackAgentAccessSettingArrayInput` via:
+//
+//	StackAgentAccessSettingArray{ StackAgentAccessSettingArgs{...} }
+type StackAgentAccessSettingArrayInput interface {
+	pulumi.Input
+
+	ToStackAgentAccessSettingArrayOutput() StackAgentAccessSettingArrayOutput
+	ToStackAgentAccessSettingArrayOutputWithContext(context.Context) StackAgentAccessSettingArrayOutput
+}
+
+type StackAgentAccessSettingArray []StackAgentAccessSettingInput
+
+func (StackAgentAccessSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackAgentAccessSetting)(nil)).Elem()
+}
+
+func (i StackAgentAccessSettingArray) ToStackAgentAccessSettingArrayOutput() StackAgentAccessSettingArrayOutput {
+	return i.ToStackAgentAccessSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StackAgentAccessSettingArray) ToStackAgentAccessSettingArrayOutputWithContext(ctx context.Context) StackAgentAccessSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackAgentAccessSettingArrayOutput)
+}
+
+// A permission setting for an agent action. Each setting specifies an agent action and whether it is enabled or disabled.
+type StackAgentAccessSettingOutput struct{ *pulumi.OutputState }
+
+func (StackAgentAccessSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackAgentAccessSetting)(nil)).Elem()
+}
+
+func (o StackAgentAccessSettingOutput) ToStackAgentAccessSettingOutput() StackAgentAccessSettingOutput {
+	return o
+}
+
+func (o StackAgentAccessSettingOutput) ToStackAgentAccessSettingOutputWithContext(ctx context.Context) StackAgentAccessSettingOutput {
+	return o
+}
+
+// The agent action to configure. Valid values are COMPUTER_VISION, COMPUTER_INPUT, and FORWARD_MCP_TOOLS. COMPUTER_VISION allows agents to take screenshots of the desktop. COMPUTER_INPUT allows agents to click, type, and scroll on the desktop and requires COMPUTER_VISION to also be enabled. FORWARD_MCP_TOOLS allows agents to interact with applications and the desktop operating system through direct MCP calls rather than using computer use tools. Forwards MCP tools configured on the WorkSpaces application session to the agent.
+func (o StackAgentAccessSettingOutput) AgentAction() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAgentAccessSetting) string { return v.AgentAction }).(pulumi.StringOutput)
+}
+
+// Whether the agent action is enabled or disabled.
+func (o StackAgentAccessSettingOutput) Permission() pulumi.StringOutput {
+	return o.ApplyT(func(v StackAgentAccessSetting) string { return v.Permission }).(pulumi.StringOutput)
+}
+
+type StackAgentAccessSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StackAgentAccessSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackAgentAccessSetting)(nil)).Elem()
+}
+
+func (o StackAgentAccessSettingArrayOutput) ToStackAgentAccessSettingArrayOutput() StackAgentAccessSettingArrayOutput {
+	return o
+}
+
+func (o StackAgentAccessSettingArrayOutput) ToStackAgentAccessSettingArrayOutputWithContext(ctx context.Context) StackAgentAccessSettingArrayOutput {
+	return o
+}
+
+func (o StackAgentAccessSettingArrayOutput) Index(i pulumi.IntInput) StackAgentAccessSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackAgentAccessSetting {
+		return vs[0].([]StackAgentAccessSetting)[vs[1].(int)]
+	}).(StackAgentAccessSettingOutput)
+}
+
 // The persistent application settings for users of a stack.
 type StackApplicationSettings struct {
 	// Enables or disables persistent application settings for users during their streaming sessions.
 	Enabled bool `pulumi:"enabled"`
-	// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+	// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
 	SettingsGroup *string `pulumi:"settingsGroup"`
 }
 
@@ -2001,7 +2345,7 @@ type StackApplicationSettingsInput interface {
 type StackApplicationSettingsArgs struct {
 	// Enables or disables persistent application settings for users during their streaming sessions.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+	// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
 	SettingsGroup pulumi.StringPtrInput `pulumi:"settingsGroup"`
 }
 
@@ -2088,7 +2432,7 @@ func (o StackApplicationSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StackApplicationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
 func (o StackApplicationSettingsOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackApplicationSettings) *string { return v.SettingsGroup }).(pulumi.StringPtrOutput)
 }
@@ -2127,7 +2471,7 @@ func (o StackApplicationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
 func (o StackApplicationSettingsPtrOutput) SettingsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackApplicationSettings) *string {
 		if v == nil {
@@ -2867,6 +3211,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageBuilderVpcConfigPtrInput)(nil)).Elem(), ImageBuilderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointInput)(nil)).Elem(), StackAccessEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackAccessEndpointArrayInput)(nil)).Elem(), StackAccessEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAgentAccessConfigInput)(nil)).Elem(), StackAgentAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAgentAccessConfigPtrInput)(nil)).Elem(), StackAgentAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAgentAccessSettingInput)(nil)).Elem(), StackAgentAccessSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackAgentAccessSettingArrayInput)(nil)).Elem(), StackAgentAccessSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsInput)(nil)).Elem(), StackApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackApplicationSettingsPtrInput)(nil)).Elem(), StackApplicationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackContentRedirectionInput)(nil)).Elem(), StackContentRedirectionArgs{})
@@ -2909,6 +3257,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageBuilderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(StackAgentAccessConfigOutput{})
+	pulumi.RegisterOutputType(StackAgentAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(StackAgentAccessSettingOutput{})
+	pulumi.RegisterOutputType(StackAgentAccessSettingArrayOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StackContentRedirectionOutput{})

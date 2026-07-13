@@ -465,8 +465,9 @@ func (o EnvironmentStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.
 type EnvironmentVcfVersion string
 
 const (
-	EnvironmentVcfVersionVcf521 = EnvironmentVcfVersion("VCF-5.2.1")
-	EnvironmentVcfVersionVcf522 = EnvironmentVcfVersion("VCF-5.2.2")
+	EnvironmentVcfVersionVcf521       = EnvironmentVcfVersion("VCF-5.2.1")
+	EnvironmentVcfVersionVcf522       = EnvironmentVcfVersion("VCF-5.2.2")
+	EnvironmentVcfVersionSelfDeployed = EnvironmentVcfVersion("SELF_DEPLOYED")
 )
 
 func (EnvironmentVcfVersion) ElementType() reflect.Type {
@@ -593,6 +594,7 @@ func (o EnvironmentVcfVersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 //
 //	EnvironmentVcfVersionVcf521
 //	EnvironmentVcfVersionVcf522
+//	EnvironmentVcfVersionSelfDeployed
 type EnvironmentVcfVersionInput interface {
 	pulumi.Input
 

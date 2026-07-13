@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         ///  *Allowed value*: ``EMAIL``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod DeliveryMethod;
+        public readonly Outputs.RuleNotificationRecipientType? Exclusion;
         /// <summary>
         /// Notification recipient.
         /// </summary>
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod deliveryMethod,
 
+            Outputs.RuleNotificationRecipientType? exclusion,
+
             Outputs.RuleNotificationRecipientType recipient,
 
             string? subject)
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
             Content = content;
             ContentType = contentType;
             DeliveryMethod = deliveryMethod;
+            Exclusion = exclusion;
             Recipient = recipient;
             Subject = subject;
         }

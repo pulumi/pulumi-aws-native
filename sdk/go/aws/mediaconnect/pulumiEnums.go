@@ -7436,6 +7436,171 @@ func (o GatewayStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+type RouterInputContentQualityAnalysisState string
+
+const (
+	RouterInputContentQualityAnalysisStateEnabled  = RouterInputContentQualityAnalysisState("ENABLED")
+	RouterInputContentQualityAnalysisStateDisabled = RouterInputContentQualityAnalysisState("DISABLED")
+)
+
+func (RouterInputContentQualityAnalysisState) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (e RouterInputContentQualityAnalysisState) ToRouterInputContentQualityAnalysisStateOutput() RouterInputContentQualityAnalysisStateOutput {
+	return pulumi.ToOutput(e).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+func (e RouterInputContentQualityAnalysisState) ToRouterInputContentQualityAnalysisStateOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+func (e RouterInputContentQualityAnalysisState) ToRouterInputContentQualityAnalysisStatePtrOutput() RouterInputContentQualityAnalysisStatePtrOutput {
+	return e.ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputContentQualityAnalysisState) ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStatePtrOutput {
+	return RouterInputContentQualityAnalysisState(e).ToRouterInputContentQualityAnalysisStateOutputWithContext(ctx).ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(ctx)
+}
+
+func (e RouterInputContentQualityAnalysisState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputContentQualityAnalysisState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterInputContentQualityAnalysisState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterInputContentQualityAnalysisState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterInputContentQualityAnalysisStateOutput struct{ *pulumi.OutputState }
+
+func (RouterInputContentQualityAnalysisStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToRouterInputContentQualityAnalysisStateOutput() RouterInputContentQualityAnalysisStateOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToRouterInputContentQualityAnalysisStateOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStateOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToRouterInputContentQualityAnalysisStatePtrOutput() RouterInputContentQualityAnalysisStatePtrOutput {
+	return o.ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputContentQualityAnalysisState) *RouterInputContentQualityAnalysisState {
+		return &v
+	}).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputContentQualityAnalysisState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputContentQualityAnalysisStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputContentQualityAnalysisState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputContentQualityAnalysisStatePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputContentQualityAnalysisStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputContentQualityAnalysisState)(nil)).Elem()
+}
+
+func (o RouterInputContentQualityAnalysisStatePtrOutput) ToRouterInputContentQualityAnalysisStatePtrOutput() RouterInputContentQualityAnalysisStatePtrOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisStatePtrOutput) ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStatePtrOutput {
+	return o
+}
+
+func (o RouterInputContentQualityAnalysisStatePtrOutput) Elem() RouterInputContentQualityAnalysisStateOutput {
+	return o.ApplyT(func(v *RouterInputContentQualityAnalysisState) RouterInputContentQualityAnalysisState {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputContentQualityAnalysisState
+		return ret
+	}).(RouterInputContentQualityAnalysisStateOutput)
+}
+
+func (o RouterInputContentQualityAnalysisStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputContentQualityAnalysisStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputContentQualityAnalysisState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterInputContentQualityAnalysisStateInput is an input type that accepts values of the RouterInputContentQualityAnalysisState enum
+// A concrete instance of `RouterInputContentQualityAnalysisStateInput` can be one of the following:
+//
+//	RouterInputContentQualityAnalysisStateEnabled
+//	RouterInputContentQualityAnalysisStateDisabled
+type RouterInputContentQualityAnalysisStateInput interface {
+	pulumi.Input
+
+	ToRouterInputContentQualityAnalysisStateOutput() RouterInputContentQualityAnalysisStateOutput
+	ToRouterInputContentQualityAnalysisStateOutputWithContext(context.Context) RouterInputContentQualityAnalysisStateOutput
+}
+
+var routerInputContentQualityAnalysisStatePtrType = reflect.TypeOf((**RouterInputContentQualityAnalysisState)(nil)).Elem()
+
+type RouterInputContentQualityAnalysisStatePtrInput interface {
+	pulumi.Input
+
+	ToRouterInputContentQualityAnalysisStatePtrOutput() RouterInputContentQualityAnalysisStatePtrOutput
+	ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(context.Context) RouterInputContentQualityAnalysisStatePtrOutput
+}
+
+type routerInputContentQualityAnalysisStatePtr string
+
+func RouterInputContentQualityAnalysisStatePtr(v string) RouterInputContentQualityAnalysisStatePtrInput {
+	return (*routerInputContentQualityAnalysisStatePtr)(&v)
+}
+
+func (*routerInputContentQualityAnalysisStatePtr) ElementType() reflect.Type {
+	return routerInputContentQualityAnalysisStatePtrType
+}
+
+func (in *routerInputContentQualityAnalysisStatePtr) ToRouterInputContentQualityAnalysisStatePtrOutput() RouterInputContentQualityAnalysisStatePtrOutput {
+	return pulumi.ToOutput(in).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
+func (in *routerInputContentQualityAnalysisStatePtr) ToRouterInputContentQualityAnalysisStatePtrOutputWithContext(ctx context.Context) RouterInputContentQualityAnalysisStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterInputContentQualityAnalysisStatePtrOutput)
+}
+
 type RouterInputDay string
 
 const (
@@ -8693,6 +8858,95 @@ func (in *routerInputProtocolPtr) ToRouterInputProtocolPtrOutput() RouterInputPr
 
 func (in *routerInputProtocolPtr) ToRouterInputProtocolPtrOutputWithContext(ctx context.Context) RouterInputProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RouterInputProtocolPtrOutput)
+}
+
+type RouterInputRouterContentQualityAnalysisType string
+
+const (
+	RouterInputRouterContentQualityAnalysisTypeContentLevel = RouterInputRouterContentQualityAnalysisType("CONTENT_LEVEL")
+)
+
+type RouterInputRouterContentQualityAnalysisTypeOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRouterContentQualityAnalysisTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterInputRouterContentQualityAnalysisType)(nil)).Elem()
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToRouterInputRouterContentQualityAnalysisTypeOutput() RouterInputRouterContentQualityAnalysisTypeOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToRouterInputRouterContentQualityAnalysisTypeOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisTypeOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToRouterInputRouterContentQualityAnalysisTypePtrOutput() RouterInputRouterContentQualityAnalysisTypePtrOutput {
+	return o.ToRouterInputRouterContentQualityAnalysisTypePtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToRouterInputRouterContentQualityAnalysisTypePtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterInputRouterContentQualityAnalysisType) *RouterInputRouterContentQualityAnalysisType {
+		return &v
+	}).(RouterInputRouterContentQualityAnalysisTypePtrOutput)
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputRouterContentQualityAnalysisType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterInputRouterContentQualityAnalysisType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterInputRouterContentQualityAnalysisTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterInputRouterContentQualityAnalysisTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterInputRouterContentQualityAnalysisType)(nil)).Elem()
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypePtrOutput) ToRouterInputRouterContentQualityAnalysisTypePtrOutput() RouterInputRouterContentQualityAnalysisTypePtrOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypePtrOutput) ToRouterInputRouterContentQualityAnalysisTypePtrOutputWithContext(ctx context.Context) RouterInputRouterContentQualityAnalysisTypePtrOutput {
+	return o
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypePtrOutput) Elem() RouterInputRouterContentQualityAnalysisTypeOutput {
+	return o.ApplyT(func(v *RouterInputRouterContentQualityAnalysisType) RouterInputRouterContentQualityAnalysisType {
+		if v != nil {
+			return *v
+		}
+		var ret RouterInputRouterContentQualityAnalysisType
+		return ret
+	}).(RouterInputRouterContentQualityAnalysisTypeOutput)
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterInputRouterContentQualityAnalysisTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterInputRouterContentQualityAnalysisType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 type RouterInputRoutingScope string
@@ -11360,6 +11614,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowTransitEncryptionKeyTypePtrInput)(nil)).Elem(), FlowTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceTypeInput)(nil)).Elem(), FlowVpcInterfaceNetworkInterfaceType("ena"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowVpcInterfaceNetworkInterfaceTypePtrInput)(nil)).Elem(), FlowVpcInterfaceNetworkInterfaceType("ena"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisStateInput)(nil)).Elem(), RouterInputContentQualityAnalysisState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputContentQualityAnalysisStatePtrInput)(nil)).Elem(), RouterInputContentQualityAnalysisState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDayInput)(nil)).Elem(), RouterInputDay("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputDayPtrInput)(nil)).Elem(), RouterInputDay("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputFailoverInputSourcePriorityModeInput)(nil)).Elem(), RouterInputFailoverInputSourcePriorityMode("NO_PRIORITY"))
@@ -11486,6 +11742,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVpcInterfaceNetworkInterfaceTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayStateEnumOutput{})
 	pulumi.RegisterOutputType(GatewayStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisStateOutput{})
+	pulumi.RegisterOutputType(RouterInputContentQualityAnalysisStatePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputDayOutput{})
 	pulumi.RegisterOutputType(RouterInputDayPtrOutput{})
 	pulumi.RegisterOutputType(RouterInputFailoverInputSourcePriorityModeOutput{})
@@ -11502,6 +11760,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterInputMediaLiveTransitEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolOutput{})
 	pulumi.RegisterOutputType(RouterInputProtocolPtrOutput{})
+	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisTypeOutput{})
+	pulumi.RegisterOutputType(RouterInputRouterContentQualityAnalysisTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputRoutingScopeOutput{})
 	pulumi.RegisterOutputType(RouterInputRoutingScopePtrOutput{})
 	pulumi.RegisterOutputType(RouterInputStateEnumOutput{})

@@ -48,7 +48,7 @@ export class ConnectorV2 extends pulumi.CustomResource {
     /**
      * The status of the connector
      */
-    declare public /*out*/ readonly connectorStatus: pulumi.Output<enums.securityhub.ConnectorV2ConnectorStatus>;
+    declare public /*out*/ readonly connectorStatus: pulumi.Output<string>;
     /**
      * The timestamp when the V2 connector was created.
      */
@@ -57,6 +57,18 @@ export class ConnectorV2 extends pulumi.CustomResource {
      * A description of the connector
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The enablement status of the connector
+     */
+    declare public /*out*/ readonly enablementStatus: pulumi.Output<string>;
+    /**
+     * The reason for the enablement status of the connector
+     */
+    declare public /*out*/ readonly enablementStatusReason: pulumi.Output<string>;
+    /**
+     * The list of health issues associated with the connector
+     */
+    declare public /*out*/ readonly issues: pulumi.Output<outputs.securityhub.ConnectorV2HealthIssue[]>;
     /**
      * The ARN of KMS key used for the connector
      */
@@ -109,6 +121,9 @@ export class ConnectorV2 extends pulumi.CustomResource {
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["connectorStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["enablementStatus"] = undefined /*out*/;
+            resourceInputs["enablementStatusReason"] = undefined /*out*/;
+            resourceInputs["issues"] = undefined /*out*/;
             resourceInputs["lastCheckedAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["message"] = undefined /*out*/;
@@ -118,6 +133,9 @@ export class ConnectorV2 extends pulumi.CustomResource {
             resourceInputs["connectorStatus"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enablementStatus"] = undefined /*out*/;
+            resourceInputs["enablementStatusReason"] = undefined /*out*/;
+            resourceInputs["issues"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["lastCheckedAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;

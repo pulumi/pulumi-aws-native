@@ -214,6 +214,7 @@ type Parameter struct {
 
 	// A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType ParameterDataTypePtrOutput `pulumi:"dataType"`
 	// Information about the parameter.
@@ -379,6 +380,10 @@ func (o ParameterOutput) ToParameterOutputWithContext(ctx context.Context) Param
 // A regular expression used to validate the parameter value. For example, for “String“ types with values restricted to numbers, you can specify the following: “AllowedPattern=^\d+$“
 func (o ParameterOutput) AllowedPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.AllowedPattern }).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The data type of the parameter, such as “text“ or “aws:ec2:image“. The default is “text“.

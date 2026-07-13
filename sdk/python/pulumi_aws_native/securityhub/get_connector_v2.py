@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetConnectorV2Result',
@@ -25,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorV2Result:
-    def __init__(__self__, connector_arn=None, connector_id=None, connector_status=None, created_at=None, description=None, last_checked_at=None, last_updated_at=None, message=None, provider=None, tags=None):
+    def __init__(__self__, connector_arn=None, connector_id=None, connector_status=None, created_at=None, description=None, enablement_status=None, enablement_status_reason=None, issues=None, last_checked_at=None, last_updated_at=None, message=None, provider=None, tags=None):
         if connector_arn and not isinstance(connector_arn, str):
             raise TypeError("Expected argument 'connector_arn' to be a str")
         pulumi.set(__self__, "connector_arn", connector_arn)
@@ -41,6 +40,15 @@ class GetConnectorV2Result:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enablement_status and not isinstance(enablement_status, str):
+            raise TypeError("Expected argument 'enablement_status' to be a str")
+        pulumi.set(__self__, "enablement_status", enablement_status)
+        if enablement_status_reason and not isinstance(enablement_status_reason, str):
+            raise TypeError("Expected argument 'enablement_status_reason' to be a str")
+        pulumi.set(__self__, "enablement_status_reason", enablement_status_reason)
+        if issues and not isinstance(issues, list):
+            raise TypeError("Expected argument 'issues' to be a list")
+        pulumi.set(__self__, "issues", issues)
         if last_checked_at and not isinstance(last_checked_at, str):
             raise TypeError("Expected argument 'last_checked_at' to be a str")
         pulumi.set(__self__, "last_checked_at", last_checked_at)
@@ -75,7 +83,7 @@ class GetConnectorV2Result:
 
     @_builtins.property
     @pulumi.getter(name="connectorStatus")
-    def connector_status(self) -> Optional['ConnectorV2ConnectorStatus']:
+    def connector_status(self) -> Optional[_builtins.str]:
         """
         The status of the connector
         """
@@ -96,6 +104,30 @@ class GetConnectorV2Result:
         A description of the connector
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enablementStatus")
+    def enablement_status(self) -> Optional[_builtins.str]:
+        """
+        The enablement status of the connector
+        """
+        return pulumi.get(self, "enablement_status")
+
+    @_builtins.property
+    @pulumi.getter(name="enablementStatusReason")
+    def enablement_status_reason(self) -> Optional[_builtins.str]:
+        """
+        The reason for the enablement status of the connector
+        """
+        return pulumi.get(self, "enablement_status_reason")
+
+    @_builtins.property
+    @pulumi.getter
+    def issues(self) -> Optional[Sequence['outputs.ConnectorV2HealthIssue']]:
+        """
+        The list of health issues associated with the connector
+        """
+        return pulumi.get(self, "issues")
 
     @_builtins.property
     @pulumi.getter(name="lastCheckedAt")
@@ -149,6 +181,9 @@ class AwaitableGetConnectorV2Result(GetConnectorV2Result):
             connector_status=self.connector_status,
             created_at=self.created_at,
             description=self.description,
+            enablement_status=self.enablement_status,
+            enablement_status_reason=self.enablement_status_reason,
+            issues=self.issues,
             last_checked_at=self.last_checked_at,
             last_updated_at=self.last_updated_at,
             message=self.message,
@@ -175,6 +210,9 @@ def get_connector_v2(connector_arn: Optional[_builtins.str] = None,
         connector_status=pulumi.get(__ret__, 'connector_status'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        enablement_status=pulumi.get(__ret__, 'enablement_status'),
+        enablement_status_reason=pulumi.get(__ret__, 'enablement_status_reason'),
+        issues=pulumi.get(__ret__, 'issues'),
         last_checked_at=pulumi.get(__ret__, 'last_checked_at'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         message=pulumi.get(__ret__, 'message'),
@@ -198,6 +236,9 @@ def get_connector_v2_output(connector_arn: Optional[pulumi.Input[_builtins.str]]
         connector_status=pulumi.get(__response__, 'connector_status'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        enablement_status=pulumi.get(__response__, 'enablement_status'),
+        enablement_status_reason=pulumi.get(__response__, 'enablement_status_reason'),
+        issues=pulumi.get(__response__, 'issues'),
         last_checked_at=pulumi.get(__response__, 'last_checked_at'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         message=pulumi.get(__response__, 'message'),

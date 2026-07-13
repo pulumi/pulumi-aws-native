@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAcceleratorResult:
-    def __init__(__self__, accelerator_arn=None, dns_name=None, dual_stack_dns_name=None, enabled=None, ip_address_type=None, ip_addresses=None, ipv4_addresses=None, ipv6_addresses=None, name=None, tags=None):
+    def __init__(__self__, accelerator_arn=None, dns_name=None, dual_stack_dns_name=None, enabled=None, flow_logs_enabled=None, flow_logs_s3_bucket=None, flow_logs_s3_prefix=None, ip_address_type=None, ip_addresses=None, ipv4_addresses=None, ipv6_addresses=None, name=None, tags=None):
         if accelerator_arn and not isinstance(accelerator_arn, str):
             raise TypeError("Expected argument 'accelerator_arn' to be a str")
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
@@ -38,6 +38,15 @@ class GetAcceleratorResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if flow_logs_enabled and not isinstance(flow_logs_enabled, bool):
+            raise TypeError("Expected argument 'flow_logs_enabled' to be a bool")
+        pulumi.set(__self__, "flow_logs_enabled", flow_logs_enabled)
+        if flow_logs_s3_bucket and not isinstance(flow_logs_s3_bucket, str):
+            raise TypeError("Expected argument 'flow_logs_s3_bucket' to be a str")
+        pulumi.set(__self__, "flow_logs_s3_bucket", flow_logs_s3_bucket)
+        if flow_logs_s3_prefix and not isinstance(flow_logs_s3_prefix, str):
+            raise TypeError("Expected argument 'flow_logs_s3_prefix' to be a str")
+        pulumi.set(__self__, "flow_logs_s3_prefix", flow_logs_s3_prefix)
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -88,6 +97,30 @@ class GetAcceleratorResult:
         Indicates whether an accelerator is enabled. The value is true or false.
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsEnabled")
+    def flow_logs_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether flow logs are enabled for the accelerator.
+        """
+        return pulumi.get(self, "flow_logs_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Bucket")
+    def flow_logs_s3_bucket(self) -> Optional[_builtins.str]:
+        """
+        The name of the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogsS3Prefix")
+    def flow_logs_s3_prefix(self) -> Optional[_builtins.str]:
+        """
+        The prefix for the location in the Amazon S3 bucket for the flow logs.
+        """
+        return pulumi.get(self, "flow_logs_s3_prefix")
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
@@ -150,6 +183,9 @@ class AwaitableGetAcceleratorResult(GetAcceleratorResult):
             dns_name=self.dns_name,
             dual_stack_dns_name=self.dual_stack_dns_name,
             enabled=self.enabled,
+            flow_logs_enabled=self.flow_logs_enabled,
+            flow_logs_s3_bucket=self.flow_logs_s3_bucket,
+            flow_logs_s3_prefix=self.flow_logs_s3_prefix,
             ip_address_type=self.ip_address_type,
             ip_addresses=self.ip_addresses,
             ipv4_addresses=self.ipv4_addresses,
@@ -176,6 +212,9 @@ def get_accelerator(accelerator_arn: Optional[_builtins.str] = None,
         dns_name=pulumi.get(__ret__, 'dns_name'),
         dual_stack_dns_name=pulumi.get(__ret__, 'dual_stack_dns_name'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        flow_logs_enabled=pulumi.get(__ret__, 'flow_logs_enabled'),
+        flow_logs_s3_bucket=pulumi.get(__ret__, 'flow_logs_s3_bucket'),
+        flow_logs_s3_prefix=pulumi.get(__ret__, 'flow_logs_s3_prefix'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
         ipv4_addresses=pulumi.get(__ret__, 'ipv4_addresses'),
@@ -199,6 +238,9 @@ def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[_builtins.str]
         dns_name=pulumi.get(__response__, 'dns_name'),
         dual_stack_dns_name=pulumi.get(__response__, 'dual_stack_dns_name'),
         enabled=pulumi.get(__response__, 'enabled'),
+        flow_logs_enabled=pulumi.get(__response__, 'flow_logs_enabled'),
+        flow_logs_s3_bucket=pulumi.get(__response__, 'flow_logs_s3_bucket'),
+        flow_logs_s3_prefix=pulumi.get(__response__, 'flow_logs_s3_prefix'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         ip_addresses=pulumi.get(__response__, 'ip_addresses'),
         ipv4_addresses=pulumi.get(__response__, 'ipv4_addresses'),

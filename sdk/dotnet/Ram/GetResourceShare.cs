@@ -92,6 +92,10 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         public readonly string? OwningAccountId;
         /// <summary>
+        /// Specifies the configuration for the resource share
+        /// </summary>
+        public readonly Outputs.ResourceShareConfiguration? ResourceShareConfiguration;
+        /// <summary>
         /// The current status of the resource share.
         /// </summary>
         public readonly Pulumi.AwsNative.Ram.ResourceShareStatus? Status;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.Ram
 
             string? owningAccountId,
 
+            Outputs.ResourceShareConfiguration? resourceShareConfiguration,
+
             Pulumi.AwsNative.Ram.ResourceShareStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -127,6 +133,7 @@ namespace Pulumi.AwsNative.Ram
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
             OwningAccountId = owningAccountId;
+            ResourceShareConfiguration = resourceShareConfiguration;
             Status = status;
             Tags = tags;
         }

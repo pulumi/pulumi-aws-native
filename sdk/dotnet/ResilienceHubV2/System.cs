@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        /// </summary>
+        [Output("sharingEnabled")]
+        public Output<bool?> SharingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the system.
         /// </summary>
         [Output("systemArn")]
@@ -130,6 +136,12 @@ namespace Pulumi.AwsNative.ResilienceHubV2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        /// </summary>
+        [Input("sharingEnabled")]
+        public Input<bool>? SharingEnabled { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

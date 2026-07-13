@@ -1,0 +1,93 @@
+{
+  "typeName" : "AWS::RDS::ReservedDBInstance",
+  "description" : "Resource Type definition for AWS::RDS::ReservedDBInstance",
+  "additionalProperties" : false,
+  "properties" : {
+    "UsagePrice" : {
+      "type" : "number"
+    },
+    "DBInstanceClass" : {
+      "type" : "string"
+    },
+    "ReservedDBInstanceId" : {
+      "type" : "string"
+    },
+    "StartTime" : {
+      "type" : "string"
+    },
+    "RecurringCharges" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/RecurringCharge"
+      }
+    },
+    "ReservedDBInstancesOfferingId" : {
+      "type" : "string"
+    },
+    "Duration" : {
+      "type" : "integer"
+    },
+    "CurrencyCode" : {
+      "type" : "string"
+    },
+    "OfferingType" : {
+      "type" : "string"
+    },
+    "State" : {
+      "type" : "string"
+    },
+    "ProductDescription" : {
+      "type" : "string"
+    },
+    "ReservedDBInstanceArn" : {
+      "type" : "string"
+    },
+    "MultiAZ" : {
+      "type" : "boolean"
+    },
+    "DBInstanceCount" : {
+      "type" : "integer"
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "FixedPrice" : {
+      "type" : "number"
+    }
+  },
+  "definitions" : {
+    "RecurringCharge" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RecurringChargeFrequency" : {
+          "type" : "string"
+        },
+        "RecurringChargeAmount" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Tag" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
+    }
+  },
+  "createOnlyProperties" : [ "/properties/DBInstanceCount" ],
+  "primaryIdentifier" : [ "/properties/ReservedDBInstanceId" ],
+  "readOnlyProperties" : [ "/properties/FixedPrice", "/properties/MultiAZ", "/properties/RecurringCharges", "/properties/Duration", "/properties/Tags", "/properties/StartTime", "/properties/ReservedDBInstancesOfferingId", "/properties/ReservedDBInstanceArn", "/properties/DBInstanceClass", "/properties/ProductDescription", "/properties/ReservedDBInstanceId", "/properties/UsagePrice", "/properties/OfferingType", "/properties/State", "/properties/CurrencyCode" ]
+}

@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.Lambda
         /// The scaling configuration for the capacity provider.
         /// </summary>
         public readonly Outputs.CapacityProviderScalingConfig? CapacityProviderScalingConfig;
+        /// <summary>
+        /// Configuration for tag propagation to managed resources launched by the capacity provider.
+        /// </summary>
         public readonly Outputs.CapacityProviderPropagateTagsConfig? PropagateTags;
         /// <summary>
         /// The current state of the capacity provider.

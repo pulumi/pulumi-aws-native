@@ -10,16 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// Configuration that defines how tags are propagated to managed resources.
+    /// </summary>
     public sealed class CapacityProviderPropagateTagsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("explicitTags")]
         private InputList<Inputs.CapacityProviderTagArgs>? _explicitTags;
+
+        /// <summary>
+        /// A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+        /// </summary>
         public InputList<Inputs.CapacityProviderTagArgs> ExplicitTags
         {
             get => _explicitTags ?? (_explicitTags = new InputList<Inputs.CapacityProviderTagArgs>());
             set => _explicitTags = value;
         }
 
+        /// <summary>
+        /// The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+        /// </summary>
         [Input("mode")]
         public Input<Pulumi.AwsNative.Lambda.CapacityProviderPropagateTagsMode>? Mode { get; set; }
 

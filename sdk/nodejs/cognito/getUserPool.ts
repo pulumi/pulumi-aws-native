@@ -73,6 +73,8 @@ export interface GetUserPoolResult {
      * This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
      */
     readonly emailVerificationSubject?: string;
+    readonly issuerConfiguration?: outputs.cognito.UserPoolIssuerConfiguration;
+    readonly keyConfiguration?: outputs.cognito.UserPoolKeyConfiguration;
     /**
      * A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
      */

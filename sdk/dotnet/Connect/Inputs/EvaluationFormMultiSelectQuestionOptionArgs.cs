@@ -16,10 +16,31 @@ namespace Pulumi.AwsNative.Connect.Inputs
     public sealed class EvaluationFormMultiSelectQuestionOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        /// </summary>
+        [Input("automaticFail")]
+        public Input<bool>? AutomaticFail { get; set; }
+
+        [Input("automaticFailConfiguration")]
+        public Input<Inputs.EvaluationFormAutomaticFailConfigurationArgs>? AutomaticFailConfiguration { get; set; }
+
+        /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        [Input("pointsConfiguration")]
+        public Input<Inputs.EvaluationFormQuestionOptionPointsConfigurationArgs>? PointsConfiguration { get; set; }
+
+        /// <summary>
         /// Reference identifier for this option.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
+
+        /// <summary>
+        /// The score assigned to the answer option.
+        /// </summary>
+        [Input("score")]
+        public Input<int>? Score { get; set; }
 
         /// <summary>
         /// Display text for this option.

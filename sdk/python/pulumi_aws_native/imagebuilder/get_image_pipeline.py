@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImagePipelineResult:
-    def __init__(__self__, arn=None, container_recipe_arn=None, deployment_id=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, execution_role=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, logging_configuration=None, schedule=None, status=None, tags=None, workflows=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, deployment_id=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, execution_role=None, image_recipe_arn=None, image_scanning_configuration=None, image_tags=None, image_tests_configuration=None, infrastructure_configuration_arn=None, logging_configuration=None, schedule=None, status=None, tags=None, workflows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetImagePipelineResult:
         if image_scanning_configuration and not isinstance(image_scanning_configuration, dict):
             raise TypeError("Expected argument 'image_scanning_configuration' to be a dict")
         pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
+        if image_tags and not isinstance(image_tags, dict):
+            raise TypeError("Expected argument 'image_tags' to be a dict")
+        pulumi.set(__self__, "image_tags", image_tags)
         if image_tests_configuration and not isinstance(image_tests_configuration, dict):
             raise TypeError("Expected argument 'image_tests_configuration' to be a dict")
         pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
@@ -148,6 +151,14 @@ class GetImagePipelineResult:
         return pulumi.get(self, "image_scanning_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="imageTags")
+    def image_tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags to be applied to images created by this pipeline.
+        """
+        return pulumi.get(self, "image_tags")
+
+    @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
     def image_tests_configuration(self) -> Optional['outputs.ImagePipelineImageTestsConfiguration']:
         """
@@ -219,6 +230,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             execution_role=self.execution_role,
             image_recipe_arn=self.image_recipe_arn,
             image_scanning_configuration=self.image_scanning_configuration,
+            image_tags=self.image_tags,
             image_tests_configuration=self.image_tests_configuration,
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             logging_configuration=self.logging_configuration,
@@ -251,6 +263,7 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
         execution_role=pulumi.get(__ret__, 'execution_role'),
         image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
         image_scanning_configuration=pulumi.get(__ret__, 'image_scanning_configuration'),
+        image_tags=pulumi.get(__ret__, 'image_tags'),
         image_tests_configuration=pulumi.get(__ret__, 'image_tests_configuration'),
         infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
@@ -280,6 +293,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         execution_role=pulumi.get(__response__, 'execution_role'),
         image_recipe_arn=pulumi.get(__response__, 'image_recipe_arn'),
         image_scanning_configuration=pulumi.get(__response__, 'image_scanning_configuration'),
+        image_tags=pulumi.get(__response__, 'image_tags'),
         image_tests_configuration=pulumi.get(__response__, 'image_tests_configuration'),
         infrastructure_configuration_arn=pulumi.get(__response__, 'infrastructure_configuration_arn'),
         logging_configuration=pulumi.get(__response__, 'logging_configuration'),

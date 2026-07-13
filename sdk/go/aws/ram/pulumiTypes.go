@@ -4,7 +4,11 @@
 package ram
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -16,6 +20,165 @@ type PermissionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The configuration for a resource share.
+type ResourceShareConfiguration struct {
+	// The resource share restricts access to an account
+	ExclusiveAccountAccess *bool `pulumi:"exclusiveAccountAccess"`
+	// Specifies whether the consumer account retains access to the resource share after leaving the organization.
+	RetainSharingOnAccountLeaveOrganization *bool `pulumi:"retainSharingOnAccountLeaveOrganization"`
+}
+
+// ResourceShareConfigurationInput is an input type that accepts ResourceShareConfigurationArgs and ResourceShareConfigurationOutput values.
+// You can construct a concrete instance of `ResourceShareConfigurationInput` via:
+//
+//	ResourceShareConfigurationArgs{...}
+type ResourceShareConfigurationInput interface {
+	pulumi.Input
+
+	ToResourceShareConfigurationOutput() ResourceShareConfigurationOutput
+	ToResourceShareConfigurationOutputWithContext(context.Context) ResourceShareConfigurationOutput
+}
+
+// The configuration for a resource share.
+type ResourceShareConfigurationArgs struct {
+	// The resource share restricts access to an account
+	ExclusiveAccountAccess pulumi.BoolPtrInput `pulumi:"exclusiveAccountAccess"`
+	// Specifies whether the consumer account retains access to the resource share after leaving the organization.
+	RetainSharingOnAccountLeaveOrganization pulumi.BoolPtrInput `pulumi:"retainSharingOnAccountLeaveOrganization"`
+}
+
+func (ResourceShareConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareConfiguration)(nil)).Elem()
+}
+
+func (i ResourceShareConfigurationArgs) ToResourceShareConfigurationOutput() ResourceShareConfigurationOutput {
+	return i.ToResourceShareConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResourceShareConfigurationArgs) ToResourceShareConfigurationOutputWithContext(ctx context.Context) ResourceShareConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareConfigurationOutput)
+}
+
+func (i ResourceShareConfigurationArgs) ToResourceShareConfigurationPtrOutput() ResourceShareConfigurationPtrOutput {
+	return i.ToResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceShareConfigurationArgs) ToResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareConfigurationOutput).ToResourceShareConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResourceShareConfigurationPtrInput is an input type that accepts ResourceShareConfigurationArgs, ResourceShareConfigurationPtr and ResourceShareConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResourceShareConfigurationPtrInput` via:
+//
+//	        ResourceShareConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceShareConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResourceShareConfigurationPtrOutput() ResourceShareConfigurationPtrOutput
+	ToResourceShareConfigurationPtrOutputWithContext(context.Context) ResourceShareConfigurationPtrOutput
+}
+
+type resourceShareConfigurationPtrType ResourceShareConfigurationArgs
+
+func ResourceShareConfigurationPtr(v *ResourceShareConfigurationArgs) ResourceShareConfigurationPtrInput {
+	return (*resourceShareConfigurationPtrType)(v)
+}
+
+func (*resourceShareConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareConfiguration)(nil)).Elem()
+}
+
+func (i *resourceShareConfigurationPtrType) ToResourceShareConfigurationPtrOutput() ResourceShareConfigurationPtrOutput {
+	return i.ToResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceShareConfigurationPtrType) ToResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareConfigurationPtrOutput)
+}
+
+// The configuration for a resource share.
+type ResourceShareConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceShareConfiguration)(nil)).Elem()
+}
+
+func (o ResourceShareConfigurationOutput) ToResourceShareConfigurationOutput() ResourceShareConfigurationOutput {
+	return o
+}
+
+func (o ResourceShareConfigurationOutput) ToResourceShareConfigurationOutputWithContext(ctx context.Context) ResourceShareConfigurationOutput {
+	return o
+}
+
+func (o ResourceShareConfigurationOutput) ToResourceShareConfigurationPtrOutput() ResourceShareConfigurationPtrOutput {
+	return o.ToResourceShareConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceShareConfigurationOutput) ToResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceShareConfiguration) *ResourceShareConfiguration {
+		return &v
+	}).(ResourceShareConfigurationPtrOutput)
+}
+
+// The resource share restricts access to an account
+func (o ResourceShareConfigurationOutput) ExclusiveAccountAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceShareConfiguration) *bool { return v.ExclusiveAccountAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the consumer account retains access to the resource share after leaving the organization.
+func (o ResourceShareConfigurationOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceShareConfiguration) *bool { return v.RetainSharingOnAccountLeaveOrganization }).(pulumi.BoolPtrOutput)
+}
+
+type ResourceShareConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceShareConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceShareConfiguration)(nil)).Elem()
+}
+
+func (o ResourceShareConfigurationPtrOutput) ToResourceShareConfigurationPtrOutput() ResourceShareConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceShareConfigurationPtrOutput) ToResourceShareConfigurationPtrOutputWithContext(ctx context.Context) ResourceShareConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceShareConfigurationPtrOutput) Elem() ResourceShareConfigurationOutput {
+	return o.ApplyT(func(v *ResourceShareConfiguration) ResourceShareConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceShareConfiguration
+		return ret
+	}).(ResourceShareConfigurationOutput)
+}
+
+// The resource share restricts access to an account
+func (o ResourceShareConfigurationPtrOutput) ExclusiveAccountAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceShareConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusiveAccountAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the consumer account retains access to the resource share after leaving the organization.
+func (o ResourceShareConfigurationPtrOutput) RetainSharingOnAccountLeaveOrganization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceShareConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RetainSharingOnAccountLeaveOrganization
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ResourceShareTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -25,4 +188,8 @@ type ResourceShareTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareConfigurationInput)(nil)).Elem(), ResourceShareConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareConfigurationPtrInput)(nil)).Elem(), ResourceShareConfigurationArgs{})
+	pulumi.RegisterOutputType(ResourceShareConfigurationOutput{})
+	pulumi.RegisterOutputType(ResourceShareConfigurationPtrOutput{})
 }

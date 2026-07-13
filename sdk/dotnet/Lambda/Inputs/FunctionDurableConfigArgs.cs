@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("executionTimeout", required: true)]
         public Input<int> ExecutionTimeout { get; set; } = null!;
 
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
         /// <summary>
         /// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         /// </summary>

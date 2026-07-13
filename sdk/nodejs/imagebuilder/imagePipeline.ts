@@ -74,6 +74,10 @@ export class ImagePipeline extends pulumi.CustomResource {
      */
     declare public readonly imageScanningConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageScanningConfiguration | undefined>;
     /**
+     * The tags to be applied to images created by this pipeline.
+     */
+    declare public readonly imageTags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The image tests configuration of the image pipeline.
      */
     declare public readonly imageTestsConfiguration: pulumi.Output<outputs.imagebuilder.ImagePipelineImageTestsConfiguration | undefined>;
@@ -124,6 +128,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["executionRole"] = args?.executionRole;
             resourceInputs["imageRecipeArn"] = args?.imageRecipeArn;
             resourceInputs["imageScanningConfiguration"] = args?.imageScanningConfiguration;
+            resourceInputs["imageTags"] = args?.imageTags;
             resourceInputs["imageTestsConfiguration"] = args?.imageTestsConfiguration;
             resourceInputs["infrastructureConfigurationArn"] = args?.infrastructureConfigurationArn;
             resourceInputs["loggingConfiguration"] = args?.loggingConfiguration;
@@ -144,6 +149,7 @@ export class ImagePipeline extends pulumi.CustomResource {
             resourceInputs["executionRole"] = undefined /*out*/;
             resourceInputs["imageRecipeArn"] = undefined /*out*/;
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
+            resourceInputs["imageTags"] = undefined /*out*/;
             resourceInputs["imageTestsConfiguration"] = undefined /*out*/;
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
@@ -192,6 +198,10 @@ export interface ImagePipelineArgs {
      * Contains settings for vulnerability scans.
      */
     imageScanningConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfigurationArgs>;
+    /**
+     * The tags to be applied to images created by this pipeline.
+     */
+    imageTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The image tests configuration of the image pipeline.
      */

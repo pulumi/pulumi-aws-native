@@ -387,6 +387,9 @@
         "ImagePullCredentialsType" : {
           "type" : "string"
         },
+        "HostKernel" : {
+          "type" : "string"
+        },
         "Image" : {
           "type" : "string"
         },

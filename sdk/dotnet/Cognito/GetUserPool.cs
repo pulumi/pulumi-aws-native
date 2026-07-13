@@ -111,6 +111,8 @@ namespace Pulumi.AwsNative.Cognito
         /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         public readonly string? EmailVerificationSubject;
+        public readonly Outputs.UserPoolIssuerConfiguration? IssuerConfiguration;
+        public readonly Outputs.UserPoolKeyConfiguration? KeyConfiguration;
         /// <summary>
         /// A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         /// </summary>
@@ -237,6 +239,10 @@ namespace Pulumi.AwsNative.Cognito
 
             string? emailVerificationSubject,
 
+            Outputs.UserPoolIssuerConfiguration? issuerConfiguration,
+
+            Outputs.UserPoolKeyConfiguration? keyConfiguration,
+
             Outputs.UserPoolLambdaConfig? lambdaConfig,
 
             string? mfaConfiguration,
@@ -291,6 +297,8 @@ namespace Pulumi.AwsNative.Cognito
             EmailConfiguration = emailConfiguration;
             EmailVerificationMessage = emailVerificationMessage;
             EmailVerificationSubject = emailVerificationSubject;
+            IssuerConfiguration = issuerConfiguration;
+            KeyConfiguration = keyConfiguration;
             LambdaConfig = lambdaConfig;
             MfaConfiguration = mfaConfiguration;
             Policies = policies;

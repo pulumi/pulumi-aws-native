@@ -24,6 +24,12 @@ type Accelerator struct {
 	DualStackDnsName pulumi.StringOutput `pulumi:"dualStackDnsName"`
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Indicates whether flow logs are enabled for the accelerator.
+	FlowLogsEnabled pulumi.BoolPtrOutput `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket pulumi.StringPtrOutput `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix pulumi.StringPtrOutput `pulumi:"flowLogsS3Prefix"`
 	// IP Address type.
 	IpAddressType AcceleratorIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	// The IP addresses from BYOIP Prefix pool.
@@ -82,6 +88,12 @@ func (AcceleratorState) ElementType() reflect.Type {
 type acceleratorArgs struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled *bool `pulumi:"enabled"`
+	// Indicates whether flow logs are enabled for the accelerator.
+	FlowLogsEnabled *bool `pulumi:"flowLogsEnabled"`
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket *string `pulumi:"flowLogsS3Bucket"`
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix *string `pulumi:"flowLogsS3Prefix"`
 	// IP Address type.
 	IpAddressType *AcceleratorIpAddressType `pulumi:"ipAddressType"`
 	// The IP addresses from BYOIP Prefix pool.
@@ -98,6 +110,12 @@ type acceleratorArgs struct {
 type AcceleratorArgs struct {
 	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrInput
+	// Indicates whether flow logs are enabled for the accelerator.
+	FlowLogsEnabled pulumi.BoolPtrInput
+	// The name of the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Bucket pulumi.StringPtrInput
+	// The prefix for the location in the Amazon S3 bucket for the flow logs.
+	FlowLogsS3Prefix pulumi.StringPtrInput
 	// IP Address type.
 	IpAddressType AcceleratorIpAddressTypePtrInput
 	// The IP addresses from BYOIP Prefix pool.
@@ -165,6 +183,21 @@ func (o AcceleratorOutput) DualStackDnsName() pulumi.StringOutput {
 // Indicates whether an accelerator is enabled. The value is true or false.
 func (o AcceleratorOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether flow logs are enabled for the accelerator.
+func (o AcceleratorOutput) FlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.BoolPtrOutput { return v.FlowLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the Amazon S3 bucket for the flow logs.
+func (o AcceleratorOutput) FlowLogsS3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.FlowLogsS3Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the location in the Amazon S3 bucket for the flow logs.
+func (o AcceleratorOutput) FlowLogsS3Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Accelerator) pulumi.StringPtrOutput { return v.FlowLogsS3Prefix }).(pulumi.StringPtrOutput)
 }
 
 // IP Address type.

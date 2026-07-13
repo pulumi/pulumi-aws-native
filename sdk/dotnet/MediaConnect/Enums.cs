@@ -1440,6 +1440,34 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     [EnumType]
+    public readonly struct RouterInputContentQualityAnalysisState : IEquatable<RouterInputContentQualityAnalysisState>
+    {
+        private readonly string _value;
+
+        private RouterInputContentQualityAnalysisState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputContentQualityAnalysisState Enabled { get; } = new RouterInputContentQualityAnalysisState("ENABLED");
+        public static RouterInputContentQualityAnalysisState Disabled { get; } = new RouterInputContentQualityAnalysisState("DISABLED");
+
+        public static bool operator ==(RouterInputContentQualityAnalysisState left, RouterInputContentQualityAnalysisState right) => left.Equals(right);
+        public static bool operator !=(RouterInputContentQualityAnalysisState left, RouterInputContentQualityAnalysisState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputContentQualityAnalysisState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputContentQualityAnalysisState other && Equals(other);
+        public bool Equals(RouterInputContentQualityAnalysisState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RouterInputDay : IEquatable<RouterInputDay>
     {
         private readonly string _value;
@@ -1663,6 +1691,33 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RouterInputProtocol other && Equals(other);
         public bool Equals(RouterInputProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputRouterContentQualityAnalysisType : IEquatable<RouterInputRouterContentQualityAnalysisType>
+    {
+        private readonly string _value;
+
+        private RouterInputRouterContentQualityAnalysisType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputRouterContentQualityAnalysisType ContentLevel { get; } = new RouterInputRouterContentQualityAnalysisType("CONTENT_LEVEL");
+
+        public static bool operator ==(RouterInputRouterContentQualityAnalysisType left, RouterInputRouterContentQualityAnalysisType right) => left.Equals(right);
+        public static bool operator !=(RouterInputRouterContentQualityAnalysisType left, RouterInputRouterContentQualityAnalysisType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputRouterContentQualityAnalysisType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputRouterContentQualityAnalysisType other && Equals(other);
+        public bool Equals(RouterInputRouterContentQualityAnalysisType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

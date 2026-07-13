@@ -301,8 +301,11 @@ __all__ = [
     'DataSourceResourceStatus',
     'DataSourceStarburstProductType',
     'DataSourceType',
+    'FlowPublishState',
     'FolderSharingModel',
     'FolderType',
+    'OAuthClientApplicationDataSourceType',
+    'OAuthClientApplicationOAuthClientAuthenticationType',
     'RefreshScheduleMapRefreshType',
     'RefreshScheduleMapScheduleFrequencyPropertiesInterval',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek',
@@ -2568,6 +2571,7 @@ class DataSetTimeGranularity(_builtins.str, Enum):
 @pulumi.type_token("aws-native:quicksight:DataSetUseAs")
 class DataSetUseAs(_builtins.str, Enum):
     RLS_RULES = "RLS_RULES"
+    CATALOG = "CATALOG"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSourceAuthenticationType")
@@ -2658,6 +2662,7 @@ class DataSourceType(_builtins.str, Enum):
     APPFLOW = "APPFLOW"
     IMPALA = "IMPALA"
     GLUE = "GLUE"
+    GLUE_DATA_CATALOG = "GLUE_DATA_CATALOG"
     GOOGLE_DRIVE = "GOOGLE_DRIVE"
     CONFLUENCE = "CONFLUENCE"
     SHAREPOINT = "SHAREPOINT"
@@ -2665,6 +2670,14 @@ class DataSourceType(_builtins.str, Enum):
     WEB_CRAWLER = "WEB_CRAWLER"
     BOX = "BOX"
     GOOGLESHEETS = "GOOGLESHEETS"
+    ATLAN = "ATLAN"
+
+
+@pulumi.type_token("aws-native:quicksight:FlowPublishState")
+class FlowPublishState(_builtins.str, Enum):
+    PUBLISHED = "PUBLISHED"
+    DRAFT = "DRAFT"
+    PENDING_APPROVAL = "PENDING_APPROVAL"
 
 
 @pulumi.type_token("aws-native:quicksight:FolderSharingModel")
@@ -2677,6 +2690,53 @@ class FolderSharingModel(_builtins.str, Enum):
 class FolderType(_builtins.str, Enum):
     SHARED = "SHARED"
     RESTRICTED = "RESTRICTED"
+
+
+@pulumi.type_token("aws-native:quicksight:OAuthClientApplicationDataSourceType")
+class OAuthClientApplicationDataSourceType(_builtins.str, Enum):
+    ADOBE_ANALYTICS = "ADOBE_ANALYTICS"
+    AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH"
+    AMAZON_OPENSEARCH = "AMAZON_OPENSEARCH"
+    ATHENA = "ATHENA"
+    AURORA = "AURORA"
+    AURORA_POSTGRESQL = "AURORA_POSTGRESQL"
+    AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS"
+    BIGQUERY = "BIGQUERY"
+    CONFLUENCE = "CONFLUENCE"
+    DATABRICKS = "DATABRICKS"
+    EXASOL = "EXASOL"
+    GITHUB = "GITHUB"
+    GOOGLESHEETS = "GOOGLESHEETS"
+    GOOGLE_DRIVE = "GOOGLE_DRIVE"
+    JIRA = "JIRA"
+    MARIADB = "MARIADB"
+    MYSQL = "MYSQL"
+    ONE_DRIVE = "ONE_DRIVE"
+    ORACLE = "ORACLE"
+    POSTGRESQL = "POSTGRESQL"
+    PRESTO = "PRESTO"
+    QBUSINESS = "QBUSINESS"
+    REDSHIFT = "REDSHIFT"
+    S3 = "S3"
+    S3_KNOWLEDGE_BASE = "S3_KNOWLEDGE_BASE"
+    S3_TABLES = "S3_TABLES"
+    SALESFORCE = "SALESFORCE"
+    SERVICENOW = "SERVICENOW"
+    SHAREPOINT = "SHAREPOINT"
+    SNOWFLAKE = "SNOWFLAKE"
+    SPARK = "SPARK"
+    SQLSERVER = "SQLSERVER"
+    STARBURST = "STARBURST"
+    TERADATA = "TERADATA"
+    TIMESTREAM = "TIMESTREAM"
+    TRINO = "TRINO"
+    TWITTER = "TWITTER"
+    WEB_CRAWLER = "WEB_CRAWLER"
+
+
+@pulumi.type_token("aws-native:quicksight:OAuthClientApplicationOAuthClientAuthenticationType")
+class OAuthClientApplicationOAuthClientAuthenticationType(_builtins.str, Enum):
+    TOKEN = "TOKEN"
 
 
 @pulumi.type_token("aws-native:quicksight:RefreshScheduleMapRefreshType")

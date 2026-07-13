@@ -26,6 +26,10 @@ export interface GetConformancePackArgs {
 
 export interface GetConformancePackResult {
     /**
+     * Amazon Resource Name (ARN) of the conformance pack.
+     */
+    readonly conformancePackArn?: string;
+    /**
      * A list of ConformancePackInputParameter objects.
      */
     readonly conformancePackInputParameters?: outputs.configuration.ConformancePackInputParameter[];
@@ -37,6 +41,10 @@ export interface GetConformancePackResult {
      * The prefix for delivery S3 bucket.
      */
     readonly deliveryS3KeyPrefix?: string;
+    /**
+     * The tags for the conformance pack.
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.

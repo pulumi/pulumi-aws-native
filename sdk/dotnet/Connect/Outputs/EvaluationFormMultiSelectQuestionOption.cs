@@ -17,9 +17,22 @@ namespace Pulumi.AwsNative.Connect.Outputs
     public sealed class EvaluationFormMultiSelectQuestionOption
     {
         /// <summary>
+        /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        /// </summary>
+        public readonly bool? AutomaticFail;
+        public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
+        /// <summary>
+        /// The points configuration for point-based scoring.
+        /// </summary>
+        public readonly Outputs.EvaluationFormQuestionOptionPointsConfiguration? PointsConfiguration;
+        /// <summary>
         /// Reference identifier for this option.
         /// </summary>
         public readonly string RefId;
+        /// <summary>
+        /// The score assigned to the answer option.
+        /// </summary>
+        public readonly int? Score;
         /// <summary>
         /// Display text for this option.
         /// </summary>
@@ -27,11 +40,23 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
         [OutputConstructor]
         private EvaluationFormMultiSelectQuestionOption(
+            bool? automaticFail,
+
+            Outputs.EvaluationFormAutomaticFailConfiguration? automaticFailConfiguration,
+
+            Outputs.EvaluationFormQuestionOptionPointsConfiguration? pointsConfiguration,
+
             string refId,
+
+            int? score,
 
             string text)
         {
+            AutomaticFail = automaticFail;
+            AutomaticFailConfiguration = automaticFailConfiguration;
+            PointsConfiguration = pointsConfiguration;
             RefId = refId;
+            Score = score;
             Text = text;
         }
     }

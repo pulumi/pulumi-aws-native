@@ -153,7 +153,7 @@
     },
     "VcfVersion" : {
       "type" : "string",
-      "enum" : [ "VCF-5.2.1", "VCF-5.2.2" ]
+      "enum" : [ "VCF-5.2.1", "VCF-5.2.2", "SELF_DEPLOYED" ]
     },
     "TermsAccepted" : {
       "type" : "boolean"
@@ -340,7 +340,7 @@
       "$ref" : "#/definitions/Timestamp"
     }
   },
-  "required" : [ "VpcId", "ServiceAccessSubnetId", "VcfVersion", "TermsAccepted", "LicenseInfo", "ConnectivityInfo", "VcfHostnames", "SiteId" ],
+  "required" : [ "VpcId", "ServiceAccessSubnetId", "VcfVersion", "TermsAccepted" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/EnvironmentId" ],
   "readOnlyProperties" : [ "/properties/EnvironmentId", "/properties/Checks", "/properties/EnvironmentArn", "/properties/Credentials", "/properties/EnvironmentState", "/properties/StateDetails", "/properties/CreatedAt", "/properties/ModifiedAt" ],

@@ -13,6 +13,8 @@ __all__ = [
     'TermsEnforcementType',
     'TermsSourceType',
     'UserPoolClientRefreshTokenRotationFeature',
+    'UserPoolEncryptionKeyType',
+    'UserPoolIssuerConfigurationType',
     'UserPoolTier',
     'UserPoolWebAuthnFactorConfiguration',
 ]
@@ -70,6 +72,18 @@ class UserPoolClientRefreshTokenRotationFeature(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cognito:UserPoolEncryptionKeyType")
+class UserPoolEncryptionKeyType(_builtins.str, Enum):
+    AWS_OWNED_KEY = "AWS_OWNED_KEY"
+    CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY"
+
+
+@pulumi.type_token("aws-native:cognito:UserPoolIssuerConfigurationType")
+class UserPoolIssuerConfigurationType(_builtins.str, Enum):
+    ORIGINAL = "ORIGINAL"
+    UPDATED = "UPDATED"
 
 
 @pulumi.type_token("aws-native:cognito:UserPoolTier")

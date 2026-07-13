@@ -7,6 +7,43 @@
       "description" : "Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.",
       "additionalProperties" : false
     },
+    "BlackFramesConfiguration" : {
+      "type" : "object",
+      "description" : "Detects black frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties" : {
+        "State" : {
+          "$ref" : "#/definitions/ContentQualityAnalysisState"
+        },
+        "ThresholdSeconds" : {
+          "type" : "integer",
+          "maximum" : 60,
+          "minimum" : 10,
+          "description" : "The number of consecutive seconds of black frames that MediaConnect must detect before it reports an issue."
+        }
+      },
+      "required" : [ "State", "ThresholdSeconds" ],
+      "additionalProperties" : false
+    },
+    "ContentQualityAnalysisFeatureConfiguration" : {
+      "type" : "object",
+      "description" : "Configures the content quality analysis features for the router input.",
+      "properties" : {
+        "BlackFrames" : {
+          "$ref" : "#/definitions/BlackFramesConfiguration"
+        },
+        "FrozenFrames" : {
+          "$ref" : "#/definitions/FrozenFramesConfiguration"
+        },
+        "SilentAudio" : {
+          "$ref" : "#/definitions/SilentAudioConfiguration"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ContentQualityAnalysisState" : {
+      "type" : "string",
+      "enum" : [ "ENABLED", "DISABLED" ]
+    },
     "Day" : {
       "type" : "string",
       "enum" : [ "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY" ]
@@ -138,6 +175,23 @@
     "ForwardErrorCorrectionState" : {
       "type" : "string",
       "enum" : [ "ENABLED", "DISABLED" ]
+    },
+    "FrozenFramesConfiguration" : {
+      "type" : "object",
+      "description" : "Detects frozen video frames in the router input's source content and reports them through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties" : {
+        "State" : {
+          "$ref" : "#/definitions/ContentQualityAnalysisState"
+        },
+        "ThresholdSeconds" : {
+          "type" : "integer",
+          "maximum" : 60,
+          "minimum" : 10,
+          "description" : "The number of consecutive seconds of a frozen frame that MediaConnect must detect before it reports an issue."
+        }
+      },
+      "required" : [ "State", "ThresholdSeconds" ],
+      "additionalProperties" : false
     },
     "MaintenanceConfiguration" : {
       "description" : "The configuration settings for maintenance operations, including preferred maintenance windows and schedules.",
@@ -340,6 +394,24 @@
       "required" : [ "Port", "RecoveryLatencyMilliseconds" ],
       "additionalProperties" : false
     },
+    "RouterContentQualityAnalysisConfiguration" : {
+      "description" : "The content quality analysis configuration for the router input. The content quality analysis feature only monitors the first video stream and the first audio stream it encounters within the router input source.",
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "ContentLevel",
+        "properties" : {
+          "ContentLevel" : {
+            "$ref" : "#/definitions/ContentQualityAnalysisFeatureConfiguration"
+          }
+        },
+        "required" : [ "ContentLevel" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "RouterContentQualityAnalysisType" : {
+      "type" : "string",
+      "enum" : [ "CONTENT_LEVEL" ]
+    },
     "RouterInputConfiguration" : {
       "description" : "The configuration settings for a router input.",
       "oneOf" : [ {
@@ -535,6 +607,23 @@
       "required" : [ "RoleArn", "SecretArn" ],
       "additionalProperties" : false
     },
+    "SilentAudioConfiguration" : {
+      "type" : "object",
+      "description" : "Detects silent audio in the router input's source content and reports it through a CloudWatch metric, an EventBridge event, and a router input message.",
+      "properties" : {
+        "State" : {
+          "$ref" : "#/definitions/ContentQualityAnalysisState"
+        },
+        "ThresholdSeconds" : {
+          "type" : "integer",
+          "maximum" : 60,
+          "minimum" : 10,
+          "description" : "The number of consecutive seconds of silence that MediaConnect must detect before it reports an issue."
+        }
+      },
+      "required" : [ "State", "ThresholdSeconds" ],
+      "additionalProperties" : false
+    },
     "SrtCallerRouterInputConfiguration" : {
       "type" : "object",
       "description" : "The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.",
@@ -631,10 +720,6 @@
       },
       "required" : [ "Key", "Value" ],
       "additionalProperties" : false
-    },
-    "Unit" : {
-      "type" : "object",
-      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -648,6 +733,12 @@
     },
     "Configuration" : {
       "$ref" : "#/definitions/RouterInputConfiguration"
+    },
+    "ContentQualityAnalysisConfiguration" : {
+      "$ref" : "#/definitions/RouterContentQualityAnalysisConfiguration"
+    },
+    "ContentQualityAnalysisType" : {
+      "$ref" : "#/definitions/RouterContentQualityAnalysisType"
     },
     "CreatedAt" : {
       "type" : "string",
@@ -716,12 +807,12 @@
     }
   },
   "required" : [ "Configuration", "MaximumBitrate", "Name", "RoutingScope", "Tier" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/InputType", "/properties/IpAddress", "/properties/MaintenanceType", "/properties/RoutedOutputs", "/properties/State", "/properties/UpdatedAt" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/ContentQualityAnalysisType", "/properties/CreatedAt", "/properties/Id", "/properties/InputType", "/properties/IpAddress", "/properties/MaintenanceType", "/properties/RoutedOutputs", "/properties/State", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/Configuration/Standard/NetworkInterfaceArn", "/properties/Configuration/Merge/NetworkInterfaceArn", "/properties/Configuration/Failover/NetworkInterfaceArn", "/properties/AvailabilityZone", "/properties/RegionName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "mediaconnect:GetRouterInput", "mediaconnect:ListRouterInputs", "ec2:CreateNetworkInterface", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:CreateRouterInput", "mediaconnect:TagResource", "mediaconnect:UpdateFlowOutput", "medialive:UpdateChannel" ]
+      "permissions" : [ "mediaconnect:GetRouterInput", "mediaconnect:ListRouterInputs", "ec2:CreateNetworkInterface", "ec2:CreateTags", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:CreateRouterInput", "mediaconnect:TagResource", "mediaconnect:UpdateFlowOutput", "medialive:UpdateChannel" ]
     },
     "delete" : {
       "permissions" : [ "mediaconnect:GetRouterInput", "mediaconnect:UpdateRouterInput", "mediaconnect:UpdateFlowOutput", "medialive:UpdateChannel", "mediaconnect:ListRouterInputs", "mediaconnect:DeleteRouterInput" ]
@@ -733,7 +824,7 @@
       "permissions" : [ "mediaconnect:GetRouterInput" ]
     },
     "update" : {
-      "permissions" : [ "mediaconnect:ListTagsForResource", "mediaconnect:TagResource", "mediaconnect:UntagResource", "mediaconnect:GetRouterInput", "ec2:CreateNetworkInterface", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:UpdateFlowOutput", "mediaconnect:UpdateRouterInput", "medialive:UpdateChannel" ]
+      "permissions" : [ "mediaconnect:ListTagsForResource", "mediaconnect:TagResource", "mediaconnect:UntagResource", "mediaconnect:GetRouterInput", "ec2:CreateNetworkInterface", "ec2:CreateTags", "iam:PassRole", "mediaconnect:AssociateRouterNetworkInterface", "mediaconnect:UpdateFlowOutput", "mediaconnect:UpdateRouterInput", "medialive:UpdateChannel" ]
     }
   },
   "tagging" : {

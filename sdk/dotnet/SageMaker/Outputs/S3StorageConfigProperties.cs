@@ -7,21 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ServiceCatalog.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
+    /// <summary>
+    /// The Amazon S3 storage configuration for the hub.
+    /// </summary>
     [OutputType]
-    public sealed class CloudFormationProductConnectionParameters
+    public sealed class S3StorageConfigProperties
     {
         /// <summary>
-        /// Provides `ConnectionType` details.
+        /// The Amazon S3 bucket prefix for hosting hub content.
         /// </summary>
-        public readonly Outputs.CloudFormationProductCodeStarParameters? CodeStar;
+        public readonly string? S3OutputPath;
 
         [OutputConstructor]
-        private CloudFormationProductConnectionParameters(Outputs.CloudFormationProductCodeStarParameters? codeStar)
+        private S3StorageConfigProperties(string? s3OutputPath)
         {
-            CodeStar = codeStar;
+            S3OutputPath = s3OutputPath;
         }
     }
 }

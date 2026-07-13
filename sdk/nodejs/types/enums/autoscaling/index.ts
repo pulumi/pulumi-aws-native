@@ -5,6 +5,7 @@
 export const AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy = {
     BalancedBestEffort: "balanced-best-effort",
     BalancedOnly: "balanced-only",
+    ReservationsThenBalanced: "reservations-then-balanced",
 } as const;
 
 /**

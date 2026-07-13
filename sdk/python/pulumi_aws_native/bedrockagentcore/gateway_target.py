@@ -22,7 +22,7 @@ __all__ = ['GatewayTargetArgs', 'GatewayTarget']
 @pulumi.input_type
 class GatewayTargetArgs:
     def __init__(__self__, *,
-                 target_configuration: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs']],
+                 target_configuration: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']],
                  credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,7 +32,7 @@ class GatewayTargetArgs:
         """
         The set of arguments for constructing a GatewayTarget resource.
 
-        :param pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs']] target_configuration: The target configuration for the Smithy model target.
+        :param pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']] target_configuration: The target configuration for the Smithy model target.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayTargetCredentialProviderConfigurationArgs']]] credential_provider_configurations: The OAuth credential provider configuration.
         :param pulumi.Input[_builtins.str] description: The description for the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: The gateway ID for the gateway target.
@@ -54,14 +54,14 @@ class GatewayTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs']]:
+    def target_configuration(self) -> pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']]:
         """
         The target configuration for the Smithy model target.
         """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
-    def target_configuration(self, value: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs']]):
+    def target_configuration(self, value: pulumi.Input[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgs']]):
         pulumi.set(self, "target_configuration", value)
 
     @_builtins.property
@@ -143,7 +143,7 @@ class GatewayTarget(pulumi.CustomResource):
                  metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
+                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration2PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgsDict']]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
@@ -155,7 +155,7 @@ class GatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description for the gateway target.
         :param pulumi.Input[_builtins.str] gateway_identifier: The gateway ID for the gateway target.
         :param pulumi.Input[_builtins.str] name: The name for the gateway target.
-        :param pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]] target_configuration: The target configuration for the Smithy model target.
+        :param pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration2PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgsDict']]] target_configuration: The target configuration for the Smithy model target.
         """
         ...
     @overload
@@ -188,7 +188,7 @@ class GatewayTarget(pulumi.CustomResource):
                  metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  private_endpoint: Optional[pulumi.Input[Union[Union['GatewayTargetPrivateEndpoint0PropertiesArgs', 'GatewayTargetPrivateEndpoint0PropertiesArgsDict'], Union['GatewayTargetPrivateEndpoint1PropertiesArgs', 'GatewayTargetPrivateEndpoint1PropertiesArgsDict']]]] = None,
-                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict']]]] = None,
+                 target_configuration: Optional[pulumi.Input[Union[Union['GatewayTargetTargetConfiguration0PropertiesArgs', 'GatewayTargetTargetConfiguration0PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration1PropertiesArgs', 'GatewayTargetTargetConfiguration1PropertiesArgsDict'], Union['GatewayTargetTargetConfiguration2PropertiesArgs', 'GatewayTargetTargetConfiguration2PropertiesArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        [Input("securityPolicy")]
+        public Input<string>? SecurityPolicy { get; set; }
+
         public UserPoolDomainCustomDomainConfigTypeArgs()
         {
         }

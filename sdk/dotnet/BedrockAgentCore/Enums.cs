@@ -852,6 +852,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static GatewayTargetTargetProtocolType Mcp { get; } = new GatewayTargetTargetProtocolType("MCP");
         public static GatewayTargetTargetProtocolType Http { get; } = new GatewayTargetTargetProtocolType("HTTP");
+        public static GatewayTargetTargetProtocolType Inference { get; } = new GatewayTargetTargetProtocolType("INFERENCE");
 
         public static bool operator ==(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => left.Equals(right);
         public static bool operator !=(GatewayTargetTargetProtocolType left, GatewayTargetTargetProtocolType right) => !left.Equals(right);

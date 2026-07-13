@@ -311,10 +311,6 @@ class CapacityProviderLoggingConfig(dict):
     def __init__(__self__, *,
                  log_group: Optional[_builtins.str] = None,
                  system_log_level: Optional['CapacityProviderLoggingConfigSystemLogLevel'] = None):
-        """
-        :param _builtins.str log_group: The log group name.
-        :param 'CapacityProviderLoggingConfigSystemLogLevel' system_log_level: System log granularity level
-        """
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if system_log_level is not None:
@@ -323,17 +319,11 @@ class CapacityProviderLoggingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
-        """
-        The log group name.
-        """
         return pulumi.get(self, "log_group")
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
     def system_log_level(self) -> Optional['CapacityProviderLoggingConfigSystemLogLevel']:
-        """
-        System log granularity level
-        """
         return pulumi.get(self, "system_log_level")
 
 
@@ -379,6 +369,9 @@ class CapacityProviderPermissionsConfig(dict):
 
 @pulumi.output_type
 class CapacityProviderPropagateTagsConfig(dict):
+    """
+    Configuration that defines how tags are propagated to managed resources.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -399,6 +392,12 @@ class CapacityProviderPropagateTagsConfig(dict):
     def __init__(__self__, *,
                  explicit_tags: Optional[Sequence['outputs.CapacityProviderTag']] = None,
                  mode: Optional['CapacityProviderPropagateTagsMode'] = None):
+        """
+        Configuration that defines how tags are propagated to managed resources.
+
+        :param Sequence['CapacityProviderTag'] explicit_tags: A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+        :param 'CapacityProviderPropagateTagsMode' mode: The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+        """
         if explicit_tags is not None:
             pulumi.set(__self__, "explicit_tags", explicit_tags)
         if mode is not None:
@@ -407,11 +406,17 @@ class CapacityProviderPropagateTagsConfig(dict):
     @_builtins.property
     @pulumi.getter(name="explicitTags")
     def explicit_tags(self) -> Optional[Sequence['outputs.CapacityProviderTag']]:
+        """
+        A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+        """
         return pulumi.get(self, "explicit_tags")
 
     @_builtins.property
     @pulumi.getter
     def mode(self) -> Optional['CapacityProviderPropagateTagsMode']:
+        """
+        The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+        """
         return pulumi.get(self, "mode")
 
 
@@ -593,18 +598,12 @@ class CapacityProviderTelemetryConfig(dict):
 
     def __init__(__self__, *,
                  logging_config: Optional['outputs.CapacityProviderLoggingConfig'] = None):
-        """
-        :param 'CapacityProviderLoggingConfig' logging_config: The logging configuration for the capacity provider.
-        """
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional['outputs.CapacityProviderLoggingConfig']:
-        """
-        The logging configuration for the capacity provider.
-        """
         return pulumi.get(self, "logging_config")
 
 
@@ -1653,6 +1652,8 @@ class FunctionCode(dict):
             suggest = "s3_bucket"
         elif key == "s3Key":
             suggest = "s3_key"
+        elif key == "s3ObjectStorageMode":
+            suggest = "s3_object_storage_mode"
         elif key == "s3ObjectVersion":
             suggest = "s3_object_version"
         elif key == "sourceKmsKeyArn":
@@ -1675,6 +1676,7 @@ class FunctionCode(dict):
                  image_uri: Optional[_builtins.str] = None,
                  s3_bucket: Optional[_builtins.str] = None,
                  s3_key: Optional[_builtins.str] = None,
+                 s3_object_storage_mode: Optional['FunctionCodeS3ObjectStorageMode'] = None,
                  s3_object_version: Optional[_builtins.str] = None,
                  source_kms_key_arn: Optional[_builtins.str] = None,
                  zip_file: Optional[_builtins.str] = None):
@@ -1700,6 +1702,8 @@ class FunctionCode(dict):
             pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
             pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_storage_mode is not None:
+            pulumi.set(__self__, "s3_object_storage_mode", s3_object_storage_mode)
         if s3_object_version is not None:
             pulumi.set(__self__, "s3_object_version", s3_object_version)
         if source_kms_key_arn is not None:
@@ -1730,6 +1734,11 @@ class FunctionCode(dict):
         The Amazon S3 key of the deployment package.
         """
         return pulumi.get(self, "s3_key")
+
+    @_builtins.property
+    @pulumi.getter(name="s3ObjectStorageMode")
+    def s3_object_storage_mode(self) -> Optional['FunctionCodeS3ObjectStorageMode']:
+        return pulumi.get(self, "s3_object_storage_mode")
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
@@ -1811,6 +1820,8 @@ class FunctionDurableConfig(dict):
         suggest = None
         if key == "executionTimeout":
             suggest = "execution_timeout"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
         elif key == "retentionPeriodInDays":
             suggest = "retention_period_in_days"
 
@@ -1827,6 +1838,7 @@ class FunctionDurableConfig(dict):
 
     def __init__(__self__, *,
                  execution_timeout: _builtins.int,
+                 kms_key_arn: Optional[_builtins.str] = None,
                  retention_period_in_days: Optional[_builtins.int] = None):
         """
         Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
@@ -1835,6 +1847,8 @@ class FunctionDurableConfig(dict):
         :param _builtins.int retention_period_in_days: The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
 
@@ -1845,6 +1859,11 @@ class FunctionDurableConfig(dict):
         The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
         """
         return pulumi.get(self, "execution_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")

@@ -1089,6 +1089,12 @@ const (
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemVu9p          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemV100          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("v100")
 	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL40s          = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l40s")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL4            = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("l4")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205    = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemInferentia2   = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("inferentia2")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemTrainium      = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("trainium")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemTrainium2     = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("trainium2")
+	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemU30           = CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem("u30")
 )
 
 func (CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -1226,6 +1232,12 @@ func (o CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemPtrOutput
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemVu9p
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemV100
 //	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL40s
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemL4
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemInferentia2
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemTrainium
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemTrainium2
+//	CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemU30
 type CapacityProviderInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -6757,6 +6769,173 @@ func (in *serviceSchedulingStrategyPtr) ToServiceSchedulingStrategyPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceSchedulingStrategyPtrOutput)
 }
 
+type ServiceThresholdConfigurationType string
+
+const (
+	ServiceThresholdConfigurationTypeCount            = ServiceThresholdConfigurationType("COUNT")
+	ServiceThresholdConfigurationTypeBoundedPercent   = ServiceThresholdConfigurationType("BOUNDED_PERCENT")
+	ServiceThresholdConfigurationTypeUnboundedPercent = ServiceThresholdConfigurationType("UNBOUNDED_PERCENT")
+)
+
+func (ServiceThresholdConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceThresholdConfigurationType)(nil)).Elem()
+}
+
+func (e ServiceThresholdConfigurationType) ToServiceThresholdConfigurationTypeOutput() ServiceThresholdConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(ServiceThresholdConfigurationTypeOutput)
+}
+
+func (e ServiceThresholdConfigurationType) ToServiceThresholdConfigurationTypeOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceThresholdConfigurationTypeOutput)
+}
+
+func (e ServiceThresholdConfigurationType) ToServiceThresholdConfigurationTypePtrOutput() ServiceThresholdConfigurationTypePtrOutput {
+	return e.ToServiceThresholdConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceThresholdConfigurationType) ToServiceThresholdConfigurationTypePtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypePtrOutput {
+	return ServiceThresholdConfigurationType(e).ToServiceThresholdConfigurationTypeOutputWithContext(ctx).ToServiceThresholdConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceThresholdConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceThresholdConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceThresholdConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceThresholdConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceThresholdConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceThresholdConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceThresholdConfigurationType)(nil)).Elem()
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToServiceThresholdConfigurationTypeOutput() ServiceThresholdConfigurationTypeOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToServiceThresholdConfigurationTypeOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypeOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToServiceThresholdConfigurationTypePtrOutput() ServiceThresholdConfigurationTypePtrOutput {
+	return o.ToServiceThresholdConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToServiceThresholdConfigurationTypePtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceThresholdConfigurationType) *ServiceThresholdConfigurationType {
+		return &v
+	}).(ServiceThresholdConfigurationTypePtrOutput)
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceThresholdConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceThresholdConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceThresholdConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceThresholdConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceThresholdConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceThresholdConfigurationType)(nil)).Elem()
+}
+
+func (o ServiceThresholdConfigurationTypePtrOutput) ToServiceThresholdConfigurationTypePtrOutput() ServiceThresholdConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationTypePtrOutput) ToServiceThresholdConfigurationTypePtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ServiceThresholdConfigurationTypePtrOutput) Elem() ServiceThresholdConfigurationTypeOutput {
+	return o.ApplyT(func(v *ServiceThresholdConfigurationType) ServiceThresholdConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceThresholdConfigurationType
+		return ret
+	}).(ServiceThresholdConfigurationTypeOutput)
+}
+
+func (o ServiceThresholdConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceThresholdConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceThresholdConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceThresholdConfigurationTypeInput is an input type that accepts values of the ServiceThresholdConfigurationType enum
+// A concrete instance of `ServiceThresholdConfigurationTypeInput` can be one of the following:
+//
+//	ServiceThresholdConfigurationTypeCount
+//	ServiceThresholdConfigurationTypeBoundedPercent
+//	ServiceThresholdConfigurationTypeUnboundedPercent
+type ServiceThresholdConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToServiceThresholdConfigurationTypeOutput() ServiceThresholdConfigurationTypeOutput
+	ToServiceThresholdConfigurationTypeOutputWithContext(context.Context) ServiceThresholdConfigurationTypeOutput
+}
+
+var serviceThresholdConfigurationTypePtrType = reflect.TypeOf((**ServiceThresholdConfigurationType)(nil)).Elem()
+
+type ServiceThresholdConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceThresholdConfigurationTypePtrOutput() ServiceThresholdConfigurationTypePtrOutput
+	ToServiceThresholdConfigurationTypePtrOutputWithContext(context.Context) ServiceThresholdConfigurationTypePtrOutput
+}
+
+type serviceThresholdConfigurationTypePtr string
+
+func ServiceThresholdConfigurationTypePtr(v string) ServiceThresholdConfigurationTypePtrInput {
+	return (*serviceThresholdConfigurationTypePtr)(&v)
+}
+
+func (*serviceThresholdConfigurationTypePtr) ElementType() reflect.Type {
+	return serviceThresholdConfigurationTypePtrType
+}
+
+func (in *serviceThresholdConfigurationTypePtr) ToServiceThresholdConfigurationTypePtrOutput() ServiceThresholdConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceThresholdConfigurationTypePtrOutput)
+}
+
+func (in *serviceThresholdConfigurationTypePtr) ToServiceThresholdConfigurationTypePtrOutputWithContext(ctx context.Context) ServiceThresholdConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceThresholdConfigurationTypePtrOutput)
+}
+
 // Determines whether to use the Amazon ECS task role defined in a task definition when mounting the Amazon EFS file system. If it is turned on, transit encryption must be turned on in the “EFSVolumeConfiguration“. If this parameter is omitted, the default value of “DISABLED“ is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionAuthorizationConfigIam string
 
@@ -8004,6 +8183,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePropagateTagsPtrInput)(nil)).Elem(), ServicePropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSchedulingStrategyInput)(nil)).Elem(), ServiceSchedulingStrategy("DAEMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSchedulingStrategyPtrInput)(nil)).Elem(), ServiceSchedulingStrategy("DAEMON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceThresholdConfigurationTypeInput)(nil)).Elem(), ServiceThresholdConfigurationType("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceThresholdConfigurationTypePtrInput)(nil)).Elem(), ServiceThresholdConfigurationType("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionContainerDefinitionVersionConsistencyInput)(nil)).Elem(), TaskDefinitionContainerDefinitionVersionConsistency("enabled"))
@@ -8104,6 +8285,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSchedulingStrategyOutput{})
 	pulumi.RegisterOutputType(ServiceSchedulingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceThresholdConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(ServiceThresholdConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionVersionConsistencyOutput{})

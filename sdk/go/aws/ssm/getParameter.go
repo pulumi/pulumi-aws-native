@@ -34,6 +34,7 @@ type LookupParameterArgs struct {
 }
 
 type LookupParameterResult struct {
+	Arn *string `pulumi:"arn"`
 	// The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
 	DataType *ParameterDataType `pulumi:"dataType"`
 	// Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
@@ -78,6 +79,10 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutput() LookupParam
 
 func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ctx context.Context) LookupParameterResultOutput {
 	return o
+}
+
+func (o LookupParameterResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
 // The data type of the parameter, such as “text“ or “aws:ec2:image“. The default is “text“.

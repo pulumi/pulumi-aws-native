@@ -38,9 +38,6 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// System log granularity level
-    /// </summary>
     [EnumType]
     public readonly struct CapacityProviderLoggingConfigSystemLogLevel : IEquatable<CapacityProviderLoggingConfigSystemLogLevel>
     {
@@ -508,6 +505,34 @@ namespace Pulumi.AwsNative.Lambda
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FunctionArchitecturesItem other && Equals(other);
         public bool Equals(FunctionArchitecturesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FunctionCodeS3ObjectStorageMode : IEquatable<FunctionCodeS3ObjectStorageMode>
+    {
+        private readonly string _value;
+
+        private FunctionCodeS3ObjectStorageMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionCodeS3ObjectStorageMode Copy { get; } = new FunctionCodeS3ObjectStorageMode("COPY");
+        public static FunctionCodeS3ObjectStorageMode Reference { get; } = new FunctionCodeS3ObjectStorageMode("REFERENCE");
+
+        public static bool operator ==(FunctionCodeS3ObjectStorageMode left, FunctionCodeS3ObjectStorageMode right) => left.Equals(right);
+        public static bool operator !=(FunctionCodeS3ObjectStorageMode left, FunctionCodeS3ObjectStorageMode right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionCodeS3ObjectStorageMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionCodeS3ObjectStorageMode other && Equals(other);
+        public bool Equals(FunctionCodeS3ObjectStorageMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

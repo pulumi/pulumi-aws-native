@@ -30,6 +30,7 @@ export interface GetParameterArgs {
 }
 
 export interface GetParameterResult {
+    readonly arn?: string;
     /**
      * The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
      */

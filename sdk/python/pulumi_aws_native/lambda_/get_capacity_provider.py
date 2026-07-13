@@ -62,6 +62,9 @@ class GetCapacityProviderResult:
     @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional['outputs.CapacityProviderPropagateTagsConfig']:
+        """
+        Configuration for tag propagation to managed resources launched by the capacity provider.
+        """
         return pulumi.get(self, "propagate_tags")
 
     @_builtins.property

@@ -46,7 +46,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
      */
-    declare public readonly connectivityInfo: pulumi.Output<outputs.evs.ConnectivityInfoProperties>;
+    declare public readonly connectivityInfo: pulumi.Output<outputs.evs.ConnectivityInfoProperties | undefined>;
     /**
      * The date and time that the environment was created. For example: `1749081600.000` .
      */
@@ -90,7 +90,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The license information for an EVS environment
      */
-    declare public readonly licenseInfo: pulumi.Output<outputs.evs.LicenseInfoProperties>;
+    declare public readonly licenseInfo: pulumi.Output<outputs.evs.LicenseInfoProperties | undefined>;
     /**
      * The date and time that the environment was modified. For example: `1749081600.000` .
      */
@@ -106,7 +106,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
      */
-    declare public readonly siteId: pulumi.Output<string>;
+    declare public readonly siteId: pulumi.Output<string | undefined>;
     /**
      * A detailed description of the `environmentState` of an environment. For example: `Environment successfully created` .
      */
@@ -124,7 +124,7 @@ export class Environment extends pulumi.CustomResource {
      *
      * For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
      */
-    declare public readonly vcfHostnames: pulumi.Output<outputs.evs.VcfHostnamesProperties>;
+    declare public readonly vcfHostnames: pulumi.Output<outputs.evs.VcfHostnamesProperties | undefined>;
     /**
      * The VCF version of the environment.
      */
@@ -145,23 +145,11 @@ export class Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectivityInfo === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectivityInfo'");
-            }
-            if (args?.licenseInfo === undefined && !opts.urn) {
-                throw new Error("Missing required property 'licenseInfo'");
-            }
             if (args?.serviceAccessSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccessSubnetId'");
             }
-            if (args?.siteId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'siteId'");
-            }
             if (args?.termsAccepted === undefined && !opts.urn) {
                 throw new Error("Missing required property 'termsAccepted'");
-            }
-            if (args?.vcfHostnames === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vcfHostnames'");
             }
             if (args?.vcfVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vcfVersion'");
@@ -229,7 +217,7 @@ export interface EnvironmentArgs {
     /**
      * The connectivity configuration for the environment. Amazon EVS requires that you specify two route server peer IDs. During environment creation, the route server endpoints peer with the NSX uplink VLAN for connectivity to the NSX overlay network.
      */
-    connectivityInfo: pulumi.Input<inputs.evs.ConnectivityInfoPropertiesArgs>;
+    connectivityInfo?: pulumi.Input<inputs.evs.ConnectivityInfoPropertiesArgs>;
     /**
      * The name of an EVS environment
      */
@@ -251,7 +239,7 @@ export interface EnvironmentArgs {
     /**
      * The license information for an EVS environment
      */
-    licenseInfo: pulumi.Input<inputs.evs.LicenseInfoPropertiesArgs>;
+    licenseInfo?: pulumi.Input<inputs.evs.LicenseInfoPropertiesArgs>;
     /**
      * The security groups that allow traffic between the Amazon EVS control plane and your VPC for service access. If a security group is not specified, Amazon EVS uses the default security group in your account for service access.
      */
@@ -263,7 +251,7 @@ export interface EnvironmentArgs {
     /**
      * The Broadcom Site ID that is associated with your Amazon EVS environment. Amazon EVS uses the Broadcom Site ID that you provide to meet Broadcom VCF license usage reporting requirements for Amazon EVS.
      */
-    siteId: pulumi.Input<string>;
+    siteId?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -277,7 +265,7 @@ export interface EnvironmentArgs {
      *
      * For environment creation to be successful, each hostname entry must resolve to a domain name that you've registered in your DNS service of choice and configured in the DHCP option set of your VPC. DNS hostnames cannot be changed after environment creation has started.
      */
-    vcfHostnames: pulumi.Input<inputs.evs.VcfHostnamesPropertiesArgs>;
+    vcfHostnames?: pulumi.Input<inputs.evs.VcfHostnamesPropertiesArgs>;
     /**
      * The VCF version of the environment.
      */

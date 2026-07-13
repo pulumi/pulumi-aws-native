@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, created_at=None, dns_entry=None, id=None, last_updated_at=None, status=None, tags=None):
+    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, created_at=None, dns_entry=None, id=None, idle_timeout_seconds=None, last_updated_at=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetServiceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if idle_timeout_seconds and not isinstance(idle_timeout_seconds, int):
+            raise TypeError("Expected argument 'idle_timeout_seconds' to be a int")
+        pulumi.set(__self__, "idle_timeout_seconds", idle_timeout_seconds)
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
@@ -107,6 +110,11 @@ class GetServiceResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="idleTimeoutSeconds")
+    def idle_timeout_seconds(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "idle_timeout_seconds")
+
+    @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
         """
@@ -143,6 +151,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             created_at=self.created_at,
             dns_entry=self.dns_entry,
             id=self.id,
+            idle_timeout_seconds=self.idle_timeout_seconds,
             last_updated_at=self.last_updated_at,
             status=self.status,
             tags=self.tags)
@@ -168,6 +177,7 @@ def get_service(arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         dns_entry=pulumi.get(__ret__, 'dns_entry'),
         id=pulumi.get(__ret__, 'id'),
+        idle_timeout_seconds=pulumi.get(__ret__, 'idle_timeout_seconds'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -190,6 +200,7 @@ def get_service_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         created_at=pulumi.get(__response__, 'created_at'),
         dns_entry=pulumi.get(__response__, 'dns_entry'),
         id=pulumi.get(__response__, 'id'),
+        idle_timeout_seconds=pulumi.get(__response__, 'idle_timeout_seconds'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

@@ -34,6 +34,8 @@ class UserPoolArgs:
                  email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
                  email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_configuration: Optional[pulumi.Input['UserPoolIssuerConfigurationArgs']] = None,
+                 key_configuration: Optional[pulumi.Input['UserPoolKeyConfigurationArgs']] = None,
                  lambda_config: Optional[pulumi.Input['UserPoolLambdaConfigArgs']] = None,
                  mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
                  policies: Optional[pulumi.Input['UserPoolPoliciesArgs']] = None,
@@ -137,6 +139,10 @@ class UserPoolArgs:
             pulumi.set(__self__, "email_verification_subject", email_verification_subject)
         if enabled_mfas is not None:
             pulumi.set(__self__, "enabled_mfas", enabled_mfas)
+        if issuer_configuration is not None:
+            pulumi.set(__self__, "issuer_configuration", issuer_configuration)
+        if key_configuration is not None:
+            pulumi.set(__self__, "key_configuration", key_configuration)
         if lambda_config is not None:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if mfa_configuration is not None:
@@ -323,6 +329,24 @@ class UserPoolArgs:
     @enabled_mfas.setter
     def enabled_mfas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "enabled_mfas", value)
+
+    @_builtins.property
+    @pulumi.getter(name="issuerConfiguration")
+    def issuer_configuration(self) -> Optional[pulumi.Input['UserPoolIssuerConfigurationArgs']]:
+        return pulumi.get(self, "issuer_configuration")
+
+    @issuer_configuration.setter
+    def issuer_configuration(self, value: Optional[pulumi.Input['UserPoolIssuerConfigurationArgs']]):
+        pulumi.set(self, "issuer_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyConfiguration")
+    def key_configuration(self) -> Optional[pulumi.Input['UserPoolKeyConfigurationArgs']]:
+        return pulumi.get(self, "key_configuration")
+
+    @key_configuration.setter
+    def key_configuration(self, value: Optional[pulumi.Input['UserPoolKeyConfigurationArgs']]):
+        pulumi.set(self, "key_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
@@ -574,6 +598,8 @@ class UserPool(pulumi.CustomResource):
                  email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
                  email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_configuration: Optional[pulumi.Input[Union['UserPoolIssuerConfigurationArgs', 'UserPoolIssuerConfigurationArgsDict']]] = None,
+                 key_configuration: Optional[pulumi.Input[Union['UserPoolKeyConfigurationArgs', 'UserPoolKeyConfigurationArgsDict']]] = None,
                  lambda_config: Optional[pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
                  mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
                  policies: Optional[pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
@@ -694,6 +720,8 @@ class UserPool(pulumi.CustomResource):
                  email_verification_message: Optional[pulumi.Input[_builtins.str]] = None,
                  email_verification_subject: Optional[pulumi.Input[_builtins.str]] = None,
                  enabled_mfas: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 issuer_configuration: Optional[pulumi.Input[Union['UserPoolIssuerConfigurationArgs', 'UserPoolIssuerConfigurationArgsDict']]] = None,
+                 key_configuration: Optional[pulumi.Input[Union['UserPoolKeyConfigurationArgs', 'UserPoolKeyConfigurationArgsDict']]] = None,
                  lambda_config: Optional[pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']]] = None,
                  mfa_configuration: Optional[pulumi.Input[_builtins.str]] = None,
                  policies: Optional[pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']]] = None,
@@ -733,6 +761,8 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["email_verification_message"] = email_verification_message
             __props__.__dict__["email_verification_subject"] = email_verification_subject
             __props__.__dict__["enabled_mfas"] = enabled_mfas
+            __props__.__dict__["issuer_configuration"] = issuer_configuration
+            __props__.__dict__["key_configuration"] = key_configuration
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["mfa_configuration"] = mfa_configuration
             __props__.__dict__["policies"] = policies
@@ -790,6 +820,8 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["email_verification_message"] = None
         __props__.__dict__["email_verification_subject"] = None
         __props__.__dict__["enabled_mfas"] = None
+        __props__.__dict__["issuer_configuration"] = None
+        __props__.__dict__["key_configuration"] = None
         __props__.__dict__["lambda_config"] = None
         __props__.__dict__["mfa_configuration"] = None
         __props__.__dict__["policies"] = None
@@ -922,6 +954,16 @@ class UserPool(pulumi.CustomResource):
         Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         """
         return pulumi.get(self, "enabled_mfas")
+
+    @_builtins.property
+    @pulumi.getter(name="issuerConfiguration")
+    def issuer_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolIssuerConfiguration']]:
+        return pulumi.get(self, "issuer_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="keyConfiguration")
+    def key_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolKeyConfiguration']]:
+        return pulumi.get(self, "key_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")

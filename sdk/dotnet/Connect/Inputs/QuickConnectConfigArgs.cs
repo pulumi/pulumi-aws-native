@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class QuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("flowConfig")]
+        public Input<Inputs.QuickConnectFlowQuickConnectConfigArgs>? FlowConfig { get; set; }
+
         /// <summary>
         /// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         /// </summary>

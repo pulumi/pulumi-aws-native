@@ -36,6 +36,9 @@ __all__ = [
     'CrawlerSchedule',
     'CrawlerSchemaChangePolicy',
     'CrawlerTargets',
+    'DataCatalogEncryptionSettings',
+    'DataCatalogEncryptionSettingsConnectionPasswordEncryption',
+    'DataCatalogEncryptionSettingsEncryptionAtRest',
     'DatabaseDataLakePrincipal',
     'DatabaseFederatedDatabase',
     'DatabaseIdentifier',
@@ -1395,6 +1398,185 @@ class CrawlerTargets(dict):
         Specifies Amazon Simple Storage Service (Amazon S3) targets.
         """
         return pulumi.get(self, "s3_targets")
+
+
+@pulumi.output_type
+class DataCatalogEncryptionSettings(dict):
+    """
+    Contains configuration information for maintaining Data Catalog security.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionPasswordEncryption":
+            suggest = "connection_password_encryption"
+        elif key == "encryptionAtRest":
+            suggest = "encryption_at_rest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
+                 encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None):
+        """
+        Contains configuration information for maintaining Data Catalog security.
+
+        :param 'DataCatalogEncryptionSettingsConnectionPasswordEncryption' connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+        :param 'DataCatalogEncryptionSettingsEncryptionAtRest' encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog.
+        """
+        if connection_password_encryption is not None:
+            pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
+        if encryption_at_rest is not None:
+            pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionPasswordEncryption")
+    def connection_password_encryption(self) -> Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption']:
+        """
+        When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of `CreateConnection` or `UpdateConnection` and store it in the `ENCRYPTED_PASSWORD` field in the connection properties. You can enable catalog encryption or only password encryption.
+        """
+        return pulumi.get(self, "connection_password_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionAtRest")
+    def encryption_at_rest(self) -> Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest']:
+        """
+        Specifies the encryption-at-rest configuration for the Data Catalog.
+        """
+        return pulumi.get(self, "encryption_at_rest")
+
+
+@pulumi.output_type
+class DataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
+    """
+    When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "returnConnectionPasswordEncrypted":
+            suggest = "return_connection_password_encrypted"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsConnectionPasswordEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettingsConnectionPasswordEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettingsConnectionPasswordEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 return_connection_password_encrypted: Optional[_builtins.bool] = None):
+        """
+        When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption.
+
+        :param _builtins.str kms_key_id: An AWS KMS key that is used to encrypt the connection password.
+        :param _builtins.bool return_connection_password_encrypted: When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if return_connection_password_encrypted is not None:
+            pulumi.set(__self__, "return_connection_password_encrypted", return_connection_password_encrypted)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        An AWS KMS key that is used to encrypt the connection password.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="returnConnectionPasswordEncrypted")
+    def return_connection_password_encrypted(self) -> Optional[_builtins.bool]:
+        """
+        When the ReturnConnectionPasswordEncrypted flag is set to 'true', passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently from catalog encryption.
+        """
+        return pulumi.get(self, "return_connection_password_encrypted")
+
+
+@pulumi.output_type
+class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
+    """
+    Specifies the encryption-at-rest configuration for the Data Catalog.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogEncryptionMode":
+            suggest = "catalog_encryption_mode"
+        elif key == "catalogEncryptionServiceRole":
+            suggest = "catalog_encryption_service_role"
+        elif key == "sseAwsKmsKeyId":
+            suggest = "sse_aws_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCatalogEncryptionSettingsEncryptionAtRest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCatalogEncryptionSettingsEncryptionAtRest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCatalogEncryptionSettingsEncryptionAtRest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_encryption_mode: Optional[_builtins.str] = None,
+                 catalog_encryption_service_role: Optional[_builtins.str] = None,
+                 sse_aws_kms_key_id: Optional[_builtins.str] = None):
+        """
+        Specifies the encryption-at-rest configuration for the Data Catalog.
+
+        :param _builtins.str catalog_encryption_mode: The encryption-at-rest mode for encrypting Data Catalog data.
+        :param _builtins.str catalog_encryption_service_role: The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+        :param _builtins.str sse_aws_kms_key_id: The ID of the AWS KMS key to use for encryption at rest.
+        """
+        if catalog_encryption_mode is not None:
+            pulumi.set(__self__, "catalog_encryption_mode", catalog_encryption_mode)
+        if catalog_encryption_service_role is not None:
+            pulumi.set(__self__, "catalog_encryption_service_role", catalog_encryption_service_role)
+        if sse_aws_kms_key_id is not None:
+            pulumi.set(__self__, "sse_aws_kms_key_id", sse_aws_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogEncryptionMode")
+    def catalog_encryption_mode(self) -> Optional[_builtins.str]:
+        """
+        The encryption-at-rest mode for encrypting Data Catalog data.
+        """
+        return pulumi.get(self, "catalog_encryption_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogEncryptionServiceRole")
+    def catalog_encryption_service_role(self) -> Optional[_builtins.str]:
+        """
+        The role that AWS Glue assumes to encrypt and decrypt the Data Catalog objects on the caller's behalf.
+        """
+        return pulumi.get(self, "catalog_encryption_service_role")
+
+    @_builtins.property
+    @pulumi.getter(name="sseAwsKmsKeyId")
+    def sse_aws_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the AWS KMS key to use for encryption at rest.
+        """
+        return pulumi.get(self, "sse_aws_kms_key_id")
 
 
 @pulumi.output_type

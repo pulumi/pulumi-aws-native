@@ -194,6 +194,8 @@ __all__ = [
     'ServiceSecretArgsDict',
     'ServiceTagArgs',
     'ServiceTagArgsDict',
+    'ServiceThresholdConfigurationArgs',
+    'ServiceThresholdConfigurationArgsDict',
     'ServiceTimeoutConfigurationArgs',
     'ServiceTimeoutConfigurationArgsDict',
     'ServiceVolumeConfigurationArgs',
@@ -6322,12 +6324,16 @@ class ServiceDeploymentCircuitBreakerArgsDict(TypedDict):
     """
     Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
     """
+    reset_on_healthy_task: NotRequired[pulumi.Input[_builtins.bool]]
+    threshold_configuration: NotRequired[pulumi.Input['ServiceThresholdConfigurationArgsDict']]
 
 @pulumi.input_type
 class ServiceDeploymentCircuitBreakerArgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[_builtins.bool],
-                 rollback: pulumi.Input[_builtins.bool]):
+                 rollback: pulumi.Input[_builtins.bool],
+                 reset_on_healthy_task: Optional[pulumi.Input[_builtins.bool]] = None,
+                 threshold_configuration: Optional[pulumi.Input['ServiceThresholdConfigurationArgs']] = None):
         """
         The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
           The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -6338,6 +6344,10 @@ class ServiceDeploymentCircuitBreakerArgs:
         """
         pulumi.set(__self__, "enable", enable)
         pulumi.set(__self__, "rollback", rollback)
+        if reset_on_healthy_task is not None:
+            pulumi.set(__self__, "reset_on_healthy_task", reset_on_healthy_task)
+        if threshold_configuration is not None:
+            pulumi.set(__self__, "threshold_configuration", threshold_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -6362,6 +6372,24 @@ class ServiceDeploymentCircuitBreakerArgs:
     @rollback.setter
     def rollback(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "rollback", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resetOnHealthyTask")
+    def reset_on_healthy_task(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "reset_on_healthy_task")
+
+    @reset_on_healthy_task.setter
+    def reset_on_healthy_task(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "reset_on_healthy_task", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdConfiguration")
+    def threshold_configuration(self) -> Optional[pulumi.Input['ServiceThresholdConfigurationArgs']]:
+        return pulumi.get(self, "threshold_configuration")
+
+    @threshold_configuration.setter
+    def threshold_configuration(self, value: Optional[pulumi.Input['ServiceThresholdConfigurationArgs']]):
+        pulumi.set(self, "threshold_configuration", value)
 
 
 class ServiceDeploymentConfigurationArgsDict(TypedDict):
@@ -7826,20 +7854,38 @@ class ServiceManagedEbsVolumeConfigurationArgs:
 
 
 class ServiceMetricConfigurationArgsDict(TypedDict):
+    """
+    The configuration for a specific set of metrics to collect for a service.
+    """
     metric_names: pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationMetricNamesItem']]]
+    """
+    The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+    """
     resolution_seconds: pulumi.Input[_builtins.int]
+    """
+    The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+    """
 
 @pulumi.input_type
 class ServiceMetricConfigurationArgs:
     def __init__(__self__, *,
                  metric_names: pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationMetricNamesItem']]],
                  resolution_seconds: pulumi.Input[_builtins.int]):
+        """
+        The configuration for a specific set of metrics to collect for a service.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationMetricNamesItem']]] metric_names: The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+        :param pulumi.Input[_builtins.int] resolution_seconds: The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+        """
         pulumi.set(__self__, "metric_names", metric_names)
         pulumi.set(__self__, "resolution_seconds", resolution_seconds)
 
     @_builtins.property
     @pulumi.getter(name="metricNames")
     def metric_names(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationMetricNamesItem']]]:
+        """
+        The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+        """
         return pulumi.get(self, "metric_names")
 
     @metric_names.setter
@@ -7849,6 +7895,9 @@ class ServiceMetricConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="resolutionSeconds")
     def resolution_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+        """
         return pulumi.get(self, "resolution_seconds")
 
     @resolution_seconds.setter
@@ -7857,17 +7906,31 @@ class ServiceMetricConfigurationArgs:
 
 
 class ServiceMonitoringConfigurationArgsDict(TypedDict):
+    """
+    The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+    """
     metric_configurations: pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationArgsDict']]]
+    """
+    The list of metric configurations for the service monitoring.
+    """
 
 @pulumi.input_type
 class ServiceMonitoringConfigurationArgs:
     def __init__(__self__, *,
                  metric_configurations: pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationArgs']]]):
+        """
+        The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationArgs']]] metric_configurations: The list of metric configurations for the service monitoring.
+        """
         pulumi.set(__self__, "metric_configurations", metric_configurations)
 
     @_builtins.property
     @pulumi.getter(name="metricConfigurations")
     def metric_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceMetricConfigurationArgs']]]:
+        """
+        The list of metric configurations for the service monitoring.
+        """
         return pulumi.get(self, "metric_configurations")
 
     @metric_configurations.setter
@@ -8265,6 +8328,37 @@ class ServiceTagArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceThresholdConfigurationArgsDict(TypedDict):
+    type: pulumi.Input['ServiceThresholdConfigurationType']
+    value: pulumi.Input[_builtins.int]
+
+@pulumi.input_type
+class ServiceThresholdConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ServiceThresholdConfigurationType'],
+                 value: pulumi.Input[_builtins.int]):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ServiceThresholdConfigurationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ServiceThresholdConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "value", value)
 
 

@@ -581,9 +581,7 @@ func (o CapacityProviderInstanceRequirementsPtrOutput) ExcludedInstanceTypes() p
 }
 
 type CapacityProviderLoggingConfig struct {
-	// The log group name.
-	LogGroup *string `pulumi:"logGroup"`
-	// System log granularity level
+	LogGroup       *string                                      `pulumi:"logGroup"`
 	SystemLogLevel *CapacityProviderLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
 }
 
@@ -599,9 +597,7 @@ type CapacityProviderLoggingConfigInput interface {
 }
 
 type CapacityProviderLoggingConfigArgs struct {
-	// The log group name.
-	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
-	// System log granularity level
+	LogGroup       pulumi.StringPtrInput                               `pulumi:"logGroup"`
 	SystemLogLevel CapacityProviderLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
 }
 
@@ -682,12 +678,10 @@ func (o CapacityProviderLoggingConfigOutput) ToCapacityProviderLoggingConfigPtrO
 	}).(CapacityProviderLoggingConfigPtrOutput)
 }
 
-// The log group name.
 func (o CapacityProviderLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
-// System log granularity level
 func (o CapacityProviderLoggingConfigOutput) SystemLogLevel() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
 	return o.ApplyT(func(v CapacityProviderLoggingConfig) *CapacityProviderLoggingConfigSystemLogLevel {
 		return v.SystemLogLevel
@@ -718,7 +712,6 @@ func (o CapacityProviderLoggingConfigPtrOutput) Elem() CapacityProviderLoggingCo
 	}).(CapacityProviderLoggingConfigOutput)
 }
 
-// The log group name.
 func (o CapacityProviderLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderLoggingConfig) *string {
 		if v == nil {
@@ -728,7 +721,6 @@ func (o CapacityProviderLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// System log granularity level
 func (o CapacityProviderLoggingConfigPtrOutput) SystemLogLevel() CapacityProviderLoggingConfigSystemLogLevelPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderLoggingConfig) *CapacityProviderLoggingConfigSystemLogLevel {
 		if v == nil {
@@ -793,9 +785,12 @@ func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn
 	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
 }
 
+// Configuration that defines how tags are propagated to managed resources.
 type CapacityProviderPropagateTagsConfig struct {
-	ExplicitTags []CapacityProviderTag              `pulumi:"explicitTags"`
-	Mode         *CapacityProviderPropagateTagsMode `pulumi:"mode"`
+	// A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+	ExplicitTags []CapacityProviderTag `pulumi:"explicitTags"`
+	// The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+	Mode *CapacityProviderPropagateTagsMode `pulumi:"mode"`
 }
 
 // CapacityProviderPropagateTagsConfigInput is an input type that accepts CapacityProviderPropagateTagsConfigArgs and CapacityProviderPropagateTagsConfigOutput values.
@@ -809,9 +804,12 @@ type CapacityProviderPropagateTagsConfigInput interface {
 	ToCapacityProviderPropagateTagsConfigOutputWithContext(context.Context) CapacityProviderPropagateTagsConfigOutput
 }
 
+// Configuration that defines how tags are propagated to managed resources.
 type CapacityProviderPropagateTagsConfigArgs struct {
-	ExplicitTags CapacityProviderTagArrayInput             `pulumi:"explicitTags"`
-	Mode         CapacityProviderPropagateTagsModePtrInput `pulumi:"mode"`
+	// A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
+	ExplicitTags CapacityProviderTagArrayInput `pulumi:"explicitTags"`
+	// The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
+	Mode CapacityProviderPropagateTagsModePtrInput `pulumi:"mode"`
 }
 
 func (CapacityProviderPropagateTagsConfigArgs) ElementType() reflect.Type {
@@ -867,6 +865,7 @@ func (i *capacityProviderPropagateTagsConfigPtrType) ToCapacityProviderPropagate
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPropagateTagsConfigPtrOutput)
 }
 
+// Configuration that defines how tags are propagated to managed resources.
 type CapacityProviderPropagateTagsConfigOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderPropagateTagsConfigOutput) ElementType() reflect.Type {
@@ -891,10 +890,12 @@ func (o CapacityProviderPropagateTagsConfigOutput) ToCapacityProviderPropagateTa
 	}).(CapacityProviderPropagateTagsConfigPtrOutput)
 }
 
+// A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
 func (o CapacityProviderPropagateTagsConfigOutput) ExplicitTags() CapacityProviderTagArrayOutput {
 	return o.ApplyT(func(v CapacityProviderPropagateTagsConfig) []CapacityProviderTag { return v.ExplicitTags }).(CapacityProviderTagArrayOutput)
 }
 
+// The mode for tag propagation. Use “Explicit“ to propagate specific tags, or “None“ to disable propagation.
 func (o CapacityProviderPropagateTagsConfigOutput) Mode() CapacityProviderPropagateTagsModePtrOutput {
 	return o.ApplyT(func(v CapacityProviderPropagateTagsConfig) *CapacityProviderPropagateTagsMode { return v.Mode }).(CapacityProviderPropagateTagsModePtrOutput)
 }
@@ -923,6 +924,7 @@ func (o CapacityProviderPropagateTagsConfigPtrOutput) Elem() CapacityProviderPro
 	}).(CapacityProviderPropagateTagsConfigOutput)
 }
 
+// A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
 func (o CapacityProviderPropagateTagsConfigPtrOutput) ExplicitTags() CapacityProviderTagArrayOutput {
 	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) []CapacityProviderTag {
 		if v == nil {
@@ -932,6 +934,7 @@ func (o CapacityProviderPropagateTagsConfigPtrOutput) ExplicitTags() CapacityPro
 	}).(CapacityProviderTagArrayOutput)
 }
 
+// The mode for tag propagation. Use “Explicit“ to propagate specific tags, or “None“ to disable propagation.
 func (o CapacityProviderPropagateTagsConfigPtrOutput) Mode() CapacityProviderPropagateTagsModePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderPropagateTagsConfig) *CapacityProviderPropagateTagsMode {
 		if v == nil {
@@ -1342,7 +1345,6 @@ func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) Index(i pulumi.I
 }
 
 type CapacityProviderTelemetryConfig struct {
-	// The logging configuration for the capacity provider.
 	LoggingConfig *CapacityProviderLoggingConfig `pulumi:"loggingConfig"`
 }
 
@@ -1358,7 +1360,6 @@ type CapacityProviderTelemetryConfigInput interface {
 }
 
 type CapacityProviderTelemetryConfigArgs struct {
-	// The logging configuration for the capacity provider.
 	LoggingConfig CapacityProviderLoggingConfigPtrInput `pulumi:"loggingConfig"`
 }
 
@@ -1439,7 +1440,6 @@ func (o CapacityProviderTelemetryConfigOutput) ToCapacityProviderTelemetryConfig
 	}).(CapacityProviderTelemetryConfigPtrOutput)
 }
 
-// The logging configuration for the capacity provider.
 func (o CapacityProviderTelemetryConfigOutput) LoggingConfig() CapacityProviderLoggingConfigPtrOutput {
 	return o.ApplyT(func(v CapacityProviderTelemetryConfig) *CapacityProviderLoggingConfig { return v.LoggingConfig }).(CapacityProviderLoggingConfigPtrOutput)
 }
@@ -1468,7 +1468,6 @@ func (o CapacityProviderTelemetryConfigPtrOutput) Elem() CapacityProviderTelemet
 	}).(CapacityProviderTelemetryConfigOutput)
 }
 
-// The logging configuration for the capacity provider.
 func (o CapacityProviderTelemetryConfigPtrOutput) LoggingConfig() CapacityProviderLoggingConfigPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderTelemetryConfig) *CapacityProviderLoggingConfig {
 		if v == nil {
@@ -4890,7 +4889,8 @@ type FunctionCode struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket *string `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key *string `pulumi:"s3Key"`
+	S3Key               *string                          `pulumi:"s3Key"`
+	S3ObjectStorageMode *FunctionCodeS3ObjectStorageMode `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
@@ -4924,7 +4924,8 @@ type FunctionCodeArgs struct {
 	// An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
 	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
 	// The Amazon S3 key of the deployment package.
-	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
+	S3Key               pulumi.StringPtrInput                   `pulumi:"s3Key"`
+	S3ObjectStorageMode FunctionCodeS3ObjectStorageModePtrInput `pulumi:"s3ObjectStorageMode"`
 	// For versioned objects, the version of the deployment package object to use.
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
 	// The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
@@ -4980,6 +4981,10 @@ func (o FunctionCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 // The Amazon S3 key of the deployment package.
 func (o FunctionCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionCodeOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
+	return o.ApplyT(func(v FunctionCode) *FunctionCodeS3ObjectStorageMode { return v.S3ObjectStorageMode }).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
 
 // For versioned objects, the version of the deployment package object to use.
@@ -5054,6 +5059,15 @@ func (o FunctionCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 		}
 		return v.S3Key
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o FunctionCodePtrOutput) S3ObjectStorageMode() FunctionCodeS3ObjectStorageModePtrOutput {
+	return o.ApplyT(func(v *FunctionCode) *FunctionCodeS3ObjectStorageMode {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectStorageMode
+	}).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
 
 // For versioned objects, the version of the deployment package object to use.
@@ -5234,7 +5248,8 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 // Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 type FunctionDurableConfig struct {
 	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
-	ExecutionTimeout int `pulumi:"executionTimeout"`
+	ExecutionTimeout int     `pulumi:"executionTimeout"`
+	KmsKeyArn        *string `pulumi:"kmsKeyArn"`
 	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
 }
@@ -5253,7 +5268,8 @@ type FunctionDurableConfigInput interface {
 // Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 type FunctionDurableConfigArgs struct {
 	// The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
-	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	ExecutionTimeout pulumi.IntInput       `pulumi:"executionTimeout"`
+	KmsKeyArn        pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
 }
@@ -5341,6 +5357,10 @@ func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
 }
 
+func (o FunctionDurableConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
 func (o FunctionDurableConfigOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionDurableConfig) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
@@ -5378,6 +5398,15 @@ func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
 		}
 		return &v.ExecutionTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o FunctionDurableConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.

@@ -44,12 +44,21 @@ __all__ = [
     'UserPoolEmailConfiguration',
     'UserPoolInboundFederation',
     'UserPoolInviteMessageTemplate',
+    'UserPoolIssuerConfiguration',
+    'UserPoolKeyConfiguration',
     'UserPoolLambdaConfig',
     'UserPoolNumberAttributeConstraints',
     'UserPoolPasswordPolicy',
     'UserPoolPolicies',
     'UserPoolPreTokenGenerationConfig',
     'UserPoolRecoveryOption',
+    'UserPoolRegionalConfigurationAttachmentCustomEmailSender',
+    'UserPoolRegionalConfigurationAttachmentCustomSmsSender',
+    'UserPoolRegionalConfigurationAttachmentEmailConfiguration',
+    'UserPoolRegionalConfigurationAttachmentInboundFederation',
+    'UserPoolRegionalConfigurationAttachmentLambdaConfig',
+    'UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig',
+    'UserPoolRegionalConfigurationAttachmentSmsConfiguration',
     'UserPoolResourceServerResourceServerScopeType',
     'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType',
     'UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType',
@@ -1170,6 +1179,8 @@ class UserPoolDomainCustomDomainConfigType(dict):
         suggest = None
         if key == "certificateArn":
             suggest = "certificate_arn"
+        elif key == "securityPolicy":
+            suggest = "security_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPoolDomainCustomDomainConfigType. Access the value via the '{suggest}' property getter instead.")
@@ -1183,12 +1194,15 @@ class UserPoolDomainCustomDomainConfigType(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_arn: Optional[_builtins.str] = None):
+                 certificate_arn: Optional[_builtins.str] = None,
+                 security_policy: Optional[_builtins.str] = None):
         """
         :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if security_policy is not None:
+            pulumi.set(__self__, "security_policy", security_policy)
 
     @_builtins.property
     @pulumi.getter(name="certificateArn")
@@ -1197,6 +1211,11 @@ class UserPoolDomainCustomDomainConfigType(dict):
         The Amazon Resource Name (ARN) of an Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.
         """
         return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "security_policy")
 
 
 @pulumi.output_type
@@ -1482,6 +1501,59 @@ class UserPoolInviteMessageTemplate(dict):
         The message template for SMS messages.
         """
         return pulumi.get(self, "sms_message")
+
+
+@pulumi.output_type
+class UserPoolIssuerConfiguration(dict):
+    def __init__(__self__, *,
+                 type: Optional['UserPoolIssuerConfigurationType'] = None):
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['UserPoolIssuerConfigurationType']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class UserPoolKeyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolKeyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolKeyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolKeyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: Optional['UserPoolEncryptionKeyType'] = None,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional['UserPoolEncryptionKeyType']:
+        return pulumi.get(self, "key_type")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type
@@ -2023,6 +2095,456 @@ class UserPoolRecoveryOption(dict):
         Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
         """
         return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentCustomEmailSender(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentCustomEmailSender. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentCustomEmailSender.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentCustomEmailSender.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: Optional[_builtins.str] = None,
+                 lambda_version: Optional[_builtins.str] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentCustomSmsSender(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentCustomSmsSender. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentCustomSmsSender.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentCustomSmsSender.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: Optional[_builtins.str] = None,
+                 lambda_version: Optional[_builtins.str] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentEmailConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationSet":
+            suggest = "configuration_set"
+        elif key == "emailSendingAccount":
+            suggest = "email_sending_account"
+        elif key == "from":
+            suggest = "from_"
+        elif key == "replyToEmailAddress":
+            suggest = "reply_to_email_address"
+        elif key == "sourceArn":
+            suggest = "source_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentEmailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentEmailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentEmailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_set: Optional[_builtins.str] = None,
+                 email_sending_account: Optional[_builtins.str] = None,
+                 from_: Optional[_builtins.str] = None,
+                 reply_to_email_address: Optional[_builtins.str] = None,
+                 source_arn: Optional[_builtins.str] = None):
+        if configuration_set is not None:
+            pulumi.set(__self__, "configuration_set", configuration_set)
+        if email_sending_account is not None:
+            pulumi.set(__self__, "email_sending_account", email_sending_account)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if reply_to_email_address is not None:
+            pulumi.set(__self__, "reply_to_email_address", reply_to_email_address)
+        if source_arn is not None:
+            pulumi.set(__self__, "source_arn", source_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSet")
+    def configuration_set(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "configuration_set")
+
+    @_builtins.property
+    @pulumi.getter(name="emailSendingAccount")
+    def email_sending_account(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_sending_account")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "from_")
+
+    @_builtins.property
+    @pulumi.getter(name="replyToEmailAddress")
+    def reply_to_email_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "reply_to_email_address")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_arn")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentInboundFederation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentInboundFederation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentInboundFederation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentInboundFederation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: Optional[_builtins.str] = None,
+                 lambda_version: Optional[_builtins.str] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createAuthChallenge":
+            suggest = "create_auth_challenge"
+        elif key == "customEmailSender":
+            suggest = "custom_email_sender"
+        elif key == "customMessage":
+            suggest = "custom_message"
+        elif key == "customSmsSender":
+            suggest = "custom_sms_sender"
+        elif key == "defineAuthChallenge":
+            suggest = "define_auth_challenge"
+        elif key == "inboundFederation":
+            suggest = "inbound_federation"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "postAuthentication":
+            suggest = "post_authentication"
+        elif key == "postConfirmation":
+            suggest = "post_confirmation"
+        elif key == "preAuthentication":
+            suggest = "pre_authentication"
+        elif key == "preSignUp":
+            suggest = "pre_sign_up"
+        elif key == "preTokenGeneration":
+            suggest = "pre_token_generation"
+        elif key == "preTokenGenerationConfig":
+            suggest = "pre_token_generation_config"
+        elif key == "userMigration":
+            suggest = "user_migration"
+        elif key == "verifyAuthChallengeResponse":
+            suggest = "verify_auth_challenge_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_auth_challenge: Optional[_builtins.str] = None,
+                 custom_email_sender: Optional['outputs.UserPoolRegionalConfigurationAttachmentCustomEmailSender'] = None,
+                 custom_message: Optional[_builtins.str] = None,
+                 custom_sms_sender: Optional['outputs.UserPoolRegionalConfigurationAttachmentCustomSmsSender'] = None,
+                 define_auth_challenge: Optional[_builtins.str] = None,
+                 inbound_federation: Optional['outputs.UserPoolRegionalConfigurationAttachmentInboundFederation'] = None,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 post_authentication: Optional[_builtins.str] = None,
+                 post_confirmation: Optional[_builtins.str] = None,
+                 pre_authentication: Optional[_builtins.str] = None,
+                 pre_sign_up: Optional[_builtins.str] = None,
+                 pre_token_generation: Optional[_builtins.str] = None,
+                 pre_token_generation_config: Optional['outputs.UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig'] = None,
+                 user_migration: Optional[_builtins.str] = None,
+                 verify_auth_challenge_response: Optional[_builtins.str] = None):
+        if create_auth_challenge is not None:
+            pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
+        if custom_email_sender is not None:
+            pulumi.set(__self__, "custom_email_sender", custom_email_sender)
+        if custom_message is not None:
+            pulumi.set(__self__, "custom_message", custom_message)
+        if custom_sms_sender is not None:
+            pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
+        if define_auth_challenge is not None:
+            pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if inbound_federation is not None:
+            pulumi.set(__self__, "inbound_federation", inbound_federation)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if post_authentication is not None:
+            pulumi.set(__self__, "post_authentication", post_authentication)
+        if post_confirmation is not None:
+            pulumi.set(__self__, "post_confirmation", post_confirmation)
+        if pre_authentication is not None:
+            pulumi.set(__self__, "pre_authentication", pre_authentication)
+        if pre_sign_up is not None:
+            pulumi.set(__self__, "pre_sign_up", pre_sign_up)
+        if pre_token_generation is not None:
+            pulumi.set(__self__, "pre_token_generation", pre_token_generation)
+        if pre_token_generation_config is not None:
+            pulumi.set(__self__, "pre_token_generation_config", pre_token_generation_config)
+        if user_migration is not None:
+            pulumi.set(__self__, "user_migration", user_migration)
+        if verify_auth_challenge_response is not None:
+            pulumi.set(__self__, "verify_auth_challenge_response", verify_auth_challenge_response)
+
+    @_builtins.property
+    @pulumi.getter(name="createAuthChallenge")
+    def create_auth_challenge(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "create_auth_challenge")
+
+    @_builtins.property
+    @pulumi.getter(name="customEmailSender")
+    def custom_email_sender(self) -> Optional['outputs.UserPoolRegionalConfigurationAttachmentCustomEmailSender']:
+        return pulumi.get(self, "custom_email_sender")
+
+    @_builtins.property
+    @pulumi.getter(name="customMessage")
+    def custom_message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "custom_message")
+
+    @_builtins.property
+    @pulumi.getter(name="customSmsSender")
+    def custom_sms_sender(self) -> Optional['outputs.UserPoolRegionalConfigurationAttachmentCustomSmsSender']:
+        return pulumi.get(self, "custom_sms_sender")
+
+    @_builtins.property
+    @pulumi.getter(name="defineAuthChallenge")
+    def define_auth_challenge(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "define_auth_challenge")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundFederation")
+    def inbound_federation(self) -> Optional['outputs.UserPoolRegionalConfigurationAttachmentInboundFederation']:
+        return pulumi.get(self, "inbound_federation")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="postAuthentication")
+    def post_authentication(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "post_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="postConfirmation")
+    def post_confirmation(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "post_confirmation")
+
+    @_builtins.property
+    @pulumi.getter(name="preAuthentication")
+    def pre_authentication(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pre_authentication")
+
+    @_builtins.property
+    @pulumi.getter(name="preSignUp")
+    def pre_sign_up(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pre_sign_up")
+
+    @_builtins.property
+    @pulumi.getter(name="preTokenGeneration")
+    def pre_token_generation(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "pre_token_generation")
+
+    @_builtins.property
+    @pulumi.getter(name="preTokenGenerationConfig")
+    def pre_token_generation_config(self) -> Optional['outputs.UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig']:
+        return pulumi.get(self, "pre_token_generation_config")
+
+    @_builtins.property
+    @pulumi.getter(name="userMigration")
+    def user_migration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_migration")
+
+    @_builtins.property
+    @pulumi.getter(name="verifyAuthChallengeResponse")
+    def verify_auth_challenge_response(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "verify_auth_challenge_response")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentPreTokenGenerationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: Optional[_builtins.str] = None,
+                 lambda_version: Optional[_builtins.str] = None):
+        if lambda_arn is not None:
+            pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_version is not None:
+            pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolRegionalConfigurationAttachmentSmsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalId":
+            suggest = "external_id"
+        elif key == "snsCallerArn":
+            suggest = "sns_caller_arn"
+        elif key == "snsRegion":
+            suggest = "sns_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolRegionalConfigurationAttachmentSmsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolRegionalConfigurationAttachmentSmsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolRegionalConfigurationAttachmentSmsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id: Optional[_builtins.str] = None,
+                 sns_caller_arn: Optional[_builtins.str] = None,
+                 sns_region: Optional[_builtins.str] = None):
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if sns_caller_arn is not None:
+            pulumi.set(__self__, "sns_caller_arn", sns_caller_arn)
+        if sns_region is not None:
+            pulumi.set(__self__, "sns_region", sns_region)
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snsCallerArn")
+    def sns_caller_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "sns_caller_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="snsRegion")
+    def sns_region(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "sns_region")
 
 
 @pulumi.output_type

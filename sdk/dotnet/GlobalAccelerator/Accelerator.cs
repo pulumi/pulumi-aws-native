@@ -40,6 +40,24 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether flow logs are enabled for the accelerator.
+        /// </summary>
+        [Output("flowLogsEnabled")]
+        public Output<bool?> FlowLogsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        [Output("flowLogsS3Bucket")]
+        public Output<string?> FlowLogsS3Bucket { get; private set; } = null!;
+
+        /// <summary>
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        [Output("flowLogsS3Prefix")]
+        public Output<string?> FlowLogsS3Prefix { get; private set; } = null!;
+
+        /// <summary>
         /// IP Address type.
         /// </summary>
         [Output("ipAddressType")]
@@ -127,6 +145,24 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Indicates whether flow logs are enabled for the accelerator.
+        /// </summary>
+        [Input("flowLogsEnabled")]
+        public Input<bool>? FlowLogsEnabled { get; set; }
+
+        /// <summary>
+        /// The name of the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        [Input("flowLogsS3Bucket")]
+        public Input<string>? FlowLogsS3Bucket { get; set; }
+
+        /// <summary>
+        /// The prefix for the location in the Amazon S3 bucket for the flow logs.
+        /// </summary>
+        [Input("flowLogsS3Prefix")]
+        public Input<string>? FlowLogsS3Prefix { get; set; }
 
         /// <summary>
         /// IP Address type.

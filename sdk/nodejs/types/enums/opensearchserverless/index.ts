@@ -73,6 +73,20 @@ export const CollectionType = {
  */
 export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
 
+export const IndexPropertyMappingCompressionLevel = {
+    IndexPropertyMappingCompressionLevel_16x: "16x",
+    IndexPropertyMappingCompressionLevel_32x: "32x",
+    IndexPropertyMappingCompressionLevel_8x: "8x",
+    IndexPropertyMappingCompressionLevel_4x: "4x",
+    IndexPropertyMappingCompressionLevel_2x: "2x",
+    IndexPropertyMappingCompressionLevel_1x: "1x",
+} as const;
+
+/**
+ * The compression level for knn_vector fields
+ */
+export type IndexPropertyMappingCompressionLevel = (typeof IndexPropertyMappingCompressionLevel)[keyof typeof IndexPropertyMappingCompressionLevel];
+
 export const IndexPropertyMappingMethodPropertiesEngine = {
     Nmslib: "nmslib",
     Faiss: "faiss",
@@ -108,9 +122,25 @@ export const IndexPropertyMappingMethodPropertiesSpaceType = {
  */
 export type IndexPropertyMappingMethodPropertiesSpaceType = (typeof IndexPropertyMappingMethodPropertiesSpaceType)[keyof typeof IndexPropertyMappingMethodPropertiesSpaceType];
 
+export const IndexPropertyMappingSpaceType = {
+    L2: "l2",
+    L1: "l1",
+    Linf: "linf",
+    Cosinesimil: "cosinesimil",
+    Innerproduct: "innerproduct",
+    Hamming: "hamming",
+} as const;
+
+/**
+ * The distance function used for k-NN search (field-level, outside Method)
+ */
+export type IndexPropertyMappingSpaceType = (typeof IndexPropertyMappingSpaceType)[keyof typeof IndexPropertyMappingSpaceType];
+
 export const IndexPropertyMappingType = {
     Text: "text",
     KnnVector: "knn_vector",
+    Keyword: "keyword",
+    Integer: "integer",
 } as const;
 
 /**

@@ -24,6 +24,8 @@ type System struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the system.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+	SharingEnabled pulumi.BoolPtrOutput `pulumi:"sharingEnabled"`
 	// The ARN of the system.
 	SystemArn pulumi.StringOutput `pulumi:"systemArn"`
 	// The system ID.
@@ -85,6 +87,8 @@ type systemArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the system.
 	Name *string `pulumi:"name"`
+	// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+	SharingEnabled *bool `pulumi:"sharingEnabled"`
 	// Tags assigned to the system.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -97,6 +101,8 @@ type SystemArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the system.
 	Name pulumi.StringPtrInput
+	// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+	SharingEnabled pulumi.BoolPtrInput
 	// Tags assigned to the system.
 	Tags aws.TagArrayInput
 }
@@ -156,6 +162,11 @@ func (o SystemOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The name of the system.
 func (o SystemOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *System) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+func (o SystemOutput) SharingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *System) pulumi.BoolPtrOutput { return v.SharingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ARN of the system.

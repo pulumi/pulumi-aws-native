@@ -141,6 +141,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        [Output("rollbackConfig")]
+        public Output<Outputs.ClusterRollbackConfig?> RollbackConfig { get; private set; } = null!;
+
         /// <summary>
         /// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
         /// </summary>
@@ -318,6 +321,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("rollbackConfig")]
+        public Input<Inputs.ClusterRollbackConfigArgs>? RollbackConfig { get; set; }
 
         /// <summary>
         /// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .

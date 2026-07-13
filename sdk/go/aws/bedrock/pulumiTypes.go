@@ -36541,7 +36541,7 @@ func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) KendraIndexArn()
 // Contains details about the model used to create vector embeddings for a managed knowledge base.
 type KnowledgeBaseManagedKnowledgeBaseConfiguration struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn                 string                                                              `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn                 *string                                                             `pulumi:"embeddingModelArn"`
 	EmbeddingModelConfiguration       *KnowledgeBaseEmbeddingModelConfiguration                           `pulumi:"embeddingModelConfiguration"`
 	EmbeddingModelType                *KnowledgeBaseEmbeddingModelType                                    `pulumi:"embeddingModelType"`
 	ServerSideEncryptionConfiguration *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
@@ -36561,7 +36561,7 @@ type KnowledgeBaseManagedKnowledgeBaseConfigurationInput interface {
 // Contains details about the model used to create vector embeddings for a managed knowledge base.
 type KnowledgeBaseManagedKnowledgeBaseConfigurationArgs struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn                 pulumi.StringInput                                                         `pulumi:"embeddingModelArn"`
+	EmbeddingModelArn                 pulumi.StringPtrInput                                                      `pulumi:"embeddingModelArn"`
 	EmbeddingModelConfiguration       KnowledgeBaseEmbeddingModelConfigurationPtrInput                           `pulumi:"embeddingModelConfiguration"`
 	EmbeddingModelType                KnowledgeBaseEmbeddingModelTypePtrInput                                    `pulumi:"embeddingModelType"`
 	ServerSideEncryptionConfiguration KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput `pulumi:"serverSideEncryptionConfiguration"`
@@ -36646,8 +36646,8 @@ func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ToKnowledgeBaseMan
 }
 
 // The ARN of the model used to create vector embeddings for the knowledge base.
-func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
-	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) string { return v.EmbeddingModelArn }).(pulumi.StringOutput)
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) *string { return v.EmbeddingModelArn }).(pulumi.StringPtrOutput)
 }
 
 func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
@@ -36698,7 +36698,7 @@ func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) EmbeddingModelA
 		if v == nil {
 			return nil
 		}
-		return &v.EmbeddingModelArn
+		return v.EmbeddingModelArn
 	}).(pulumi.StringPtrOutput)
 }
 

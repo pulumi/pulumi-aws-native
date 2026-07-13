@@ -121,7 +121,7 @@ export class AutomatedReasoningPolicy extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["forceDelete", "kmsKeyId"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AutomatedReasoningPolicy.__pulumiType, name, resourceInputs, opts);
     }

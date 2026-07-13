@@ -320,6 +320,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["variables"] = variables
+            __props__.__dict__["arn"] = None
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -345,6 +346,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["artifact_store"] = None
         __props__.__dict__["artifact_stores"] = None
         __props__.__dict__["disable_inbound_stage_transitions"] = None
@@ -359,6 +361,14 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["variables"] = None
         __props__.__dict__["version"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the pipeline.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="artifactStore")

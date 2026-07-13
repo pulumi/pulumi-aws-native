@@ -8,6 +8,76 @@ using Pulumi;
 namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
+    /// The type of product.
+    /// </summary>
+    [EnumType]
+    public readonly struct CloudFormationProductProductType : IEquatable<CloudFormationProductProductType>
+    {
+        private readonly string _value;
+
+        private CloudFormationProductProductType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudFormationProductProductType CloudFormationTemplate { get; } = new CloudFormationProductProductType("CLOUD_FORMATION_TEMPLATE");
+        public static CloudFormationProductProductType MarketplaceAmi { get; } = new CloudFormationProductProductType("MARKETPLACE_AMI");
+        public static CloudFormationProductProductType MarketplaceCar { get; } = new CloudFormationProductProductType("MARKETPLACE_CAR");
+        public static CloudFormationProductProductType TerraformOpenSource { get; } = new CloudFormationProductProductType("TERRAFORM_OPEN_SOURCE");
+        public static CloudFormationProductProductType TerraformCloud { get; } = new CloudFormationProductProductType("TERRAFORM_CLOUD");
+        public static CloudFormationProductProductType External { get; } = new CloudFormationProductProductType("EXTERNAL");
+
+        public static bool operator ==(CloudFormationProductProductType left, CloudFormationProductProductType right) => left.Equals(right);
+        public static bool operator !=(CloudFormationProductProductType left, CloudFormationProductProductType right) => !left.Equals(right);
+
+        public static explicit operator string(CloudFormationProductProductType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudFormationProductProductType other && Equals(other);
+        public bool Equals(CloudFormationProductProductType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+    /// </summary>
+    [EnumType]
+    public readonly struct CloudFormationProductProvisioningArtifactPropertiesType : IEquatable<CloudFormationProductProvisioningArtifactPropertiesType>
+    {
+        private readonly string _value;
+
+        private CloudFormationProductProvisioningArtifactPropertiesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CloudFormationProductProvisioningArtifactPropertiesType CloudFormationTemplate { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("CLOUD_FORMATION_TEMPLATE");
+        public static CloudFormationProductProvisioningArtifactPropertiesType MarketplaceAmi { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("MARKETPLACE_AMI");
+        public static CloudFormationProductProvisioningArtifactPropertiesType MarketplaceCar { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("MARKETPLACE_CAR");
+        public static CloudFormationProductProvisioningArtifactPropertiesType TerraformOpenSource { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("TERRAFORM_OPEN_SOURCE");
+        public static CloudFormationProductProvisioningArtifactPropertiesType TerraformCloud { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("TERRAFORM_CLOUD");
+        public static CloudFormationProductProvisioningArtifactPropertiesType External { get; } = new CloudFormationProductProvisioningArtifactPropertiesType("EXTERNAL");
+
+        public static bool operator ==(CloudFormationProductProvisioningArtifactPropertiesType left, CloudFormationProductProvisioningArtifactPropertiesType right) => left.Equals(right);
+        public static bool operator !=(CloudFormationProductProvisioningArtifactPropertiesType left, CloudFormationProductProvisioningArtifactPropertiesType right) => !left.Equals(right);
+
+        public static explicit operator string(CloudFormationProductProvisioningArtifactPropertiesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CloudFormationProductProvisioningArtifactPropertiesType other && Equals(other);
+        public bool Equals(CloudFormationProductProvisioningArtifactPropertiesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The language code.
     /// 
     /// - `jp` - Japanese

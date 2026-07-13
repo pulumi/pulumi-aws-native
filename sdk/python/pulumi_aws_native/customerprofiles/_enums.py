@@ -210,6 +210,7 @@ class EventTriggerPeriodUnit(_builtins.str, Enum):
     """
     The unit of time.
     """
+    MINUTES = "MINUTES"
     HOURS = "HOURS"
     DAYS = "DAYS"
     WEEKS = "WEEKS"

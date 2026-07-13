@@ -29,7 +29,7 @@ type ExpressGatewayService struct {
 	// The Endpoint of the express service.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The ARN of the task execution role for the service revision.
-	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// The health check path for this service revision.
 	HealthCheckPath pulumi.StringPtrOutput `pulumi:"healthCheckPath"`
 	// The ARN of the infrastructure role that manages AWS resources for the Express service.
@@ -39,7 +39,7 @@ type ExpressGatewayService struct {
 	// The network configuration for tasks in this service revision.
 	NetworkConfiguration ExpressGatewayServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The primary container configuration for this service revision.
-	PrimaryContainer ExpressGatewayServiceExpressGatewayContainerOutput `pulumi:"primaryContainer"`
+	PrimaryContainer ExpressGatewayServiceExpressGatewayContainerPtrOutput `pulumi:"primaryContainer"`
 	// The auto-scaling configuration for this service revision.
 	ScalingTarget ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput `pulumi:"scalingTarget"`
 	// The ARN that identifies the Express service.
@@ -48,7 +48,8 @@ type ExpressGatewayService struct {
 	ServiceName pulumi.StringPtrOutput            `pulumi:"serviceName"`
 	Status      ExpressGatewayServiceStatusOutput `pulumi:"status"`
 	// The metadata applied to the Express service.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags              aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	TaskDefinitionArn pulumi.StringPtrOutput       `pulumi:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
 	// The Unix timestamp for when the Express service was last updated.
@@ -62,14 +63,8 @@ func NewExpressGatewayService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ExecutionRoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
-	}
 	if args.InfrastructureRoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'InfrastructureRoleArn'")
-	}
-	if args.PrimaryContainer == nil {
-		return nil, errors.New("invalid value for required argument 'PrimaryContainer'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"cluster",
@@ -116,7 +111,7 @@ type expressGatewayServiceArgs struct {
 	// The CPU allocation for tasks in this service revision.
 	Cpu *string `pulumi:"cpu"`
 	// The ARN of the task execution role for the service revision.
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The health check path for this service revision.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// The ARN of the infrastructure role that manages AWS resources for the Express service.
@@ -126,13 +121,14 @@ type expressGatewayServiceArgs struct {
 	// The network configuration for tasks in this service revision.
 	NetworkConfiguration *ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The primary container configuration for this service revision.
-	PrimaryContainer ExpressGatewayServiceExpressGatewayContainer `pulumi:"primaryContainer"`
+	PrimaryContainer *ExpressGatewayServiceExpressGatewayContainer `pulumi:"primaryContainer"`
 	// The auto-scaling configuration for this service revision.
 	ScalingTarget *ExpressGatewayServiceExpressGatewayScalingTarget `pulumi:"scalingTarget"`
 	// The name of the Express service.
 	ServiceName *string `pulumi:"serviceName"`
 	// The metadata applied to the Express service.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags              []aws.CreateOnlyTag `pulumi:"tags"`
+	TaskDefinitionArn *string             `pulumi:"taskDefinitionArn"`
 	// The ARN of the task role for the service revision.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 }
@@ -144,7 +140,7 @@ type ExpressGatewayServiceArgs struct {
 	// The CPU allocation for tasks in this service revision.
 	Cpu pulumi.StringPtrInput
 	// The ARN of the task execution role for the service revision.
-	ExecutionRoleArn pulumi.StringInput
+	ExecutionRoleArn pulumi.StringPtrInput
 	// The health check path for this service revision.
 	HealthCheckPath pulumi.StringPtrInput
 	// The ARN of the infrastructure role that manages AWS resources for the Express service.
@@ -154,13 +150,14 @@ type ExpressGatewayServiceArgs struct {
 	// The network configuration for tasks in this service revision.
 	NetworkConfiguration ExpressGatewayServiceNetworkConfigurationPtrInput
 	// The primary container configuration for this service revision.
-	PrimaryContainer ExpressGatewayServiceExpressGatewayContainerInput
+	PrimaryContainer ExpressGatewayServiceExpressGatewayContainerPtrInput
 	// The auto-scaling configuration for this service revision.
 	ScalingTarget ExpressGatewayServiceExpressGatewayScalingTargetPtrInput
 	// The name of the Express service.
 	ServiceName pulumi.StringPtrInput
 	// The metadata applied to the Express service.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags              aws.CreateOnlyTagArrayInput
+	TaskDefinitionArn pulumi.StringPtrInput
 	// The ARN of the task role for the service revision.
 	TaskRoleArn pulumi.StringPtrInput
 }
@@ -236,8 +233,8 @@ func (o ExpressGatewayServiceOutput) Endpoint() pulumi.StringOutput {
 }
 
 // The ARN of the task execution role for the service revision.
-func (o ExpressGatewayServiceOutput) ExecutionRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+func (o ExpressGatewayServiceOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The health check path for this service revision.
@@ -263,10 +260,10 @@ func (o ExpressGatewayServiceOutput) NetworkConfiguration() ExpressGatewayServic
 }
 
 // The primary container configuration for this service revision.
-func (o ExpressGatewayServiceOutput) PrimaryContainer() ExpressGatewayServiceExpressGatewayContainerOutput {
-	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceExpressGatewayContainerOutput {
+func (o ExpressGatewayServiceOutput) PrimaryContainer() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceExpressGatewayContainerPtrOutput {
 		return v.PrimaryContainer
-	}).(ExpressGatewayServiceExpressGatewayContainerOutput)
+	}).(ExpressGatewayServiceExpressGatewayContainerPtrOutput)
 }
 
 // The auto-scaling configuration for this service revision.
@@ -293,6 +290,10 @@ func (o ExpressGatewayServiceOutput) Status() ExpressGatewayServiceStatusOutput 
 // The metadata applied to the Express service.
 func (o ExpressGatewayServiceOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+}
+
+func (o ExpressGatewayServiceOutput) TaskDefinitionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringPtrOutput { return v.TaskDefinitionArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the task role for the service revision.

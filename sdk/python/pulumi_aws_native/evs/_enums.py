@@ -66,3 +66,4 @@ class EnvironmentVcfVersion(_builtins.str, Enum):
     """
     VCF521 = "VCF-5.2.1"
     VCF522 = "VCF-5.2.2"
+    SELF_DEPLOYED = "SELF_DEPLOYED"

@@ -52,6 +52,7 @@ export interface GetServiceResult {
      * The ID of the service.
      */
     readonly id?: string;
+    readonly idleTimeoutSeconds?: number;
     /**
      * The date and time that the service was last updated, specified in ISO-8601 format.
      */

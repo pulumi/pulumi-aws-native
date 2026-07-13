@@ -10,17 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    public sealed class CloudFormationProductConnectionParametersArgs : global::Pulumi.ResourceArgs
+    /// <summary>
+    /// The connection details based on the connection Type.
+    /// </summary>
+    public sealed class CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Provides `ConnectionType` details.
-        /// </summary>
         [Input("codeStar")]
         public Input<Inputs.CloudFormationProductCodeStarParametersArgs>? CodeStar { get; set; }
 
-        public CloudFormationProductConnectionParametersArgs()
+        public CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs()
         {
         }
-        public static new CloudFormationProductConnectionParametersArgs Empty => new CloudFormationProductConnectionParametersArgs();
+        public static new CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs Empty => new CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs();
     }
 }

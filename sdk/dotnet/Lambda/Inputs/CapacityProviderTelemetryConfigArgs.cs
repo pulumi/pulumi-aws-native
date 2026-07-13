@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class CapacityProviderTelemetryConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The logging configuration for the capacity provider.
-        /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.CapacityProviderLoggingConfigArgs>? LoggingConfig { get; set; }
 

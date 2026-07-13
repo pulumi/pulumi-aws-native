@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("permissionsConfig")]
         public Output<Outputs.CapacityProviderPermissionsConfig> PermissionsConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for tag propagation to managed resources launched by the capacity provider.
+        /// </summary>
         [Output("propagateTags")]
         public Output<Outputs.CapacityProviderPropagateTagsConfig?> PropagateTags { get; private set; } = null!;
 
@@ -149,6 +152,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("permissionsConfig", required: true)]
         public Input<Inputs.CapacityProviderPermissionsConfigArgs> PermissionsConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for tag propagation to managed resources launched by the capacity provider.
+        /// </summary>
         [Input("propagateTags")]
         public Input<Inputs.CapacityProviderPropagateTagsConfigArgs>? PropagateTags { get; set; }
 

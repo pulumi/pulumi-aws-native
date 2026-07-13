@@ -58,7 +58,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      * The database engine to use for your custom engine version (CEV).
      *  Valid values:
      *   +   ``custom-oracle-ee`` 
-     *   +   ``custom-oracle-ee-cdb``
+     *   +   ``custom-oracle-ee-cdb`` 
+     *   +   ``sqlserver-dev-ee`` 
+     *   +   ``sqlserver-ee`` 
+     *   +   ``sqlserver-se``
      */
     declare public readonly engine: pulumi.Output<string>;
     /**
@@ -176,7 +179,10 @@ export interface CustomDbEngineVersionArgs {
      * The database engine to use for your custom engine version (CEV).
      *  Valid values:
      *   +   ``custom-oracle-ee`` 
-     *   +   ``custom-oracle-ee-cdb``
+     *   +   ``custom-oracle-ee-cdb`` 
+     *   +   ``sqlserver-dev-ee`` 
+     *   +   ``sqlserver-ee`` 
+     *   +   ``sqlserver-se``
      */
     engine: pulumi.Input<string>;
     /**

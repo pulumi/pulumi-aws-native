@@ -47,6 +47,7 @@ __all__ = [
     'ServicePlacementStrategyType',
     'ServicePropagateTags',
     'ServiceSchedulingStrategy',
+    'ServiceThresholdConfigurationType',
     'TaskDefinitionAuthorizationConfigIam',
     'TaskDefinitionContainerDefinitionVersionConsistency',
     'TaskDefinitionEfsVolumeConfigurationTransitEncryption',
@@ -137,6 +138,12 @@ class CapacityProviderInstanceRequirementsRequestAcceleratorNamesItem(_builtins.
     VU9P = "vu9p"
     V100 = "v100"
     L40S = "l40s"
+    L4 = "l4"
+    GAUDI_HL205 = "gaudi-hl-205"
+    INFERENTIA2 = "inferentia2"
+    TRAINIUM = "trainium"
+    TRAINIUM2 = "trainium2"
+    U30 = "u30"
 
 
 @pulumi.type_token("aws-native:ecs:CapacityProviderInstanceRequirementsRequestAcceleratorTypesItem")
@@ -472,6 +479,13 @@ class ServiceSchedulingStrategy(_builtins.str, Enum):
     """
     DAEMON = "DAEMON"
     REPLICA = "REPLICA"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceThresholdConfigurationType")
+class ServiceThresholdConfigurationType(_builtins.str, Enum):
+    COUNT = "COUNT"
+    BOUNDED_PERCENT = "BOUNDED_PERCENT"
+    UNBOUNDED_PERCENT = "UNBOUNDED_PERCENT"
 
 
 @pulumi.type_token("aws-native:ecs:TaskDefinitionAuthorizationConfigIam")

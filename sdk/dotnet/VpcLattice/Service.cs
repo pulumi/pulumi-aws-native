@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("dnsEntry")]
         public Output<Outputs.ServiceDnsEntry?> DnsEntry { get; private set; } = null!;
 
+        [Output("idleTimeoutSeconds")]
+        public Output<int?> IdleTimeoutSeconds { get; private set; } = null!;
+
         /// <summary>
         /// The date and time that the service was last updated, specified in ISO-8601 format.
         /// </summary>
@@ -162,6 +165,9 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceDnsEntryArgs>? DnsEntry { get; set; }
+
+        [Input("idleTimeoutSeconds")]
+        public Input<int>? IdleTimeoutSeconds { get; set; }
 
         /// <summary>
         /// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.

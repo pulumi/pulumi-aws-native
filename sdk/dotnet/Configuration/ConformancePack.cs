@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Configuration
     public partial class ConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Amazon Resource Name (ARN) of the conformance pack.
+        /// </summary>
+        [Output("conformancePackArn")]
+        public Output<string> ConformancePackArn { get; private set; } = null!;
+
+        /// <summary>
         /// A list of ConformancePackInputParameter objects.
         /// </summary>
         [Output("conformancePackInputParameters")]
@@ -80,6 +86,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags for the conformance pack.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
@@ -177,6 +189,18 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the conformance pack.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.

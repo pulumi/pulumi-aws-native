@@ -45,6 +45,11 @@ export const getDashboard: typeof import("./getDashboard").getDashboard = null a
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
+export { GetInsightRuleArgs, GetInsightRuleResult, GetInsightRuleOutputArgs } from "./getInsightRule";
+export const getInsightRule: typeof import("./getInsightRule").getInsightRule = null as any;
+export const getInsightRuleOutput: typeof import("./getInsightRule").getInsightRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getInsightRule","getInsightRuleOutput"], () => require("./getInsightRule"));
+
 export { GetLogAlarmArgs, GetLogAlarmResult, GetLogAlarmOutputArgs } from "./getLogAlarm";
 export const getLogAlarm: typeof import("./getLogAlarm").getLogAlarm = null as any;
 export const getLogAlarmOutput: typeof import("./getLogAlarm").getLogAlarmOutput = null as any;
@@ -59,6 +64,11 @@ export { GetOTelEnrichmentArgs, GetOTelEnrichmentResult, GetOTelEnrichmentOutput
 export const getOTelEnrichment: typeof import("./getOTelEnrichment").getOTelEnrichment = null as any;
 export const getOTelEnrichmentOutput: typeof import("./getOTelEnrichment").getOTelEnrichmentOutput = null as any;
 utilities.lazyLoad(exports, ["getOTelEnrichment","getOTelEnrichmentOutput"], () => require("./getOTelEnrichment"));
+
+export { InsightRuleArgs } from "./insightRule";
+export type InsightRule = import("./insightRule").InsightRule;
+export const InsightRule: typeof import("./insightRule").InsightRule = null as any;
+utilities.lazyLoad(exports, ["InsightRule"], () => require("./insightRule"));
 
 export { LogAlarmArgs } from "./logAlarm";
 export type LogAlarm = import("./logAlarm").LogAlarm;
@@ -91,6 +101,8 @@ const _module = {
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws-native:cloudwatch:InsightRule":
+                return new InsightRule(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:LogAlarm":
                 return new LogAlarm(name, <any>undefined, { urn })
             case "aws-native:cloudwatch:MetricStream":

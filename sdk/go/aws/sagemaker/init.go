@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:sagemaker:Algorithm":
+		r = &Algorithm{}
 	case "aws-native:sagemaker:App":
 		r = &App{}
 	case "aws-native:sagemaker:AppImageConfig":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
+	case "aws-native:sagemaker:Hub":
+		r = &Hub{}
 	case "aws-native:sagemaker:Image":
 		r = &Image{}
 	case "aws-native:sagemaker:ImageVersion":

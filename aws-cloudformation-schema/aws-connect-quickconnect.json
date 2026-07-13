@@ -11,7 +11,7 @@
     "ContactFlowArn" : {
       "description" : "The identifier of the contact flow.",
       "type" : "string",
-      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/contact-flow/[-a-zA-Z0-9]*$"
+      "pattern" : "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/contact-flow/[-a-zA-Z0-9]*(:[a-zA-Z0-9-]+)?$"
     },
     "QueueArn" : {
       "description" : "The identifier for the queue.",
@@ -78,14 +78,28 @@
         },
         "UserConfig" : {
           "$ref" : "#/definitions/UserQuickConnectConfig"
+        },
+        "FlowConfig" : {
+          "$ref" : "#/definitions/FlowQuickConnectConfig"
         }
       },
       "required" : [ "QuickConnectType" ]
     },
+    "FlowQuickConnectConfig" : {
+      "description" : "The flow configuration. This is required only if QuickConnectType is FLOW.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ContactFlowArn" : {
+          "$ref" : "#/definitions/ContactFlowArn"
+        }
+      },
+      "required" : [ "ContactFlowArn" ]
+    },
     "QuickConnectType" : {
       "description" : "The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).",
       "type" : "string",
-      "enum" : [ "PHONE_NUMBER", "QUEUE", "USER" ]
+      "enum" : [ "PHONE_NUMBER", "QUEUE", "USER", "FLOW" ]
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",
@@ -148,7 +162,7 @@
     "QuickConnectType" : {
       "description" : "The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).",
       "type" : "string",
-      "enum" : [ "PHONE_NUMBER", "QUEUE", "USER" ]
+      "enum" : [ "PHONE_NUMBER", "QUEUE", "USER", "FLOW" ]
     }
   },
   "required" : [ "Name", "InstanceArn", "QuickConnectConfig" ],
@@ -184,7 +198,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
+    "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "connect:TagResource", "connect:UntagResource" ]
   }

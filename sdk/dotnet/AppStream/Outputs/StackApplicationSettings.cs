@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.AppStream.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+        /// The path prefix for the S3 bucket where users' persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
         /// </summary>
         public readonly string? SettingsGroup;
 

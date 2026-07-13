@@ -36,7 +36,7 @@ export interface GetConnectorV2Result {
     /**
      * The status of the connector
      */
-    readonly connectorStatus?: enums.securityhub.ConnectorV2ConnectorStatus;
+    readonly connectorStatus?: string;
     /**
      * The timestamp when the V2 connector was created.
      */
@@ -45,6 +45,18 @@ export interface GetConnectorV2Result {
      * A description of the connector
      */
     readonly description?: string;
+    /**
+     * The enablement status of the connector
+     */
+    readonly enablementStatus?: string;
+    /**
+     * The reason for the enablement status of the connector
+     */
+    readonly enablementStatusReason?: string;
+    /**
+     * The list of health issues associated with the connector
+     */
+    readonly issues?: outputs.securityhub.ConnectorV2HealthIssue[];
     /**
      * The most recent timestamp when the V2 connector was checked on health status.
      */

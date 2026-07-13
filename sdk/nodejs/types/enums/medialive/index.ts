@@ -162,6 +162,56 @@ export const NetworkState = {
 
 export type NetworkState = (typeof NetworkState)[keyof typeof NetworkState];
 
+export const NodeConnectionState = {
+    Connected: "CONNECTED",
+    Disconnected: "DISCONNECTED",
+} as const;
+
+/**
+ * The current connection state of the Node.
+ */
+export type NodeConnectionState = (typeof NodeConnectionState)[keyof typeof NodeConnectionState];
+
+export const NodeInterfaceMappingNetworkInterfaceMode = {
+    Nat: "NAT",
+    Bridge: "BRIDGE",
+} as const;
+
+/**
+ * The network interface mode.
+ */
+export type NodeInterfaceMappingNetworkInterfaceMode = (typeof NodeInterfaceMappingNetworkInterfaceMode)[keyof typeof NodeInterfaceMappingNetworkInterfaceMode];
+
+export const NodeRole = {
+    Backup: "BACKUP",
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * The role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+ */
+export type NodeRole = (typeof NodeRole)[keyof typeof NodeRole];
+
+export const NodeState = {
+    Created: "CREATED",
+    Registering: "REGISTERING",
+    ReadyToActivate: "READY_TO_ACTIVATE",
+    RegistrationFailed: "REGISTRATION_FAILED",
+    ActivationFailed: "ACTIVATION_FAILED",
+    Active: "ACTIVE",
+    Ready: "READY",
+    InUse: "IN_USE",
+    Deregistering: "DEREGISTERING",
+    Draining: "DRAINING",
+    DeregistrationFailed: "DEREGISTRATION_FAILED",
+    Deregistered: "DEREGISTERED",
+} as const;
+
+/**
+ * The current state of the Node.
+ */
+export type NodeState = (typeof NodeState)[keyof typeof NodeState];
+
 export const SdiSourceMode = {
     Quadrant: "QUADRANT",
     Interleave: "INTERLEAVE",

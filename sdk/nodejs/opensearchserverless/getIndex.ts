@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An OpenSearch Serverless index resource
+ * Resource Type definition for AWS::OpenSearchServerless::Index
  */
 export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promise<GetIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,7 +44,7 @@ export interface GetIndexResult {
     readonly uuid?: string;
 }
 /**
- * An OpenSearch Serverless index resource
+ * Resource Type definition for AWS::OpenSearchServerless::Index
  */
 export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

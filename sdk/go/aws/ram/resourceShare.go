@@ -132,6 +132,8 @@ type ResourceShare struct {
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
+	// Specifies the configuration for the resource share
+	ResourceShareConfiguration ResourceShareConfigurationPtrOutput `pulumi:"resourceShareConfiguration"`
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources pulumi.StringArrayOutput `pulumi:"sources"`
 	// The current status of the resource share.
@@ -147,6 +149,10 @@ func NewResourceShare(ctx *pulumi.Context,
 		args = &ResourceShareArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceShareConfiguration.retainSharingOnAccountLeaveOrganization",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceShare
 	err := ctx.RegisterResource("aws-native:ram:ResourceShare", name, args, &resource, opts...)
@@ -200,6 +206,8 @@ type resourceShareArgs struct {
 	Principals []string `pulumi:"principals"`
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns []string `pulumi:"resourceArns"`
+	// Specifies the configuration for the resource share
+	ResourceShareConfiguration *ResourceShareConfiguration `pulumi:"resourceShareConfiguration"`
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources []string `pulumi:"sources"`
 	// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
@@ -228,6 +236,8 @@ type ResourceShareArgs struct {
 	Principals pulumi.StringArrayInput
 	// Specifies a list of one or more ARNs of the resources to associate with the resource share.
 	ResourceArns pulumi.StringArrayInput
+	// Specifies the configuration for the resource share
+	ResourceShareConfiguration ResourceShareConfigurationPtrInput
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources pulumi.StringArrayInput
 	// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
@@ -329,6 +339,11 @@ func (o ResourceShareOutput) Principals() pulumi.StringArrayOutput {
 // Specifies a list of one or more ARNs of the resources to associate with the resource share.
 func (o ResourceShareOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the configuration for the resource share
+func (o ResourceShareOutput) ResourceShareConfiguration() ResourceShareConfigurationPtrOutput {
+	return o.ApplyT(func(v *ResourceShare) ResourceShareConfigurationPtrOutput { return v.ResourceShareConfiguration }).(ResourceShareConfigurationPtrOutput)
 }
 
 // Specifies from which source accounts the service principal has access to the resources in this resource share.

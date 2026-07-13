@@ -13,6 +13,18 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
     public sealed class IndexPropertyMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The analyzer to use for this field (for text and keyword fields)
+        /// </summary>
+        [Input("analyzer")]
+        public Input<string>? Analyzer { get; set; }
+
+        /// <summary>
+        /// The compression level for knn_vector fields
+        /// </summary>
+        [Input("compressionLevel")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingCompressionLevel>? CompressionLevel { get; set; }
+
+        /// <summary>
         /// Dimension size for vector fields, defines the number of dimensions in the vector
         /// </summary>
         [Input("dimension")]
@@ -41,6 +53,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Inputs
             get => _properties ?? (_properties = new InputMap<Inputs.IndexPropertyMappingArgs>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// The distance function used for k-NN search (field-level, outside Method)
+        /// </summary>
+        [Input("spaceType")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.IndexPropertyMappingSpaceType>? SpaceType { get; set; }
 
         /// <summary>
         /// The field data type. Must be a valid OpenSearch field type.

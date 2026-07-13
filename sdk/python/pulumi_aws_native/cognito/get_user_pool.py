@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResult:
-    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_authentication_message=None, email_authentication_subject=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, user_pool_tier=None, username_attributes=None, username_configuration=None, verification_message_template=None, web_authn_factor_configuration=None, web_authn_relying_party_id=None, web_authn_user_verification=None):
+    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_authentication_message=None, email_authentication_subject=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, issuer_configuration=None, key_configuration=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, user_pool_tier=None, username_attributes=None, username_configuration=None, verification_message_template=None, web_authn_factor_configuration=None, web_authn_relying_party_id=None, web_authn_user_verification=None):
         if account_recovery_setting and not isinstance(account_recovery_setting, dict):
             raise TypeError("Expected argument 'account_recovery_setting' to be a dict")
         pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -62,6 +62,12 @@ class GetUserPoolResult:
         if email_verification_subject and not isinstance(email_verification_subject, str):
             raise TypeError("Expected argument 'email_verification_subject' to be a str")
         pulumi.set(__self__, "email_verification_subject", email_verification_subject)
+        if issuer_configuration and not isinstance(issuer_configuration, dict):
+            raise TypeError("Expected argument 'issuer_configuration' to be a dict")
+        pulumi.set(__self__, "issuer_configuration", issuer_configuration)
+        if key_configuration and not isinstance(key_configuration, dict):
+            raise TypeError("Expected argument 'key_configuration' to be a dict")
+        pulumi.set(__self__, "key_configuration", key_configuration)
         if lambda_config and not isinstance(lambda_config, dict):
             raise TypeError("Expected argument 'lambda_config' to be a dict")
         pulumi.set(__self__, "lambda_config", lambda_config)
@@ -221,6 +227,16 @@ class GetUserPoolResult:
         This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_subject")
+
+    @_builtins.property
+    @pulumi.getter(name="issuerConfiguration")
+    def issuer_configuration(self) -> Optional['outputs.UserPoolIssuerConfiguration']:
+        return pulumi.get(self, "issuer_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="keyConfiguration")
+    def key_configuration(self) -> Optional['outputs.UserPoolKeyConfiguration']:
+        return pulumi.get(self, "key_configuration")
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
@@ -424,6 +440,8 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             email_configuration=self.email_configuration,
             email_verification_message=self.email_verification_message,
             email_verification_subject=self.email_verification_subject,
+            issuer_configuration=self.issuer_configuration,
+            key_configuration=self.key_configuration,
             lambda_config=self.lambda_config,
             mfa_configuration=self.mfa_configuration,
             policies=self.policies,
@@ -473,6 +491,8 @@ def get_user_pool(user_pool_id: Optional[_builtins.str] = None,
         email_configuration=pulumi.get(__ret__, 'email_configuration'),
         email_verification_message=pulumi.get(__ret__, 'email_verification_message'),
         email_verification_subject=pulumi.get(__ret__, 'email_verification_subject'),
+        issuer_configuration=pulumi.get(__ret__, 'issuer_configuration'),
+        key_configuration=pulumi.get(__ret__, 'key_configuration'),
         lambda_config=pulumi.get(__ret__, 'lambda_config'),
         mfa_configuration=pulumi.get(__ret__, 'mfa_configuration'),
         policies=pulumi.get(__ret__, 'policies'),
@@ -519,6 +539,8 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[_builtins.str]] = N
         email_configuration=pulumi.get(__response__, 'email_configuration'),
         email_verification_message=pulumi.get(__response__, 'email_verification_message'),
         email_verification_subject=pulumi.get(__response__, 'email_verification_subject'),
+        issuer_configuration=pulumi.get(__response__, 'issuer_configuration'),
+        key_configuration=pulumi.get(__response__, 'key_configuration'),
         lambda_config=pulumi.get(__response__, 'lambda_config'),
         mfa_configuration=pulumi.get(__response__, 'mfa_configuration'),
         policies=pulumi.get(__response__, 'policies'),

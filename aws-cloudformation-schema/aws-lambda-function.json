@@ -19,10 +19,10 @@
       "permissions" : [ "lambda:GetFunction", "kms:Decrypt", "lambda:GetFunctionCodeSigningConfig", "lambda:GetFunctionRecursionConfig", "lambda:GetRuntimeManagementConfig", "lambda:GetFunctionScalingConfig" ]
     },
     "create" : {
-      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PassCapacityProvider" ]
+      "permissions" : [ "lambda:CreateFunction", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:Encrypt", "kms:GenerateDataKey", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:GetLayerVersion", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:TagResource", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PassCapacityProvider" ]
     },
     "update" : {
-      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PublishVersion", "lambda:PassCapacityProvider" ]
+      "permissions" : [ "lambda:DeleteFunctionConcurrency", "lambda:GetFunction", "lambda:PutFunctionConcurrency", "lambda:TagResource", "lambda:UntagResource", "lambda:UpdateFunctionConfiguration", "lambda:UpdateFunctionCode", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "elasticfilesystem:DescribeMountTargets", "s3files:ListMountTargets", "kms:CreateGrant", "kms:Decrypt", "kms:DescribeKey", "kms:GenerateDataKey", "lambda:GetRuntimeManagementConfig", "lambda:PutRuntimeManagementConfig", "lambda:PutFunctionCodeSigningConfig", "lambda:DeleteFunctionCodeSigningConfig", "lambda:GetCodeSigningConfig", "lambda:GetFunctionCodeSigningConfig", "lambda:PutFunctionRecursionConfig", "lambda:GetFunctionRecursionConfig", "lambda:PutFunctionScalingConfig", "lambda:PublishVersion", "lambda:PassCapacityProvider" ]
     },
     "list" : {
       "permissions" : [ "lambda:ListFunctions" ]
@@ -31,7 +31,7 @@
       "permissions" : [ "lambda:DeleteFunction", "lambda:GetFunction", "ec2:DescribeNetworkInterfaces" ]
     }
   },
-  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile", "/properties/Code/SourceKMSKeyArn", "/properties/PublishToLatestPublished" ],
+  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile", "/properties/Code/SourceKMSKeyArn", "/properties/Code/S3ObjectStorageMode", "/properties/PublishToLatestPublished" ],
   "additionalProperties" : false,
   "definitions" : {
     "ImageConfig" : {
@@ -196,6 +196,11 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "KMSKeyArn" : {
+          "pattern" : "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+          "description" : "",
+          "type" : "string"
+        },
         "ExecutionTimeout" : {
           "description" : "The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.",
           "maximum" : 31622400,
@@ -274,6 +279,11 @@
           "description" : "The Amazon S3 key of the deployment package.",
           "type" : "string",
           "maxLength" : 1024
+        },
+        "S3ObjectStorageMode" : {
+          "description" : "",
+          "type" : "string",
+          "enum" : [ "COPY", "REFERENCE" ]
         },
         "ImageUri" : {
           "description" : "URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.",

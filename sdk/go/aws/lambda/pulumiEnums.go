@@ -221,7 +221,6 @@ func (o CapacityProviderArchitectureArrayOutput) Index(i pulumi.IntInput) Capaci
 	}).(CapacityProviderArchitectureOutput)
 }
 
-// System log granularity level
 type CapacityProviderLoggingConfigSystemLogLevel string
 
 const (
@@ -2795,6 +2794,171 @@ func (o FunctionArchitecturesItemArrayOutput) Index(i pulumi.IntInput) FunctionA
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionArchitecturesItem {
 		return vs[0].([]FunctionArchitecturesItem)[vs[1].(int)]
 	}).(FunctionArchitecturesItemOutput)
+}
+
+type FunctionCodeS3ObjectStorageMode string
+
+const (
+	FunctionCodeS3ObjectStorageModeCopy      = FunctionCodeS3ObjectStorageMode("COPY")
+	FunctionCodeS3ObjectStorageModeReference = FunctionCodeS3ObjectStorageMode("REFERENCE")
+)
+
+func (FunctionCodeS3ObjectStorageMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCodeS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToFunctionCodeS3ObjectStorageModeOutput() FunctionCodeS3ObjectStorageModeOutput {
+	return pulumi.ToOutput(e).(FunctionCodeS3ObjectStorageModeOutput)
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToFunctionCodeS3ObjectStorageModeOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionCodeS3ObjectStorageModeOutput)
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToFunctionCodeS3ObjectStorageModePtrOutput() FunctionCodeS3ObjectStorageModePtrOutput {
+	return e.ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(context.Background())
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModePtrOutput {
+	return FunctionCodeS3ObjectStorageMode(e).ToFunctionCodeS3ObjectStorageModeOutputWithContext(ctx).ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(ctx)
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionCodeS3ObjectStorageMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionCodeS3ObjectStorageModeOutput struct{ *pulumi.OutputState }
+
+func (FunctionCodeS3ObjectStorageModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCodeS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToFunctionCodeS3ObjectStorageModeOutput() FunctionCodeS3ObjectStorageModeOutput {
+	return o
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToFunctionCodeS3ObjectStorageModeOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModeOutput {
+	return o
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToFunctionCodeS3ObjectStorageModePtrOutput() FunctionCodeS3ObjectStorageModePtrOutput {
+	return o.ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCodeS3ObjectStorageMode) *FunctionCodeS3ObjectStorageMode {
+		return &v
+	}).(FunctionCodeS3ObjectStorageModePtrOutput)
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionCodeS3ObjectStorageMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCodeS3ObjectStorageModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionCodeS3ObjectStorageMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionCodeS3ObjectStorageModePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionCodeS3ObjectStorageModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCodeS3ObjectStorageMode)(nil)).Elem()
+}
+
+func (o FunctionCodeS3ObjectStorageModePtrOutput) ToFunctionCodeS3ObjectStorageModePtrOutput() FunctionCodeS3ObjectStorageModePtrOutput {
+	return o
+}
+
+func (o FunctionCodeS3ObjectStorageModePtrOutput) ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModePtrOutput {
+	return o
+}
+
+func (o FunctionCodeS3ObjectStorageModePtrOutput) Elem() FunctionCodeS3ObjectStorageModeOutput {
+	return o.ApplyT(func(v *FunctionCodeS3ObjectStorageMode) FunctionCodeS3ObjectStorageMode {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionCodeS3ObjectStorageMode
+		return ret
+	}).(FunctionCodeS3ObjectStorageModeOutput)
+}
+
+func (o FunctionCodeS3ObjectStorageModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCodeS3ObjectStorageModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionCodeS3ObjectStorageMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionCodeS3ObjectStorageModeInput is an input type that accepts values of the FunctionCodeS3ObjectStorageMode enum
+// A concrete instance of `FunctionCodeS3ObjectStorageModeInput` can be one of the following:
+//
+//	FunctionCodeS3ObjectStorageModeCopy
+//	FunctionCodeS3ObjectStorageModeReference
+type FunctionCodeS3ObjectStorageModeInput interface {
+	pulumi.Input
+
+	ToFunctionCodeS3ObjectStorageModeOutput() FunctionCodeS3ObjectStorageModeOutput
+	ToFunctionCodeS3ObjectStorageModeOutputWithContext(context.Context) FunctionCodeS3ObjectStorageModeOutput
+}
+
+var functionCodeS3ObjectStorageModePtrType = reflect.TypeOf((**FunctionCodeS3ObjectStorageMode)(nil)).Elem()
+
+type FunctionCodeS3ObjectStorageModePtrInput interface {
+	pulumi.Input
+
+	ToFunctionCodeS3ObjectStorageModePtrOutput() FunctionCodeS3ObjectStorageModePtrOutput
+	ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(context.Context) FunctionCodeS3ObjectStorageModePtrOutput
+}
+
+type functionCodeS3ObjectStorageModePtr string
+
+func FunctionCodeS3ObjectStorageModePtr(v string) FunctionCodeS3ObjectStorageModePtrInput {
+	return (*functionCodeS3ObjectStorageModePtr)(&v)
+}
+
+func (*functionCodeS3ObjectStorageModePtr) ElementType() reflect.Type {
+	return functionCodeS3ObjectStorageModePtrType
+}
+
+func (in *functionCodeS3ObjectStorageModePtr) ToFunctionCodeS3ObjectStorageModePtrOutput() FunctionCodeS3ObjectStorageModePtrOutput {
+	return pulumi.ToOutput(in).(FunctionCodeS3ObjectStorageModePtrOutput)
+}
+
+func (in *functionCodeS3ObjectStorageModePtr) ToFunctionCodeS3ObjectStorageModePtrOutputWithContext(ctx context.Context) FunctionCodeS3ObjectStorageModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionCodeS3ObjectStorageModePtrOutput)
 }
 
 // Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where “TRACE“ is the highest level and “FATAL“ is the lowest.
@@ -6512,6 +6676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemPtrInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemArrayInput)(nil)).Elem(), FunctionArchitecturesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeS3ObjectStorageModeInput)(nil)).Elem(), FunctionCodeS3ObjectStorageMode("COPY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeS3ObjectStorageModePtrInput)(nil)).Elem(), FunctionCodeS3ObjectStorageMode("COPY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevelInput)(nil)).Elem(), FunctionLoggingConfigApplicationLogLevel("TRACE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevelPtrInput)(nil)).Elem(), FunctionLoggingConfigApplicationLogLevel("TRACE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigLogFormatInput)(nil)).Elem(), FunctionLoggingConfigLogFormat("Text"))
@@ -6589,6 +6755,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionArchitecturesItemOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemArrayOutput{})
+	pulumi.RegisterOutputType(FunctionCodeS3ObjectStorageModeOutput{})
+	pulumi.RegisterOutputType(FunctionCodeS3ObjectStorageModePtrOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigApplicationLogLevelOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigApplicationLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigLogFormatOutput{})

@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSystemResult:
-    def __init__(__self__, created_at=None, description=None, system_arn=None, system_id=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, sharing_enabled=None, system_arn=None, system_id=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if sharing_enabled and not isinstance(sharing_enabled, bool):
+            raise TypeError("Expected argument 'sharing_enabled' to be a bool")
+        pulumi.set(__self__, "sharing_enabled", sharing_enabled)
         if system_arn and not isinstance(system_arn, str):
             raise TypeError("Expected argument 'system_arn' to be a str")
         pulumi.set(__self__, "system_arn", system_arn)
@@ -59,6 +62,14 @@ class GetSystemResult:
         The description of the system.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="sharingEnabled")
+    def sharing_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+        """
+        return pulumi.get(self, "sharing_enabled")
 
     @_builtins.property
     @pulumi.getter(name="systemArn")
@@ -101,6 +112,7 @@ class AwaitableGetSystemResult(GetSystemResult):
         return GetSystemResult(
             created_at=self.created_at,
             description=self.description,
+            sharing_enabled=self.sharing_enabled,
             system_arn=self.system_arn,
             system_id=self.system_id,
             tags=self.tags,
@@ -123,6 +135,7 @@ def get_system(system_arn: Optional[_builtins.str] = None,
     return AwaitableGetSystemResult(
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
+        sharing_enabled=pulumi.get(__ret__, 'sharing_enabled'),
         system_arn=pulumi.get(__ret__, 'system_arn'),
         system_id=pulumi.get(__ret__, 'system_id'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -142,6 +155,7 @@ def get_system_output(system_arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetSystemResult(
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
+        sharing_enabled=pulumi.get(__response__, 'sharing_enabled'),
         system_arn=pulumi.get(__response__, 'system_arn'),
         system_id=pulumi.get(__response__, 'system_id'),
         tags=pulumi.get(__response__, 'tags'),

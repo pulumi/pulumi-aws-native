@@ -13,9 +13,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'AccountExpiryEventsConfiguration',
+    'AcmeDomainValidationDnsPrevalidationOptions',
+    'AcmeDomainValidationDomainScope',
+    'AcmeDomainValidationPrevalidationOptions',
+    'AcmeEndpointCertificateAuthority',
+    'AcmeEndpointPublicCertificateAuthority',
+    'AcmeEndpointTag',
+    'AcmeExternalAccountBindingExpiration',
 ]
 
 @pulumi.output_type
@@ -52,5 +60,300 @@ class AccountExpiryEventsConfiguration(dict):
         This option specifies the number of days prior to certificate expiration when ACM starts generating `EventBridge` events. ACM sends one event per day per certificate until the certificate expires. By default, accounts receive events starting 45 days before certificate expiration.
         """
         return pulumi.get(self, "days_before_expiry")
+
+
+@pulumi.output_type
+class AcmeDomainValidationDnsPrevalidationOptions(dict):
+    """
+    DNS-based prevalidation options for the domain validation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainScope":
+            suggest = "domain_scope"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcmeDomainValidationDnsPrevalidationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcmeDomainValidationDnsPrevalidationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcmeDomainValidationDnsPrevalidationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_scope: Optional['outputs.AcmeDomainValidationDomainScope'] = None,
+                 hosted_zone_id: Optional[_builtins.str] = None):
+        """
+        DNS-based prevalidation options for the domain validation.
+
+        :param _builtins.str hosted_zone_id: The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+        """
+        if domain_scope is not None:
+            pulumi.set(__self__, "domain_scope", domain_scope)
+        if hosted_zone_id is not None:
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="domainScope")
+    def domain_scope(self) -> Optional['outputs.AcmeDomainValidationDomainScope']:
+        return pulumi.get(self, "domain_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> Optional[_builtins.str]:
+        """
+        The Route 53 hosted zone ID for automatic DNS record management. When provided, the service creates the validation DNS record on the customer's behalf.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class AcmeDomainValidationDomainScope(dict):
+    """
+    Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exactDomain":
+            suggest = "exact_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcmeDomainValidationDomainScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcmeDomainValidationDomainScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcmeDomainValidationDomainScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exact_domain: Optional[_builtins.str] = None,
+                 subdomains: Optional[_builtins.str] = None,
+                 wildcards: Optional[_builtins.str] = None):
+        """
+        Controls which certificate types are authorized to be issued for the domain via the ACME endpoint.
+
+        :param _builtins.str exact_domain: Whether certificates may be issued for the exact domain.
+        :param _builtins.str subdomains: Whether certificates may be issued for subdomains of the domain.
+        :param _builtins.str wildcards: Whether wildcard certificates may be issued for the domain.
+        """
+        if exact_domain is not None:
+            pulumi.set(__self__, "exact_domain", exact_domain)
+        if subdomains is not None:
+            pulumi.set(__self__, "subdomains", subdomains)
+        if wildcards is not None:
+            pulumi.set(__self__, "wildcards", wildcards)
+
+    @_builtins.property
+    @pulumi.getter(name="exactDomain")
+    def exact_domain(self) -> Optional[_builtins.str]:
+        """
+        Whether certificates may be issued for the exact domain.
+        """
+        return pulumi.get(self, "exact_domain")
+
+    @_builtins.property
+    @pulumi.getter
+    def subdomains(self) -> Optional[_builtins.str]:
+        """
+        Whether certificates may be issued for subdomains of the domain.
+        """
+        return pulumi.get(self, "subdomains")
+
+    @_builtins.property
+    @pulumi.getter
+    def wildcards(self) -> Optional[_builtins.str]:
+        """
+        Whether wildcard certificates may be issued for the domain.
+        """
+        return pulumi.get(self, "wildcards")
+
+
+@pulumi.output_type
+class AcmeDomainValidationPrevalidationOptions(dict):
+    """
+    Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsPrevalidation":
+            suggest = "dns_prevalidation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcmeDomainValidationPrevalidationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcmeDomainValidationPrevalidationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcmeDomainValidationPrevalidationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_prevalidation: 'outputs.AcmeDomainValidationDnsPrevalidationOptions'):
+        """
+        Prevalidation method configuration. Currently only DNS-based prevalidation is supported.
+        """
+        pulumi.set(__self__, "dns_prevalidation", dns_prevalidation)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsPrevalidation")
+    def dns_prevalidation(self) -> 'outputs.AcmeDomainValidationDnsPrevalidationOptions':
+        return pulumi.get(self, "dns_prevalidation")
+
+
+@pulumi.output_type
+class AcmeEndpointCertificateAuthority(dict):
+    """
+    The certificate authority configuration for the ACME endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicCertificateAuthority":
+            suggest = "public_certificate_authority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcmeEndpointCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcmeEndpointCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcmeEndpointCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_certificate_authority: 'outputs.AcmeEndpointPublicCertificateAuthority'):
+        """
+        The certificate authority configuration for the ACME endpoint.
+        """
+        pulumi.set(__self__, "public_certificate_authority", public_certificate_authority)
+
+    @_builtins.property
+    @pulumi.getter(name="publicCertificateAuthority")
+    def public_certificate_authority(self) -> 'outputs.AcmeEndpointPublicCertificateAuthority':
+        return pulumi.get(self, "public_certificate_authority")
+
+
+@pulumi.output_type
+class AcmeEndpointPublicCertificateAuthority(dict):
+    """
+    Configuration for the public certificate authority.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedKeyAlgorithms":
+            suggest = "allowed_key_algorithms"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AcmeEndpointPublicCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AcmeEndpointPublicCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AcmeEndpointPublicCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_key_algorithms: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration for the public certificate authority.
+
+        :param Sequence[_builtins.str] allowed_key_algorithms: The allowed key algorithms for certificates issued via this endpoint.
+        """
+        if allowed_key_algorithms is not None:
+            pulumi.set(__self__, "allowed_key_algorithms", allowed_key_algorithms)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedKeyAlgorithms")
+    def allowed_key_algorithms(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The allowed key algorithms for certificates issued via this endpoint.
+        """
+        return pulumi.get(self, "allowed_key_algorithms")
+
+
+@pulumi.output_type
+class AcmeEndpointTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A key-value pair to associate with a resource.
+
+        :param _builtins.str key: The key name of the tag.
+        :param _builtins.str value: The value for the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key name of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value for the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AcmeExternalAccountBindingExpiration(dict):
+    """
+    The expiration configuration for the external account binding.
+    """
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: _builtins.int):
+        """
+        The expiration configuration for the external account binding.
+
+        :param _builtins.str type: The time unit for the expiration value.
+        :param _builtins.int value: The expiration value.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The time unit for the expiration value.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.int:
+        """
+        The expiration value.
+        """
+        return pulumi.get(self, "value")
 
 

@@ -55,6 +55,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      * The permissions configuration for the capacity provider.
      */
     declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig>;
+    /**
+     * Configuration for tag propagation to managed resources launched by the capacity provider.
+     */
     declare public readonly propagateTags: pulumi.Output<outputs.lambda.CapacityProviderPropagateTagsConfig | undefined>;
     /**
      * The current state of the capacity provider.
@@ -139,6 +142,9 @@ export interface CapacityProviderArgs {
      * The permissions configuration for the capacity provider.
      */
     permissionsConfig: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfigArgs>;
+    /**
+     * Configuration for tag propagation to managed resources launched by the capacity provider.
+     */
     propagateTags?: pulumi.Input<inputs.lambda.CapacityProviderPropagateTagsConfigArgs>;
     /**
      * A key-value pair that provides metadata for the capacity provider.

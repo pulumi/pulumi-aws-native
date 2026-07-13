@@ -53,6 +53,7 @@ export type EnvironmentState = (typeof EnvironmentState)[keyof typeof Environmen
 export const EnvironmentVcfVersion = {
     Vcf521: "VCF-5.2.1",
     Vcf522: "VCF-5.2.2",
+    SelfDeployed: "SELF_DEPLOYED",
 } as const;
 
 /**

@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly ImmutableArray<Outputs.StackAccessEndpoint> AccessEndpoints;
         /// <summary>
+        /// The configuration for agent access on the stack. If specified, agent access is enabled for the stack.
+        /// </summary>
+        public readonly Outputs.StackAgentAccessConfig? AgentAccessConfig;
+        /// <summary>
         /// The persistent application settings for users of the stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
         /// </summary>
         public readonly Outputs.StackApplicationSettings? ApplicationSettings;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.AppStream
         private GetStackResult(
             ImmutableArray<Outputs.StackAccessEndpoint> accessEndpoints,
 
+            Outputs.StackAgentAccessConfig? agentAccessConfig,
+
             Outputs.StackApplicationSettings? applicationSettings,
 
             Outputs.StackContentRedirection? contentRedirection,
@@ -139,6 +145,7 @@ namespace Pulumi.AwsNative.AppStream
             ImmutableArray<Outputs.StackUserSetting> userSettings)
         {
             AccessEndpoints = accessEndpoints;
+            AgentAccessConfig = agentAccessConfig;
             ApplicationSettings = applicationSettings;
             ContentRedirection = contentRedirection;
             Description = description;

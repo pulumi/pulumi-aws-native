@@ -271,6 +271,7 @@ export type GatewayTargetSchemaType = (typeof GatewayTargetSchemaType)[keyof typ
 export const GatewayTargetTargetProtocolType = {
     Mcp: "MCP",
     Http: "HTTP",
+    Inference: "INFERENCE",
 } as const;
 
 export type GatewayTargetTargetProtocolType = (typeof GatewayTargetTargetProtocolType)[keyof typeof GatewayTargetTargetProtocolType];

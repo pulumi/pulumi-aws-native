@@ -22,19 +22,27 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// Determines whether to use the deployment circuit breaker logic for the service.
         /// </summary>
         public readonly bool Enable;
+        public readonly bool? ResetOnHealthyTask;
         /// <summary>
         /// Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         /// </summary>
         public readonly bool Rollback;
+        public readonly Outputs.ServiceThresholdConfiguration? ThresholdConfiguration;
 
         [OutputConstructor]
         private ServiceDeploymentCircuitBreaker(
             bool enable,
 
-            bool rollback)
+            bool? resetOnHealthyTask,
+
+            bool rollback,
+
+            Outputs.ServiceThresholdConfiguration? thresholdConfiguration)
         {
             Enable = enable;
+            ResetOnHealthyTask = resetOnHealthyTask;
             Rollback = rollback;
+            ThresholdConfiguration = thresholdConfiguration;
         }
     }
 }

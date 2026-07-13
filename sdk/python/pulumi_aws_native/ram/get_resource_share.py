@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResourceShareResult:
-    def __init__(__self__, allow_external_principals=None, arn=None, creation_time=None, feature_set=None, last_updated_time=None, name=None, owning_account_id=None, status=None, tags=None):
+    def __init__(__self__, allow_external_principals=None, arn=None, creation_time=None, feature_set=None, last_updated_time=None, name=None, owning_account_id=None, resource_share_configuration=None, status=None, tags=None):
         if allow_external_principals and not isinstance(allow_external_principals, bool):
             raise TypeError("Expected argument 'allow_external_principals' to be a bool")
         pulumi.set(__self__, "allow_external_principals", allow_external_principals)
@@ -47,6 +48,9 @@ class GetResourceShareResult:
         if owning_account_id and not isinstance(owning_account_id, str):
             raise TypeError("Expected argument 'owning_account_id' to be a str")
         pulumi.set(__self__, "owning_account_id", owning_account_id)
+        if resource_share_configuration and not isinstance(resource_share_configuration, dict):
+            raise TypeError("Expected argument 'resource_share_configuration' to be a dict")
+        pulumi.set(__self__, "resource_share_configuration", resource_share_configuration)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -111,6 +115,14 @@ class GetResourceShareResult:
         return pulumi.get(self, "owning_account_id")
 
     @_builtins.property
+    @pulumi.getter(name="resourceShareConfiguration")
+    def resource_share_configuration(self) -> Optional['outputs.ResourceShareConfiguration']:
+        """
+        Specifies the configuration for the resource share
+        """
+        return pulumi.get(self, "resource_share_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['ResourceShareStatus']:
         """
@@ -140,6 +152,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             last_updated_time=self.last_updated_time,
             name=self.name,
             owning_account_id=self.owning_account_id,
+            resource_share_configuration=self.resource_share_configuration,
             status=self.status,
             tags=self.tags)
 
@@ -165,6 +178,7 @@ def get_resource_share(arn: Optional[_builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         owning_account_id=pulumi.get(__ret__, 'owning_account_id'),
+        resource_share_configuration=pulumi.get(__ret__, 'resource_share_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_share_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -187,5 +201,6 @@ def get_resource_share_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),
         owning_account_id=pulumi.get(__response__, 'owning_account_id'),
+        resource_share_configuration=pulumi.get(__response__, 'resource_share_configuration'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

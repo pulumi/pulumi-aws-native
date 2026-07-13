@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("deliveryMethod", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod> DeliveryMethod { get; set; } = null!;
 
+        [Input("exclusion")]
+        public Input<Inputs.RuleNotificationRecipientTypeArgs>? Exclusion { get; set; }
+
         /// <summary>
         /// Notification recipient.
         /// </summary>

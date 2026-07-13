@@ -54,6 +54,10 @@ export class System extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+     */
+    declare public readonly sharingEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The ARN of the system.
      */
     declare public /*out*/ readonly systemArn: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class System extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["name"] = args?.name;
+            resourceInputs["sharingEnabled"] = args?.sharingEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["systemArn"] = undefined /*out*/;
@@ -94,6 +99,7 @@ export class System extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sharingEnabled"] = undefined /*out*/;
             resourceInputs["systemArn"] = undefined /*out*/;
             resourceInputs["systemId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface SystemArgs {
      * The name of the system.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether the system is enabled to be shared with other members of the Organization. Only applicable if the system owner is a management account or delegated admin.
+     */
+    sharingEnabled?: pulumi.Input<boolean>;
     /**
      * Tags assigned to the system.
      */

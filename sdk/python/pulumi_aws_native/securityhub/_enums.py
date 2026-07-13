@@ -28,7 +28,7 @@ __all__ = [
     'AutomationRulesActionType',
     'AutomationRulesFindingFieldsUpdateVerificationState',
     'ConfigurationPolicyParameterConfigurationValueType',
-    'ConnectorV2ConnectorStatus',
+    'ConnectorAzureScopeConfigurationScopeType',
     'DelegatedAdminStatus',
     'FindingAggregatorRegionLinkingMode',
     'InsightDateRangeUnit',
@@ -307,15 +307,13 @@ class ConfigurationPolicyParameterConfigurationValueType(_builtins.str, Enum):
     CUSTOM = "CUSTOM"
 
 
-@pulumi.type_token("aws-native:securityhub:ConnectorV2ConnectorStatus")
-class ConnectorV2ConnectorStatus(_builtins.str, Enum):
+@pulumi.type_token("aws-native:securityhub:ConnectorAzureScopeConfigurationScopeType")
+class ConnectorAzureScopeConfigurationScopeType(_builtins.str, Enum):
     """
-    The status of the connector
+    The scope type for the Azure connector
     """
-    CONNECTED = "CONNECTED"
-    FAILED_TO_CONNECT = "FAILED_TO_CONNECT"
-    PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION"
-    PENDING_CONFIGURATION = "PENDING_CONFIGURATION"
+    TENANT = "TENANT"
+    SUBSCRIPTION = "SUBSCRIPTION"
 
 
 @pulumi.type_token("aws-native:securityhub:DelegatedAdminStatus")

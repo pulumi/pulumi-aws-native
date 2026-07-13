@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.OpenSearchServerless.Outputs
     public sealed class IndexSettings
     {
         /// <summary>
+        /// Custom analysis configuration including analyzers, tokenizers, and filters
+        /// </summary>
+        public readonly Outputs.IndexSettingsAnalysisProperties? Analysis;
+        /// <summary>
         /// Index settings.
         /// </summary>
         public readonly Outputs.IndexSettingsIndexProperties? Index;
 
         [OutputConstructor]
-        private IndexSettings(Outputs.IndexSettingsIndexProperties? index)
+        private IndexSettings(
+            Outputs.IndexSettingsAnalysisProperties? analysis,
+
+            Outputs.IndexSettingsIndexProperties? index)
         {
+            Analysis = analysis;
             Index = index;
         }
     }

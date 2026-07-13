@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -43,6 +44,7 @@ type LookupListenerRuleResult struct {
 	Priority *int `pulumi:"priority"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn    *string                 `pulumi:"ruleArn"`
+	Tags       []aws.Tag               `pulumi:"tags"`
 	Transforms []ListenerRuleTransform `pulumi:"transforms"`
 }
 
@@ -107,6 +109,10 @@ func (o LookupListenerRuleResultOutput) Priority() pulumi.IntPtrOutput {
 // The Amazon Resource Name (ARN) of the rule.
 func (o LookupListenerRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupListenerRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupListenerRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func (o LookupListenerRuleResultOutput) Transforms() ListenerRuleTransformArrayOutput {

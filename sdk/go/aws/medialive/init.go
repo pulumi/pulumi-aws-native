@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Multiplexprogram{}
 	case "aws-native:medialive:Network":
 		r = &Network{}
+	case "aws-native:medialive:Node":
+		r = &Node{}
 	case "aws-native:medialive:SdiSource":
 		r = &SdiSource{}
 	case "aws-native:medialive:SignalMap":

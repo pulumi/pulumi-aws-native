@@ -1616,6 +1616,530 @@ func (o NetworkStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current connection state of the Node.
+type NodeConnectionState string
+
+const (
+	NodeConnectionStateConnected    = NodeConnectionState("CONNECTED")
+	NodeConnectionStateDisconnected = NodeConnectionState("DISCONNECTED")
+)
+
+type NodeConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (NodeConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeConnectionState)(nil)).Elem()
+}
+
+func (o NodeConnectionStateOutput) ToNodeConnectionStateOutput() NodeConnectionStateOutput {
+	return o
+}
+
+func (o NodeConnectionStateOutput) ToNodeConnectionStateOutputWithContext(ctx context.Context) NodeConnectionStateOutput {
+	return o
+}
+
+func (o NodeConnectionStateOutput) ToNodeConnectionStatePtrOutput() NodeConnectionStatePtrOutput {
+	return o.ToNodeConnectionStatePtrOutputWithContext(context.Background())
+}
+
+func (o NodeConnectionStateOutput) ToNodeConnectionStatePtrOutputWithContext(ctx context.Context) NodeConnectionStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeConnectionState) *NodeConnectionState {
+		return &v
+	}).(NodeConnectionStatePtrOutput)
+}
+
+func (o NodeConnectionStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeConnectionStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeConnectionState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeConnectionStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeConnectionStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeConnectionState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeConnectionStatePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeConnectionStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeConnectionState)(nil)).Elem()
+}
+
+func (o NodeConnectionStatePtrOutput) ToNodeConnectionStatePtrOutput() NodeConnectionStatePtrOutput {
+	return o
+}
+
+func (o NodeConnectionStatePtrOutput) ToNodeConnectionStatePtrOutputWithContext(ctx context.Context) NodeConnectionStatePtrOutput {
+	return o
+}
+
+func (o NodeConnectionStatePtrOutput) Elem() NodeConnectionStateOutput {
+	return o.ApplyT(func(v *NodeConnectionState) NodeConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret NodeConnectionState
+		return ret
+	}).(NodeConnectionStateOutput)
+}
+
+func (o NodeConnectionStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeConnectionStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeConnectionState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The network interface mode.
+type NodeInterfaceMappingNetworkInterfaceMode string
+
+const (
+	NodeInterfaceMappingNetworkInterfaceModeNat    = NodeInterfaceMappingNetworkInterfaceMode("NAT")
+	NodeInterfaceMappingNetworkInterfaceModeBridge = NodeInterfaceMappingNetworkInterfaceMode("BRIDGE")
+)
+
+func (NodeInterfaceMappingNetworkInterfaceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeInterfaceMappingNetworkInterfaceMode)(nil)).Elem()
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToNodeInterfaceMappingNetworkInterfaceModeOutput() NodeInterfaceMappingNetworkInterfaceModeOutput {
+	return pulumi.ToOutput(e).(NodeInterfaceMappingNetworkInterfaceModeOutput)
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToNodeInterfaceMappingNetworkInterfaceModeOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NodeInterfaceMappingNetworkInterfaceModeOutput)
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToNodeInterfaceMappingNetworkInterfaceModePtrOutput() NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return e.ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(context.Background())
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return NodeInterfaceMappingNetworkInterfaceMode(e).ToNodeInterfaceMappingNetworkInterfaceModeOutputWithContext(ctx).ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(ctx)
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodeInterfaceMappingNetworkInterfaceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NodeInterfaceMappingNetworkInterfaceModeOutput struct{ *pulumi.OutputState }
+
+func (NodeInterfaceMappingNetworkInterfaceModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeInterfaceMappingNetworkInterfaceMode)(nil)).Elem()
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToNodeInterfaceMappingNetworkInterfaceModeOutput() NodeInterfaceMappingNetworkInterfaceModeOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToNodeInterfaceMappingNetworkInterfaceModeOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModeOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToNodeInterfaceMappingNetworkInterfaceModePtrOutput() NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return o.ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(context.Background())
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeInterfaceMappingNetworkInterfaceMode) *NodeInterfaceMappingNetworkInterfaceMode {
+		return &v
+	}).(NodeInterfaceMappingNetworkInterfaceModePtrOutput)
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeInterfaceMappingNetworkInterfaceMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeInterfaceMappingNetworkInterfaceMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeInterfaceMappingNetworkInterfaceModePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeInterfaceMappingNetworkInterfaceModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeInterfaceMappingNetworkInterfaceMode)(nil)).Elem()
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModePtrOutput) ToNodeInterfaceMappingNetworkInterfaceModePtrOutput() NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModePtrOutput) ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return o
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModePtrOutput) Elem() NodeInterfaceMappingNetworkInterfaceModeOutput {
+	return o.ApplyT(func(v *NodeInterfaceMappingNetworkInterfaceMode) NodeInterfaceMappingNetworkInterfaceMode {
+		if v != nil {
+			return *v
+		}
+		var ret NodeInterfaceMappingNetworkInterfaceMode
+		return ret
+	}).(NodeInterfaceMappingNetworkInterfaceModeOutput)
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeInterfaceMappingNetworkInterfaceModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeInterfaceMappingNetworkInterfaceMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NodeInterfaceMappingNetworkInterfaceModeInput is an input type that accepts values of the NodeInterfaceMappingNetworkInterfaceMode enum
+// A concrete instance of `NodeInterfaceMappingNetworkInterfaceModeInput` can be one of the following:
+//
+//	NodeInterfaceMappingNetworkInterfaceModeNat
+//	NodeInterfaceMappingNetworkInterfaceModeBridge
+type NodeInterfaceMappingNetworkInterfaceModeInput interface {
+	pulumi.Input
+
+	ToNodeInterfaceMappingNetworkInterfaceModeOutput() NodeInterfaceMappingNetworkInterfaceModeOutput
+	ToNodeInterfaceMappingNetworkInterfaceModeOutputWithContext(context.Context) NodeInterfaceMappingNetworkInterfaceModeOutput
+}
+
+var nodeInterfaceMappingNetworkInterfaceModePtrType = reflect.TypeOf((**NodeInterfaceMappingNetworkInterfaceMode)(nil)).Elem()
+
+type NodeInterfaceMappingNetworkInterfaceModePtrInput interface {
+	pulumi.Input
+
+	ToNodeInterfaceMappingNetworkInterfaceModePtrOutput() NodeInterfaceMappingNetworkInterfaceModePtrOutput
+	ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(context.Context) NodeInterfaceMappingNetworkInterfaceModePtrOutput
+}
+
+type nodeInterfaceMappingNetworkInterfaceModePtr string
+
+func NodeInterfaceMappingNetworkInterfaceModePtr(v string) NodeInterfaceMappingNetworkInterfaceModePtrInput {
+	return (*nodeInterfaceMappingNetworkInterfaceModePtr)(&v)
+}
+
+func (*nodeInterfaceMappingNetworkInterfaceModePtr) ElementType() reflect.Type {
+	return nodeInterfaceMappingNetworkInterfaceModePtrType
+}
+
+func (in *nodeInterfaceMappingNetworkInterfaceModePtr) ToNodeInterfaceMappingNetworkInterfaceModePtrOutput() NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return pulumi.ToOutput(in).(NodeInterfaceMappingNetworkInterfaceModePtrOutput)
+}
+
+func (in *nodeInterfaceMappingNetworkInterfaceModePtr) ToNodeInterfaceMappingNetworkInterfaceModePtrOutputWithContext(ctx context.Context) NodeInterfaceMappingNetworkInterfaceModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NodeInterfaceMappingNetworkInterfaceModePtrOutput)
+}
+
+// The role of the Node in the Cluster. ACTIVE means the Node is available for encoding. BACKUP means the Node is a redundant Node and might get used if an ACTIVE Node fails.
+type NodeRole string
+
+const (
+	NodeRoleBackup = NodeRole("BACKUP")
+	NodeRoleActive = NodeRole("ACTIVE")
+)
+
+func (NodeRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeRole)(nil)).Elem()
+}
+
+func (e NodeRole) ToNodeRoleOutput() NodeRoleOutput {
+	return pulumi.ToOutput(e).(NodeRoleOutput)
+}
+
+func (e NodeRole) ToNodeRoleOutputWithContext(ctx context.Context) NodeRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NodeRoleOutput)
+}
+
+func (e NodeRole) ToNodeRolePtrOutput() NodeRolePtrOutput {
+	return e.ToNodeRolePtrOutputWithContext(context.Background())
+}
+
+func (e NodeRole) ToNodeRolePtrOutputWithContext(ctx context.Context) NodeRolePtrOutput {
+	return NodeRole(e).ToNodeRoleOutputWithContext(ctx).ToNodeRolePtrOutputWithContext(ctx)
+}
+
+func (e NodeRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodeRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NodeRoleOutput struct{ *pulumi.OutputState }
+
+func (NodeRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeRole)(nil)).Elem()
+}
+
+func (o NodeRoleOutput) ToNodeRoleOutput() NodeRoleOutput {
+	return o
+}
+
+func (o NodeRoleOutput) ToNodeRoleOutputWithContext(ctx context.Context) NodeRoleOutput {
+	return o
+}
+
+func (o NodeRoleOutput) ToNodeRolePtrOutput() NodeRolePtrOutput {
+	return o.ToNodeRolePtrOutputWithContext(context.Background())
+}
+
+func (o NodeRoleOutput) ToNodeRolePtrOutputWithContext(ctx context.Context) NodeRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeRole) *NodeRole {
+		return &v
+	}).(NodeRolePtrOutput)
+}
+
+func (o NodeRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeRolePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeRole)(nil)).Elem()
+}
+
+func (o NodeRolePtrOutput) ToNodeRolePtrOutput() NodeRolePtrOutput {
+	return o
+}
+
+func (o NodeRolePtrOutput) ToNodeRolePtrOutputWithContext(ctx context.Context) NodeRolePtrOutput {
+	return o
+}
+
+func (o NodeRolePtrOutput) Elem() NodeRoleOutput {
+	return o.ApplyT(func(v *NodeRole) NodeRole {
+		if v != nil {
+			return *v
+		}
+		var ret NodeRole
+		return ret
+	}).(NodeRoleOutput)
+}
+
+func (o NodeRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NodeRoleInput is an input type that accepts values of the NodeRole enum
+// A concrete instance of `NodeRoleInput` can be one of the following:
+//
+//	NodeRoleBackup
+//	NodeRoleActive
+type NodeRoleInput interface {
+	pulumi.Input
+
+	ToNodeRoleOutput() NodeRoleOutput
+	ToNodeRoleOutputWithContext(context.Context) NodeRoleOutput
+}
+
+var nodeRolePtrType = reflect.TypeOf((**NodeRole)(nil)).Elem()
+
+type NodeRolePtrInput interface {
+	pulumi.Input
+
+	ToNodeRolePtrOutput() NodeRolePtrOutput
+	ToNodeRolePtrOutputWithContext(context.Context) NodeRolePtrOutput
+}
+
+type nodeRolePtr string
+
+func NodeRolePtr(v string) NodeRolePtrInput {
+	return (*nodeRolePtr)(&v)
+}
+
+func (*nodeRolePtr) ElementType() reflect.Type {
+	return nodeRolePtrType
+}
+
+func (in *nodeRolePtr) ToNodeRolePtrOutput() NodeRolePtrOutput {
+	return pulumi.ToOutput(in).(NodeRolePtrOutput)
+}
+
+func (in *nodeRolePtr) ToNodeRolePtrOutputWithContext(ctx context.Context) NodeRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NodeRolePtrOutput)
+}
+
+// The current state of the Node.
+type NodeStateEnum string
+
+const (
+	NodeStateEnumCreated              = NodeStateEnum("CREATED")
+	NodeStateEnumRegistering          = NodeStateEnum("REGISTERING")
+	NodeStateEnumReadyToActivate      = NodeStateEnum("READY_TO_ACTIVATE")
+	NodeStateEnumRegistrationFailed   = NodeStateEnum("REGISTRATION_FAILED")
+	NodeStateEnumActivationFailed     = NodeStateEnum("ACTIVATION_FAILED")
+	NodeStateEnumActive               = NodeStateEnum("ACTIVE")
+	NodeStateEnumReady                = NodeStateEnum("READY")
+	NodeStateEnumInUse                = NodeStateEnum("IN_USE")
+	NodeStateEnumDeregistering        = NodeStateEnum("DEREGISTERING")
+	NodeStateEnumDraining             = NodeStateEnum("DRAINING")
+	NodeStateEnumDeregistrationFailed = NodeStateEnum("DEREGISTRATION_FAILED")
+	NodeStateEnumDeregistered         = NodeStateEnum("DEREGISTERED")
+)
+
+type NodeStateEnumOutput struct{ *pulumi.OutputState }
+
+func (NodeStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeStateEnum)(nil)).Elem()
+}
+
+func (o NodeStateEnumOutput) ToNodeStateEnumOutput() NodeStateEnumOutput {
+	return o
+}
+
+func (o NodeStateEnumOutput) ToNodeStateEnumOutputWithContext(ctx context.Context) NodeStateEnumOutput {
+	return o
+}
+
+func (o NodeStateEnumOutput) ToNodeStateEnumPtrOutput() NodeStateEnumPtrOutput {
+	return o.ToNodeStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o NodeStateEnumOutput) ToNodeStateEnumPtrOutputWithContext(ctx context.Context) NodeStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeStateEnum) *NodeStateEnum {
+		return &v
+	}).(NodeStateEnumPtrOutput)
+}
+
+func (o NodeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeStateEnum)(nil)).Elem()
+}
+
+func (o NodeStateEnumPtrOutput) ToNodeStateEnumPtrOutput() NodeStateEnumPtrOutput {
+	return o
+}
+
+func (o NodeStateEnumPtrOutput) ToNodeStateEnumPtrOutputWithContext(ctx context.Context) NodeStateEnumPtrOutput {
+	return o
+}
+
+func (o NodeStateEnumPtrOutput) Elem() NodeStateEnumOutput {
+	return o.ApplyT(func(v *NodeStateEnum) NodeStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret NodeStateEnum
+		return ret
+	}).(NodeStateEnumOutput)
+}
+
+func (o NodeStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The current state of the SdiSource.
 type SdiSourceMode string
 
@@ -2252,6 +2776,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBridgeRuleTemplateEventTypePtrInput)(nil)).Elem(), EventBridgeRuleTemplateEventType("MEDIALIVE_MULTIPLEX_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramPreferredChannelPipelineInput)(nil)).Elem(), MultiplexprogramPreferredChannelPipeline("CURRENTLY_ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexprogramPreferredChannelPipelinePtrInput)(nil)).Elem(), MultiplexprogramPreferredChannelPipeline("CURRENTLY_ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInterfaceMappingNetworkInterfaceModeInput)(nil)).Elem(), NodeInterfaceMappingNetworkInterfaceMode("NAT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInterfaceMappingNetworkInterfaceModePtrInput)(nil)).Elem(), NodeInterfaceMappingNetworkInterfaceMode("NAT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeRoleInput)(nil)).Elem(), NodeRole("BACKUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeRolePtrInput)(nil)).Elem(), NodeRole("BACKUP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SdiSourceModeInput)(nil)).Elem(), SdiSourceMode("QUADRANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SdiSourceModePtrInput)(nil)).Elem(), SdiSourceMode("QUADRANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SdiSourceTypeInput)(nil)).Elem(), SdiSourceType("SINGLE"))
@@ -2278,6 +2806,14 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexprogramPreferredChannelPipelinePtrOutput{})
 	pulumi.RegisterOutputType(NetworkStateEnumOutput{})
 	pulumi.RegisterOutputType(NetworkStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(NodeConnectionStateOutput{})
+	pulumi.RegisterOutputType(NodeConnectionStatePtrOutput{})
+	pulumi.RegisterOutputType(NodeInterfaceMappingNetworkInterfaceModeOutput{})
+	pulumi.RegisterOutputType(NodeInterfaceMappingNetworkInterfaceModePtrOutput{})
+	pulumi.RegisterOutputType(NodeRoleOutput{})
+	pulumi.RegisterOutputType(NodeRolePtrOutput{})
+	pulumi.RegisterOutputType(NodeStateEnumOutput{})
+	pulumi.RegisterOutputType(NodeStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SdiSourceModeOutput{})
 	pulumi.RegisterOutputType(SdiSourceModePtrOutput{})
 	pulumi.RegisterOutputType(SdiSourceStateEnumOutput{})

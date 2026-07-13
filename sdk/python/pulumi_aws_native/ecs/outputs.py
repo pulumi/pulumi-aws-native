@@ -112,6 +112,7 @@ __all__ = [
     'ServiceRegistry',
     'ServiceSecret',
     'ServiceTag',
+    'ServiceThresholdConfiguration',
     'ServiceTimeoutConfiguration',
     'ServiceVolumeConfiguration',
     'ServiceVpcLatticeConfiguration',
@@ -3860,6 +3861,8 @@ class ExpressGatewayServiceConfiguration(dict):
             suggest = "scaling_target"
         elif key == "serviceRevisionArn":
             suggest = "service_revision_arn"
+        elif key == "taskDefinitionArn":
+            suggest = "task_definition_arn"
         elif key == "taskRoleArn":
             suggest = "task_role_arn"
 
@@ -3885,6 +3888,7 @@ class ExpressGatewayServiceConfiguration(dict):
                  primary_container: Optional['outputs.ExpressGatewayServiceExpressGatewayContainer'] = None,
                  scaling_target: Optional['outputs.ExpressGatewayServiceExpressGatewayScalingTarget'] = None,
                  service_revision_arn: Optional[_builtins.str] = None,
+                 task_definition_arn: Optional[_builtins.str] = None,
                  task_role_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str cpu: The CPU allocation for tasks in this service revision.
@@ -3919,6 +3923,8 @@ class ExpressGatewayServiceConfiguration(dict):
             pulumi.set(__self__, "scaling_target", scaling_target)
         if service_revision_arn is not None:
             pulumi.set(__self__, "service_revision_arn", service_revision_arn)
+        if task_definition_arn is not None:
+            pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if task_role_arn is not None:
             pulumi.set(__self__, "task_role_arn", task_role_arn)
 
@@ -4001,6 +4007,11 @@ class ExpressGatewayServiceConfiguration(dict):
         The ARN of the service revision.
         """
         return pulumi.get(self, "service_revision_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="taskDefinitionArn")
+    def task_definition_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "task_definition_arn")
 
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
@@ -5540,9 +5551,30 @@ class ServiceDeploymentCircuitBreaker(dict):
       The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
      For more information about API failure reasons, see [API failure reasons](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html) in the *Amazon Elastic Container Service Developer Guide*.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resetOnHealthyTask":
+            suggest = "reset_on_healthy_task"
+        elif key == "thresholdConfiguration":
+            suggest = "threshold_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDeploymentCircuitBreaker. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDeploymentCircuitBreaker.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDeploymentCircuitBreaker.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enable: _builtins.bool,
-                 rollback: _builtins.bool):
+                 rollback: _builtins.bool,
+                 reset_on_healthy_task: Optional[_builtins.bool] = None,
+                 threshold_configuration: Optional['outputs.ServiceThresholdConfiguration'] = None):
         """
         The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
           The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If it is turned on, a service deployment will transition to a failed state and stop launching new tasks. You can also configure Amazon ECS to roll back your service to the last completed deployment after a failure. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -5553,6 +5585,10 @@ class ServiceDeploymentCircuitBreaker(dict):
         """
         pulumi.set(__self__, "enable", enable)
         pulumi.set(__self__, "rollback", rollback)
+        if reset_on_healthy_task is not None:
+            pulumi.set(__self__, "reset_on_healthy_task", reset_on_healthy_task)
+        if threshold_configuration is not None:
+            pulumi.set(__self__, "threshold_configuration", threshold_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -5569,6 +5605,16 @@ class ServiceDeploymentCircuitBreaker(dict):
         Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is on, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
         """
         return pulumi.get(self, "rollback")
+
+    @_builtins.property
+    @pulumi.getter(name="resetOnHealthyTask")
+    def reset_on_healthy_task(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "reset_on_healthy_task")
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdConfiguration")
+    def threshold_configuration(self) -> Optional['outputs.ServiceThresholdConfiguration']:
+        return pulumi.get(self, "threshold_configuration")
 
 
 @pulumi.output_type
@@ -6731,6 +6777,9 @@ class ServiceManagedEbsVolumeConfiguration(dict):
 
 @pulumi.output_type
 class ServiceMetricConfiguration(dict):
+    """
+    The configuration for a specific set of metrics to collect for a service.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6753,22 +6802,37 @@ class ServiceMetricConfiguration(dict):
     def __init__(__self__, *,
                  metric_names: Sequence['ServiceMetricConfigurationMetricNamesItem'],
                  resolution_seconds: _builtins.int):
+        """
+        The configuration for a specific set of metrics to collect for a service.
+
+        :param Sequence['ServiceMetricConfigurationMetricNamesItem'] metric_names: The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+        :param _builtins.int resolution_seconds: The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+        """
         pulumi.set(__self__, "metric_names", metric_names)
         pulumi.set(__self__, "resolution_seconds", resolution_seconds)
 
     @_builtins.property
     @pulumi.getter(name="metricNames")
     def metric_names(self) -> Sequence['ServiceMetricConfigurationMetricNamesItem']:
+        """
+        The list of metric names to configure. The supported metric names are ``CPUUtilization`` and ``MemoryUtilization``.
+        """
         return pulumi.get(self, "metric_names")
 
     @_builtins.property
     @pulumi.getter(name="resolutionSeconds")
     def resolution_seconds(self) -> _builtins.int:
+        """
+        The resolution, in seconds, at which to collect the metrics. The valid values are ``20`` and ``60``.
+        """
         return pulumi.get(self, "resolution_seconds")
 
 
 @pulumi.output_type
 class ServiceMonitoringConfiguration(dict):
+    """
+    The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6788,11 +6852,19 @@ class ServiceMonitoringConfiguration(dict):
 
     def __init__(__self__, *,
                  metric_configurations: Sequence['outputs.ServiceMetricConfiguration']):
+        """
+        The optional monitoring configuration for a service, which defines the resolution for the service-level ``CPUUtilization`` and ``MemoryUtilization`` Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of ``60`` seconds.
+
+        :param Sequence['ServiceMetricConfiguration'] metric_configurations: The list of metric configurations for the service monitoring.
+        """
         pulumi.set(__self__, "metric_configurations", metric_configurations)
 
     @_builtins.property
     @pulumi.getter(name="metricConfigurations")
     def metric_configurations(self) -> Sequence['outputs.ServiceMetricConfiguration']:
+        """
+        The list of metric configurations for the service monitoring.
+        """
         return pulumi.get(self, "metric_configurations")
 
 
@@ -7122,6 +7194,25 @@ class ServiceTag(dict):
         """
         The optional part of a key-value pair that make up a tag. A ``value`` acts as a descriptor within a tag category (key).
         """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceThresholdConfiguration(dict):
+    def __init__(__self__, *,
+                 type: 'ServiceThresholdConfigurationType',
+                 value: _builtins.int):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'ServiceThresholdConfigurationType':
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.int:
         return pulumi.get(self, "value")
 
 

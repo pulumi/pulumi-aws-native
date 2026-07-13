@@ -93,6 +93,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("qtype")]
         public Input<string>? Qtype { get; set; }
 
+        /// <summary>
+        /// The status of the firewall rule.
+        /// </summary>
+        [Input("status")]
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleStatus>? Status { get; set; }
+
         public FirewallRuleGroupFirewallRuleArgs()
         {
         }

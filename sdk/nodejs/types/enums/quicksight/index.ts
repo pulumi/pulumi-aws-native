@@ -2397,6 +2397,7 @@ export type DataSetTimeGranularity = (typeof DataSetTimeGranularity)[keyof typeo
 
 export const DataSetUseAs = {
     RlsRules: "RLS_RULES",
+    Catalog: "CATALOG",
 } as const;
 
 export type DataSetUseAs = (typeof DataSetUseAs)[keyof typeof DataSetUseAs];
@@ -2492,6 +2493,7 @@ export const DataSourceType = {
     Appflow: "APPFLOW",
     Impala: "IMPALA",
     Glue: "GLUE",
+    GlueDataCatalog: "GLUE_DATA_CATALOG",
     GoogleDrive: "GOOGLE_DRIVE",
     Confluence: "CONFLUENCE",
     Sharepoint: "SHAREPOINT",
@@ -2499,9 +2501,18 @@ export const DataSourceType = {
     WebCrawler: "WEB_CRAWLER",
     Box: "BOX",
     Googlesheets: "GOOGLESHEETS",
+    Atlan: "ATLAN",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+export const FlowPublishState = {
+    Published: "PUBLISHED",
+    Draft: "DRAFT",
+    PendingApproval: "PENDING_APPROVAL",
+} as const;
+
+export type FlowPublishState = (typeof FlowPublishState)[keyof typeof FlowPublishState];
 
 export const FolderSharingModel = {
     Account: "ACCOUNT",
@@ -2516,6 +2527,55 @@ export const FolderType = {
 } as const;
 
 export type FolderType = (typeof FolderType)[keyof typeof FolderType];
+
+export const OAuthClientApplicationDataSourceType = {
+    AdobeAnalytics: "ADOBE_ANALYTICS",
+    AmazonElasticsearch: "AMAZON_ELASTICSEARCH",
+    AmazonOpensearch: "AMAZON_OPENSEARCH",
+    Athena: "ATHENA",
+    Aurora: "AURORA",
+    AuroraPostgresql: "AURORA_POSTGRESQL",
+    AwsIotAnalytics: "AWS_IOT_ANALYTICS",
+    Bigquery: "BIGQUERY",
+    Confluence: "CONFLUENCE",
+    Databricks: "DATABRICKS",
+    Exasol: "EXASOL",
+    Github: "GITHUB",
+    Googlesheets: "GOOGLESHEETS",
+    GoogleDrive: "GOOGLE_DRIVE",
+    Jira: "JIRA",
+    Mariadb: "MARIADB",
+    Mysql: "MYSQL",
+    OneDrive: "ONE_DRIVE",
+    Oracle: "ORACLE",
+    Postgresql: "POSTGRESQL",
+    Presto: "PRESTO",
+    Qbusiness: "QBUSINESS",
+    Redshift: "REDSHIFT",
+    S3: "S3",
+    S3KnowledgeBase: "S3_KNOWLEDGE_BASE",
+    S3Tables: "S3_TABLES",
+    Salesforce: "SALESFORCE",
+    Servicenow: "SERVICENOW",
+    Sharepoint: "SHAREPOINT",
+    Snowflake: "SNOWFLAKE",
+    Spark: "SPARK",
+    Sqlserver: "SQLSERVER",
+    Starburst: "STARBURST",
+    Teradata: "TERADATA",
+    Timestream: "TIMESTREAM",
+    Trino: "TRINO",
+    Twitter: "TWITTER",
+    WebCrawler: "WEB_CRAWLER",
+} as const;
+
+export type OAuthClientApplicationDataSourceType = (typeof OAuthClientApplicationDataSourceType)[keyof typeof OAuthClientApplicationDataSourceType];
+
+export const OAuthClientApplicationOAuthClientAuthenticationType = {
+    Token: "TOKEN",
+} as const;
+
+export type OAuthClientApplicationOAuthClientAuthenticationType = (typeof OAuthClientApplicationOAuthClientAuthenticationType)[keyof typeof OAuthClientApplicationOAuthClientAuthenticationType];
 
 export const RefreshScheduleMapRefreshType = {
     FullRefresh: "FULL_REFRESH",

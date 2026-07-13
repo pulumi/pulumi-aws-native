@@ -52,6 +52,7 @@ __all__ = [
     'FlowTransitEncryptionKeyType',
     'FlowVpcInterfaceNetworkInterfaceType',
     'GatewayState',
+    'RouterInputContentQualityAnalysisState',
     'RouterInputDay',
     'RouterInputFailoverInputSourcePriorityMode',
     'RouterInputFlowTransitEncryptionKeyType',
@@ -60,6 +61,7 @@ __all__ = [
     'RouterInputMediaLiveChannelPipelineId',
     'RouterInputMediaLiveTransitEncryptionKeyType',
     'RouterInputProtocol',
+    'RouterInputRouterContentQualityAnalysisType',
     'RouterInputRoutingScope',
     'RouterInputState',
     'RouterInputTier',
@@ -524,6 +526,12 @@ class GatewayState(_builtins.str, Enum):
     DELETED = "DELETED"
 
 
+@pulumi.type_token("aws-native:mediaconnect:RouterInputContentQualityAnalysisState")
+class RouterInputContentQualityAnalysisState(_builtins.str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 @pulumi.type_token("aws-native:mediaconnect:RouterInputDay")
 class RouterInputDay(_builtins.str, Enum):
     MONDAY = "MONDAY"
@@ -577,6 +585,11 @@ class RouterInputProtocol(_builtins.str, Enum):
     RIST = "RIST"
     SRT_CALLER = "SRT_CALLER"
     SRT_LISTENER = "SRT_LISTENER"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterInputRouterContentQualityAnalysisType")
+class RouterInputRouterContentQualityAnalysisType(_builtins.str, Enum):
+    CONTENT_LEVEL = "CONTENT_LEVEL"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterInputRoutingScope")

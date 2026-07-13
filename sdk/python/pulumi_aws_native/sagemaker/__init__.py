@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .algorithm import *
 from .app import *
 from .app_image_config import *
 from .cluster import *
@@ -16,6 +17,7 @@ from .device_fleet import *
 from .domain import *
 from .endpoint import *
 from .feature_group import *
+from .get_algorithm import *
 from .get_app import *
 from .get_app_image_config import *
 from .get_cluster import *
@@ -24,6 +26,7 @@ from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *
 from .get_feature_group import *
+from .get_hub import *
 from .get_image import *
 from .get_image_version import *
 from .get_inference_component import *
@@ -45,6 +48,7 @@ from .get_project import *
 from .get_space import *
 from .get_studio_lifecycle_config import *
 from .get_user_profile import *
+from .hub import *
 from .image import *
 from .image_version import *
 from .inference_component import *

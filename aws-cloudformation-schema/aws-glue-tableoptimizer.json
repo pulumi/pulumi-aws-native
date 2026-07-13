@@ -60,20 +60,23 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Enabled" : {
-          "type" : "boolean"
-        },
         "RetentionConfiguration" : {
           "$ref" : "#/definitions/RetentionConfiguration"
+        },
+        "OrphanFileDeletionConfiguration" : {
+          "$ref" : "#/definitions/OrphanFileDeletionConfiguration"
+        },
+        "Enabled" : {
+          "type" : "boolean"
         },
         "VpcConfiguration" : {
           "$ref" : "#/definitions/VpcConfiguration"
         },
+        "CompactionConfiguration" : {
+          "$ref" : "#/definitions/CompactionConfiguration"
+        },
         "RoleArn" : {
           "type" : "string"
-        },
-        "OrphanFileDeletionConfiguration" : {
-          "$ref" : "#/definitions/OrphanFileDeletionConfiguration"
         }
       },
       "required" : [ "Enabled", "RoleArn" ]
@@ -87,6 +90,15 @@
         }
       }
     },
+    "CompactionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IcebergConfiguration" : {
+          "$ref" : "#/definitions/IcebergCompactionConfiguration"
+        }
+      }
+    },
     "IcebergConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -95,6 +107,21 @@
           "type" : "integer"
         },
         "Location" : {
+          "type" : "string"
+        }
+      }
+    },
+    "IcebergCompactionConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DeleteFileThreshold" : {
+          "type" : "integer"
+        },
+        "MinInputFiles" : {
+          "type" : "integer"
+        },
+        "Strategy" : {
           "type" : "string"
         }
       }

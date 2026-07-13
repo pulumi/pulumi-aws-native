@@ -64,7 +64,7 @@ export interface GetGatewayTargetResult {
     /**
      * The target configuration for the Smithy model target.
      */
-    readonly targetConfiguration?: outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties;
+    readonly targetConfiguration?: outputs.bedrockagentcore.GatewayTargetTargetConfiguration0Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration1Properties | outputs.bedrockagentcore.GatewayTargetTargetConfiguration2Properties;
     /**
      * The target ID for the gateway target.
      */

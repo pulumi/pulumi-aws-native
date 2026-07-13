@@ -733,31 +733,29 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
-    /// The status of the connector
+    /// The scope type for the Azure connector
     /// </summary>
     [EnumType]
-    public readonly struct ConnectorV2ConnectorStatus : IEquatable<ConnectorV2ConnectorStatus>
+    public readonly struct ConnectorAzureScopeConfigurationScopeType : IEquatable<ConnectorAzureScopeConfigurationScopeType>
     {
         private readonly string _value;
 
-        private ConnectorV2ConnectorStatus(string value)
+        private ConnectorAzureScopeConfigurationScopeType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConnectorV2ConnectorStatus Connected { get; } = new ConnectorV2ConnectorStatus("CONNECTED");
-        public static ConnectorV2ConnectorStatus FailedToConnect { get; } = new ConnectorV2ConnectorStatus("FAILED_TO_CONNECT");
-        public static ConnectorV2ConnectorStatus PendingAuthorization { get; } = new ConnectorV2ConnectorStatus("PENDING_AUTHORIZATION");
-        public static ConnectorV2ConnectorStatus PendingConfiguration { get; } = new ConnectorV2ConnectorStatus("PENDING_CONFIGURATION");
+        public static ConnectorAzureScopeConfigurationScopeType Tenant { get; } = new ConnectorAzureScopeConfigurationScopeType("TENANT");
+        public static ConnectorAzureScopeConfigurationScopeType Subscription { get; } = new ConnectorAzureScopeConfigurationScopeType("SUBSCRIPTION");
 
-        public static bool operator ==(ConnectorV2ConnectorStatus left, ConnectorV2ConnectorStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectorV2ConnectorStatus left, ConnectorV2ConnectorStatus right) => !left.Equals(right);
+        public static bool operator ==(ConnectorAzureScopeConfigurationScopeType left, ConnectorAzureScopeConfigurationScopeType right) => left.Equals(right);
+        public static bool operator !=(ConnectorAzureScopeConfigurationScopeType left, ConnectorAzureScopeConfigurationScopeType right) => !left.Equals(right);
 
-        public static explicit operator string(ConnectorV2ConnectorStatus value) => value._value;
+        public static explicit operator string(ConnectorAzureScopeConfigurationScopeType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectorV2ConnectorStatus other && Equals(other);
-        public bool Equals(ConnectorV2ConnectorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ConnectorAzureScopeConfigurationScopeType other && Equals(other);
+        public bool Equals(ConnectorAzureScopeConfigurationScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -5507,6 +5507,11 @@ func (o ListenerRuleSourceIpConfigPtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type ListenerRuleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Information about the target group stickiness for a rule.
 type ListenerRuleTargetGroupStickinessConfig struct {
 	// [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.

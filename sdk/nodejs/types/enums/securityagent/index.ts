@@ -14,6 +14,16 @@ export const PentestAuthenticationProviderType = {
  */
 export type PentestAuthenticationProviderType = (typeof PentestAuthenticationProviderType)[keyof typeof PentestAuthenticationProviderType];
 
+export const PentestCleanUpStrategy = {
+    BestEffortDelete: "BEST_EFFORT_DELETE",
+    RetainAll: "RETAIN_ALL",
+} as const;
+
+/**
+ * Strategy for cleaning up resources after pentest job completion
+ */
+export type PentestCleanUpStrategy = (typeof PentestCleanUpStrategy)[keyof typeof PentestCleanUpStrategy];
+
 export const PentestCodeRemediationStrategy = {
     Automatic: "AUTOMATIC",
     Disabled: "DISABLED",
@@ -78,6 +88,26 @@ export const PentestRiskType = {
  * Type of security risk to test for
  */
 export type PentestRiskType = (typeof PentestRiskType)[keyof typeof PentestRiskType];
+
+export const PentestSkillType = {
+    FindingPersonalization: "FINDING_PERSONALIZATION",
+    LoginOptimization: "LOGIN_OPTIMIZATION",
+} as const;
+
+/**
+ * Type of managed skill that can be disabled for a pentest
+ */
+export type PentestSkillType = (typeof PentestSkillType)[keyof typeof PentestSkillType];
+
+export const SecurityRequirementPackStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether the pack is enabled or disabled
+ */
+export type SecurityRequirementPackStatus = (typeof SecurityRequirementPackStatus)[keyof typeof SecurityRequirementPackStatus];
 
 export const TargetDomainDnsVerificationDnsRecordType = {
     Txt: "TXT",
