@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	goerrors "errors"
 	"fmt"
+	"maps"
 	"os"
 	"path/filepath"
 	"slices"
@@ -18,7 +19,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/maputil"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
@@ -929,7 +929,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
-	props := maputil.SortedKeys(ctx.resourceSpec.Properties)
+	props := slices.Sorted(maps.Keys(ctx.resourceSpec.Properties))
 	for _, prop := range props {
 		spec := ctx.resourceSpec.Properties[prop]
 		sdkName := naming.ToSdkName(prop)
@@ -1101,7 +1101,7 @@ func (ctx *cfSchemaContext) gatherListInputsForSchema(
 	}
 
 	cfnNamesBySdkName := map[string]string{}
-	for _, cfnName := range maputil.SortedKeys(listSchema.Properties) {
+	for _, cfnName := range slices.Sorted(maps.Keys(listSchema.Properties)) {
 		prop := listSchema.Properties[cfnName]
 		sdkName := naming.ToSdkName(cfnName)
 		if previousCfnName, ok := cfnNamesBySdkName[sdkName]; ok {
@@ -1520,7 +1520,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 				}
 
 				if typeSchema.Type.Contains(jsschema.ObjectType) {
-					for _, name := range maputil.SortedKeys(typeSchema.Properties) {
+					for _, name := range slices.Sorted(maps.Keys(typeSchema.Properties)) {
 						value := typeSchema.Properties[name]
 						ctx.augmentDocumentation(refName, name, value)
 					}
@@ -1530,7 +1530,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 	}
 
 	if len(spec.Properties) > 0 {
-		for _, name := range maputil.SortedKeys(spec.Properties) {
+		for _, name := range slices.Sorted(maps.Keys(spec.Properties)) {
 			value := spec.Properties[name]
 			refName := referenceName
 			if refName == ctx.cfTypeName {
@@ -1834,7 +1834,7 @@ func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschem
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
-	for _, name := range maputil.SortedKeys(typeSchema.Properties) {
+	for _, name := range slices.Sorted(maps.Keys(typeSchema.Properties)) {
 		value := typeSchema.Properties[name]
 		sdkName := naming.ToSdkName(name)
 
