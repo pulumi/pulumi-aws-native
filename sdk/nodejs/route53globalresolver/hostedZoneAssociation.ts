@@ -93,6 +93,6 @@ export class HostedZoneAssociation extends pulumi.CustomResource {
  */
 export interface HostedZoneAssociationArgs {
     hostedZoneId: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     resourceArn: pulumi.Input<string>;
 }

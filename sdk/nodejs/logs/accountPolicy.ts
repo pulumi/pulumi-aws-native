@@ -153,7 +153,7 @@ export interface AccountPolicyArgs {
     /**
      * The name of the account policy
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * Type of the policy.
      */
@@ -161,9 +161,9 @@ export interface AccountPolicyArgs {
     /**
      * Scope for policy application
      */
-    scope?: pulumi.Input<enums.logs.AccountPolicyScope>;
+    scope?: pulumi.Input<enums.logs.AccountPolicyScope | undefined>;
     /**
      * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
      */
-    selectionCriteria?: pulumi.Input<string>;
+    selectionCriteria?: pulumi.Input<string | undefined>;
 }

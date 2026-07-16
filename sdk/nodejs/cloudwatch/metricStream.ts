@@ -166,37 +166,37 @@ export interface MetricStreamArgs {
     /**
      * Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[] | undefined>;
     /**
      * The ARN of the Kinesis Firehose where to stream the data.
      */
-    firehoseArn?: pulumi.Input<string>;
+    firehoseArn?: pulumi.Input<string | undefined>;
     /**
      * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
      */
-    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamFilterArgs>[] | undefined>;
     /**
      * If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
      */
-    includeLinkedAccountsMetrics?: pulumi.Input<boolean>;
+    includeLinkedAccountsMetrics?: pulumi.Input<boolean | undefined>;
     /**
      * Name of the metric stream.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The output format of the data streamed to the Kinesis Firehose.
      */
-    outputFormat?: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role that provides access to the Kinesis Firehose.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
      */
-    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfigurationArgs>[]>;
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfigurationArgs>[] | undefined>;
     /**
      * A set of tags to assign to the delivery stream.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

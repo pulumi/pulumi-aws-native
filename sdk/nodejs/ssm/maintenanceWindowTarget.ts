@@ -116,15 +116,15 @@ export interface MaintenanceWindowTargetArgs {
     /**
      * A description for the target.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the maintenance window target.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A user-provided value that will be included in any Amazon CloudWatch Events events that are raised while running tasks for these targets in this maintenance window.
      */
-    ownerInformation?: pulumi.Input<string>;
+    ownerInformation?: pulumi.Input<string | undefined>;
     /**
      * The type of target that is being registered with the maintenance window.
      */

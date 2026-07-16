@@ -7,7 +7,7 @@ export const StreamEncryptionEncryptionType = {
 } as const;
 
 /**
- * The encryption type to use. The only valid value is KMS. 
+ * The encryption type to use. The only valid value is KMS.
  */
 export type StreamEncryptionEncryptionType = (typeof StreamEncryptionEncryptionType)[keyof typeof StreamEncryptionEncryptionType];
 

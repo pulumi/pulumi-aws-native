@@ -130,6 +130,6 @@ export interface SpendingLimitArgs {
     /**
      * The tags to apply to the spending limit.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    timePeriod?: pulumi.Input<inputs.braket.SpendingLimitTimePeriodArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    timePeriod?: pulumi.Input<inputs.braket.SpendingLimitTimePeriodArgs | undefined>;
 }

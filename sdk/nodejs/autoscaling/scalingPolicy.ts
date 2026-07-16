@@ -146,7 +146,7 @@ export interface ScalingPolicyArgs {
     /**
      * Specifies how the scaling adjustment is interpreted. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity.
      */
-    adjustmentType?: pulumi.Input<string>;
+    adjustmentType?: pulumi.Input<string | undefined>;
     /**
      * The name of the Auto Scaling group.
      */
@@ -154,37 +154,37 @@ export interface ScalingPolicyArgs {
     /**
      * The duration of the policy's cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.
      */
-    cooldown?: pulumi.Input<string>;
+    cooldown?: pulumi.Input<string | undefined>;
     /**
      * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group. Valid only if the policy type is TargetTrackingScaling or StepScaling.
      */
-    estimatedInstanceWarmup?: pulumi.Input<number>;
+    estimatedInstanceWarmup?: pulumi.Input<number | undefined>;
     /**
      * The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
      */
-    metricAggregationType?: pulumi.Input<string>;
+    metricAggregationType?: pulumi.Input<string | undefined>;
     /**
      * The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
      */
-    minAdjustmentMagnitude?: pulumi.Input<number>;
+    minAdjustmentMagnitude?: pulumi.Input<number | undefined>;
     /**
      * One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
      */
-    policyType?: pulumi.Input<string>;
+    policyType?: pulumi.Input<string | undefined>;
     /**
      * A predictive scaling policy. Includes support for predefined metrics only.
      */
-    predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingConfigurationArgs>;
+    predictiveScalingConfiguration?: pulumi.Input<inputs.autoscaling.ScalingPolicyPredictiveScalingConfigurationArgs | undefined>;
     /**
      * The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
      */
-    scalingAdjustment?: pulumi.Input<number>;
+    scalingAdjustment?: pulumi.Input<number | undefined>;
     /**
      * A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
      */
-    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyStepAdjustmentArgs>[]>;
+    stepAdjustments?: pulumi.Input<pulumi.Input<inputs.autoscaling.ScalingPolicyStepAdjustmentArgs>[] | undefined>;
     /**
      * A target tracking scaling policy. Includes support for predefined or customized metrics.
      */
-    targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.ScalingPolicyTargetTrackingConfigurationArgs>;
+    targetTrackingConfiguration?: pulumi.Input<inputs.autoscaling.ScalingPolicyTargetTrackingConfigurationArgs | undefined>;
 }

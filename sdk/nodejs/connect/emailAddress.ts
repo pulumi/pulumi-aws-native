@@ -113,15 +113,15 @@ export interface EmailAddressArgs {
     /**
      * List of alias configurations for the email address
      */
-    aliasConfigurations?: pulumi.Input<pulumi.Input<inputs.connect.EmailAddressAliasConfigurationArgs>[]>;
+    aliasConfigurations?: pulumi.Input<pulumi.Input<inputs.connect.EmailAddressAliasConfigurationArgs>[] | undefined>;
     /**
      * A description for the email address.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name for the email address.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Email address to be created for this instance
      */
@@ -133,5 +133,5 @@ export interface EmailAddressArgs {
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

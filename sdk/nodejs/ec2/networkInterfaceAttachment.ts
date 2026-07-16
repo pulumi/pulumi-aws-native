@@ -116,7 +116,7 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
      */
-    deleteOnTermination?: pulumi.Input<boolean>;
+    deleteOnTermination?: pulumi.Input<boolean | undefined>;
     /**
      * The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
      */
@@ -124,11 +124,11 @@ export interface NetworkInterfaceAttachmentArgs {
     /**
      * The number of ENA queues created with the instance.
      */
-    enaQueueCount?: pulumi.Input<number>;
+    enaQueueCount?: pulumi.Input<number | undefined>;
     /**
      * Configures ENA Express for the network interface that this action attaches to the instance.
      */
-    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecificationArgs>;
+    enaSrdSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecificationArgs | undefined>;
     /**
      * The ID of the instance to which you will attach the ENI.
      */

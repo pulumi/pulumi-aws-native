@@ -161,7 +161,7 @@ export interface IdentityPoolArgs {
     /**
      * Enables the Basic (Classic) authentication flow.
      */
-    allowClassicFlow?: pulumi.Input<boolean>;
+    allowClassicFlow?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether the identity pool supports unauthenticated logins.
      */
@@ -171,15 +171,15 @@ export interface IdentityPoolArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
-    cognitoEvents?: any;
+    cognitoEvents?: any | undefined;
     /**
      * The Amazon Cognito user pools and their client IDs.
      */
-    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProviderArgs>[]>;
+    cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProviderArgs>[] | undefined>;
     /**
      * Configuration options for configuring Amazon Cognito streams.
      */
-    cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs>;
+    cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs | undefined>;
     /**
      * The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
      *
@@ -187,7 +187,7 @@ export interface IdentityPoolArgs {
      *
      * *Maximum length* : 100
      */
-    developerProviderName?: pulumi.Input<string>;
+    developerProviderName?: pulumi.Input<string | undefined>;
     /**
      * The name of your Amazon Cognito identity pool.
      *
@@ -197,27 +197,27 @@ export interface IdentityPoolArgs {
      *
      * *Pattern* : `[\w\s+=,.@-]+`
      */
-    identityPoolName?: pulumi.Input<string>;
+    identityPoolName?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    identityPoolTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    identityPoolTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the OpenID connect providers.
      */
-    openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The configuration options to be applied to the identity pool.
      */
-    pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs>;
+    pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs | undefined>;
     /**
      * The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
      */
-    samlProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    samlProviderArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value pairs that map provider names to provider app IDs.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
      */
-    supportedLoginProviders?: any;
+    supportedLoginProviders?: any | undefined;
 }

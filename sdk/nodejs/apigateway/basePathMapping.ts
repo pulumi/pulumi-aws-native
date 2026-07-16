@@ -89,7 +89,7 @@ export interface BasePathMappingArgs {
     /**
      * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
-    basePath?: pulumi.Input<string>;
+    basePath?: pulumi.Input<string | undefined>;
     /**
      * The domain name of the BasePathMapping resource to be described.
      */
@@ -97,9 +97,9 @@ export interface BasePathMappingArgs {
     /**
      * The string identifier of the associated RestApi.
      */
-    restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string | undefined>;
     /**
      * The name of the associated stage.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
 }

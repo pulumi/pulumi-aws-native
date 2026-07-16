@@ -101,5 +101,5 @@ export interface InsightArgs {
     /**
      * The name of a Security Hub insight
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

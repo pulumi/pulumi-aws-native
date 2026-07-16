@@ -167,57 +167,57 @@ export interface ComponentArgs {
     /**
      * The unique ID of the Amplify app associated with the component.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
      */
-    bindingProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentBindingPropertiesValueArgs>}>;
+    bindingProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentBindingPropertiesValueArgs>} | undefined>;
     /**
      * A list of the component's `ComponentChild` instances.
      */
-    children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
+    children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[] | undefined>;
     /**
      * The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
      */
-    collectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentDataConfigurationArgs>}>;
+    collectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentDataConfigurationArgs>} | undefined>;
     /**
      * The type of the component. This can be an Amplify custom UI component or another custom component.
      */
-    componentType?: pulumi.Input<string>;
+    componentType?: pulumi.Input<string | undefined>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * Describes the events that can be raised on the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.
      */
-    events?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentEventArgs>}>;
+    events?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentEventArgs>} | undefined>;
     /**
      * The name of the component.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Describes the component's properties that can be overriden in a customized instance of the component. You can't specify `tags` as a valid property for `overrides` .
      */
-    overrides?: pulumi.Input<{[key: string]: any}>;
+    overrides?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * Describes the component's properties. You can't specify `tags` as a valid property for `properties` .
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>}>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentPropertyArgs>} | undefined>;
     /**
      * The schema version of the component when it was imported.
      */
-    schemaVersion?: pulumi.Input<string>;
+    schemaVersion?: pulumi.Input<string | undefined>;
     /**
      * The unique ID of the component in its original source system, such as Figma.
      */
-    sourceId?: pulumi.Input<string>;
+    sourceId?: pulumi.Input<string | undefined>;
     /**
      * One or more key-value pairs to use when tagging the component.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of the component's variants. A variant is a unique style configuration of a main component.
      */
-    variants?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentVariantArgs>[]>;
+    variants?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentVariantArgs>[] | undefined>;
 }

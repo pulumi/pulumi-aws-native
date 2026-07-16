@@ -139,15 +139,15 @@ export interface TestCaseArgs {
     /**
      * The description of the test case.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Entry point for Testcase.
      */
-    entryPoint?: pulumi.Input<inputs.connect.TestCaseEntryPointArgs>;
+    entryPoint?: pulumi.Input<inputs.connect.TestCaseEntryPointArgs | undefined>;
     /**
      * The initialization data of the test case.
      */
-    initializationData?: pulumi.Input<string>;
+    initializationData?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -155,13 +155,13 @@ export interface TestCaseArgs {
     /**
      * The name of the test case.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the test case.
      */
-    status?: pulumi.Input<enums.connect.TestCaseStatus>;
+    status?: pulumi.Input<enums.connect.TestCaseStatus | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

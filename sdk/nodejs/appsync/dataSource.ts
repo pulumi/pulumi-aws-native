@@ -212,50 +212,50 @@ export interface DataSourceArgs {
     /**
      * The description of the data source.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * AWS Region and TableName for an Amazon DynamoDB table in your account.
      */
-    dynamoDbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDbConfigArgs>;
+    dynamoDbConfig?: pulumi.Input<inputs.appsync.DataSourceDynamoDbConfigArgs | undefined>;
     /**
      * AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
      * As of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service. This property is deprecated. For new data sources, use OpenSearchServiceConfig to specify an OpenSearch Service data source.
      */
-    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs>;
+    elasticsearchConfig?: pulumi.Input<inputs.appsync.DataSourceElasticsearchConfigArgs | undefined>;
     /**
      * ARN for the EventBridge bus.
      */
-    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs>;
+    eventBridgeConfig?: pulumi.Input<inputs.appsync.DataSourceEventBridgeConfigArgs | undefined>;
     /**
      * Endpoints for an HTTP data source.
      */
-    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs>;
+    httpConfig?: pulumi.Input<inputs.appsync.DataSourceHttpConfigArgs | undefined>;
     /**
      * An ARN of a Lambda function in valid ARN format. This can be the ARN of a Lambda function that exists in the current account or in another account.
      */
-    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs>;
+    lambdaConfig?: pulumi.Input<inputs.appsync.DataSourceLambdaConfigArgs | undefined>;
     /**
      * Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
      *
      * `MetricsConfig` can be `ENABLED` or `DISABLED` .
      */
-    metricsConfig?: pulumi.Input<enums.appsync.DataSourceMetricsConfig>;
+    metricsConfig?: pulumi.Input<enums.appsync.DataSourceMetricsConfig | undefined>;
     /**
      * Friendly name for you to identify your AppSync data source after creation.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.
      */
-    openSearchServiceConfig?: pulumi.Input<inputs.appsync.DataSourceOpenSearchServiceConfigArgs>;
+    openSearchServiceConfig?: pulumi.Input<inputs.appsync.DataSourceOpenSearchServiceConfigArgs | undefined>;
     /**
      * Relational Database configuration of the relational database data source.
      */
-    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigArgs>;
+    relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfigArgs | undefined>;
     /**
      * The AWS Identity and Access Management service role ARN for the data source. The system assumes this role when accessing the data source.
      */
-    serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The type of the data source.
      */

@@ -147,21 +147,21 @@ export interface ClusterArgs {
     /**
      * Whether deletion protection is enabled in this cluster.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The KMS key that encrypts data on the cluster.
      */
-    kmsEncryptionKey?: pulumi.Input<string>;
+    kmsEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The Multi-region properties associated to this cluster.
      */
-    multiRegionProperties?: pulumi.Input<inputs.dsql.MultiRegionPropertiesPropertiesArgs>;
+    multiRegionProperties?: pulumi.Input<inputs.dsql.MultiRegionPropertiesPropertiesArgs | undefined>;
     /**
      * The IAM policy applied to the cluster resource.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * A map of key and value pairs this cluster is tagged with.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -38,6 +38,6 @@ export const AssessmentStatus = {
 } as const;
 
 /**
- * The status of the specified assessment. 
+ * The status of the specified assessment.
  */
 export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof AssessmentStatus];

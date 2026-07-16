@@ -140,31 +140,31 @@ export interface ProfileArgs {
     /**
      * Used to determine if a custom role session name will be accepted in a temporary credential request.
      */
-    acceptRoleSessionName?: pulumi.Input<boolean>;
+    acceptRoleSessionName?: pulumi.Input<boolean | undefined>;
     /**
      * A mapping applied to the authenticating end-entity certificate.
      */
-    attributeMappings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.ProfileAttributeMappingArgs>[]>;
+    attributeMappings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.ProfileAttributeMappingArgs>[] | undefined>;
     /**
      * The number of seconds vended session credentials will be valid for
      */
-    durationSeconds?: pulumi.Input<number>;
+    durationSeconds?: pulumi.Input<number | undefined>;
     /**
      * The enabled status of the resource.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * A list of managed policy ARNs. Managed policies identified by this list will be applied to the vended session credentials.
      */
-    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The customer specified name of the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether instance properties are required in CreateSession requests with this profile.
      */
-    requireInstanceProperties?: pulumi.Input<boolean>;
+    requireInstanceProperties?: pulumi.Input<boolean | undefined>;
     /**
      * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
      */
@@ -172,9 +172,9 @@ export interface ProfileArgs {
     /**
      * A session policy that will applied to the trust boundary of the vended session credentials.
      */
-    sessionPolicy?: pulumi.Input<string>;
+    sessionPolicy?: pulumi.Input<string | undefined>;
     /**
      * A list of Tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -132,25 +132,25 @@ export interface SpaceArgs {
     /**
      * The collection of ownership settings for a space.
      */
-    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettingsArgs>;
+    ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettingsArgs | undefined>;
     /**
      * The name of the space that appears in the Studio UI.
      */
-    spaceDisplayName?: pulumi.Input<string>;
+    spaceDisplayName?: pulumi.Input<string | undefined>;
     /**
      * A name for the Space.
      */
-    spaceName?: pulumi.Input<string>;
+    spaceName?: pulumi.Input<string | undefined>;
     /**
      * A collection of settings.
      */
-    spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSettingsArgs>;
+    spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSettingsArgs | undefined>;
     /**
      * A collection of space sharing settings.
      */
-    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSharingSettingsArgs>;
+    spaceSharingSettings?: pulumi.Input<inputs.sagemaker.SpaceSharingSettingsArgs | undefined>;
     /**
      * A list of tags to apply to the space.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

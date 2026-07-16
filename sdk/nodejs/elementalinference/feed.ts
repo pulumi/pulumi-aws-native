@@ -81,7 +81,7 @@ export class Feed extends pulumi.CustomResource {
  * The set of arguments for constructing a Feed resource.
  */
 export interface FeedArgs {
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     outputs: pulumi.Input<pulumi.Input<inputs.elementalinference.FeedGetOutputArgs>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

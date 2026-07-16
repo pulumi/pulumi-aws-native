@@ -101,17 +101,17 @@ export interface DataflowEndpointGroupV2Args {
     /**
      * Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
      */
-    contactPostPassDurationSeconds?: pulumi.Input<number>;
+    contactPostPassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
-    contactPrePassDurationSeconds?: pulumi.Input<number>;
+    contactPrePassDurationSeconds?: pulumi.Input<number | undefined>;
     /**
      * List of endpoints for the dataflow endpoint group.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupV2CreateEndpointDetailsArgs>[]>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupV2CreateEndpointDetailsArgs>[] | undefined>;
     /**
      * Tags assigned to a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -182,5 +182,5 @@ export interface RegistryPolicyArgs {
     /**
      * The revision ID of the policy.
      */
-    revisionId?: pulumi.Input<string>;
+    revisionId?: pulumi.Input<string | undefined>;
 }

@@ -122,24 +122,24 @@ export class Policy extends pulumi.CustomResource {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    availabilitySlo?: pulumi.Input<inputs.resiliencehubv2.PolicyAvailabilitySloArgs>;
-    dataRecovery?: pulumi.Input<inputs.resiliencehubv2.PolicyDataRecoveryTargetsArgs>;
+    availabilitySlo?: pulumi.Input<inputs.resiliencehubv2.PolicyAvailabilitySloArgs | undefined>;
+    dataRecovery?: pulumi.Input<inputs.resiliencehubv2.PolicyDataRecoveryTargetsArgs | undefined>;
     /**
      * The description of the policy.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The KMS key ID for encrypting policy data.
      */
-    kmsKeyId?: pulumi.Input<string>;
-    multiAz?: pulumi.Input<inputs.resiliencehubv2.PolicyMultiAzTargetsArgs>;
-    multiRegion?: pulumi.Input<inputs.resiliencehubv2.PolicyMultiRegionTargetsArgs>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
+    multiAz?: pulumi.Input<inputs.resiliencehubv2.PolicyMultiAzTargetsArgs | undefined>;
+    multiRegion?: pulumi.Input<inputs.resiliencehubv2.PolicyMultiRegionTargetsArgs | undefined>;
     /**
      * The name of the policy.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags assigned to the policy.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

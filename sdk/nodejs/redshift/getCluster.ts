@@ -198,9 +198,9 @@ export interface GetClusterResult {
      */
     readonly snapshotCopyManual?: boolean;
     /**
-     * The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+     * The number of days to retain automated snapshots in the destination region after they are copied from the source region.
      *
-     *  Default is 7. 
+     *  Default is 7.
      *
      *  Constraints: Must be at least 1 and no more than 35.
      */

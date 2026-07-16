@@ -25,7 +25,7 @@ export interface GetDbSubnetGroupArgs {
      *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
      *   +  Must not be default.
      *   +  First character must be a letter.
-     *   
+     *
      *  Example: ``mydbsubnetgroup``
      */
     dbSubnetGroupName: string;
@@ -63,7 +63,7 @@ export interface GetDbSubnetGroupOutputArgs {
      *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
      *   +  Must not be default.
      *   +  First character must be a letter.
-     *   
+     *
      *  Example: ``mydbsubnetgroup``
      */
     dbSubnetGroupName: pulumi.Input<string>;

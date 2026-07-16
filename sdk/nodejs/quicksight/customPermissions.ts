@@ -102,13 +102,13 @@ export interface CustomPermissionsArgs {
     /**
      * A set of actions in the custom permissions profile.
      */
-    capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilitiesArgs>;
+    capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilitiesArgs | undefined>;
     /**
      * The name of the custom permissions profile.
      */
-    customPermissionsName?: pulumi.Input<string>;
+    customPermissionsName?: pulumi.Input<string | undefined>;
     /**
      * The tags to associate with the custom permissions profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

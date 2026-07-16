@@ -94,5 +94,5 @@ export interface UserAccessLoggingSettingsArgs {
     /**
      * The tags to add to the user access logging settings resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

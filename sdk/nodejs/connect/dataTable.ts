@@ -137,29 +137,29 @@ export interface DataTableArgs {
     /**
      * The description of the Data Table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Data Table
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The status of the Data Table
      */
-    status?: pulumi.Input<enums.connect.DataTableStatus>;
+    status?: pulumi.Input<enums.connect.DataTableStatus | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The time zone of the Data Table
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone?: pulumi.Input<string | undefined>;
     /**
      * The value lock level of the Data Table
      */
-    valueLockLevel?: pulumi.Input<enums.connect.DataTableValueLockLevel>;
+    valueLockLevel?: pulumi.Input<enums.connect.DataTableValueLockLevel | undefined>;
 }

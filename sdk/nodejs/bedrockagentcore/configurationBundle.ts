@@ -146,30 +146,30 @@ export interface ConfigurationBundleArgs {
     /**
      * The branch name for version tracking.
      */
-    branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string | undefined>;
     /**
      * The name for the configuration bundle. Names must be unique within your account.
      */
-    bundleName?: pulumi.Input<string>;
+    bundleName?: pulumi.Input<string | undefined>;
     /**
      * A commit message describing the version of the configuration bundle.
      */
-    commitMessage?: pulumi.Input<string>;
+    commitMessage?: pulumi.Input<string | undefined>;
     /**
      * A map of component identifiers to their configurations.
      */
     components: pulumi.Input<{[key: string]: pulumi.Input<inputs.bedrockagentcore.ConfigurationBundleComponentConfigurationArgs>}>;
-    createdBy?: pulumi.Input<inputs.bedrockagentcore.ConfigurationBundleVersionCreatedBySourceArgs>;
+    createdBy?: pulumi.Input<inputs.bedrockagentcore.ConfigurationBundleVersionCreatedBySourceArgs | undefined>;
     /**
      * The description for the configuration bundle.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the KMS key used to encrypt component configurations.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the configuration bundle.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

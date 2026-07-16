@@ -110,19 +110,19 @@ export interface AlgorithmArgs {
     /**
      * A description of the algorithm.
      */
-    algorithmDescription?: pulumi.Input<string>;
+    algorithmDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the algorithm.
      */
-    algorithmName?: pulumi.Input<string>;
+    algorithmName?: pulumi.Input<string | undefined>;
     /**
      * Whether to certify the algorithm so that it can be listed in AWS Marketplace.
      */
-    certifyForMarketplace?: pulumi.Input<boolean>;
-    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecificationArgs>;
+    certifyForMarketplace?: pulumi.Input<boolean | undefined>;
+    inferenceSpecification?: pulumi.Input<inputs.sagemaker.AlgorithmInferenceSpecificationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     trainingSpecification: pulumi.Input<inputs.sagemaker.AlgorithmTrainingSpecificationArgs>;
 }

@@ -110,15 +110,15 @@ export interface LaunchRoleConstraintArgs {
     /**
      * The language code for the constraint.
      */
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string | undefined>;
     /**
      * The description of the launch role constraint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The local IAM role name to use in the launch constraint.
      */
-    localRoleName?: pulumi.Input<string>;
+    localRoleName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the portfolio to which this launch role constraint applies.
      */
@@ -130,5 +130,5 @@ export interface LaunchRoleConstraintArgs {
     /**
      * The ARN of the IAM role used for the launch constraint.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
 }

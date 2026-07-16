@@ -157,7 +157,7 @@ export interface SyncConfigurationArgs {
     /**
      * Whether to enable or disable publishing of deployment status to source providers.
      */
-    publishDeploymentStatus?: pulumi.Input<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus>;
+    publishDeploymentStatus?: pulumi.Input<enums.codestarconnections.SyncConfigurationPublishDeploymentStatus | undefined>;
     /**
      * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
      */
@@ -177,5 +177,5 @@ export interface SyncConfigurationArgs {
     /**
      * When to trigger Git sync to begin the stack update.
      */
-    triggerResourceUpdateOn?: pulumi.Input<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn>;
+    triggerResourceUpdateOn?: pulumi.Input<enums.codestarconnections.SyncConfigurationTriggerResourceUpdateOn | undefined>;
 }

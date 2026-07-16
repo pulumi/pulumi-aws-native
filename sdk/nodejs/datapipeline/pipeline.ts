@@ -113,29 +113,29 @@ export interface PipelineArgs {
     /**
      * Indicates whether to validate and start the pipeline or stop an active pipeline. By default, the value is set to true.
      */
-    activate?: pulumi.Input<boolean>;
+    activate?: pulumi.Input<boolean | undefined>;
     /**
      * A description of the pipeline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the pipeline.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parameter objects used with the pipeline.
      */
-    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[]>;
+    parameterObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterObjectArgs>[] | undefined>;
     /**
      * The parameter values used with the pipeline.
      */
-    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterValueArgs>[]>;
+    parameterValues?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineParameterValueArgs>[] | undefined>;
     /**
      * The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
      */
-    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineObjectArgs>[]>;
+    pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineObjectArgs>[] | undefined>;
     /**
      * A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
      */
-    pipelineTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    pipelineTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

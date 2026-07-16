@@ -111,7 +111,7 @@ export interface TopicArgs {
     /**
      * Base64 encoded configuration properties of the topic
      */
-    configs?: pulumi.Input<string>;
+    configs?: pulumi.Input<string | undefined>;
     /**
      * The number of partitions for the topic
      */
@@ -123,5 +123,5 @@ export interface TopicArgs {
     /**
      * The name of the topic
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

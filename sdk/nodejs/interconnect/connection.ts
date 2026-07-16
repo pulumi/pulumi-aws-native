@@ -164,7 +164,7 @@ export interface ConnectionArgs {
     /**
      * The activation key for accepting a connection proposal from a partner CSP. Mutually exclusive with EnvironmentId.
      */
-    activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string | undefined>;
     /**
      * The logical attachment point in your AWS network where the managed connection will be connected.
      */
@@ -172,25 +172,25 @@ export interface ConnectionArgs {
     /**
      * The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS.
      */
-    bandwidth?: pulumi.Input<string>;
+    bandwidth?: pulumi.Input<string | undefined>;
     /**
      * A description of the connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
      */
-    environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
      */
-    remoteAccount?: pulumi.Input<inputs.interconnect.RemoteAccountPropertiesArgs>;
+    remoteAccount?: pulumi.Input<inputs.interconnect.RemoteAccountPropertiesArgs | undefined>;
     /**
      * Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
      */
-    remoteOwnerAccount?: pulumi.Input<string>;
+    remoteOwnerAccount?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

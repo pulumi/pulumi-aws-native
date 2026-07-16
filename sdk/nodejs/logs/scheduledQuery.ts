@@ -131,18 +131,18 @@ export class ScheduledQuery extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQuery resource.
  */
 export interface ScheduledQueryArgs {
-    description?: pulumi.Input<string>;
-    destinationConfiguration?: pulumi.Input<inputs.logs.ScheduledQueryDestinationConfigurationArgs>;
+    description?: pulumi.Input<string | undefined>;
+    destinationConfiguration?: pulumi.Input<inputs.logs.ScheduledQueryDestinationConfigurationArgs | undefined>;
     executionRoleArn: pulumi.Input<string>;
-    logGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    name?: pulumi.Input<string>;
+    logGroupIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    name?: pulumi.Input<string | undefined>;
     queryLanguage: pulumi.Input<string>;
     queryString: pulumi.Input<string>;
-    scheduleEndTime?: pulumi.Input<number>;
+    scheduleEndTime?: pulumi.Input<number | undefined>;
     scheduleExpression: pulumi.Input<string>;
-    scheduleStartTime?: pulumi.Input<number>;
-    startTimeOffset?: pulumi.Input<number>;
-    state?: pulumi.Input<enums.logs.ScheduledQueryState>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    timezone?: pulumi.Input<string>;
+    scheduleStartTime?: pulumi.Input<number | undefined>;
+    startTimeOffset?: pulumi.Input<number | undefined>;
+    state?: pulumi.Input<enums.logs.ScheduledQueryState | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    timezone?: pulumi.Input<string | undefined>;
 }

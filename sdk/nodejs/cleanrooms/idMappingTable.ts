@@ -140,7 +140,7 @@ export interface IdMappingTableArgs {
     /**
      * The description of the ID mapping table.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The input reference configuration for the ID mapping table.
      */
@@ -148,7 +148,7 @@ export interface IdMappingTableArgs {
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier of the membership resource for the ID mapping table.
      */
@@ -156,9 +156,9 @@ export interface IdMappingTableArgs {
     /**
      * The name of the ID mapping table.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

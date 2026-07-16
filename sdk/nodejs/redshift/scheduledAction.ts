@@ -125,33 +125,33 @@ export interface ScheduledActionArgs {
     /**
      * If true, the schedule is enabled. If false, the scheduled action does not trigger.
      */
-    enable?: pulumi.Input<boolean>;
+    enable?: pulumi.Input<boolean | undefined>;
     /**
      * The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * The IAM role to assume to run the target action.
      */
-    iamRole?: pulumi.Input<string>;
+    iamRole?: pulumi.Input<string | undefined>;
     /**
      * The schedule in `at( )` or `cron( )` format.
      */
-    schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string | undefined>;
     /**
      * The description of the scheduled action.
      */
-    scheduledActionDescription?: pulumi.Input<string>;
+    scheduledActionDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the scheduled action. The name must be unique within an account.
      */
-    scheduledActionName?: pulumi.Input<string>;
+    scheduledActionName?: pulumi.Input<string | undefined>;
     /**
      * The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * A JSON format string of the Amazon Redshift API operation with input parameters.
      */
-    targetAction?: pulumi.Input<inputs.redshift.ScheduledActionTypeArgs>;
+    targetAction?: pulumi.Input<inputs.redshift.ScheduledActionTypeArgs | undefined>;
 }

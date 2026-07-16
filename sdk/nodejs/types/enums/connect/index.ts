@@ -563,7 +563,7 @@ export const RuleReferenceType = {
 } as const;
 
 /**
- * The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+ * The type of the reference. ``DATE`` must be of type Epoch timestamp.
  *  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
  */
 export type RuleReferenceType = (typeof RuleReferenceType)[keyof typeof RuleReferenceType];

@@ -95,7 +95,7 @@ export interface RequestValidatorArgs {
     /**
      * The name of this RequestValidator
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The string identifier of the associated RestApi.
      */
@@ -103,9 +103,9 @@ export interface RequestValidatorArgs {
     /**
      * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
      */
-    validateRequestBody?: pulumi.Input<boolean>;
+    validateRequestBody?: pulumi.Input<boolean | undefined>;
     /**
      * A Boolean flag to indicate whether to validate request parameters ( `true` ) or not ( `false` ).
      */
-    validateRequestParameters?: pulumi.Input<boolean>;
+    validateRequestParameters?: pulumi.Input<boolean | undefined>;
 }

@@ -90,7 +90,7 @@ export interface GetQueueResult {
      *   +  ``allowAll``: (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
      *   +  ``denyAll``: No source queues can specify this queue as the dead-letter queue.
      *   +  ``byQueue``: Only queues specified by the ``sourceQueueArns`` parameter can specify this queue as the dead-letter queue.
-     *   
+     *
      *   +  ``sourceQueueArns``: The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the ``redrivePermission`` parameter is set to ``byQueue``. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the ``redrivePermission`` parameter to ``allowAll``.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -100,12 +100,12 @@ export interface GetQueueResult {
      * The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
      *   +  ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
      *   +  ``maxReceiveCount``: The number of times a message is received by a consumer of the source queue before being moved to the dead-letter queue. When the ``ReceiveCount`` for a message exceeds the ``maxReceiveCount`` for a queue, SQS moves the message to the dead-letter-queue.
-     *   
+     *
      *   The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
-     *    *JSON* 
-     *   ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }`` 
-     *   *YAML* 
-     *   ``deadLetterTargetArn : String`` 
+     *    *JSON*
+     *   ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }``
+     *   *YAML*
+     *   ``deadLetterTargetArn : String``
      *   ``maxReceiveCount : Integer``
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.

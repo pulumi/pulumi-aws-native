@@ -107,5 +107,5 @@ export interface CustomerGatewayAssociationArgs {
     /**
      * The ID of the link
      */
-    linkId?: pulumi.Input<string>;
+    linkId?: pulumi.Input<string | undefined>;
 }

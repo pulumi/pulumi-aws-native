@@ -86,13 +86,13 @@ export class UserPoolRegionalConfigurationAttachment extends pulumi.CustomResour
  * The set of arguments for constructing a UserPoolRegionalConfigurationAttachment resource.
  */
 export interface UserPoolRegionalConfigurationAttachmentArgs {
-    emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs>;
-    lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentLambdaConfigArgs>;
-    smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs>;
+    emailConfiguration?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs | undefined>;
+    lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentLambdaConfigArgs | undefined>;
+    smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs | undefined>;
     /**
      * The status of the replica. Set to ACTIVE or INACTIVE.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     userPoolId: pulumi.Input<string>;
-    userPoolTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    userPoolTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -104,7 +104,7 @@ export interface StoredQueryArgs {
     /**
      * A unique description for the query.
      */
-    queryDescription?: pulumi.Input<string>;
+    queryDescription?: pulumi.Input<string | undefined>;
     /**
      * The expression of the query. For example, `SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = 'AWS::S3::Bucket' AND supplementaryConfiguration.BucketVersioningConfiguration.status = 'Off'.`
      */
@@ -112,9 +112,9 @@ export interface StoredQueryArgs {
     /**
      * The name of the query.
      */
-    queryName?: pulumi.Input<string>;
+    queryName?: pulumi.Input<string | undefined>;
     /**
      * The tags for the stored query.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

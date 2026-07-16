@@ -255,11 +255,11 @@ export interface NodegroupArgs {
     /**
      * The AMI type for your node group.
      */
-    amiType?: pulumi.Input<string>;
+    amiType?: pulumi.Input<string | undefined>;
     /**
      * The capacity type of your managed node group.
      */
-    capacityType?: pulumi.Input<string>;
+    capacityType?: pulumi.Input<string | undefined>;
     /**
      * Name of the cluster to create the node group in.
      */
@@ -267,27 +267,27 @@ export interface NodegroupArgs {
     /**
      * The root device disk size (in GiB) for your node group instances.
      */
-    diskSize?: pulumi.Input<number>;
+    diskSize?: pulumi.Input<number | undefined>;
     /**
      * Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
      */
-    forceUpdateEnabled?: pulumi.Input<boolean>;
+    forceUpdateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specify the instance types for a node group.
      */
-    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Kubernetes labels to be applied to the nodes in the node group when they are created.
      */
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An object representing a node group's launch template specification.
      */
-    launchTemplate?: pulumi.Input<inputs.eks.NodegroupLaunchTemplateSpecificationArgs>;
+    launchTemplate?: pulumi.Input<inputs.eks.NodegroupLaunchTemplateSpecificationArgs | undefined>;
     /**
      * The node auto repair configuration for node group.
      */
-    nodeRepairConfig?: pulumi.Input<inputs.eks.NodegroupNodeRepairConfigArgs>;
+    nodeRepairConfig?: pulumi.Input<inputs.eks.NodegroupNodeRepairConfigArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
      */
@@ -295,19 +295,19 @@ export interface NodegroupArgs {
     /**
      * The unique name to give your node group.
      */
-    nodegroupName?: pulumi.Input<string>;
+    nodegroupName?: pulumi.Input<string | undefined>;
     /**
      * The AMI version of the Amazon EKS-optimized AMI to use with your node group.
      */
-    releaseVersion?: pulumi.Input<string>;
+    releaseVersion?: pulumi.Input<string | undefined>;
     /**
      * The remote access (SSH) configuration to use with your node group.
      */
-    remoteAccess?: pulumi.Input<inputs.eks.NodegroupRemoteAccessArgs>;
+    remoteAccess?: pulumi.Input<inputs.eks.NodegroupRemoteAccessArgs | undefined>;
     /**
      * The scaling configuration details for the Auto Scaling group that is created for your node group.
      */
-    scalingConfig?: pulumi.Input<inputs.eks.NodegroupScalingConfigArgs>;
+    scalingConfig?: pulumi.Input<inputs.eks.NodegroupScalingConfigArgs | undefined>;
     /**
      * The subnets to use for the Auto Scaling group that is created for your node group.
      */
@@ -315,21 +315,21 @@ export interface NodegroupArgs {
     /**
      * The metadata, as key-value pairs, to apply to the node group to assist with categorization and organization. Follows same schema as Labels for consistency.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The Kubernetes taints to be applied to the nodes in the node group when they are created.
      */
-    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodegroupTaintArgs>[]>;
+    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodegroupTaintArgs>[] | undefined>;
     /**
      * The node group update configuration.
      */
-    updateConfig?: pulumi.Input<inputs.eks.NodegroupUpdateConfigArgs>;
+    updateConfig?: pulumi.Input<inputs.eks.NodegroupUpdateConfigArgs | undefined>;
     /**
      * The Kubernetes version to use for your managed nodes.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The warm pool configuration details for the Auto Scaling group that is created for the node group.
      */
-    warmPoolConfig?: pulumi.Input<inputs.eks.NodegroupWarmPoolConfigArgs>;
+    warmPoolConfig?: pulumi.Input<inputs.eks.NodegroupWarmPoolConfigArgs | undefined>;
 }

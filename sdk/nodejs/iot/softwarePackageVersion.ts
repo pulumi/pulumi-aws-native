@@ -130,17 +130,17 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SoftwarePackageVersion resource.
  */
 export interface SoftwarePackageVersionArgs {
-    artifact?: pulumi.Input<inputs.iot.SoftwarePackageVersionPackageVersionArtifactArgs>;
+    artifact?: pulumi.Input<inputs.iot.SoftwarePackageVersionPackageVersionArtifactArgs | undefined>;
     /**
      * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
      *
      * The combined size of all the attributes on a package version is limited to 3KB.
      */
-    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A summary of the package version being created. This can be used to outline the package's contents or purpose.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the associated software package.
      */
@@ -148,14 +148,14 @@ export interface SoftwarePackageVersionArgs {
     /**
      * The inline json job document associated with a software package version
      */
-    recipe?: pulumi.Input<string>;
-    sbom?: pulumi.Input<inputs.iot.SoftwarePackageVersionSbomArgs>;
+    recipe?: pulumi.Input<string | undefined>;
+    sbom?: pulumi.Input<inputs.iot.SoftwarePackageVersionSbomArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the new package version.
      */
-    versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
 }

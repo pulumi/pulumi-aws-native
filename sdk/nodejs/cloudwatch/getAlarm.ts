@@ -21,7 +21,7 @@ export function getAlarm(args: GetAlarmArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetAlarmArgs {
     /**
-     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name.
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     alarmName: string;
@@ -152,7 +152,7 @@ export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOut
 
 export interface GetAlarmOutputArgs {
     /**
-     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+     * The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name.
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     alarmName: pulumi.Input<string>;

@@ -98,11 +98,11 @@ export interface BucketArgs {
     /**
      * A name for the bucket.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * Rules that define how Amazon S3Outposts manages objects during their lifetime.
      */
-    lifecycleConfiguration?: pulumi.Input<inputs.s3outposts.BucketLifecycleConfigurationArgs>;
+    lifecycleConfiguration?: pulumi.Input<inputs.s3outposts.BucketLifecycleConfigurationArgs | undefined>;
     /**
      * The id of the customer outpost on which the bucket resides.
      */
@@ -110,5 +110,5 @@ export interface BucketArgs {
     /**
      * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

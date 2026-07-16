@@ -127,40 +127,40 @@ export interface DaemonTaskDefinitionArgs {
     /**
      * A list of container definitions in JSON format that describe the containers that make up the daemon task.
      */
-    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>[]>;
+    containerDefinitions?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionDaemonContainerDefinitionArgs>[] | undefined>;
     /**
      * The number of CPU units used by the daemon task.
      */
-    cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of a family that this daemon task definition is registered to.
      */
-    family?: pulumi.Input<string>;
+    family?: pulumi.Input<string | undefined>;
     /**
      * The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
      *  If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
      */
-    ipcMode?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string | undefined>;
     /**
      * The amount of memory (in MiB) used by the daemon task.
      */
-    memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string | undefined>;
     /**
      * The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
      *  If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
      */
-    pidMode?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    pidMode?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
      */
-    taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The list of data volume definitions for the daemon task.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionVolumeArgs>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.DaemonTaskDefinitionVolumeArgs>[] | undefined>;
 }

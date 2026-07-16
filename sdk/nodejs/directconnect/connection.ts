@@ -135,11 +135,11 @@ export interface ConnectionArgs {
     /**
      * The name of the connection.
      */
-    connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The ID or ARN of the LAG to associate the connection with.
      */
-    lagId?: pulumi.Input<string>;
+    lagId?: pulumi.Input<string | undefined>;
     /**
      * The location of the connection.
      */
@@ -147,13 +147,13 @@ export interface ConnectionArgs {
     /**
      * The name of the service provider associated with the requested connection.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether you want the connection to support MAC Security (MACsec).
      */
-    requestMacSec?: pulumi.Input<boolean>;
+    requestMacSec?: pulumi.Input<boolean | undefined>;
     /**
      * The tags associated with the connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

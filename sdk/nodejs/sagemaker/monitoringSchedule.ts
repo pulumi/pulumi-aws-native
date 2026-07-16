@@ -128,15 +128,15 @@ export interface MonitoringScheduleArgs {
     /**
      * The name of the endpoint using the monitoring schedule.
      */
-    endpointName?: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * Contains the reason a monitoring job failed, if it failed.
      */
-    failureReason?: pulumi.Input<string>;
+    failureReason?: pulumi.Input<string | undefined>;
     /**
      * Describes metadata on the last execution to run, if there was one.
      */
-    lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
+    lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs | undefined>;
     /**
      * The configuration object that specifies the monitoring schedule and defines the monitoring job.
      */
@@ -144,13 +144,13 @@ export interface MonitoringScheduleArgs {
     /**
      * The name of the monitoring schedule.
      */
-    monitoringScheduleName?: pulumi.Input<string>;
+    monitoringScheduleName?: pulumi.Input<string | undefined>;
     /**
      * The status of a schedule job.
      */
-    monitoringScheduleStatus?: pulumi.Input<enums.sagemaker.MonitoringScheduleStatus>;
+    monitoringScheduleStatus?: pulumi.Input<enums.sagemaker.MonitoringScheduleStatus | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

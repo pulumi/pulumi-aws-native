@@ -50,7 +50,7 @@ export class WebAcl extends pulumi.CustomResource {
      *
      * Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
      *
-     * > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+     * > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
      *
      * For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
      */
@@ -117,7 +117,7 @@ export class WebAcl extends pulumi.CustomResource {
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
-     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
      *
      * For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
      */
@@ -213,25 +213,25 @@ export interface WebAclArgs {
     /**
      * Collection of application attributes.
      */
-    applicationConfig?: pulumi.Input<inputs.wafv2.WebAclApplicationConfigArgs>;
+    applicationConfig?: pulumi.Input<inputs.wafv2.WebAclApplicationConfigArgs | undefined>;
     /**
      * Specifies custom configurations for the associations between the web ACL and protected resources.
      *
      * Use this to customize the maximum size of the request body that your protected resources forward to AWS WAF for inspection. You can customize this setting for CloudFront, API Gateway, Amazon Cognito, App Runner, or Verified Access resources. The default setting is 16 KB (16,384 bytes).
      *
-     * > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+     * > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
      *
      * For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
      */
-    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfigArgs>;
+    associationConfig?: pulumi.Input<inputs.wafv2.WebAclAssociationConfigArgs | undefined>;
     /**
      * Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
      */
-    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigArgs>;
+    captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigArgs | undefined>;
     /**
      * Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
      */
-    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigArgs>;
+    challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigArgs | undefined>;
     /**
      * A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
      *
@@ -239,11 +239,11 @@ export interface WebAclArgs {
      *
      * For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
      */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodyArgs>}>;
+    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodyArgs>} | undefined>;
     /**
      * Collection of dataProtects.
      */
-    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfigArgs>;
+    dataProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclDataProtectionConfigArgs | undefined>;
     /**
      * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
@@ -251,24 +251,24 @@ export interface WebAclArgs {
     /**
      * A description of the web ACL that helps with identification.
      */
-    description?: pulumi.Input<string>;
-    monetizationConfig?: pulumi.Input<inputs.wafv2.WebAclMonetizationConfigArgs>;
+    description?: pulumi.Input<string | undefined>;
+    monetizationConfig?: pulumi.Input<inputs.wafv2.WebAclMonetizationConfigArgs | undefined>;
     /**
      * The name of the web ACL. You cannot change the name of a web ACL after you create it.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Configures the level of DDoS protection that applies to web ACLs associated with Application Load Balancers.
      */
-    onSourceDDoSProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclOnSourceDDoSProtectionConfigArgs>;
+    onSourceDDoSProtectionConfig?: pulumi.Input<inputs.wafv2.WebAclOnSourceDDoSProtectionConfigArgs | undefined>;
     /**
      * Collection of Rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleArgs>[] | undefined>;
     /**
      * Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
      *
-     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` . 
+     * > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
      *
      * For information about how to define the association of the web ACL with your resource, see `WebACLAssociation` .
      */
@@ -278,11 +278,11 @@ export interface WebAclArgs {
      *
      * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
      */
-    tokenDomains?: pulumi.Input<pulumi.Input<string>[]>;
+    tokenDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Defines and enables Amazon CloudWatch metrics and web request sample collection.
      */

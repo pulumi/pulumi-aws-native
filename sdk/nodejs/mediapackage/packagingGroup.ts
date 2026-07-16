@@ -104,7 +104,7 @@ export interface PackagingGroupArgs {
     /**
      * CDN Authorization
      */
-    authorization?: pulumi.Input<inputs.mediapackage.PackagingGroupAuthorizationArgs>;
+    authorization?: pulumi.Input<inputs.mediapackage.PackagingGroupAuthorizationArgs | undefined>;
     /**
      * The ID of the PackagingGroup.
      */
@@ -112,9 +112,9 @@ export interface PackagingGroupArgs {
     /**
      * The configuration parameters for egress access logging.
      */
-    egressAccessLogs?: pulumi.Input<inputs.mediapackage.PackagingGroupLogConfigurationArgs>;
+    egressAccessLogs?: pulumi.Input<inputs.mediapackage.PackagingGroupLogConfigurationArgs | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

@@ -119,11 +119,11 @@ export interface CostCategoryArgs {
     /**
      * The default value for the cost category
      */
-    defaultValue?: pulumi.Input<string>;
+    defaultValue?: pulumi.Input<string | undefined>;
     /**
      * The unique name of the Cost Category.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The rule schema version in this particular Cost Category.
      */
@@ -135,9 +135,9 @@ export interface CostCategoryArgs {
     /**
      * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
-    splitChargeRules?: pulumi.Input<string>;
+    splitChargeRules?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the cost category.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

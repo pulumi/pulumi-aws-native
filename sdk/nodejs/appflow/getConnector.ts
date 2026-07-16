@@ -34,7 +34,7 @@ export interface GetConnectorResult {
      */
     readonly connectorProvisioningConfig?: outputs.appflow.ConnectorProvisioningConfig;
     /**
-     * The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+     * The provisioning type of the connector. Currently the only supported value is LAMBDA.
      */
     readonly connectorProvisioningType?: string;
     /**

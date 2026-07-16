@@ -143,11 +143,11 @@ export interface ConnectorArgs {
     /**
      * A description of the connector
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     provider: pulumi.Input<inputs.securityhub.ConnectorProviderArgs>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

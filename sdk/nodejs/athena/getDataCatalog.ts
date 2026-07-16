@@ -19,7 +19,7 @@ export function getDataCatalog(args: GetDataCatalogArgs, opts?: pulumi.InvokeOpt
 
 export interface GetDataCatalogArgs {
     /**
-     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      */
     name: string;
 }
@@ -30,7 +30,7 @@ export interface GetDataCatalogResult {
      */
     readonly connectionType?: string;
     /**
-     * A description of the data catalog to be created. 
+     * A description of the data catalog to be created.
      */
     readonly description?: string;
     /**
@@ -38,7 +38,7 @@ export interface GetDataCatalogResult {
      */
     readonly error?: string;
     /**
-     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
+     * Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type.
      */
     readonly parameters?: {[key: string]: string};
     /**
@@ -46,7 +46,7 @@ export interface GetDataCatalogResult {
      */
     readonly status?: enums.athena.DataCatalogStatus;
     /**
-     * A list of comma separated tags to add to the data catalog that is created. 
+     * A list of comma separated tags to add to the data catalog that is created.
      */
     readonly tags?: outputs.Tag[];
     /**
@@ -66,7 +66,7 @@ export function getDataCatalogOutput(args: GetDataCatalogOutputArgs, opts?: pulu
 
 export interface GetDataCatalogOutputArgs {
     /**
-     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
+     * The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters.
      */
     name: pulumi.Input<string>;
 }

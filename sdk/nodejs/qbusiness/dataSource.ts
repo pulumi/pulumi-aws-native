@@ -215,7 +215,7 @@ export interface DataSourceArgs {
     /**
      * A description for the data source connector.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the Amazon Q Business data source.
      */
@@ -225,7 +225,7 @@ export interface DataSourceArgs {
      *
      * For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
      */
-    documentEnrichmentConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceDocumentEnrichmentConfigurationArgs>;
+    documentEnrichmentConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceDocumentEnrichmentConfigurationArgs | undefined>;
     /**
      * The identifier of the index the data source is attached to.
      */
@@ -233,23 +233,23 @@ export interface DataSourceArgs {
     /**
      * The configuration for extracting information from media in documents.
      */
-    mediaExtractionConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceMediaExtractionConfigurationArgs>;
+    mediaExtractionConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceMediaExtractionConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources. This field is required for all connector types except custom connectors, where it is optional.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
      *
      * Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
      */
-    syncSchedule?: pulumi.Input<string>;
+    syncSchedule?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
      */
-    vpcConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceVpcConfigurationArgs>;
+    vpcConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceVpcConfigurationArgs | undefined>;
 }

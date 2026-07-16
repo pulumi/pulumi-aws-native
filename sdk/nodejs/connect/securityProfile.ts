@@ -158,31 +158,31 @@ export interface SecurityProfileArgs {
     /**
      * The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
      */
-    allowedAccessControlHierarchyGroupId?: pulumi.Input<string>;
+    allowedAccessControlHierarchyGroupId?: pulumi.Input<string | undefined>;
     /**
      * The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
      */
-    allowedAccessControlTags?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileTagArgs>[]>;
+    allowedAccessControlTags?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileTagArgs>[] | undefined>;
     /**
      * The list of flow-module resources to be linked to a security profile in Amazon Connect.
      */
-    allowedFlowModules?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileFlowModuleArgs>[]>;
+    allowedFlowModules?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileFlowModuleArgs>[] | undefined>;
     /**
      * A list of third-party applications that the security profile will give access to.
      */
-    applications?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileApplicationArgs>[]>;
+    applications?: pulumi.Input<pulumi.Input<inputs.connect.SecurityProfileApplicationArgs>[] | undefined>;
     /**
      * The description of the security profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The granular access control configuration for the security profile, including data table permissions.
      */
-    granularAccessControlConfiguration?: pulumi.Input<inputs.connect.GranularAccessControlConfigurationPropertiesArgs>;
+    granularAccessControlConfiguration?: pulumi.Input<inputs.connect.GranularAccessControlConfigurationPropertiesArgs | undefined>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
      */
-    hierarchyRestrictedResources?: pulumi.Input<pulumi.Input<string>[]>;
+    hierarchyRestrictedResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The identifier of the Amazon Connect instance.
      */
@@ -190,17 +190,17 @@ export interface SecurityProfileArgs {
     /**
      * Permissions assigned to the security profile.
      */
-    permissions?: pulumi.Input<pulumi.Input<string>[]>;
+    permissions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the security profile.
      */
-    securityProfileName?: pulumi.Input<string>;
+    securityProfileName?: pulumi.Input<string | undefined>;
     /**
      * The list of resources that a security profile applies tag restrictions to in Amazon Connect.
      */
-    tagRestrictedResources?: pulumi.Input<pulumi.Input<string>[]>;
+    tagRestrictedResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

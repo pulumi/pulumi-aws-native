@@ -138,11 +138,11 @@ export interface ApplicationArgs {
     /**
      * Application Description, should be between 1 and 2048 characters.
      */
-    applicationDescription?: pulumi.Input<string>;
+    applicationDescription?: pulumi.Input<string | undefined>;
     /**
      * Application Name, should be between 1 and 256 characters.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
      */
@@ -150,5 +150,5 @@ export interface ApplicationArgs {
     /**
      * A list of key-value pairs that contain metadata for the application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -104,7 +104,7 @@ export interface ProfileResourceAssociationArgs {
     /**
      * The name of an association between the  Profile and resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ID of the  profile that you associated the resource to that is specified by ResourceArn.
      */
@@ -116,5 +116,5 @@ export interface ProfileResourceAssociationArgs {
     /**
      * A JSON-formatted string with key-value pairs specifying the properties of the associated resource.
      */
-    resourceProperties?: pulumi.Input<string>;
+    resourceProperties?: pulumi.Input<string | undefined>;
 }

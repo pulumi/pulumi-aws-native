@@ -135,7 +135,7 @@ export interface InstanceArgs {
     /**
      * Existing directoryId user wants to map to the new Connect instance.
      */
-    directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the type of directory integration for new instance.
      */
@@ -143,9 +143,9 @@ export interface InstanceArgs {
     /**
      * Alias of the new directory created as part of new instance creation.
      */
-    instanceAlias?: pulumi.Input<string>;
+    instanceAlias?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

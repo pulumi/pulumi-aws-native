@@ -113,7 +113,7 @@ export interface ServiceActionArgs {
      * - `jp` - Japanese
      * - `zh` - Chinese
      */
-    acceptLanguage?: pulumi.Input<enums.servicecatalog.ServiceActionAcceptLanguage>;
+    acceptLanguage?: pulumi.Input<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
     /**
      * A map that defines the self-service action.
      */
@@ -125,9 +125,9 @@ export interface ServiceActionArgs {
     /**
      * The self-service action description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The self-service action name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

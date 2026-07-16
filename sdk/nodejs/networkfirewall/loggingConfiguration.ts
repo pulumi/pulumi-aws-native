@@ -89,7 +89,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
-    enableMonitoringDashboard?: pulumi.Input<boolean>;
+    enableMonitoringDashboard?: pulumi.Input<boolean | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the firewallthat the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
@@ -97,7 +97,7 @@ export interface LoggingConfigurationArgs {
     /**
      * The name of the firewall that the logging configuration is associated with. You can't change the firewall specification after you create the logging configuration.
      */
-    firewallName?: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * Defines how AWS Network Firewall performs logging for a firewall.
      */

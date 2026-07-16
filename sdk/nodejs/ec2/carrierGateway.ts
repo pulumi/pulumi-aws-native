@@ -98,7 +98,7 @@ export interface CarrierGatewayArgs {
     /**
      * The tags for the carrier gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC.
      */

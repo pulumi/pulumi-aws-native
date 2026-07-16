@@ -105,7 +105,7 @@ export interface ApiMappingArgs {
     /**
      * The API mapping key.
      */
-    apiMappingKey?: pulumi.Input<string>;
+    apiMappingKey?: pulumi.Input<string | undefined>;
     /**
      * The domain name.
      */

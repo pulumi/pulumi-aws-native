@@ -107,11 +107,11 @@ export interface DestinationArgs {
     /**
      * The name of the destination resource
      */
-    destinationName?: pulumi.Input<string>;
+    destinationName?: pulumi.Input<string | undefined>;
     /**
      * An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
      */
-    destinationPolicy?: pulumi.Input<string>;
+    destinationPolicy?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
      */
@@ -119,7 +119,7 @@ export interface DestinationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
      */

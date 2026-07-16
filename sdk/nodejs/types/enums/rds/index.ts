@@ -29,7 +29,7 @@ export const DbProxyAuthFormatAuthScheme = {
 } as const;
 
 /**
- * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+ * The type of authentication that the proxy uses for connections from the proxy to the underlying database.
  */
 export type DbProxyAuthFormatAuthScheme = (typeof DbProxyAuthFormatAuthScheme)[keyof typeof DbProxyAuthFormatAuthScheme];
 

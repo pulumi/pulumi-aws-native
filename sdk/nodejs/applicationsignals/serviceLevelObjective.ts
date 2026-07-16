@@ -139,35 +139,35 @@ export interface ServiceLevelObjectiveArgs {
     /**
      * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
      */
-    burnRateConfigurations?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveBurnRateConfigurationArgs>[]>;
+    burnRateConfigurations?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveBurnRateConfigurationArgs>[] | undefined>;
     /**
      * An optional description for this SLO. Default is 'No description'
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The time window to be excluded from the SLO performance metrics.
      */
-    exclusionWindows?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveExclusionWindowArgs>[]>;
+    exclusionWindows?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveExclusionWindowArgs>[] | undefined>;
     /**
      * This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
      */
-    goal?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveGoalArgs>;
+    goal?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveGoalArgs | undefined>;
     /**
      * The name of this SLO.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A structure containing information about the performance metric that this SLO monitors, if this is a request-based SLO.
      */
-    requestBasedSli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveRequestBasedSliArgs>;
+    requestBasedSli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveRequestBasedSliArgs | undefined>;
     /**
      * A structure containing information about the performance metric that this SLO monitors, if this is a period-based SLO.
      */
-    sli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveSliArgs>;
+    sli?: pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveSliArgs | undefined>;
     /**
      * A list of key-value pairs to associate with the SLO. You can associate as many as 50 tags with an SLO. To be able to associate tags with the SLO when you create the SLO, you must have the cloudwatch:TagResource permission.
      *
      * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

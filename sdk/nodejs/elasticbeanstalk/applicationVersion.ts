@@ -38,7 +38,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     * The name of the Elastic Beanstalk application that is associated with this application version.
      */
     declare public readonly applicationName: pulumi.Output<string>;
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
@@ -47,7 +47,7 @@ export class ApplicationVersion extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+     * The Amazon S3 bucket and key that identify the location of the source bundle for this version.
      */
     declare public readonly sourceBundle: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle>;
 
@@ -90,15 +90,15 @@ export class ApplicationVersion extends pulumi.CustomResource {
  */
 export interface ApplicationVersionArgs {
     /**
-     * The name of the Elastic Beanstalk application that is associated with this application version. 
+     * The name of the Elastic Beanstalk application that is associated with this application version.
      */
     applicationName: pulumi.Input<string>;
     /**
      * A description of this application version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
+     * The Amazon S3 bucket and key that identify the location of the source bundle for this version.
      */
     sourceBundle: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionSourceBundleArgs>;
 }

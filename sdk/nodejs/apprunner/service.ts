@@ -146,31 +146,31 @@ export interface ServiceArgs {
     /**
      * Autoscaling configuration ARN
      */
-    autoScalingConfigurationArn?: pulumi.Input<string>;
+    autoScalingConfigurationArn?: pulumi.Input<string | undefined>;
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed key .
      */
-    encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfigurationArgs | undefined>;
     /**
      * The settings for the health check that AWS App Runner performs to monitor the health of the App Runner service.
      */
-    healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfigurationArgs>;
+    healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfigurationArgs | undefined>;
     /**
      * The runtime configuration of instances (scaling units) of your service.
      */
-    instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfigurationArgs>;
+    instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfigurationArgs | undefined>;
     /**
      * Configuration settings related to network traffic of the web application that the App Runner service runs.
      */
-    networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfigurationArgs | undefined>;
     /**
      * The observability configuration of your service.
      */
-    observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfigurationArgs>;
+    observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfigurationArgs | undefined>;
     /**
      * The AppRunner Service Name.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * The source to deploy to the App Runner service. It can be a code or an image repository.
      */
@@ -178,5 +178,5 @@ export interface ServiceArgs {
     /**
      * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

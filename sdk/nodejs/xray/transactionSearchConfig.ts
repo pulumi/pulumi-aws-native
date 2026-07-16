@@ -63,5 +63,5 @@ export class TransactionSearchConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a TransactionSearchConfig resource.
  */
 export interface TransactionSearchConfigArgs {
-    indexingPercentage?: pulumi.Input<number>;
+    indexingPercentage?: pulumi.Input<number | undefined>;
 }

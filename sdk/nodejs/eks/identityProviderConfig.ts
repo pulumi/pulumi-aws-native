@@ -111,15 +111,15 @@ export interface IdentityProviderConfigArgs {
     /**
      * The name of the OIDC provider configuration.
      */
-    identityProviderConfigName?: pulumi.Input<string>;
+    identityProviderConfigName?: pulumi.Input<string | undefined>;
     /**
      * An object representing an OpenID Connect (OIDC) identity provider configuration.
      */
-    oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidcIdentityProviderConfigArgs>;
+    oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidcIdentityProviderConfigArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The type of the identity provider configuration.
      */

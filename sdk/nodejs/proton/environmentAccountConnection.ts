@@ -125,31 +125,31 @@ export interface EnvironmentAccountConnectionArgs {
     /**
      * The Amazon Resource Name (ARN) of an IAM service role in the environment account. AWS Proton uses this role to provision infrastructure resources using CodeBuild-based provisioning in the associated environment account.
      */
-    codebuildRoleArn?: pulumi.Input<string>;
+    codebuildRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM service role that AWS Proton uses when provisioning directly defined components in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.
      */
-    componentRoleArn?: pulumi.Input<string>;
+    componentRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The environment account that's connected to the environment account connection.
      */
-    environmentAccountId?: pulumi.Input<string>;
+    environmentAccountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the AWS Proton environment that's created in the associated management account.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the management account that accepts or rejects the environment account connection. You create an manage the AWS Proton environment in this account. If the management account accepts the environment account connection, AWS Proton can use the associated IAM role to provision environment infrastructure resources in the associated environment account.
      */
-    managementAccountId?: pulumi.Input<string>;
+    managementAccountId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. AWS Proton uses this role to provision infrastructure resources in the associated environment account.
      */
-    roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string | undefined>;
     /**
      * <p>An optional list of metadata items that you can associate with the Proton environment account connection. A tag is a key-value pair.</p>
      *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
      *         <i>Proton User Guide</i>.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

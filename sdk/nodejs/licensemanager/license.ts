@@ -191,11 +191,11 @@ export interface LicenseArgs {
     /**
      * License metadata.
      */
-    licenseMetadata?: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseMetadataArgs>[]>;
+    licenseMetadata?: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseMetadataArgs>[] | undefined>;
     /**
      * Name for the created license.
      */
-    licenseName?: pulumi.Input<string>;
+    licenseName?: pulumi.Input<string | undefined>;
     /**
      * Product name for the created license.
      */
@@ -207,11 +207,11 @@ export interface LicenseArgs {
     /**
      * License status.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to attach.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Date and time range during which the license is valid, in ISO8601-UTC format.
      */

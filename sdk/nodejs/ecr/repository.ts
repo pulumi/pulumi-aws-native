@@ -178,42 +178,42 @@ export interface RepositoryArgs {
     /**
      * If true, deleting the repository force deletes the contents of the repository. If false, the repository must be empty before attempting to delete it.
      */
-    emptyOnDelete?: pulumi.Input<boolean>;
+    emptyOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.ecr.RepositoryEncryptionConfigurationArgs | undefined>;
     /**
      * The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
      *   The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
      */
-    imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs>;
+    imageScanningConfiguration?: pulumi.Input<inputs.ecr.RepositoryImageScanningConfigurationArgs | undefined>;
     /**
      * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
      */
-    imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability>;
+    imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability | undefined>;
     /**
      * A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
      */
-    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilterArgs>[]>;
+    imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryImageTagMutabilityExclusionFilterArgs>[] | undefined>;
     /**
      * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
      */
-    lifecyclePolicy?: pulumi.Input<inputs.ecr.RepositoryLifecyclePolicyArgs>;
+    lifecyclePolicy?: pulumi.Input<inputs.ecr.RepositoryLifecyclePolicyArgs | undefined>;
     /**
      * The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *  The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
      *   If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string | undefined>;
     /**
      * The JSON repository policy text to apply to the repository. For more information, see [Amazon ECR repository policies](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html) in the *Amazon Elastic Container Registry User Guide*.
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ECR::Repository` for more information about the expected schema for this property.
      */
-    repositoryPolicyText?: any;
+    repositoryPolicyText?: any | undefined;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

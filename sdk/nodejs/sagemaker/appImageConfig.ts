@@ -101,21 +101,21 @@ export interface AppImageConfigArgs {
     /**
      * The Name of the AppImageConfig.
      */
-    appImageConfigName?: pulumi.Input<string>;
+    appImageConfigName?: pulumi.Input<string | undefined>;
     /**
      * The CodeEditorAppImageConfig.
      */
-    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfigArgs>;
+    codeEditorAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigCodeEditorAppImageConfigArgs | undefined>;
     /**
      * The JupyterLabAppImageConfig.
      */
-    jupyterLabAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabAppImageConfigArgs>;
+    jupyterLabAppImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigJupyterLabAppImageConfigArgs | undefined>;
     /**
      * The KernelGatewayImageConfig.
      */
-    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigArgs>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigArgs | undefined>;
     /**
      * A list of tags to apply to the AppImageConfig.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

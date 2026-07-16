@@ -136,13 +136,13 @@ export interface MatchingWorkflowArgs {
     /**
      * The description of the MatchingWorkflow
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
      *
      * > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
      */
-    incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs>;
+    incrementalRunConfig?: pulumi.Input<inputs.entityresolution.MatchingWorkflowIncrementalRunConfigArgs | undefined>;
     /**
      * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
@@ -162,9 +162,9 @@ export interface MatchingWorkflowArgs {
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the MatchingWorkflow
      */
-    workflowName?: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string | undefined>;
 }

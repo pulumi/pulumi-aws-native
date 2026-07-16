@@ -107,18 +107,18 @@ export class Cluster extends pulumi.CustomResource {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
-    clusterType?: pulumi.Input<enums.medialive.ClusterType>;
+    clusterType?: pulumi.Input<enums.medialive.ClusterType | undefined>;
     /**
      * The IAM role your nodes will use.
      */
-    instanceRoleArn?: pulumi.Input<string>;
+    instanceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The user-specified name of the Cluster to be created.
      */
-    name?: pulumi.Input<string>;
-    networkSettings?: pulumi.Input<inputs.medialive.ClusterNetworkSettingsArgs>;
+    name?: pulumi.Input<string | undefined>;
+    networkSettings?: pulumi.Input<inputs.medialive.ClusterNetworkSettingsArgs | undefined>;
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

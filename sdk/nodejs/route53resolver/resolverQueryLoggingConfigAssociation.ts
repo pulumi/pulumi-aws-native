@@ -107,9 +107,9 @@ export interface ResolverQueryLoggingConfigAssociationArgs {
     /**
      * ResolverQueryLogConfigId
      */
-    resolverQueryLogConfigId?: pulumi.Input<string>;
+    resolverQueryLogConfigId?: pulumi.Input<string | undefined>;
     /**
      * ResourceId
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
 }

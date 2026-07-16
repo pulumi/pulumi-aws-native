@@ -55,7 +55,7 @@ export class Permission extends pulumi.CustomResource {
      *  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
      *   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
      *   +  *Partial ARN* – ``123456789012:function:my-function``.
-     *   
+     *
      *  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
     declare public readonly functionName: pulumi.Output<string>;
@@ -145,25 +145,25 @@ export interface PermissionArgs {
     /**
      * For Alexa Smart Home functions, a token that the invoker must supply.
      */
-    eventSourceToken?: pulumi.Input<string>;
+    eventSourceToken?: pulumi.Input<string | undefined>;
     /**
      * The name or ARN of the Lambda function, version, or alias.
      *   **Name formats**
      *  +  *Function name* – ``my-function`` (name-only), ``my-function:v1`` (with alias).
      *   +  *Function ARN* – ``arn:aws:lambda:us-west-2:123456789012:function:my-function``.
      *   +  *Partial ARN* – ``123456789012:function:my-function``.
-     *   
+     *
      *  You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
      */
     functionName: pulumi.Input<string>;
     /**
      * The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
      */
-    functionUrlAuthType?: pulumi.Input<enums.lambda.PermissionFunctionUrlAuthType>;
+    functionUrlAuthType?: pulumi.Input<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
     /**
      * Indicates whether the permission applies when the function is invoked through a function URL.
      */
-    invokedViaFunctionUrl?: pulumi.Input<boolean>;
+    invokedViaFunctionUrl?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
      */
@@ -171,14 +171,14 @@ export interface PermissionArgs {
     /**
      * The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
      */
-    principalOrgId?: pulumi.Input<string>;
+    principalOrgId?: pulumi.Input<string | undefined>;
     /**
      * For AWS-service, the ID of the AWS-account that owns the resource. Use this together with ``SourceArn`` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
      */
-    sourceAccount?: pulumi.Input<string>;
+    sourceAccount?: pulumi.Input<string | undefined>;
     /**
      * For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
      *  Note that Lambda configures the comparison using the ``StringLike`` operator.
      */
-    sourceArn?: pulumi.Input<string>;
+    sourceArn?: pulumi.Input<string | undefined>;
 }

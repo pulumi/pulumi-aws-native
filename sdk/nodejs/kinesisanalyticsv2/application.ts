@@ -125,27 +125,27 @@ export interface ApplicationArgs {
     /**
      * Use this parameter to configure the application.
      */
-    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationConfigurationArgs>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationConfigurationArgs | undefined>;
     /**
      * The description of the application.
      */
-    applicationDescription?: pulumi.Input<string>;
+    applicationDescription?: pulumi.Input<string | undefined>;
     /**
      * Used to configure start of maintenance window.
      */
-    applicationMaintenanceConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationMaintenanceConfigurationArgs>;
+    applicationMaintenanceConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationMaintenanceConfigurationArgs | undefined>;
     /**
      * To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
      */
-    applicationMode?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationMode>;
+    applicationMode?: pulumi.Input<enums.kinesisanalyticsv2.ApplicationMode | undefined>;
     /**
      * The name of the application.
      */
-    applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
      */
-    runConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationRunConfigurationArgs>;
+    runConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationRunConfigurationArgs | undefined>;
     /**
      * The runtime environment for the application.
      */
@@ -157,5 +157,5 @@ export interface ApplicationArgs {
     /**
      * A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

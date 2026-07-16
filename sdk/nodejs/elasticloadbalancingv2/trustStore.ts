@@ -113,21 +113,21 @@ export interface TrustStoreArgs {
     /**
      * The name of the S3 bucket to fetch the CA certificate bundle from.
      */
-    caCertificatesBundleS3Bucket?: pulumi.Input<string>;
+    caCertificatesBundleS3Bucket?: pulumi.Input<string | undefined>;
     /**
      * The name of the S3 object to fetch the CA certificate bundle from.
      */
-    caCertificatesBundleS3Key?: pulumi.Input<string>;
+    caCertificatesBundleS3Key?: pulumi.Input<string | undefined>;
     /**
      * The version of the S3 bucket that contains the CA certificate bundle.
      */
-    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string>;
+    caCertificatesBundleS3ObjectVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the trust store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags to assign to the trust store.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

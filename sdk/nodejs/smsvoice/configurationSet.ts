@@ -107,25 +107,25 @@ export interface ConfigurationSetArgs {
     /**
      * The name to use for the configuration set.
      */
-    configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string | undefined>;
     /**
      * The default sender ID to set for the ConfigurationSet.
      */
-    defaultSenderId?: pulumi.Input<string>;
+    defaultSenderId?: pulumi.Input<string | undefined>;
     /**
      * An event destination is a location where you send message events.
      */
-    eventDestinations?: pulumi.Input<pulumi.Input<inputs.smsvoice.ConfigurationSetEventDestinationArgs>[]>;
+    eventDestinations?: pulumi.Input<pulumi.Input<inputs.smsvoice.ConfigurationSetEventDestinationArgs>[] | undefined>;
     /**
      * Set to true to enable message feedback.
      */
-    messageFeedbackEnabled?: pulumi.Input<boolean>;
+    messageFeedbackEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The unique identifier for the protect configuration to be associated to the configuration set.
      */
-    protectConfigurationId?: pulumi.Input<string>;
+    protectConfigurationId?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

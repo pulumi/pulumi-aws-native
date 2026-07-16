@@ -114,21 +114,21 @@ export interface ChannelArgs {
     /**
      * A short text description of the Channel.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration parameters for egress access logging.
      */
-    egressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
+    egressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs | undefined>;
     /**
      * An HTTP Live Streaming (HLS) ingest resource configuration.
      */
-    hlsIngest?: pulumi.Input<inputs.mediapackage.ChannelHlsIngestArgs>;
+    hlsIngest?: pulumi.Input<inputs.mediapackage.ChannelHlsIngestArgs | undefined>;
     /**
      * The configuration parameters for egress access logging.
      */
-    ingressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
+    ingressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs | undefined>;
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

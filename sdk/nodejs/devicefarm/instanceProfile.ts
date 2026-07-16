@@ -109,29 +109,29 @@ export interface InstanceProfileArgs {
     /**
      * The description of the instance profile.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * An array of strings containing the list of app packages that should not be cleaned up from the device after a test run completes.
      *
      * The list of packages is considered only if you set `packageCleanup` to `true` .
      */
-    excludeAppPackagesFromCleanup?: pulumi.Input<pulumi.Input<string>[]>;
+    excludeAppPackagesFromCleanup?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the instance profile.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
      */
-    packageCleanup?: pulumi.Input<boolean>;
+    packageCleanup?: pulumi.Input<boolean | undefined>;
     /**
      * When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
      */
-    rebootAfterUse?: pulumi.Input<boolean>;
+    rebootAfterUse?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -137,7 +137,7 @@ export interface QuotaShareArgs {
     /**
      * The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
-    quotaShareName?: pulumi.Input<string>;
+    quotaShareName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.
      */
@@ -145,9 +145,9 @@ export interface QuotaShareArgs {
     /**
      * The state of the quota share. If the quota share is `ENABLED`, it is able to accept jobs. If the quota share is `DISABLED`, new jobs won't be accepted but jobs already submitted can finish. The default state is `ENABLED`.
      */
-    state?: pulumi.Input<enums.batch.QuotaShareState>;
+    state?: pulumi.Input<enums.batch.QuotaShareState | undefined>;
     /**
      * The tags that you apply to the quota share to help you categorize and organize your resources. Each tag consists of a key and an optional value.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

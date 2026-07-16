@@ -110,5 +110,5 @@ export interface AcmeDomainValidationArgs {
     /**
      * Tags associated with the domain validation.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

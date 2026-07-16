@@ -203,19 +203,19 @@ export interface FlowOutputArgs {
     /**
      * The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
      */
-    cidrAllowList?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrAllowList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A description of the output.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The address where you want to send the output.
      */
-    destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string | undefined>;
     /**
      * The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
      */
-    encryption?: pulumi.Input<inputs.mediaconnect.FlowOutputEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.mediaconnect.FlowOutputEncryptionArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
@@ -223,66 +223,66 @@ export interface FlowOutputArgs {
     /**
      * The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
      */
-    maxLatency?: pulumi.Input<number>;
+    maxLatency?: pulumi.Input<number | undefined>;
     /**
      * The definition for each media stream that is associated with the output.
      */
-    mediaStreamOutputConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowOutputMediaStreamOutputConfigurationArgs>[]>;
+    mediaStreamOutputConfigurations?: pulumi.Input<pulumi.Input<inputs.mediaconnect.FlowOutputMediaStreamOutputConfigurationArgs>[] | undefined>;
     /**
      * The minimum latency in milliseconds.
      */
-    minLatency?: pulumi.Input<number>;
+    minLatency?: pulumi.Input<number | undefined>;
     /**
      * The name of the output. This value must be unique within the current flow.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The timecode source for the NDI output.
      */
-    ndiOutputTimecodeSource?: pulumi.Input<enums.mediaconnect.FlowOutputNdiOutputTimecodeSource>;
+    ndiOutputTimecodeSource?: pulumi.Input<enums.mediaconnect.FlowOutputNdiOutputTimecodeSource | undefined>;
     /**
      * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
      */
-    ndiProgramName?: pulumi.Input<string>;
+    ndiProgramName?: pulumi.Input<string | undefined>;
     /**
      * A quality setting for the NDI Speed HQ encoder.
      */
-    ndiSpeedHqQuality?: pulumi.Input<number>;
+    ndiSpeedHqQuality?: pulumi.Input<number | undefined>;
     /**
      * An indication of whether the output should transmit data or not.
      */
-    outputStatus?: pulumi.Input<enums.mediaconnect.FlowOutputOutputStatus>;
+    outputStatus?: pulumi.Input<enums.mediaconnect.FlowOutputOutputStatus | undefined>;
     /**
      * The port to use when content is distributed to this output.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The protocol that is used by the source or output.
      */
-    protocol?: pulumi.Input<enums.mediaconnect.FlowOutputProtocol>;
+    protocol?: pulumi.Input<enums.mediaconnect.FlowOutputProtocol | undefined>;
     /**
      * The remote ID for the Zixi-pull stream.
      */
-    remoteId?: pulumi.Input<string>;
-    routerIntegrationState?: pulumi.Input<enums.mediaconnect.FlowOutputRouterIntegrationState>;
+    remoteId?: pulumi.Input<string | undefined>;
+    routerIntegrationState?: pulumi.Input<enums.mediaconnect.FlowOutputRouterIntegrationState | undefined>;
     /**
      * Encryption information.
      */
-    routerIntegrationTransitEncryption?: pulumi.Input<inputs.mediaconnect.FlowOutputFlowTransitEncryptionArgs>;
+    routerIntegrationTransitEncryption?: pulumi.Input<inputs.mediaconnect.FlowOutputFlowTransitEncryptionArgs | undefined>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */
-    smoothingLatency?: pulumi.Input<number>;
+    smoothingLatency?: pulumi.Input<number | undefined>;
     /**
      * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
      */
-    streamId?: pulumi.Input<string>;
+    streamId?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs that can be used to tag and organize this flow output.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the VPC interface attachment to use for this output.
      */
-    vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowOutputVpcInterfaceAttachmentArgs>;
+    vpcInterfaceAttachment?: pulumi.Input<inputs.mediaconnect.FlowOutputVpcInterfaceAttachmentArgs | undefined>;
 }

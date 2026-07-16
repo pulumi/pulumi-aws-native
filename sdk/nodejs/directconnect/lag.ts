@@ -135,7 +135,7 @@ export interface LagArgs {
     /**
      * The name of the LAG.
      */
-    lagName?: pulumi.Input<string>;
+    lagName?: pulumi.Input<string | undefined>;
     /**
      * The location for the LAG.
      */
@@ -143,17 +143,17 @@ export interface LagArgs {
     /**
      * The minimum number of physical dedicated connections that must be operational for the LAG itself to be operational.
      */
-    minimumLinks?: pulumi.Input<number>;
+    minimumLinks?: pulumi.Input<number | undefined>;
     /**
      * The name of the service provider associated with the requested LAG.
      */
-    providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether you want the LAG to support MAC Security (MACsec).
      */
-    requestMacSec?: pulumi.Input<boolean>;
+    requestMacSec?: pulumi.Input<boolean | undefined>;
     /**
      * The tags associated with the LAG.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -78,5 +78,5 @@ export interface HubV2Args {
     /**
      * The tags to add to the hub V2 resource when you enable Security Hub CSPM.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

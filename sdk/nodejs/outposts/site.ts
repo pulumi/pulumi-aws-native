@@ -89,11 +89,11 @@ export class Site extends pulumi.CustomResource {
  * The set of arguments for constructing a Site resource.
  */
 export interface SiteArgs {
-    description?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    notes?: pulumi.Input<string>;
-    operatingAddress?: pulumi.Input<inputs.outposts.SiteAddressArgs>;
-    rackPhysicalProperties?: pulumi.Input<inputs.outposts.SiteRackPhysicalPropertiesArgs>;
-    shippingAddress?: pulumi.Input<inputs.outposts.SiteAddressArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    description?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    notes?: pulumi.Input<string | undefined>;
+    operatingAddress?: pulumi.Input<inputs.outposts.SiteAddressArgs | undefined>;
+    rackPhysicalProperties?: pulumi.Input<inputs.outposts.SiteRackPhysicalPropertiesArgs | undefined>;
+    shippingAddress?: pulumi.Input<inputs.outposts.SiteAddressArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

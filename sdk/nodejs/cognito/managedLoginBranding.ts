@@ -121,15 +121,15 @@ export interface ManagedLoginBrandingArgs {
     /**
      * An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
      */
-    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAssetTypeArgs>[]>;
+    assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAssetTypeArgs>[] | undefined>;
     /**
      * The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
      */
-    clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
     /**
      * When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
      */
-    returnMergedResources?: pulumi.Input<boolean>;
+    returnMergedResources?: pulumi.Input<boolean | undefined>;
     /**
      * A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
      *
@@ -142,13 +142,13 @@ export interface ManagedLoginBrandingArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
      */
-    settings?: any;
+    settings?: any | undefined;
     /**
      * When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding editor.
      *
      * When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
      */
-    useCognitoProvidedValues?: pulumi.Input<boolean>;
+    useCognitoProvidedValues?: pulumi.Input<boolean | undefined>;
     /**
      * The user pool where the branding style is assigned.
      */

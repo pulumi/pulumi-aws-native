@@ -144,7 +144,7 @@ export interface RemediationConfigurationArgs {
     /**
      * The remediation is triggered automatically.
      */
-    automatic?: pulumi.Input<boolean>;
+    automatic?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the AWS Config rule.
      */
@@ -152,13 +152,13 @@ export interface RemediationConfigurationArgs {
     /**
      * An ExecutionControls object.
      */
-    executionControls?: pulumi.Input<inputs.configuration.RemediationConfigurationExecutionControlsArgs>;
+    executionControls?: pulumi.Input<inputs.configuration.RemediationConfigurationExecutionControlsArgs | undefined>;
     /**
      * The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
      *
      * For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds, AWS Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.
      */
-    maximumAutomaticAttempts?: pulumi.Input<number>;
+    maximumAutomaticAttempts?: pulumi.Input<number | undefined>;
     /**
      * An object of the RemediationParameterValue. For more information, see [RemediationParameterValue](https://docs.aws.amazon.com/config/latest/APIReference/API_RemediationParameterValue.html) .
      *
@@ -166,17 +166,17 @@ export interface RemediationConfigurationArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Config::RemediationConfiguration` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: any | undefined;
     /**
      * The type of a resource.
      */
-    resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string | undefined>;
     /**
      * Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts. If `MaximumAutomaticAttempts` remediation attempts have been made under `RetryAttemptSeconds` , a remediation exception will be added to the resource. If you do not select a number, the default is 60 seconds.
      *
      * For example, if you specify `RetryAttemptSeconds` as 50 seconds and `MaximumAutomaticAttempts` as 5, AWS Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.
      */
-    retryAttemptSeconds?: pulumi.Input<number>;
+    retryAttemptSeconds?: pulumi.Input<number | undefined>;
     /**
      * Target ID is the name of the SSM document.
      */
@@ -190,5 +190,5 @@ export interface RemediationConfigurationArgs {
      *
      * > If you make backward incompatible changes to the SSM document, you must call PutRemediationConfiguration API again to ensure the remediations can run.
      */
-    targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string | undefined>;
 }

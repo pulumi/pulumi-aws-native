@@ -160,15 +160,15 @@ export interface MessageTemplateArgs {
     /**
      * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
      */
-    defaultAttributes?: pulumi.Input<inputs.wisdom.MessageTemplateAttributesArgs>;
+    defaultAttributes?: pulumi.Input<inputs.wisdom.MessageTemplateAttributesArgs | undefined>;
     /**
      * The description of the message template.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration information of the external data source.
      */
-    groupingConfiguration?: pulumi.Input<inputs.wisdom.MessageTemplateGroupingConfigurationArgs>;
+    groupingConfiguration?: pulumi.Input<inputs.wisdom.MessageTemplateGroupingConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
      */
@@ -176,17 +176,17 @@ export interface MessageTemplateArgs {
     /**
      * The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * List of message template attachments
      */
-    messageTemplateAttachments?: pulumi.Input<pulumi.Input<inputs.wisdom.MessageTemplateAttachmentArgs>[]>;
+    messageTemplateAttachments?: pulumi.Input<pulumi.Input<inputs.wisdom.MessageTemplateAttachmentArgs>[] | undefined>;
     /**
      * The name of the message template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

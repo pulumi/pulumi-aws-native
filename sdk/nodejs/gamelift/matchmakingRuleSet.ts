@@ -137,7 +137,7 @@ export interface MatchmakingRuleSetArgs {
     /**
      * A unique identifier for the matchmaking rule set.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A collection of matchmaking rules, formatted as a JSON string.
      */
@@ -145,5 +145,5 @@ export interface MatchmakingRuleSetArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

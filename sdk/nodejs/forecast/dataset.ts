@@ -124,11 +124,11 @@ export interface DatasetArgs {
     /**
      * Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
      */
-    dataFrequency?: pulumi.Input<string>;
+    dataFrequency?: pulumi.Input<string | undefined>;
     /**
      * A name for the dataset
      */
-    datasetName?: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * The dataset type
      */
@@ -140,7 +140,7 @@ export interface DatasetArgs {
     /**
      * A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
      */
-    encryptionConfig?: pulumi.Input<inputs.forecast.EncryptionConfigPropertiesArgs>;
+    encryptionConfig?: pulumi.Input<inputs.forecast.EncryptionConfigPropertiesArgs | undefined>;
     /**
      * The schema for the dataset. The schema attributes and their order must match the fields in your data. The dataset `Domain` and `DatasetType` that you choose determine the minimum required fields in your training data. For information about the required fields for a specific dataset domain and type, see [Dataset Domains and Dataset Types](https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html) .
      */
@@ -150,5 +150,5 @@ export interface DatasetArgs {
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

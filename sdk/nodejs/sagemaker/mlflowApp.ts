@@ -147,11 +147,11 @@ export interface MlflowAppArgs {
     /**
      * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
      */
-    modelRegistrationMode?: pulumi.Input<enums.sagemaker.MlflowAppModelRegistrationMode>;
+    modelRegistrationMode?: pulumi.Input<enums.sagemaker.MlflowAppModelRegistrationMode | undefined>;
     /**
      * The name of the MLflow App.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
      */
@@ -159,9 +159,9 @@ export interface MlflowAppArgs {
     /**
      * Tags to associate with the MLflow App.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: Tue:03:30.
      */
-    weeklyMaintenanceWindowStart?: pulumi.Input<string>;
+    weeklyMaintenanceWindowStart?: pulumi.Input<string | undefined>;
 }

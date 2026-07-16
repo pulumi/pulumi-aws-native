@@ -129,21 +129,21 @@ export interface BillScenarioArgs {
     /**
      * The ARN of the cost category group sharing preference
      */
-    costCategoryGroupSharingPreferenceArn?: pulumi.Input<string>;
+    costCategoryGroupSharingPreferenceArn?: pulumi.Input<string | undefined>;
     /**
      * The timestamp when the bill scenario expires
      */
-    expiresAt?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string | undefined>;
     /**
      * The group sharing preference for the bill scenario
      */
-    groupSharingPreference?: pulumi.Input<enums.bcmpricingcalculator.BillScenarioGroupSharingPreference>;
+    groupSharingPreference?: pulumi.Input<enums.bcmpricingcalculator.BillScenarioGroupSharingPreference | undefined>;
     /**
      * The name of the bill scenario
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

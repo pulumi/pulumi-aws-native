@@ -176,27 +176,27 @@ export interface LogAlarmArgs {
     /**
      * The number of log lines to include in alarm notifications. Valid values are 0 to 50.
      */
-    actionLogLineCount?: pulumi.Input<number>;
+    actionLogLineCount?: pulumi.Input<number | undefined>;
     /**
      * The ARN of the IAM role that grants CloudWatch permissions to fetch log lines for alarm notifications. Required when ActionLogLineCount is greater than 0.
      */
-    actionLogLineRoleArn?: pulumi.Input<string>;
+    actionLogLineRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
      */
-    actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The list of actions to execute when this alarm transitions into an ALARM state from any other state.
      */
-    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The description of the log alarm.
      */
-    alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string | undefined>;
     /**
      * The name of the log alarm.
      */
-    alarmName?: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string | undefined>;
     /**
      * The arithmetic operation to use when comparing the specified threshold and the query results. Valid values are GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanThreshold, and LessThanOrEqualToThreshold.
      */
@@ -204,11 +204,11 @@ export interface LogAlarmArgs {
     /**
      * The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state.
      */
-    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The actions to execute when this alarm transitions to the OK state from any other state.
      */
-    okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of query results that must be breaching to trigger the alarm.
      */
@@ -224,7 +224,7 @@ export interface LogAlarmArgs {
     /**
      * A list of key-value pairs to associate with the log alarm.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The value to compare against the results of the scheduled query evaluation.
      */
@@ -232,5 +232,5 @@ export interface LogAlarmArgs {
     /**
      * Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
      */
-    treatMissingData?: pulumi.Input<string>;
+    treatMissingData?: pulumi.Input<string | undefined>;
 }

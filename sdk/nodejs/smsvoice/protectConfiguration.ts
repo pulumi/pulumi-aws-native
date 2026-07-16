@@ -93,13 +93,13 @@ export interface ProtectConfigurationArgs {
     /**
      * An array of CountryRule containing the rules for the NumberCapability.
      */
-    countryRuleSet?: pulumi.Input<inputs.smsvoice.ProtectConfigurationCountryRuleSetArgs>;
+    countryRuleSet?: pulumi.Input<inputs.smsvoice.ProtectConfigurationCountryRuleSetArgs | undefined>;
     /**
      * When set to true deletion protection is enabled and protect configuration cannot be deleted. By default this is set to false.
      */
-    deletionProtectionEnabled?: pulumi.Input<boolean>;
+    deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

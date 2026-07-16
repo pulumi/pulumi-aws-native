@@ -170,7 +170,7 @@ export interface OnlineEvaluationConfigArgs {
     /**
      * The configuration for clustering analysis of evaluation results.
      */
-    clusteringConfig?: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigClusteringConfigArgs>;
+    clusteringConfig?: pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigClusteringConfigArgs | undefined>;
     /**
      * The data source configuration that specifies CloudWatch log groups and service names to monitor.
      */
@@ -178,7 +178,7 @@ export interface OnlineEvaluationConfigArgs {
     /**
      * The description of the online evaluation configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that grants permissions for evaluation.
      */
@@ -186,19 +186,19 @@ export interface OnlineEvaluationConfigArgs {
     /**
      * The list of evaluators to apply during online evaluation.
      */
-    evaluators?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReferenceArgs>[]>;
+    evaluators?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigEvaluatorReferenceArgs>[] | undefined>;
     /**
      * The execution status indicating whether the online evaluation is currently running.
      */
-    executionStatus?: pulumi.Input<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus>;
+    executionStatus?: pulumi.Input<enums.bedrockagentcore.OnlineEvaluationConfigExecutionStatus | undefined>;
     /**
      * The list of insights to enable for failure analysis.
      */
-    insights?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigInsightArgs>[]>;
+    insights?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.OnlineEvaluationConfigInsightArgs>[] | undefined>;
     /**
      * The name of the online evaluation configuration. Must be unique within your account.
      */
-    onlineEvaluationConfigName?: pulumi.Input<string>;
+    onlineEvaluationConfigName?: pulumi.Input<string | undefined>;
     /**
      * The evaluation rule that defines sampling configuration, filters, and session detection settings.
      */
@@ -206,5 +206,5 @@ export interface OnlineEvaluationConfigArgs {
     /**
      * A list of tags to assign to the online evaluation configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

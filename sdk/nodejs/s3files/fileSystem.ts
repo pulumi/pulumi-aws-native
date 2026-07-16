@@ -110,12 +110,12 @@ export class FileSystem extends pulumi.CustomResource {
  * The set of arguments for constructing a FileSystem resource.
  */
 export interface FileSystemArgs {
-    acceptBucketWarning?: pulumi.Input<boolean>;
+    acceptBucketWarning?: pulumi.Input<boolean | undefined>;
     bucket: pulumi.Input<string>;
-    clientToken?: pulumi.Input<string>;
-    kmsKeyId?: pulumi.Input<string>;
-    prefix?: pulumi.Input<string>;
+    clientToken?: pulumi.Input<string | undefined>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
+    prefix?: pulumi.Input<string | undefined>;
     roleArn: pulumi.Input<string>;
-    synchronizationConfiguration?: pulumi.Input<inputs.s3files.FileSystemSynchronizationConfigurationArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    synchronizationConfiguration?: pulumi.Input<inputs.s3files.FileSystemSynchronizationConfigurationArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -322,7 +322,7 @@ export interface FlowArgs {
     /**
      * Description of the flow.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * List of Destination connectors of the flow.
      */
@@ -330,19 +330,19 @@ export interface FlowArgs {
     /**
      * Name of the flow.
      */
-    flowName?: pulumi.Input<string>;
+    flowName?: pulumi.Input<string | undefined>;
     /**
      * Flow activation status for Scheduled- and Event-triggered flows
      */
-    flowStatus?: pulumi.Input<enums.appflow.FlowStatus>;
+    flowStatus?: pulumi.Input<enums.appflow.FlowStatus | undefined>;
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
      */
-    kmsArn?: pulumi.Input<string>;
+    kmsArn?: pulumi.Input<string | undefined>;
     /**
      * Configurations of metadata catalog of the flow.
      */
-    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfigArgs>;
+    metadataCatalogConfig?: pulumi.Input<inputs.appflow.FlowMetadataCatalogConfigArgs | undefined>;
     /**
      * Configurations of Source connector of the flow.
      */
@@ -350,7 +350,7 @@ export interface FlowArgs {
     /**
      * List of Tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * List of tasks for the flow.
      */

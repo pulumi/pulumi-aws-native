@@ -130,29 +130,29 @@ export interface AppBlockArgs {
     /**
      * The description of the app block.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the app block.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the app block.
      *
      * *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The packaging type of the app block.
      */
-    packagingType?: pulumi.Input<string>;
+    packagingType?: pulumi.Input<string | undefined>;
     /**
      * The post setup script details of the app block.
      */
-    postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs | undefined>;
     /**
      * The setup script details of the app block.
      */
-    setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
+    setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs | undefined>;
     /**
      * The source S3 location of the app block.
      */
@@ -160,5 +160,5 @@ export interface AppBlockArgs {
     /**
      * The tags of the app block.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTag0PropertiesArgs | inputs.appstream.AppBlockTag1PropertiesArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTag0PropertiesArgs | inputs.appstream.AppBlockTag1PropertiesArgs>[] | undefined>;
 }

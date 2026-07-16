@@ -87,7 +87,7 @@ export interface NetworkAclArgs {
     /**
      * The tags for the network ACL.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC for the network ACL.
      */

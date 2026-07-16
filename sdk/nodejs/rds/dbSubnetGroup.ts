@@ -48,7 +48,7 @@ export class DbSubnetGroup extends pulumi.CustomResource {
      *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
      *   +  Must not be default.
      *   +  First character must be a letter.
-     *   
+     *
      *  Example: ``mydbsubnetgroup``
      */
     declare public readonly dbSubnetGroupName: pulumi.Output<string | undefined>;
@@ -109,10 +109,10 @@ export interface DbSubnetGroupArgs {
      *   +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
      *   +  Must not be default.
      *   +  First character must be a letter.
-     *   
+     *
      *  Example: ``mydbsubnetgroup``
      */
-    dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The EC2 Subnet IDs for the DB subnet group.
      */
@@ -120,5 +120,5 @@ export interface DbSubnetGroupArgs {
     /**
      * Tags to assign to the DB subnet group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

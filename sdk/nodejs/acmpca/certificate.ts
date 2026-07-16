@@ -58,7 +58,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     declare public readonly certificateSigningRequest: pulumi.Output<string>;
     /**
-     * The name of the algorithm that will be used to sign the certificate to be issued. 
+     * The name of the algorithm that will be used to sign the certificate to be issued.
      *  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
      *   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
      */
@@ -73,7 +73,7 @@ export class Certificate extends pulumi.CustomResource {
     declare public readonly validity: pulumi.Output<outputs.acmpca.CertificateValidity>;
     /**
      * Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
-     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
+     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
      *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
      *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
@@ -136,7 +136,7 @@ export interface CertificateArgs {
     /**
      * Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
      */
-    apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs>;
+    apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) for the private CA issues the certificate.
      */
@@ -146,7 +146,7 @@ export interface CertificateArgs {
      */
     certificateSigningRequest: pulumi.Input<string>;
     /**
-     * The name of the algorithm that will be used to sign the certificate to be issued. 
+     * The name of the algorithm that will be used to sign the certificate to be issued.
      *  This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
      *   The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
      */
@@ -154,16 +154,16 @@ export interface CertificateArgs {
     /**
      * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
      */
-    templateArn?: pulumi.Input<string>;
+    templateArn?: pulumi.Input<string | undefined>;
     /**
      * The period of time during which the certificate will be valid.
      */
     validity: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
     /**
      * Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
-     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value. 
+     *  By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
      *  Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
      *  The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
      */
-    validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
+    validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs | undefined>;
 }

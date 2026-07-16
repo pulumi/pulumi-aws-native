@@ -107,15 +107,15 @@ export interface UserJourneyArgs {
     /**
      * The description of the user journey.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the user journey.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the resilience policy to associate with this user journey.
      */
-    policyArn?: pulumi.Input<string>;
+    policyArn?: pulumi.Input<string | undefined>;
     /**
      * The system ARN or system ID that owns this user journey.
      */

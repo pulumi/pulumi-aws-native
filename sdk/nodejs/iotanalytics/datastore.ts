@@ -180,15 +180,15 @@ export interface DatastoreArgs {
     /**
      * The name of the data store.
      */
-    datastoreName?: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * Information about the partition dimensions in a data store.
      */
-    datastorePartitions?: pulumi.Input<inputs.iotanalytics.DatastorePartitionsArgs>;
+    datastorePartitions?: pulumi.Input<inputs.iotanalytics.DatastorePartitionsArgs | undefined>;
     /**
      * Where data store data is stored.
      */
-    datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs>;
+    datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs | undefined>;
     /**
      * Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
      *
@@ -196,15 +196,15 @@ export interface DatastoreArgs {
      *
      * You can't change the file format after you create the data store.
      */
-    fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs>;
+    fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs | undefined>;
     /**
      * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
      */
-    retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs>;
+    retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs | undefined>;
     /**
      * Metadata which can be used to manage the data store.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

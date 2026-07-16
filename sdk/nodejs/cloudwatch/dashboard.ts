@@ -90,9 +90,9 @@ export interface DashboardArgs {
     /**
      * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
      */
-    dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -105,11 +105,11 @@ export class Flow extends pulumi.CustomResource {
  */
 export interface FlowArgs {
     awsAccountId: pulumi.Input<string>;
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QuickSight::Flow` for more information about the expected schema for this property.
      */
     flowDefinition: any;
-    name?: pulumi.Input<string>;
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FlowPermissionArgs>[]>;
+    name?: pulumi.Input<string | undefined>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FlowPermissionArgs>[] | undefined>;
 }

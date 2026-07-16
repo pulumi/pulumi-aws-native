@@ -232,51 +232,51 @@ export interface ClusterArgs {
     /**
      * The access configuration for the cluster.
      */
-    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs>;
+    accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfigArgs | undefined>;
     /**
      * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
-    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
-    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs>;
+    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs | undefined>;
     /**
      * The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
      */
-    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfigArgs>;
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfigArgs | undefined>;
     /**
      * Set this value to true to enable deletion protection for the cluster.
      */
-    deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean | undefined>;
     /**
      * The encryption configuration for the cluster.
      */
-    encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[]>;
+    encryptionConfig?: pulumi.Input<pulumi.Input<inputs.eks.ClusterEncryptionConfigArgs>[] | undefined>;
     /**
      * Force cluster version update
      */
-    force?: pulumi.Input<boolean>;
+    force?: pulumi.Input<boolean | undefined>;
     /**
      * The Kubernetes network configuration for the cluster.
      */
-    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfigArgs | undefined>;
     /**
      * The logging configuration for your cluster.
      */
-    logging?: pulumi.Input<inputs.eks.LoggingArgs>;
+    logging?: pulumi.Input<inputs.eks.LoggingArgs | undefined>;
     /**
      * The unique name to give to your cluster.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
      */
-    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs>;
+    outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs | undefined>;
     /**
      * The configuration in the cluster for EKS Hybrid Nodes. You can add, change, or remove this configuration after the cluster is created.
      */
-    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigArgs>;
+    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigArgs | undefined>;
     /**
      * The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      */
@@ -285,27 +285,27 @@ export interface ClusterArgs {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     roleArn: pulumi.Input<string>;
-    rollbackConfig?: pulumi.Input<inputs.eks.ClusterRollbackConfigArgs>;
+    rollbackConfig?: pulumi.Input<inputs.eks.ClusterRollbackConfigArgs | undefined>;
     /**
      * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */
-    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfigArgs>;
+    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfigArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * This value indicates if extended support is enabled or disabled for the cluster.
      *
      * [Learn more about EKS Extended Support in the *Amazon EKS User Guide* .](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
      */
-    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicyArgs>;
+    upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicyArgs | undefined>;
     /**
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * The configuration for zonal shift for the cluster.
      */
-    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfigArgs>;
+    zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfigArgs | undefined>;
 }

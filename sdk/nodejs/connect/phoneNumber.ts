@@ -122,23 +122,23 @@ export interface PhoneNumberArgs {
     /**
      * The phone number country code.
      */
-    countryCode?: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string | undefined>;
     /**
      * The description of the phone number.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The phone number prefix.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
     /**
      * The source phone number arn.
      */
-    sourcePhoneNumberArn?: pulumi.Input<string>;
+    sourcePhoneNumberArn?: pulumi.Input<string | undefined>;
     /**
      * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the target the phone number is claimed to.
      */
@@ -146,5 +146,5 @@ export interface PhoneNumberArgs {
     /**
      * The phone number type
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
 }

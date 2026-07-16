@@ -130,20 +130,20 @@ export interface GroupArgs {
     /**
      * The filter expression defining criteria by which to group traces.
      */
-    filterExpression?: pulumi.Input<string>;
+    filterExpression?: pulumi.Input<string | undefined>;
     /**
      * The case-sensitive name of the new group. Names must be unique.
      */
-    groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The structure containing configurations related to insights.
      *
      * - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
      * - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
      */
-    insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs>;
+    insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

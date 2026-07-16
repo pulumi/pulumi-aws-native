@@ -93,5 +93,5 @@ export interface MessageTemplateVersionArgs {
     /**
      * The content SHA256 of the message template.
      */
-    messageTemplateContentSha256?: pulumi.Input<string>;
+    messageTemplateContentSha256?: pulumi.Input<string | undefined>;
 }

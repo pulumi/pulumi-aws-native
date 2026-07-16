@@ -122,7 +122,7 @@ export interface VpcEndpointAssociationArgs {
     /**
      * A description of the VPC endpoint association.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the firewall.
      */
@@ -134,7 +134,7 @@ export interface VpcEndpointAssociationArgs {
     /**
      * The key:value pairs to associate with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unique identifier of the VPC for the endpoint association.
      */

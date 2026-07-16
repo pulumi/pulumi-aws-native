@@ -128,20 +128,20 @@ export interface ResourceGatewayArgs {
     /**
      * The type of IP address used by the resource gateway.
      */
-    ipAddressType?: pulumi.Input<enums.vpclattice.ResourceGatewayIpAddressType>;
+    ipAddressType?: pulumi.Input<enums.vpclattice.ResourceGatewayIpAddressType | undefined>;
     /**
      * The number of IPv4 addresses to allocate per ENI for the resource gateway
      */
-    ipv4AddressesPerEni?: pulumi.Input<number>;
+    ipv4AddressesPerEni?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource gateway.
      */
-    name?: pulumi.Input<string>;
-    resourceConfigDnsResolution?: pulumi.Input<enums.vpclattice.ResourceGatewayResourceConfigDnsResolution>;
+    name?: pulumi.Input<string | undefined>;
+    resourceConfigDnsResolution?: pulumi.Input<enums.vpclattice.ResourceGatewayResourceConfigDnsResolution | undefined>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
@@ -149,7 +149,7 @@ export interface ResourceGatewayArgs {
     /**
      * The tags for the resource gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC for the resource gateway.
      */

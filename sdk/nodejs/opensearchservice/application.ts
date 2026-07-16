@@ -119,29 +119,29 @@ export interface ApplicationArgs {
     /**
      * List of application configurations.
      */
-    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearchservice.ApplicationAppConfigArgs>[]>;
+    appConfigs?: pulumi.Input<pulumi.Input<inputs.opensearchservice.ApplicationAppConfigArgs>[] | undefined>;
     /**
      * List of data sources.
      */
-    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearchservice.ApplicationDataSourceArgs>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<inputs.opensearchservice.ApplicationDataSourceArgs>[] | undefined>;
     /**
      * The endpoint for the application.
      */
-    endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string | undefined>;
     /**
      * Options for configuring IAM Identity Center
      */
-    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchservice.IamIdentityCenterOptionsPropertiesArgs>;
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchservice.IamIdentityCenterOptionsPropertiesArgs | undefined>;
     /**
      * The ARN of the KMS key used to encrypt the application.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

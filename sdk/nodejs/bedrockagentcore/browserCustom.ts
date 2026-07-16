@@ -158,27 +158,27 @@ export interface BrowserCustomArgs {
     /**
      * Browser signing configuration.
      */
-    browserSigning?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserSigningArgs>;
+    browserSigning?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserSigningArgs | undefined>;
     /**
      * List of root CA certificates in PEM format.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomCertificateArgs>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomCertificateArgs>[] | undefined>;
     /**
      * The description of the browser.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A list of enterprise policy files for the browser.
      */
-    enterprisePolicies?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserEnterprisePolicyArgs>[]>;
+    enterprisePolicies?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserEnterprisePolicyArgs>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
      */
-    executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the browser.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Network configuration for browser.
      */
@@ -186,9 +186,9 @@ export interface BrowserCustomArgs {
     /**
      * Recording configuration for browser.
      */
-    recordingConfig?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomRecordingConfigArgs>;
+    recordingConfig?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomRecordingConfigArgs | undefined>;
     /**
      * The tags for the custom browser.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -128,7 +128,7 @@ export interface FlowEntitlementArgs {
     /**
      * Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
      */
-    dataTransferSubscriberFeePercent?: pulumi.Input<number>;
+    dataTransferSubscriberFeePercent?: pulumi.Input<number | undefined>;
     /**
      * A description of the entitlement.
      */
@@ -136,11 +136,11 @@ export interface FlowEntitlementArgs {
     /**
      * The type of encryption that will be used on the output that is associated with this entitlement.
      */
-    encryption?: pulumi.Input<inputs.mediaconnect.FlowEntitlementEncryptionArgs>;
+    encryption?: pulumi.Input<inputs.mediaconnect.FlowEntitlementEncryptionArgs | undefined>;
     /**
      *  An indication of whether the entitlement is enabled.
      */
-    entitlementStatus?: pulumi.Input<enums.mediaconnect.FlowEntitlementEntitlementStatus>;
+    entitlementStatus?: pulumi.Input<enums.mediaconnect.FlowEntitlementEntitlementStatus | undefined>;
     /**
      * The ARN of the flow.
      */
@@ -148,7 +148,7 @@ export interface FlowEntitlementArgs {
     /**
      * The name of the entitlement.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
      */
@@ -156,5 +156,5 @@ export interface FlowEntitlementArgs {
     /**
      * Key-value pairs that can be used to tag and organize this flow entitlement.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

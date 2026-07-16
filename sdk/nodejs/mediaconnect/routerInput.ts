@@ -194,13 +194,13 @@ export interface RouterInputArgs {
     /**
      * The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
      */
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string | undefined>;
     configuration: pulumi.Input<inputs.mediaconnect.RouterInputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration2PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration3PropertiesArgs | inputs.mediaconnect.RouterInputConfiguration4PropertiesArgs>;
-    contentQualityAnalysisConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs>;
+    contentQualityAnalysisConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs | undefined>;
     /**
      * The maintenance configuration settings applied to this router input.
      */
-    maintenanceConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputMaintenanceConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputMaintenanceConfiguration1PropertiesArgs>;
+    maintenanceConfiguration?: pulumi.Input<inputs.mediaconnect.RouterInputMaintenanceConfiguration0PropertiesArgs | inputs.mediaconnect.RouterInputMaintenanceConfiguration1PropertiesArgs | undefined>;
     /**
      * The maximum bitrate for the router input.
      */
@@ -208,11 +208,11 @@ export interface RouterInputArgs {
     /**
      * The name of the router input.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
      */
-    regionName?: pulumi.Input<string>;
+    regionName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the router input is configured for Regional or global routing.
      */
@@ -220,7 +220,7 @@ export interface RouterInputArgs {
     /**
      * Key-value pairs that can be used to tag and organize this router input.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The tier level of the router input.
      */
@@ -228,5 +228,5 @@ export interface RouterInputArgs {
     /**
      * Encryption information.
      */
-    transitEncryption?: pulumi.Input<inputs.mediaconnect.RouterInputTransitEncryptionArgs>;
+    transitEncryption?: pulumi.Input<inputs.mediaconnect.RouterInputTransitEncryptionArgs | undefined>;
 }

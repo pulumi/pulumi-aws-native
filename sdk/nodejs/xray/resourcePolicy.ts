@@ -111,7 +111,7 @@ export interface ResourcePolicyArgs {
     /**
      * A flag to indicate whether to bypass the resource policy lockout safety check
      */
-    bypassPolicyLockoutCheck?: pulumi.Input<boolean>;
+    bypassPolicyLockoutCheck?: pulumi.Input<boolean | undefined>;
     /**
      * The resource policy document, which can be up to 5kb in size.
      */
@@ -119,5 +119,5 @@ export interface ResourcePolicyArgs {
     /**
      * The name of the resource policy. Must be unique within a specific AWS account.
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
 }

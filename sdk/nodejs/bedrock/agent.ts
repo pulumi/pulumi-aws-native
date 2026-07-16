@@ -251,87 +251,87 @@ export interface AgentArgs {
     /**
      * List of ActionGroups
      */
-    actionGroups?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentActionGroupArgs>[]>;
+    actionGroups?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentActionGroupArgs>[] | undefined>;
     /**
      * The agent's collaboration settings.
      */
-    agentCollaboration?: pulumi.Input<enums.bedrock.AgentCollaboration>;
+    agentCollaboration?: pulumi.Input<enums.bedrock.AgentCollaboration | undefined>;
     /**
      * List of Agent Collaborators
      */
-    agentCollaborators?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentCollaboratorArgs>[]>;
+    agentCollaborators?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentCollaboratorArgs>[] | undefined>;
     /**
      * Name for a resource.
      */
-    agentName?: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * ARN of a IAM role.
      */
-    agentResourceRoleArn?: pulumi.Input<string>;
+    agentResourceRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to automatically prepare after creating or updating the agent.
      */
-    autoPrepare?: pulumi.Input<boolean>;
+    autoPrepare?: pulumi.Input<boolean | undefined>;
     /**
      * Contains custom orchestration configurations for the agent.
      */
-    customOrchestration?: pulumi.Input<inputs.bedrock.AgentCustomOrchestrationArgs>;
+    customOrchestration?: pulumi.Input<inputs.bedrock.AgentCustomOrchestrationArgs | undefined>;
     /**
      * A KMS key ARN
      */
-    customerEncryptionKeyArn?: pulumi.Input<string>;
+    customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Description of the Resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The foundation model used for orchestration by the agent.
      */
-    foundationModel?: pulumi.Input<string>;
+    foundationModel?: pulumi.Input<string | undefined>;
     /**
      * Details about the guardrail associated with the agent.
      */
-    guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentGuardrailConfigurationArgs>;
+    guardrailConfiguration?: pulumi.Input<inputs.bedrock.AgentGuardrailConfigurationArgs | undefined>;
     /**
      * Max Session Time.
      */
-    idleSessionTtlInSeconds?: pulumi.Input<number>;
+    idleSessionTtlInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Instruction for the agent.
      */
-    instruction?: pulumi.Input<string>;
+    instruction?: pulumi.Input<string | undefined>;
     /**
      * List of Agent Knowledge Bases
      */
-    knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[]>;
+    knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[] | undefined>;
     /**
      * Contains memory configuration for the agent.
      */
-    memoryConfiguration?: pulumi.Input<inputs.bedrock.AgentMemoryConfigurationArgs>;
+    memoryConfiguration?: pulumi.Input<inputs.bedrock.AgentMemoryConfigurationArgs | undefined>;
     /**
      * Specifies the orchestration strategy for the agent.
      */
-    orchestrationType?: pulumi.Input<enums.bedrock.AgentOrchestrationType>;
+    orchestrationType?: pulumi.Input<enums.bedrock.AgentOrchestrationType | undefined>;
     /**
      * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */
-    promptOverrideConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptOverrideConfigurationArgs>;
+    promptOverrideConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptOverrideConfigurationArgs | undefined>;
     /**
      * Specifies whether to allow deleting agent while it is in use.
      */
-    skipResourceInUseCheckOnDelete?: pulumi.Input<boolean>;
+    skipResourceInUseCheckOnDelete?: pulumi.Input<boolean | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
      * - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
      * - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
      */
-    testAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    testAliasTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

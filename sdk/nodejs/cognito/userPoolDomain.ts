@@ -108,7 +108,7 @@ export interface UserPoolDomainArgs {
      *
      * When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
      */
-    customDomainConfig?: pulumi.Input<inputs.cognito.UserPoolDomainCustomDomainConfigTypeArgs>;
+    customDomainConfig?: pulumi.Input<inputs.cognito.UserPoolDomainCustomDomainConfigTypeArgs | undefined>;
     /**
      * The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
      */
@@ -116,8 +116,8 @@ export interface UserPoolDomainArgs {
     /**
      * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding editor. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
      */
-    managedLoginVersion?: pulumi.Input<number>;
-    routing?: pulumi.Input<inputs.cognito.UserPoolDomainRoutingTypeArgs>;
+    managedLoginVersion?: pulumi.Input<number | undefined>;
+    routing?: pulumi.Input<inputs.cognito.UserPoolDomainRoutingTypeArgs | undefined>;
     /**
      * The ID of the user pool that is associated with the domain you're updating.
      */

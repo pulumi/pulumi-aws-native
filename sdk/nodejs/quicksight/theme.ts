@@ -164,15 +164,15 @@ export interface ThemeArgs {
     /**
      * A display name for the theme.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A valid grouping of resource permissions to apply to the new theme.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[] | undefined>;
     /**
      * A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
      */
@@ -180,5 +180,5 @@ export interface ThemeArgs {
     /**
      * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
      */
-    versionDescription?: pulumi.Input<string>;
+    versionDescription?: pulumi.Input<string | undefined>;
 }

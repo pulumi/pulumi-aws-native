@@ -132,21 +132,21 @@ export interface HubArgs {
     /**
      * The display name of the hub.
      */
-    hubDisplayName?: pulumi.Input<string>;
+    hubDisplayName?: pulumi.Input<string | undefined>;
     /**
      * The name of the hub.
      */
-    hubName?: pulumi.Input<string>;
+    hubName?: pulumi.Input<string | undefined>;
     /**
      * The searchable keywords for the hub.
      */
-    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[]>;
+    hubSearchKeywords?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon S3 storage configuration for the hub.
      */
-    s3StorageConfig?: pulumi.Input<inputs.sagemaker.S3StorageConfigPropertiesArgs>;
+    s3StorageConfig?: pulumi.Input<inputs.sagemaker.S3StorageConfigPropertiesArgs | undefined>;
     /**
      * Tags to associate with the hub.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

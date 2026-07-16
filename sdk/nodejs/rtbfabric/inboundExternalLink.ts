@@ -97,7 +97,7 @@ export class InboundExternalLink extends pulumi.CustomResource {
  */
 export interface InboundExternalLinkArgs {
     gatewayId: pulumi.Input<string>;
-    linkAttributes?: pulumi.Input<inputs.rtbfabric.InboundExternalLinkLinkAttributesArgs>;
+    linkAttributes?: pulumi.Input<inputs.rtbfabric.InboundExternalLinkLinkAttributesArgs | undefined>;
     linkLogSettings: pulumi.Input<inputs.rtbfabric.InboundExternalLinkLinkLogSettingsArgs>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

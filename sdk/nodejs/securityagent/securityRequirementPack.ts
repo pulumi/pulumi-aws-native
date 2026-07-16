@@ -107,25 +107,25 @@ export interface SecurityRequirementPackArgs {
     /**
      * Description of the pack
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * KMS key for client-side encryption of pack contents
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Name of the security requirement pack
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Security requirements within this pack
      */
-    securityRequirements?: pulumi.Input<pulumi.Input<inputs.securityagent.SecurityRequirementPackSecurityRequirementArgs>[]>;
+    securityRequirements?: pulumi.Input<pulumi.Input<inputs.securityagent.SecurityRequirementPackSecurityRequirementArgs>[] | undefined>;
     /**
      * Whether the pack is enabled or disabled
      */
-    status?: pulumi.Input<enums.securityagent.SecurityRequirementPackStatus>;
+    status?: pulumi.Input<enums.securityagent.SecurityRequirementPackStatus | undefined>;
     /**
      * Tags for the security requirement pack
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }
