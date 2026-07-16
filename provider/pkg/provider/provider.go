@@ -787,6 +787,8 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			newInputs[tagsKey] = val
 		}
 
+		resources.NormalizeWafv2ByteMatchInputs(resourceToken, newInputs)
+
 		failures, err = resources.ValidateResource(&spec, p.resourceMap.Types, newInputs)
 		if err != nil {
 			return nil, err
@@ -855,6 +857,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
 		classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
 		baseline := classifier.ActualInputBaselineFromOutputs(oldInputs, oldState, newInputs)
+		resources.NormalizeWafv2ByteMatchBaseline(resourceToken, baseline, newInputs)
 		diff := baseline.Diff(newInputs)
 
 		// Apply propertyTransform-based diff suppression for semantically equivalent values.
@@ -1065,6 +1068,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			classifier.AddWriteOnlyOutputFallbacks(newStateProps, inputs)
 			resources.PreserveSecretWrappers(newStateProps, inputs)
 			baseline := classifier.ActualInputBaselineFromOutputs(inputs, newStateProps, inputs)
+			resources.NormalizeWafv2ByteMatchBaseline(resourceToken, baseline, inputs)
 			newInputs = resources.SuppressBaselineDiffs(resourceToken, &spec, inputs, baseline, p.transformCache)
 			newState = resources.CheckpointPropertyMap(newInputs, newStateProps)
 		}

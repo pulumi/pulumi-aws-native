@@ -351,6 +351,72 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 		assert.Empty(t, patch)
 	})
 
+	t.Run("WAF WebAcl updates resend canonical rules", func(t *testing.T) {
+		const tokenDomainsProperty = "tokenDomains"
+
+		spec := metadata.CloudAPIResource{
+			Inputs: map[string]schema.PropertySpec{
+				wafv2RulesProperty: {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
+					},
+				},
+				tokenDomainsProperty: {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+			Outputs: map[string]schema.PropertySpec{
+				wafv2RulesProperty: {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
+					},
+				},
+				tokenDomainsProperty: {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
+					},
+				},
+			},
+		}
+		rules := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewStringProperty("canonical-rule"),
+		})
+		oldInputs := resource.PropertyMap{
+			wafv2RulesProperty: rules,
+			tokenDomainsProperty: resource.NewArrayProperty(
+				[]resource.PropertyValue{resource.NewStringProperty("old.example")},
+			),
+		}
+		newInputs := resource.PropertyMap{
+			wafv2RulesProperty: rules,
+			tokenDomainsProperty: resource.NewArrayProperty(
+				[]resource.PropertyValue{resource.NewStringProperty("new.example")},
+			),
+		}
+
+		patch, err := CalcPatchWithActualOutputs(
+			oldInputs,
+			oldInputs,
+			newInputs,
+			spec,
+			nil,
+			nil,
+			awsNativeWafv2WebAclToken,
+			NewTransformCache(),
+		)
+		require.NoError(t, err)
+		assert.Equal(t, []jsonpatch.JsonPatchOperation{
+			{Operation: "replace", Path: "/Rules", Value: []interface{}{"canonical-rule"}},
+			{Operation: "replace", Path: "/TokenDomains", Value: []interface{}{"new.example"}},
+		}, patch)
+	})
+
 	t.Run("key value array tag reorder is suppressed", func(t *testing.T) {
 		spec := metadata.CloudAPIResource{
 			TagsProperty: "tags",
