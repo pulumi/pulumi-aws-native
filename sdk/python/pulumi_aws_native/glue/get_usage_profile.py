@@ -89,7 +89,6 @@ def get_usage_profile(name: Optional[_builtins.str] = None,
     """
     This creates a Resource of UsageProfile type.
 
-
     :param _builtins.str name: The name of the UsageProfile.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_usage_profile(name: Optional[_builtins.str] = None,
         created_on=pulumi.get(__ret__, 'created_on'),
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_usage_profile_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_usage_profile_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsageProfileResult]:
     """
     This creates a Resource of UsageProfile type.
-
 
     :param _builtins.str name: The name of the UsageProfile.
     """

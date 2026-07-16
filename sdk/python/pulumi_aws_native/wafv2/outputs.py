@@ -289,7 +289,7 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
         """
         A single label name condition.
 
-        :param _builtins.str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        :param _builtins.str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         pulumi.set(__self__, "label_name", label_name)
 
@@ -297,7 +297,7 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
     @pulumi.getter(name="labelName")
     def label_name(self) -> _builtins.str:
         """
-        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
+        The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         return pulumi.get(self, "label_name")
 
@@ -336,10 +336,10 @@ class LoggingConfigurationFieldToMatch(dict):
         """
         A key-value pair to associate with a resource.
 
-        :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
-        :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+        :param Any method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param Any query_string: Inspect the query string. This is the part of a URL that appears after a ? character, if any.
         :param 'LoggingConfigurationFieldToMatchSingleHeaderProperties' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
-        :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
+        :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -354,7 +354,7 @@ class LoggingConfigurationFieldToMatch(dict):
     @pulumi.getter
     def method(self) -> Optional[Any]:
         """
-        Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
+        Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
         """
         return pulumi.get(self, "method")
 
@@ -362,7 +362,7 @@ class LoggingConfigurationFieldToMatch(dict):
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[Any]:
         """
-        Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
+        Inspect the query string. This is the part of a URL that appears after a ? character, if any.
         """
         return pulumi.get(self, "query_string")
 
@@ -378,7 +378,7 @@ class LoggingConfigurationFieldToMatch(dict):
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional[Any]:
         """
-        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
+        Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
         return pulumi.get(self, "uri_path")
 
@@ -413,7 +413,7 @@ class LoggingConfigurationFilter(dict):
                  conditions: Sequence['outputs.LoggingConfigurationCondition'],
                  requirement: 'LoggingConfigurationFilterRequirement'):
         """
-        :param 'LoggingConfigurationFilterBehavior' behavior: How to handle logs that satisfy the filter's conditions and requirement. 
+        :param 'LoggingConfigurationFilterBehavior' behavior: How to handle logs that satisfy the filter's conditions and requirement.
         :param Sequence['LoggingConfigurationCondition'] conditions: Match conditions for the filter.
         :param 'LoggingConfigurationFilterRequirement' requirement: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
@@ -425,7 +425,7 @@ class LoggingConfigurationFilter(dict):
     @pulumi.getter
     def behavior(self) -> 'LoggingConfigurationFilterBehavior':
         """
-        How to handle logs that satisfy the filter's conditions and requirement. 
+        How to handle logs that satisfy the filter's conditions and requirement.
         """
         return pulumi.get(self, "behavior")
 
@@ -1568,14 +1568,14 @@ class RuleGroupFieldToMatch(dict):
                Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
         :param 'RuleGroupJa3Fingerprint' ja3_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
                
-               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
                
                You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
                Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         :param 'RuleGroupJa4Fingerprint' ja4_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
                
-               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
                
                You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
@@ -1686,7 +1686,7 @@ class RuleGroupFieldToMatch(dict):
         """
         Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
 
         You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
@@ -1700,7 +1700,7 @@ class RuleGroupFieldToMatch(dict):
         """
         Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
 
         You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
@@ -1850,7 +1850,7 @@ class RuleGroupForwardedIpConfiguration(dict):
         """
         :param 'RuleGroupForwardedIpConfigurationFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                You can specify the following fallback behaviors:
                
@@ -1869,7 +1869,7 @@ class RuleGroupForwardedIpConfiguration(dict):
         """
         The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         You can specify the following fallback behaviors:
 
@@ -2206,7 +2206,7 @@ class RuleGroupIpSetForwardedIpConfiguration(dict):
         """
         :param 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                You can specify the following fallback behaviors:
                
@@ -2233,7 +2233,7 @@ class RuleGroupIpSetForwardedIpConfiguration(dict):
         """
         The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         You can specify the following fallback behaviors:
 
@@ -2921,7 +2921,7 @@ class RuleGroupRateBasedStatement(dict):
         """
         :param 'RuleGroupRateBasedStatementAggregateKeyType' aggregate_key_type: Setting that indicates how to aggregate the request counts.
                
-               > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+               > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
                
                - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
                
@@ -2953,7 +2953,7 @@ class RuleGroupRateBasedStatement(dict):
                Default: `300` (5 minutes)
         :param 'RuleGroupForwardedIpConfiguration' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                This is required if you specify a forwarded IP in the rule's aggregate key settings.
         :param 'RuleGroupStatement' scope_down_statement: An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
@@ -2975,7 +2975,7 @@ class RuleGroupRateBasedStatement(dict):
         """
         Setting that indicates how to aggregate the request counts.
 
-        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
 
         - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 
@@ -3035,7 +3035,7 @@ class RuleGroupRateBasedStatement(dict):
         """
         The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         This is required if you specify a forwarded IP in the rule's aggregate key settings.
         """
@@ -4271,7 +4271,7 @@ class RuleGroupStatement(dict):
         :param 'RuleGroupOrStatement' or_statement: A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
         :param 'RuleGroupRateBasedStatement' rate_based_statement: A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
                
-               > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+               > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute.
                
                You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
                
@@ -4439,7 +4439,7 @@ class RuleGroupStatement(dict):
         """
         A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
 
-        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute.
 
         You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
 
@@ -4947,7 +4947,7 @@ class WebAclAssociationConfig(dict):
 
         :param Mapping[str, 'WebAclRequestBodyAssociatedResourceTypeConfig'] request_body: Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
                
-               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+               > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
                
                Example JSON: `{ "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }`
                
@@ -4962,7 +4962,7 @@ class WebAclAssociationConfig(dict):
         """
         Customizes the maximum size of the request body that your protected CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to AWS WAF for inspection. The default size is 16 KB (16,384 bytes). You can change the setting for any of the available resource types.
 
-        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) . 
+        > You are charged additional fees when your protected resources forward body sizes that are larger than the default. For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 
         Example JSON: `{ "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }`
 
@@ -5015,14 +5015,14 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
                For example, for the URL `https://example.com/web/newaccount` , you would provide the path `/web/newaccount` . Account creation page paths that start with the path that you provide are considered a match. For example `/web/newaccount` matches the account creation paths `/web/newaccount` , `/web/newaccount/` , `/web/newaccountPage` , and `/web/newaccount/thisPage` , but doesn't match the path `/home/web/newaccount` or `/website/newaccount` .
         :param _builtins.str registration_page_path: The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
                
-               > This page must accept `GET` text/html requests. 
+               > This page must accept `GET` text/html requests.
                
                For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
         :param 'WebAclRequestInspectionAcfp' request_inspection: The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
         :param _builtins.bool enable_regex_in_path: Allow the use of regular expressions in the registration page path and the account creation path.
         :param 'WebAclResponseInspection' response_inspection: The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
                
-               > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+               > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
                
                The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
         """
@@ -5050,7 +5050,7 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
         """
         The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users.
 
-        > This page must accept `GET` text/html requests. 
+        > This page must accept `GET` text/html requests.
 
         For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
         """
@@ -5078,7 +5078,7 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
         """
         The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 
-        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 
         The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
         """
@@ -5198,7 +5198,7 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
         :param 'WebAclRequestInspection' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
         :param 'WebAclResponseInspection' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
                
-               > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+               > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
                
                The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
         """
@@ -5242,7 +5242,7 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
         """
         The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 
-        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
+        > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 
         The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
         """
@@ -5895,7 +5895,7 @@ class WebAclClientSideActionConfig(dict):
 
         :param 'WebAclClientSideAction' challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
                
-               > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+               > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
                
                You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
         """
@@ -5907,7 +5907,7 @@ class WebAclClientSideActionConfig(dict):
         """
         Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` .
 
-        > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here. 
+        > This setting isn't related to the configuration of the `Challenge` action itself. It only configures the use of the two anti-DDoS rules named here.
 
         You can enable or disable the use of these rules, and you can configure how to use them when they are enabled.
         """
@@ -6614,14 +6614,14 @@ class WebAclFieldToMatch(dict):
                Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
         :param 'WebAclJa3Fingerprint' ja3_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
                
-               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
                
                You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
                Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
         :param 'WebAclJa4Fingerprint' ja4_fingerprint: Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
                
-               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+               > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
                
                You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
                
@@ -6732,7 +6732,7 @@ class WebAclFieldToMatch(dict):
         """
         Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
 
         You can obtain the JA3 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
@@ -6746,7 +6746,7 @@ class WebAclFieldToMatch(dict):
         """
         Available for use with Amazon CloudFront distributions and Application Load Balancers. Match against the request's JA4 fingerprint. The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 
-        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` . 
+        > You can use this choice only with a string match `ByteMatchStatement` with the `PositionalConstraint` set to `EXACTLY` .
 
         You can obtain the JA4 fingerprint for client requests from the web ACL logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields](https://docs.aws.amazon.com/waf/latest/developerguide/logging-fields.html) in the *AWS WAF Developer Guide* .
 
@@ -6950,7 +6950,7 @@ class WebAclForwardedIpConfiguration(dict):
         """
         :param 'WebAclForwardedIpConfigurationFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                You can specify the following fallback behaviors:
                
@@ -6969,7 +6969,7 @@ class WebAclForwardedIpConfiguration(dict):
         """
         The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         You can specify the following fallback behaviors:
 
@@ -7306,7 +7306,7 @@ class WebAclIpSetForwardedIpConfiguration(dict):
         """
         :param 'WebAclIpSetForwardedIpConfigurationFallbackBehavior' fallback_behavior: The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                You can specify the following fallback behaviors:
                
@@ -7333,7 +7333,7 @@ class WebAclIpSetForwardedIpConfiguration(dict):
         """
         The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         You can specify the following fallback behaviors:
 
@@ -8351,7 +8351,7 @@ class WebAclRateBasedStatement(dict):
         """
         :param 'WebAclRateBasedStatementAggregateKeyType' aggregate_key_type: Setting that indicates how to aggregate the request counts.
                
-               > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+               > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
                
                - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
                
@@ -8383,7 +8383,7 @@ class WebAclRateBasedStatement(dict):
                Default: `300` (5 minutes)
         :param 'WebAclForwardedIpConfiguration' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
                
-               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+               > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
                
                This is required if you specify a forwarded IP in the rule's aggregate key settings.
         :param 'WebAclStatement' scope_down_statement: An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
@@ -8405,7 +8405,7 @@ class WebAclRateBasedStatement(dict):
         """
         Setting that indicates how to aggregate the request counts.
 
-        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling. 
+        > Web requests that are missing any of the components specified in the aggregation keys are omitted from the rate-based rule evaluation and handling.
 
         - `CONSTANT` - Count and limit the requests that match the rate-based rule's scope-down statement. With this option, the counted requests aren't further aggregated. The scope-down statement is the only specification used. When the count of all requests that satisfy the scope-down statement goes over the limit, AWS WAF applies the rule action to all requests that satisfy the scope-down statement.
 
@@ -8465,7 +8465,7 @@ class WebAclRateBasedStatement(dict):
         """
         The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 
-        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
+        > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 
         This is required if you specify a forwarded IP in the rule's aggregate key settings.
         """
@@ -10613,7 +10613,7 @@ class WebAclStatement(dict):
         :param 'WebAclOrStatement' or_statement: A logical rule statement used to combine other rule statements with OR logic. You provide more than one `Statement` within the `OrStatement` .
         :param 'WebAclRateBasedStatement' rate_based_statement: A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
                
-               > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+               > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute.
                
                You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
                
@@ -10800,7 +10800,7 @@ class WebAclStatement(dict):
         """
         A rate-based rule counts incoming requests and rate limits requests when they are coming at too fast a rate. The rule categorizes requests according to your aggregation criteria, collects them into aggregation instances, and counts and rate limits the requests for each instance.
 
-        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute. 
+        > If you change any of these settings in a rule that's currently in use, the change resets the rule's rate limiting counts. This can pause the rule's rate limiting activities for up to a minute.
 
         You can specify individual aggregation keys, like IP address or HTTP method. You can also specify aggregation key combinations, like IP address and HTTP method, or HTTP method, query argument, and cookie.
 

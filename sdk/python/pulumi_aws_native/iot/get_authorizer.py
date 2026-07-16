@@ -133,7 +133,6 @@ def get_authorizer(authorizer_name: Optional[_builtins.str] = None,
     """
     Creates an authorizer.
 
-
     :param _builtins.str authorizer_name: The authorizer name.
     """
     __args__ = dict()
@@ -149,11 +148,10 @@ def get_authorizer(authorizer_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         token_key_name=pulumi.get(__ret__, 'token_key_name'),
         token_signing_public_keys=pulumi.get(__ret__, 'token_signing_public_keys'))
-def get_authorizer_output(authorizer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_authorizer_output(authorizer_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Creates an authorizer.
-
 
     :param _builtins.str authorizer_name: The authorizer name.
     """

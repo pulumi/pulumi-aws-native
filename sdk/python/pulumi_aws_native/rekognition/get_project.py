@@ -64,7 +64,6 @@ def get_project(project_name: Optional[_builtins.str] = None,
     """
     The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
 
-
     :param _builtins.str project_name: The name of the project to create.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_project(project_name: Optional[_builtins.str] = None,
     return AwaitableGetProjectResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
-
 
     :param _builtins.str project_name: The name of the project to create.
     """

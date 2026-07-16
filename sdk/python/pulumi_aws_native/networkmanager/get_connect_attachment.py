@@ -221,7 +221,6 @@ def get_connect_attachment(attachment_id: Optional[_builtins.str] = None,
     """
     AWS::NetworkManager::ConnectAttachment Resource Type Definition
 
-
     :param _builtins.str attachment_id: The ID of the attachment.
     """
     __args__ = dict()
@@ -245,11 +244,10 @@ def get_connect_attachment(attachment_id: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_connect_attachment_output(attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connect_attachment_output(attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectAttachmentResult]:
     """
     AWS::NetworkManager::ConnectAttachment Resource Type Definition
-
 
     :param _builtins.str attachment_id: The ID of the attachment.
     """

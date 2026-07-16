@@ -23,14 +23,14 @@ __all__ = ['AgentSpaceArgs', 'AgentSpace']
 @pulumi.input_type
 class AgentSpaceArgs:
     def __init__(__self__, *,
-                 aws_resources: Optional[pulumi.Input['AgentSpaceAwsResourcesArgs']] = None,
-                 code_review_settings: Optional[pulumi.Input['AgentSpaceCodeReviewSettingsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrated_resources: Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aws_resources: pulumi.Input[Optional['AgentSpaceAwsResourcesArgs']] = None,
+                 code_review_settings: pulumi.Input[Optional['AgentSpaceCodeReviewSettingsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AgentSpace resource.
 
@@ -59,89 +59,89 @@ class AgentSpaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsResources")
-    def aws_resources(self) -> Optional[pulumi.Input['AgentSpaceAwsResourcesArgs']]:
+    def aws_resources(self) -> pulumi.Input[Optional['AgentSpaceAwsResourcesArgs']]:
         return pulumi.get(self, "aws_resources")
 
     @aws_resources.setter
-    def aws_resources(self, value: Optional[pulumi.Input['AgentSpaceAwsResourcesArgs']]):
+    def aws_resources(self, value: pulumi.Input[Optional['AgentSpaceAwsResourcesArgs']]):
         pulumi.set(self, "aws_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="codeReviewSettings")
-    def code_review_settings(self) -> Optional[pulumi.Input['AgentSpaceCodeReviewSettingsArgs']]:
+    def code_review_settings(self) -> pulumi.Input[Optional['AgentSpaceCodeReviewSettingsArgs']]:
         return pulumi.get(self, "code_review_settings")
 
     @code_review_settings.setter
-    def code_review_settings(self, value: Optional[pulumi.Input['AgentSpaceCodeReviewSettingsArgs']]):
+    def code_review_settings(self, value: pulumi.Input[Optional['AgentSpaceCodeReviewSettingsArgs']]):
         pulumi.set(self, "code_review_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the agent space
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="integratedResources")
-    def integrated_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]]:
+    def integrated_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]]:
         return pulumi.get(self, "integrated_resources")
 
     @integrated_resources.setter
-    def integrated_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]]):
+    def integrated_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentSpaceIntegratedResourceArgs']]]]):
         pulumi.set(self, "integrated_resources", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the agent space
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the agent space
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetDomainIds")
-    def target_domain_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def target_domain_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of target domain identifiers registered with the agent space
         """
         return pulumi.get(self, "target_domain_ids")
 
     @target_domain_ids.setter
-    def target_domain_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def target_domain_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "target_domain_ids", value)
 
 
@@ -151,18 +151,17 @@ class AgentSpace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_resources: Optional[pulumi.Input[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
-                 code_review_settings: Optional[pulumi.Input[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
+                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::AgentSpace
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,7 +180,6 @@ class AgentSpace(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityAgent::AgentSpace
 
-
         :param str resource_name: The name of the resource.
         :param AgentSpaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,14 +195,14 @@ class AgentSpace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_resources: Optional[pulumi.Input[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
-                 code_review_settings: Optional[pulumi.Input[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 integrated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
+                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

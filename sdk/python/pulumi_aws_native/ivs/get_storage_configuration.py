@@ -64,7 +64,6 @@ def get_storage_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IVS::StorageConfiguration
 
-
     :param _builtins.str arn: Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_storage_configuration(arn: Optional[_builtins.str] = None,
     return AwaitableGetStorageConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_storage_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::StorageConfiguration
-
 
     :param _builtins.str arn: Storage Configuration ARN is automatically generated on creation and assigned as the unique identifier.
     """

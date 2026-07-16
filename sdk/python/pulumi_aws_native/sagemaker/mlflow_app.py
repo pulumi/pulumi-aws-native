@@ -24,10 +24,10 @@ class MlflowAppArgs:
     def __init__(__self__, *,
                  artifact_store_uri: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 model_registration_mode: Optional[pulumi.Input['MlflowAppModelRegistrationMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None):
+                 model_registration_mode: pulumi.Input[Optional['MlflowAppModelRegistrationMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MlflowApp resource.
 
@@ -75,50 +75,50 @@ class MlflowAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelRegistrationMode")
-    def model_registration_mode(self) -> Optional[pulumi.Input['MlflowAppModelRegistrationMode']]:
+    def model_registration_mode(self) -> pulumi.Input[Optional['MlflowAppModelRegistrationMode']]:
         """
         Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
         """
         return pulumi.get(self, "model_registration_mode")
 
     @model_registration_mode.setter
-    def model_registration_mode(self, value: Optional[pulumi.Input['MlflowAppModelRegistrationMode']]):
+    def model_registration_mode(self, value: pulumi.Input[Optional['MlflowAppModelRegistrationMode']]):
         pulumi.set(self, "model_registration_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MLflow App.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to associate with the MLflow App.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
-    def weekly_maintenance_window_start(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def weekly_maintenance_window_start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: Tue:03:30.
         """
         return pulumi.get(self, "weekly_maintenance_window_start")
 
     @weekly_maintenance_window_start.setter
-    def weekly_maintenance_window_start(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def weekly_maintenance_window_start(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "weekly_maintenance_window_start", value)
 
 
@@ -128,16 +128,15 @@ class MlflowApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_registration_mode: Optional[pulumi.Input['MlflowAppModelRegistrationMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_registration_mode: pulumi.Input[Optional['MlflowAppModelRegistrationMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::MlflowApp
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +156,6 @@ class MlflowApp(pulumi.CustomResource):
         """
         Resource type definition for AWS::SageMaker::MlflowApp
 
-
         :param str resource_name: The name of the resource.
         :param MlflowAppArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,12 +171,12 @@ class MlflowApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_registration_mode: Optional[pulumi.Input['MlflowAppModelRegistrationMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 weekly_maintenance_window_start: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact_store_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_registration_mode: pulumi.Input[Optional['MlflowAppModelRegistrationMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -52,7 +52,6 @@ def get_group_membership(identity_store_id: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS:IdentityStore::GroupMembership
 
-
     :param _builtins.str identity_store_id: The globally unique identifier for the identity store.
     :param _builtins.str membership_id: The identifier for a GroupMembership in the identity store.
     """
@@ -64,12 +63,11 @@ def get_group_membership(identity_store_id: Optional[_builtins.str] = None,
 
     return AwaitableGetGroupMembershipResult(
         membership_id=pulumi.get(__ret__, 'membership_id'))
-def get_group_membership_output(identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                membership_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_membership_output(identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                membership_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipResult]:
     """
     Resource Type Definition for AWS:IdentityStore::GroupMembership
-
 
     :param _builtins.str identity_store_id: The globally unique identifier for the identity store.
     :param _builtins.str membership_id: The identifier for a GroupMembership in the identity store.

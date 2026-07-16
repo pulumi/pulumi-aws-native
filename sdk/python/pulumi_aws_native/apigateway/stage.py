@@ -24,19 +24,19 @@ __all__ = ['StageArgs', 'Stage']
 class StageArgs:
     def __init__(__self__, *,
                  rest_api_id: pulumi.Input[_builtins.str],
-                 access_log_setting: Optional[pulumi.Input['StageAccessLogSettingArgs']] = None,
-                 cache_cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_cluster_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 canary_setting: Optional[pulumi.Input['StageCanarySettingArgs']] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 access_log_setting: pulumi.Input[Optional['StageAccessLogSettingArgs']] = None,
+                 cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 canary_setting: pulumi.Input[Optional['StageCanarySettingArgs']] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input['StageMethodSettingArgs']]]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Stage resource.
 
@@ -97,158 +97,158 @@ class StageArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessLogSetting")
-    def access_log_setting(self) -> Optional[pulumi.Input['StageAccessLogSettingArgs']]:
+    def access_log_setting(self) -> pulumi.Input[Optional['StageAccessLogSettingArgs']]:
         """
         Access log settings, including the access log format and access log destination ARN.
         """
         return pulumi.get(self, "access_log_setting")
 
     @access_log_setting.setter
-    def access_log_setting(self, value: Optional[pulumi.Input['StageAccessLogSettingArgs']]):
+    def access_log_setting(self, value: pulumi.Input[Optional['StageAccessLogSettingArgs']]):
         pulumi.set(self, "access_log_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterEnabled")
-    def cache_cluster_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cache_cluster_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         """
         return pulumi.get(self, "cache_cluster_enabled")
 
     @cache_cluster_enabled.setter
-    def cache_cluster_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cache_cluster_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cache_cluster_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheClusterSize")
-    def cache_cluster_size(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_cluster_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
         """
         return pulumi.get(self, "cache_cluster_size")
 
     @cache_cluster_size.setter
-    def cache_cluster_size(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_cluster_size(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_cluster_size", value)
 
     @_builtins.property
     @pulumi.getter(name="canarySetting")
-    def canary_setting(self) -> Optional[pulumi.Input['StageCanarySettingArgs']]:
+    def canary_setting(self) -> pulumi.Input[Optional['StageCanarySettingArgs']]:
         """
         Settings for the canary deployment in this stage.
         """
         return pulumi.get(self, "canary_setting")
 
     @canary_setting.setter
-    def canary_setting(self, value: Optional[pulumi.Input['StageCanarySettingArgs']]):
+    def canary_setting(self, value: pulumi.Input[Optional['StageCanarySettingArgs']]):
         pulumi.set(self, "canary_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="clientCertificateId")
-    def client_certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of a client certificate for an API stage.
         """
         return pulumi.get(self, "client_certificate_id")
 
     @client_certificate_id.setter
-    def client_certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_certificate_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentId")
-    def deployment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the Deployment that the stage points to.
         """
         return pulumi.get(self, "deployment_id")
 
     @deployment_id.setter
-    def deployment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stage's description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationVersion")
-    def documentation_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def documentation_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the associated API documentation.
         """
         return pulumi.get(self, "documentation_version")
 
     @documentation_version.setter
-    def documentation_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def documentation_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "documentation_version", value)
 
     @_builtins.property
     @pulumi.getter(name="methodSettings")
-    def method_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]]:
+    def method_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageMethodSettingArgs']]]]:
         """
         A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         """
         return pulumi.get(self, "method_settings")
 
     @method_settings.setter
-    def method_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageMethodSettingArgs']]]]):
+    def method_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageMethodSettingArgs']]]]):
         pulumi.set(self, "method_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingEnabled")
-    def tracing_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def tracing_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether active tracing with X-ray is enabled for the Stage.
         """
         return pulumi.get(self, "tracing_enabled")
 
     @tracing_enabled.setter
-    def tracing_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def tracing_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "tracing_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -258,24 +258,23 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_setting: Optional[pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
-                 cache_cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_cluster_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 canary_setting: Optional[pulumi.Input[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
+                 cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,7 +302,6 @@ class Stage(pulumi.CustomResource):
         """
         The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
-
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,20 +317,20 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_setting: Optional[pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
-                 cache_cluster_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_cluster_size: Optional[pulumi.Input[_builtins.str]] = None,
-                 canary_setting: Optional[pulumi.Input[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
-                 client_certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 documentation_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 method_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
-                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tracing_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
+                 cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
+                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
+                 client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
+                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

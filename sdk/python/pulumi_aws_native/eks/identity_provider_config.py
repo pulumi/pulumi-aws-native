@@ -26,9 +26,9 @@ class IdentityProviderConfigArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['IdentityProviderConfigType'],
-                 identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc: pulumi.Input[Optional['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityProviderConfig resource.
 
@@ -73,38 +73,38 @@ class IdentityProviderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityProviderConfigName")
-    def identity_provider_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_provider_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OIDC provider configuration.
         """
         return pulumi.get(self, "identity_provider_config_name")
 
     @identity_provider_config_name.setter
-    def identity_provider_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_provider_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_provider_config_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def oidc(self) -> Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']]:
+    def oidc(self) -> pulumi.Input[Optional['IdentityProviderConfigOidcIdentityProviderConfigArgs']]:
         """
         An object representing an OpenID Connect (OIDC) identity provider configuration.
         """
         return pulumi.get(self, "oidc")
 
     @oidc.setter
-    def oidc(self, value: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']]):
+    def oidc(self, value: pulumi.Input[Optional['IdentityProviderConfigOidcIdentityProviderConfigArgs']]):
         pulumi.set(self, "oidc", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -114,15 +114,14 @@ class IdentityProviderConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc: Optional[pulumi.Input[Union['IdentityProviderConfigOidcIdentityProviderConfigArgs', 'IdentityProviderConfigOidcIdentityProviderConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcIdentityProviderConfigArgs', 'IdentityProviderConfigOidcIdentityProviderConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IdentityProviderConfigType']] = None,
                  __props__=None):
         """
         An object representing an Amazon EKS IdentityProviderConfig.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +140,6 @@ class IdentityProviderConfig(pulumi.CustomResource):
         """
         An object representing an Amazon EKS IdentityProviderConfig.
 
-
         :param str resource_name: The name of the resource.
         :param IdentityProviderConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,11 +155,11 @@ class IdentityProviderConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_provider_config_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 oidc: Optional[pulumi.Input[Union['IdentityProviderConfigOidcIdentityProviderConfigArgs', 'IdentityProviderConfigOidcIdentityProviderConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_provider_config_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oidc: pulumi.Input[Optional[Union['IdentityProviderConfigOidcIdentityProviderConfigArgs', 'IdentityProviderConfigOidcIdentityProviderConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['IdentityProviderConfigType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

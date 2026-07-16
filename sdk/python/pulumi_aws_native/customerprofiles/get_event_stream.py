@@ -103,7 +103,6 @@ def get_event_stream(domain_name: Optional[_builtins.str] = None,
     """
     An Event Stream resource of Amazon Connect Customer Profiles
 
-
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str event_stream_name: The name of the event stream.
     """
@@ -119,12 +118,11 @@ def get_event_stream(domain_name: Optional[_builtins.str] = None,
         event_stream_arn=pulumi.get(__ret__, 'event_stream_arn'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_stream_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            event_stream_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_stream_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            event_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventStreamResult]:
     """
     An Event Stream resource of Amazon Connect Customer Profiles
-
 
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str event_stream_name: The name of the event stream.

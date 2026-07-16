@@ -162,7 +162,6 @@ def get_asset_model(asset_model_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::AssetModel
 
-
     :param _builtins.str asset_model_id: The ID of the asset model.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_asset_model(asset_model_id: Optional[_builtins.str] = None,
         asset_model_properties=pulumi.get(__ret__, 'asset_model_properties'),
         enforced_asset_model_interface_relationships=pulumi.get(__ret__, 'enforced_asset_model_interface_relationships'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_asset_model_output(asset_model_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_asset_model_output(asset_model_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetModelResult]:
     """
     Resource schema for AWS::IoTSiteWise::AssetModel
-
 
     :param _builtins.str asset_model_id: The ID of the asset model.
     """

@@ -90,7 +90,6 @@ def get_task_set(cluster: Optional[_builtins.str] = None,
     """
     Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 
-
     :param _builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
     :param _builtins.str id: The ID of the task set.
     :param _builtins.str service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
@@ -106,13 +105,12 @@ def get_task_set(cluster: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         scale=pulumi.get(__ret__, 'scale'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_task_set_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
-                        id: Optional[pulumi.Input[_builtins.str]] = None,
-                        service: Optional[pulumi.Input[_builtins.str]] = None,
+def get_task_set_output(cluster: pulumi.Input[Optional[_builtins.str]] = None,
+                        id: pulumi.Input[Optional[_builtins.str]] = None,
+                        service: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskSetResult]:
     """
     Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
-
 
     :param _builtins.str cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
     :param _builtins.str id: The ID of the task set.

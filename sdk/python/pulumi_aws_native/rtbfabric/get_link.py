@@ -176,7 +176,7 @@ def get_link(arn: Optional[_builtins.str] = None,
         peer_gateway_id=pulumi.get(__ret__, 'peer_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_link_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Resource Type definition for AWS::RTBFabric::Link Resource Type

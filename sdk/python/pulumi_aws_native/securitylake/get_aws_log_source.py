@@ -52,7 +52,6 @@ def get_aws_log_source(source_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecurityLake::AwsLogSource
 
-
     :param _builtins.str source_name: The name for a AWS source. This must be a Regionally unique value.
     :param _builtins.str source_version: The version for a AWS source. This must be a Regionally unique value.
     """
@@ -64,12 +63,11 @@ def get_aws_log_source(source_name: Optional[_builtins.str] = None,
 
     return AwaitableGetAwsLogSourceResult(
         accounts=pulumi.get(__ret__, 'accounts'))
-def get_aws_log_source_output(source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              source_version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_aws_log_source_output(source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              source_version: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsLogSourceResult]:
     """
     Resource Type definition for AWS::SecurityLake::AwsLogSource
-
 
     :param _builtins.str source_name: The name for a AWS source. This must be a Regionally unique value.
     :param _builtins.str source_version: The version for a AWS source. This must be a Regionally unique value.

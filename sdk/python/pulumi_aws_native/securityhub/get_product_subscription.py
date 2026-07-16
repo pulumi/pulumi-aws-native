@@ -51,7 +51,6 @@ def get_product_subscription(product_subscription_arn: Optional[_builtins.str] =
     """
     The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
 
-
     :param _builtins.str product_subscription_arn: The ARN of the product subscription for the account
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_product_subscription(product_subscription_arn: Optional[_builtins.str] =
 
     return AwaitableGetProductSubscriptionResult(
         product_subscription_arn=pulumi.get(__ret__, 'product_subscription_arn'))
-def get_product_subscription_output(product_subscription_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_subscription_output(product_subscription_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductSubscriptionResult]:
     """
     The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
-
 
     :param _builtins.str product_subscription_arn: The ARN of the product subscription for the account
     """

@@ -85,7 +85,6 @@ def get_policy_template(policy_store_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
 
-
     :param _builtins.str policy_store_id: The unique identifier of the policy store that contains the template.
     :param _builtins.str policy_template_id: The unique identifier of the new or modified policy template.
     """
@@ -100,12 +99,11 @@ def get_policy_template(policy_store_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy_template_id=pulumi.get(__ret__, 'policy_template_id'),
         statement=pulumi.get(__ret__, 'statement'))
-def get_policy_template_output(policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               policy_template_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_template_output(policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               policy_template_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyTemplateResult]:
     """
     Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
-
 
     :param _builtins.str policy_store_id: The unique identifier of the policy store that contains the template.
     :param _builtins.str policy_template_id: The unique identifier of the new or modified policy template.

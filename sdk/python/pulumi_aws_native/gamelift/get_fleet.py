@@ -236,7 +236,6 @@ def get_fleet(fleet_id: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 
-
     :param _builtins.str fleet_id: Unique fleet ID
     """
     __args__ = dict()
@@ -261,11 +260,10 @@ def get_fleet(fleet_id: Optional[_builtins.str] = None,
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
         scaling_policies=pulumi.get(__ret__, 'scaling_policies'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_fleet_output(fleet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fleet_output(fleet_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
-
 
     :param _builtins.str fleet_id: Unique fleet ID
     """

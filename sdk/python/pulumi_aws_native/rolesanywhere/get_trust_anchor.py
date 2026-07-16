@@ -126,7 +126,6 @@ def get_trust_anchor(trust_anchor_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
 
-
     :param _builtins.str trust_anchor_id: The unique identifier of the trust anchor.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_trust_anchor(trust_anchor_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'),
         trust_anchor_id=pulumi.get(__ret__, 'trust_anchor_id'))
-def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_anchor_output(trust_anchor_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustAnchorResult]:
     """
     Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
-
 
     :param _builtins.str trust_anchor_id: The unique identifier of the trust anchor.
     """

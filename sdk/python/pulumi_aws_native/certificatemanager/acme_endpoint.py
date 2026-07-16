@@ -25,9 +25,9 @@ class AcmeEndpointArgs:
     def __init__(__self__, *,
                  authorization_behavior: pulumi.Input[_builtins.str],
                  certificate_authority: pulumi.Input['AcmeEndpointCertificateAuthorityArgs'],
-                 certificate_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]] = None,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]] = None,
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AcmeEndpoint resource.
 
@@ -68,38 +68,38 @@ class AcmeEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateTags")
-    def certificate_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]]:
+    def certificate_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]]:
         """
         Tags applied to certificates issued via this endpoint.
         """
         return pulumi.get(self, "certificate_tags")
 
     @certificate_tags.setter
-    def certificate_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]]):
+    def certificate_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AcmeEndpointTagArgs']]]]):
         pulumi.set(self, "certificate_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Whether contact information is required for the ACME endpoint.
         """
         return pulumi.get(self, "contact")
 
     @contact.setter
-    def contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with the ACME endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,15 +109,14 @@ class AcmeEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority: Optional[pulumi.Input[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
-                 certificate_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 authorization_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
+                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CertificateManager::AcmeEndpoint
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +134,6 @@ class AcmeEndpoint(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CertificateManager::AcmeEndpoint
 
-
         :param str resource_name: The name of the resource.
         :param AcmeEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,11 +149,11 @@ class AcmeEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 certificate_authority: Optional[pulumi.Input[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
-                 certificate_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
-                 contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 authorization_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['AcmeEndpointCertificateAuthorityArgs', 'AcmeEndpointCertificateAuthorityArgsDict']]] = None,
+                 certificate_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AcmeEndpointTagArgs', 'AcmeEndpointTagArgsDict']]]]] = None,
+                 contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

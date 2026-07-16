@@ -154,7 +154,6 @@ def get_permission_set(instance_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for SSO PermissionSet
 
-
     :param _builtins.str instance_arn: The sso instance arn that the permission set is owned.
     :param _builtins.str permission_set_arn: The permission set that the policy will be attached to
     """
@@ -174,12 +173,11 @@ def get_permission_set(instance_arn: Optional[_builtins.str] = None,
         relay_state_type=pulumi.get(__ret__, 'relay_state_type'),
         session_duration=pulumi.get(__ret__, 'session_duration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_permission_set_output(instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                              permission_set_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_permission_set_output(instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                              permission_set_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Resource Type definition for SSO PermissionSet
-
 
     :param _builtins.str instance_arn: The sso instance arn that the permission set is owned.
     :param _builtins.str permission_set_arn: The permission set that the policy will be attached to

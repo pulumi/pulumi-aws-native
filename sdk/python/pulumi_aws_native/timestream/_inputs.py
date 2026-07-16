@@ -20,16 +20,16 @@ __all__ = [
     'InfluxDbClusterMaintenanceScheduleArgsDict',
     'InfluxDbInstanceMaintenanceScheduleArgs',
     'InfluxDbInstanceMaintenanceScheduleArgsDict',
-    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs',
-    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict',
     'LogDeliveryConfigurationPropertiesArgs',
     'LogDeliveryConfigurationPropertiesArgsDict',
-    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
-    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict',
-    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
-    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict',
+    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs',
+    'LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict',
     'MagneticStoreWritePropertiesPropertiesArgs',
     'MagneticStoreWritePropertiesPropertiesArgsDict',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs',
+    'MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict',
     'RetentionPropertiesPropertiesArgs',
     'RetentionPropertiesPropertiesArgsDict',
     'ScheduledQueryDimensionMappingArgs',
@@ -164,6 +164,39 @@ class InfluxDbInstanceMaintenanceScheduleArgs:
         pulumi.set(self, "timezone", value)
 
 
+class LogDeliveryConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for sending logs to customer account from the InfluxDB instance.
+    """
+    s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict']
+    """
+    S3 configuration for sending logs to customer account from the InfluxDB instance.
+    """
+
+@pulumi.input_type
+class LogDeliveryConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+        """
+        Configuration for sending logs to customer account from the InfluxDB instance.
+
+        :param pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']:
+        """
+        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        """
+        return pulumi.get(self, "s3_configuration")
+
+    @s3_configuration.setter
+    def s3_configuration(self, value: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+        pulumi.set(self, "s3_configuration", value)
+
+
 class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict(TypedDict):
     """
     S3 configuration for sending logs to customer account from the InfluxDB instance.
@@ -216,36 +249,90 @@ class LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs:
         pulumi.set(self, "enabled", value)
 
 
-class LogDeliveryConfigurationPropertiesArgsDict(TypedDict):
+class MagneticStoreWritePropertiesPropertiesArgsDict(TypedDict):
     """
-    Configuration for sending logs to customer account from the InfluxDB instance.
+    The properties that determine whether magnetic store writes are enabled.
     """
-    s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgsDict']
+    enable_magnetic_store_writes: pulumi.Input[_builtins.bool]
     """
-    S3 configuration for sending logs to customer account from the InfluxDB instance.
+    Boolean flag indicating whether magnetic store writes are enabled.
+    """
+    magnetic_store_rejected_data_location: NotRequired[pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict']]]
+    """
+    Location to store information about records that were asynchronously rejected during magnetic store writes.
     """
 
 @pulumi.input_type
-class LogDeliveryConfigurationPropertiesArgs:
+class MagneticStoreWritePropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 s3_configuration: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+                 enable_magnetic_store_writes: pulumi.Input[_builtins.bool],
+                 magnetic_store_rejected_data_location: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None):
         """
-        Configuration for sending logs to customer account from the InfluxDB instance.
+        The properties that determine whether magnetic store writes are enabled.
 
-        :param pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for sending logs to customer account from the InfluxDB instance.
+        :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
+        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs'] magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
         """
-        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
+        if magnetic_store_rejected_data_location is not None:
+            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
+
+    @_builtins.property
+    @pulumi.getter(name="enableMagneticStoreWrites")
+    def enable_magnetic_store_writes(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Boolean flag indicating whether magnetic store writes are enabled.
+        """
+        return pulumi.get(self, "enable_magnetic_store_writes")
+
+    @enable_magnetic_store_writes.setter
+    def enable_magnetic_store_writes(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enable_magnetic_store_writes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="magneticStoreRejectedDataLocation")
+    def magnetic_store_rejected_data_location(self) -> pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]:
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+        """
+        return pulumi.get(self, "magnetic_store_rejected_data_location")
+
+    @magnetic_store_rejected_data_location.setter
+    def magnetic_store_rejected_data_location(self, value: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]):
+        pulumi.set(self, "magnetic_store_rejected_data_location", value)
+
+
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict(TypedDict):
+    """
+    Location to store information about records that were asynchronously rejected during magnetic store writes.
+    """
+    s3_configuration: NotRequired[pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict']]]
+    """
+    S3 configuration for location to store rejections from magnetic store writes
+    """
+
+@pulumi.input_type
+class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_configuration: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None):
+        """
+        Location to store information about records that were asynchronously rejected during magnetic store writes.
+
+        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for location to store rejections from magnetic store writes
+        """
+        if s3_configuration is not None:
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']:
+    def s3_configuration(self) -> pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]:
         """
-        S3 configuration for sending logs to customer account from the InfluxDB instance.
+        S3 configuration for location to store rejections from magnetic store writes
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: pulumi.Input['LogDeliveryConfigurationPropertiesS3ConfigurationPropertiesArgs']):
+    def s3_configuration(self, value: pulumi.Input[Optional['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
 
@@ -261,11 +348,11 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     """
     Either SSE_KMS or SSE_S3.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Must be provided if SSE_KMS is specified as the encryption option
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     String used to prefix all data in the bucket.
     """
@@ -275,8 +362,8 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  encryption_option: pulumi.Input[_builtins.str],
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 configuration for location to store rejections from magnetic store writes
 
@@ -318,125 +405,38 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Must be provided if SSE_KMS is specified as the encryption option
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         String used to prefix all data in the bucket.
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
-
-
-class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict(TypedDict):
-    """
-    Location to store information about records that were asynchronously rejected during magnetic store writes.
-    """
-    s3_configuration: NotRequired[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgsDict']]
-    """
-    S3 configuration for location to store rejections from magnetic store writes
-    """
-
-@pulumi.input_type
-class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs:
-    def __init__(__self__, *,
-                 s3_configuration: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None):
-        """
-        Location to store information about records that were asynchronously rejected during magnetic store writes.
-
-        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs'] s3_configuration: S3 configuration for location to store rejections from magnetic store writes
-        """
-        if s3_configuration is not None:
-            pulumi.set(__self__, "s3_configuration", s3_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]:
-        """
-        S3 configuration for location to store rejections from magnetic store writes
-        """
-        return pulumi.get(self, "s3_configuration")
-
-    @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']]):
-        pulumi.set(self, "s3_configuration", value)
-
-
-class MagneticStoreWritePropertiesPropertiesArgsDict(TypedDict):
-    """
-    The properties that determine whether magnetic store writes are enabled.
-    """
-    enable_magnetic_store_writes: pulumi.Input[_builtins.bool]
-    """
-    Boolean flag indicating whether magnetic store writes are enabled.
-    """
-    magnetic_store_rejected_data_location: NotRequired[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgsDict']]
-    """
-    Location to store information about records that were asynchronously rejected during magnetic store writes.
-    """
-
-@pulumi.input_type
-class MagneticStoreWritePropertiesPropertiesArgs:
-    def __init__(__self__, *,
-                 enable_magnetic_store_writes: pulumi.Input[_builtins.bool],
-                 magnetic_store_rejected_data_location: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None):
-        """
-        The properties that determine whether magnetic store writes are enabled.
-
-        :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: Boolean flag indicating whether magnetic store writes are enabled.
-        :param pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs'] magnetic_store_rejected_data_location: Location to store information about records that were asynchronously rejected during magnetic store writes.
-        """
-        pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
-        if magnetic_store_rejected_data_location is not None:
-            pulumi.set(__self__, "magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
-
-    @_builtins.property
-    @pulumi.getter(name="enableMagneticStoreWrites")
-    def enable_magnetic_store_writes(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Boolean flag indicating whether magnetic store writes are enabled.
-        """
-        return pulumi.get(self, "enable_magnetic_store_writes")
-
-    @enable_magnetic_store_writes.setter
-    def enable_magnetic_store_writes(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enable_magnetic_store_writes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="magneticStoreRejectedDataLocation")
-    def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]:
-        """
-        Location to store information about records that were asynchronously rejected during magnetic store writes.
-        """
-        return pulumi.get(self, "magnetic_store_rejected_data_location")
-
-    @magnetic_store_rejected_data_location.setter
-    def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']]):
-        pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
 
 class RetentionPropertiesPropertiesArgsDict(TypedDict):
     """
     The retention duration of the memory store and the magnetic store.
     """
-    magnetic_store_retention_period_in_days: NotRequired[pulumi.Input[_builtins.str]]
+    magnetic_store_retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration for which data must be stored in the magnetic store.
     """
-    memory_store_retention_period_in_hours: NotRequired[pulumi.Input[_builtins.str]]
+    memory_store_retention_period_in_hours: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The duration for which data must be stored in the memory store.
     """
@@ -444,8 +444,8 @@ class RetentionPropertiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class RetentionPropertiesPropertiesArgs:
     def __init__(__self__, *,
-                 magnetic_store_retention_period_in_days: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_store_retention_period_in_hours: Optional[pulumi.Input[_builtins.str]] = None):
+                 magnetic_store_retention_period_in_days: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_store_retention_period_in_hours: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The retention duration of the memory store and the magnetic store.
 
@@ -459,26 +459,26 @@ class RetentionPropertiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
-    def magnetic_store_retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def magnetic_store_retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration for which data must be stored in the magnetic store.
         """
         return pulumi.get(self, "magnetic_store_retention_period_in_days")
 
     @magnetic_store_retention_period_in_days.setter
-    def magnetic_store_retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def magnetic_store_retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "magnetic_store_retention_period_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryStoreRetentionPeriodInHours")
-    def memory_store_retention_period_in_hours(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_store_retention_period_in_hours(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The duration for which data must be stored in the memory store.
         """
         return pulumi.get(self, "memory_store_retention_period_in_hours")
 
     @memory_store_retention_period_in_hours.setter
-    def memory_store_retention_period_in_hours(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_store_retention_period_in_hours(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_store_retention_period_in_hours", value)
 
 
@@ -557,19 +557,19 @@ class ScheduledQueryMixedMeasureMappingArgsDict(TypedDict):
     MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
     """
     measure_value_type: pulumi.Input['ScheduledQueryMixedMeasureMappingMeasureValueType']
-    measure_name: NotRequired[pulumi.Input[_builtins.str]]
-    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgsDict']]]]
-    source_column: NotRequired[pulumi.Input[_builtins.str]]
-    target_measure_name: NotRequired[pulumi.Input[_builtins.str]]
+    measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgsDict']]]]]
+    source_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ScheduledQueryMixedMeasureMappingArgs:
     def __init__(__self__, *,
                  measure_value_type: pulumi.Input['ScheduledQueryMixedMeasureMappingMeasureValueType'],
-                 measure_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]] = None,
-                 source_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 measure_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_measure_attribute_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]] = None,
+                 source_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_measure_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
         """
@@ -594,38 +594,38 @@ class ScheduledQueryMixedMeasureMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="measureName")
-    def measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "measure_name")
 
     @measure_name.setter
-    def measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "measure_name", value)
 
     @_builtins.property
     @pulumi.getter(name="multiMeasureAttributeMappings")
-    def multi_measure_attribute_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]]:
+    def multi_measure_attribute_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]]:
         return pulumi.get(self, "multi_measure_attribute_mappings")
 
     @multi_measure_attribute_mappings.setter
-    def multi_measure_attribute_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]]):
+    def multi_measure_attribute_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]]):
         pulumi.set(self, "multi_measure_attribute_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceColumn")
-    def source_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_column")
 
     @source_column.setter
-    def source_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_column", value)
 
     @_builtins.property
     @pulumi.getter(name="targetMeasureName")
-    def target_measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_measure_name")
 
     @target_measure_name.setter
-    def target_measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_measure_name", value)
 
 
@@ -635,14 +635,14 @@ class ScheduledQueryMultiMeasureAttributeMappingArgsDict(TypedDict):
     """
     measure_value_type: pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType']
     source_column: pulumi.Input[_builtins.str]
-    target_multi_measure_attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_multi_measure_attribute_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ScheduledQueryMultiMeasureAttributeMappingArgs:
     def __init__(__self__, *,
                  measure_value_type: pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType'],
                  source_column: pulumi.Input[_builtins.str],
-                 target_multi_measure_attribute_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_multi_measure_attribute_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
         """
@@ -671,11 +671,11 @@ class ScheduledQueryMultiMeasureAttributeMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetMultiMeasureAttributeName")
-    def target_multi_measure_attribute_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_multi_measure_attribute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "target_multi_measure_attribute_name")
 
     @target_multi_measure_attribute_name.setter
-    def target_multi_measure_attribute_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_multi_measure_attribute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_multi_measure_attribute_name", value)
 
 
@@ -687,7 +687,7 @@ class ScheduledQueryMultiMeasureMappingsArgsDict(TypedDict):
     """
     Required. Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes.
     """
-    target_multi_measure_name: NotRequired[pulumi.Input[_builtins.str]]
+    target_multi_measure_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
     """
@@ -696,7 +696,7 @@ class ScheduledQueryMultiMeasureMappingsArgsDict(TypedDict):
 class ScheduledQueryMultiMeasureMappingsArgs:
     def __init__(__self__, *,
                  multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]],
-                 target_multi_measure_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_multi_measure_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 
@@ -721,14 +721,14 @@ class ScheduledQueryMultiMeasureMappingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetMultiMeasureName")
-    def target_multi_measure_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_multi_measure_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the target multi-measure name in the derived table. This input is required when measureNameColumn is not provided. If MeasureNameColumn is provided, then value from that column will be used as multi-measure name.
         """
         return pulumi.get(self, "target_multi_measure_name")
 
     @target_multi_measure_name.setter
-    def target_multi_measure_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_multi_measure_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_multi_measure_name", value)
 
 
@@ -773,11 +773,11 @@ class ScheduledQueryS3ConfigurationArgsDict(TypedDict):
     """
     Name of the S3 bucket under which error reports will be created.
     """
-    encryption_option: NotRequired[pulumi.Input['ScheduledQueryEncryptionOption']]
+    encryption_option: NotRequired[pulumi.Input[Optional['ScheduledQueryEncryptionOption']]]
     """
     Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
     """
@@ -786,8 +786,8 @@ class ScheduledQueryS3ConfigurationArgsDict(TypedDict):
 class ScheduledQueryS3ConfigurationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 encryption_option: Optional[pulumi.Input['ScheduledQueryEncryptionOption']] = None,
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_option: pulumi.Input[Optional['ScheduledQueryEncryptionOption']] = None,
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details on S3 location for error reports that result from running a query.
 
@@ -815,26 +815,26 @@ class ScheduledQueryS3ConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> Optional[pulumi.Input['ScheduledQueryEncryptionOption']]:
+    def encryption_option(self) -> pulumi.Input[Optional['ScheduledQueryEncryptionOption']]:
         """
         Encryption at rest options for the error reports. If no encryption option is specified, Timestream will choose SSE_S3 as default.
         """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
-    def encryption_option(self, value: Optional[pulumi.Input['ScheduledQueryEncryptionOption']]):
+    def encryption_option(self, value: pulumi.Input[Optional['ScheduledQueryEncryptionOption']]):
         pulumi.set(self, "encryption_option", value)
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prefix for the error report key. Timestream by default adds the following prefix to the error report path.
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
 
 
@@ -957,15 +957,15 @@ class ScheduledQueryTimestreamConfigurationArgsDict(TypedDict):
     """
     Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
     """
-    measure_name_column: NotRequired[pulumi.Input[_builtins.str]]
+    measure_name_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
     """
-    mixed_measure_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgsDict']]]]
+    mixed_measure_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgsDict']]]]]
     """
     Specifies how to map measures to multi-measure records.
     """
-    multi_measure_mappings: NotRequired[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgsDict']]
+    multi_measure_mappings: NotRequired[pulumi.Input[Optional['ScheduledQueryMultiMeasureMappingsArgsDict']]]
     """
     Multi-measure mappings.
     """
@@ -977,9 +977,9 @@ class ScheduledQueryTimestreamConfigurationArgs:
                  dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryDimensionMappingArgs']]],
                  table_name: pulumi.Input[_builtins.str],
                  time_column: pulumi.Input[_builtins.str],
-                 measure_name_column: Optional[pulumi.Input[_builtins.str]] = None,
-                 mixed_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]] = None,
-                 multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']] = None):
+                 measure_name_column: pulumi.Input[Optional[_builtins.str]] = None,
+                 mixed_measure_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]] = None,
+                 multi_measure_mappings: pulumi.Input[Optional['ScheduledQueryMultiMeasureMappingsArgs']] = None):
         """
         Configuration needed to write data into the Timestream database and table.
 
@@ -1052,38 +1052,38 @@ class ScheduledQueryTimestreamConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="measureNameColumn")
-    def measure_name_column(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def measure_name_column(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
         """
         return pulumi.get(self, "measure_name_column")
 
     @measure_name_column.setter
-    def measure_name_column(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def measure_name_column(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "measure_name_column", value)
 
     @_builtins.property
     @pulumi.getter(name="mixedMeasureMappings")
-    def mixed_measure_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]]:
+    def mixed_measure_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]]:
         """
         Specifies how to map measures to multi-measure records.
         """
         return pulumi.get(self, "mixed_measure_mappings")
 
     @mixed_measure_mappings.setter
-    def mixed_measure_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]]):
+    def mixed_measure_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]]):
         pulumi.set(self, "mixed_measure_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="multiMeasureMappings")
-    def multi_measure_mappings(self) -> Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']]:
+    def multi_measure_mappings(self) -> pulumi.Input[Optional['ScheduledQueryMultiMeasureMappingsArgs']]:
         """
         Multi-measure mappings.
         """
         return pulumi.get(self, "multi_measure_mappings")
 
     @multi_measure_mappings.setter
-    def multi_measure_mappings(self, value: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']]):
+    def multi_measure_mappings(self, value: pulumi.Input[Optional['ScheduledQueryMultiMeasureMappingsArgs']]):
         pulumi.set(self, "multi_measure_mappings", value)
 
 
@@ -1091,7 +1091,7 @@ class SchemaPropertiesArgsDict(TypedDict):
     """
     A Schema specifies the expected data model of the table.
     """
-    composite_partition_key: NotRequired[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgsDict']]]]
+    composite_partition_key: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TablePartitionKeyArgsDict']]]]]
     """
     A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
     """
@@ -1099,7 +1099,7 @@ class SchemaPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SchemaPropertiesArgs:
     def __init__(__self__, *,
-                 composite_partition_key: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None):
+                 composite_partition_key: pulumi.Input[Optional[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None):
         """
         A Schema specifies the expected data model of the table.
 
@@ -1110,14 +1110,14 @@ class SchemaPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="compositePartitionKey")
-    def composite_partition_key(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]:
+    def composite_partition_key(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]:
         """
         A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed.
         """
         return pulumi.get(self, "composite_partition_key")
 
     @composite_partition_key.setter
-    def composite_partition_key(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]):
+    def composite_partition_key(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TablePartitionKeyArgs']]]]):
         pulumi.set(self, "composite_partition_key", value)
 
 
@@ -1126,15 +1126,15 @@ class TablePartitionKeyArgsDict(TypedDict):
     An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
     """
     type: pulumi.Input['TablePartitionKeyType']
-    enforcement_in_record: NotRequired[pulumi.Input['TablePartitionKeyEnforcementLevel']]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    enforcement_in_record: NotRequired[pulumi.Input[Optional['TablePartitionKeyEnforcementLevel']]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class TablePartitionKeyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['TablePartitionKeyType'],
-                 enforcement_in_record: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 enforcement_in_record: pulumi.Input[Optional['TablePartitionKeyEnforcementLevel']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
         """
@@ -1155,20 +1155,20 @@ class TablePartitionKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="enforcementInRecord")
-    def enforcement_in_record(self) -> Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']]:
+    def enforcement_in_record(self) -> pulumi.Input[Optional['TablePartitionKeyEnforcementLevel']]:
         return pulumi.get(self, "enforcement_in_record")
 
     @enforcement_in_record.setter
-    def enforcement_in_record(self, value: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']]):
+    def enforcement_in_record(self, value: pulumi.Input[Optional['TablePartitionKeyEnforcementLevel']]):
         pulumi.set(self, "enforcement_in_record", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 

@@ -402,7 +402,6 @@ def get_cloud_autonomous_vm_cluster(cloud_autonomous_vm_cluster_arn: Optional[_b
     """
     The AWS::ODB::CloudAutonomousVmCluster resource creates a Cloud Autonomous VM Cluster
 
-
     :param _builtins.str cloud_autonomous_vm_cluster_arn: The Amazon Resource Name (ARN) for the Autonomous VM cluster.
     """
     __args__ = dict()
@@ -441,11 +440,10 @@ def get_cloud_autonomous_vm_cluster(cloud_autonomous_vm_cluster_arn: Optional[_b
         reserved_cpus=pulumi.get(__ret__, 'reserved_cpus'),
         shape=pulumi.get(__ret__, 'shape'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cloud_autonomous_vm_cluster_output(cloud_autonomous_vm_cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_autonomous_vm_cluster_output(cloud_autonomous_vm_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudAutonomousVmClusterResult]:
     """
     The AWS::ODB::CloudAutonomousVmCluster resource creates a Cloud Autonomous VM Cluster
-
 
     :param _builtins.str cloud_autonomous_vm_cluster_arn: The Amazon Resource Name (ARN) for the Autonomous VM cluster.
     """

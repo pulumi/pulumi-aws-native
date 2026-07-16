@@ -114,7 +114,6 @@ def get_security_requirement_pack(pack_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecurityAgent::SecurityRequirementPack
 
-
     :param _builtins.str pack_id: Unique identifier of the security requirement pack
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_security_requirement_pack(pack_id: Optional[_builtins.str] = None,
         security_requirements=pulumi.get(__ret__, 'security_requirements'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_requirement_pack_output(pack_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_requirement_pack_output(pack_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityRequirementPackResult]:
     """
     Resource Type definition for AWS::SecurityAgent::SecurityRequirementPack
-
 
     :param _builtins.str pack_id: Unique identifier of the security requirement pack
     """

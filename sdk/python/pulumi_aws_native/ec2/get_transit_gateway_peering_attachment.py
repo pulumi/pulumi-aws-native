@@ -101,7 +101,6 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
     """
     The AWS::EC2::TransitGatewayPeeringAttachment type
 
-
     :param _builtins.str transit_gateway_attachment_id: The ID of the transit gateway peering attachment.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
-def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayPeeringAttachmentResult]:
     """
     The AWS::EC2::TransitGatewayPeeringAttachment type
-
 
     :param _builtins.str transit_gateway_attachment_id: The ID of the transit gateway peering attachment.
     """

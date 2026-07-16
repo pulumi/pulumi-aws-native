@@ -144,7 +144,6 @@ def get_place_index(index_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Location::PlaceIndex Resource Type
 
-
     :param _builtins.str index_name: The name of the place index resource.
            
            Requirements:
@@ -167,11 +166,10 @@ def get_place_index(index_name: Optional[_builtins.str] = None,
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_place_index_output(index_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_place_index_output(index_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Definition of AWS::Location::PlaceIndex Resource Type
-
 
     :param _builtins.str index_name: The name of the place index resource.
            

@@ -49,13 +49,13 @@ __all__ = [
 ]
 
 class KeyspaceReplicationSpecificationArgsDict(TypedDict):
-    region_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    region_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 
     To specify a Region [that's disabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable) , you must first enable the Region. For more information, see [Multi-Region replication in AWS Regions disabled by default](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication_how-it-works.html#howitworks_mrr_opt_in) in the *Amazon Keyspaces Developer Guide* .
     """
-    replication_strategy: NotRequired[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]
+    replication_strategy: NotRequired[pulumi.Input[Optional['KeyspaceReplicationSpecificationReplicationStrategy']]]
     """
     The options are:
 
@@ -68,8 +68,8 @@ class KeyspaceReplicationSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class KeyspaceReplicationSpecificationArgs:
     def __init__(__self__, *,
-                 region_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None):
+                 region_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replication_strategy: pulumi.Input[Optional['KeyspaceReplicationSpecificationReplicationStrategy']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] region_list: Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
                
@@ -88,7 +88,7 @@ class KeyspaceReplicationSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="regionList")
-    def region_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def region_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the AWS Regions that the keyspace is replicated in. You must specify at least two Regions, including the Region that the keyspace is being created in.
 
@@ -97,12 +97,12 @@ class KeyspaceReplicationSpecificationArgs:
         return pulumi.get(self, "region_list")
 
     @region_list.setter
-    def region_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def region_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "region_list", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationStrategy")
-    def replication_strategy(self) -> Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]:
+    def replication_strategy(self) -> pulumi.Input[Optional['KeyspaceReplicationSpecificationReplicationStrategy']]:
         """
         The options are:
 
@@ -114,7 +114,7 @@ class KeyspaceReplicationSpecificationArgs:
         return pulumi.get(self, "replication_strategy")
 
     @replication_strategy.setter
-    def replication_strategy(self, value: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']]):
+    def replication_strategy(self, value: pulumi.Input[Optional['KeyspaceReplicationSpecificationReplicationStrategy']]):
         pulumi.set(self, "replication_strategy", value)
 
 
@@ -122,19 +122,19 @@ class TableAutoScalingSettingArgsDict(TypedDict):
     """
     Represents configuration for auto scaling.
     """
-    auto_scaling_disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_scaling_disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     This optional parameter enables auto scaling for the table if set to `false` .
     """
-    maximum_units: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
     """
-    minimum_units: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
     """
-    scaling_policy: NotRequired[pulumi.Input['TableScalingPolicyArgsDict']]
+    scaling_policy: NotRequired[pulumi.Input[Optional['TableScalingPolicyArgsDict']]]
     """
     Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
     """
@@ -142,10 +142,10 @@ class TableAutoScalingSettingArgsDict(TypedDict):
 @pulumi.input_type
 class TableAutoScalingSettingArgs:
     def __init__(__self__, *,
-                 auto_scaling_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 maximum_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 scaling_policy: Optional[pulumi.Input['TableScalingPolicyArgs']] = None):
+                 auto_scaling_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 maximum_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 scaling_policy: pulumi.Input[Optional['TableScalingPolicyArgs']] = None):
         """
         Represents configuration for auto scaling.
 
@@ -165,50 +165,50 @@ class TableAutoScalingSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScalingDisabled")
-    def auto_scaling_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_scaling_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This optional parameter enables auto scaling for the table if set to `false` .
         """
         return pulumi.get(self, "auto_scaling_disabled")
 
     @auto_scaling_disabled.setter
-    def auto_scaling_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_scaling_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_scaling_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumUnits")
-    def maximum_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Manage costs by specifying the maximum amount of throughput to provision. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
         """
         return pulumi.get(self, "maximum_units")
 
     @maximum_units.setter
-    def maximum_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumUnits")
-    def minimum_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
         """
         return pulumi.get(self, "minimum_units")
 
     @minimum_units.setter
-    def minimum_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_units", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicy")
-    def scaling_policy(self) -> Optional[pulumi.Input['TableScalingPolicyArgs']]:
+    def scaling_policy(self) -> pulumi.Input[Optional['TableScalingPolicyArgs']]:
         """
         Amazon Keyspaces supports the `target tracking` auto scaling policy. With this policy, Amazon Keyspaces auto scaling ensures that the table's ratio of consumed to provisioned capacity stays at or near the target value that you specify. You define the target value as a percentage between 20 and 90.
         """
         return pulumi.get(self, "scaling_policy")
 
     @scaling_policy.setter
-    def scaling_policy(self, value: Optional[pulumi.Input['TableScalingPolicyArgs']]):
+    def scaling_policy(self, value: pulumi.Input[Optional['TableScalingPolicyArgs']]):
         pulumi.set(self, "scaling_policy", value)
 
 
@@ -216,11 +216,11 @@ class TableAutoScalingSpecificationArgsDict(TypedDict):
     """
     Represents the read and write settings used for AutoScaling.
     """
-    read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    read_capacity_auto_scaling: NotRequired[pulumi.Input[Optional['TableAutoScalingSettingArgsDict']]]
     """
     The auto scaling settings for the table's read capacity.
     """
-    write_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    write_capacity_auto_scaling: NotRequired[pulumi.Input[Optional['TableAutoScalingSettingArgsDict']]]
     """
     The auto scaling settings for the table's write capacity.
     """
@@ -228,8 +228,8 @@ class TableAutoScalingSpecificationArgsDict(TypedDict):
 @pulumi.input_type
 class TableAutoScalingSpecificationArgs:
     def __init__(__self__, *,
-                 read_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None,
-                 write_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None):
+                 read_capacity_auto_scaling: pulumi.Input[Optional['TableAutoScalingSettingArgs']] = None,
+                 write_capacity_auto_scaling: pulumi.Input[Optional['TableAutoScalingSettingArgs']] = None):
         """
         Represents the read and write settings used for AutoScaling.
 
@@ -243,26 +243,26 @@ class TableAutoScalingSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="readCapacityAutoScaling")
-    def read_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+    def read_capacity_auto_scaling(self) -> pulumi.Input[Optional['TableAutoScalingSettingArgs']]:
         """
         The auto scaling settings for the table's read capacity.
         """
         return pulumi.get(self, "read_capacity_auto_scaling")
 
     @read_capacity_auto_scaling.setter
-    def read_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+    def read_capacity_auto_scaling(self, value: pulumi.Input[Optional['TableAutoScalingSettingArgs']]):
         pulumi.set(self, "read_capacity_auto_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="writeCapacityAutoScaling")
-    def write_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+    def write_capacity_auto_scaling(self) -> pulumi.Input[Optional['TableAutoScalingSettingArgs']]:
         """
         The auto scaling settings for the table's write capacity.
         """
         return pulumi.get(self, "write_capacity_auto_scaling")
 
     @write_capacity_auto_scaling.setter
-    def write_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+    def write_capacity_auto_scaling(self, value: pulumi.Input[Optional['TableAutoScalingSettingArgs']]):
         pulumi.set(self, "write_capacity_auto_scaling", value)
 
 
@@ -278,7 +278,7 @@ class TableBillingModeArgsDict(TypedDict):
 
     Valid values: `ON_DEMAND` | `PROVISIONED`
     """
-    provisioned_throughput: NotRequired[pulumi.Input['TableProvisionedThroughputArgsDict']]
+    provisioned_throughput: NotRequired[pulumi.Input[Optional['TableProvisionedThroughputArgsDict']]]
     """
     The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
     """
@@ -287,7 +287,7 @@ class TableBillingModeArgsDict(TypedDict):
 class TableBillingModeArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['TableMode'],
-                 provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
+                 provisioned_throughput: pulumi.Input[Optional['TableProvisionedThroughputArgs']] = None):
         """
         :param pulumi.Input['TableMode'] mode: The billing mode for the table:
                
@@ -324,14 +324,14 @@ class TableBillingModeArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisionedThroughput")
-    def provisioned_throughput(self) -> Optional[pulumi.Input['TableProvisionedThroughputArgs']]:
+    def provisioned_throughput(self) -> pulumi.Input[Optional['TableProvisionedThroughputArgs']]:
         """
         The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
         """
         return pulumi.get(self, "provisioned_throughput")
 
     @provisioned_throughput.setter
-    def provisioned_throughput(self, value: Optional[pulumi.Input['TableProvisionedThroughputArgs']]):
+    def provisioned_throughput(self, value: pulumi.Input[Optional['TableProvisionedThroughputArgs']]):
         pulumi.set(self, "provisioned_throughput", value)
 
 
@@ -343,11 +343,11 @@ class TableCdcSpecificationArgsDict(TypedDict):
     """
     The status of the CDC stream. You can enable or disable a stream for a table.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgsDict']]]]]
     """
     An array of key-value pairs to apply to the CDC stream resource
     """
-    view_type: NotRequired[pulumi.Input['TableCdcViewType']]
+    view_type: NotRequired[pulumi.Input[Optional['TableCdcViewType']]]
     """
     The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 
@@ -363,8 +363,8 @@ class TableCdcSpecificationArgsDict(TypedDict):
 class TableCdcSpecificationArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['TableCdcStatus'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-                 view_type: Optional[pulumi.Input['TableCdcViewType']] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]] = None,
+                 view_type: pulumi.Input[Optional['TableCdcViewType']] = None):
         """
         Represents the CDC configuration for the table
 
@@ -399,19 +399,19 @@ class TableCdcSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
         An array of key-value pairs to apply to the CDC stream resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="viewType")
-    def view_type(self) -> Optional[pulumi.Input['TableCdcViewType']]:
+    def view_type(self) -> pulumi.Input[Optional['TableCdcViewType']]:
         """
         The view type specifies the changes Amazon Keyspaces records for each changed row in the stream. After you create the stream, you can't make changes to this selection.
 
@@ -425,7 +425,7 @@ class TableCdcSpecificationArgs:
         return pulumi.get(self, "view_type")
 
     @view_type.setter
-    def view_type(self, value: Optional[pulumi.Input['TableCdcViewType']]):
+    def view_type(self, value: pulumi.Input[Optional['TableCdcViewType']]):
         pulumi.set(self, "view_type", value)
 
 
@@ -434,7 +434,7 @@ class TableClusteringKeyColumnArgsDict(TypedDict):
     """
     The name and data type of this clustering key column.
     """
-    order_by: NotRequired[pulumi.Input['TableClusteringKeyColumnOrderBy']]
+    order_by: NotRequired[pulumi.Input[Optional['TableClusteringKeyColumnOrderBy']]]
     """
     The order in which this column's data is stored:
 
@@ -446,7 +446,7 @@ class TableClusteringKeyColumnArgsDict(TypedDict):
 class TableClusteringKeyColumnArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TableColumnArgs'],
-                 order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None):
+                 order_by: pulumi.Input[Optional['TableClusteringKeyColumnOrderBy']] = None):
         """
         :param pulumi.Input['TableColumnArgs'] column: The name and data type of this clustering key column.
         :param pulumi.Input['TableClusteringKeyColumnOrderBy'] order_by: The order in which this column's data is stored:
@@ -472,7 +472,7 @@ class TableClusteringKeyColumnArgs:
 
     @_builtins.property
     @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']]:
+    def order_by(self) -> pulumi.Input[Optional['TableClusteringKeyColumnOrderBy']]:
         """
         The order in which this column's data is stored:
 
@@ -482,7 +482,7 @@ class TableClusteringKeyColumnArgs:
         return pulumi.get(self, "order_by")
 
     @order_by.setter
-    def order_by(self, value: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']]):
+    def order_by(self, value: pulumi.Input[Optional['TableClusteringKeyColumnOrderBy']]):
         pulumi.set(self, "order_by", value)
 
 
@@ -548,7 +548,7 @@ class TableEncryptionSpecificationArgsDict(TypedDict):
 
     Valid values: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KMS_KEY` .
     """
-    kms_key_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Requires a `kms_key_identifier` in the format of a key ARN.
     """
@@ -557,7 +557,7 @@ class TableEncryptionSpecificationArgsDict(TypedDict):
 class TableEncryptionSpecificationArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['TableEncryptionType'],
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents the settings used to enable server-side encryption
 
@@ -596,14 +596,14 @@ class TableEncryptionSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Requires a `kms_key_identifier` in the format of a key ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
 
@@ -667,11 +667,11 @@ class TableReplicaSpecificationArgsDict(TypedDict):
     """
     The AWS Region.
     """
-    read_capacity_auto_scaling: NotRequired[pulumi.Input['TableAutoScalingSettingArgsDict']]
+    read_capacity_auto_scaling: NotRequired[pulumi.Input[Optional['TableAutoScalingSettingArgsDict']]]
     """
     The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
     """
-    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    read_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The provisioned read capacity units for the multi-Region table in the specified AWS Region.
     """
@@ -680,8 +680,8 @@ class TableReplicaSpecificationArgsDict(TypedDict):
 class TableReplicaSpecificationArgs:
     def __init__(__self__, *,
                  region: pulumi.Input[_builtins.str],
-                 read_capacity_auto_scaling: Optional[pulumi.Input['TableAutoScalingSettingArgs']] = None,
-                 read_capacity_units: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_capacity_auto_scaling: pulumi.Input[Optional['TableAutoScalingSettingArgs']] = None,
+                 read_capacity_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Represents replica specifications.
 
@@ -709,26 +709,26 @@ class TableReplicaSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter(name="readCapacityAutoScaling")
-    def read_capacity_auto_scaling(self) -> Optional[pulumi.Input['TableAutoScalingSettingArgs']]:
+    def read_capacity_auto_scaling(self) -> pulumi.Input[Optional['TableAutoScalingSettingArgs']]:
         """
         The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
         """
         return pulumi.get(self, "read_capacity_auto_scaling")
 
     @read_capacity_auto_scaling.setter
-    def read_capacity_auto_scaling(self, value: Optional[pulumi.Input['TableAutoScalingSettingArgs']]):
+    def read_capacity_auto_scaling(self, value: pulumi.Input[Optional['TableAutoScalingSettingArgs']]):
         pulumi.set(self, "read_capacity_auto_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="readCapacityUnits")
-    def read_capacity_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The provisioned read capacity units for the multi-Region table in the specified AWS Region.
         """
         return pulumi.get(self, "read_capacity_units")
 
     @read_capacity_units.setter
-    def read_capacity_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_capacity_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_capacity_units", value)
 
 
@@ -736,7 +736,7 @@ class TableScalingPolicyArgsDict(TypedDict):
     """
     Represents scaling policy.
     """
-    target_tracking_scaling_policy_configuration: NotRequired[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgsDict']]
+    target_tracking_scaling_policy_configuration: NotRequired[pulumi.Input[Optional['TableTargetTrackingScalingPolicyConfigurationArgsDict']]]
     """
     The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
     """
@@ -744,7 +744,7 @@ class TableScalingPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class TableScalingPolicyArgs:
     def __init__(__self__, *,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']] = None):
+                 target_tracking_scaling_policy_configuration: pulumi.Input[Optional['TableTargetTrackingScalingPolicyConfigurationArgs']] = None):
         """
         Represents scaling policy.
 
@@ -755,14 +755,14 @@ class TableScalingPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
-    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]:
+    def target_tracking_scaling_policy_configuration(self) -> pulumi.Input[Optional['TableTargetTrackingScalingPolicyConfigurationArgs']]:
         """
         The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
         """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
-    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['TableTargetTrackingScalingPolicyConfigurationArgs']]):
+    def target_tracking_scaling_policy_configuration(self, value: pulumi.Input[Optional['TableTargetTrackingScalingPolicyConfigurationArgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
@@ -828,19 +828,19 @@ class TableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
 
     Amazon Keyspaces auto scaling scales up capacity automatically when traffic exceeds this target utilization rate, and then back down when it falls below the target. This ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. An `integer` between 20 and 90.
     """
-    disable_scale_in: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_scale_in: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies if `scale-in` is enabled.
 
     When auto scaling automatically decreases capacity for a table, the table *scales in* . When scaling policies are set, they can't scale in the table lower than its minimum capacity.
     """
-    scale_in_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_in_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies a `scale-in` cool down period.
 
     A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
     """
-    scale_out_cooldown: NotRequired[pulumi.Input[_builtins.int]]
+    scale_out_cooldown: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies a scale out cool down period.
 
@@ -851,9 +851,9 @@ class TableTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
 class TableTargetTrackingScalingPolicyConfigurationArgs:
     def __init__(__self__, *,
                  target_value: pulumi.Input[_builtins.int],
-                 disable_scale_in: Optional[pulumi.Input[_builtins.bool]] = None,
-                 scale_in_cooldown: Optional[pulumi.Input[_builtins.int]] = None,
-                 scale_out_cooldown: Optional[pulumi.Input[_builtins.int]] = None):
+                 disable_scale_in: pulumi.Input[Optional[_builtins.bool]] = None,
+                 scale_in_cooldown: pulumi.Input[Optional[_builtins.int]] = None,
+                 scale_out_cooldown: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Represents configuration for target tracking scaling policy.
 
@@ -894,7 +894,7 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="disableScaleIn")
-    def disable_scale_in(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_scale_in(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies if `scale-in` is enabled.
 
@@ -903,12 +903,12 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
         return pulumi.get(self, "disable_scale_in")
 
     @disable_scale_in.setter
-    def disable_scale_in(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_scale_in(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_scale_in", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleInCooldown")
-    def scale_in_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_in_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a `scale-in` cool down period.
 
@@ -917,12 +917,12 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
         return pulumi.get(self, "scale_in_cooldown")
 
     @scale_in_cooldown.setter
-    def scale_in_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_in_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_in_cooldown", value)
 
     @_builtins.property
     @pulumi.getter(name="scaleOutCooldown")
-    def scale_out_cooldown(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def scale_out_cooldown(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies a scale out cool down period.
 
@@ -931,7 +931,7 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
         return pulumi.get(self, "scale_out_cooldown")
 
     @scale_out_cooldown.setter
-    def scale_out_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def scale_out_cooldown(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "scale_out_cooldown", value)
 
 
@@ -939,14 +939,14 @@ class TableWarmThroughputArgsDict(TypedDict):
     """
     Warm throughput configuration for the table
     """
-    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    read_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    write_units_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class TableWarmThroughputArgs:
     def __init__(__self__, *,
-                 read_units_per_second: Optional[pulumi.Input[_builtins.int]] = None,
-                 write_units_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+                 read_units_per_second: pulumi.Input[Optional[_builtins.int]] = None,
+                 write_units_per_second: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Warm throughput configuration for the table
         """
@@ -957,20 +957,20 @@ class TableWarmThroughputArgs:
 
     @_builtins.property
     @pulumi.getter(name="readUnitsPerSecond")
-    def read_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def read_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "read_units_per_second")
 
     @read_units_per_second.setter
-    def read_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def read_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "read_units_per_second", value)
 
     @_builtins.property
     @pulumi.getter(name="writeUnitsPerSecond")
-    def write_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def write_units_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "write_units_per_second")
 
     @write_units_per_second.setter
-    def write_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def write_units_per_second(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "write_units_per_second", value)
 
 

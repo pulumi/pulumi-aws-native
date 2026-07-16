@@ -100,7 +100,6 @@ def get_configuration(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AmazonMQ::Configuration
 
-
     :param _builtins.str id: The ID of the Amazon MQ configuration.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_configuration(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configuration_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource Type definition for AWS::AmazonMQ::Configuration
-
 
     :param _builtins.str id: The ID of the Amazon MQ configuration.
     """

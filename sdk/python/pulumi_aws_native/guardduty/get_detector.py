@@ -118,7 +118,6 @@ def get_detector(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::GuardDuty::Detector
 
-
     :param _builtins.str id: The unique ID of the detector.
     """
     __args__ = dict()
@@ -133,11 +132,10 @@ def get_detector(id: Optional[_builtins.str] = None,
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_detector_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_detector_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
     Resource Type definition for AWS::GuardDuty::Detector
-
 
     :param _builtins.str id: The unique ID of the detector.
     """

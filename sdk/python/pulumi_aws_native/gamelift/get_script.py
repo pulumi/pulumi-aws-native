@@ -137,7 +137,6 @@ def get_script(id: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 
-
     :param _builtins.str id: A unique identifier for the Realtime script
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_script(id: Optional[_builtins.str] = None,
         storage_location=pulumi.get(__ret__, 'storage_location'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_script_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_script_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
-
 
     :param _builtins.str id: A unique identifier for the Realtime script
     """

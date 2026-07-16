@@ -31,8 +31,8 @@ class BudgetsActionArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  notification_type: pulumi.Input['BudgetsActionNotificationType'],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetsActionSubscriberArgs']]],
-                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 approval_model: pulumi.Input[Optional['BudgetsActionApprovalModel']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BudgetsAction resource.
 
@@ -144,26 +144,26 @@ class BudgetsActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="approvalModel")
-    def approval_model(self) -> Optional[pulumi.Input['BudgetsActionApprovalModel']]:
+    def approval_model(self) -> pulumi.Input[Optional['BudgetsActionApprovalModel']]:
         """
         This specifies if the action needs manual or automatic approval.
         """
         return pulumi.get(self, "approval_model")
 
     @approval_model.setter
-    def approval_model(self, value: Optional[pulumi.Input['BudgetsActionApprovalModel']]):
+    def approval_model(self, value: pulumi.Input[Optional['BudgetsActionApprovalModel']]):
         pulumi.set(self, "approval_model", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
 
@@ -173,19 +173,18 @@ class BudgetsAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_threshold: Optional[pulumi.Input[Union['BudgetsActionActionThresholdArgs', 'BudgetsActionActionThresholdArgsDict']]] = None,
-                 action_type: Optional[pulumi.Input['BudgetsActionActionType']] = None,
-                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
-                 budget_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['BudgetsActionDefinitionArgs', 'BudgetsActionDefinitionArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetsActionSubscriberArgs', 'BudgetsActionSubscriberArgsDict']]]]] = None,
+                 action_threshold: pulumi.Input[Optional[Union['BudgetsActionActionThresholdArgs', 'BudgetsActionActionThresholdArgsDict']]] = None,
+                 action_type: pulumi.Input[Optional['BudgetsActionActionType']] = None,
+                 approval_model: pulumi.Input[Optional['BudgetsActionApprovalModel']] = None,
+                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['BudgetsActionDefinitionArgs', 'BudgetsActionDefinitionArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional['BudgetsActionNotificationType']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetsActionSubscriberArgs', 'BudgetsActionSubscriberArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +207,6 @@ class BudgetsAction(pulumi.CustomResource):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
-
         :param str resource_name: The name of the resource.
         :param BudgetsActionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,15 +222,15 @@ class BudgetsAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_threshold: Optional[pulumi.Input[Union['BudgetsActionActionThresholdArgs', 'BudgetsActionActionThresholdArgsDict']]] = None,
-                 action_type: Optional[pulumi.Input['BudgetsActionActionType']] = None,
-                 approval_model: Optional[pulumi.Input['BudgetsActionApprovalModel']] = None,
-                 budget_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition: Optional[pulumi.Input[Union['BudgetsActionDefinitionArgs', 'BudgetsActionDefinitionArgsDict']]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_type: Optional[pulumi.Input['BudgetsActionNotificationType']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetsActionSubscriberArgs', 'BudgetsActionSubscriberArgsDict']]]]] = None,
+                 action_threshold: pulumi.Input[Optional[Union['BudgetsActionActionThresholdArgs', 'BudgetsActionActionThresholdArgsDict']]] = None,
+                 action_type: pulumi.Input[Optional['BudgetsActionActionType']] = None,
+                 approval_model: pulumi.Input[Optional['BudgetsActionApprovalModel']] = None,
+                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition: pulumi.Input[Optional[Union['BudgetsActionDefinitionArgs', 'BudgetsActionDefinitionArgsDict']]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_type: pulumi.Input[Optional['BudgetsActionNotificationType']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BudgetsActionSubscriberArgs', 'BudgetsActionSubscriberArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

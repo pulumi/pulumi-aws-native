@@ -30,10 +30,12 @@ __all__ = [
     'BridgeNetworkOutputArgsDict',
     'BridgeNetworkSourceArgs',
     'BridgeNetworkSourceArgsDict',
-    'BridgeOutputResourceBridgeNetworkOutputArgs',
-    'BridgeOutputResourceBridgeNetworkOutputArgsDict',
     'BridgeOutputArgs',
     'BridgeOutputArgsDict',
+    'BridgeOutputResourceBridgeNetworkOutputArgs',
+    'BridgeOutputResourceBridgeNetworkOutputArgsDict',
+    'BridgeSourceArgs',
+    'BridgeSourceArgsDict',
     'BridgeSourceBridgeFlowSourceArgs',
     'BridgeSourceBridgeFlowSourceArgsDict',
     'BridgeSourceBridgeNetworkSourceArgs',
@@ -44,8 +46,6 @@ __all__ = [
     'BridgeSourcePriorityArgsDict',
     'BridgeSourceVpcInterfaceAttachmentArgs',
     'BridgeSourceVpcInterfaceAttachmentArgsDict',
-    'BridgeSourceArgs',
-    'BridgeSourceArgsDict',
     'BridgeVpcInterfaceAttachmentArgs',
     'BridgeVpcInterfaceAttachmentArgsDict',
     'FlowAudioMonitoringSettingArgs',
@@ -60,10 +60,10 @@ __all__ = [
     'FlowEncryptionArgsDict',
     'FlowEntitlementEncryptionArgs',
     'FlowEntitlementEncryptionArgsDict',
-    'FlowFailoverConfigSourcePriorityPropertiesArgs',
-    'FlowFailoverConfigSourcePriorityPropertiesArgsDict',
     'FlowFailoverConfigArgs',
     'FlowFailoverConfigArgsDict',
+    'FlowFailoverConfigSourcePriorityPropertiesArgs',
+    'FlowFailoverConfigSourcePriorityPropertiesArgsDict',
     'FlowFmtpArgs',
     'FlowFmtpArgsDict',
     'FlowFrozenFramesArgs',
@@ -76,12 +76,12 @@ __all__ = [
     'FlowInterfaceArgsDict',
     'FlowMaintenanceArgs',
     'FlowMaintenanceArgsDict',
+    'FlowMediaStreamArgs',
+    'FlowMediaStreamArgsDict',
     'FlowMediaStreamAttributesArgs',
     'FlowMediaStreamAttributesArgsDict',
     'FlowMediaStreamSourceConfigurationArgs',
     'FlowMediaStreamSourceConfigurationArgsDict',
-    'FlowMediaStreamArgs',
-    'FlowMediaStreamArgsDict',
     'FlowNdiConfigArgs',
     'FlowNdiConfigArgsDict',
     'FlowNdiDiscoveryServerConfigArgs',
@@ -96,12 +96,12 @@ __all__ = [
     'FlowOutputEncodingParametersArgsDict',
     'FlowOutputEncryptionArgs',
     'FlowOutputEncryptionArgsDict',
+    'FlowOutputFlowTransitEncryptionArgs',
+    'FlowOutputFlowTransitEncryptionArgsDict',
     'FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs',
     'FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs',
     'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'FlowOutputFlowTransitEncryptionArgs',
-    'FlowOutputFlowTransitEncryptionArgsDict',
     'FlowOutputInterfaceArgs',
     'FlowOutputInterfaceArgsDict',
     'FlowOutputMediaStreamOutputConfigurationArgs',
@@ -114,6 +114,8 @@ __all__ = [
     'FlowSecretsManagerEncryptionKeyConfigurationArgsDict',
     'FlowSilentAudioArgs',
     'FlowSilentAudioArgsDict',
+    'FlowSourceArgs',
+    'FlowSourceArgsDict',
     'FlowSourceEncryptionArgs',
     'FlowSourceEncryptionArgsDict',
     'FlowSourceGatewayBridgeSourceArgs',
@@ -122,22 +124,20 @@ __all__ = [
     'FlowSourceMonitoringConfigArgsDict',
     'FlowSourceVpcInterfaceAttachmentArgs',
     'FlowSourceVpcInterfaceAttachmentArgsDict',
-    'FlowSourceArgs',
-    'FlowSourceArgsDict',
     'FlowTagArgs',
     'FlowTagArgsDict',
+    'FlowTransitEncryptionArgs',
+    'FlowTransitEncryptionArgsDict',
     'FlowTransitEncryptionKeyConfiguration0PropertiesArgs',
     'FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'FlowTransitEncryptionKeyConfiguration1PropertiesArgs',
     'FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'FlowTransitEncryptionArgs',
-    'FlowTransitEncryptionArgsDict',
     'FlowVideoMonitoringSettingArgs',
     'FlowVideoMonitoringSettingArgsDict',
-    'FlowVpcInterfaceAttachmentArgs',
-    'FlowVpcInterfaceAttachmentArgsDict',
     'FlowVpcInterfaceArgs',
     'FlowVpcInterfaceArgsDict',
+    'FlowVpcInterfaceAttachmentArgs',
+    'FlowVpcInterfaceAttachmentArgsDict',
     'GatewayNetworkArgs',
     'GatewayNetworkArgsDict',
     'RouterInputAutomaticEncryptionKeyConfigurationArgs',
@@ -168,12 +168,12 @@ __all__ = [
     'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgsDict',
     'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs',
     'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgsDict',
+    'RouterInputFlowTransitEncryptionArgs',
+    'RouterInputFlowTransitEncryptionArgsDict',
     'RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs',
     'RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs',
     'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'RouterInputFlowTransitEncryptionArgs',
-    'RouterInputFlowTransitEncryptionArgsDict',
     'RouterInputFrozenFramesConfigurationArgs',
     'RouterInputFrozenFramesConfigurationArgsDict',
     'RouterInputMaintenanceConfiguration0PropertiesArgs',
@@ -184,12 +184,12 @@ __all__ = [
     'RouterInputMediaConnectFlowRouterInputConfigurationArgsDict',
     'RouterInputMediaLiveChannelRouterInputConfigurationArgs',
     'RouterInputMediaLiveChannelRouterInputConfigurationArgsDict',
+    'RouterInputMediaLiveTransitEncryptionArgs',
+    'RouterInputMediaLiveTransitEncryptionArgsDict',
     'RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs',
     'RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs',
     'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'RouterInputMediaLiveTransitEncryptionArgs',
-    'RouterInputMediaLiveTransitEncryptionArgsDict',
     'RouterInputMergeRouterInputConfigurationArgs',
     'RouterInputMergeRouterInputConfigurationArgsDict',
     'RouterInputMergeRouterInputProtocolConfiguration0PropertiesArgs',
@@ -224,12 +224,12 @@ __all__ = [
     'RouterInputSrtListenerRouterInputConfigurationArgsDict',
     'RouterInputStandardRouterInputConfigurationArgs',
     'RouterInputStandardRouterInputConfigurationArgsDict',
+    'RouterInputTransitEncryptionArgs',
+    'RouterInputTransitEncryptionArgsDict',
     'RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs',
     'RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs',
     'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'RouterInputTransitEncryptionArgs',
-    'RouterInputTransitEncryptionArgsDict',
     'RouterNetworkInterfaceConfiguration0PropertiesArgs',
     'RouterNetworkInterfaceConfiguration0PropertiesArgsDict',
     'RouterNetworkInterfaceConfiguration1PropertiesArgs',
@@ -244,12 +244,12 @@ __all__ = [
     'RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgs',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgsDict',
+    'RouterOutputResourceFlowTransitEncryptionArgs',
+    'RouterOutputResourceFlowTransitEncryptionArgsDict',
     'RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs',
     'RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs',
     'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'RouterOutputResourceFlowTransitEncryptionArgs',
-    'RouterOutputResourceFlowTransitEncryptionArgsDict',
     'RouterOutputResourceMaintenanceConfiguration0PropertiesArgs',
     'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict',
     'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs',
@@ -258,12 +258,12 @@ __all__ = [
     'RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict',
     'RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs',
     'RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict',
+    'RouterOutputResourceMediaLiveTransitEncryptionArgs',
+    'RouterOutputResourceMediaLiveTransitEncryptionArgsDict',
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs',
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict',
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs',
     'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict',
-    'RouterOutputResourceMediaLiveTransitEncryptionArgs',
-    'RouterOutputResourceMediaLiveTransitEncryptionArgsDict',
     'RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgs',
     'RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict',
     'RouterOutputResourceRistRouterOutputConfigurationArgs',
@@ -332,11 +332,11 @@ class BridgeFailoverConfigArgsDict(TypedDict):
     """
     The type of failover you choose for this flow. FAILOVER allows switching between different streams.
     """
-    source_priority: NotRequired[pulumi.Input['BridgeSourcePriorityArgsDict']]
+    source_priority: NotRequired[pulumi.Input[Optional['BridgeSourcePriorityArgsDict']]]
     """
     The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
     """
-    state: NotRequired[pulumi.Input['BridgeFailoverConfigStateEnum']]
+    state: NotRequired[pulumi.Input[Optional['BridgeFailoverConfigStateEnum']]]
     """
     The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
     """
@@ -345,8 +345,8 @@ class BridgeFailoverConfigArgsDict(TypedDict):
 class BridgeFailoverConfigArgs:
     def __init__(__self__, *,
                  failover_mode: pulumi.Input['BridgeFailoverModeEnum'],
-                 source_priority: Optional[pulumi.Input['BridgeSourcePriorityArgs']] = None,
-                 state: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']] = None):
+                 source_priority: pulumi.Input[Optional['BridgeSourcePriorityArgs']] = None,
+                 state: pulumi.Input[Optional['BridgeFailoverConfigStateEnum']] = None):
         """
         The settings for source failover.
 
@@ -374,26 +374,26 @@ class BridgeFailoverConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourcePriority")
-    def source_priority(self) -> Optional[pulumi.Input['BridgeSourcePriorityArgs']]:
+    def source_priority(self) -> pulumi.Input[Optional['BridgeSourcePriorityArgs']]:
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         """
         return pulumi.get(self, "source_priority")
 
     @source_priority.setter
-    def source_priority(self, value: Optional[pulumi.Input['BridgeSourcePriorityArgs']]):
+    def source_priority(self, value: pulumi.Input[Optional['BridgeSourcePriorityArgs']]):
         pulumi.set(self, "source_priority", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['BridgeFailoverConfigStateEnum']]:
+    def state(self) -> pulumi.Input[Optional['BridgeFailoverConfigStateEnum']]:
         """
         The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']]):
+    def state(self, value: pulumi.Input[Optional['BridgeFailoverConfigStateEnum']]):
         pulumi.set(self, "state", value)
 
 
@@ -409,7 +409,7 @@ class BridgeFlowSourceArgsDict(TypedDict):
     """
     The name of the flow source.
     """
-    flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeVpcInterfaceAttachmentArgsDict']]
+    flow_vpc_interface_attachment: NotRequired[pulumi.Input[Optional['BridgeVpcInterfaceAttachmentArgsDict']]]
     """
     The name of the VPC interface attachment to use for this source.
     """
@@ -419,7 +419,7 @@ class BridgeFlowSourceArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']] = None):
+                 flow_vpc_interface_attachment: pulumi.Input[Optional['BridgeVpcInterfaceAttachmentArgs']] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 
@@ -458,14 +458,14 @@ class BridgeFlowSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowVpcInterfaceAttachment")
-    def flow_vpc_interface_attachment(self) -> Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']]:
+    def flow_vpc_interface_attachment(self) -> pulumi.Input[Optional['BridgeVpcInterfaceAttachmentArgs']]:
         """
         The name of the VPC interface attachment to use for this source.
         """
         return pulumi.get(self, "flow_vpc_interface_attachment")
 
     @flow_vpc_interface_attachment.setter
-    def flow_vpc_interface_attachment(self, value: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']]):
+    def flow_vpc_interface_attachment(self, value: pulumi.Input[Optional['BridgeVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
 
@@ -520,7 +520,7 @@ class BridgeMulticastSourceSettingsArgsDict(TypedDict):
     """
     The settings related to the multicast source.
     """
-    multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
+    multicast_source_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address of the source for source-specific multicast (SSM).
     """
@@ -528,7 +528,7 @@ class BridgeMulticastSourceSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class BridgeMulticastSourceSettingsArgs:
     def __init__(__self__, *,
-                 multicast_source_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 multicast_source_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings related to the multicast source.
 
@@ -539,14 +539,14 @@ class BridgeMulticastSourceSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="multicastSourceIp")
-    def multicast_source_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multicast_source_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the source for source-specific multicast (SSM).
         """
         return pulumi.get(self, "multicast_source_ip")
 
     @multicast_source_ip.setter
-    def multicast_source_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multicast_source_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multicast_source_ip", value)
 
 
@@ -702,7 +702,7 @@ class BridgeNetworkSourceArgsDict(TypedDict):
     """
     The network source protocol.
     """
-    multicast_source_settings: NotRequired[pulumi.Input['BridgeMulticastSourceSettingsArgsDict']]
+    multicast_source_settings: NotRequired[pulumi.Input[Optional['BridgeMulticastSourceSettingsArgsDict']]]
     """
     The settings related to the multicast source.
     """
@@ -715,7 +715,7 @@ class BridgeNetworkSourceArgs:
                  network_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input['BridgeProtocolEnum'],
-                 multicast_source_settings: Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']] = None):
+                 multicast_source_settings: pulumi.Input[Optional['BridgeMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
 
@@ -796,15 +796,49 @@ class BridgeNetworkSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="multicastSourceSettings")
-    def multicast_source_settings(self) -> Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']]:
+    def multicast_source_settings(self) -> pulumi.Input[Optional['BridgeMulticastSourceSettingsArgs']]:
         """
         The settings related to the multicast source.
         """
         return pulumi.get(self, "multicast_source_settings")
 
     @multicast_source_settings.setter
-    def multicast_source_settings(self, value: Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']]):
+    def multicast_source_settings(self, value: pulumi.Input[Optional['BridgeMulticastSourceSettingsArgs']]):
         pulumi.set(self, "multicast_source_settings", value)
+
+
+class BridgeOutputArgsDict(TypedDict):
+    """
+    The output of the bridge.
+    """
+    network_output: NotRequired[pulumi.Input[Optional['BridgeNetworkOutputArgsDict']]]
+    """
+    The output of the bridge. A network output is delivered to your premises.
+    """
+
+@pulumi.input_type
+class BridgeOutputArgs:
+    def __init__(__self__, *,
+                 network_output: pulumi.Input[Optional['BridgeNetworkOutputArgs']] = None):
+        """
+        The output of the bridge.
+
+        :param pulumi.Input['BridgeNetworkOutputArgs'] network_output: The output of the bridge. A network output is delivered to your premises.
+        """
+        if network_output is not None:
+            pulumi.set(__self__, "network_output", network_output)
+
+    @_builtins.property
+    @pulumi.getter(name="networkOutput")
+    def network_output(self) -> pulumi.Input[Optional['BridgeNetworkOutputArgs']]:
+        """
+        The output of the bridge. A network output is delivered to your premises.
+        """
+        return pulumi.get(self, "network_output")
+
+    @network_output.setter
+    def network_output(self, value: pulumi.Input[Optional['BridgeNetworkOutputArgs']]):
+        pulumi.set(self, "network_output", value)
 
 
 class BridgeOutputResourceBridgeNetworkOutputArgsDict(TypedDict):
@@ -916,38 +950,58 @@ class BridgeOutputResourceBridgeNetworkOutputArgs:
         pulumi.set(self, "ttl", value)
 
 
-class BridgeOutputArgsDict(TypedDict):
+class BridgeSourceArgsDict(TypedDict):
     """
-    The output of the bridge.
+    The bridge's source.
     """
-    network_output: NotRequired[pulumi.Input['BridgeNetworkOutputArgsDict']]
+    flow_source: NotRequired[pulumi.Input[Optional['BridgeFlowSourceArgsDict']]]
     """
-    The output of the bridge. A network output is delivered to your premises.
+    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+    """
+    network_source: NotRequired[pulumi.Input[Optional['BridgeNetworkSourceArgsDict']]]
+    """
+    The source of the bridge. A network source originates at your premises.
     """
 
 @pulumi.input_type
-class BridgeOutputArgs:
+class BridgeSourceArgs:
     def __init__(__self__, *,
-                 network_output: Optional[pulumi.Input['BridgeNetworkOutputArgs']] = None):
+                 flow_source: pulumi.Input[Optional['BridgeFlowSourceArgs']] = None,
+                 network_source: pulumi.Input[Optional['BridgeNetworkSourceArgs']] = None):
         """
-        The output of the bridge.
+        The bridge's source.
 
-        :param pulumi.Input['BridgeNetworkOutputArgs'] network_output: The output of the bridge. A network output is delivered to your premises.
+        :param pulumi.Input['BridgeFlowSourceArgs'] flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        :param pulumi.Input['BridgeNetworkSourceArgs'] network_source: The source of the bridge. A network source originates at your premises.
         """
-        if network_output is not None:
-            pulumi.set(__self__, "network_output", network_output)
+        if flow_source is not None:
+            pulumi.set(__self__, "flow_source", flow_source)
+        if network_source is not None:
+            pulumi.set(__self__, "network_source", network_source)
 
     @_builtins.property
-    @pulumi.getter(name="networkOutput")
-    def network_output(self) -> Optional[pulumi.Input['BridgeNetworkOutputArgs']]:
+    @pulumi.getter(name="flowSource")
+    def flow_source(self) -> pulumi.Input[Optional['BridgeFlowSourceArgs']]:
         """
-        The output of the bridge. A network output is delivered to your premises.
+        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
         """
-        return pulumi.get(self, "network_output")
+        return pulumi.get(self, "flow_source")
 
-    @network_output.setter
-    def network_output(self, value: Optional[pulumi.Input['BridgeNetworkOutputArgs']]):
-        pulumi.set(self, "network_output", value)
+    @flow_source.setter
+    def flow_source(self, value: pulumi.Input[Optional['BridgeFlowSourceArgs']]):
+        pulumi.set(self, "flow_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSource")
+    def network_source(self) -> pulumi.Input[Optional['BridgeNetworkSourceArgs']]:
+        """
+        The source of the bridge. A network source originates at your premises.
+        """
+        return pulumi.get(self, "network_source")
+
+    @network_source.setter
+    def network_source(self, value: pulumi.Input[Optional['BridgeNetworkSourceArgs']]):
+        pulumi.set(self, "network_source", value)
 
 
 class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
@@ -958,7 +1012,7 @@ class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
     """
     The ARN of the cloud flow used as a source of this bridge.
     """
-    flow_vpc_interface_attachment: NotRequired[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgsDict']]
+    flow_vpc_interface_attachment: NotRequired[pulumi.Input[Optional['BridgeSourceVpcInterfaceAttachmentArgsDict']]]
     """
     The name of the VPC interface attachment to use for this source.
     """
@@ -967,7 +1021,7 @@ class BridgeSourceBridgeFlowSourceArgsDict(TypedDict):
 class BridgeSourceBridgeFlowSourceArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str],
-                 flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']] = None):
+                 flow_vpc_interface_attachment: pulumi.Input[Optional['BridgeSourceVpcInterfaceAttachmentArgs']] = None):
         """
         The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
 
@@ -992,14 +1046,14 @@ class BridgeSourceBridgeFlowSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowVpcInterfaceAttachment")
-    def flow_vpc_interface_attachment(self) -> Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']]:
+    def flow_vpc_interface_attachment(self) -> pulumi.Input[Optional['BridgeSourceVpcInterfaceAttachmentArgs']]:
         """
         The name of the VPC interface attachment to use for this source.
         """
         return pulumi.get(self, "flow_vpc_interface_attachment")
 
     @flow_vpc_interface_attachment.setter
-    def flow_vpc_interface_attachment(self, value: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']]):
+    def flow_vpc_interface_attachment(self, value: pulumi.Input[Optional['BridgeSourceVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "flow_vpc_interface_attachment", value)
 
 
@@ -1023,7 +1077,7 @@ class BridgeSourceBridgeNetworkSourceArgsDict(TypedDict):
     """
     The network source protocol.
     """
-    multicast_source_settings: NotRequired[pulumi.Input['BridgeSourceMulticastSourceSettingsArgsDict']]
+    multicast_source_settings: NotRequired[pulumi.Input[Optional['BridgeSourceMulticastSourceSettingsArgsDict']]]
     """
     The settings related to the multicast source.
     """
@@ -1035,7 +1089,7 @@ class BridgeSourceBridgeNetworkSourceArgs:
                  network_name: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input['BridgeSourceProtocolEnum'],
-                 multicast_source_settings: Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']] = None):
+                 multicast_source_settings: pulumi.Input[Optional['BridgeSourceMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
 
@@ -1102,14 +1156,14 @@ class BridgeSourceBridgeNetworkSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="multicastSourceSettings")
-    def multicast_source_settings(self) -> Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']]:
+    def multicast_source_settings(self) -> pulumi.Input[Optional['BridgeSourceMulticastSourceSettingsArgs']]:
         """
         The settings related to the multicast source.
         """
         return pulumi.get(self, "multicast_source_settings")
 
     @multicast_source_settings.setter
-    def multicast_source_settings(self, value: Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']]):
+    def multicast_source_settings(self, value: pulumi.Input[Optional['BridgeSourceMulticastSourceSettingsArgs']]):
         pulumi.set(self, "multicast_source_settings", value)
 
 
@@ -1117,7 +1171,7 @@ class BridgeSourceMulticastSourceSettingsArgsDict(TypedDict):
     """
     The settings related to the multicast source.
     """
-    multicast_source_ip: NotRequired[pulumi.Input[_builtins.str]]
+    multicast_source_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address of the source for source-specific multicast (SSM).
     """
@@ -1125,7 +1179,7 @@ class BridgeSourceMulticastSourceSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class BridgeSourceMulticastSourceSettingsArgs:
     def __init__(__self__, *,
-                 multicast_source_ip: Optional[pulumi.Input[_builtins.str]] = None):
+                 multicast_source_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings related to the multicast source.
 
@@ -1136,14 +1190,14 @@ class BridgeSourceMulticastSourceSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="multicastSourceIp")
-    def multicast_source_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def multicast_source_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address of the source for source-specific multicast (SSM).
         """
         return pulumi.get(self, "multicast_source_ip")
 
     @multicast_source_ip.setter
-    def multicast_source_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def multicast_source_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "multicast_source_ip", value)
 
 
@@ -1151,7 +1205,7 @@ class BridgeSourcePriorityArgsDict(TypedDict):
     """
     The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
     """
-    primary_source: NotRequired[pulumi.Input[_builtins.str]]
+    primary_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the source you choose as the primary source for this flow.
     """
@@ -1159,7 +1213,7 @@ class BridgeSourcePriorityArgsDict(TypedDict):
 @pulumi.input_type
 class BridgeSourcePriorityArgs:
     def __init__(__self__, *,
-                 primary_source: Optional[pulumi.Input[_builtins.str]] = None):
+                 primary_source: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
 
@@ -1170,14 +1224,14 @@ class BridgeSourcePriorityArgs:
 
     @_builtins.property
     @pulumi.getter(name="primarySource")
-    def primary_source(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source you choose as the primary source for this flow.
         """
         return pulumi.get(self, "primary_source")
 
     @primary_source.setter
-    def primary_source(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_source(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_source", value)
 
 
@@ -1185,7 +1239,7 @@ class BridgeSourceVpcInterfaceAttachmentArgsDict(TypedDict):
     """
     The settings for attaching a VPC interface to an resource.
     """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the VPC interface to use for this resource.
     """
@@ -1193,7 +1247,7 @@ class BridgeSourceVpcInterfaceAttachmentArgsDict(TypedDict):
 @pulumi.input_type
 class BridgeSourceVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
 
@@ -1204,76 +1258,22 @@ class BridgeSourceVpcInterfaceAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VPC interface to use for this resource.
         """
         return pulumi.get(self, "vpc_interface_name")
 
     @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
-
-
-class BridgeSourceArgsDict(TypedDict):
-    """
-    The bridge's source.
-    """
-    flow_source: NotRequired[pulumi.Input['BridgeFlowSourceArgsDict']]
-    """
-    The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-    """
-    network_source: NotRequired[pulumi.Input['BridgeNetworkSourceArgsDict']]
-    """
-    The source of the bridge. A network source originates at your premises.
-    """
-
-@pulumi.input_type
-class BridgeSourceArgs:
-    def __init__(__self__, *,
-                 flow_source: Optional[pulumi.Input['BridgeFlowSourceArgs']] = None,
-                 network_source: Optional[pulumi.Input['BridgeNetworkSourceArgs']] = None):
-        """
-        The bridge's source.
-
-        :param pulumi.Input['BridgeFlowSourceArgs'] flow_source: The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-        :param pulumi.Input['BridgeNetworkSourceArgs'] network_source: The source of the bridge. A network source originates at your premises.
-        """
-        if flow_source is not None:
-            pulumi.set(__self__, "flow_source", flow_source)
-        if network_source is not None:
-            pulumi.set(__self__, "network_source", network_source)
-
-    @_builtins.property
-    @pulumi.getter(name="flowSource")
-    def flow_source(self) -> Optional[pulumi.Input['BridgeFlowSourceArgs']]:
-        """
-        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
-        """
-        return pulumi.get(self, "flow_source")
-
-    @flow_source.setter
-    def flow_source(self, value: Optional[pulumi.Input['BridgeFlowSourceArgs']]):
-        pulumi.set(self, "flow_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkSource")
-    def network_source(self) -> Optional[pulumi.Input['BridgeNetworkSourceArgs']]:
-        """
-        The source of the bridge. A network source originates at your premises.
-        """
-        return pulumi.get(self, "network_source")
-
-    @network_source.setter
-    def network_source(self, value: Optional[pulumi.Input['BridgeNetworkSourceArgs']]):
-        pulumi.set(self, "network_source", value)
 
 
 class BridgeVpcInterfaceAttachmentArgsDict(TypedDict):
     """
     The settings for attaching a VPC interface to an resource.
     """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the VPC interface to use for this resource.
     """
@@ -1281,7 +1281,7 @@ class BridgeVpcInterfaceAttachmentArgsDict(TypedDict):
 @pulumi.input_type
 class BridgeVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an resource.
 
@@ -1292,14 +1292,14 @@ class BridgeVpcInterfaceAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VPC interface to use for this resource.
         """
         return pulumi.get(self, "vpc_interface_name")
 
     @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
 
@@ -1307,7 +1307,7 @@ class FlowAudioMonitoringSettingArgsDict(TypedDict):
     """
     Specifies the configuration for audio stream metrics monitoring.
     """
-    silent_audio: NotRequired[pulumi.Input['FlowSilentAudioArgsDict']]
+    silent_audio: NotRequired[pulumi.Input[Optional['FlowSilentAudioArgsDict']]]
     """
     Detects periods of silence.
     """
@@ -1315,7 +1315,7 @@ class FlowAudioMonitoringSettingArgsDict(TypedDict):
 @pulumi.input_type
 class FlowAudioMonitoringSettingArgs:
     def __init__(__self__, *,
-                 silent_audio: Optional[pulumi.Input['FlowSilentAudioArgs']] = None):
+                 silent_audio: pulumi.Input[Optional['FlowSilentAudioArgs']] = None):
         """
         Specifies the configuration for audio stream metrics monitoring.
 
@@ -1326,14 +1326,14 @@ class FlowAudioMonitoringSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="silentAudio")
-    def silent_audio(self) -> Optional[pulumi.Input['FlowSilentAudioArgs']]:
+    def silent_audio(self) -> pulumi.Input[Optional['FlowSilentAudioArgs']]:
         """
         Detects periods of silence.
         """
         return pulumi.get(self, "silent_audio")
 
     @silent_audio.setter
-    def silent_audio(self, value: Optional[pulumi.Input['FlowSilentAudioArgs']]):
+    def silent_audio(self, value: pulumi.Input[Optional['FlowSilentAudioArgs']]):
         pulumi.set(self, "silent_audio", value)
 
 
@@ -1356,11 +1356,11 @@ class FlowBlackFramesArgsDict(TypedDict):
     """
     Configures settings for the BlackFrames metric.
     """
-    state: NotRequired[pulumi.Input['FlowBlackFramesState']]
+    state: NotRequired[pulumi.Input[Optional['FlowBlackFramesState']]]
     """
     Indicates whether the BlackFrames metric is enabled or disabled.
     """
-    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    threshold_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of consecutive seconds of black frames that triggers an event or alert.
     """
@@ -1368,8 +1368,8 @@ class FlowBlackFramesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowBlackFramesArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input['FlowBlackFramesState']] = None,
-                 threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 state: pulumi.Input[Optional['FlowBlackFramesState']] = None,
+                 threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configures settings for the BlackFrames metric.
 
@@ -1383,32 +1383,32 @@ class FlowBlackFramesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['FlowBlackFramesState']]:
+    def state(self) -> pulumi.Input[Optional['FlowBlackFramesState']]:
         """
         Indicates whether the BlackFrames metric is enabled or disabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['FlowBlackFramesState']]):
+    def state(self, value: pulumi.Input[Optional['FlowBlackFramesState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdSeconds")
-    def threshold_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of consecutive seconds of black frames that triggers an event or alert.
         """
         return pulumi.get(self, "threshold_seconds")
 
     @threshold_seconds.setter
-    def threshold_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_seconds", value)
 
 
 class FlowEncodingConfigArgsDict(TypedDict):
-    encoding_profile: NotRequired[pulumi.Input['FlowEncodingProfile']]
-    video_max_bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    encoding_profile: NotRequired[pulumi.Input[Optional['FlowEncodingProfile']]]
+    video_max_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
     """
@@ -1416,8 +1416,8 @@ class FlowEncodingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowEncodingConfigArgs:
     def __init__(__self__, *,
-                 encoding_profile: Optional[pulumi.Input['FlowEncodingProfile']] = None,
-                 video_max_bitrate: Optional[pulumi.Input[_builtins.int]] = None):
+                 encoding_profile: pulumi.Input[Optional['FlowEncodingProfile']] = None,
+                 video_max_bitrate: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] video_max_bitrate: The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
         """
@@ -1428,23 +1428,23 @@ class FlowEncodingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="encodingProfile")
-    def encoding_profile(self) -> Optional[pulumi.Input['FlowEncodingProfile']]:
+    def encoding_profile(self) -> pulumi.Input[Optional['FlowEncodingProfile']]:
         return pulumi.get(self, "encoding_profile")
 
     @encoding_profile.setter
-    def encoding_profile(self, value: Optional[pulumi.Input['FlowEncodingProfile']]):
+    def encoding_profile(self, value: pulumi.Input[Optional['FlowEncodingProfile']]):
         pulumi.set(self, "encoding_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="videoMaxBitrate")
-    def video_max_bitrate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def video_max_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
         """
         return pulumi.get(self, "video_max_bitrate")
 
     @video_max_bitrate.setter
-    def video_max_bitrate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def video_max_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "video_max_bitrate", value)
 
 
@@ -1456,35 +1456,35 @@ class FlowEncryptionArgsDict(TypedDict):
     """
     The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
     """
-    algorithm: NotRequired[pulumi.Input['FlowEncryptionAlgorithm']]
+    algorithm: NotRequired[pulumi.Input[Optional['FlowEncryptionAlgorithm']]]
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     """
-    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    constant_initialization_vector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
     """
-    device_id: NotRequired[pulumi.Input[_builtins.str]]
+    device_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    key_type: NotRequired[pulumi.Input['FlowEncryptionKeyType']]
+    key_type: NotRequired[pulumi.Input[Optional['FlowEncryptionKeyType']]]
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
      The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
@@ -1493,14 +1493,14 @@ class FlowEncryptionArgsDict(TypedDict):
 class FlowEncryptionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input['FlowEncryptionAlgorithm']] = None,
-                 constant_initialization_vector: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['FlowEncryptionKeyType']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 algorithm: pulumi.Input[Optional['FlowEncryptionAlgorithm']] = None,
+                 constant_initialization_vector: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['FlowEncryptionKeyType']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about the encryption of the flow.
 
@@ -1546,98 +1546,98 @@ class FlowEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['FlowEncryptionAlgorithm']]:
+    def algorithm(self) -> pulumi.Input[Optional['FlowEncryptionAlgorithm']]:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['FlowEncryptionAlgorithm']]):
+    def algorithm(self, value: pulumi.Input[Optional['FlowEncryptionAlgorithm']]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="constantInitializationVector")
-    def constant_initialization_vector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def constant_initialization_vector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
     @constant_initialization_vector.setter
-    def constant_initialization_vector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def constant_initialization_vector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "constant_initialization_vector", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
-    def device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input['FlowEncryptionKeyType']]:
+    def key_type(self) -> pulumi.Input[Optional['FlowEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input['FlowEncryptionKeyType']]):
+    def key_type(self, value: pulumi.Input[Optional['FlowEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
          The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -1653,31 +1653,31 @@ class FlowEntitlementEncryptionArgsDict(TypedDict):
     """
     The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
     """
-    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
+    constant_initialization_vector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
     """
-    device_id: NotRequired[pulumi.Input[_builtins.str]]
+    device_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    key_type: NotRequired[pulumi.Input['FlowEntitlementEncryptionKeyType']]
+    key_type: NotRequired[pulumi.Input[Optional['FlowEntitlementEncryptionKeyType']]]
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
     """
-    region: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
      The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
     """
@@ -1687,13 +1687,13 @@ class FlowEntitlementEncryptionArgs:
     def __init__(__self__, *,
                  algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm'],
                  role_arn: pulumi.Input[_builtins.str],
-                 constant_initialization_vector: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 constant_initialization_vector: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['FlowEntitlementEncryptionKeyType']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Information about the encryption of the flow.
 
@@ -1750,87 +1750,181 @@ class FlowEntitlementEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="constantInitializationVector")
-    def constant_initialization_vector(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def constant_initialization_vector(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
     @constant_initialization_vector.setter
-    def constant_initialization_vector(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def constant_initialization_vector(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "constant_initialization_vector", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
-    def device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_id", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']]:
+    def key_type(self) -> pulumi.Input[Optional['FlowEntitlementEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']]):
+    def key_type(self, value: pulumi.Input[Optional['FlowEntitlementEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "region")
 
     @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
          The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
+
+
+class FlowFailoverConfigArgsDict(TypedDict):
+    """
+    The settings for source failover
+    """
+    failover_mode: NotRequired[pulumi.Input[Optional['FlowFailoverConfigFailoverMode']]]
+    """
+    The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+    """
+    recovery_window: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Search window time to look for dash-7 packets
+    """
+    source_priority: NotRequired[pulumi.Input[Optional['FlowFailoverConfigSourcePriorityPropertiesArgsDict']]]
+    """
+    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+    """
+    state: NotRequired[pulumi.Input[Optional['FlowFailoverConfigState']]]
+    """
+    The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+    """
+
+@pulumi.input_type
+class FlowFailoverConfigArgs:
+    def __init__(__self__, *,
+                 failover_mode: pulumi.Input[Optional['FlowFailoverConfigFailoverMode']] = None,
+                 recovery_window: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_priority: pulumi.Input[Optional['FlowFailoverConfigSourcePriorityPropertiesArgs']] = None,
+                 state: pulumi.Input[Optional['FlowFailoverConfigState']] = None):
+        """
+        The settings for source failover
+
+        :param pulumi.Input['FlowFailoverConfigFailoverMode'] failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        :param pulumi.Input[_builtins.int] recovery_window: Search window time to look for dash-7 packets
+        :param pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        :param pulumi.Input['FlowFailoverConfigState'] state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
+        if failover_mode is not None:
+            pulumi.set(__self__, "failover_mode", failover_mode)
+        if recovery_window is not None:
+            pulumi.set(__self__, "recovery_window", recovery_window)
+        if source_priority is not None:
+            pulumi.set(__self__, "source_priority", source_priority)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> pulumi.Input[Optional['FlowFailoverConfigFailoverMode']]:
+        """
+        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @failover_mode.setter
+    def failover_mode(self, value: pulumi.Input[Optional['FlowFailoverConfigFailoverMode']]):
+        pulumi.set(self, "failover_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryWindow")
+    def recovery_window(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Search window time to look for dash-7 packets
+        """
+        return pulumi.get(self, "recovery_window")
+
+    @recovery_window.setter
+    def recovery_window(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "recovery_window", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePriority")
+    def source_priority(self) -> pulumi.Input[Optional['FlowFailoverConfigSourcePriorityPropertiesArgs']]:
+        """
+        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
+        """
+        return pulumi.get(self, "source_priority")
+
+    @source_priority.setter
+    def source_priority(self, value: pulumi.Input[Optional['FlowFailoverConfigSourcePriorityPropertiesArgs']]):
+        pulumi.set(self, "source_priority", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional['FlowFailoverConfigState']]:
+        """
+        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional['FlowFailoverConfigState']]):
+        pulumi.set(self, "state", value)
 
 
 class FlowFailoverConfigSourcePriorityPropertiesArgsDict(TypedDict):
@@ -1866,129 +1960,35 @@ class FlowFailoverConfigSourcePriorityPropertiesArgs:
         pulumi.set(self, "primary_source", value)
 
 
-class FlowFailoverConfigArgsDict(TypedDict):
-    """
-    The settings for source failover
-    """
-    failover_mode: NotRequired[pulumi.Input['FlowFailoverConfigFailoverMode']]
-    """
-    The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
-    """
-    recovery_window: NotRequired[pulumi.Input[_builtins.int]]
-    """
-    Search window time to look for dash-7 packets
-    """
-    source_priority: NotRequired[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgsDict']]
-    """
-    The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-    """
-    state: NotRequired[pulumi.Input['FlowFailoverConfigState']]
-    """
-    The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
-    """
-
-@pulumi.input_type
-class FlowFailoverConfigArgs:
-    def __init__(__self__, *,
-                 failover_mode: Optional[pulumi.Input['FlowFailoverConfigFailoverMode']] = None,
-                 recovery_window: Optional[pulumi.Input[_builtins.int]] = None,
-                 source_priority: Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']] = None,
-                 state: Optional[pulumi.Input['FlowFailoverConfigState']] = None):
-        """
-        The settings for source failover
-
-        :param pulumi.Input['FlowFailoverConfigFailoverMode'] failover_mode: The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
-        :param pulumi.Input[_builtins.int] recovery_window: Search window time to look for dash-7 packets
-        :param pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        :param pulumi.Input['FlowFailoverConfigState'] state: The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
-        """
-        if failover_mode is not None:
-            pulumi.set(__self__, "failover_mode", failover_mode)
-        if recovery_window is not None:
-            pulumi.set(__self__, "recovery_window", recovery_window)
-        if source_priority is not None:
-            pulumi.set(__self__, "source_priority", source_priority)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-
-    @_builtins.property
-    @pulumi.getter(name="failoverMode")
-    def failover_mode(self) -> Optional[pulumi.Input['FlowFailoverConfigFailoverMode']]:
-        """
-        The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.
-        """
-        return pulumi.get(self, "failover_mode")
-
-    @failover_mode.setter
-    def failover_mode(self, value: Optional[pulumi.Input['FlowFailoverConfigFailoverMode']]):
-        pulumi.set(self, "failover_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recoveryWindow")
-    def recovery_window(self) -> Optional[pulumi.Input[_builtins.int]]:
-        """
-        Search window time to look for dash-7 packets
-        """
-        return pulumi.get(self, "recovery_window")
-
-    @recovery_window.setter
-    def recovery_window(self, value: Optional[pulumi.Input[_builtins.int]]):
-        pulumi.set(self, "recovery_window", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourcePriority")
-    def source_priority(self) -> Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']]:
-        """
-        The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
-        """
-        return pulumi.get(self, "source_priority")
-
-    @source_priority.setter
-    def source_priority(self, value: Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']]):
-        pulumi.set(self, "source_priority", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['FlowFailoverConfigState']]:
-        """
-        The state of source failover on the flow. If the state is inactive, the flow can have only one source. If the state is active, the flow can have one or two sources.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input['FlowFailoverConfigState']]):
-        pulumi.set(self, "state", value)
-
-
 class FlowFmtpArgsDict(TypedDict):
     """
     A set of parameters that define the media stream.
     """
-    channel_order: NotRequired[pulumi.Input[_builtins.str]]
+    channel_order: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The format of the audio channel.
     """
-    colorimetry: NotRequired[pulumi.Input['FlowFmtpColorimetry']]
+    colorimetry: NotRequired[pulumi.Input[Optional['FlowFmtpColorimetry']]]
     """
     The format used for the representation of color.
     """
-    exact_framerate: NotRequired[pulumi.Input[_builtins.str]]
+    exact_framerate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frame rate for the video stream, in frames/second. For example: 60000/1001.
     """
-    par: NotRequired[pulumi.Input[_builtins.str]]
+    par: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The pixel aspect ratio (PAR) of the video.
     """
-    range: NotRequired[pulumi.Input['FlowFmtpRange']]
+    range: NotRequired[pulumi.Input[Optional['FlowFmtpRange']]]
     """
     The encoding range of the video.
     """
-    scan_mode: NotRequired[pulumi.Input['FlowFmtpScanMode']]
+    scan_mode: NotRequired[pulumi.Input[Optional['FlowFmtpScanMode']]]
     """
     The type of compression that was used to smooth the video's appearance.
     """
-    tcs: NotRequired[pulumi.Input['FlowFmtpTcs']]
+    tcs: NotRequired[pulumi.Input[Optional['FlowFmtpTcs']]]
     """
     The transfer characteristic system (TCS) that is used in the video.
     """
@@ -1996,13 +1996,13 @@ class FlowFmtpArgsDict(TypedDict):
 @pulumi.input_type
 class FlowFmtpArgs:
     def __init__(__self__, *,
-                 channel_order: Optional[pulumi.Input[_builtins.str]] = None,
-                 colorimetry: Optional[pulumi.Input['FlowFmtpColorimetry']] = None,
-                 exact_framerate: Optional[pulumi.Input[_builtins.str]] = None,
-                 par: Optional[pulumi.Input[_builtins.str]] = None,
-                 range: Optional[pulumi.Input['FlowFmtpRange']] = None,
-                 scan_mode: Optional[pulumi.Input['FlowFmtpScanMode']] = None,
-                 tcs: Optional[pulumi.Input['FlowFmtpTcs']] = None):
+                 channel_order: pulumi.Input[Optional[_builtins.str]] = None,
+                 colorimetry: pulumi.Input[Optional['FlowFmtpColorimetry']] = None,
+                 exact_framerate: pulumi.Input[Optional[_builtins.str]] = None,
+                 par: pulumi.Input[Optional[_builtins.str]] = None,
+                 range: pulumi.Input[Optional['FlowFmtpRange']] = None,
+                 scan_mode: pulumi.Input[Optional['FlowFmtpScanMode']] = None,
+                 tcs: pulumi.Input[Optional['FlowFmtpTcs']] = None):
         """
         A set of parameters that define the media stream.
 
@@ -2031,86 +2031,86 @@ class FlowFmtpArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelOrder")
-    def channel_order(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_order(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The format of the audio channel.
         """
         return pulumi.get(self, "channel_order")
 
     @channel_order.setter
-    def channel_order(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_order(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_order", value)
 
     @_builtins.property
     @pulumi.getter
-    def colorimetry(self) -> Optional[pulumi.Input['FlowFmtpColorimetry']]:
+    def colorimetry(self) -> pulumi.Input[Optional['FlowFmtpColorimetry']]:
         """
         The format used for the representation of color.
         """
         return pulumi.get(self, "colorimetry")
 
     @colorimetry.setter
-    def colorimetry(self, value: Optional[pulumi.Input['FlowFmtpColorimetry']]):
+    def colorimetry(self, value: pulumi.Input[Optional['FlowFmtpColorimetry']]):
         pulumi.set(self, "colorimetry", value)
 
     @_builtins.property
     @pulumi.getter(name="exactFramerate")
-    def exact_framerate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def exact_framerate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frame rate for the video stream, in frames/second. For example: 60000/1001.
         """
         return pulumi.get(self, "exact_framerate")
 
     @exact_framerate.setter
-    def exact_framerate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def exact_framerate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "exact_framerate", value)
 
     @_builtins.property
     @pulumi.getter
-    def par(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def par(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The pixel aspect ratio (PAR) of the video.
         """
         return pulumi.get(self, "par")
 
     @par.setter
-    def par(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def par(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "par", value)
 
     @_builtins.property
     @pulumi.getter
-    def range(self) -> Optional[pulumi.Input['FlowFmtpRange']]:
+    def range(self) -> pulumi.Input[Optional['FlowFmtpRange']]:
         """
         The encoding range of the video.
         """
         return pulumi.get(self, "range")
 
     @range.setter
-    def range(self, value: Optional[pulumi.Input['FlowFmtpRange']]):
+    def range(self, value: pulumi.Input[Optional['FlowFmtpRange']]):
         pulumi.set(self, "range", value)
 
     @_builtins.property
     @pulumi.getter(name="scanMode")
-    def scan_mode(self) -> Optional[pulumi.Input['FlowFmtpScanMode']]:
+    def scan_mode(self) -> pulumi.Input[Optional['FlowFmtpScanMode']]:
         """
         The type of compression that was used to smooth the video's appearance.
         """
         return pulumi.get(self, "scan_mode")
 
     @scan_mode.setter
-    def scan_mode(self, value: Optional[pulumi.Input['FlowFmtpScanMode']]):
+    def scan_mode(self, value: pulumi.Input[Optional['FlowFmtpScanMode']]):
         pulumi.set(self, "scan_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tcs(self) -> Optional[pulumi.Input['FlowFmtpTcs']]:
+    def tcs(self) -> pulumi.Input[Optional['FlowFmtpTcs']]:
         """
         The transfer characteristic system (TCS) that is used in the video.
         """
         return pulumi.get(self, "tcs")
 
     @tcs.setter
-    def tcs(self, value: Optional[pulumi.Input['FlowFmtpTcs']]):
+    def tcs(self, value: pulumi.Input[Optional['FlowFmtpTcs']]):
         pulumi.set(self, "tcs", value)
 
 
@@ -2118,11 +2118,11 @@ class FlowFrozenFramesArgsDict(TypedDict):
     """
     Configures settings for the FrozenFrames metric.
     """
-    state: NotRequired[pulumi.Input['FlowFrozenFramesState']]
+    state: NotRequired[pulumi.Input[Optional['FlowFrozenFramesState']]]
     """
     Indicates whether the FrozenFrames metric is enabled or disabled.
     """
-    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    threshold_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of consecutive seconds of a static image that triggers an event or alert.
     """
@@ -2130,8 +2130,8 @@ class FlowFrozenFramesArgsDict(TypedDict):
 @pulumi.input_type
 class FlowFrozenFramesArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input['FlowFrozenFramesState']] = None,
-                 threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 state: pulumi.Input[Optional['FlowFrozenFramesState']] = None,
+                 threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configures settings for the FrozenFrames metric.
 
@@ -2145,26 +2145,26 @@ class FlowFrozenFramesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['FlowFrozenFramesState']]:
+    def state(self) -> pulumi.Input[Optional['FlowFrozenFramesState']]:
         """
         Indicates whether the FrozenFrames metric is enabled or disabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['FlowFrozenFramesState']]):
+    def state(self, value: pulumi.Input[Optional['FlowFrozenFramesState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdSeconds")
-    def threshold_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of consecutive seconds of a static image that triggers an event or alert.
         """
         return pulumi.get(self, "threshold_seconds")
 
     @threshold_seconds.setter
-    def threshold_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_seconds", value)
 
 
@@ -2176,7 +2176,7 @@ class FlowGatewayBridgeSourceArgsDict(TypedDict):
     """
     The ARN of the bridge feeding this flow.
     """
-    vpc_interface_attachment: NotRequired[pulumi.Input['FlowVpcInterfaceAttachmentArgsDict']]
+    vpc_interface_attachment: NotRequired[pulumi.Input[Optional['FlowVpcInterfaceAttachmentArgsDict']]]
     """
     The name of the VPC interface attachment to use for this bridge source.
     """
@@ -2185,7 +2185,7 @@ class FlowGatewayBridgeSourceArgsDict(TypedDict):
 class FlowGatewayBridgeSourceArgs:
     def __init__(__self__, *,
                  bridge_arn: pulumi.Input[_builtins.str],
-                 vpc_interface_attachment: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']] = None):
+                 vpc_interface_attachment: pulumi.Input[Optional['FlowVpcInterfaceAttachmentArgs']] = None):
         """
         The source configuration for cloud flows receiving a stream from a bridge.
 
@@ -2210,14 +2210,14 @@ class FlowGatewayBridgeSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceAttachment")
-    def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']]:
+    def vpc_interface_attachment(self) -> pulumi.Input[Optional['FlowVpcInterfaceAttachmentArgs']]:
         """
         The name of the VPC interface attachment to use for this bridge source.
         """
         return pulumi.get(self, "vpc_interface_attachment")
 
     @vpc_interface_attachment.setter
-    def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']]):
+    def vpc_interface_attachment(self, value: pulumi.Input[Optional['FlowVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
@@ -2358,132 +2358,6 @@ class FlowMaintenanceArgs:
         pulumi.set(self, "maintenance_start_hour", value)
 
 
-class FlowMediaStreamAttributesArgsDict(TypedDict):
-    """
-    Attributes that are related to the media stream.
-    """
-    fmtp: NotRequired[pulumi.Input['FlowFmtpArgsDict']]
-    """
-    A set of parameters that define the media stream.
-    """
-    lang: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The audio language, in a format that is recognized by the receiver.
-    """
-
-@pulumi.input_type
-class FlowMediaStreamAttributesArgs:
-    def __init__(__self__, *,
-                 fmtp: Optional[pulumi.Input['FlowFmtpArgs']] = None,
-                 lang: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Attributes that are related to the media stream.
-
-        :param pulumi.Input['FlowFmtpArgs'] fmtp: A set of parameters that define the media stream.
-        :param pulumi.Input[_builtins.str] lang: The audio language, in a format that is recognized by the receiver.
-        """
-        if fmtp is not None:
-            pulumi.set(__self__, "fmtp", fmtp)
-        if lang is not None:
-            pulumi.set(__self__, "lang", lang)
-
-    @_builtins.property
-    @pulumi.getter
-    def fmtp(self) -> Optional[pulumi.Input['FlowFmtpArgs']]:
-        """
-        A set of parameters that define the media stream.
-        """
-        return pulumi.get(self, "fmtp")
-
-    @fmtp.setter
-    def fmtp(self, value: Optional[pulumi.Input['FlowFmtpArgs']]):
-        pulumi.set(self, "fmtp", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def lang(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The audio language, in a format that is recognized by the receiver.
-        """
-        return pulumi.get(self, "lang")
-
-    @lang.setter
-    def lang(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "lang", value)
-
-
-class FlowMediaStreamSourceConfigurationArgsDict(TypedDict):
-    """
-    The media stream that is associated with the source, and the parameters for that association.
-    """
-    encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']
-    """
-    The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
-    """
-    media_stream_name: pulumi.Input[_builtins.str]
-    """
-    A name that helps you distinguish one media stream from another.
-    """
-    input_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgsDict']]]]
-    """
-    The media streams that you want to associate with the source.
-    """
-
-@pulumi.input_type
-class FlowMediaStreamSourceConfigurationArgs:
-    def __init__(__self__, *,
-                 encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName'],
-                 media_stream_name: pulumi.Input[_builtins.str],
-                 input_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]] = None):
-        """
-        The media stream that is associated with the source, and the parameters for that association.
-
-        :param pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName'] encoding_name: The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
-        :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]] input_configurations: The media streams that you want to associate with the source.
-        """
-        pulumi.set(__self__, "encoding_name", encoding_name)
-        pulumi.set(__self__, "media_stream_name", media_stream_name)
-        if input_configurations is not None:
-            pulumi.set(__self__, "input_configurations", input_configurations)
-
-    @_builtins.property
-    @pulumi.getter(name="encodingName")
-    def encoding_name(self) -> pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']:
-        """
-        The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
-        """
-        return pulumi.get(self, "encoding_name")
-
-    @encoding_name.setter
-    def encoding_name(self, value: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']):
-        pulumi.set(self, "encoding_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mediaStreamName")
-    def media_stream_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A name that helps you distinguish one media stream from another.
-        """
-        return pulumi.get(self, "media_stream_name")
-
-    @media_stream_name.setter
-    def media_stream_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "media_stream_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inputConfigurations")
-    def input_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]]:
-        """
-        The media streams that you want to associate with the source.
-        """
-        return pulumi.get(self, "input_configurations")
-
-    @input_configurations.setter
-    def input_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]]):
-        pulumi.set(self, "input_configurations", value)
-
-
 class FlowMediaStreamArgsDict(TypedDict):
     """
     A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
@@ -2500,27 +2374,27 @@ class FlowMediaStreamArgsDict(TypedDict):
     """
     The type of media stream.
     """
-    attributes: NotRequired[pulumi.Input['FlowMediaStreamAttributesArgsDict']]
+    attributes: NotRequired[pulumi.Input[Optional['FlowMediaStreamAttributesArgsDict']]]
     """
     Attributes that are related to the media stream.
     """
-    clock_rate: NotRequired[pulumi.Input[_builtins.int]]
+    clock_rate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The sample rate for the stream. This value in measured in kHz.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description that can help you quickly identify what your media stream is used for.
     """
-    fmt: NotRequired[pulumi.Input[_builtins.int]]
+    fmt: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgsDict']]]]]
     """
     Key-value pairs that can be used to tag this media stream.
     """
-    video_format: NotRequired[pulumi.Input['FlowMediaStreamVideoFormat']]
+    video_format: NotRequired[pulumi.Input[Optional['FlowMediaStreamVideoFormat']]]
     """
     The resolution of the video.
     """
@@ -2531,12 +2405,12 @@ class FlowMediaStreamArgs:
                  media_stream_id: pulumi.Input[_builtins.int],
                  media_stream_name: pulumi.Input[_builtins.str],
                  media_stream_type: pulumi.Input['FlowMediaStreamMediaStreamType'],
-                 attributes: Optional[pulumi.Input['FlowMediaStreamAttributesArgs']] = None,
-                 clock_rate: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 fmt: Optional[pulumi.Input[_builtins.int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
-                 video_format: Optional[pulumi.Input['FlowMediaStreamVideoFormat']] = None):
+                 attributes: pulumi.Input[Optional['FlowMediaStreamAttributesArgs']] = None,
+                 clock_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 fmt: pulumi.Input[Optional[_builtins.int]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
+                 video_format: pulumi.Input[Optional['FlowMediaStreamVideoFormat']] = None):
         """
         A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
 
@@ -2604,90 +2478,216 @@ class FlowMediaStreamArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input['FlowMediaStreamAttributesArgs']]:
+    def attributes(self) -> pulumi.Input[Optional['FlowMediaStreamAttributesArgs']]:
         """
         Attributes that are related to the media stream.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input['FlowMediaStreamAttributesArgs']]):
+    def attributes(self, value: pulumi.Input[Optional['FlowMediaStreamAttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="clockRate")
-    def clock_rate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def clock_rate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The sample rate for the stream. This value in measured in kHz.
         """
         return pulumi.get(self, "clock_rate")
 
     @clock_rate.setter
-    def clock_rate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def clock_rate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "clock_rate", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description that can help you quickly identify what your media stream is used for.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def fmt(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def fmt(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
         """
         return pulumi.get(self, "fmt")
 
     @fmt.setter
-    def fmt(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def fmt(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "fmt", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]:
         """
         Key-value pairs that can be used to tag this media stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="videoFormat")
-    def video_format(self) -> Optional[pulumi.Input['FlowMediaStreamVideoFormat']]:
+    def video_format(self) -> pulumi.Input[Optional['FlowMediaStreamVideoFormat']]:
         """
         The resolution of the video.
         """
         return pulumi.get(self, "video_format")
 
     @video_format.setter
-    def video_format(self, value: Optional[pulumi.Input['FlowMediaStreamVideoFormat']]):
+    def video_format(self, value: pulumi.Input[Optional['FlowMediaStreamVideoFormat']]):
         pulumi.set(self, "video_format", value)
+
+
+class FlowMediaStreamAttributesArgsDict(TypedDict):
+    """
+    Attributes that are related to the media stream.
+    """
+    fmtp: NotRequired[pulumi.Input[Optional['FlowFmtpArgsDict']]]
+    """
+    A set of parameters that define the media stream.
+    """
+    lang: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The audio language, in a format that is recognized by the receiver.
+    """
+
+@pulumi.input_type
+class FlowMediaStreamAttributesArgs:
+    def __init__(__self__, *,
+                 fmtp: pulumi.Input[Optional['FlowFmtpArgs']] = None,
+                 lang: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Attributes that are related to the media stream.
+
+        :param pulumi.Input['FlowFmtpArgs'] fmtp: A set of parameters that define the media stream.
+        :param pulumi.Input[_builtins.str] lang: The audio language, in a format that is recognized by the receiver.
+        """
+        if fmtp is not None:
+            pulumi.set(__self__, "fmtp", fmtp)
+        if lang is not None:
+            pulumi.set(__self__, "lang", lang)
+
+    @_builtins.property
+    @pulumi.getter
+    def fmtp(self) -> pulumi.Input[Optional['FlowFmtpArgs']]:
+        """
+        A set of parameters that define the media stream.
+        """
+        return pulumi.get(self, "fmtp")
+
+    @fmtp.setter
+    def fmtp(self, value: pulumi.Input[Optional['FlowFmtpArgs']]):
+        pulumi.set(self, "fmtp", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def lang(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The audio language, in a format that is recognized by the receiver.
+        """
+        return pulumi.get(self, "lang")
+
+    @lang.setter
+    def lang(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lang", value)
+
+
+class FlowMediaStreamSourceConfigurationArgsDict(TypedDict):
+    """
+    The media stream that is associated with the source, and the parameters for that association.
+    """
+    encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']
+    """
+    The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+    """
+    media_stream_name: pulumi.Input[_builtins.str]
+    """
+    A name that helps you distinguish one media stream from another.
+    """
+    input_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowInputConfigurationArgsDict']]]]]
+    """
+    The media streams that you want to associate with the source.
+    """
+
+@pulumi.input_type
+class FlowMediaStreamSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 encoding_name: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName'],
+                 media_stream_name: pulumi.Input[_builtins.str],
+                 input_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]] = None):
+        """
+        The media stream that is associated with the source, and the parameters for that association.
+
+        :param pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName'] encoding_name: The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+        :param pulumi.Input[_builtins.str] media_stream_name: A name that helps you distinguish one media stream from another.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowInputConfigurationArgs']]] input_configurations: The media streams that you want to associate with the source.
+        """
+        pulumi.set(__self__, "encoding_name", encoding_name)
+        pulumi.set(__self__, "media_stream_name", media_stream_name)
+        if input_configurations is not None:
+            pulumi.set(__self__, "input_configurations", input_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="encodingName")
+    def encoding_name(self) -> pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']:
+        """
+        The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+        """
+        return pulumi.get(self, "encoding_name")
+
+    @encoding_name.setter
+    def encoding_name(self, value: pulumi.Input['FlowMediaStreamSourceConfigurationEncodingName']):
+        pulumi.set(self, "encoding_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaStreamName")
+    def media_stream_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A name that helps you distinguish one media stream from another.
+        """
+        return pulumi.get(self, "media_stream_name")
+
+    @media_stream_name.setter
+    def media_stream_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "media_stream_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputConfigurations")
+    def input_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]]:
+        """
+        The media streams that you want to associate with the source.
+        """
+        return pulumi.get(self, "input_configurations")
+
+    @input_configurations.setter
+    def input_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowInputConfigurationArgs']]]]):
+        pulumi.set(self, "input_configurations", value)
 
 
 class FlowNdiConfigArgsDict(TypedDict):
     """
     Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
     """
-    machine_name: NotRequired[pulumi.Input[_builtins.str]]
+    machine_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
     """
-    ndi_discovery_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgsDict']]]]
+    ndi_discovery_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgsDict']]]]]
     """
     A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
     """
-    ndi_state: NotRequired[pulumi.Input['FlowNdiState']]
+    ndi_state: NotRequired[pulumi.Input[Optional['FlowNdiState']]]
     """
     A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
     """
@@ -2695,9 +2695,9 @@ class FlowNdiConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FlowNdiConfigArgs:
     def __init__(__self__, *,
-                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_discovery_servers: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]] = None,
-                 ndi_state: Optional[pulumi.Input['FlowNdiState']] = None):
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_discovery_servers: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]] = None,
+                 ndi_state: pulumi.Input[Optional['FlowNdiState']] = None):
         """
         Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
 
@@ -2714,38 +2714,38 @@ class FlowNdiConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="machineName")
-    def machine_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
         """
         return pulumi.get(self, "machine_name")
 
     @machine_name.setter
-    def machine_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiDiscoveryServers")
-    def ndi_discovery_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]:
+    def ndi_discovery_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]:
         """
         A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
         """
         return pulumi.get(self, "ndi_discovery_servers")
 
     @ndi_discovery_servers.setter
-    def ndi_discovery_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]):
+    def ndi_discovery_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNdiDiscoveryServerConfigArgs']]]]):
         pulumi.set(self, "ndi_discovery_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiState")
-    def ndi_state(self) -> Optional[pulumi.Input['FlowNdiState']]:
+    def ndi_state(self) -> pulumi.Input[Optional['FlowNdiState']]:
         """
         A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
         """
         return pulumi.get(self, "ndi_state")
 
     @ndi_state.setter
-    def ndi_state(self, value: Optional[pulumi.Input['FlowNdiState']]):
+    def ndi_state(self, value: pulumi.Input[Optional['FlowNdiState']]):
         pulumi.set(self, "ndi_state", value)
 
 
@@ -2761,7 +2761,7 @@ class FlowNdiDiscoveryServerConfigArgsDict(TypedDict):
     """
     The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
     """
-    discovery_server_port: NotRequired[pulumi.Input[_builtins.int]]
+    discovery_server_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
     """
@@ -2771,7 +2771,7 @@ class FlowNdiDiscoveryServerConfigArgs:
     def __init__(__self__, *,
                  discovery_server_address: pulumi.Input[_builtins.str],
                  vpc_interface_adapter: pulumi.Input[_builtins.str],
-                 discovery_server_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 discovery_server_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
 
@@ -2810,34 +2810,34 @@ class FlowNdiDiscoveryServerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveryServerPort")
-    def discovery_server_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def discovery_server_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
         """
         return pulumi.get(self, "discovery_server_port")
 
     @discovery_server_port.setter
-    def discovery_server_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def discovery_server_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "discovery_server_port", value)
 
 
 class FlowNdiSourceSettingsArgsDict(TypedDict):
-    source_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FlowNdiSourceSettingsArgs:
     def __init__(__self__, *,
-                 source_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None):
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
-    def source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "source_name")
 
     @source_name.setter
-    def source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_name", value)
 
 
@@ -2935,7 +2935,7 @@ class FlowOutputEncodingParametersArgsDict(TypedDict):
     """
     A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
     """
-    encoder_profile: NotRequired[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]
+    encoder_profile: NotRequired[pulumi.Input[Optional['FlowOutputEncodingParametersEncoderProfile']]]
     """
     A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
     """
@@ -2944,7 +2944,7 @@ class FlowOutputEncodingParametersArgsDict(TypedDict):
 class FlowOutputEncodingParametersArgs:
     def __init__(__self__, *,
                  compression_factor: pulumi.Input[_builtins.float],
-                 encoder_profile: Optional[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']] = None):
+                 encoder_profile: pulumi.Input[Optional['FlowOutputEncodingParametersEncoderProfile']] = None):
         """
         A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
 
@@ -2969,14 +2969,14 @@ class FlowOutputEncodingParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="encoderProfile")
-    def encoder_profile(self) -> Optional[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]:
+    def encoder_profile(self) -> pulumi.Input[Optional['FlowOutputEncodingParametersEncoderProfile']]:
         """
         A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
         """
         return pulumi.get(self, "encoder_profile")
 
     @encoder_profile.setter
-    def encoder_profile(self, value: Optional[pulumi.Input['FlowOutputEncodingParametersEncoderProfile']]):
+    def encoder_profile(self, value: pulumi.Input[Optional['FlowOutputEncodingParametersEncoderProfile']]):
         pulumi.set(self, "encoder_profile", value)
 
 
@@ -2992,11 +2992,11 @@ class FlowOutputEncryptionArgsDict(TypedDict):
     """
      The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
     """
-    algorithm: NotRequired[pulumi.Input['FlowOutputEncryptionAlgorithm']]
+    algorithm: NotRequired[pulumi.Input[Optional['FlowOutputEncryptionAlgorithm']]]
     """
     The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
     """
-    key_type: NotRequired[pulumi.Input['FlowOutputEncryptionKeyType']]
+    key_type: NotRequired[pulumi.Input[Optional['FlowOutputEncryptionKeyType']]]
     """
     The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
     """
@@ -3006,8 +3006,8 @@ class FlowOutputEncryptionArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  secret_arn: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input['FlowOutputEncryptionAlgorithm']] = None,
-                 key_type: Optional[pulumi.Input['FlowOutputEncryptionKeyType']] = None):
+                 algorithm: pulumi.Input[Optional['FlowOutputEncryptionAlgorithm']] = None,
+                 key_type: pulumi.Input[Optional['FlowOutputEncryptionKeyType']] = None):
         """
         Information about the encryption of the flow.
 
@@ -3049,27 +3049,65 @@ class FlowOutputEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['FlowOutputEncryptionAlgorithm']]:
+    def algorithm(self) -> pulumi.Input[Optional['FlowOutputEncryptionAlgorithm']]:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['FlowOutputEncryptionAlgorithm']]):
+    def algorithm(self, value: pulumi.Input[Optional['FlowOutputEncryptionAlgorithm']]):
         pulumi.set(self, "algorithm", value)
 
     @_builtins.property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input['FlowOutputEncryptionKeyType']]:
+    def key_type(self) -> pulumi.Input[Optional['FlowOutputEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input['FlowOutputEncryptionKeyType']]):
+    def key_type(self, value: pulumi.Input[Optional['FlowOutputEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
+
+
+class FlowOutputFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['FlowOutputFlowTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class FlowOutputFlowTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['FlowOutputFlowTransitEncryptionKeyType']] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['FlowOutputFlowTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['FlowOutputFlowTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
 
 
 class FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
@@ -3122,44 +3160,6 @@ class FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-class FlowOutputFlowTransitEncryptionArgsDict(TypedDict):
-    """
-    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-    """
-    encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class FlowOutputFlowTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']] = None):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['FlowOutputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowOutputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
-
-
 class FlowOutputInterfaceArgsDict(TypedDict):
     """
     The VPC interface that you want to use for the media stream associated with the output.
@@ -3205,11 +3205,11 @@ class FlowOutputMediaStreamOutputConfigurationArgsDict(TypedDict):
     """
     A name that helps you distinguish one media stream from another.
     """
-    destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgsDict']]]]
+    destination_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgsDict']]]]]
     """
     The media streams that you want to associate with the output.
     """
-    encoding_parameters: NotRequired[pulumi.Input['FlowOutputEncodingParametersArgsDict']]
+    encoding_parameters: NotRequired[pulumi.Input[Optional['FlowOutputEncodingParametersArgsDict']]]
     """
     A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
     """
@@ -3219,8 +3219,8 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
     def __init__(__self__, *,
                  encoding_name: pulumi.Input['FlowOutputMediaStreamOutputConfigurationEncodingName'],
                  media_stream_name: pulumi.Input[_builtins.str],
-                 destination_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]] = None,
-                 encoding_parameters: Optional[pulumi.Input['FlowOutputEncodingParametersArgs']] = None):
+                 destination_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]] = None,
+                 encoding_parameters: pulumi.Input[Optional['FlowOutputEncodingParametersArgs']] = None):
         """
         The media stream that is associated with the output, and the parameters for that association.
 
@@ -3262,26 +3262,26 @@ class FlowOutputMediaStreamOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]]:
+    def destination_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]]:
         """
         The media streams that you want to associate with the output.
         """
         return pulumi.get(self, "destination_configurations")
 
     @destination_configurations.setter
-    def destination_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]]):
+    def destination_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputDestinationConfigurationArgs']]]]):
         pulumi.set(self, "destination_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="encodingParameters")
-    def encoding_parameters(self) -> Optional[pulumi.Input['FlowOutputEncodingParametersArgs']]:
+    def encoding_parameters(self) -> pulumi.Input[Optional['FlowOutputEncodingParametersArgs']]:
         """
         A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
         """
         return pulumi.get(self, "encoding_parameters")
 
     @encoding_parameters.setter
-    def encoding_parameters(self, value: Optional[pulumi.Input['FlowOutputEncodingParametersArgs']]):
+    def encoding_parameters(self, value: pulumi.Input[Optional['FlowOutputEncodingParametersArgs']]):
         pulumi.set(self, "encoding_parameters", value)
 
 
@@ -3341,7 +3341,7 @@ class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
     """
     The settings for attaching a VPC interface to an output.
     """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the VPC interface to use for this output.
     """
@@ -3349,7 +3349,7 @@ class FlowOutputVpcInterfaceAttachmentArgsDict(TypedDict):
 @pulumi.input_type
 class FlowOutputVpcInterfaceAttachmentArgs:
     def __init__(__self__, *,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings for attaching a VPC interface to an output.
 
@@ -3360,14 +3360,14 @@ class FlowOutputVpcInterfaceAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VPC interface to use for this output.
         """
         return pulumi.get(self, "vpc_interface_name")
 
     @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
 
@@ -3427,11 +3427,11 @@ class FlowSilentAudioArgsDict(TypedDict):
     """
     Configures settings for the SilentAudio metric.
     """
-    state: NotRequired[pulumi.Input['FlowSilentAudioState']]
+    state: NotRequired[pulumi.Input[Optional['FlowSilentAudioState']]]
     """
     Indicates whether the SilentAudio metric is enabled or disabled.
     """
-    threshold_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    threshold_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the number of consecutive seconds of silence that triggers an event or alert.
     """
@@ -3439,8 +3439,8 @@ class FlowSilentAudioArgsDict(TypedDict):
 @pulumi.input_type
 class FlowSilentAudioArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input['FlowSilentAudioState']] = None,
-                 threshold_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 state: pulumi.Input[Optional['FlowSilentAudioState']] = None,
+                 threshold_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configures settings for the SilentAudio metric.
 
@@ -3454,508 +3454,134 @@ class FlowSilentAudioArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['FlowSilentAudioState']]:
+    def state(self) -> pulumi.Input[Optional['FlowSilentAudioState']]:
         """
         Indicates whether the SilentAudio metric is enabled or disabled.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['FlowSilentAudioState']]):
+    def state(self, value: pulumi.Input[Optional['FlowSilentAudioState']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdSeconds")
-    def threshold_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def threshold_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the number of consecutive seconds of silence that triggers an event or alert.
         """
         return pulumi.get(self, "threshold_seconds")
 
     @threshold_seconds.setter
-    def threshold_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def threshold_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "threshold_seconds", value)
-
-
-class FlowSourceEncryptionArgsDict(TypedDict):
-    """
-    Information about the encryption of the flow.
-    """
-    role_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-    """
-    algorithm: NotRequired[pulumi.Input['FlowSourceEncryptionAlgorithm']]
-    """
-    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-    """
-    constant_initialization_vector: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-    """
-    device_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-    """
-    key_type: NotRequired[pulumi.Input['FlowSourceEncryptionKeyType']]
-    """
-    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-    """
-    region: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-    """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-    """
-    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-    """
-     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-    """
-    url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-    """
-
-@pulumi.input_type
-class FlowSourceEncryptionArgs:
-    def __init__(__self__, *,
-                 role_arn: pulumi.Input[_builtins.str],
-                 algorithm: Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']] = None,
-                 constant_initialization_vector: Optional[pulumi.Input[_builtins.str]] = None,
-                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_type: Optional[pulumi.Input['FlowSourceEncryptionKeyType']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Information about the encryption of the flow.
-
-        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        :param pulumi.Input[_builtins.str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-        :param pulumi.Input[_builtins.str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input['FlowSourceEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        :param pulumi.Input[_builtins.str] region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input[_builtins.str] resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input[_builtins.str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        :param pulumi.Input[_builtins.str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        pulumi.set(__self__, "role_arn", role_arn)
-        if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
-        if constant_initialization_vector is not None:
-            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
-        if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
-        if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if secret_arn is not None:
-            pulumi.set(__self__, "secret_arn", secret_arn)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-
-    @_builtins.property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-        """
-        return pulumi.get(self, "role_arn")
-
-    @role_arn.setter
-    def role_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_arn", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']]:
-        """
-        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
-        """
-        return pulumi.get(self, "algorithm")
-
-    @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']]):
-        pulumi.set(self, "algorithm", value)
-
-    @_builtins.property
-    @pulumi.getter(name="constantInitializationVector")
-    def constant_initialization_vector(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
-        """
-        return pulumi.get(self, "constant_initialization_vector")
-
-    @constant_initialization_vector.setter
-    def constant_initialization_vector(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "constant_initialization_vector", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        return pulumi.get(self, "device_id")
-
-    @device_id.setter
-    def device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "device_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input['FlowSourceEncryptionKeyType']]:
-        """
-        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
-        """
-        return pulumi.get(self, "key_type")
-
-    @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input['FlowSourceEncryptionKeyType']]):
-        pulumi.set(self, "key_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="secretArn")
-    def secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        """
-        return pulumi.get(self, "secret_arn")
-
-    @secret_arn.setter
-    def secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "secret_arn", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "url", value)
-
-
-class FlowSourceGatewayBridgeSourceArgsDict(TypedDict):
-    """
-    The source configuration for cloud flows receiving a stream from a bridge.
-    """
-    bridge_arn: pulumi.Input[_builtins.str]
-    """
-    The ARN of the bridge feeding this flow.
-    """
-    vpc_interface_attachment: NotRequired[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgsDict']]
-    """
-    The name of the VPC interface attachment to use for this bridge source.
-    """
-
-@pulumi.input_type
-class FlowSourceGatewayBridgeSourceArgs:
-    def __init__(__self__, *,
-                 bridge_arn: pulumi.Input[_builtins.str],
-                 vpc_interface_attachment: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']] = None):
-        """
-        The source configuration for cloud flows receiving a stream from a bridge.
-
-        :param pulumi.Input[_builtins.str] bridge_arn: The ARN of the bridge feeding this flow.
-        :param pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
-        """
-        pulumi.set(__self__, "bridge_arn", bridge_arn)
-        if vpc_interface_attachment is not None:
-            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
-
-    @_builtins.property
-    @pulumi.getter(name="bridgeArn")
-    def bridge_arn(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ARN of the bridge feeding this flow.
-        """
-        return pulumi.get(self, "bridge_arn")
-
-    @bridge_arn.setter
-    def bridge_arn(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bridge_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcInterfaceAttachment")
-    def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']]:
-        """
-        The name of the VPC interface attachment to use for this bridge source.
-        """
-        return pulumi.get(self, "vpc_interface_attachment")
-
-    @vpc_interface_attachment.setter
-    def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']]):
-        pulumi.set(self, "vpc_interface_attachment", value)
-
-
-class FlowSourceMonitoringConfigArgsDict(TypedDict):
-    """
-    The settings for source monitoring.
-    """
-    audio_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgsDict']]]]
-    """
-    Contains the settings for audio stream metrics monitoring.
-    """
-    content_quality_analysis_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]
-    """
-    Indicates whether content quality analysis is enabled or disabled.
-    """
-    thumbnail_state: NotRequired[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]
-    """
-    The state of thumbnail monitoring.
-    """
-    video_monitoring_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgsDict']]]]
-    """
-    Contains the settings for video stream metrics monitoring.
-    """
-
-@pulumi.input_type
-class FlowSourceMonitoringConfigArgs:
-    def __init__(__self__, *,
-                 audio_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]] = None,
-                 content_quality_analysis_state: Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']] = None,
-                 thumbnail_state: Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']] = None,
-                 video_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]] = None):
-        """
-        The settings for source monitoring.
-
-        :param pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
-        :param pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState'] content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
-        :param pulumi.Input['FlowSourceMonitoringConfigThumbnailState'] thumbnail_state: The state of thumbnail monitoring.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]] video_monitoring_settings: Contains the settings for video stream metrics monitoring.
-        """
-        if audio_monitoring_settings is not None:
-            pulumi.set(__self__, "audio_monitoring_settings", audio_monitoring_settings)
-        if content_quality_analysis_state is not None:
-            pulumi.set(__self__, "content_quality_analysis_state", content_quality_analysis_state)
-        if thumbnail_state is not None:
-            pulumi.set(__self__, "thumbnail_state", thumbnail_state)
-        if video_monitoring_settings is not None:
-            pulumi.set(__self__, "video_monitoring_settings", video_monitoring_settings)
-
-    @_builtins.property
-    @pulumi.getter(name="audioMonitoringSettings")
-    def audio_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]:
-        """
-        Contains the settings for audio stream metrics monitoring.
-        """
-        return pulumi.get(self, "audio_monitoring_settings")
-
-    @audio_monitoring_settings.setter
-    def audio_monitoring_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]):
-        pulumi.set(self, "audio_monitoring_settings", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contentQualityAnalysisState")
-    def content_quality_analysis_state(self) -> Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]:
-        """
-        Indicates whether content quality analysis is enabled or disabled.
-        """
-        return pulumi.get(self, "content_quality_analysis_state")
-
-    @content_quality_analysis_state.setter
-    def content_quality_analysis_state(self, value: Optional[pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState']]):
-        pulumi.set(self, "content_quality_analysis_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="thumbnailState")
-    def thumbnail_state(self) -> Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]:
-        """
-        The state of thumbnail monitoring.
-        """
-        return pulumi.get(self, "thumbnail_state")
-
-    @thumbnail_state.setter
-    def thumbnail_state(self, value: Optional[pulumi.Input['FlowSourceMonitoringConfigThumbnailState']]):
-        pulumi.set(self, "thumbnail_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="videoMonitoringSettings")
-    def video_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]:
-        """
-        Contains the settings for video stream metrics monitoring.
-        """
-        return pulumi.get(self, "video_monitoring_settings")
-
-    @video_monitoring_settings.setter
-    def video_monitoring_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]):
-        pulumi.set(self, "video_monitoring_settings", value)
-
-
-class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
-    """
-    The settings for attaching a VPC interface to an resource.
-    """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the VPC interface to use for this resource.
-    """
-
-@pulumi.input_type
-class FlowSourceVpcInterfaceAttachmentArgs:
-    def __init__(__self__, *,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The settings for attaching a VPC interface to an resource.
-
-        :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
-        """
-        if vpc_interface_name is not None:
-            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the VPC interface to use for this resource.
-        """
-        return pulumi.get(self, "vpc_interface_name")
-
-    @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "vpc_interface_name", value)
 
 
 class FlowSourceArgsDict(TypedDict):
     """
     The settings for the source of the flow.
     """
-    decryption: NotRequired[pulumi.Input['FlowEncryptionArgsDict']]
+    decryption: NotRequired[pulumi.Input[Optional['FlowEncryptionArgsDict']]]
     """
     The type of decryption that is used on the content ingested from this source.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
     """
-    entitlement_arn: NotRequired[pulumi.Input[_builtins.str]]
+    entitlement_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
     """
-    gateway_bridge_source: NotRequired[pulumi.Input['FlowGatewayBridgeSourceArgsDict']]
+    gateway_bridge_source: NotRequired[pulumi.Input[Optional['FlowGatewayBridgeSourceArgsDict']]]
     """
     The source configuration for cloud flows receiving a stream from a bridge.
     """
-    ingest_ip: NotRequired[pulumi.Input[_builtins.str]]
+    ingest_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address that the flow will be listening on for incoming content.
     """
-    ingest_port: NotRequired[pulumi.Input[_builtins.int]]
+    ingest_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port that the flow will be listening on for incoming content.
     """
-    max_bitrate: NotRequired[pulumi.Input[_builtins.int]]
+    max_bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
     """
-    max_latency: NotRequired[pulumi.Input[_builtins.int]]
+    max_latency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
     """
-    max_sync_buffer: NotRequired[pulumi.Input[_builtins.int]]
+    max_sync_buffer: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the buffer (in milliseconds) to use to sync incoming source data.
     """
-    media_stream_source_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgsDict']]]]
+    media_stream_source_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgsDict']]]]]
     """
     The media stream that is associated with the source, and the parameters for that association.
     """
-    min_latency: NotRequired[pulumi.Input[_builtins.int]]
+    min_latency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum latency in milliseconds.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the source.
     """
-    ndi_source_settings: NotRequired[pulumi.Input['FlowNdiSourceSettingsArgsDict']]
+    ndi_source_settings: NotRequired[pulumi.Input[Optional['FlowNdiSourceSettingsArgsDict']]]
     """
     The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
     """
-    protocol: NotRequired[pulumi.Input['FlowSourceProtocol']]
+    protocol: NotRequired[pulumi.Input[Optional['FlowSourceProtocol']]]
     """
     The protocol that is used by the source.
     """
-    router_integration_state: NotRequired[pulumi.Input['FlowSourceRouterIntegrationState']]
+    router_integration_state: NotRequired[pulumi.Input[Optional['FlowSourceRouterIntegrationState']]]
     """
     Indicates if router integration is enabled or disabled on the flow source.
     """
-    router_integration_transit_decryption: NotRequired[pulumi.Input['FlowTransitEncryptionArgsDict']]
+    router_integration_transit_decryption: NotRequired[pulumi.Input[Optional['FlowTransitEncryptionArgsDict']]]
     """
     The decryption configuration for the flow source when router integration is enabled.
     """
-    sender_control_port: NotRequired[pulumi.Input[_builtins.int]]
+    sender_control_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
     """
-    sender_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    sender_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
     """
-    source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the source.
     """
-    source_ingest_port: NotRequired[pulumi.Input[_builtins.str]]
+    source_ingest_port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The port that the flow will be listening on for incoming content.(ReadOnly)
     """
-    source_listener_address: NotRequired[pulumi.Input[_builtins.str]]
+    source_listener_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source IP or domain name for SRT-caller protocol.
     """
-    source_listener_port: NotRequired[pulumi.Input[_builtins.int]]
+    source_listener_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Source port for SRT-caller protocol.
     """
-    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgsDict']]]]]
     """
     Key-value pairs that can be used to tag this source.
     """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the VPC Interface this Source is configured with.
     """
-    whitelist_cidr: NotRequired[pulumi.Input[_builtins.str]]
+    whitelist_cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
     """
@@ -3963,32 +3589,32 @@ class FlowSourceArgsDict(TypedDict):
 @pulumi.input_type
 class FlowSourceArgs:
     def __init__(__self__, *,
-                 decryption: Optional[pulumi.Input['FlowEncryptionArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 entitlement_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gateway_bridge_source: Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']] = None,
-                 ingest_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 ingest_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_bitrate: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 max_sync_buffer: Optional[pulumi.Input[_builtins.int]] = None,
-                 media_stream_source_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]] = None,
-                 min_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_source_settings: Optional[pulumi.Input['FlowNdiSourceSettingsArgs']] = None,
-                 protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
-                 router_integration_state: Optional[pulumi.Input['FlowSourceRouterIntegrationState']] = None,
-                 router_integration_transit_decryption: Optional[pulumi.Input['FlowTransitEncryptionArgs']] = None,
-                 sender_control_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 sender_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_ingest_port: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_listener_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_listener_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 whitelist_cidr: Optional[pulumi.Input[_builtins.str]] = None):
+                 decryption: pulumi.Input[Optional['FlowEncryptionArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 entitlement_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_bridge_source: pulumi.Input[Optional['FlowGatewayBridgeSourceArgs']] = None,
+                 ingest_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 ingest_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_sync_buffer: pulumi.Input[Optional[_builtins.int]] = None,
+                 media_stream_source_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]] = None,
+                 min_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_source_settings: pulumi.Input[Optional['FlowNdiSourceSettingsArgs']] = None,
+                 protocol: pulumi.Input[Optional['FlowSourceProtocol']] = None,
+                 router_integration_state: pulumi.Input[Optional['FlowSourceRouterIntegrationState']] = None,
+                 router_integration_transit_decryption: pulumi.Input[Optional['FlowTransitEncryptionArgs']] = None,
+                 sender_control_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 sender_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_ingest_port: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_listener_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_listener_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]] = None,
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 whitelist_cidr: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The settings for the source of the flow.
 
@@ -4074,315 +3700,689 @@ class FlowSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def decryption(self) -> Optional[pulumi.Input['FlowEncryptionArgs']]:
+    def decryption(self) -> pulumi.Input[Optional['FlowEncryptionArgs']]:
         """
         The type of decryption that is used on the content ingested from this source.
         """
         return pulumi.get(self, "decryption")
 
     @decryption.setter
-    def decryption(self, value: Optional[pulumi.Input['FlowEncryptionArgs']]):
+    def decryption(self, value: pulumi.Input[Optional['FlowEncryptionArgs']]):
         pulumi.set(self, "decryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="entitlementArn")
-    def entitlement_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def entitlement_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         """
         return pulumi.get(self, "entitlement_arn")
 
     @entitlement_arn.setter
-    def entitlement_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def entitlement_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entitlement_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayBridgeSource")
-    def gateway_bridge_source(self) -> Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']]:
+    def gateway_bridge_source(self) -> pulumi.Input[Optional['FlowGatewayBridgeSourceArgs']]:
         """
         The source configuration for cloud flows receiving a stream from a bridge.
         """
         return pulumi.get(self, "gateway_bridge_source")
 
     @gateway_bridge_source.setter
-    def gateway_bridge_source(self, value: Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']]):
+    def gateway_bridge_source(self, value: pulumi.Input[Optional['FlowGatewayBridgeSourceArgs']]):
         pulumi.set(self, "gateway_bridge_source", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestIp")
-    def ingest_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ingest_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_ip")
 
     @ingest_ip.setter
-    def ingest_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ingest_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ingest_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="ingestPort")
-    def ingest_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ingest_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_port")
 
     @ingest_port.setter
-    def ingest_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ingest_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ingest_port", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBitrate")
-    def max_bitrate(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_bitrate(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "max_bitrate")
 
     @max_bitrate.setter
-    def max_bitrate(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_bitrate(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_bitrate", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLatency")
-    def max_latency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
     @max_latency.setter
-    def max_latency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_latency", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSyncBuffer")
-    def max_sync_buffer(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_sync_buffer(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The size of the buffer (in milliseconds) to use to sync incoming source data.
         """
         return pulumi.get(self, "max_sync_buffer")
 
     @max_sync_buffer.setter
-    def max_sync_buffer(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_sync_buffer(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_sync_buffer", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaStreamSourceConfigurations")
-    def media_stream_source_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]]:
+    def media_stream_source_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]]:
         """
         The media stream that is associated with the source, and the parameters for that association.
         """
         return pulumi.get(self, "media_stream_source_configurations")
 
     @media_stream_source_configurations.setter
-    def media_stream_source_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]]):
+    def media_stream_source_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowMediaStreamSourceConfigurationArgs']]]]):
         pulumi.set(self, "media_stream_source_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="minLatency")
-    def min_latency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum latency in milliseconds.
         """
         return pulumi.get(self, "min_latency")
 
     @min_latency.setter
-    def min_latency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_latency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiSourceSettings")
-    def ndi_source_settings(self) -> Optional[pulumi.Input['FlowNdiSourceSettingsArgs']]:
+    def ndi_source_settings(self) -> pulumi.Input[Optional['FlowNdiSourceSettingsArgs']]:
         """
         The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
         """
         return pulumi.get(self, "ndi_source_settings")
 
     @ndi_source_settings.setter
-    def ndi_source_settings(self, value: Optional[pulumi.Input['FlowNdiSourceSettingsArgs']]):
+    def ndi_source_settings(self, value: pulumi.Input[Optional['FlowNdiSourceSettingsArgs']]):
         pulumi.set(self, "ndi_source_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['FlowSourceProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['FlowSourceProtocol']]:
         """
         The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['FlowSourceProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['FlowSourceProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="routerIntegrationState")
-    def router_integration_state(self) -> Optional[pulumi.Input['FlowSourceRouterIntegrationState']]:
+    def router_integration_state(self) -> pulumi.Input[Optional['FlowSourceRouterIntegrationState']]:
         """
         Indicates if router integration is enabled or disabled on the flow source.
         """
         return pulumi.get(self, "router_integration_state")
 
     @router_integration_state.setter
-    def router_integration_state(self, value: Optional[pulumi.Input['FlowSourceRouterIntegrationState']]):
+    def router_integration_state(self, value: pulumi.Input[Optional['FlowSourceRouterIntegrationState']]):
         pulumi.set(self, "router_integration_state", value)
 
     @_builtins.property
     @pulumi.getter(name="routerIntegrationTransitDecryption")
-    def router_integration_transit_decryption(self) -> Optional[pulumi.Input['FlowTransitEncryptionArgs']]:
+    def router_integration_transit_decryption(self) -> pulumi.Input[Optional['FlowTransitEncryptionArgs']]:
         """
         The decryption configuration for the flow source when router integration is enabled.
         """
         return pulumi.get(self, "router_integration_transit_decryption")
 
     @router_integration_transit_decryption.setter
-    def router_integration_transit_decryption(self, value: Optional[pulumi.Input['FlowTransitEncryptionArgs']]):
+    def router_integration_transit_decryption(self, value: pulumi.Input[Optional['FlowTransitEncryptionArgs']]):
         pulumi.set(self, "router_integration_transit_decryption", value)
 
     @_builtins.property
     @pulumi.getter(name="senderControlPort")
-    def sender_control_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def sender_control_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         """
         return pulumi.get(self, "sender_control_port")
 
     @sender_control_port.setter
-    def sender_control_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def sender_control_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "sender_control_port", value)
 
     @_builtins.property
     @pulumi.getter(name="senderIpAddress")
-    def sender_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sender_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
         """
         return pulumi.get(self, "sender_ip_address")
 
     @sender_ip_address.setter
-    def sender_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sender_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sender_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceArn")
-    def source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the source.
         """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
-    def source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIngestPort")
-    def source_ingest_port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_ingest_port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port that the flow will be listening on for incoming content.(ReadOnly)
         """
         return pulumi.get(self, "source_ingest_port")
 
     @source_ingest_port.setter
-    def source_ingest_port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_ingest_port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_ingest_port", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceListenerAddress")
-    def source_listener_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_listener_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source IP or domain name for SRT-caller protocol.
         """
         return pulumi.get(self, "source_listener_address")
 
     @source_listener_address.setter
-    def source_listener_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_listener_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_listener_address", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceListenerPort")
-    def source_listener_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def source_listener_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Source port for SRT-caller protocol.
         """
         return pulumi.get(self, "source_listener_port")
 
     @source_listener_port.setter
-    def source_listener_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def source_listener_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "source_listener_port", value)
 
     @_builtins.property
     @pulumi.getter(name="streamId")
-    def stream_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
     @stream_id.setter
-    def stream_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]:
         """
         Key-value pairs that can be used to tag this source.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the VPC Interface this Source is configured with.
         """
         return pulumi.get(self, "vpc_interface_name")
 
     @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="whitelistCidr")
-    def whitelist_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def whitelist_cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "whitelist_cidr")
 
     @whitelist_cidr.setter
-    def whitelist_cidr(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def whitelist_cidr(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "whitelist_cidr", value)
+
+
+class FlowSourceEncryptionArgsDict(TypedDict):
+    """
+    Information about the encryption of the flow.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+    """
+    algorithm: NotRequired[pulumi.Input[Optional['FlowSourceEncryptionAlgorithm']]]
+    """
+    The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+    """
+    constant_initialization_vector: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+    """
+    device_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    key_type: NotRequired[pulumi.Input[Optional['FlowSourceEncryptionKeyType']]]
+    """
+    The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+     The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+    """
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+    """
+
+@pulumi.input_type
+class FlowSourceEncryptionArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 algorithm: pulumi.Input[Optional['FlowSourceEncryptionAlgorithm']] = None,
+                 constant_initialization_vector: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_type: pulumi.Input[Optional['FlowSourceEncryptionKeyType']] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Information about the encryption of the flow.
+
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param pulumi.Input[_builtins.str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        :param pulumi.Input[_builtins.str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param pulumi.Input['FlowSourceEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input[_builtins.str] region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param pulumi.Input[_builtins.str] resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        :param pulumi.Input[_builtins.str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        :param pulumi.Input[_builtins.str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if algorithm is not None:
+            pulumi.set(__self__, "algorithm", algorithm)
+        if constant_initialization_vector is not None:
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
+        if device_id is not None:
+            pulumi.set(__self__, "device_id", device_id)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[Optional['FlowSourceEncryptionAlgorithm']]:
+        """
+        The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[Optional['FlowSourceEncryptionAlgorithm']]):
+        pulumi.set(self, "algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="constantInitializationVector")
+    def constant_initialization_vector(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
+        """
+        return pulumi.get(self, "constant_initialization_vector")
+
+    @constant_initialization_vector.setter
+    def constant_initialization_vector(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "constant_initialization_vector", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceId")
+    def device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        return pulumi.get(self, "device_id")
+
+    @device_id.setter
+    def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "device_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[Optional['FlowSourceEncryptionKeyType']]:
+        """
+        The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[Optional['FlowSourceEncryptionKeyType']]):
+        pulumi.set(self, "key_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+         The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "url", value)
+
+
+class FlowSourceGatewayBridgeSourceArgsDict(TypedDict):
+    """
+    The source configuration for cloud flows receiving a stream from a bridge.
+    """
+    bridge_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the bridge feeding this flow.
+    """
+    vpc_interface_attachment: NotRequired[pulumi.Input[Optional['FlowSourceVpcInterfaceAttachmentArgsDict']]]
+    """
+    The name of the VPC interface attachment to use for this bridge source.
+    """
+
+@pulumi.input_type
+class FlowSourceGatewayBridgeSourceArgs:
+    def __init__(__self__, *,
+                 bridge_arn: pulumi.Input[_builtins.str],
+                 vpc_interface_attachment: pulumi.Input[Optional['FlowSourceVpcInterfaceAttachmentArgs']] = None):
+        """
+        The source configuration for cloud flows receiving a stream from a bridge.
+
+        :param pulumi.Input[_builtins.str] bridge_arn: The ARN of the bridge feeding this flow.
+        :param pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
+        """
+        pulumi.set(__self__, "bridge_arn", bridge_arn)
+        if vpc_interface_attachment is not None:
+            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
+
+    @_builtins.property
+    @pulumi.getter(name="bridgeArn")
+    def bridge_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the bridge feeding this flow.
+        """
+        return pulumi.get(self, "bridge_arn")
+
+    @bridge_arn.setter
+    def bridge_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bridge_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcInterfaceAttachment")
+    def vpc_interface_attachment(self) -> pulumi.Input[Optional['FlowSourceVpcInterfaceAttachmentArgs']]:
+        """
+        The name of the VPC interface attachment to use for this bridge source.
+        """
+        return pulumi.get(self, "vpc_interface_attachment")
+
+    @vpc_interface_attachment.setter
+    def vpc_interface_attachment(self, value: pulumi.Input[Optional['FlowSourceVpcInterfaceAttachmentArgs']]):
+        pulumi.set(self, "vpc_interface_attachment", value)
+
+
+class FlowSourceMonitoringConfigArgsDict(TypedDict):
+    """
+    The settings for source monitoring.
+    """
+    audio_monitoring_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgsDict']]]]]
+    """
+    Contains the settings for audio stream metrics monitoring.
+    """
+    content_quality_analysis_state: NotRequired[pulumi.Input[Optional['FlowSourceMonitoringConfigContentQualityAnalysisState']]]
+    """
+    Indicates whether content quality analysis is enabled or disabled.
+    """
+    thumbnail_state: NotRequired[pulumi.Input[Optional['FlowSourceMonitoringConfigThumbnailState']]]
+    """
+    The state of thumbnail monitoring.
+    """
+    video_monitoring_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgsDict']]]]]
+    """
+    Contains the settings for video stream metrics monitoring.
+    """
+
+@pulumi.input_type
+class FlowSourceMonitoringConfigArgs:
+    def __init__(__self__, *,
+                 audio_monitoring_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]] = None,
+                 content_quality_analysis_state: pulumi.Input[Optional['FlowSourceMonitoringConfigContentQualityAnalysisState']] = None,
+                 thumbnail_state: pulumi.Input[Optional['FlowSourceMonitoringConfigThumbnailState']] = None,
+                 video_monitoring_settings: pulumi.Input[Optional[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]] = None):
+        """
+        The settings for source monitoring.
+
+        :param pulumi.Input[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]] audio_monitoring_settings: Contains the settings for audio stream metrics monitoring.
+        :param pulumi.Input['FlowSourceMonitoringConfigContentQualityAnalysisState'] content_quality_analysis_state: Indicates whether content quality analysis is enabled or disabled.
+        :param pulumi.Input['FlowSourceMonitoringConfigThumbnailState'] thumbnail_state: The state of thumbnail monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]] video_monitoring_settings: Contains the settings for video stream metrics monitoring.
+        """
+        if audio_monitoring_settings is not None:
+            pulumi.set(__self__, "audio_monitoring_settings", audio_monitoring_settings)
+        if content_quality_analysis_state is not None:
+            pulumi.set(__self__, "content_quality_analysis_state", content_quality_analysis_state)
+        if thumbnail_state is not None:
+            pulumi.set(__self__, "thumbnail_state", thumbnail_state)
+        if video_monitoring_settings is not None:
+            pulumi.set(__self__, "video_monitoring_settings", video_monitoring_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="audioMonitoringSettings")
+    def audio_monitoring_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]:
+        """
+        Contains the settings for audio stream metrics monitoring.
+        """
+        return pulumi.get(self, "audio_monitoring_settings")
+
+    @audio_monitoring_settings.setter
+    def audio_monitoring_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowAudioMonitoringSettingArgs']]]]):
+        pulumi.set(self, "audio_monitoring_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentQualityAnalysisState")
+    def content_quality_analysis_state(self) -> pulumi.Input[Optional['FlowSourceMonitoringConfigContentQualityAnalysisState']]:
+        """
+        Indicates whether content quality analysis is enabled or disabled.
+        """
+        return pulumi.get(self, "content_quality_analysis_state")
+
+    @content_quality_analysis_state.setter
+    def content_quality_analysis_state(self, value: pulumi.Input[Optional['FlowSourceMonitoringConfigContentQualityAnalysisState']]):
+        pulumi.set(self, "content_quality_analysis_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="thumbnailState")
+    def thumbnail_state(self) -> pulumi.Input[Optional['FlowSourceMonitoringConfigThumbnailState']]:
+        """
+        The state of thumbnail monitoring.
+        """
+        return pulumi.get(self, "thumbnail_state")
+
+    @thumbnail_state.setter
+    def thumbnail_state(self, value: pulumi.Input[Optional['FlowSourceMonitoringConfigThumbnailState']]):
+        pulumi.set(self, "thumbnail_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="videoMonitoringSettings")
+    def video_monitoring_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]:
+        """
+        Contains the settings for video stream metrics monitoring.
+        """
+        return pulumi.get(self, "video_monitoring_settings")
+
+    @video_monitoring_settings.setter
+    def video_monitoring_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowVideoMonitoringSettingArgs']]]]):
+        pulumi.set(self, "video_monitoring_settings", value)
+
+
+class FlowSourceVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
+
+@pulumi.input_type
+class FlowSourceVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+
+        :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_interface_name", value)
 
 
 class FlowTagArgsDict(TypedDict):
@@ -4414,6 +4414,44 @@ class FlowTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class FlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['FlowTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class FlowTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['FlowTransitEncryptionKeyType']] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['FlowTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['FlowTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
 
 
 class FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
@@ -4466,53 +4504,15 @@ class FlowTransitEncryptionKeyConfiguration1PropertiesArgs:
         pulumi.set(self, "automatic", value)
 
 
-class FlowTransitEncryptionArgsDict(TypedDict):
-    """
-    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-    """
-    encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['FlowTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class FlowTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['FlowTransitEncryptionKeyType']] = None):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['FlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'FlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['FlowTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['FlowTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
-
-
 class FlowVideoMonitoringSettingArgsDict(TypedDict):
     """
     Specifies the configuration for video stream metrics monitoring.
     """
-    black_frames: NotRequired[pulumi.Input['FlowBlackFramesArgsDict']]
+    black_frames: NotRequired[pulumi.Input[Optional['FlowBlackFramesArgsDict']]]
     """
     Detects video frames that are black.
     """
-    frozen_frames: NotRequired[pulumi.Input['FlowFrozenFramesArgsDict']]
+    frozen_frames: NotRequired[pulumi.Input[Optional['FlowFrozenFramesArgsDict']]]
     """
     Detects video frames that have not changed.
     """
@@ -4520,8 +4520,8 @@ class FlowVideoMonitoringSettingArgsDict(TypedDict):
 @pulumi.input_type
 class FlowVideoMonitoringSettingArgs:
     def __init__(__self__, *,
-                 black_frames: Optional[pulumi.Input['FlowBlackFramesArgs']] = None,
-                 frozen_frames: Optional[pulumi.Input['FlowFrozenFramesArgs']] = None):
+                 black_frames: pulumi.Input[Optional['FlowBlackFramesArgs']] = None,
+                 frozen_frames: pulumi.Input[Optional['FlowFrozenFramesArgs']] = None):
         """
         Specifies the configuration for video stream metrics monitoring.
 
@@ -4535,61 +4535,27 @@ class FlowVideoMonitoringSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="blackFrames")
-    def black_frames(self) -> Optional[pulumi.Input['FlowBlackFramesArgs']]:
+    def black_frames(self) -> pulumi.Input[Optional['FlowBlackFramesArgs']]:
         """
         Detects video frames that are black.
         """
         return pulumi.get(self, "black_frames")
 
     @black_frames.setter
-    def black_frames(self, value: Optional[pulumi.Input['FlowBlackFramesArgs']]):
+    def black_frames(self, value: pulumi.Input[Optional['FlowBlackFramesArgs']]):
         pulumi.set(self, "black_frames", value)
 
     @_builtins.property
     @pulumi.getter(name="frozenFrames")
-    def frozen_frames(self) -> Optional[pulumi.Input['FlowFrozenFramesArgs']]:
+    def frozen_frames(self) -> pulumi.Input[Optional['FlowFrozenFramesArgs']]:
         """
         Detects video frames that have not changed.
         """
         return pulumi.get(self, "frozen_frames")
 
     @frozen_frames.setter
-    def frozen_frames(self, value: Optional[pulumi.Input['FlowFrozenFramesArgs']]):
+    def frozen_frames(self, value: pulumi.Input[Optional['FlowFrozenFramesArgs']]):
         pulumi.set(self, "frozen_frames", value)
-
-
-class FlowVpcInterfaceAttachmentArgsDict(TypedDict):
-    """
-    The settings for attaching a VPC interface to an resource.
-    """
-    vpc_interface_name: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The name of the VPC interface to use for this resource.
-    """
-
-@pulumi.input_type
-class FlowVpcInterfaceAttachmentArgs:
-    def __init__(__self__, *,
-                 vpc_interface_name: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        The settings for attaching a VPC interface to an resource.
-
-        :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
-        """
-        if vpc_interface_name is not None:
-            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcInterfaceName")
-    def vpc_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The name of the VPC interface to use for this resource.
-        """
-        return pulumi.get(self, "vpc_interface_name")
-
-    @vpc_interface_name.setter
-    def vpc_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "vpc_interface_name", value)
 
 
 class FlowVpcInterfaceArgsDict(TypedDict):
@@ -4612,15 +4578,15 @@ class FlowVpcInterfaceArgsDict(TypedDict):
     """
     Subnet must be in the AZ of the Flow
     """
-    network_interface_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    network_interface_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     IDs of the network interfaces created in customer's account by MediaConnect.
     """
-    network_interface_type: NotRequired[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]
+    network_interface_type: NotRequired[pulumi.Input[Optional['FlowVpcInterfaceNetworkInterfaceType']]]
     """
     The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
     """
-    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTagArgsDict']]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgsDict']]]]]
     """
     Key-value pairs that can be used to tag this VPC interface.
     """
@@ -4632,9 +4598,9 @@ class FlowVpcInterfaceArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_id: pulumi.Input[_builtins.str],
-                 network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 network_interface_type: Optional[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
+                 network_interface_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 network_interface_type: pulumi.Input[Optional['FlowVpcInterfaceNetworkInterfaceType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
         """
         The details of a VPC interface.
 
@@ -4707,39 +4673,73 @@ class FlowVpcInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceIds")
-    def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def network_interface_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         IDs of the network interfaces created in customer's account by MediaConnect.
         """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
-    def network_interface_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def network_interface_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "network_interface_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceType")
-    def network_interface_type(self) -> Optional[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]:
+    def network_interface_type(self) -> pulumi.Input[Optional['FlowVpcInterfaceNetworkInterfaceType']]:
         """
         The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
         """
         return pulumi.get(self, "network_interface_type")
 
     @network_interface_type.setter
-    def network_interface_type(self, value: Optional[pulumi.Input['FlowVpcInterfaceNetworkInterfaceType']]):
+    def network_interface_type(self, value: pulumi.Input[Optional['FlowVpcInterfaceNetworkInterfaceType']]):
         pulumi.set(self, "network_interface_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]:
         """
         Key-value pairs that can be used to tag this VPC interface.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowTagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+
+class FlowVpcInterfaceAttachmentArgsDict(TypedDict):
+    """
+    The settings for attaching a VPC interface to an resource.
+    """
+    vpc_interface_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the VPC interface to use for this resource.
+    """
+
+@pulumi.input_type
+class FlowVpcInterfaceAttachmentArgs:
+    def __init__(__self__, *,
+                 vpc_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The settings for attaching a VPC interface to an resource.
+
+        :param pulumi.Input[_builtins.str] vpc_interface_name: The name of the VPC interface to use for this resource.
+        """
+        if vpc_interface_name is not None:
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcInterfaceName")
+    def vpc_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VPC interface to use for this resource.
+        """
+        return pulumi.get(self, "vpc_interface_name")
+
+    @vpc_interface_name.setter
+    def vpc_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_interface_name", value)
 
 
 class GatewayNetworkArgsDict(TypedDict):
@@ -4983,16 +4983,16 @@ class RouterInputContentQualityAnalysisFeatureConfigurationArgsDict(TypedDict):
     """
     Configures the content quality analysis features for the router input.
     """
-    black_frames: NotRequired[pulumi.Input['RouterInputBlackFramesConfigurationArgsDict']]
-    frozen_frames: NotRequired[pulumi.Input['RouterInputFrozenFramesConfigurationArgsDict']]
-    silent_audio: NotRequired[pulumi.Input['RouterInputSilentAudioConfigurationArgsDict']]
+    black_frames: NotRequired[pulumi.Input[Optional['RouterInputBlackFramesConfigurationArgsDict']]]
+    frozen_frames: NotRequired[pulumi.Input[Optional['RouterInputFrozenFramesConfigurationArgsDict']]]
+    silent_audio: NotRequired[pulumi.Input[Optional['RouterInputSilentAudioConfigurationArgsDict']]]
 
 @pulumi.input_type
 class RouterInputContentQualityAnalysisFeatureConfigurationArgs:
     def __init__(__self__, *,
-                 black_frames: Optional[pulumi.Input['RouterInputBlackFramesConfigurationArgs']] = None,
-                 frozen_frames: Optional[pulumi.Input['RouterInputFrozenFramesConfigurationArgs']] = None,
-                 silent_audio: Optional[pulumi.Input['RouterInputSilentAudioConfigurationArgs']] = None):
+                 black_frames: pulumi.Input[Optional['RouterInputBlackFramesConfigurationArgs']] = None,
+                 frozen_frames: pulumi.Input[Optional['RouterInputFrozenFramesConfigurationArgs']] = None,
+                 silent_audio: pulumi.Input[Optional['RouterInputSilentAudioConfigurationArgs']] = None):
         """
         Configures the content quality analysis features for the router input.
         """
@@ -5005,29 +5005,29 @@ class RouterInputContentQualityAnalysisFeatureConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="blackFrames")
-    def black_frames(self) -> Optional[pulumi.Input['RouterInputBlackFramesConfigurationArgs']]:
+    def black_frames(self) -> pulumi.Input[Optional['RouterInputBlackFramesConfigurationArgs']]:
         return pulumi.get(self, "black_frames")
 
     @black_frames.setter
-    def black_frames(self, value: Optional[pulumi.Input['RouterInputBlackFramesConfigurationArgs']]):
+    def black_frames(self, value: pulumi.Input[Optional['RouterInputBlackFramesConfigurationArgs']]):
         pulumi.set(self, "black_frames", value)
 
     @_builtins.property
     @pulumi.getter(name="frozenFrames")
-    def frozen_frames(self) -> Optional[pulumi.Input['RouterInputFrozenFramesConfigurationArgs']]:
+    def frozen_frames(self) -> pulumi.Input[Optional['RouterInputFrozenFramesConfigurationArgs']]:
         return pulumi.get(self, "frozen_frames")
 
     @frozen_frames.setter
-    def frozen_frames(self, value: Optional[pulumi.Input['RouterInputFrozenFramesConfigurationArgs']]):
+    def frozen_frames(self, value: pulumi.Input[Optional['RouterInputFrozenFramesConfigurationArgs']]):
         pulumi.set(self, "frozen_frames", value)
 
     @_builtins.property
     @pulumi.getter(name="silentAudio")
-    def silent_audio(self) -> Optional[pulumi.Input['RouterInputSilentAudioConfigurationArgs']]:
+    def silent_audio(self) -> pulumi.Input[Optional['RouterInputSilentAudioConfigurationArgs']]:
         return pulumi.get(self, "silent_audio")
 
     @silent_audio.setter
-    def silent_audio(self, value: Optional[pulumi.Input['RouterInputSilentAudioConfigurationArgs']]):
+    def silent_audio(self, value: pulumi.Input[Optional['RouterInputSilentAudioConfigurationArgs']]):
         pulumi.set(self, "silent_audio", value)
 
 
@@ -5059,7 +5059,7 @@ class RouterInputFailoverRouterInputConfigurationArgsDict(TypedDict):
     A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
     """
     source_priority_mode: pulumi.Input['RouterInputFailoverInputSourcePriorityMode']
-    primary_source_index: NotRequired[pulumi.Input[_builtins.int]]
+    primary_source_index: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
     """
@@ -5070,7 +5070,7 @@ class RouterInputFailoverRouterInputConfigurationArgs:
                  network_interface_arn: pulumi.Input[_builtins.str],
                  protocol_configurations: pulumi.Input[Sequence[pulumi.Input[Union['RouterInputFailoverRouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs']]]],
                  source_priority_mode: pulumi.Input['RouterInputFailoverInputSourcePriorityMode'],
-                 primary_source_index: Optional[pulumi.Input[_builtins.int]] = None):
+                 primary_source_index: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration settings for a failover router input that allows switching between two input sources.
 
@@ -5119,14 +5119,14 @@ class RouterInputFailoverRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="primarySourceIndex")
-    def primary_source_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def primary_source_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
         """
         return pulumi.get(self, "primary_source_index")
 
     @primary_source_index.setter
-    def primary_source_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def primary_source_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "primary_source_index", value)
 
 
@@ -5230,6 +5230,44 @@ class RouterInputFailoverRouterInputProtocolConfiguration3PropertiesArgs:
         pulumi.set(self, "srt_caller", value)
 
 
+class RouterInputFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['RouterInputFlowTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class RouterInputFlowTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['RouterInputFlowTransitEncryptionKeyType']] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['RouterInputFlowTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['RouterInputFlowTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
+
+
 class RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
     """
     Configuration settings for flow transit encryption keys.
@@ -5278,44 +5316,6 @@ class RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
     @automatic.setter
     def automatic(self, value: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']):
         pulumi.set(self, "automatic", value)
-
-
-class RouterInputFlowTransitEncryptionArgsDict(TypedDict):
-    """
-    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-    """
-    encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class RouterInputFlowTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']] = None):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['RouterInputFlowTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterInputFrozenFramesConfigurationArgsDict(TypedDict):
@@ -5418,11 +5418,11 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
     Configuration settings for connecting a router input to a flow output.
     """
     source_transit_decryption: pulumi.Input['RouterInputFlowTransitEncryptionArgsDict']
-    flow_arn: NotRequired[pulumi.Input[_builtins.str]]
+    flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the flow to connect to.
     """
-    flow_output_arn: NotRequired[pulumi.Input[_builtins.str]]
+    flow_output_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the flow output to connect to this router input.
     """
@@ -5431,8 +5431,8 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgsDict(TypedDict):
 class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  source_transit_decryption: pulumi.Input['RouterInputFlowTransitEncryptionArgs'],
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_output_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_output_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration settings for connecting a router input to a flow output.
 
@@ -5456,26 +5456,26 @@ class RouterInputMediaConnectFlowRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the flow to connect to.
         """
         return pulumi.get(self, "flow_arn")
 
     @flow_arn.setter
-    def flow_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="flowOutputArn")
-    def flow_output_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_output_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the flow output to connect to this router input.
         """
         return pulumi.get(self, "flow_output_arn")
 
     @flow_output_arn.setter
-    def flow_output_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_output_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_output_arn", value)
 
 
@@ -5484,23 +5484,23 @@ class RouterInputMediaLiveChannelRouterInputConfigurationArgsDict(TypedDict):
     Configuration settings for connecting a router input to a MediaLive channel output.
     """
     source_transit_decryption: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgsDict']
-    media_live_channel_arn: NotRequired[pulumi.Input[_builtins.str]]
+    media_live_channel_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the MediaLive channel to connect to this router input.
     """
-    media_live_channel_output_name: NotRequired[pulumi.Input[_builtins.str]]
+    media_live_channel_output_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the MediaLive channel output to connect to this router input.
     """
-    media_live_pipeline_id: NotRequired[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]
+    media_live_pipeline_id: NotRequired[pulumi.Input[Optional['RouterInputMediaLiveChannelPipelineId']]]
 
 @pulumi.input_type
 class RouterInputMediaLiveChannelRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  source_transit_decryption: pulumi.Input['RouterInputMediaLiveTransitEncryptionArgs'],
-                 media_live_channel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_live_channel_output_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_live_pipeline_id: Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']] = None):
+                 media_live_channel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_live_channel_output_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_live_pipeline_id: pulumi.Input[Optional['RouterInputMediaLiveChannelPipelineId']] = None):
         """
         Configuration settings for connecting a router input to a MediaLive channel output.
 
@@ -5526,36 +5526,74 @@ class RouterInputMediaLiveChannelRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mediaLiveChannelArn")
-    def media_live_channel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media_live_channel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the MediaLive channel to connect to this router input.
         """
         return pulumi.get(self, "media_live_channel_arn")
 
     @media_live_channel_arn.setter
-    def media_live_channel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media_live_channel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media_live_channel_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaLiveChannelOutputName")
-    def media_live_channel_output_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media_live_channel_output_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the MediaLive channel output to connect to this router input.
         """
         return pulumi.get(self, "media_live_channel_output_name")
 
     @media_live_channel_output_name.setter
-    def media_live_channel_output_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media_live_channel_output_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media_live_channel_output_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaLivePipelineId")
-    def media_live_pipeline_id(self) -> Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]:
+    def media_live_pipeline_id(self) -> pulumi.Input[Optional['RouterInputMediaLiveChannelPipelineId']]:
         return pulumi.get(self, "media_live_pipeline_id")
 
     @media_live_pipeline_id.setter
-    def media_live_pipeline_id(self, value: Optional[pulumi.Input['RouterInputMediaLiveChannelPipelineId']]):
+    def media_live_pipeline_id(self, value: pulumi.Input[Optional['RouterInputMediaLiveChannelPipelineId']]):
         pulumi.set(self, "media_live_pipeline_id", value)
+
+
+class RouterInputMediaLiveTransitEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['RouterInputMediaLiveTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class RouterInputMediaLiveTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['RouterInputMediaLiveTransitEncryptionKeyType']] = None):
+        """
+        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['RouterInputMediaLiveTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['RouterInputMediaLiveTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
@@ -5606,44 +5644,6 @@ class RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs:
     @automatic.setter
     def automatic(self, value: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']):
         pulumi.set(self, "automatic", value)
-
-
-class RouterInputMediaLiveTransitEncryptionArgsDict(TypedDict):
-    """
-    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
-    """
-    encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class RouterInputMediaLiveTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']] = None):
-        """
-        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['RouterInputMediaLiveTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterInputMergeRouterInputConfigurationArgsDict(TypedDict):
@@ -5997,13 +5997,13 @@ class RouterInputRtpRouterInputConfigurationArgsDict(TypedDict):
     """
     The port number used for the RTP protocol in the router input configuration.
     """
-    forward_error_correction: NotRequired[pulumi.Input['RouterInputForwardErrorCorrectionState']]
+    forward_error_correction: NotRequired[pulumi.Input[Optional['RouterInputForwardErrorCorrectionState']]]
 
 @pulumi.input_type
 class RouterInputRtpRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[_builtins.int],
-                 forward_error_correction: Optional[pulumi.Input['RouterInputForwardErrorCorrectionState']] = None):
+                 forward_error_correction: pulumi.Input[Optional['RouterInputForwardErrorCorrectionState']] = None):
         """
         The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
 
@@ -6027,11 +6027,11 @@ class RouterInputRtpRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="forwardErrorCorrection")
-    def forward_error_correction(self) -> Optional[pulumi.Input['RouterInputForwardErrorCorrectionState']]:
+    def forward_error_correction(self) -> pulumi.Input[Optional['RouterInputForwardErrorCorrectionState']]:
         return pulumi.get(self, "forward_error_correction")
 
     @forward_error_correction.setter
-    def forward_error_correction(self, value: Optional[pulumi.Input['RouterInputForwardErrorCorrectionState']]):
+    def forward_error_correction(self, value: pulumi.Input[Optional['RouterInputForwardErrorCorrectionState']]):
         pulumi.set(self, "forward_error_correction", value)
 
 
@@ -6148,8 +6148,8 @@ class RouterInputSrtCallerRouterInputConfigurationArgsDict(TypedDict):
     """
     The source port number for the SRT protocol in caller mode.
     """
-    decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
-    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    decryption_configuration: NotRequired[pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgsDict']]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The stream ID for the SRT protocol in caller mode.
     """
@@ -6160,8 +6160,8 @@ class RouterInputSrtCallerRouterInputConfigurationArgs:
                  minimum_latency_milliseconds: pulumi.Input[_builtins.int],
                  source_address: pulumi.Input[_builtins.str],
                  source_port: pulumi.Input[_builtins.int],
-                 decryption_configuration: Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 decryption_configuration: pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
 
@@ -6216,23 +6216,23 @@ class RouterInputSrtCallerRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="decryptionConfiguration")
-    def decryption_configuration(self) -> Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']]:
+    def decryption_configuration(self) -> pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']]:
         return pulumi.get(self, "decryption_configuration")
 
     @decryption_configuration.setter
-    def decryption_configuration(self, value: Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']]):
+    def decryption_configuration(self, value: pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']]):
         pulumi.set(self, "decryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="streamId")
-    def stream_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stream ID for the SRT protocol in caller mode.
         """
         return pulumi.get(self, "stream_id")
 
     @stream_id.setter
-    def stream_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_id", value)
 
 
@@ -6273,14 +6273,14 @@ class RouterInputSrtListenerRouterInputConfigurationArgsDict(TypedDict):
     """
     The port number for the SRT protocol in listener mode.
     """
-    decryption_configuration: NotRequired[pulumi.Input['RouterInputSrtDecryptionConfigurationArgsDict']]
+    decryption_configuration: NotRequired[pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class RouterInputSrtListenerRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  minimum_latency_milliseconds: pulumi.Input[_builtins.int],
                  port: pulumi.Input[_builtins.int],
-                 decryption_configuration: Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']] = None):
+                 decryption_configuration: pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']] = None):
         """
         The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
 
@@ -6318,11 +6318,11 @@ class RouterInputSrtListenerRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="decryptionConfiguration")
-    def decryption_configuration(self) -> Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']]:
+    def decryption_configuration(self) -> pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']]:
         return pulumi.get(self, "decryption_configuration")
 
     @decryption_configuration.setter
-    def decryption_configuration(self, value: Optional[pulumi.Input['RouterInputSrtDecryptionConfigurationArgs']]):
+    def decryption_configuration(self, value: pulumi.Input[Optional['RouterInputSrtDecryptionConfigurationArgs']]):
         pulumi.set(self, "decryption_configuration", value)
 
 
@@ -6335,14 +6335,14 @@ class RouterInputStandardRouterInputConfigurationArgsDict(TypedDict):
     The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
     """
     protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgsDict', 'RouterInputProtocolConfiguration1PropertiesArgsDict', 'RouterInputProtocolConfiguration2PropertiesArgsDict', 'RouterInputProtocolConfiguration3PropertiesArgsDict']]
-    protocol: NotRequired[pulumi.Input['RouterInputProtocol']]
+    protocol: NotRequired[pulumi.Input[Optional['RouterInputProtocol']]]
 
 @pulumi.input_type
 class RouterInputStandardRouterInputConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_arn: pulumi.Input[_builtins.str],
                  protocol_configuration: pulumi.Input[Union['RouterInputProtocolConfiguration0PropertiesArgs', 'RouterInputProtocolConfiguration1PropertiesArgs', 'RouterInputProtocolConfiguration2PropertiesArgs', 'RouterInputProtocolConfiguration3PropertiesArgs']],
-                 protocol: Optional[pulumi.Input['RouterInputProtocol']] = None):
+                 protocol: pulumi.Input[Optional['RouterInputProtocol']] = None):
         """
         The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
 
@@ -6376,12 +6376,50 @@ class RouterInputStandardRouterInputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['RouterInputProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['RouterInputProtocol']]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['RouterInputProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['RouterInputProtocol']]):
         pulumi.set(self, "protocol", value)
+
+
+class RouterInputTransitEncryptionArgsDict(TypedDict):
+    """
+    The transit encryption settings for a router input.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['RouterInputTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class RouterInputTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['RouterInputTransitEncryptionKeyType']] = None):
+        """
+        The transit encryption settings for a router input.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['RouterInputTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['RouterInputTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
@@ -6432,44 +6470,6 @@ class RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs:
     @automatic.setter
     def automatic(self, value: pulumi.Input['RouterInputAutomaticEncryptionKeyConfigurationArgs']):
         pulumi.set(self, "automatic", value)
-
-
-class RouterInputTransitEncryptionArgsDict(TypedDict):
-    """
-    The transit encryption settings for a router input.
-    """
-    encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['RouterInputTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class RouterInputTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['RouterInputTransitEncryptionKeyType']] = None):
-        """
-        The transit encryption settings for a router input.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterInputTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterInputTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['RouterInputTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['RouterInputTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterNetworkInterfaceConfiguration0PropertiesArgsDict(TypedDict):
@@ -6670,6 +6670,44 @@ class RouterOutputResourceDefaultMaintenanceConfigurationArgs:
         pass
 
 
+class RouterOutputResourceFlowTransitEncryptionArgsDict(TypedDict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['RouterOutputResourceFlowTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class RouterOutputResourceFlowTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['RouterOutputResourceFlowTransitEncryptionKeyType']] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['RouterOutputResourceFlowTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['RouterOutputResourceFlowTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
+
+
 class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
     """
     Configuration settings for flow transit encryption keys.
@@ -6718,44 +6756,6 @@ class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs:
     @automatic.setter
     def automatic(self, value: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs']):
         pulumi.set(self, "automatic", value)
-
-
-class RouterOutputResourceFlowTransitEncryptionArgsDict(TypedDict):
-    """
-    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-    """
-    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class RouterOutputResourceFlowTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']] = None):
-        """
-        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['RouterOutputResourceFlowTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict(TypedDict):
@@ -6813,11 +6813,11 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict(Type
     Configuration settings for connecting a router output to a MediaConnect flow source.
     """
     destination_transit_encryption: pulumi.Input['RouterOutputResourceFlowTransitEncryptionArgsDict']
-    flow_arn: NotRequired[pulumi.Input[_builtins.str]]
+    flow_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the flow to connect to this router output.
     """
-    flow_source_arn: NotRequired[pulumi.Input[_builtins.str]]
+    flow_source_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the flow source to connect to this router output.
     """
@@ -6826,8 +6826,8 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgsDict(Type
 class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
     def __init__(__self__, *,
                  destination_transit_encryption: pulumi.Input['RouterOutputResourceFlowTransitEncryptionArgs'],
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 flow_source_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 flow_source_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration settings for connecting a router output to a MediaConnect flow source.
 
@@ -6851,26 +6851,26 @@ class RouterOutputResourceMediaConnectFlowRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowArn")
-    def flow_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the flow to connect to this router output.
         """
         return pulumi.get(self, "flow_arn")
 
     @flow_arn.setter
-    def flow_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="flowSourceArn")
-    def flow_source_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the flow source to connect to this router output.
         """
         return pulumi.get(self, "flow_source_arn")
 
     @flow_source_arn.setter
-    def flow_source_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_source_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_source_arn", value)
 
 
@@ -6879,18 +6879,18 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgsDict(TypedD
     Configuration settings for connecting a router output to a MediaLive input.
     """
     destination_transit_encryption: pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionArgsDict']
-    media_live_input_arn: NotRequired[pulumi.Input[_builtins.str]]
+    media_live_input_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the MediaLive input to connect to this router output.
     """
-    media_live_pipeline_id: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']]
+    media_live_pipeline_id: NotRequired[pulumi.Input[Optional['RouterOutputResourceMediaLiveInputPipelineId']]]
 
 @pulumi.input_type
 class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
     def __init__(__self__, *,
                  destination_transit_encryption: pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionArgs'],
-                 media_live_input_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 media_live_pipeline_id: Optional[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']] = None):
+                 media_live_input_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 media_live_pipeline_id: pulumi.Input[Optional['RouterOutputResourceMediaLiveInputPipelineId']] = None):
         """
         Configuration settings for connecting a router output to a MediaLive input.
 
@@ -6913,24 +6913,62 @@ class RouterOutputResourceMediaLiveInputRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mediaLiveInputArn")
-    def media_live_input_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def media_live_input_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the MediaLive input to connect to this router output.
         """
         return pulumi.get(self, "media_live_input_arn")
 
     @media_live_input_arn.setter
-    def media_live_input_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def media_live_input_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "media_live_input_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaLivePipelineId")
-    def media_live_pipeline_id(self) -> Optional[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']]:
+    def media_live_pipeline_id(self) -> pulumi.Input[Optional['RouterOutputResourceMediaLiveInputPipelineId']]:
         return pulumi.get(self, "media_live_pipeline_id")
 
     @media_live_pipeline_id.setter
-    def media_live_pipeline_id(self, value: Optional[pulumi.Input['RouterOutputResourceMediaLiveInputPipelineId']]):
+    def media_live_pipeline_id(self, value: pulumi.Input[Optional['RouterOutputResourceMediaLiveInputPipelineId']]):
         pulumi.set(self, "media_live_pipeline_id", value)
+
+
+class RouterOutputResourceMediaLiveTransitEncryptionArgsDict(TypedDict):
+    """
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+    """
+    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
+    encryption_key_type: NotRequired[pulumi.Input[Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]]
+
+@pulumi.input_type
+class RouterOutputResourceMediaLiveTransitEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
+                 encryption_key_type: pulumi.Input[Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType']] = None):
+        """
+        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @encryption_key_configuration.setter
+    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]):
+        pulumi.set(self, "encryption_key_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> pulumi.Input[Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]:
+        return pulumi.get(self, "encryption_key_type")
+
+    @encryption_key_type.setter
+    def encryption_key_type(self, value: pulumi.Input[Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]):
+        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict(TypedDict):
@@ -6981,44 +7019,6 @@ class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesA
     @automatic.setter
     def automatic(self, value: pulumi.Input['RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs']):
         pulumi.set(self, "automatic", value)
-
-
-class RouterOutputResourceMediaLiveTransitEncryptionArgsDict(TypedDict):
-    """
-    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
-    """
-    encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgsDict', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgsDict']]
-    encryption_key_type: NotRequired[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]
-
-@pulumi.input_type
-class RouterOutputResourceMediaLiveTransitEncryptionArgs:
-    def __init__(__self__, *,
-                 encryption_key_configuration: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']],
-                 encryption_key_type: Optional[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']] = None):
-        """
-        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
-        """
-        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
-        if encryption_key_type is not None:
-            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]:
-        return pulumi.get(self, "encryption_key_configuration")
-
-    @encryption_key_configuration.setter
-    def encryption_key_configuration(self, value: pulumi.Input[Union['RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0PropertiesArgs', 'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1PropertiesArgs']]):
-        pulumi.set(self, "encryption_key_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionKeyType")
-    def encryption_key_type(self) -> Optional[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]:
-        return pulumi.get(self, "encryption_key_type")
-
-    @encryption_key_type.setter
-    def encryption_key_type(self, value: Optional[pulumi.Input['RouterOutputResourceMediaLiveTransitEncryptionKeyType']]):
-        pulumi.set(self, "encryption_key_type", value)
 
 
 class RouterOutputResourcePreferredDayTimeMaintenanceConfigurationArgsDict(TypedDict):
@@ -7305,14 +7305,14 @@ class RouterOutputResourceRtpRouterOutputConfigurationArgsDict(TypedDict):
     """
     The destination port number for the RTP protocol in the router output configuration.
     """
-    forward_error_correction: NotRequired[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']]
+    forward_error_correction: NotRequired[pulumi.Input[Optional['RouterOutputResourceForwardErrorCorrectionState']]]
 
 @pulumi.input_type
 class RouterOutputResourceRtpRouterOutputConfigurationArgs:
     def __init__(__self__, *,
                  destination_address: pulumi.Input[_builtins.str],
                  destination_port: pulumi.Input[_builtins.int],
-                 forward_error_correction: Optional[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']] = None):
+                 forward_error_correction: pulumi.Input[Optional['RouterOutputResourceForwardErrorCorrectionState']] = None):
         """
         The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
 
@@ -7350,11 +7350,11 @@ class RouterOutputResourceRtpRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="forwardErrorCorrection")
-    def forward_error_correction(self) -> Optional[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']]:
+    def forward_error_correction(self) -> pulumi.Input[Optional['RouterOutputResourceForwardErrorCorrectionState']]:
         return pulumi.get(self, "forward_error_correction")
 
     @forward_error_correction.setter
-    def forward_error_correction(self, value: Optional[pulumi.Input['RouterOutputResourceForwardErrorCorrectionState']]):
+    def forward_error_correction(self, value: pulumi.Input[Optional['RouterOutputResourceForwardErrorCorrectionState']]):
         pulumi.set(self, "forward_error_correction", value)
 
 
@@ -7426,8 +7426,8 @@ class RouterOutputResourceSrtCallerRouterOutputConfigurationArgsDict(TypedDict):
     """
     The minimum latency in milliseconds for the SRT protocol in caller mode.
     """
-    encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
-    stream_id: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]]
+    stream_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The stream ID for the SRT protocol in caller mode.
     """
@@ -7438,8 +7438,8 @@ class RouterOutputResourceSrtCallerRouterOutputConfigurationArgs:
                  destination_address: pulumi.Input[_builtins.str],
                  destination_port: pulumi.Input[_builtins.int],
                  minimum_latency_milliseconds: pulumi.Input[_builtins.int],
-                 encryption_configuration: Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_configuration: pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
 
@@ -7494,23 +7494,23 @@ class RouterOutputResourceSrtCallerRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']]:
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="streamId")
-    def stream_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stream ID for the SRT protocol in caller mode.
         """
         return pulumi.get(self, "stream_id")
 
     @stream_id.setter
-    def stream_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_id", value)
 
 
@@ -7551,14 +7551,14 @@ class RouterOutputResourceSrtListenerRouterOutputConfigurationArgsDict(TypedDict
     """
     The port number for the SRT protocol in listener mode.
     """
-    encryption_configuration: NotRequired[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class RouterOutputResourceSrtListenerRouterOutputConfigurationArgs:
     def __init__(__self__, *,
                  minimum_latency_milliseconds: pulumi.Input[_builtins.int],
                  port: pulumi.Input[_builtins.int],
-                 encryption_configuration: Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']] = None):
+                 encryption_configuration: pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']] = None):
         """
         The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
 
@@ -7596,11 +7596,11 @@ class RouterOutputResourceSrtListenerRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']]:
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RouterOutputResourceSrtEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['RouterOutputResourceSrtEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
 
@@ -7613,14 +7613,14 @@ class RouterOutputResourceStandardRouterOutputConfigurationArgsDict(TypedDict):
     The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
     """
     protocol_configuration: pulumi.Input[Union['RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgsDict', 'RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgsDict']]
-    protocol: NotRequired[pulumi.Input['RouterOutputResourceRouterOutputProtocol']]
+    protocol: NotRequired[pulumi.Input[Optional['RouterOutputResourceRouterOutputProtocol']]]
 
 @pulumi.input_type
 class RouterOutputResourceStandardRouterOutputConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_arn: pulumi.Input[_builtins.str],
                  protocol_configuration: pulumi.Input[Union['RouterOutputResourceRouterOutputProtocolConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputProtocolConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputProtocolConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputProtocolConfiguration3PropertiesArgs']],
-                 protocol: Optional[pulumi.Input['RouterOutputResourceRouterOutputProtocol']] = None):
+                 protocol: pulumi.Input[Optional['RouterOutputResourceRouterOutputProtocol']] = None):
         """
         The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
 
@@ -7654,11 +7654,11 @@ class RouterOutputResourceStandardRouterOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['RouterOutputResourceRouterOutputProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['RouterOutputResourceRouterOutputProtocol']]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['RouterOutputResourceRouterOutputProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['RouterOutputResourceRouterOutputProtocol']]):
         pulumi.set(self, "protocol", value)
 
 

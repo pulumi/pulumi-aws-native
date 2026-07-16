@@ -175,7 +175,6 @@ def get_app_block_builder(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AppStream::AppBlockBuilder.
 
-
     :param _builtins.str name: The name of the app block builder.
     """
     __args__ = dict()
@@ -195,11 +194,10 @@ def get_app_block_builder(name: Optional[_builtins.str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
-def get_app_block_builder_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_block_builder_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::AppBlockBuilder.
-
 
     :param _builtins.str name: The name of the app block builder.
     """

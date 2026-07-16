@@ -311,7 +311,6 @@ def get_job(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Glue::Job
 
-
     :param _builtins.str name: The name you assign to the job definition
     """
     __args__ = dict()
@@ -342,11 +341,10 @@ def get_job(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         worker_type=pulumi.get(__ret__, 'worker_type'))
-def get_job_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_job_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Resource Type definition for AWS::Glue::Job
-
 
     :param _builtins.str name: The name you assign to the job definition
     """

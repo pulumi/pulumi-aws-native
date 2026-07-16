@@ -126,7 +126,6 @@ def get_application(name: Optional[_builtins.str] = None,
     """
     Amazon OpenSearchService application resource
 
-
     :param _builtins.str name: The name of the application.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_application(name: Optional[_builtins.str] = None,
         iam_identity_center_options=pulumi.get(__ret__, 'iam_identity_center_options'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_application_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Amazon OpenSearchService application resource
-
 
     :param _builtins.str name: The name of the application.
     """

@@ -111,7 +111,6 @@ def get_consumable_resource(consumable_resource_arn: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::Batch::ConsumableResource
 
-
     :param _builtins.str consumable_resource_arn: The Amazon Resource Name (ARN) of the consumable resource.
     """
     __args__ = dict()
@@ -126,11 +125,10 @@ def get_consumable_resource(consumable_resource_arn: Optional[_builtins.str] = N
         in_use_quantity=pulumi.get(__ret__, 'in_use_quantity'),
         tags=pulumi.get(__ret__, 'tags'),
         total_quantity=pulumi.get(__ret__, 'total_quantity'))
-def get_consumable_resource_output(consumable_resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_consumable_resource_output(consumable_resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumableResourceResult]:
     """
     Resource Type definition for AWS::Batch::ConsumableResource
-
 
     :param _builtins.str consumable_resource_arn: The Amazon Resource Name (ARN) of the consumable resource.
     """

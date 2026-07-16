@@ -148,7 +148,7 @@ def get_link_routing_rule(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_link_routing_rule_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_link_routing_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkRoutingRuleResult]:
     """
     Resource Type definition for AWS::RTBFabric::LinkRoutingRule. A routing rule on a link within RTB Fabric that controls request routing based on conditions such as host headers, path matching, and query string parameters.

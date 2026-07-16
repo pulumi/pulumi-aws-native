@@ -149,7 +149,6 @@ def get_prompt_version(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::PromptVersion Resource Type
 
-
     :param _builtins.str arn: ARN of a prompt version resource
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_prompt_version(arn: Optional[_builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
-def get_prompt_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prompt_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptVersionResult]:
     """
     Definition of AWS::Bedrock::PromptVersion Resource Type
-
 
     :param _builtins.str arn: ARN of a prompt version resource
     """

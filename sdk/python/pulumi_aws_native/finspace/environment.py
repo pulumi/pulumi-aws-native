@@ -24,14 +24,14 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-                 federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
+                 data_bundles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federation_mode: pulumi.Input[Optional['EnvironmentFederationMode']] = None,
+                 federation_parameters: pulumi.Input[Optional['EnvironmentFederationParametersArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 superuser_parameters: pulumi.Input[Optional['EnvironmentSuperuserParametersArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -63,98 +63,98 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataBundles")
-    def data_bundles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def data_bundles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ARNs of FinSpace Data Bundles to install
         """
         return pulumi.get(self, "data_bundles")
 
     @data_bundles.setter
-    def data_bundles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def data_bundles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "data_bundles", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the Environment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="federationMode")
-    def federation_mode(self) -> Optional[pulumi.Input['EnvironmentFederationMode']]:
+    def federation_mode(self) -> pulumi.Input[Optional['EnvironmentFederationMode']]:
         """
         Federation mode used with the Environment
         """
         return pulumi.get(self, "federation_mode")
 
     @federation_mode.setter
-    def federation_mode(self, value: Optional[pulumi.Input['EnvironmentFederationMode']]):
+    def federation_mode(self, value: pulumi.Input[Optional['EnvironmentFederationMode']]):
         pulumi.set(self, "federation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="federationParameters")
-    def federation_parameters(self) -> Optional[pulumi.Input['EnvironmentFederationParametersArgs']]:
+    def federation_parameters(self) -> pulumi.Input[Optional['EnvironmentFederationParametersArgs']]:
         """
         Configuration information when authentication mode is FEDERATED.
         """
         return pulumi.get(self, "federation_parameters")
 
     @federation_parameters.setter
-    def federation_parameters(self, value: Optional[pulumi.Input['EnvironmentFederationParametersArgs']]):
+    def federation_parameters(self, value: pulumi.Input[Optional['EnvironmentFederationParametersArgs']]):
         pulumi.set(self, "federation_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key used to encrypt customer data within FinSpace Environment infrastructure
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Environment
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="superuserParameters")
-    def superuser_parameters(self) -> Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]:
+    def superuser_parameters(self) -> pulumi.Input[Optional['EnvironmentSuperuserParametersArgs']]:
         """
         Configuration information for the superuser.
         """
         return pulumi.get(self, "superuser_parameters")
 
     @superuser_parameters.setter
-    def superuser_parameters(self, value: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']]):
+    def superuser_parameters(self, value: pulumi.Input[Optional['EnvironmentSuperuserParametersArgs']]):
         pulumi.set(self, "superuser_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -164,14 +164,14 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-                 federation_parameters: Optional[pulumi.Input[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 superuser_parameters: Optional[pulumi.Input[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 data_bundles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federation_mode: pulumi.Input[Optional['EnvironmentFederationMode']] = None,
+                 federation_parameters: pulumi.Input[Optional[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 superuser_parameters: pulumi.Input[Optional[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -265,14 +265,14 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-                 federation_parameters: Optional[pulumi.Input[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 superuser_parameters: Optional[pulumi.Input[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 data_bundles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 federation_mode: pulumi.Input[Optional['EnvironmentFederationMode']] = None,
+                 federation_parameters: pulumi.Input[Optional[Union['EnvironmentFederationParametersArgs', 'EnvironmentFederationParametersArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 superuser_parameters: pulumi.Input[Optional[Union['EnvironmentSuperuserParametersArgs', 'EnvironmentSuperuserParametersArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

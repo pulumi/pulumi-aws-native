@@ -125,7 +125,6 @@ def get_layout(layout_arn: Optional[_builtins.str] = None,
     """
     A layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users and Field ordering.
 
-
     :param _builtins.str layout_arn: The Amazon Resource Name (ARN) of the layout.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_layout(layout_arn: Optional[_builtins.str] = None,
         layout_id=pulumi.get(__ret__, 'layout_id'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_layout_output(layout_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_layout_output(layout_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayoutResult]:
     """
     A layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users and Field ordering.
-
 
     :param _builtins.str layout_arn: The Amazon Resource Name (ARN) of the layout.
     """

@@ -26,10 +26,10 @@ class AutomationRuleArgs:
                  criteria: pulumi.Input['AutomationRulesFindingFiltersArgs'],
                  description: pulumi.Input[_builtins.str],
                  rule_order: pulumi.Input[_builtins.int],
-                 is_terminal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_status: pulumi.Input[Optional['AutomationRuleRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
 
@@ -105,50 +105,50 @@ class AutomationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="isTerminal")
-    def is_terminal(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_terminal(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         """
         return pulumi.get(self, "is_terminal")
 
     @is_terminal.setter
-    def is_terminal(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_terminal(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_terminal", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleStatus")
-    def rule_status(self) -> Optional[pulumi.Input['AutomationRuleRuleStatus']]:
+    def rule_status(self) -> pulumi.Input[Optional['AutomationRuleRuleStatus']]:
         """
         Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
         """
         return pulumi.get(self, "rule_status")
 
     @rule_status.setter
-    def rule_status(self, value: Optional[pulumi.Input['AutomationRuleRuleStatus']]):
+    def rule_status(self, value: pulumi.Input[Optional['AutomationRuleRuleStatus']]):
         pulumi.set(self, "rule_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         User-defined tags associated with an automation rule.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,14 +158,14 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_terminal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_status: pulumi.Input[Optional['AutomationRuleRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
@@ -1323,14 +1323,14 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
-                 criteria: Optional[pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_terminal: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_order: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_order: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_status: pulumi.Input[Optional['AutomationRuleRuleStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

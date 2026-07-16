@@ -81,7 +81,6 @@ def get_cache_policy(id: Optional[_builtins.str] = None,
 
      The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
 
-
     :param _builtins.str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """
     __args__ = dict()
@@ -93,7 +92,7 @@ def get_cache_policy(id: Optional[_builtins.str] = None,
         cache_policy_config=pulumi.get(__ret__, 'cache_policy_config'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
-def get_cache_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cache_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     A cache policy.
@@ -102,7 +101,6 @@ def get_cache_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
       +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
 
      The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
-
 
     :param _builtins.str id: The unique identifier for the cache policy. For example: `2766f7b2-75c5-41c6-8f06-bf4303a2f2f5` .
     """

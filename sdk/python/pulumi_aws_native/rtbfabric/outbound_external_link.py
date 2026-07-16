@@ -27,8 +27,8 @@ class OutboundExternalLinkArgs:
                  gateway_id: pulumi.Input[_builtins.str],
                  link_log_settings: pulumi.Input['OutboundExternalLinkLinkLogSettingsArgs'],
                  public_endpoint: pulumi.Input[_builtins.str],
-                 link_attributes: Optional[pulumi.Input['OutboundExternalLinkLinkAttributesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 link_attributes: pulumi.Input[Optional['OutboundExternalLinkLinkAttributesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OutboundExternalLink resource.
         """
@@ -69,20 +69,20 @@ class OutboundExternalLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkAttributes")
-    def link_attributes(self) -> Optional[pulumi.Input['OutboundExternalLinkLinkAttributesArgs']]:
+    def link_attributes(self) -> pulumi.Input[Optional['OutboundExternalLinkLinkAttributesArgs']]:
         return pulumi.get(self, "link_attributes")
 
     @link_attributes.setter
-    def link_attributes(self, value: Optional[pulumi.Input['OutboundExternalLinkLinkAttributesArgs']]):
+    def link_attributes(self, value: pulumi.Input[Optional['OutboundExternalLinkLinkAttributesArgs']]):
         pulumi.set(self, "link_attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,15 +92,14 @@ class OutboundExternalLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_attributes: Optional[pulumi.Input[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: Optional[pulumi.Input[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
-                 public_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
+                 public_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::OutboundExternalLink Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +112,6 @@ class OutboundExternalLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::RTBFabric::OutboundExternalLink Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param OutboundExternalLinkArgs args: The arguments to use to populate this resource's properties.
@@ -130,11 +128,11 @@ class OutboundExternalLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 link_attributes: Optional[pulumi.Input[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
-                 link_log_settings: Optional[pulumi.Input[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
-                 public_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['OutboundExternalLinkLinkAttributesArgs', 'OutboundExternalLinkLinkAttributesArgsDict']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['OutboundExternalLinkLinkLogSettingsArgs', 'OutboundExternalLinkLinkLogSettingsArgsDict']]] = None,
+                 public_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

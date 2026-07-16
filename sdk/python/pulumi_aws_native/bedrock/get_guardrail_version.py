@@ -76,7 +76,6 @@ def get_guardrail_version(guardrail_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::GuardrailVersion Resource Type
 
-
     :param _builtins.str guardrail_id: Unique id for the guardrail
     :param _builtins.str version: Guardrail version
     """
@@ -90,12 +89,11 @@ def get_guardrail_version(guardrail_id: Optional[_builtins.str] = None,
         guardrail_arn=pulumi.get(__ret__, 'guardrail_arn'),
         guardrail_id=pulumi.get(__ret__, 'guardrail_id'),
         version=pulumi.get(__ret__, 'version'))
-def get_guardrail_version_output(guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_guardrail_version_output(guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 version: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardrailVersionResult]:
     """
     Definition of AWS::Bedrock::GuardrailVersion Resource Type
-
 
     :param _builtins.str guardrail_id: Unique id for the guardrail
     :param _builtins.str version: Guardrail version

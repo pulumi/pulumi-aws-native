@@ -22,12 +22,12 @@ __all__ = ['SecurityConfigArgs', 'SecurityConfig']
 @pulumi.input_type
 class SecurityConfigArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_federation_options: Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']] = None,
-                 iam_identity_center_options: Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']] = None,
-                 type: Optional[pulumi.Input['SecurityConfigType']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_federation_options: pulumi.Input[Optional['SecurityConfigIamFederationConfigOptionsArgs']] = None,
+                 iam_identity_center_options: pulumi.Input[Optional['SecurityConfigIamIdentityCenterConfigOptionsArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional['SecurityConfigSamlConfigOptionsArgs']] = None,
+                 type: pulumi.Input[Optional['SecurityConfigType']] = None):
         """
         The set of arguments for constructing a SecurityConfig resource.
 
@@ -53,74 +53,74 @@ class SecurityConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security config description
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="iamFederationOptions")
-    def iam_federation_options(self) -> Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']]:
+    def iam_federation_options(self) -> pulumi.Input[Optional['SecurityConfigIamFederationConfigOptionsArgs']]:
         """
         Describes IAM federation options in the form of a key-value map. Contains configuration details about how OpenSearch Serverless integrates with external identity providers through federation.
         """
         return pulumi.get(self, "iam_federation_options")
 
     @iam_federation_options.setter
-    def iam_federation_options(self, value: Optional[pulumi.Input['SecurityConfigIamFederationConfigOptionsArgs']]):
+    def iam_federation_options(self, value: pulumi.Input[Optional['SecurityConfigIamFederationConfigOptionsArgs']]):
         pulumi.set(self, "iam_federation_options", value)
 
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterOptions")
-    def iam_identity_center_options(self) -> Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']]:
+    def iam_identity_center_options(self) -> pulumi.Input[Optional['SecurityConfigIamIdentityCenterConfigOptionsArgs']]:
         """
         Describes IAM Identity Center options in the form of a key-value map.
         """
         return pulumi.get(self, "iam_identity_center_options")
 
     @iam_identity_center_options.setter
-    def iam_identity_center_options(self, value: Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']]):
+    def iam_identity_center_options(self, value: pulumi.Input[Optional['SecurityConfigIamIdentityCenterConfigOptionsArgs']]):
         pulumi.set(self, "iam_identity_center_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the security config
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']]:
+    def saml_options(self) -> pulumi.Input[Optional['SecurityConfigSamlConfigOptionsArgs']]:
         """
         SAML options for the security configuration in the form of a key-value map.
         """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']]):
+    def saml_options(self, value: pulumi.Input[Optional['SecurityConfigSamlConfigOptionsArgs']]):
         pulumi.set(self, "saml_options", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['SecurityConfigType']]:
+    def type(self) -> pulumi.Input[Optional['SecurityConfigType']]:
         """
         The type of security configuration. Currently the only option is `saml` .
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['SecurityConfigType']]):
+    def type(self, value: pulumi.Input[Optional['SecurityConfigType']]):
         pulumi.set(self, "type", value)
 
 
@@ -130,12 +130,12 @@ class SecurityConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_federation_options: Optional[pulumi.Input[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
-                 type: Optional[pulumi.Input['SecurityConfigType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_federation_options: pulumi.Input[Optional[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
+                 type: pulumi.Input[Optional['SecurityConfigType']] = None,
                  __props__=None):
         """
         Amazon OpenSearchServerless security config resource
@@ -251,12 +251,12 @@ class SecurityConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_federation_options: Optional[pulumi.Input[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
-                 type: Optional[pulumi.Input['SecurityConfigType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_federation_options: pulumi.Input[Optional[Union['SecurityConfigIamFederationConfigOptionsArgs', 'SecurityConfigIamFederationConfigOptionsArgsDict']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_options: pulumi.Input[Optional[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
+                 type: pulumi.Input[Optional['SecurityConfigType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

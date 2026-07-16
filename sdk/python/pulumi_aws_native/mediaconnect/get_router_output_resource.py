@@ -231,7 +231,6 @@ def get_router_output_resource(arn: Optional[_builtins.str] = None,
     """
     Represents a router input in AWS Elemental MediaConnect that can be used to egress content transmitted from router inputs
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router output.
     """
     __args__ = dict()
@@ -256,11 +255,10 @@ def get_router_output_resource(arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_router_output_resource_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_router_output_resource_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouterOutputResourceResult]:
     """
     Represents a router input in AWS Elemental MediaConnect that can be used to egress content transmitted from router inputs
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router output.
     """

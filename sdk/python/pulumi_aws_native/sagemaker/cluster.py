@@ -24,18 +24,18 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 auto_scaling: Optional[pulumi.Input['ClusterAutoScalingConfigArgs']] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]] = None,
-                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
-                 node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
-                 orchestrator: Optional[pulumi.Input['ClusterOrchestratorArgs']] = None,
-                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
-                 restricted_instance_groups_config: Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 tiered_storage_config: Optional[pulumi.Input['ClusterTieredStorageConfigArgs']] = None,
-                 vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None):
+                 auto_scaling: pulumi.Input[Optional['ClusterAutoScalingConfigArgs']] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]] = None,
+                 node_provisioning_mode: pulumi.Input[Optional['ClusterNodeProvisioningMode']] = None,
+                 node_recovery: pulumi.Input[Optional['ClusterNodeRecovery']] = None,
+                 orchestrator: pulumi.Input[Optional['ClusterOrchestratorArgs']] = None,
+                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]] = None,
+                 restricted_instance_groups_config: pulumi.Input[Optional['ClusterRestrictedInstanceGroupsConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tiered_storage_config: pulumi.Input[Optional['ClusterTieredStorageConfigArgs']] = None,
+                 vpc_config: pulumi.Input[Optional['ClusterVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -75,134 +75,134 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoScaling")
-    def auto_scaling(self) -> Optional[pulumi.Input['ClusterAutoScalingConfigArgs']]:
+    def auto_scaling(self) -> pulumi.Input[Optional['ClusterAutoScalingConfigArgs']]:
         return pulumi.get(self, "auto_scaling")
 
     @auto_scaling.setter
-    def auto_scaling(self, value: Optional[pulumi.Input['ClusterAutoScalingConfigArgs']]):
+    def auto_scaling(self, value: pulumi.Input[Optional['ClusterAutoScalingConfigArgs']]):
         pulumi.set(self, "auto_scaling", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the HyperPod Cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterRole")
-    def cluster_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cluster role for the autoscaler to assume.
         """
         return pulumi.get(self, "cluster_role")
 
     @cluster_role.setter
-    def cluster_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_role", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceGroups")
-    def instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]:
+    def instance_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]:
         """
         The instance groups of the SageMaker HyperPod cluster. To delete an instance group, remove it from the array.
         """
         return pulumi.get(self, "instance_groups")
 
     @instance_groups.setter
-    def instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]):
+    def instance_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterInstanceGroupArgs']]]]):
         pulumi.set(self, "instance_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeProvisioningMode")
-    def node_provisioning_mode(self) -> Optional[pulumi.Input['ClusterNodeProvisioningMode']]:
+    def node_provisioning_mode(self) -> pulumi.Input[Optional['ClusterNodeProvisioningMode']]:
         """
         Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
         """
         return pulumi.get(self, "node_provisioning_mode")
 
     @node_provisioning_mode.setter
-    def node_provisioning_mode(self, value: Optional[pulumi.Input['ClusterNodeProvisioningMode']]):
+    def node_provisioning_mode(self, value: pulumi.Input[Optional['ClusterNodeProvisioningMode']]):
         pulumi.set(self, "node_provisioning_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeRecovery")
-    def node_recovery(self) -> Optional[pulumi.Input['ClusterNodeRecovery']]:
+    def node_recovery(self) -> pulumi.Input[Optional['ClusterNodeRecovery']]:
         """
         If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
         """
         return pulumi.get(self, "node_recovery")
 
     @node_recovery.setter
-    def node_recovery(self, value: Optional[pulumi.Input['ClusterNodeRecovery']]):
+    def node_recovery(self, value: pulumi.Input[Optional['ClusterNodeRecovery']]):
         pulumi.set(self, "node_recovery", value)
 
     @_builtins.property
     @pulumi.getter
-    def orchestrator(self) -> Optional[pulumi.Input['ClusterOrchestratorArgs']]:
+    def orchestrator(self) -> pulumi.Input[Optional['ClusterOrchestratorArgs']]:
         """
         The orchestrator type for the SageMaker HyperPod cluster. Currently, `'eks'` is the only available option.
         """
         return pulumi.get(self, "orchestrator")
 
     @orchestrator.setter
-    def orchestrator(self, value: Optional[pulumi.Input['ClusterOrchestratorArgs']]):
+    def orchestrator(self, value: pulumi.Input[Optional['ClusterOrchestratorArgs']]):
         pulumi.set(self, "orchestrator", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedInstanceGroups")
-    def restricted_instance_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]:
+    def restricted_instance_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]:
         return pulumi.get(self, "restricted_instance_groups")
 
     @restricted_instance_groups.setter
-    def restricted_instance_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]):
+    def restricted_instance_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterRestrictedInstanceGroupArgs']]]]):
         pulumi.set(self, "restricted_instance_groups", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictedInstanceGroupsConfig")
-    def restricted_instance_groups_config(self) -> Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']]:
+    def restricted_instance_groups_config(self) -> pulumi.Input[Optional['ClusterRestrictedInstanceGroupsConfigArgs']]:
         return pulumi.get(self, "restricted_instance_groups_config")
 
     @restricted_instance_groups_config.setter
-    def restricted_instance_groups_config(self, value: Optional[pulumi.Input['ClusterRestrictedInstanceGroupsConfigArgs']]):
+    def restricted_instance_groups_config(self, value: pulumi.Input[Optional['ClusterRestrictedInstanceGroupsConfigArgs']]):
         pulumi.set(self, "restricted_instance_groups_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tieredStorageConfig")
-    def tiered_storage_config(self) -> Optional[pulumi.Input['ClusterTieredStorageConfigArgs']]:
+    def tiered_storage_config(self) -> pulumi.Input[Optional['ClusterTieredStorageConfigArgs']]:
         return pulumi.get(self, "tiered_storage_config")
 
     @tiered_storage_config.setter
-    def tiered_storage_config(self, value: Optional[pulumi.Input['ClusterTieredStorageConfigArgs']]):
+    def tiered_storage_config(self, value: pulumi.Input[Optional['ClusterTieredStorageConfigArgs']]):
         pulumi.set(self, "tiered_storage_config", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ClusterVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['ClusterVpcConfigArgs']]:
         """
         Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ClusterVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['ClusterVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -212,22 +212,21 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling: Optional[pulumi.Input[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
-                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
-                 node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
-                 orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
-                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
-                 restricted_instance_groups_config: Optional[pulumi.Input[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 node_provisioning_mode: pulumi.Input[Optional['ClusterNodeProvisioningMode']] = None,
+                 node_recovery: pulumi.Input[Optional['ClusterNodeRecovery']] = None,
+                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
+                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
+                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Cluster
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,7 +248,6 @@ class Cluster(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::Cluster
 
-
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,18 +263,18 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling: Optional[pulumi.Input[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
-                 node_provisioning_mode: Optional[pulumi.Input['ClusterNodeProvisioningMode']] = None,
-                 node_recovery: Optional[pulumi.Input['ClusterNodeRecovery']] = None,
-                 orchestrator: Optional[pulumi.Input[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
-                 restricted_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
-                 restricted_instance_groups_config: Optional[pulumi.Input[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tiered_storage_config: Optional[pulumi.Input[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
+                 auto_scaling: pulumi.Input[Optional[Union['ClusterAutoScalingConfigArgs', 'ClusterAutoScalingConfigArgsDict']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterInstanceGroupArgs', 'ClusterInstanceGroupArgsDict']]]]] = None,
+                 node_provisioning_mode: pulumi.Input[Optional['ClusterNodeProvisioningMode']] = None,
+                 node_recovery: pulumi.Input[Optional['ClusterNodeRecovery']] = None,
+                 orchestrator: pulumi.Input[Optional[Union['ClusterOrchestratorArgs', 'ClusterOrchestratorArgsDict']]] = None,
+                 restricted_instance_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterRestrictedInstanceGroupArgs', 'ClusterRestrictedInstanceGroupArgsDict']]]]] = None,
+                 restricted_instance_groups_config: pulumi.Input[Optional[Union['ClusterRestrictedInstanceGroupsConfigArgs', 'ClusterRestrictedInstanceGroupsConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tiered_storage_config: pulumi.Input[Optional[Union['ClusterTieredStorageConfigArgs', 'ClusterTieredStorageConfigArgsDict']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['ClusterVpcConfigArgs', 'ClusterVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

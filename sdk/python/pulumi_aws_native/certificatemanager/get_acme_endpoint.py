@@ -110,7 +110,6 @@ def get_acme_endpoint(acme_endpoint_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CertificateManager::AcmeEndpoint
 
-
     :param _builtins.str acme_endpoint_arn: The Amazon Resource Name (ARN) of the ACME endpoint.
     """
     __args__ = dict()
@@ -125,11 +124,10 @@ def get_acme_endpoint(acme_endpoint_arn: Optional[_builtins.str] = None,
         contact=pulumi.get(__ret__, 'contact'),
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_acme_endpoint_output(acme_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_acme_endpoint_output(acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcmeEndpointResult]:
     """
     Resource Type definition for AWS::CertificateManager::AcmeEndpoint
-
 
     :param _builtins.str acme_endpoint_arn: The Amazon Resource Name (ARN) of the ACME endpoint.
     """

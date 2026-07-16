@@ -89,7 +89,6 @@ def get_realtime_log_config(arn: Optional[_builtins.str] = None,
     """
     A real-time log configuration.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_realtime_log_config(arn: Optional[_builtins.str] = None,
         end_points=pulumi.get(__ret__, 'end_points'),
         fields=pulumi.get(__ret__, 'fields'),
         sampling_rate=pulumi.get(__ret__, 'sampling_rate'))
-def get_realtime_log_config_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_realtime_log_config_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
     A real-time log configuration.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
     """

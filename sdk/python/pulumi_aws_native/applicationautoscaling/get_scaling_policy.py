@@ -54,7 +54,7 @@ class GetScalingPolicyResult:
     def policy_type(self) -> Optional[_builtins.str]:
         """
         The scaling policy type.
-         The following policy types are supported: 
+         The following policy types are supported:
          ``TargetTrackingScaling``—Not supported for Amazon EMR
          ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
          ``PredictiveScaling``—Only supported for Amazon ECS
@@ -106,7 +106,6 @@ def get_scaling_policy(arn: Optional[_builtins.str] = None,
     The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
      For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
 
-
     :param _builtins.str arn: Returns the ARN of a scaling policy.
     :param _builtins.str scalable_dimension: The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
              +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
@@ -146,13 +145,12 @@ def get_scaling_policy(arn: Optional[_builtins.str] = None,
         predictive_scaling_policy_configuration=pulumi.get(__ret__, 'predictive_scaling_policy_configuration'),
         step_scaling_policy_configuration=pulumi.get(__ret__, 'step_scaling_policy_configuration'),
         target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
-def get_scaling_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
-                              scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scaling_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+                              scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPolicyResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
      For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
-
 
     :param _builtins.str arn: Returns the ARN of a scaling policy.
     :param _builtins.str scalable_dimension: The scalable dimension. This string consists of the service namespace, resource type, and scaling property.

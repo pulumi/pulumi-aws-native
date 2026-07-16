@@ -197,7 +197,6 @@ def get_event_subscription(subscription_name: Optional[_builtins.str] = None,
     """
     The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
 
-
     :param _builtins.str subscription_name: The name of the Amazon Redshift event notification subscription
     """
     __args__ = dict()
@@ -219,11 +218,10 @@ def get_event_subscription(subscription_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_event_subscription_output(subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_subscription_output(subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
-
 
     :param _builtins.str subscription_name: The name of the Amazon Redshift event notification subscription
     """

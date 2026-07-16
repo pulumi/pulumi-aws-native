@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ExportArgs',
+    'ExportArgsDict',
     'ExportDataQueryArgs',
     'ExportDataQueryArgsDict',
     'ExportDestinationConfigurationsArgs',
@@ -26,16 +28,139 @@ __all__ = [
     'ExportS3DestinationArgsDict',
     'ExportS3OutputConfigurationsArgs',
     'ExportS3OutputConfigurationsArgsDict',
-    'ExportArgs',
-    'ExportArgsDict',
 ]
+
+class ExportArgsDict(TypedDict):
+    data_query: pulumi.Input['ExportDataQueryArgsDict']
+    """
+    The data query for this specific data export.
+    """
+    destination_configurations: pulumi.Input['ExportDestinationConfigurationsArgsDict']
+    """
+    The destination configuration for this specific data export.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of this specific data export.
+    """
+    refresh_cadence: pulumi.Input['ExportRefreshCadenceArgsDict']
+    """
+    The cadence for AWS to update the export in your S3 bucket.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description for this specific data export.
+    """
+    export_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) for this export.
+    """
+
+@pulumi.input_type
+class ExportArgs:
+    def __init__(__self__, *,
+                 data_query: pulumi.Input['ExportDataQueryArgs'],
+                 destination_configurations: pulumi.Input['ExportDestinationConfigurationsArgs'],
+                 name: pulumi.Input[_builtins.str],
+                 refresh_cadence: pulumi.Input['ExportRefreshCadenceArgs'],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['ExportDataQueryArgs'] data_query: The data query for this specific data export.
+        :param pulumi.Input['ExportDestinationConfigurationsArgs'] destination_configurations: The destination configuration for this specific data export.
+        :param pulumi.Input[_builtins.str] name: The name of this specific data export.
+        :param pulumi.Input['ExportRefreshCadenceArgs'] refresh_cadence: The cadence for AWS to update the export in your S3 bucket.
+        :param pulumi.Input[_builtins.str] description: The description for this specific data export.
+        :param pulumi.Input[_builtins.str] export_arn: The Amazon Resource Name (ARN) for this export.
+        """
+        pulumi.set(__self__, "data_query", data_query)
+        pulumi.set(__self__, "destination_configurations", destination_configurations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "refresh_cadence", refresh_cadence)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if export_arn is not None:
+            pulumi.set(__self__, "export_arn", export_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="dataQuery")
+    def data_query(self) -> pulumi.Input['ExportDataQueryArgs']:
+        """
+        The data query for this specific data export.
+        """
+        return pulumi.get(self, "data_query")
+
+    @data_query.setter
+    def data_query(self, value: pulumi.Input['ExportDataQueryArgs']):
+        pulumi.set(self, "data_query", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationConfigurations")
+    def destination_configurations(self) -> pulumi.Input['ExportDestinationConfigurationsArgs']:
+        """
+        The destination configuration for this specific data export.
+        """
+        return pulumi.get(self, "destination_configurations")
+
+    @destination_configurations.setter
+    def destination_configurations(self, value: pulumi.Input['ExportDestinationConfigurationsArgs']):
+        pulumi.set(self, "destination_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of this specific data export.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshCadence")
+    def refresh_cadence(self) -> pulumi.Input['ExportRefreshCadenceArgs']:
+        """
+        The cadence for AWS to update the export in your S3 bucket.
+        """
+        return pulumi.get(self, "refresh_cadence")
+
+    @refresh_cadence.setter
+    def refresh_cadence(self, value: pulumi.Input['ExportRefreshCadenceArgs']):
+        pulumi.set(self, "refresh_cadence", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description for this specific data export.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportArn")
+    def export_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for this export.
+        """
+        return pulumi.get(self, "export_arn")
+
+    @export_arn.setter
+    def export_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_arn", value)
+
 
 class ExportDataQueryArgsDict(TypedDict):
     query_statement: pulumi.Input[_builtins.str]
     """
     The query statement.
     """
-    table_configurations: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    table_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, Any]]]]
     """
     The table configuration.
     """
@@ -44,7 +169,7 @@ class ExportDataQueryArgsDict(TypedDict):
 class ExportDataQueryArgs:
     def __init__(__self__, *,
                  query_statement: pulumi.Input[_builtins.str],
-                 table_configurations: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 table_configurations: pulumi.Input[Optional[Mapping[str, Any]]] = None):
         """
         :param pulumi.Input[_builtins.str] query_statement: The query statement.
         :param pulumi.Input[Mapping[str, Any]] table_configurations: The table configuration.
@@ -67,14 +192,14 @@ class ExportDataQueryArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableConfigurations")
-    def table_configurations(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def table_configurations(self) -> pulumi.Input[Optional[Mapping[str, Any]]]:
         """
         The table configuration.
         """
         return pulumi.get(self, "table_configurations")
 
     @table_configurations.setter
-    def table_configurations(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def table_configurations(self, value: pulumi.Input[Optional[Mapping[str, Any]]]):
         pulumi.set(self, "table_configurations", value)
 
 
@@ -151,7 +276,7 @@ class ExportS3DestinationArgsDict(TypedDict):
     """
     The S3 bucket Region.
     """
-    s3_bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ExportS3DestinationArgs:
@@ -160,7 +285,7 @@ class ExportS3DestinationArgs:
                  s3_output_configurations: pulumi.Input['ExportS3OutputConfigurationsArgs'],
                  s3_prefix: pulumi.Input[_builtins.str],
                  s3_region: pulumi.Input[_builtins.str],
-                 s3_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_bucket_owner: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: The name of the Amazon S3 bucket used as the destination of a data export file.
         :param pulumi.Input['ExportS3OutputConfigurationsArgs'] s3_output_configurations: The output configuration for the data export.
@@ -224,11 +349,11 @@ class ExportS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketOwner")
-    def s3_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "s3_bucket_owner")
 
     @s3_bucket_owner.setter
-    def s3_bucket_owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_owner", value)
 
 
@@ -315,130 +440,5 @@ class ExportS3OutputConfigurationsArgs:
     @overwrite.setter
     def overwrite(self, value: pulumi.Input['ExportOverwriteOption']):
         pulumi.set(self, "overwrite", value)
-
-
-class ExportArgsDict(TypedDict):
-    data_query: pulumi.Input['ExportDataQueryArgsDict']
-    """
-    The data query for this specific data export.
-    """
-    destination_configurations: pulumi.Input['ExportDestinationConfigurationsArgsDict']
-    """
-    The destination configuration for this specific data export.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The name of this specific data export.
-    """
-    refresh_cadence: pulumi.Input['ExportRefreshCadenceArgsDict']
-    """
-    The cadence for AWS to update the export in your S3 bucket.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The description for this specific data export.
-    """
-    export_arn: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The Amazon Resource Name (ARN) for this export.
-    """
-
-@pulumi.input_type
-class ExportArgs:
-    def __init__(__self__, *,
-                 data_query: pulumi.Input['ExportDataQueryArgs'],
-                 destination_configurations: pulumi.Input['ExportDestinationConfigurationsArgs'],
-                 name: pulumi.Input[_builtins.str],
-                 refresh_cadence: pulumi.Input['ExportRefreshCadenceArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 export_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input['ExportDataQueryArgs'] data_query: The data query for this specific data export.
-        :param pulumi.Input['ExportDestinationConfigurationsArgs'] destination_configurations: The destination configuration for this specific data export.
-        :param pulumi.Input[_builtins.str] name: The name of this specific data export.
-        :param pulumi.Input['ExportRefreshCadenceArgs'] refresh_cadence: The cadence for AWS to update the export in your S3 bucket.
-        :param pulumi.Input[_builtins.str] description: The description for this specific data export.
-        :param pulumi.Input[_builtins.str] export_arn: The Amazon Resource Name (ARN) for this export.
-        """
-        pulumi.set(__self__, "data_query", data_query)
-        pulumi.set(__self__, "destination_configurations", destination_configurations)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "refresh_cadence", refresh_cadence)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if export_arn is not None:
-            pulumi.set(__self__, "export_arn", export_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="dataQuery")
-    def data_query(self) -> pulumi.Input['ExportDataQueryArgs']:
-        """
-        The data query for this specific data export.
-        """
-        return pulumi.get(self, "data_query")
-
-    @data_query.setter
-    def data_query(self, value: pulumi.Input['ExportDataQueryArgs']):
-        pulumi.set(self, "data_query", value)
-
-    @_builtins.property
-    @pulumi.getter(name="destinationConfigurations")
-    def destination_configurations(self) -> pulumi.Input['ExportDestinationConfigurationsArgs']:
-        """
-        The destination configuration for this specific data export.
-        """
-        return pulumi.get(self, "destination_configurations")
-
-    @destination_configurations.setter
-    def destination_configurations(self, value: pulumi.Input['ExportDestinationConfigurationsArgs']):
-        pulumi.set(self, "destination_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of this specific data export.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="refreshCadence")
-    def refresh_cadence(self) -> pulumi.Input['ExportRefreshCadenceArgs']:
-        """
-        The cadence for AWS to update the export in your S3 bucket.
-        """
-        return pulumi.get(self, "refresh_cadence")
-
-    @refresh_cadence.setter
-    def refresh_cadence(self, value: pulumi.Input['ExportRefreshCadenceArgs']):
-        pulumi.set(self, "refresh_cadence", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The description for this specific data export.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="exportArn")
-    def export_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The Amazon Resource Name (ARN) for this export.
-        """
-        return pulumi.get(self, "export_arn")
-
-    @export_arn.setter
-    def export_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "export_arn", value)
 
 

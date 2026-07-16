@@ -76,7 +76,6 @@ def get_user(user_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::MemoryDB::User
 
-
     :param _builtins.str user_name: The name of the user.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_user(user_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_user_output(user_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_output(user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::MemoryDB::User
-
 
     :param _builtins.str user_name: The name of the user.
     """

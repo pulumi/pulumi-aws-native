@@ -23,9 +23,9 @@ class EventInvokeConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[_builtins.str],
                  qualifier: pulumi.Input[_builtins.str],
-                 destination_config: Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']] = None,
-                 maximum_event_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None):
+                 destination_config: pulumi.Input[Optional['EventInvokeConfigDestinationConfigArgs']] = None,
+                 maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a EventInvokeConfig resource.
 
@@ -78,7 +78,7 @@ class EventInvokeConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationConfig")
-    def destination_config(self) -> Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']]:
+    def destination_config(self) -> pulumi.Input[Optional['EventInvokeConfigDestinationConfigArgs']]:
         """
         A destination for events after they have been sent to a function for processing.
 
@@ -93,31 +93,31 @@ class EventInvokeConfigArgs:
         return pulumi.get(self, "destination_config")
 
     @destination_config.setter
-    def destination_config(self, value: Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']]):
+    def destination_config(self, value: pulumi.Input[Optional['EventInvokeConfigDestinationConfigArgs']]):
         pulumi.set(self, "destination_config", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumEventAgeInSeconds")
-    def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_event_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum age of a request that Lambda sends to a function for processing.
         """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @maximum_event_age_in_seconds.setter
-    def maximum_event_age_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_event_age_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_event_age_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumRetryAttempts")
-    def maximum_retry_attempts(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times to retry when the function returns an error.
         """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @maximum_retry_attempts.setter
-    def maximum_retry_attempts(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_retry_attempts(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
@@ -127,15 +127,14 @@ class EventInvokeConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: Optional[pulumi.Input[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_event_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,6 @@ class EventInvokeConfig(pulumi.CustomResource):
         """
         The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
 
-
         :param str resource_name: The name of the resource.
         :param EventInvokeConfigArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,11 +176,11 @@ class EventInvokeConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: Optional[pulumi.Input[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
-                 function_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_event_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

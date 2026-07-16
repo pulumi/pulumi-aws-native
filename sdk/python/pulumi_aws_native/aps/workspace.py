@@ -23,13 +23,13 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 @pulumi.input_type
 class WorkspaceArgs:
     def __init__(__self__, *,
-                 alert_manager_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
-                 query_logging_configuration: Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 workspace_configuration: Optional[pulumi.Input['WorkspaceConfigurationArgs']] = None):
+                 alert_manager_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional['WorkspaceLoggingConfigurationArgs']] = None,
+                 query_logging_configuration: pulumi.Input[Optional['WorkspaceQueryLoggingConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workspace_configuration: pulumi.Input[Optional['WorkspaceConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
@@ -58,86 +58,86 @@ class WorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="alertManagerDefinition")
-    def alert_manager_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alert_manager_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AMP Workspace alert manager definition data
         """
         return pulumi.get(self, "alert_manager_definition")
 
     @alert_manager_definition.setter
-    def alert_manager_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alert_manager_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alert_manager_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AMP Workspace alias.
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS Key ARN used to encrypt and decrypt AMP workspace data.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['WorkspaceLoggingConfigurationArgs']]:
         """
         Contains information about the logging configuration for the workspace.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['WorkspaceLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="queryLoggingConfiguration")
-    def query_logging_configuration(self) -> Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']]:
+    def query_logging_configuration(self) -> pulumi.Input[Optional['WorkspaceQueryLoggingConfigurationArgs']]:
         """
         The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
         """
         return pulumi.get(self, "query_logging_configuration")
 
     @query_logging_configuration.setter
-    def query_logging_configuration(self, value: Optional[pulumi.Input['WorkspaceQueryLoggingConfigurationArgs']]):
+    def query_logging_configuration(self, value: pulumi.Input[Optional['WorkspaceQueryLoggingConfigurationArgs']]):
         pulumi.set(self, "query_logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceConfiguration")
-    def workspace_configuration(self) -> Optional[pulumi.Input['WorkspaceConfigurationArgs']]:
+    def workspace_configuration(self) -> pulumi.Input[Optional['WorkspaceConfigurationArgs']]:
         """
         Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
         """
         return pulumi.get(self, "workspace_configuration")
 
     @workspace_configuration.setter
-    def workspace_configuration(self, value: Optional[pulumi.Input['WorkspaceConfigurationArgs']]):
+    def workspace_configuration(self, value: pulumi.Input[Optional['WorkspaceConfigurationArgs']]):
         pulumi.set(self, "workspace_configuration", value)
 
 
@@ -147,13 +147,13 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_manager_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
-                 query_logging_configuration: Optional[pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
+                 alert_manager_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Workspace
@@ -294,13 +294,13 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_manager_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
-                 query_logging_configuration: Optional[pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workspace_configuration: Optional[pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
+                 alert_manager_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
+                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

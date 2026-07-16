@@ -179,7 +179,6 @@ def get_location_object_storage(location_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DataSync::LocationObjectStorage.
 
-
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the location that is created.
     """
     __args__ = dict()
@@ -199,11 +198,10 @@ def get_location_object_storage(location_arn: Optional[_builtins.str] = None,
         server_port=pulumi.get(__ret__, 'server_port'),
         server_protocol=pulumi.get(__ret__, 'server_protocol'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_location_object_storage_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_object_storage_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
     """
     Resource Type definition for AWS::DataSync::LocationObjectStorage.
-
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the location that is created.
     """

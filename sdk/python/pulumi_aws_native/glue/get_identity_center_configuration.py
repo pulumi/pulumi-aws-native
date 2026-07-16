@@ -87,7 +87,6 @@ def get_identity_center_configuration(account_id: Optional[_builtins.str] = None
     """
     Resource Type definition for AWS::Glue::IdentityCenterConfiguration
 
-
     :param _builtins.str account_id: The identifier for the specified AWS account.
     """
     __args__ = dict()
@@ -100,11 +99,10 @@ def get_identity_center_configuration(account_id: Optional[_builtins.str] = None
         application_arn=pulumi.get(__ret__, 'application_arn'),
         scopes=pulumi.get(__ret__, 'scopes'),
         user_background_sessions_enabled=pulumi.get(__ret__, 'user_background_sessions_enabled'))
-def get_identity_center_configuration_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_center_configuration_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityCenterConfigurationResult]:
     """
     Resource Type definition for AWS::Glue::IdentityCenterConfiguration
-
 
     :param _builtins.str account_id: The identifier for the specified AWS account.
     """

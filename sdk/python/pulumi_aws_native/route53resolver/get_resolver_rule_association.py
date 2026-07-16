@@ -51,7 +51,6 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[_builti
     """
     In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 
-
     :param _builtins.str resolver_rule_association_id: The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[_builti
 
     return AwaitableGetResolverRuleAssociationResult(
         resolver_rule_association_id=pulumi.get(__ret__, 'resolver_rule_association_id'))
-def get_resolver_rule_association_output(resolver_rule_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resolver_rule_association_output(resolver_rule_association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
     """
     In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
-
 
     :param _builtins.str resolver_rule_association_id: The ID of the resolver rule association that you want to get information about, such as `rslvr-rrassoc-97242eaf88example` .
     """

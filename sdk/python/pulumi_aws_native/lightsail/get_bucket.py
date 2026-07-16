@@ -149,7 +149,6 @@ def get_bucket(bucket_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lightsail::Bucket
 
-
     :param _builtins.str bucket_name: The name for the bucket.
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_bucket(bucket_name: Optional[_builtins.str] = None,
         resources_receiving_access=pulumi.get(__ret__, 'resources_receiving_access'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bucket_output(bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type definition for AWS::Lightsail::Bucket
-
 
     :param _builtins.str bucket_name: The name for the bucket.
     """

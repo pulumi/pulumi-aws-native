@@ -197,7 +197,6 @@ def get_fuota_task(id: Optional[_builtins.str] = None,
     """
     Create and manage FUOTA tasks.
 
-
     :param _builtins.str id: FUOTA task id. Returned after successful create.
     """
     __args__ = dict()
@@ -219,11 +218,10 @@ def get_fuota_task(id: Optional[_builtins.str] = None,
         lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_fuota_task_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_fuota_task_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFuotaTaskResult]:
     """
     Create and manage FUOTA tasks.
-
 
     :param _builtins.str id: FUOTA task id. Returned after successful create.
     """

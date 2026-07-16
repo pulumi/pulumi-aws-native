@@ -99,7 +99,6 @@ def get_contact_flow_module_alias(contact_flow_module_alias_arn: Optional[_built
     """
     Resource Type definition for ContactFlowModuleAlias
 
-
     :param _builtins.str contact_flow_module_alias_arn: The identifier of the contact flow module alias (ARN). This is constructed from the ContactFlowModuleArn and AliasId.
     """
     __args__ = dict()
@@ -113,11 +112,10 @@ def get_contact_flow_module_alias(contact_flow_module_alias_arn: Optional[_built
         contact_flow_module_version=pulumi.get(__ret__, 'contact_flow_module_version'),
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'))
-def get_contact_flow_module_alias_output(contact_flow_module_alias_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_contact_flow_module_alias_output(contact_flow_module_alias_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleAliasResult]:
     """
     Resource Type definition for ContactFlowModuleAlias
-
 
     :param _builtins.str contact_flow_module_alias_arn: The identifier of the contact flow module alias (ARN). This is constructed from the ContactFlowModuleArn and AliasId.
     """

@@ -178,7 +178,6 @@ def get_experiment(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Evidently::Experiment.
 
-
     :param _builtins.str arn: The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
     """
     __args__ = dict()
@@ -198,11 +197,10 @@ def get_experiment(arn: Optional[_builtins.str] = None,
         segment=pulumi.get(__ret__, 'segment'),
         tags=pulumi.get(__ret__, 'tags'),
         treatments=pulumi.get(__ret__, 'treatments'))
-def get_experiment_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_experiment_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Resource Type definition for AWS::Evidently::Experiment.
-
 
     :param _builtins.str arn: The ARN of the experiment. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject/experiment/myExperiment`
     """

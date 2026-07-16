@@ -51,7 +51,6 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
 
-
     :param _builtins.str volume_id: Unique identifier for the volume
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
 
     return AwaitableGetVolumeResult(
         volume_id=pulumi.get(__ret__, 'volume_id'))
-def get_volume_output(volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_volume_output(volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Resource Type definition for AWS::WorkspacesInstances::Volume - Manages WorkSpaces Volume resources
-
 
     :param _builtins.str volume_id: Unique identifier for the volume
     """

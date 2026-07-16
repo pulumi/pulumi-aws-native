@@ -176,7 +176,7 @@ class AlarmMetric(dict):
 @pulumi.output_type
 class AlarmMetricDataQuery(dict):
     """
-    The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+    The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
      Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
     """
     @staticmethod
@@ -209,7 +209,7 @@ class AlarmMetricDataQuery(dict):
                  period: Optional[_builtins.int] = None,
                  return_data: Optional[_builtins.bool] = None):
         """
-        The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. 
+        The ``MetricDataQuery`` property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
          Any expression used must return a single time series. For more information, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the *User Guide*.
 
         :param _builtins.str id: A short name used to tie this object to the results in the response. This name must be unique within a single call to ``GetMetricData``. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
@@ -321,7 +321,7 @@ class AlarmMetricStat(dict):
                  +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
                  +  Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).
         :param _builtins.str stat: The statistic to return. It can include any CW statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *User Guide*.
-        :param _builtins.str unit: The unit to use for the returned data points. 
+        :param _builtins.str unit: The unit to use for the returned data points.
                 Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         pulumi.set(__self__, "metric", metric)
@@ -362,7 +362,7 @@ class AlarmMetricStat(dict):
     @pulumi.getter
     def unit(self) -> Optional[_builtins.str]:
         """
-        The unit to use for the returned data points. 
+        The unit to use for the returned data points.
          Valid values are: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         return pulumi.get(self, "unit")

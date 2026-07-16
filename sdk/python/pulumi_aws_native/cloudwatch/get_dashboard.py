@@ -64,7 +64,6 @@ def get_dashboard(dashboard_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CloudWatch::Dashboard
 
-
     :param _builtins.str dashboard_name: The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_dashboard(dashboard_name: Optional[_builtins.str] = None,
     return AwaitableGetDashboardResult(
         dashboard_body=pulumi.get(__ret__, 'dashboard_body'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dashboard_output(dashboard_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource Type definition for AWS::CloudWatch::Dashboard
-
 
     :param _builtins.str dashboard_name: The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
     """

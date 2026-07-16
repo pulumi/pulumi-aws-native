@@ -99,7 +99,7 @@ def get_user_pool_regional_configuration_attachment(user_pool_id: Optional[_buil
         sms_configuration=pulumi.get(__ret__, 'sms_configuration'),
         status=pulumi.get(__ret__, 'status'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'))
-def get_user_pool_regional_configuration_attachment_output(user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_regional_configuration_attachment_output(user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolRegionalConfigurationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolRegionalConfigurationAttachment

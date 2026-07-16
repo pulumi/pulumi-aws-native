@@ -137,7 +137,6 @@ def get_access_grant(access_grant_id: Optional[_builtins.str] = None,
     """
     The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
 
-
     :param _builtins.str access_grant_id: The ID assigned to this access grant.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_access_grant(access_grant_id: Optional[_builtins.str] = None,
         grant_scope=pulumi.get(__ret__, 'grant_scope'),
         grantee=pulumi.get(__ret__, 'grantee'),
         permission=pulumi.get(__ret__, 'permission'))
-def get_access_grant_output(access_grant_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_grant_output(access_grant_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessGrantResult]:
     """
     The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
-
 
     :param _builtins.str access_grant_id: The ID assigned to this access grant.
     """

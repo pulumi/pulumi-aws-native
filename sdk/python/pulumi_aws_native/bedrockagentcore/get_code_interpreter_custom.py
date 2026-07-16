@@ -124,7 +124,6 @@ def get_code_interpreter_custom(code_interpreter_id: Optional[_builtins.str] = N
     """
     Resource definition for AWS::BedrockAgentCore::CodeInterpreterCustom
 
-
     :param _builtins.str code_interpreter_id: The id of the code interpreter.
     """
     __args__ = dict()
@@ -140,11 +139,10 @@ def get_code_interpreter_custom(code_interpreter_id: Optional[_builtins.str] = N
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_code_interpreter_custom_output(code_interpreter_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_code_interpreter_custom_output(code_interpreter_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeInterpreterCustomResult]:
     """
     Resource definition for AWS::BedrockAgentCore::CodeInterpreterCustom
-
 
     :param _builtins.str code_interpreter_id: The id of the code interpreter.
     """

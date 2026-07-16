@@ -73,7 +73,6 @@ def get_keyspace(keyspace_name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Cassandra::Keyspace
 
-
     :param _builtins.str keyspace_name: Name for Cassandra keyspace
     """
     __args__ = dict()
@@ -84,11 +83,10 @@ def get_keyspace(keyspace_name: Optional[_builtins.str] = None,
     return AwaitableGetKeyspaceResult(
         replication_specification=pulumi.get(__ret__, 'replication_specification'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_keyspace_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_keyspace_output(keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyspaceResult]:
     """
     Resource schema for AWS::Cassandra::Keyspace
-
 
     :param _builtins.str keyspace_name: Name for Cassandra keyspace
     """

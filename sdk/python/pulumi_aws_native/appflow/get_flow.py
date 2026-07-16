@@ -150,7 +150,6 @@ def get_flow(flow_name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::AppFlow::Flow.
 
-
     :param _builtins.str flow_name: Name of the flow.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_flow(flow_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tasks=pulumi.get(__ret__, 'tasks'),
         trigger_config=pulumi.get(__ret__, 'trigger_config'))
-def get_flow_output(flow_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_output(flow_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Resource schema for AWS::AppFlow::Flow.
-
 
     :param _builtins.str flow_name: Name of the flow.
     """

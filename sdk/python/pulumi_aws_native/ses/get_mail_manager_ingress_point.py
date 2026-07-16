@@ -158,7 +158,6 @@ def get_mail_manager_ingress_point(ingress_point_id: Optional[_builtins.str] = N
     """
     Definition of AWS::SES::MailManagerIngressPoint Resource Type
 
-
     :param _builtins.str ingress_point_id: The identifier of the ingress endpoint resource.
     """
     __args__ = dict()
@@ -177,11 +176,10 @@ def get_mail_manager_ingress_point(ingress_point_id: Optional[_builtins.str] = N
         tags=pulumi.get(__ret__, 'tags'),
         tls_policy=pulumi.get(__ret__, 'tls_policy'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'))
-def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_ingress_point_output(ingress_point_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerIngressPointResult]:
     """
     Definition of AWS::SES::MailManagerIngressPoint Resource Type
-
 
     :param _builtins.str ingress_point_id: The identifier of the ingress endpoint resource.
     """

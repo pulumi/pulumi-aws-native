@@ -100,7 +100,6 @@ def get_transit_gateway_metering_policy(transit_gateway_metering_policy_id: Opti
     """
     AWS::EC2::TransitGatewayMeteringPolicy Resource Definition
 
-
     :param _builtins.str transit_gateway_metering_policy_id: The Id of the transit gateway metering policy
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_transit_gateway_metering_policy(transit_gateway_metering_policy_id: Opti
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_metering_policy_id=pulumi.get(__ret__, 'transit_gateway_metering_policy_id'),
         update_effective_at=pulumi.get(__ret__, 'update_effective_at'))
-def get_transit_gateway_metering_policy_output(transit_gateway_metering_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_metering_policy_output(transit_gateway_metering_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMeteringPolicyResult]:
     """
     AWS::EC2::TransitGatewayMeteringPolicy Resource Definition
-
 
     :param _builtins.str transit_gateway_metering_policy_id: The Id of the transit gateway metering policy
     """

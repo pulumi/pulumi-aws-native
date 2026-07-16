@@ -88,7 +88,6 @@ def get_local_gateway_route_table_vpc_association(local_gateway_route_table_vpc_
     """
     Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
 
-
     :param _builtins.str local_gateway_route_table_vpc_association_id: The ID of the association.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_local_gateway_route_table_vpc_association(local_gateway_route_table_vpc_
         local_gateway_route_table_vpc_association_id=pulumi.get(__ret__, 'local_gateway_route_table_vpc_association_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_route_table_vpc_association_output(local_gateway_route_table_vpc_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_route_table_vpc_association_output(local_gateway_route_table_vpc_association_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableVpcAssociationResult]:
     """
     Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.
-
 
     :param _builtins.str local_gateway_route_table_vpc_association_id: The ID of the association.
     """

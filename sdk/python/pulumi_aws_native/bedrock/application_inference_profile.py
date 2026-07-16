@@ -24,10 +24,10 @@ __all__ = ['ApplicationInferenceProfileArgs', 'ApplicationInferenceProfile']
 @pulumi.input_type
 class ApplicationInferenceProfileArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_source: Optional[pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_source: pulumi.Input[Optional['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInferenceProfile resource.
 
@@ -47,50 +47,50 @@ class ApplicationInferenceProfileArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the inference profile
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceProfileName")
-    def inference_profile_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inference_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the inference profile.
         """
         return pulumi.get(self, "inference_profile_name")
 
     @inference_profile_name.setter
-    def inference_profile_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inference_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inference_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="modelSource")
-    def model_source(self) -> Optional[pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']]:
+    def model_source(self) -> pulumi.Input[Optional['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']]:
         """
         Contains configurations for the inference profile to copy as the resource.
         """
         return pulumi.get(self, "model_source")
 
     @model_source.setter
-    def model_source(self, value: Optional[pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']]):
+    def model_source(self, value: pulumi.Input[Optional['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']]):
         pulumi.set(self, "model_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         List of Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -100,14 +100,13 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_source: Optional[pulumi.Input[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +124,6 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
         """
         Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationInferenceProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,10 +139,10 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_source: Optional[pulumi.Input[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

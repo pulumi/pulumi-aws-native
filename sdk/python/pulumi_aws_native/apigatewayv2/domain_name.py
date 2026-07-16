@@ -23,10 +23,10 @@ __all__ = ['DomainNameArgs', 'DomainName']
 class DomainNameArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 domain_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
 
@@ -60,50 +60,50 @@ class DomainNameArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainNameConfigurations")
-    def domain_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]:
+    def domain_name_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]:
         """
         The domain name configurations.
         """
         return pulumi.get(self, "domain_name_configurations")
 
     @domain_name_configurations.setter
-    def domain_name_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]):
+    def domain_name_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]]):
         pulumi.set(self, "domain_name_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="mutualTlsAuthentication")
-    def mutual_tls_authentication(self) -> Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]:
+    def mutual_tls_authentication(self) -> pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']]:
         """
         The mutual TLS authentication configuration for a custom domain name.
         """
         return pulumi.get(self, "mutual_tls_authentication")
 
     @mutual_tls_authentication.setter
-    def mutual_tls_authentication(self, value: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']]):
+    def mutual_tls_authentication(self, value: pulumi.Input[Optional['DomainNameMutualTlsAuthenticationArgs']]):
         pulumi.set(self, "mutual_tls_authentication", value)
 
     @_builtins.property
     @pulumi.getter(name="routingMode")
-    def routing_mode(self) -> Optional[pulumi.Input['DomainNameRoutingMode']]:
+    def routing_mode(self) -> pulumi.Input[Optional['DomainNameRoutingMode']]:
         """
         The routing mode API Gateway uses to route traffic to your APIs.
         """
         return pulumi.get(self, "routing_mode")
 
     @routing_mode.setter
-    def routing_mode(self, value: Optional[pulumi.Input['DomainNameRoutingMode']]):
+    def routing_mode(self, value: pulumi.Input[Optional['DomainNameRoutingMode']]):
         pulumi.set(self, "routing_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The collection of tags associated with a domain name.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,16 +113,15 @@ class DomainName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
          You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class DomainName(pulumi.CustomResource):
         The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
          You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param DomainNameArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,11 +156,11 @@ class DomainName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
-                 routing_mode: Optional[pulumi.Input['DomainNameRoutingMode']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]]] = None,
+                 mutual_tls_authentication: pulumi.Input[Optional[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
+                 routing_mode: pulumi.Input[Optional['DomainNameRoutingMode']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

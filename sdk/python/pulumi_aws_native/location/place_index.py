@@ -25,17 +25,17 @@ __all__ = ['PlaceIndexArgs', 'PlaceIndex']
 class PlaceIndexArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
-                 data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_source_configuration: pulumi.Input[Optional['PlaceIndexDataSourceConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['PlaceIndexPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
 
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
                
-               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
                
                Valid values include:
                
@@ -78,7 +78,7 @@ class PlaceIndexArgs:
         """
         Specifies the geospatial data provider for the new place index.
 
-        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
 
         Valid values include:
 
@@ -98,31 +98,31 @@ class PlaceIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSourceConfiguration")
-    def data_source_configuration(self) -> Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']]:
+    def data_source_configuration(self) -> pulumi.Input[Optional['PlaceIndexDataSourceConfigurationArgs']]:
         """
         Specifies the data storage option requesting Places.
         """
         return pulumi.get(self, "data_source_configuration")
 
     @data_source_configuration.setter
-    def data_source_configuration(self, value: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']]):
+    def data_source_configuration(self, value: pulumi.Input[Optional['PlaceIndexDataSourceConfigurationArgs']]):
         pulumi.set(self, "data_source_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description for the place index resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the place index resource.
 
@@ -135,12 +135,12 @@ class PlaceIndexArgs:
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> Optional[pulumi.Input['PlaceIndexPricingPlan']]:
+    def pricing_plan(self) -> pulumi.Input[Optional['PlaceIndexPricingPlan']]:
         """
         No longer used. If included, the only allowed value is `RequestBasedUsage` .
 
@@ -149,19 +149,19 @@ class PlaceIndexArgs:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: Optional[pulumi.Input['PlaceIndexPricingPlan']]):
+    def pricing_plan(self, value: pulumi.Input[Optional['PlaceIndexPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -171,22 +171,21 @@ class PlaceIndex(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['PlaceIndexPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_source: Specifies the geospatial data provider for the new place index.
                
-               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
                
                Valid values include:
                
@@ -220,7 +219,6 @@ class PlaceIndex(pulumi.CustomResource):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param PlaceIndexArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,12 +234,12 @@ class PlaceIndex(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['PlaceIndexPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -323,7 +321,7 @@ class PlaceIndex(pulumi.CustomResource):
         """
         Specifies the geospatial data provider for the new place index.
 
-        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
 
         Valid values include:
 

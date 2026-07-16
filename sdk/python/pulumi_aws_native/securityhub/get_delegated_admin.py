@@ -67,7 +67,6 @@ def get_delegated_admin(delegated_admin_identifier: Optional[_builtins.str] = No
      To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
      Tags aren't supported for this resource.
 
-
     :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
     """
     __args__ = dict()
@@ -78,14 +77,13 @@ def get_delegated_admin(delegated_admin_identifier: Optional[_builtins.str] = No
     return AwaitableGetDelegatedAdminResult(
         delegated_admin_identifier=pulumi.get(__ret__, 'delegated_admin_identifier'),
         status=pulumi.get(__ret__, 'status'))
-def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delegated_admin_output(delegated_admin_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedAdminResult]:
     """
     The ``AWS::SecurityHub::DelegatedAdmin`` resource designates the delegated ASHlong administrator account for an organization. You must enable the integration between ASH and AOlong before you can designate a delegated ASH administrator. Only the management account for an organization can designate the delegated ASH administrator account. For more information, see [Designating the delegated administrator](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html#designate-admin-instructions) in the *User Guide*.
      To change the delegated administrator account, remove the current delegated administrator account, and then designate the new account.
      To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
      Tags aren't supported for this resource.
-
 
     :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
     """

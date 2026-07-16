@@ -76,7 +76,6 @@ def get_request_validator(request_validator_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str request_validator_id: The ID for the request validator. For example: `abc123` .
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
     """
@@ -90,12 +89,11 @@ def get_request_validator(request_validator_id: Optional[_builtins.str] = None,
         request_validator_id=pulumi.get(__ret__, 'request_validator_id'),
         validate_request_body=pulumi.get(__ret__, 'validate_request_body'),
         validate_request_parameters=pulumi.get(__ret__, 'validate_request_parameters'))
-def get_request_validator_output(request_validator_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_request_validator_output(request_validator_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestValidatorResult]:
     """
     The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str request_validator_id: The ID for the request validator. For example: `abc123` .
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.

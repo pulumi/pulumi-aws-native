@@ -859,7 +859,7 @@ class DomainUnifiedStudioSettingsStudioWebPortalAccess(_builtins.str, Enum):
 @pulumi.type_token("aws-native:sagemaker:DomainUserSettingsAutoMountHomeEfs")
 class DomainUserSettingsAutoMountHomeEfs(_builtins.str, Enum):
     """
-    Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    Indicates whether auto-mounting of an EFS volume is supported for the user profile.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -1389,7 +1389,7 @@ class ModelPackageTransformInputCompressionType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:sagemaker:ModelPackageTransformInputSplitType")
 class ModelPackageTransformInputSplitType(_builtins.str, Enum):
     """
-    The method to use to split the transform job's data files into smaller batches. 
+    The method to use to split the transform job's data files into smaller batches.
     """
     NONE = "None"
     TF_RECORD = "TFRecord"
@@ -2320,7 +2320,7 @@ class UserProfileSharingSettingsNotebookOutputOption(_builtins.str, Enum):
 @pulumi.type_token("aws-native:sagemaker:UserProfileUserSettingsAutoMountHomeEfs")
 class UserProfileUserSettingsAutoMountHomeEfs(_builtins.str, Enum):
     """
-    Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+    Indicates whether auto-mounting of an EFS volume is supported for the user profile.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

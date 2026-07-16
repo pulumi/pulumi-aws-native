@@ -23,9 +23,9 @@ class VpceConfigurationArgs:
     def __init__(__self__, *,
                  service_dns_name: pulumi.Input[_builtins.str],
                  vpce_service_name: pulumi.Input[_builtins.str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpce_configuration_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpce_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpce_configuration_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpce_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VpceConfiguration resource.
 
@@ -76,7 +76,7 @@ class VpceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -85,31 +85,31 @@ class VpceConfigurationArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpceConfigurationDescription")
-    def vpce_configuration_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpce_configuration_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description that provides details about your VPC endpoint configuration.
         """
         return pulumi.get(self, "vpce_configuration_description")
 
     @vpce_configuration_description.setter
-    def vpce_configuration_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpce_configuration_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpce_configuration_description", value)
 
     @_builtins.property
     @pulumi.getter(name="vpceConfigurationName")
-    def vpce_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpce_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
         """
         return pulumi.get(self, "vpce_configuration_name")
 
     @vpce_configuration_name.setter
-    def vpce_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpce_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpce_configuration_name", value)
 
 
@@ -119,15 +119,14 @@ class VpceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpce_configuration_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpce_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpce_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpce_configuration_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpce_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpce_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for a Device Farm VPCE Configuration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +149,6 @@ class VpceConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for a Device Farm VPCE Configuration
 
-
         :param str resource_name: The name of the resource.
         :param VpceConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,11 +164,11 @@ class VpceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 service_dns_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpce_configuration_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpce_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpce_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpce_configuration_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpce_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpce_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

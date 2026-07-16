@@ -52,7 +52,6 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[_builtins.str]
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
-
     :param _builtins.str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
     :param _builtins.str user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
     """
@@ -64,12 +63,11 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[_builtins.str]
 
     return AwaitableGetUserPoolUiCustomizationAttachmentResult(
         css=pulumi.get(__ret__, 'css'))
-def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_ui_customization_attachment_output(client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
-
 
     :param _builtins.str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
     :param _builtins.str user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.

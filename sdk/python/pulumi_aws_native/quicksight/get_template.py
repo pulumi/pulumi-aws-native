@@ -124,7 +124,6 @@ def get_template(aws_account_id: Optional[_builtins.str] = None,
     """
     Definition of the AWS::QuickSight::Template Resource Type.
 
-
     :param _builtins.str aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
     :param _builtins.str template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
     """
@@ -142,12 +141,11 @@ def get_template(aws_account_id: Optional[_builtins.str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_template_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                        template_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                        template_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Definition of the AWS::QuickSight::Template Resource Type.
-
 
     :param _builtins.str aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
     :param _builtins.str template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.

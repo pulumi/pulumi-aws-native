@@ -21,8 +21,8 @@ class VolumeAttachmentArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[_builtins.str],
                  volume_id: pulumi.Input[_builtins.str],
-                 device: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None):
+                 device: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_card_index: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
 
@@ -64,26 +64,26 @@ class VolumeAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def device(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def device(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The device name (for example, ``/dev/sdh`` or ``xvdh``).
         """
         return pulumi.get(self, "device")
 
     @device.setter
-    def device(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def device(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsCardIndex")
-    def ebs_card_index(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ebs_card_index(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
         """
         return pulumi.get(self, "ebs_card_index")
 
     @ebs_card_index.setter
-    def ebs_card_index(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ebs_card_index(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ebs_card_index", value)
 
 
@@ -93,17 +93,16 @@ class VolumeAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_card_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Attaches an Amazon EBS volume to a running instance and exposes it to the instance with the specified device name.
          Before this resource can be deleted (and therefore the volume detached), you must first unmount the volume in the instance. Failure to do so results in the volume being stuck in the busy state while it is trying to detach, which could possibly damage the file system or the data it contains.
          If an Amazon EBS volume is the root device of an instance, it cannot be detached while the instance is in the "running" state. To detach the root volume, stop the instance first.
          If the root volume is detached from an instance with an MKT product code, then the product codes from that volume are no longer associated with the instance.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class VolumeAttachment(pulumi.CustomResource):
          If an Amazon EBS volume is the root device of an instance, it cannot be detached while the instance is in the "running" state. To detach the root volume, stop the instance first.
          If the root volume is detached from an instance with an MKT product code, then the product codes from that volume are no longer associated with the instance.
 
-
         :param str resource_name: The name of the resource.
         :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class VolumeAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_card_index: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_card_index: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

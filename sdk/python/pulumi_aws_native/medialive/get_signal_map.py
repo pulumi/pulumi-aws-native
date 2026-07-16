@@ -266,7 +266,7 @@ def get_signal_map(identifier: Optional[_builtins.str] = None,
         monitor_deployment=pulumi.get(__ret__, 'monitor_deployment'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'))
-def get_signal_map_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signal_map_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalMapResult]:
     """
     Definition of AWS::MediaLive::SignalMap Resource Type

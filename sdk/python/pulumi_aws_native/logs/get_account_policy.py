@@ -96,7 +96,6 @@ def get_account_policy(account_id: Optional[_builtins.str] = None,
     """
     The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
 
-
     :param _builtins.str account_id: User account id
     :param _builtins.str policy_name: The name of the account policy
     :param 'AccountPolicyPolicyType' policy_type: Type of the policy.
@@ -113,13 +112,12 @@ def get_account_policy(account_id: Optional[_builtins.str] = None,
         policy_document=pulumi.get(__ret__, 'policy_document'),
         scope=pulumi.get(__ret__, 'scope'),
         selection_criteria=pulumi.get(__ret__, 'selection_criteria'))
-def get_account_policy_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
+def get_account_policy_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              policy_type: pulumi.Input[Optional['AccountPolicyPolicyType']] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountPolicyResult]:
     """
     The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
-
 
     :param _builtins.str account_id: User account id
     :param _builtins.str policy_name: The name of the account policy

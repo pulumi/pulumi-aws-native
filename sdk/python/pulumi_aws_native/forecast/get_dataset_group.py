@@ -89,7 +89,6 @@ def get_dataset_group(dataset_group_arn: Optional[_builtins.str] = None,
     """
     Represents a dataset group that holds a collection of related datasets
 
-
     :param _builtins.str dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to delete.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_dataset_group(dataset_group_arn: Optional[_builtins.str] = None,
         dataset_group_arn=pulumi.get(__ret__, 'dataset_group_arn'),
         domain=pulumi.get(__ret__, 'domain'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_group_output(dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetGroupResult]:
     """
     Represents a dataset group that holds a collection of related datasets
-
 
     :param _builtins.str dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to delete.
     """

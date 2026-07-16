@@ -63,7 +63,6 @@ def get_service_linked_role(role_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IAM::ServiceLinkedRole
 
-
     :param _builtins.str role_name: The name of the role.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_service_linked_role(role_name: Optional[_builtins.str] = None,
     return AwaitableGetServiceLinkedRoleResult(
         description=pulumi.get(__ret__, 'description'),
         role_name=pulumi.get(__ret__, 'role_name'))
-def get_service_linked_role_output(role_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_linked_role_output(role_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkedRoleResult]:
     """
     Resource Type definition for AWS::IAM::ServiceLinkedRole
-
 
     :param _builtins.str role_name: The name of the role.
     """

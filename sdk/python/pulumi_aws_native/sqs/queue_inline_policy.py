@@ -66,11 +66,10 @@ class QueueInlinePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 queue: Optional[pulumi.Input[_builtins.str]] = None,
+                 queue: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Schema for SQS QueueInlinePolicy
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -88,7 +87,6 @@ class QueueInlinePolicy(pulumi.CustomResource):
         """
         Schema for SQS QueueInlinePolicy
 
-
         :param str resource_name: The name of the resource.
         :param QueueInlinePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +103,7 @@ class QueueInlinePolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_document: Optional[Any] = None,
-                 queue: Optional[pulumi.Input[_builtins.str]] = None,
+                 queue: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

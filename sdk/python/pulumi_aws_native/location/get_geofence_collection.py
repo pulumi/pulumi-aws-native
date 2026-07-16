@@ -138,7 +138,6 @@ def get_geofence_collection(collection_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Location::GeofenceCollection Resource Type
 
-
     :param _builtins.str collection_name: A custom name for the geofence collection.
            
            Requirements:
@@ -161,11 +160,10 @@ def get_geofence_collection(collection_name: Optional[_builtins.str] = None,
         pricing_plan_data_source=pulumi.get(__ret__, 'pricing_plan_data_source'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_geofence_collection_output(collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_geofence_collection_output(collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
     Definition of AWS::Location::GeofenceCollection Resource Type
-
 
     :param _builtins.str collection_name: A custom name for the geofence collection.
            

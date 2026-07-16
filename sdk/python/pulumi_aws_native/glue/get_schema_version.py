@@ -51,7 +51,6 @@ def get_schema_version(version_id: Optional[_builtins.str] = None,
     """
     This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
-
     :param _builtins.str version_id: Represents the version ID associated with the schema version.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_schema_version(version_id: Optional[_builtins.str] = None,
 
     return AwaitableGetSchemaVersionResult(
         version_id=pulumi.get(__ret__, 'version_id'))
-def get_schema_version_output(version_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_version_output(version_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
     This resource represents an individual schema version of a schema defined in Glue Schema Registry.
-
 
     :param _builtins.str version_id: Represents the version ID associated with the schema version.
     """

@@ -23,11 +23,11 @@ __all__ = ['EventBridgeRuleTemplateArgs', 'EventBridgeRuleTemplate']
 class EventBridgeRuleTemplateArgs:
     def __init__(__self__, *,
                  event_type: pulumi.Input['EventBridgeRuleTemplateEventType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_targets: Optional[pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EventBridgeRuleTemplate resource.
 
@@ -63,59 +63,59 @@ class EventBridgeRuleTemplateArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's optional description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventTargets")
-    def event_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]]:
+    def event_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]]:
         """
         Placeholder documentation for __listOfEventBridgeRuleTemplateTarget
         """
         return pulumi.get(self, "event_targets")
 
     @event_targets.setter
-    def event_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]]):
+    def event_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventBridgeRuleTemplateTargetArgs']]]]):
         pulumi.set(self, "event_targets", value)
 
     @_builtins.property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An eventbridge rule template group's identifier. Can be either be its id or current name.
         """
         return pulumi.get(self, "group_identifier")
 
     @group_identifier.setter
-    def group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -125,16 +125,15 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
-                 event_type: Optional[pulumi.Input['EventBridgeRuleTemplateEventType']] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
+                 event_type: pulumi.Input[Optional['EventBridgeRuleTemplateEventType']] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +152,6 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param EventBridgeRuleTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,12 +167,12 @@ class EventBridgeRuleTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
-                 event_type: Optional[pulumi.Input['EventBridgeRuleTemplateEventType']] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventBridgeRuleTemplateTargetArgs', 'EventBridgeRuleTemplateTargetArgsDict']]]]] = None,
+                 event_type: pulumi.Input[Optional['EventBridgeRuleTemplateEventType']] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

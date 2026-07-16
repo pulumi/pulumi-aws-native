@@ -89,7 +89,7 @@ def get_secret_target_attachment(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         target_id=pulumi.get(__ret__, 'target_id'),
         target_type=pulumi.get(__ret__, 'target_type'))
-def get_secret_target_attachment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secret_target_attachment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretTargetAttachmentResult]:
     """
     Resource Type definition for AWS::SecretsManager::SecretTargetAttachment

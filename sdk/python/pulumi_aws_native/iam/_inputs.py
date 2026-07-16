@@ -200,7 +200,7 @@ class UserLoginProfileArgsDict(TypedDict):
     """
     The user's password.
     """
-    password_reset_required: NotRequired[pulumi.Input[_builtins.bool]]
+    password_reset_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the user is required to set a new password on next sign-in.
     """
@@ -209,7 +209,7 @@ class UserLoginProfileArgsDict(TypedDict):
 class UserLoginProfileArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[_builtins.str],
-                 password_reset_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 password_reset_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Creates a password for the specified user, giving the user the ability to access AWS services through the console. For more information about managing passwords, see [Managing Passwords](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html) in the *User Guide*.
 
@@ -234,14 +234,14 @@ class UserLoginProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="passwordResetRequired")
-    def password_reset_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def password_reset_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the user is required to set a new password on next sign-in.
         """
         return pulumi.get(self, "password_reset_required")
 
     @password_reset_required.setter
-    def password_reset_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def password_reset_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "password_reset_required", value)
 
 

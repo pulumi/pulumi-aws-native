@@ -24,23 +24,23 @@ __all__ = ['ServerArgs', 'Server']
 @pulumi.input_type
 class ServerArgs:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input['ServerDomain']] = None,
-                 endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
-                 endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
-                 identity_provider_details: Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']] = None,
-                 identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocol']]]] = None,
-                 s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['ServerDomain']] = None,
+                 endpoint_details: pulumi.Input[Optional['ServerEndpointDetailsArgs']] = None,
+                 endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
+                 identity_provider_details: pulumi.Input[Optional['ServerIdentityProviderDetailsArgs']] = None,
+                 identity_provider_type: pulumi.Input[Optional['ServerIdentityProviderType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ServerIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_details: pulumi.Input[Optional['ServerProtocolDetailsArgs']] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input['ServerProtocol']]]] = None,
+                 s3_storage_options: pulumi.Input[Optional['ServerS3StorageOptionsArgs']] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 workflow_details: pulumi.Input[Optional['ServerWorkflowDetailsArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
 
@@ -81,7 +81,6 @@ class ServerArgs:
         :param pulumi.Input['ServerIpAddressType'] ip_address_type: Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
                
                > The `IpAddressType` parameter has the following limitations:
-               > 
                > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
                > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         :param pulumi.Input[_builtins.str] logging_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
@@ -112,7 +111,7 @@ class ServerArgs:
                > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
                > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
                > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-               > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+               > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
                
                The `Protocols` parameter is an array of strings.
                
@@ -177,7 +176,7 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Certificate Manager (ACM) certificate. Required when `Protocols` is set to `FTPS` .
 
@@ -200,36 +199,36 @@ class ServerArgs:
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input['ServerDomain']]:
+    def domain(self) -> pulumi.Input[Optional['ServerDomain']]:
         """
         Specifies the domain of the storage system that is used for file transfers. There are two domains available: Amazon Simple Storage Service (Amazon S3) and Amazon Elastic File System (Amazon EFS). The default value is S3.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input['ServerDomain']]):
+    def domain(self, value: pulumi.Input[Optional['ServerDomain']]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointDetails")
-    def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArgs']]:
+    def endpoint_details(self) -> pulumi.Input[Optional['ServerEndpointDetailsArgs']]:
         """
         The virtual private cloud (VPC) endpoint settings that are configured for your server. When you host your endpoint within your VPC, you can make your endpoint accessible only to resources within your VPC, or you can attach Elastic IP addresses and make your endpoint accessible to clients over the internet. Your VPC's default security groups are automatically assigned to your endpoint.
         """
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
-    def endpoint_details(self, value: Optional[pulumi.Input['ServerEndpointDetailsArgs']]):
+    def endpoint_details(self, value: pulumi.Input[Optional['ServerEndpointDetailsArgs']]):
         pulumi.set(self, "endpoint_details", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input['ServerEndpointType']]:
+    def endpoint_type(self) -> pulumi.Input[Optional['ServerEndpointType']]:
         """
         The type of endpoint that you want your server to use. You can choose to make your server's endpoint publicly accessible (PUBLIC) or host it inside your VPC. With an endpoint that is hosted in a VPC, you can restrict access to your server and resources only within your VPC or choose to make it internet facing by attaching Elastic IP addresses directly to it.
 
@@ -242,24 +241,24 @@ class ServerArgs:
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input['ServerEndpointType']]):
+    def endpoint_type(self, value: pulumi.Input[Optional['ServerEndpointType']]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderDetails")
-    def identity_provider_details(self) -> Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']]:
+    def identity_provider_details(self) -> pulumi.Input[Optional['ServerIdentityProviderDetailsArgs']]:
         """
         Required when `IdentityProviderType` is set to `AWS_DIRECTORY_SERVICE` , `AWS _LAMBDA` or `API_GATEWAY` . Accepts an array containing all of the information required to use a directory in `AWS_DIRECTORY_SERVICE` or invoke a customer-supplied authentication API, including the API Gateway URL. Cannot be specified when `IdentityProviderType` is set to `SERVICE_MANAGED` .
         """
         return pulumi.get(self, "identity_provider_details")
 
     @identity_provider_details.setter
-    def identity_provider_details(self, value: Optional[pulumi.Input['ServerIdentityProviderDetailsArgs']]):
+    def identity_provider_details(self, value: pulumi.Input[Optional['ServerIdentityProviderDetailsArgs']]):
         pulumi.set(self, "identity_provider_details", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderType")
-    def identity_provider_type(self) -> Optional[pulumi.Input['ServerIdentityProviderType']]:
+    def identity_provider_type(self) -> pulumi.Input[Optional['ServerIdentityProviderType']]:
         """
         The mode of authentication for a server. The default value is `SERVICE_MANAGED` , which allows you to store and access user credentials within the AWS Transfer Family service.
 
@@ -272,41 +271,40 @@ class ServerArgs:
         return pulumi.get(self, "identity_provider_type")
 
     @identity_provider_type.setter
-    def identity_provider_type(self, value: Optional[pulumi.Input['ServerIdentityProviderType']]):
+    def identity_provider_type(self, value: pulumi.Input[Optional['ServerIdentityProviderType']]):
         pulumi.set(self, "identity_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input['ServerIpAddressType']]:
+    def ip_address_type(self) -> pulumi.Input[Optional['ServerIpAddressType']]:
         """
         Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
 
         > The `IpAddressType` parameter has the following limitations:
-        > 
         > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
         > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input['ServerIpAddressType']]):
+    def ip_address_type(self, value: pulumi.Input[Optional['ServerIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
-    def logging_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
         """
         return pulumi.get(self, "logging_role")
 
     @logging_role.setter
-    def logging_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_role", value)
 
     @_builtins.property
     @pulumi.getter(name="postAuthenticationLoginBanner")
-    def post_authentication_login_banner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def post_authentication_login_banner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a string to display when users connect to a server. This string is displayed after the user authenticates.
 
@@ -315,12 +313,12 @@ class ServerArgs:
         return pulumi.get(self, "post_authentication_login_banner")
 
     @post_authentication_login_banner.setter
-    def post_authentication_login_banner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def post_authentication_login_banner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "post_authentication_login_banner", value)
 
     @_builtins.property
     @pulumi.getter(name="preAuthenticationLoginBanner")
-    def pre_authentication_login_banner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pre_authentication_login_banner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a string to display when users connect to a server. This string is displayed before the user authenticates. For example, the following banner displays details about using the system:
 
@@ -329,12 +327,12 @@ class ServerArgs:
         return pulumi.get(self, "pre_authentication_login_banner")
 
     @pre_authentication_login_banner.setter
-    def pre_authentication_login_banner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pre_authentication_login_banner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pre_authentication_login_banner", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolDetails")
-    def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
+    def protocol_details(self) -> pulumi.Input[Optional['ServerProtocolDetailsArgs']]:
         """
         The protocol settings that are configured for your server.
 
@@ -350,12 +348,12 @@ class ServerArgs:
         return pulumi.get(self, "protocol_details")
 
     @protocol_details.setter
-    def protocol_details(self, value: Optional[pulumi.Input['ServerProtocolDetailsArgs']]):
+    def protocol_details(self, value: pulumi.Input[Optional['ServerProtocolDetailsArgs']]):
         pulumi.set(self, "protocol_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocol']]]]:
+    def protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerProtocol']]]]:
         """
         Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. The available protocols are:
 
@@ -368,7 +366,7 @@ class ServerArgs:
         > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
         > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
         > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
 
         The `Protocols` parameter is an array of strings.
 
@@ -377,12 +375,12 @@ class ServerArgs:
         return pulumi.get(self, "protocols")
 
     @protocols.setter
-    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocol']]]]):
+    def protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerProtocol']]]]):
         pulumi.set(self, "protocols", value)
 
     @_builtins.property
     @pulumi.getter(name="s3StorageOptions")
-    def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
+    def s3_storage_options(self) -> pulumi.Input[Optional['ServerS3StorageOptionsArgs']]:
         """
         Specifies whether or not performance for your Amazon S3 directories is optimized.
 
@@ -394,24 +392,24 @@ class ServerArgs:
         return pulumi.get(self, "s3_storage_options")
 
     @s3_storage_options.setter
-    def s3_storage_options(self, value: Optional[pulumi.Input['ServerS3StorageOptionsArgs']]):
+    def s3_storage_options(self, value: pulumi.Input[Optional['ServerS3StorageOptionsArgs']]):
         pulumi.set(self, "s3_storage_options", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the security policy for the server.
         """
         return pulumi.get(self, "security_policy_name")
 
     @security_policy_name.setter
-    def security_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="structuredLogDestinations")
-    def structured_log_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def structured_log_destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the log groups to which your server logs are sent.
 
@@ -428,24 +426,24 @@ class ServerArgs:
         return pulumi.get(self, "structured_log_destinations")
 
     @structured_log_destinations.setter
-    def structured_log_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def structured_log_destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "structured_log_destinations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for servers.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowDetails")
-    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
+    def workflow_details(self) -> pulumi.Input[Optional['ServerWorkflowDetailsArgs']]:
         """
         Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.
 
@@ -454,7 +452,7 @@ class ServerArgs:
         return pulumi.get(self, "workflow_details")
 
     @workflow_details.setter
-    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArgs']]):
+    def workflow_details(self, value: pulumi.Input[Optional['ServerWorkflowDetailsArgs']]):
         pulumi.set(self, "workflow_details", value)
 
 
@@ -464,23 +462,23 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input['ServerDomain']] = None,
-                 endpoint_details: Optional[pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
-                 endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
-                 identity_provider_details: Optional[pulumi.Input[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
-                 identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_details: Optional[pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocol']]]] = None,
-                 s3_storage_options: Optional[pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workflow_details: Optional[pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['ServerDomain']] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
+                 endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
+                 identity_provider_type: pulumi.Input[Optional['ServerIdentityProviderType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ServerIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input['ServerProtocol']]]] = None,
+                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Transfer::Server Resource Type
@@ -713,7 +711,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input['ServerIpAddressType'] ip_address_type: Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
                
                > The `IpAddressType` parameter has the following limitations:
-               > 
                > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
                > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         :param pulumi.Input[_builtins.str] logging_role: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.
@@ -744,7 +741,7 @@ class Server(pulumi.CustomResource):
                > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
                > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
                > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-               > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+               > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
                
                The `Protocols` parameter is an array of strings.
                
@@ -985,23 +982,23 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain: Optional[pulumi.Input['ServerDomain']] = None,
-                 endpoint_details: Optional[pulumi.Input[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
-                 endpoint_type: Optional[pulumi.Input['ServerEndpointType']] = None,
-                 identity_provider_details: Optional[pulumi.Input[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
-                 identity_provider_type: Optional[pulumi.Input['ServerIdentityProviderType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ServerIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 post_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authentication_login_banner: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol_details: Optional[pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocol']]]] = None,
-                 s3_storage_options: Optional[pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workflow_details: Optional[pulumi.Input[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
+                 certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain: pulumi.Input[Optional['ServerDomain']] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['ServerEndpointDetailsArgs', 'ServerEndpointDetailsArgsDict']]] = None,
+                 endpoint_type: pulumi.Input[Optional['ServerEndpointType']] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['ServerIdentityProviderDetailsArgs', 'ServerIdentityProviderDetailsArgsDict']]] = None,
+                 identity_provider_type: pulumi.Input[Optional['ServerIdentityProviderType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ServerIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 post_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authentication_login_banner: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol_details: pulumi.Input[Optional[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
+                 protocols: pulumi.Input[Optional[Sequence[pulumi.Input['ServerProtocol']]]] = None,
+                 s3_storage_options: pulumi.Input[Optional[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 structured_log_destinations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 workflow_details: pulumi.Input[Optional[Union['ServerWorkflowDetailsArgs', 'ServerWorkflowDetailsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1178,7 +1175,6 @@ class Server(pulumi.CustomResource):
         Specifies whether to use IPv4 only, or to use dual-stack (IPv4 and IPv6) for your AWS Transfer Family endpoint. The default value is `IPV4` .
 
         > The `IpAddressType` parameter has the following limitations:
-        > 
         > - It cannot be changed while the server is online. You must stop the server before modifying this parameter.
         > - It cannot be updated to `DUALSTACK` if the server has `AddressAllocationIds` specified. > When using `DUALSTACK` as the `IpAddressType` , you cannot set the `AddressAllocationIds` parameter for the [EndpointDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_EndpointDetails.html) for the server.
         """
@@ -1244,7 +1240,7 @@ class Server(pulumi.CustomResource):
         > - If `Protocol` includes either `FTP` or `FTPS` , then the `EndpointType` must be `VPC` and the `IdentityProviderType` must be either `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
         > - If `Protocol` includes `FTP` , then `AddressAllocationIds` cannot be associated.
         > - If `Protocol` is set only to `SFTP` , the `EndpointType` can be set to `PUBLIC` and the `IdentityProviderType` can be set any of the supported identity types: `SERVICE_MANAGED` , `AWS_DIRECTORY_SERVICE` , `AWS_LAMBDA` , or `API_GATEWAY` .
-        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3. 
+        > - If `Protocol` includes `AS2` , then the `EndpointType` must be `VPC` , and domain must be Amazon S3.
 
         The `Protocols` parameter is an array of strings.
 

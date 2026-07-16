@@ -64,7 +64,6 @@ def get_deployment(api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str deployment_id: The deployment ID.
     """
@@ -77,12 +76,11 @@ def get_deployment(api_id: Optional[_builtins.str] = None,
     return AwaitableGetDeploymentResult(
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         description=pulumi.get(__ret__, 'description'))
-def get_deployment_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          deployment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_deployment_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str deployment_id: The deployment ID.

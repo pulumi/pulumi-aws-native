@@ -30,10 +30,10 @@ class SiteAddressArgsDict(TypedDict):
     country_code: pulumi.Input[_builtins.str]
     postal_code: pulumi.Input[_builtins.str]
     state_or_region: pulumi.Input[_builtins.str]
-    address_line2: NotRequired[pulumi.Input[_builtins.str]]
-    address_line3: NotRequired[pulumi.Input[_builtins.str]]
-    district_or_county: NotRequired[pulumi.Input[_builtins.str]]
-    municipality: NotRequired[pulumi.Input[_builtins.str]]
+    address_line2: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    address_line3: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    district_or_county: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    municipality: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class SiteAddressArgs:
@@ -45,10 +45,10 @@ class SiteAddressArgs:
                  country_code: pulumi.Input[_builtins.str],
                  postal_code: pulumi.Input[_builtins.str],
                  state_or_region: pulumi.Input[_builtins.str],
-                 address_line2: Optional[pulumi.Input[_builtins.str]] = None,
-                 address_line3: Optional[pulumi.Input[_builtins.str]] = None,
-                 district_or_county: Optional[pulumi.Input[_builtins.str]] = None,
-                 municipality: Optional[pulumi.Input[_builtins.str]] = None):
+                 address_line2: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_line3: pulumi.Input[Optional[_builtins.str]] = None,
+                 district_or_county: pulumi.Input[Optional[_builtins.str]] = None,
+                 municipality: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "address_line1", address_line1)
         pulumi.set(__self__, "city", city)
         pulumi.set(__self__, "contact_name", contact_name)
@@ -130,64 +130,64 @@ class SiteAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressLine2")
-    def address_line2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line2(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "address_line2")
 
     @address_line2.setter
-    def address_line2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line2", value)
 
     @_builtins.property
     @pulumi.getter(name="addressLine3")
-    def address_line3(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address_line3(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "address_line3")
 
     @address_line3.setter
-    def address_line3(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address_line3(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address_line3", value)
 
     @_builtins.property
     @pulumi.getter(name="districtOrCounty")
-    def district_or_county(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def district_or_county(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "district_or_county")
 
     @district_or_county.setter
-    def district_or_county(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def district_or_county(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "district_or_county", value)
 
     @_builtins.property
     @pulumi.getter
-    def municipality(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def municipality(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "municipality")
 
     @municipality.setter
-    def municipality(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def municipality(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "municipality", value)
 
 
 class SiteRackPhysicalPropertiesArgsDict(TypedDict):
-    fiber_optic_cable_type: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesFiberOpticCableType']]
-    maximum_supported_weight_lbs: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]
-    optical_standard: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesOpticalStandard']]
-    power_connector: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesPowerConnector']]
-    power_draw_kva: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesPowerDrawKva']]
-    power_feed_drop: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesPowerFeedDrop']]
-    power_phase: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesPowerPhase']]
-    uplink_count: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesUplinkCount']]
-    uplink_gbps: NotRequired[pulumi.Input['SiteRackPhysicalPropertiesUplinkGbps']]
+    fiber_optic_cable_type: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesFiberOpticCableType']]]
+    maximum_supported_weight_lbs: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]]
+    optical_standard: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesOpticalStandard']]]
+    power_connector: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerConnector']]]
+    power_draw_kva: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerDrawKva']]]
+    power_feed_drop: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerFeedDrop']]]
+    power_phase: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerPhase']]]
+    uplink_count: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkCount']]]
+    uplink_gbps: NotRequired[pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkGbps']]]
 
 @pulumi.input_type
 class SiteRackPhysicalPropertiesArgs:
     def __init__(__self__, *,
-                 fiber_optic_cable_type: Optional[pulumi.Input['SiteRackPhysicalPropertiesFiberOpticCableType']] = None,
-                 maximum_supported_weight_lbs: Optional[pulumi.Input['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']] = None,
-                 optical_standard: Optional[pulumi.Input['SiteRackPhysicalPropertiesOpticalStandard']] = None,
-                 power_connector: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerConnector']] = None,
-                 power_draw_kva: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerDrawKva']] = None,
-                 power_feed_drop: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerFeedDrop']] = None,
-                 power_phase: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerPhase']] = None,
-                 uplink_count: Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkCount']] = None,
-                 uplink_gbps: Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkGbps']] = None):
+                 fiber_optic_cable_type: pulumi.Input[Optional['SiteRackPhysicalPropertiesFiberOpticCableType']] = None,
+                 maximum_supported_weight_lbs: pulumi.Input[Optional['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']] = None,
+                 optical_standard: pulumi.Input[Optional['SiteRackPhysicalPropertiesOpticalStandard']] = None,
+                 power_connector: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerConnector']] = None,
+                 power_draw_kva: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerDrawKva']] = None,
+                 power_feed_drop: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerFeedDrop']] = None,
+                 power_phase: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerPhase']] = None,
+                 uplink_count: pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkCount']] = None,
+                 uplink_gbps: pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkGbps']] = None):
         if fiber_optic_cable_type is not None:
             pulumi.set(__self__, "fiber_optic_cable_type", fiber_optic_cable_type)
         if maximum_supported_weight_lbs is not None:
@@ -209,83 +209,83 @@ class SiteRackPhysicalPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="fiberOpticCableType")
-    def fiber_optic_cable_type(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesFiberOpticCableType']]:
+    def fiber_optic_cable_type(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesFiberOpticCableType']]:
         return pulumi.get(self, "fiber_optic_cable_type")
 
     @fiber_optic_cable_type.setter
-    def fiber_optic_cable_type(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesFiberOpticCableType']]):
+    def fiber_optic_cable_type(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesFiberOpticCableType']]):
         pulumi.set(self, "fiber_optic_cable_type", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumSupportedWeightLbs")
-    def maximum_supported_weight_lbs(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]:
+    def maximum_supported_weight_lbs(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]:
         return pulumi.get(self, "maximum_supported_weight_lbs")
 
     @maximum_supported_weight_lbs.setter
-    def maximum_supported_weight_lbs(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]):
+    def maximum_supported_weight_lbs(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesMaximumSupportedWeightLbs']]):
         pulumi.set(self, "maximum_supported_weight_lbs", value)
 
     @_builtins.property
     @pulumi.getter(name="opticalStandard")
-    def optical_standard(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesOpticalStandard']]:
+    def optical_standard(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesOpticalStandard']]:
         return pulumi.get(self, "optical_standard")
 
     @optical_standard.setter
-    def optical_standard(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesOpticalStandard']]):
+    def optical_standard(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesOpticalStandard']]):
         pulumi.set(self, "optical_standard", value)
 
     @_builtins.property
     @pulumi.getter(name="powerConnector")
-    def power_connector(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerConnector']]:
+    def power_connector(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerConnector']]:
         return pulumi.get(self, "power_connector")
 
     @power_connector.setter
-    def power_connector(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerConnector']]):
+    def power_connector(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerConnector']]):
         pulumi.set(self, "power_connector", value)
 
     @_builtins.property
     @pulumi.getter(name="powerDrawKva")
-    def power_draw_kva(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerDrawKva']]:
+    def power_draw_kva(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerDrawKva']]:
         return pulumi.get(self, "power_draw_kva")
 
     @power_draw_kva.setter
-    def power_draw_kva(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerDrawKva']]):
+    def power_draw_kva(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerDrawKva']]):
         pulumi.set(self, "power_draw_kva", value)
 
     @_builtins.property
     @pulumi.getter(name="powerFeedDrop")
-    def power_feed_drop(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerFeedDrop']]:
+    def power_feed_drop(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerFeedDrop']]:
         return pulumi.get(self, "power_feed_drop")
 
     @power_feed_drop.setter
-    def power_feed_drop(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerFeedDrop']]):
+    def power_feed_drop(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerFeedDrop']]):
         pulumi.set(self, "power_feed_drop", value)
 
     @_builtins.property
     @pulumi.getter(name="powerPhase")
-    def power_phase(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerPhase']]:
+    def power_phase(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerPhase']]:
         return pulumi.get(self, "power_phase")
 
     @power_phase.setter
-    def power_phase(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesPowerPhase']]):
+    def power_phase(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesPowerPhase']]):
         pulumi.set(self, "power_phase", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkCount")
-    def uplink_count(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkCount']]:
+    def uplink_count(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkCount']]:
         return pulumi.get(self, "uplink_count")
 
     @uplink_count.setter
-    def uplink_count(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkCount']]):
+    def uplink_count(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkCount']]):
         pulumi.set(self, "uplink_count", value)
 
     @_builtins.property
     @pulumi.getter(name="uplinkGbps")
-    def uplink_gbps(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkGbps']]:
+    def uplink_gbps(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkGbps']]:
         return pulumi.get(self, "uplink_gbps")
 
     @uplink_gbps.setter
-    def uplink_gbps(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesUplinkGbps']]):
+    def uplink_gbps(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesUplinkGbps']]):
         pulumi.set(self, "uplink_gbps", value)
 
 

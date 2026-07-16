@@ -23,16 +23,16 @@ __all__ = ['RouteCalculatorArgs', 'RouteCalculator']
 class RouteCalculatorArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[_builtins.str],
-                 calculator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 calculator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['RouteCalculatorPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
 
         :param pulumi.Input[_builtins.str] data_source: Specifies the data provider of traffic and road network data.
                
-               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
                
                Valid values include:
                
@@ -72,7 +72,7 @@ class RouteCalculatorArgs:
         """
         Specifies the data provider of traffic and road network data.
 
-        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
 
         Valid values include:
 
@@ -92,7 +92,7 @@ class RouteCalculatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="calculatorName")
-    def calculator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def calculator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the route calculator resource.
 
@@ -105,24 +105,24 @@ class RouteCalculatorArgs:
         return pulumi.get(self, "calculator_name")
 
     @calculator_name.setter
-    def calculator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def calculator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "calculator_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description for the route calculator resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> Optional[pulumi.Input['RouteCalculatorPricingPlan']]:
+    def pricing_plan(self) -> pulumi.Input[Optional['RouteCalculatorPricingPlan']]:
         """
         No longer used. If included, the only allowed value is `RequestBasedUsage` .
 
@@ -131,19 +131,19 @@ class RouteCalculatorArgs:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: Optional[pulumi.Input['RouteCalculatorPricingPlan']]):
+    def pricing_plan(self, value: pulumi.Input[Optional['RouteCalculatorPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -153,15 +153,14 @@ class RouteCalculator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 calculator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 calculator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['RouteCalculatorPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +173,7 @@ class RouteCalculator(pulumi.CustomResource):
                - No spaces allowed. For example, `ExampleRouteCalculator` .
         :param pulumi.Input[_builtins.str] data_source: Specifies the data provider of traffic and road network data.
                
-               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+               > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
                
                Valid values include:
                
@@ -200,7 +199,6 @@ class RouteCalculator(pulumi.CustomResource):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param RouteCalculatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,11 +214,11 @@ class RouteCalculator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 calculator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 calculator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['RouteCalculatorPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,7 +322,7 @@ class RouteCalculator(pulumi.CustomResource):
         """
         Specifies the data provider of traffic and road network data.
 
-        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error. 
+        > This field is case-sensitive. Enter the valid values as shown. For example, entering `HERE` returns an error.
 
         Valid values include:
 

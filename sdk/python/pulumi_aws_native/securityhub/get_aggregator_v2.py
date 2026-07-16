@@ -100,7 +100,6 @@ def get_aggregator_v2(aggregator_v2_arn: Optional[_builtins.str] = None,
     """
     The AWS::SecurityHub::AggregatorV2 resource represents the AWS Security Hub AggregatorV2 in your account. One aggregatorv2 resource is created for each account in non opt-in region in which you configure region linking mode.
 
-
     :param _builtins.str aggregator_v2_arn: The ARN of the AggregatorV2 being created and assigned as the unique identifier
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_aggregator_v2(aggregator_v2_arn: Optional[_builtins.str] = None,
         linked_regions=pulumi.get(__ret__, 'linked_regions'),
         region_linking_mode=pulumi.get(__ret__, 'region_linking_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_aggregator_v2_output(aggregator_v2_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_aggregator_v2_output(aggregator_v2_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAggregatorV2Result]:
     """
     The AWS::SecurityHub::AggregatorV2 resource represents the AWS Security Hub AggregatorV2 in your account. One aggregatorv2 resource is created for each account in non opt-in region in which you configure region linking mode.
-
 
     :param _builtins.str aggregator_v2_arn: The ARN of the AggregatorV2 being created and assigned as the unique identifier
     """

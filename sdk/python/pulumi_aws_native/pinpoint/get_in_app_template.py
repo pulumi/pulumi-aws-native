@@ -126,7 +126,6 @@ def get_in_app_template(template_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Pinpoint::InAppTemplate
 
-
     :param _builtins.str template_name: The name of the in-app message template.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_in_app_template(template_name: Optional[_builtins.str] = None,
         layout=pulumi.get(__ret__, 'layout'),
         tags=pulumi.get(__ret__, 'tags'),
         template_description=pulumi.get(__ret__, 'template_description'))
-def get_in_app_template_output(template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_in_app_template_output(template_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInAppTemplateResult]:
     """
     Resource Type definition for AWS::Pinpoint::InAppTemplate
-
 
     :param _builtins.str template_name: The name of the in-app message template.
     """

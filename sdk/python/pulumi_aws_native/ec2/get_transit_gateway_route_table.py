@@ -64,7 +64,6 @@ def get_transit_gateway_route_table(transit_gateway_route_table_id: Optional[_bu
     """
     Resource Type definition for AWS::EC2::TransitGatewayRouteTable
 
-
     :param _builtins.str transit_gateway_route_table_id: Transit Gateway Route Table primary identifier
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_transit_gateway_route_table(transit_gateway_route_table_id: Optional[_bu
     return AwaitableGetTransitGatewayRouteTableResult(
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
-def get_transit_gateway_route_table_output(transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_route_table_output(transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayRouteTableResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayRouteTable
-
 
     :param _builtins.str transit_gateway_route_table_id: Transit Gateway Route Table primary identifier
     """

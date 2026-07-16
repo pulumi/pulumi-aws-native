@@ -120,7 +120,6 @@ def get_cluster(id: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaLive::Cluster Resource Type
 
-
     :param _builtins.str id: The unique ID of the Cluster.
     """
     __args__ = dict()
@@ -136,11 +135,10 @@ def get_cluster(id: Optional[_builtins.str] = None,
         network_settings=pulumi.get(__ret__, 'network_settings'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Definition of AWS::MediaLive::Cluster Resource Type
-
 
     :param _builtins.str id: The unique ID of the Cluster.
     """

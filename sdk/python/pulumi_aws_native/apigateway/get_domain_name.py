@@ -214,7 +214,6 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
      To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
     """
     __args__ = dict()
@@ -237,13 +236,12 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         routing_mode=pulumi.get(__ret__, 'routing_mode'),
         security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
      To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
     """

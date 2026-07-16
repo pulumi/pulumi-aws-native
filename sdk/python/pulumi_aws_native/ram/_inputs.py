@@ -24,11 +24,11 @@ class ResourceShareConfigurationArgsDict(TypedDict):
     """
     The configuration for a resource share.
     """
-    exclusive_account_access: NotRequired[pulumi.Input[_builtins.bool]]
+    exclusive_account_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The resource share restricts access to an account
     """
-    retain_sharing_on_account_leave_organization: NotRequired[pulumi.Input[_builtins.bool]]
+    retain_sharing_on_account_leave_organization: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether the consumer account retains access to the resource share after leaving the organization.
     """
@@ -36,8 +36,8 @@ class ResourceShareConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceShareConfigurationArgs:
     def __init__(__self__, *,
-                 exclusive_account_access: Optional[pulumi.Input[_builtins.bool]] = None,
-                 retain_sharing_on_account_leave_organization: Optional[pulumi.Input[_builtins.bool]] = None):
+                 exclusive_account_access: pulumi.Input[Optional[_builtins.bool]] = None,
+                 retain_sharing_on_account_leave_organization: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The configuration for a resource share.
 
@@ -51,26 +51,26 @@ class ResourceShareConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="exclusiveAccountAccess")
-    def exclusive_account_access(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def exclusive_account_access(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The resource share restricts access to an account
         """
         return pulumi.get(self, "exclusive_account_access")
 
     @exclusive_account_access.setter
-    def exclusive_account_access(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def exclusive_account_access(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "exclusive_account_access", value)
 
     @_builtins.property
     @pulumi.getter(name="retainSharingOnAccountLeaveOrganization")
-    def retain_sharing_on_account_leave_organization(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def retain_sharing_on_account_leave_organization(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the consumer account retains access to the resource share after leaving the organization.
         """
         return pulumi.get(self, "retain_sharing_on_account_leave_organization")
 
     @retain_sharing_on_account_leave_organization.setter
-    def retain_sharing_on_account_leave_organization(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def retain_sharing_on_account_leave_organization(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "retain_sharing_on_account_leave_organization", value)
 
 

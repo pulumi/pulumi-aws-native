@@ -65,7 +65,6 @@ def get_network_acl(id: Optional[_builtins.str] = None,
     Specifies a network ACL for your VPC.
      To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
 
-
     :param _builtins.str id: The ID of the network ACL.
     """
     __args__ = dict()
@@ -76,12 +75,11 @@ def get_network_acl(id: Optional[_builtins.str] = None,
     return AwaitableGetNetworkAclResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_network_acl_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_acl_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAclResult]:
     """
     Specifies a network ACL for your VPC.
      To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
-
 
     :param _builtins.str id: The ID of the network ACL.
     """

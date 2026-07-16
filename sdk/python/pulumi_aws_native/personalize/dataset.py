@@ -25,8 +25,8 @@ class DatasetArgs:
                  dataset_group_arn: pulumi.Input[_builtins.str],
                  dataset_type: pulumi.Input['DatasetType'],
                  schema_arn: pulumi.Input[_builtins.str],
-                 dataset_import_job: Optional[pulumi.Input['DatasetImportJobArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 dataset_import_job: pulumi.Input[Optional['DatasetImportJobArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -82,26 +82,26 @@ class DatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="datasetImportJob")
-    def dataset_import_job(self) -> Optional[pulumi.Input['DatasetImportJobArgs']]:
+    def dataset_import_job(self) -> pulumi.Input[Optional['DatasetImportJobArgs']]:
         """
         Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         """
         return pulumi.get(self, "dataset_import_job")
 
     @dataset_import_job.setter
-    def dataset_import_job(self, value: Optional[pulumi.Input['DatasetImportJobArgs']]):
+    def dataset_import_job(self, value: pulumi.Input[Optional['DatasetImportJobArgs']]):
         pulumi.set(self, "dataset_import_job", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the dataset
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -111,11 +111,11 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_import_job: Optional[pulumi.Input[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
-                 dataset_type: Optional[pulumi.Input['DatasetType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_import_job: pulumi.Input[Optional[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Dataset.
@@ -238,11 +238,11 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dataset_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_import_job: Optional[pulumi.Input[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
-                 dataset_type: Optional[pulumi.Input['DatasetType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 dataset_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_import_job: pulumi.Input[Optional[Union['DatasetImportJobArgs', 'DatasetImportJobArgsDict']]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

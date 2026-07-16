@@ -23,16 +23,16 @@ __all__ = ['DaemonTaskDefinitionArgs', 'DaemonTaskDefinition']
 @pulumi.input_type
 class DaemonTaskDefinitionArgs:
     def __init__(__self__, *,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]] = None):
+                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]] = None):
         """
         The set of arguments for constructing a DaemonTaskDefinition resource.
 
@@ -71,55 +71,55 @@ class DaemonTaskDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerDefinitions")
-    def container_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]]:
+    def container_definitions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]]:
         """
         A list of container definitions in JSON format that describe the containers that make up the daemon task.
         """
         return pulumi.get(self, "container_definitions")
 
     @container_definitions.setter
-    def container_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]]):
+    def container_definitions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionDaemonContainerDefinitionArgs']]]]):
         pulumi.set(self, "container_definitions", value)
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The number of CPU units used by the daemon task.
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make Amazon Web Services API calls on your behalf.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @execution_role_arn.setter
-    def execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of a family that this daemon task definition is registered to.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter(name="ipcMode")
-    def ipc_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ipc_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
          If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: "host"`` or other daemons that use ``ipcMode: "shared"``.
@@ -127,24 +127,24 @@ class DaemonTaskDefinitionArgs:
         return pulumi.get(self, "ipc_mode")
 
     @ipc_mode.setter
-    def ipc_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ipc_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipc_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The amount of memory (in MiB) used by the daemon task.
         """
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
     @_builtins.property
     @pulumi.getter(name="pidMode")
-    def pid_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pid_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.
          If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: "host"`` or other daemons that use ``pidMode: "shared"``.
@@ -152,40 +152,40 @@ class DaemonTaskDefinitionArgs:
         return pulumi.get(self, "pid_mode")
 
     @pid_mode.setter
-    def pid_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pid_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pid_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskRoleArn")
-    def task_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def task_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.
         """
         return pulumi.get(self, "task_role_arn")
 
     @task_role_arn.setter
-    def task_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def task_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "task_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]]:
+    def volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]]:
         """
         The list of data volume definitions for the daemon task.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]]):
+    def volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DaemonTaskDefinitionVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -195,20 +195,19 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionDaemonContainerDefinitionArgs', 'DaemonTaskDefinitionDaemonContainerDefinitionArgsDict']]]]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
+                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionDaemonContainerDefinitionArgs', 'DaemonTaskDefinitionDaemonContainerDefinitionArgsDict']]]]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
         The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +232,6 @@ class DaemonTaskDefinition(pulumi.CustomResource):
         """
         The details of a daemon task definition. A daemon task definition is a template that describes the containers that form a daemon. Daemons deploy cross-cutting software agents independently across your Amazon ECS infrastructure.
 
-
         :param str resource_name: The name of the resource.
         :param DaemonTaskDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,16 +247,16 @@ class DaemonTaskDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionDaemonContainerDefinitionArgs', 'DaemonTaskDefinitionDaemonContainerDefinitionArgsDict']]]]] = None,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 ipc_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None,
-                 pid_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
+                 container_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionDaemonContainerDefinitionArgs', 'DaemonTaskDefinitionDaemonContainerDefinitionArgsDict']]]]] = None,
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 ipc_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None,
+                 pid_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DaemonTaskDefinitionVolumeArgs', 'DaemonTaskDefinitionVolumeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

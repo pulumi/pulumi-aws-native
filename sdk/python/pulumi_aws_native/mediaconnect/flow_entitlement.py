@@ -27,11 +27,11 @@ class FlowEntitlementArgs:
                  description: pulumi.Input[_builtins.str],
                  flow_arn: pulumi.Input[_builtins.str],
                  subscribers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 data_transfer_subscriber_fee_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
-                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_transfer_subscriber_fee_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 encryption: pulumi.Input[Optional['FlowEntitlementEncryptionArgs']] = None,
+                 entitlement_status: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
 
@@ -96,62 +96,62 @@ class FlowEntitlementArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataTransferSubscriberFeePercent")
-    def data_transfer_subscriber_fee_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def data_transfer_subscriber_fee_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         """
         return pulumi.get(self, "data_transfer_subscriber_fee_percent")
 
     @data_transfer_subscriber_fee_percent.setter
-    def data_transfer_subscriber_fee_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def data_transfer_subscriber_fee_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "data_transfer_subscriber_fee_percent", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['FlowEntitlementEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['FlowEntitlementEncryptionArgs']]:
         """
         The type of encryption that will be used on the output that is associated with this entitlement.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['FlowEntitlementEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="entitlementStatus")
-    def entitlement_status(self) -> Optional[pulumi.Input['FlowEntitlementEntitlementStatus']]:
+    def entitlement_status(self) -> pulumi.Input[Optional['FlowEntitlementEntitlementStatus']]:
         """
          An indication of whether the entitlement is enabled.
         """
         return pulumi.get(self, "entitlement_status")
 
     @entitlement_status.setter
-    def entitlement_status(self, value: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']]):
+    def entitlement_status(self, value: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']]):
         pulumi.set(self, "entitlement_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the entitlement.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to tag and organize this flow entitlement.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -161,18 +161,17 @@ class FlowEntitlement(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_transfer_subscriber_fee_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
-                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_transfer_subscriber_fee_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
+                 entitlement_status: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,7 +193,6 @@ class FlowEntitlement(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
 
-
         :param str resource_name: The name of the resource.
         :param FlowEntitlementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,14 +208,14 @@ class FlowEntitlement(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_transfer_subscriber_fee_percent: Optional[pulumi.Input[_builtins.int]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
-                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_transfer_subscriber_fee_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
+                 entitlement_status: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

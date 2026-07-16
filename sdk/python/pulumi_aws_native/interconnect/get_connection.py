@@ -174,7 +174,6 @@ def get_connection(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Interconnect::Connection. Creates a managed network connection between AWS and a partner cloud service provider.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the connection.
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_connection(arn: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Resource Type definition for AWS::Interconnect::Connection. Creates a managed network connection between AWS and a partner cloud service provider.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the connection.
     """

@@ -48,11 +48,10 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiry_events_configuration: Optional[pulumi.Input[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
+                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::CertificateManager::Account.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -66,7 +65,6 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::CertificateManager::Account.
-
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -83,7 +81,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 expiry_events_configuration: Optional[pulumi.Input[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
+                 expiry_events_configuration: pulumi.Input[Optional[Union['AccountExpiryEventsConfigurationArgs', 'AccountExpiryEventsConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

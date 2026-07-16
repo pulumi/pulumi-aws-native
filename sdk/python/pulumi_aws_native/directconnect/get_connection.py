@@ -112,7 +112,6 @@ def get_connection(connection_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DirectConnect::Connection
 
-
     :param _builtins.str connection_arn: The ARN of the connection.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_connection(connection_arn: Optional[_builtins.str] = None,
         connection_state=pulumi.get(__ret__, 'connection_state'),
         lag_id=pulumi.get(__ret__, 'lag_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_output(connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_output(connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Resource Type definition for AWS::DirectConnect::Connection
-
 
     :param _builtins.str connection_arn: The ARN of the connection.
     """

@@ -23,10 +23,10 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 default_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_c_configuration: Optional[pulumi.Input['ApplicationIdCConfigurationArgs']] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 default_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_c_configuration: pulumi.Input[Optional['ApplicationIdCConfigurationArgs']] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -44,44 +44,44 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="defaultKmsKeyId")
-    def default_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def default_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of a KMS key. Can be a key ID, key ARN, alias name, or alias ARN.
         """
         return pulumi.get(self, "default_kms_key_id")
 
     @default_kms_key_id.setter
-    def default_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def default_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="idCConfiguration")
-    def id_c_configuration(self) -> Optional[pulumi.Input['ApplicationIdCConfigurationArgs']]:
+    def id_c_configuration(self) -> pulumi.Input[Optional['ApplicationIdCConfigurationArgs']]:
         return pulumi.get(self, "id_c_configuration")
 
     @id_c_configuration.setter
-    def id_c_configuration(self, value: Optional[pulumi.Input['ApplicationIdCConfigurationArgs']]):
+    def id_c_configuration(self, value: pulumi.Input[Optional['ApplicationIdCConfigurationArgs']]):
         pulumi.set(self, "id_c_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the application
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -91,14 +91,13 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_c_configuration: Optional[pulumi.Input[Union['ApplicationIdCConfigurationArgs', 'ApplicationIdCConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 default_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_c_configuration: pulumi.Input[Optional[Union['ApplicationIdCConfigurationArgs', 'ApplicationIdCConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::Application
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +112,6 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SecurityAgent::Application
-
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -130,10 +128,10 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id_c_configuration: Optional[pulumi.Input[Union['ApplicationIdCConfigurationArgs', 'ApplicationIdCConfigurationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 default_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id_c_configuration: pulumi.Input[Optional[Union['ApplicationIdCConfigurationArgs', 'ApplicationIdCConfigurationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

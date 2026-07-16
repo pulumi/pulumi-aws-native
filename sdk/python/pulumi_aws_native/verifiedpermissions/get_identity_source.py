@@ -87,7 +87,6 @@ def get_identity_source(identity_source_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
 
-
     :param _builtins.str identity_source_id: The unique ID of the new or updated identity store.
     :param _builtins.str policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
     """
@@ -102,12 +101,11 @@ def get_identity_source(identity_source_id: Optional[_builtins.str] = None,
         details=pulumi.get(__ret__, 'details'),
         identity_source_id=pulumi.get(__ret__, 'identity_source_id'),
         principal_entity_type=pulumi.get(__ret__, 'principal_entity_type'))
-def get_identity_source_output(identity_source_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               policy_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_source_output(identity_source_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               policy_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentitySourceResult]:
     """
     Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
-
 
     :param _builtins.str identity_source_id: The unique ID of the new or updated identity store.
     :param _builtins.str policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.

@@ -222,7 +222,6 @@ def get_origin_endpoint(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaPackage::OriginEndpoint
 
-
     :param _builtins.str id: The ID of the OriginEndpoint.
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_origin_endpoint(id: Optional[_builtins.str] = None,
         time_delay_seconds=pulumi.get(__ret__, 'time_delay_seconds'),
         url=pulumi.get(__ret__, 'url'),
         whitelist=pulumi.get(__ret__, 'whitelist'))
-def get_origin_endpoint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_endpoint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
     Resource schema for AWS::MediaPackage::OriginEndpoint
-
 
     :param _builtins.str id: The ID of the OriginEndpoint.
     """

@@ -64,7 +64,6 @@ def get_acme_external_account_binding(acme_external_account_binding_arn: Optiona
     """
     Resource Type definition for AWS::CertificateManager::AcmeExternalAccountBinding
 
-
     :param _builtins.str acme_external_account_binding_arn: The Amazon Resource Name (ARN) of the external account binding.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_acme_external_account_binding(acme_external_account_binding_arn: Optiona
     return AwaitableGetAcmeExternalAccountBindingResult(
         acme_external_account_binding_arn=pulumi.get(__ret__, 'acme_external_account_binding_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_acme_external_account_binding_output(acme_external_account_binding_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_acme_external_account_binding_output(acme_external_account_binding_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcmeExternalAccountBindingResult]:
     """
     Resource Type definition for AWS::CertificateManager::AcmeExternalAccountBinding
-
 
     :param _builtins.str acme_external_account_binding_arn: The Amazon Resource Name (ARN) of the external account binding.
     """

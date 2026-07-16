@@ -114,7 +114,6 @@ def get_schema(arn: Optional[_builtins.str] = None,
     """
     This resource represents a schema of Glue Schema Registry.
 
-
     :param _builtins.str arn: Amazon Resource Name for the Schema.
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_schema(arn: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         initial_schema_version_id=pulumi.get(__ret__, 'initial_schema_version_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_schema_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     This resource represents a schema of Glue Schema Registry.
-
 
     :param _builtins.str arn: Amazon Resource Name for the Schema.
     """

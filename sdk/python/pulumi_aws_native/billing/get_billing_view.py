@@ -138,7 +138,6 @@ def get_billing_view(arn: Optional[_builtins.str] = None,
     """
     A billing view is a container of cost & usage metadata.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_billing_view(arn: Optional[_builtins.str] = None,
         source_views=pulumi.get(__ret__, 'source_views'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_billing_view_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_billing_view_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingViewResult]:
     """
     A billing view is a container of cost & usage metadata.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view.
     """

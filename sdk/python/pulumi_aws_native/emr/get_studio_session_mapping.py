@@ -54,7 +54,6 @@ def get_studio_session_mapping(identity_name: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
     :param 'StudioSessionMappingIdentityType' identity_type: Specifies whether the identity to map to the Studio is a user or a group.
     :param _builtins.str studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
@@ -68,13 +67,12 @@ def get_studio_session_mapping(identity_name: Optional[_builtins.str] = None,
 
     return AwaitableGetStudioSessionMappingResult(
         session_policy_arn=pulumi.get(__ret__, 'session_policy_arn'))
-def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
-                                      studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_studio_session_mapping_output(identity_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      identity_type: pulumi.Input[Optional['StudioSessionMappingIdentityType']] = None,
+                                      studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioSessionMappingResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
     :param 'StudioSessionMappingIdentityType' identity_type: Specifies whether the identity to map to the Studio is a user or a group.

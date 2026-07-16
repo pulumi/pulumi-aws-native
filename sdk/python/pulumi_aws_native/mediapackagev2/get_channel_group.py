@@ -112,7 +112,6 @@ def get_channel_group(arn: Optional[_builtins.str] = None,
     """
     <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 
-
     :param _builtins.str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_channel_group(arn: Optional[_builtins.str] = None,
         egress_domain=pulumi.get(__ret__, 'egress_domain'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_channel_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelGroupResult]:
     """
     <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
-
 
     :param _builtins.str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
     """

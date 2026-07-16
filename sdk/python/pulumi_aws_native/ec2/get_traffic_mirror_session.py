@@ -160,7 +160,6 @@ def get_traffic_mirror_session(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::EC2::TrafficMirrorSession
 
-
     :param _builtins.str id: The ID of a Traffic Mirror session.
     """
     __args__ = dict()
@@ -179,11 +178,10 @@ def get_traffic_mirror_session(id: Optional[_builtins.str] = None,
         traffic_mirror_filter_id=pulumi.get(__ret__, 'traffic_mirror_filter_id'),
         traffic_mirror_target_id=pulumi.get(__ret__, 'traffic_mirror_target_id'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'))
-def get_traffic_mirror_session_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_traffic_mirror_session_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficMirrorSessionResult]:
     """
     Resource schema for AWS::EC2::TrafficMirrorSession
-
 
     :param _builtins.str id: The ID of a Traffic Mirror session.
     """

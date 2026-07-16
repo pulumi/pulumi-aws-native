@@ -24,18 +24,18 @@ __all__ = ['FleetArgs', 'Fleet']
 @pulumi.input_type
 class FleetArgs:
     def __init__(__self__, *,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input['FleetComputeConfigurationArgs']] = None,
-                 compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
-                 environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
-                 fleet_proxy_configuration: Optional[pulumi.Input['FleetProxyConfigurationArgs']] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
-                 scaling_configuration: Optional[pulumi.Input['FleetScalingConfigurationInputArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional['FleetComputeConfigurationArgs']] = None,
+                 compute_type: pulumi.Input[Optional['FleetComputeType']] = None,
+                 environment_type: pulumi.Input[Optional['FleetEnvironmentType']] = None,
+                 fleet_proxy_configuration: pulumi.Input[Optional['FleetProxyConfigurationArgs']] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_vpc_config: pulumi.Input[Optional['FleetVpcConfigArgs']] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional['FleetOverflowBehavior']] = None,
+                 scaling_configuration: pulumi.Input[Optional['FleetScalingConfigurationInputArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
 
@@ -126,31 +126,31 @@ class FleetArgs:
 
     @_builtins.property
     @pulumi.getter(name="baseCapacity")
-    def base_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def base_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
         """
         return pulumi.get(self, "base_capacity")
 
     @base_capacity.setter
-    def base_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def base_capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "base_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="computeConfiguration")
-    def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
+    def compute_configuration(self) -> pulumi.Input[Optional['FleetComputeConfigurationArgs']]:
         """
         The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
-    def compute_configuration(self, value: Optional[pulumi.Input['FleetComputeConfigurationArgs']]):
+    def compute_configuration(self, value: pulumi.Input[Optional['FleetComputeConfigurationArgs']]):
         pulumi.set(self, "compute_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input['FleetComputeType']]:
+    def compute_type(self) -> pulumi.Input[Optional['FleetComputeType']]:
         """
         Information about the compute resources the compute fleet uses. Available values include:
 
@@ -185,12 +185,12 @@ class FleetArgs:
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input['FleetComputeType']]):
+    def compute_type(self, value: pulumi.Input[Optional['FleetComputeType']]):
         pulumi.set(self, "compute_type", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentType")
-    def environment_type(self) -> Optional[pulumi.Input['FleetEnvironmentType']]:
+    def environment_type(self) -> pulumi.Input[Optional['FleetEnvironmentType']]:
         """
         The environment type of the compute fleet.
 
@@ -209,72 +209,72 @@ class FleetArgs:
         return pulumi.get(self, "environment_type")
 
     @environment_type.setter
-    def environment_type(self, value: Optional[pulumi.Input['FleetEnvironmentType']]):
+    def environment_type(self, value: pulumi.Input[Optional['FleetEnvironmentType']]):
         pulumi.set(self, "environment_type", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetProxyConfiguration")
-    def fleet_proxy_configuration(self) -> Optional[pulumi.Input['FleetProxyConfigurationArgs']]:
+    def fleet_proxy_configuration(self) -> pulumi.Input[Optional['FleetProxyConfigurationArgs']]:
         """
         Information about the proxy configurations that apply network access control to your reserved capacity instances.
         """
         return pulumi.get(self, "fleet_proxy_configuration")
 
     @fleet_proxy_configuration.setter
-    def fleet_proxy_configuration(self, value: Optional[pulumi.Input['FleetProxyConfigurationArgs']]):
+    def fleet_proxy_configuration(self, value: pulumi.Input[Optional['FleetProxyConfigurationArgs']]):
         pulumi.set(self, "fleet_proxy_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetServiceRole")
-    def fleet_service_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_service_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         """
         return pulumi.get(self, "fleet_service_role")
 
     @fleet_service_role.setter
-    def fleet_service_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_service_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_service_role", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetVpcConfig")
-    def fleet_vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
+    def fleet_vpc_config(self) -> pulumi.Input[Optional['FleetVpcConfigArgs']]:
         """
         Information about the VPC configuration that AWS CodeBuild accesses.
         """
         return pulumi.get(self, "fleet_vpc_config")
 
     @fleet_vpc_config.setter
-    def fleet_vpc_config(self, value: Optional[pulumi.Input['FleetVpcConfigArgs']]):
+    def fleet_vpc_config(self, value: pulumi.Input[Optional['FleetVpcConfigArgs']]):
         pulumi.set(self, "fleet_vpc_config", value)
 
     @_builtins.property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 
     @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the compute fleet.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="overflowBehavior")
-    def overflow_behavior(self) -> Optional[pulumi.Input['FleetOverflowBehavior']]:
+    def overflow_behavior(self) -> pulumi.Input[Optional['FleetOverflowBehavior']]:
         """
         The compute fleet overflow behavior.
 
@@ -286,24 +286,24 @@ class FleetArgs:
         return pulumi.get(self, "overflow_behavior")
 
     @overflow_behavior.setter
-    def overflow_behavior(self, value: Optional[pulumi.Input['FleetOverflowBehavior']]):
+    def overflow_behavior(self, value: pulumi.Input[Optional['FleetOverflowBehavior']]):
         pulumi.set(self, "overflow_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingConfiguration")
-    def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationInputArgs']]:
+    def scaling_configuration(self) -> pulumi.Input[Optional['FleetScalingConfigurationInputArgs']]:
         """
         The scaling configuration of the compute fleet.
         """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
-    def scaling_configuration(self, value: Optional[pulumi.Input['FleetScalingConfigurationInputArgs']]):
+    def scaling_configuration(self, value: pulumi.Input[Optional['FleetScalingConfigurationInputArgs']]):
         pulumi.set(self, "scaling_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tag key and value pairs associated with this compute fleet.
 
@@ -312,7 +312,7 @@ class FleetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -322,22 +322,21 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
-                 environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
-                 fleet_proxy_configuration: Optional[pulumi.Input[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional['FleetComputeType']] = None,
+                 environment_type: pulumi.Input[Optional['FleetEnvironmentType']] = None,
+                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional['FleetOverflowBehavior']] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -410,7 +409,6 @@ class Fleet(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
 
-
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -426,18 +424,18 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 compute_configuration: Optional[pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
-                 compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
-                 environment_type: Optional[pulumi.Input['FleetEnvironmentType']] = None,
-                 fleet_proxy_configuration: Optional[pulumi.Input[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
-                 fleet_service_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_vpc_config: Optional[pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
-                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 overflow_behavior: Optional[pulumi.Input['FleetOverflowBehavior']] = None,
-                 scaling_configuration: Optional[pulumi.Input[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_type: pulumi.Input[Optional['FleetComputeType']] = None,
+                 environment_type: pulumi.Input[Optional['FleetEnvironmentType']] = None,
+                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
+                 fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 overflow_behavior: pulumi.Input[Optional['FleetOverflowBehavior']] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

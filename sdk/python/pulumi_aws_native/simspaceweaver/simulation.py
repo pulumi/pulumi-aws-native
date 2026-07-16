@@ -22,10 +22,10 @@ __all__ = ['SimulationArgs', 'Simulation']
 class SimulationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
-                 maximum_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
-                 snapshot_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None):
+                 maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_s3_location: pulumi.Input[Optional['SimulationS3LocationArgs']] = None,
+                 snapshot_s3_location: pulumi.Input[Optional['SimulationS3LocationArgs']] = None):
         """
         The set of arguments for constructing a Simulation resource.
 
@@ -67,31 +67,31 @@ class SimulationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumDuration")
-    def maximum_duration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def maximum_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The maximum running time of the simulation.
         """
         return pulumi.get(self, "maximum_duration")
 
     @maximum_duration.setter
-    def maximum_duration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def maximum_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_duration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the simulation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaS3Location")
-    def schema_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
+    def schema_s3_location(self) -> pulumi.Input[Optional['SimulationS3LocationArgs']]:
         """
         The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 
@@ -102,12 +102,12 @@ class SimulationArgs:
         return pulumi.get(self, "schema_s3_location")
 
     @schema_s3_location.setter
-    def schema_s3_location(self, value: Optional[pulumi.Input['SimulationS3LocationArgs']]):
+    def schema_s3_location(self, value: pulumi.Input[Optional['SimulationS3LocationArgs']]):
         pulumi.set(self, "schema_s3_location", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotS3Location")
-    def snapshot_s3_location(self) -> Optional[pulumi.Input['SimulationS3LocationArgs']]:
+    def snapshot_s3_location(self) -> pulumi.Input[Optional['SimulationS3LocationArgs']]:
         """
         The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
 
@@ -118,7 +118,7 @@ class SimulationArgs:
         return pulumi.get(self, "snapshot_s3_location")
 
     @snapshot_s3_location.setter
-    def snapshot_s3_location(self, value: Optional[pulumi.Input['SimulationS3LocationArgs']]):
+    def snapshot_s3_location(self, value: pulumi.Input[Optional['SimulationS3LocationArgs']]):
         pulumi.set(self, "snapshot_s3_location", value)
 
 
@@ -128,11 +128,11 @@ class Simulation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 maximum_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
-                 snapshot_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
                  __props__=None):
         """
         AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -491,11 +491,11 @@ class Simulation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 maximum_duration: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
-                 snapshot_s3_location: Optional[pulumi.Input[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 maximum_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
+                 snapshot_s3_location: pulumi.Input[Optional[Union['SimulationS3LocationArgs', 'SimulationS3LocationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

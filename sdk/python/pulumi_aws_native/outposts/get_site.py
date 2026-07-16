@@ -118,7 +118,7 @@ def get_site(site_arn: Optional[_builtins.str] = None,
         site_arn=pulumi.get(__ret__, 'site_arn'),
         site_id=pulumi.get(__ret__, 'site_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_site_output(site_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_site_output(site_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
     Definition of AWS::Outposts::Site Resource Type

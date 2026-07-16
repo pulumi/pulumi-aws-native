@@ -63,7 +63,6 @@ def get_gateway_route_table_association(gateway_id: Optional[_builtins.str] = No
     """
     Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 
-
     :param _builtins.str gateway_id: The ID of the gateway.
     """
     __args__ = dict()
@@ -74,11 +73,10 @@ def get_gateway_route_table_association(gateway_id: Optional[_builtins.str] = No
     return AwaitableGetGatewayRouteTableAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'),
         route_table_id=pulumi.get(__ret__, 'route_table_id'))
-def get_gateway_route_table_association_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_gateway_route_table_association_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayRouteTableAssociationResult]:
     """
     Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
-
 
     :param _builtins.str gateway_id: The ID of the gateway.
     """

@@ -65,7 +65,7 @@ class AuthenticationModePropertiesArgsDict(TypedDict):
     """
     Authentication Type
     """
-    passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    passwords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Passwords used for this user account. You can create up to two passwords for each user.
     """
@@ -74,7 +74,7 @@ class AuthenticationModePropertiesArgsDict(TypedDict):
 class AuthenticationModePropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['UserAuthenticationModePropertiesType'],
-                 passwords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 passwords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifies the authentication mode to use. Below is an example of the possible JSON values:
 
@@ -104,14 +104,14 @@ class AuthenticationModePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def passwords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
-    def passwords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def passwords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "passwords", value)
 
 
@@ -144,11 +144,11 @@ class CacheClusterCloudWatchLogsDestinationDetailsArgs:
 
 
 class CacheClusterDestinationDetailsArgsDict(TypedDict):
-    cloud_watch_logs_details: NotRequired[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgsDict']]
+    cloud_watch_logs_details: NotRequired[pulumi.Input[Optional['CacheClusterCloudWatchLogsDestinationDetailsArgsDict']]]
     """
     The configuration details of the CloudWatch Logs destination
     """
-    kinesis_firehose_details: NotRequired[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgsDict']]
+    kinesis_firehose_details: NotRequired[pulumi.Input[Optional['CacheClusterKinesisFirehoseDestinationDetailsArgsDict']]]
     """
     The configuration details of the Kinesis Data Firehose destination.
     """
@@ -156,8 +156,8 @@ class CacheClusterDestinationDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class CacheClusterDestinationDetailsArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
-                 kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None):
+                 cloud_watch_logs_details: pulumi.Input[Optional['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: pulumi.Input[Optional['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None):
         """
         :param pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs'] cloud_watch_logs_details: The configuration details of the CloudWatch Logs destination
         :param pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs'] kinesis_firehose_details: The configuration details of the Kinesis Data Firehose destination.
@@ -169,26 +169,26 @@ class CacheClusterDestinationDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsDetails")
-    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]:
+    def cloud_watch_logs_details(self) -> pulumi.Input[Optional['CacheClusterCloudWatchLogsDestinationDetailsArgs']]:
         """
         The configuration details of the CloudWatch Logs destination
         """
         return pulumi.get(self, "cloud_watch_logs_details")
 
     @cloud_watch_logs_details.setter
-    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']]):
+    def cloud_watch_logs_details(self, value: pulumi.Input[Optional['CacheClusterCloudWatchLogsDestinationDetailsArgs']]):
         pulumi.set(self, "cloud_watch_logs_details", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseDetails")
-    def kinesis_firehose_details(self) -> Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]:
+    def kinesis_firehose_details(self) -> pulumi.Input[Optional['CacheClusterKinesisFirehoseDestinationDetailsArgs']]:
         """
         The configuration details of the Kinesis Data Firehose destination.
         """
         return pulumi.get(self, "kinesis_firehose_details")
 
     @kinesis_firehose_details.setter
-    def kinesis_firehose_details(self, value: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']]):
+    def kinesis_firehose_details(self, value: pulumi.Input[Optional['CacheClusterKinesisFirehoseDestinationDetailsArgs']]):
         pulumi.set(self, "kinesis_firehose_details", value)
 
 
@@ -227,7 +227,7 @@ class CacheClusterLogDeliveryConfigurationRequestArgsDict(TypedDict):
     """
     destination_type: pulumi.Input[_builtins.str]
     """
-    Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+    Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
     """
     log_format: pulumi.Input[_builtins.str]
     """
@@ -247,7 +247,7 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
                  log_type: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input['CacheClusterDestinationDetailsArgs'] destination_details: Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
-        :param pulumi.Input[_builtins.str] destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        :param pulumi.Input[_builtins.str] destination_type: Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         :param pulumi.Input[_builtins.str] log_format: Valid values are either json or text
         :param pulumi.Input[_builtins.str] log_type: Valid value is either slow-log, which refers to slow-log or engine-log
         """
@@ -272,7 +272,7 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. 
+        Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type.
         """
         return pulumi.get(self, "destination_type")
 
@@ -306,15 +306,15 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
 
 
 class GlobalReplicationGroupMemberArgsDict(TypedDict):
-    replication_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    replication_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Regionally unique identifier for the member i.e. ReplicationGroupId.
     """
-    replication_group_region: NotRequired[pulumi.Input[_builtins.str]]
+    replication_group_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS region of the Global Datastore member.
     """
-    role: NotRequired[pulumi.Input['GlobalReplicationGroupMemberRole']]
+    role: NotRequired[pulumi.Input[Optional['GlobalReplicationGroupMemberRole']]]
     """
     Indicates the role of the member, primary or secondary.
     """
@@ -322,9 +322,9 @@ class GlobalReplicationGroupMemberArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalReplicationGroupMemberArgs:
     def __init__(__self__, *,
-                 replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']] = None):
+                 replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional['GlobalReplicationGroupMemberRole']] = None):
         """
         :param pulumi.Input[_builtins.str] replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
         :param pulumi.Input[_builtins.str] replication_group_region: The AWS region of the Global Datastore member.
@@ -339,65 +339,65 @@ class GlobalReplicationGroupMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Regionally unique identifier for the member i.e. ReplicationGroupId.
         """
         return pulumi.get(self, "replication_group_id")
 
     @replication_group_id.setter
-    def replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationGroupRegion")
-    def replication_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_group_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS region of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_region")
 
     @replication_group_region.setter
-    def replication_group_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_group_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_group_region", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input['GlobalReplicationGroupMemberRole']]:
+    def role(self) -> pulumi.Input[Optional['GlobalReplicationGroupMemberRole']]:
         """
         Indicates the role of the member, primary or secondary.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']]):
+    def role(self, value: pulumi.Input[Optional['GlobalReplicationGroupMemberRole']]):
         pulumi.set(self, "role", value)
 
 
 class GlobalReplicationGroupRegionalConfigurationArgsDict(TypedDict):
-    replication_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    replication_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The replication group id of the Global Datastore member.
     """
-    replication_group_region: NotRequired[pulumi.Input[_builtins.str]]
+    replication_group_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS region of the Global Datastore member.
     """
-    resharding_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgsDict']]]]
+    resharding_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgsDict']]]]]
     """
-    A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+    A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
     """
 
 @pulumi.input_type
 class GlobalReplicationGroupRegionalConfigurationArgs:
     def __init__(__self__, *,
-                 replication_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 replication_group_region: Optional[pulumi.Input[_builtins.str]] = None,
-                 resharding_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None):
+                 replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 replication_group_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resharding_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] replication_group_id: The replication group id of the Global Datastore member.
         :param pulumi.Input[_builtins.str] replication_group_region: The AWS region of the Global Datastore member.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -408,47 +408,47 @@ class GlobalReplicationGroupRegionalConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="replicationGroupId")
-    def replication_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The replication group id of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_id")
 
     @replication_group_id.setter
-    def replication_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationGroupRegion")
-    def replication_group_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replication_group_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS region of the Global Datastore member.
         """
         return pulumi.get(self, "replication_group_region")
 
     @replication_group_region.setter
-    def replication_group_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replication_group_region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replication_group_region", value)
 
     @_builtins.property
     @pulumi.getter(name="reshardingConfigurations")
-    def resharding_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]:
+    def resharding_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]:
         """
-        A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
+        A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
         """
         return pulumi.get(self, "resharding_configurations")
 
     @resharding_configurations.setter
-    def resharding_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]):
+    def resharding_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]]):
         pulumi.set(self, "resharding_configurations", value)
 
 
 class GlobalReplicationGroupReshardingConfigurationArgsDict(TypedDict):
-    node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    node_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
     """
-    preferred_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    preferred_availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of preferred availability zones for the nodes of new node groups.
     """
@@ -456,8 +456,8 @@ class GlobalReplicationGroupReshardingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class GlobalReplicationGroupReshardingConfigurationArgs:
     def __init__(__self__, *,
-                 node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 node_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] node_group_id: Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preferred_availability_zones: A list of preferred availability zones for the nodes of new node groups.
@@ -469,26 +469,26 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupId")
-    def node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
         """
         return pulumi.get(self, "node_group_id")
 
     @node_group_id.setter
-    def node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredAvailabilityZones")
-    def preferred_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def preferred_availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of preferred availability zones for the nodes of new node groups.
         """
         return pulumi.get(self, "preferred_availability_zones")
 
     @preferred_availability_zones.setter
-    def preferred_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def preferred_availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "preferred_availability_zones", value)
 
 
@@ -529,11 +529,11 @@ class ReplicationGroupDestinationDetailsArgsDict(TypedDict):
     """
     Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
     """
-    cloud_watch_logs_details: NotRequired[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgsDict']]
+    cloud_watch_logs_details: NotRequired[pulumi.Input[Optional['ReplicationGroupCloudWatchLogsDestinationDetailsArgsDict']]]
     """
     The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
     """
-    kinesis_firehose_details: NotRequired[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgsDict']]
+    kinesis_firehose_details: NotRequired[pulumi.Input[Optional['ReplicationGroupKinesisFirehoseDestinationDetailsArgsDict']]]
     """
     The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
     """
@@ -541,8 +541,8 @@ class ReplicationGroupDestinationDetailsArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationGroupDestinationDetailsArgs:
     def __init__(__self__, *,
-                 cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
-                 kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None):
+                 cloud_watch_logs_details: pulumi.Input[Optional['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
+                 kinesis_firehose_details: pulumi.Input[Optional['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None):
         """
         Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.
 
@@ -556,26 +556,26 @@ class ReplicationGroupDestinationDetailsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsDetails")
-    def cloud_watch_logs_details(self) -> Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]:
+    def cloud_watch_logs_details(self) -> pulumi.Input[Optional['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]:
         """
         The configuration details of the CloudWatch Logs destination. Note that this field is marked as required but only if CloudWatch Logs was chosen as the destination.
         """
         return pulumi.get(self, "cloud_watch_logs_details")
 
     @cloud_watch_logs_details.setter
-    def cloud_watch_logs_details(self, value: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]):
+    def cloud_watch_logs_details(self, value: pulumi.Input[Optional['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']]):
         pulumi.set(self, "cloud_watch_logs_details", value)
 
     @_builtins.property
     @pulumi.getter(name="kinesisFirehoseDetails")
-    def kinesis_firehose_details(self) -> Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]:
+    def kinesis_firehose_details(self) -> pulumi.Input[Optional['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]:
         """
         The configuration details of the Kinesis Data Firehose destination. Note that this field is marked as required but only if Kinesis Data Firehose was chosen as the destination.
         """
         return pulumi.get(self, "kinesis_firehose_details")
 
     @kinesis_firehose_details.setter
-    def kinesis_firehose_details(self, value: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]):
+    def kinesis_firehose_details(self, value: pulumi.Input[Optional['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']]):
         pulumi.set(self, "kinesis_firehose_details", value)
 
 
@@ -698,23 +698,23 @@ class ReplicationGroupLogDeliveryConfigurationRequestArgs:
 
 
 class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
-    node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    node_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
     """
-    primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    primary_availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Availability Zone where the primary node of this node group (shard) is launched.
     """
-    replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    replica_availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
     """
-    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    replica_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of read replica nodes in this node group (shard).
     """
-    slots: NotRequired[pulumi.Input[_builtins.str]]
+    slots: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
     """
@@ -722,11 +722,11 @@ class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ReplicationGroupNodeGroupConfigurationArgs:
     def __init__(__self__, *,
-                 node_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 slots: Optional[pulumi.Input[_builtins.str]] = None):
+                 node_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 slots: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] node_group_id: Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
         :param pulumi.Input[_builtins.str] primary_availability_zone: The Availability Zone where the primary node of this node group (shard) is launched.
@@ -747,62 +747,62 @@ class ReplicationGroupNodeGroupConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="nodeGroupId")
-    def node_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def node_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Either the ElastiCache for Redis supplied 4-digit id or a user supplied id for the node group these configuration values apply to.
         """
         return pulumi.get(self, "node_group_id")
 
     @node_group_id.setter
-    def node_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def node_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "node_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryAvailabilityZone")
-    def primary_availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def primary_availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone where the primary node of this node group (shard) is launched.
         """
         return pulumi.get(self, "primary_availability_zone")
 
     @primary_availability_zone.setter
-    def primary_availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def primary_availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "primary_availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaAvailabilityZones")
-    def replica_availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def replica_availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of Availability Zones to be used for the read replicas. The number of Availability Zones in this list must match the value of ReplicaCount or ReplicasPerNodeGroup if not specified.
         """
         return pulumi.get(self, "replica_availability_zones")
 
     @replica_availability_zones.setter
-    def replica_availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def replica_availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "replica_availability_zones", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of read replica nodes in this node group (shard).
         """
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def slots(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def slots(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string of comma-separated values where the first set of values are the slot numbers (zero based), and the second set of values are the keyspaces for each slot. The following example specifies three slots (numbered 0, 1, and 2): 0,1,2,0-4999,5000-9999,10000-16,383.
         """
         return pulumi.get(self, "slots")
 
     @slots.setter
-    def slots(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def slots(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "slots", value)
 
 
@@ -810,11 +810,11 @@ class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
     """
     The cache capacity limit of the Serverless Cache.
     """
-    data_storage: NotRequired[pulumi.Input['ServerlessCacheDataStorageArgsDict']]
+    data_storage: NotRequired[pulumi.Input[Optional['ServerlessCacheDataStorageArgsDict']]]
     """
     The maximum data storage limit in the cache, expressed in Gigabytes.
     """
-    ecpu_per_second: NotRequired[pulumi.Input['ServerlessCacheEcpuPerSecondArgsDict']]
+    ecpu_per_second: NotRequired[pulumi.Input[Optional['ServerlessCacheEcpuPerSecondArgsDict']]]
     """
     The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
     """
@@ -822,8 +822,8 @@ class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsArgs:
     def __init__(__self__, *,
-                 data_storage: Optional[pulumi.Input['ServerlessCacheDataStorageArgs']] = None,
-                 ecpu_per_second: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']] = None):
+                 data_storage: pulumi.Input[Optional['ServerlessCacheDataStorageArgs']] = None,
+                 ecpu_per_second: pulumi.Input[Optional['ServerlessCacheEcpuPerSecondArgs']] = None):
         """
         The cache capacity limit of the Serverless Cache.
 
@@ -837,26 +837,26 @@ class ServerlessCacheCacheUsageLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataStorage")
-    def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]:
+    def data_storage(self) -> pulumi.Input[Optional['ServerlessCacheDataStorageArgs']]:
         """
         The maximum data storage limit in the cache, expressed in Gigabytes.
         """
         return pulumi.get(self, "data_storage")
 
     @data_storage.setter
-    def data_storage(self, value: Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]):
+    def data_storage(self, value: pulumi.Input[Optional['ServerlessCacheDataStorageArgs']]):
         pulumi.set(self, "data_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="ecpuPerSecond")
-    def ecpu_per_second(self) -> Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]:
+    def ecpu_per_second(self) -> pulumi.Input[Optional['ServerlessCacheEcpuPerSecondArgs']]:
         """
         The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
         return pulumi.get(self, "ecpu_per_second")
 
     @ecpu_per_second.setter
-    def ecpu_per_second(self, value: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]):
+    def ecpu_per_second(self, value: pulumi.Input[Optional['ServerlessCacheEcpuPerSecondArgs']]):
         pulumi.set(self, "ecpu_per_second", value)
 
 
@@ -868,11 +868,11 @@ class ServerlessCacheDataStorageArgsDict(TypedDict):
     """
     The unit of cached data capacity of the Serverless Cache.
     """
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum cached data capacity of the Serverless Cache.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum cached data capacity of the Serverless Cache.
     """
@@ -881,8 +881,8 @@ class ServerlessCacheDataStorageArgsDict(TypedDict):
 class ServerlessCacheDataStorageArgs:
     def __init__(__self__, *,
                  unit: pulumi.Input['ServerlessCacheDataStorageUnit'],
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The cached data capacity of the Serverless Cache.
 
@@ -910,26 +910,26 @@ class ServerlessCacheDataStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum cached data capacity of the Serverless Cache.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum cached data capacity of the Serverless Cache.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum", value)
 
 
@@ -937,11 +937,11 @@ class ServerlessCacheEcpuPerSecondArgsDict(TypedDict):
     """
     The ECPU per second of the Serverless Cache.
     """
-    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    maximum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum ECPU per second of the Serverless Cache.
     """
-    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    minimum: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum ECPU per second of the Serverless Cache.
     """
@@ -949,8 +949,8 @@ class ServerlessCacheEcpuPerSecondArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheEcpuPerSecondArgs:
     def __init__(__self__, *,
-                 maximum: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The ECPU per second of the Serverless Cache.
 
@@ -964,26 +964,26 @@ class ServerlessCacheEcpuPerSecondArgs:
 
     @_builtins.property
     @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum ECPU per second of the Serverless Cache.
         """
         return pulumi.get(self, "maximum")
 
     @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum", value)
 
     @_builtins.property
     @pulumi.getter
-    def minimum(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum ECPU per second of the Serverless Cache.
         """
         return pulumi.get(self, "minimum")
 
     @minimum.setter
-    def minimum(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum", value)
 
 
@@ -991,11 +991,11 @@ class ServerlessCacheEndpointArgsDict(TypedDict):
     """
     The address and the port.
     """
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Endpoint address.
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Endpoint port.
     """
@@ -1003,8 +1003,8 @@ class ServerlessCacheEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ServerlessCacheEndpointArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The address and the port.
 
@@ -1018,26 +1018,26 @@ class ServerlessCacheEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint address.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Endpoint port.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
 

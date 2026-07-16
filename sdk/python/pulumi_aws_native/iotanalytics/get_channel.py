@@ -88,7 +88,6 @@ def get_channel(channel_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoTAnalytics::Channel
 
-
     :param _builtins.str channel_name: The name of the channel.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_channel(channel_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         retention_period=pulumi.get(__ret__, 'retention_period'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_channel_output(channel_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_output(channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Channel
-
 
     :param _builtins.str channel_name: The name of the channel.
     """

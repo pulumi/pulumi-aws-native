@@ -87,7 +87,6 @@ def get_static_ip(static_ip_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lightsail::StaticIp
 
-
     :param _builtins.str static_ip_name: The name of the static IP address.
     """
     __args__ = dict()
@@ -100,11 +99,10 @@ def get_static_ip(static_ip_name: Optional[_builtins.str] = None,
         ip_address=pulumi.get(__ret__, 'ip_address'),
         is_attached=pulumi.get(__ret__, 'is_attached'),
         static_ip_arn=pulumi.get(__ret__, 'static_ip_arn'))
-def get_static_ip_output(static_ip_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_ip_output(static_ip_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticIpResult]:
     """
     Resource Type definition for AWS::Lightsail::StaticIp
-
 
     :param _builtins.str static_ip_name: The name of the static IP address.
     """

@@ -156,7 +156,6 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
     """
     A domain defined for 3rd party data source in Profile Service
 
-
     :param _builtins.str domain_name: The unique name of the domain.
     """
     __args__ = dict()
@@ -175,11 +174,10 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         rule_based_matching=pulumi.get(__ret__, 'rule_based_matching'),
         stats=pulumi.get(__ret__, 'stats'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     A domain defined for 3rd party data source in Profile Service
-
 
     :param _builtins.str domain_name: The unique name of the domain.
     """

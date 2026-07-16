@@ -25,27 +25,27 @@ __all__ = ['FlowOutputArgs', 'FlowOutput']
 class FlowOutputArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str],
-                 cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input['FlowOutputEncryptionArgs']] = None,
-                 max_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]] = None,
-                 min_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
-                 ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
-                 remote_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
-                 router_integration_transit_encryption: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']] = None,
-                 smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None):
+                 cidr_allow_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional['FlowOutputEncryptionArgs']] = None,
+                 max_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]] = None,
+                 min_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_output_timecode_source: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']] = None,
+                 ndi_program_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_speed_hq_quality: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_status: pulumi.Input[Optional['FlowOutputOutputStatus']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['FlowOutputProtocol']] = None,
+                 remote_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: pulumi.Input[Optional['FlowOutputFlowTransitEncryptionArgs']] = None,
+                 smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vpc_interface_attachment: pulumi.Input[Optional['FlowOutputVpcInterfaceAttachmentArgs']] = None):
         """
         The set of arguments for constructing a FlowOutput resource.
 
@@ -129,251 +129,251 @@ class FlowOutputArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrAllowList")
-    def cidr_allow_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def cidr_allow_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "cidr_allow_list")
 
     @cidr_allow_list.setter
-    def cidr_allow_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def cidr_allow_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "cidr_allow_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the output.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The address where you want to send the output.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['FlowOutputEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['FlowOutputEncryptionArgs']]:
         """
         The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['FlowOutputEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['FlowOutputEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLatency")
-    def max_latency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
     @max_latency.setter
-    def max_latency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_latency", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaStreamOutputConfigurations")
-    def media_stream_output_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]]:
+    def media_stream_output_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]]:
         """
         The definition for each media stream that is associated with the output.
         """
         return pulumi.get(self, "media_stream_output_configurations")
 
     @media_stream_output_configurations.setter
-    def media_stream_output_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]]):
+    def media_stream_output_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowOutputMediaStreamOutputConfigurationArgs']]]]):
         pulumi.set(self, "media_stream_output_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="minLatency")
-    def min_latency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum latency in milliseconds.
         """
         return pulumi.get(self, "min_latency")
 
     @min_latency.setter
-    def min_latency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_latency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the output. This value must be unique within the current flow.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiOutputTimecodeSource")
-    def ndi_output_timecode_source(self) -> Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']]:
+    def ndi_output_timecode_source(self) -> pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']]:
         """
         The timecode source for the NDI output.
         """
         return pulumi.get(self, "ndi_output_timecode_source")
 
     @ndi_output_timecode_source.setter
-    def ndi_output_timecode_source(self, value: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']]):
+    def ndi_output_timecode_source(self, value: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']]):
         pulumi.set(self, "ndi_output_timecode_source", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiProgramName")
-    def ndi_program_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ndi_program_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
         """
         return pulumi.get(self, "ndi_program_name")
 
     @ndi_program_name.setter
-    def ndi_program_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ndi_program_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ndi_program_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ndiSpeedHqQuality")
-    def ndi_speed_hq_quality(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ndi_speed_hq_quality(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         A quality setting for the NDI Speed HQ encoder.
         """
         return pulumi.get(self, "ndi_speed_hq_quality")
 
     @ndi_speed_hq_quality.setter
-    def ndi_speed_hq_quality(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ndi_speed_hq_quality(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ndi_speed_hq_quality", value)
 
     @_builtins.property
     @pulumi.getter(name="outputStatus")
-    def output_status(self) -> Optional[pulumi.Input['FlowOutputOutputStatus']]:
+    def output_status(self) -> pulumi.Input[Optional['FlowOutputOutputStatus']]:
         """
         An indication of whether the output should transmit data or not.
         """
         return pulumi.get(self, "output_status")
 
     @output_status.setter
-    def output_status(self, value: Optional[pulumi.Input['FlowOutputOutputStatus']]):
+    def output_status(self, value: pulumi.Input[Optional['FlowOutputOutputStatus']]):
         pulumi.set(self, "output_status", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The port to use when content is distributed to this output.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['FlowOutputProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['FlowOutputProtocol']]:
         """
         The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['FlowOutputProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['FlowOutputProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="remoteId")
-    def remote_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remote_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The remote ID for the Zixi-pull stream.
         """
         return pulumi.get(self, "remote_id")
 
     @remote_id.setter
-    def remote_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remote_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remote_id", value)
 
     @_builtins.property
     @pulumi.getter(name="routerIntegrationState")
-    def router_integration_state(self) -> Optional[pulumi.Input['FlowOutputRouterIntegrationState']]:
+    def router_integration_state(self) -> pulumi.Input[Optional['FlowOutputRouterIntegrationState']]:
         return pulumi.get(self, "router_integration_state")
 
     @router_integration_state.setter
-    def router_integration_state(self, value: Optional[pulumi.Input['FlowOutputRouterIntegrationState']]):
+    def router_integration_state(self, value: pulumi.Input[Optional['FlowOutputRouterIntegrationState']]):
         pulumi.set(self, "router_integration_state", value)
 
     @_builtins.property
     @pulumi.getter(name="routerIntegrationTransitEncryption")
-    def router_integration_transit_encryption(self) -> Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']]:
+    def router_integration_transit_encryption(self) -> pulumi.Input[Optional['FlowOutputFlowTransitEncryptionArgs']]:
         """
         Encryption information.
         """
         return pulumi.get(self, "router_integration_transit_encryption")
 
     @router_integration_transit_encryption.setter
-    def router_integration_transit_encryption(self, value: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']]):
+    def router_integration_transit_encryption(self, value: pulumi.Input[Optional['FlowOutputFlowTransitEncryptionArgs']]):
         pulumi.set(self, "router_integration_transit_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="smoothingLatency")
-    def smoothing_latency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def smoothing_latency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "smoothing_latency")
 
     @smoothing_latency.setter
-    def smoothing_latency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def smoothing_latency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "smoothing_latency", value)
 
     @_builtins.property
     @pulumi.getter(name="streamId")
-    def stream_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stream_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
     @stream_id.setter
-    def stream_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stream_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stream_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to tag and organize this flow output.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcInterfaceAttachment")
-    def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']]:
+    def vpc_interface_attachment(self) -> pulumi.Input[Optional['FlowOutputVpcInterfaceAttachmentArgs']]:
         """
         The name of the VPC interface attachment to use for this output.
         """
         return pulumi.get(self, "vpc_interface_attachment")
 
     @vpc_interface_attachment.setter
-    def vpc_interface_attachment(self, value: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']]):
+    def vpc_interface_attachment(self, value: pulumi.Input[Optional['FlowOutputVpcInterfaceAttachmentArgs']]):
         pulumi.set(self, "vpc_interface_attachment", value)
 
 
@@ -383,32 +383,31 @@ class FlowOutput(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
-                 min_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
-                 ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
-                 remote_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
-                 router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
-                 smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
+                 cidr_allow_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
+                 min_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_output_timecode_source: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']] = None,
+                 ndi_program_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_speed_hq_quality: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_status: pulumi.Input[Optional['FlowOutputOutputStatus']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['FlowOutputProtocol']] = None,
+                 remote_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
+                 smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -443,7 +442,6 @@ class FlowOutput(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaConnect::FlowOutput
 
-
         :param str resource_name: The name of the resource.
         :param FlowOutputArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -459,28 +457,28 @@ class FlowOutput(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption: Optional[pulumi.Input[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
-                 flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 media_stream_output_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
-                 min_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_output_timecode_source: Optional[pulumi.Input['FlowOutputNdiOutputTimecodeSource']] = None,
-                 ndi_program_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None,
-                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
-                 remote_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
-                 router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
-                 smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
+                 cidr_allow_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowOutputEncryptionArgs', 'FlowOutputEncryptionArgsDict']]] = None,
+                 flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 media_stream_output_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowOutputMediaStreamOutputConfigurationArgs', 'FlowOutputMediaStreamOutputConfigurationArgsDict']]]]] = None,
+                 min_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_output_timecode_source: pulumi.Input[Optional['FlowOutputNdiOutputTimecodeSource']] = None,
+                 ndi_program_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ndi_speed_hq_quality: pulumi.Input[Optional[_builtins.int]] = None,
+                 output_status: pulumi.Input[Optional['FlowOutputOutputStatus']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 protocol: pulumi.Input[Optional['FlowOutputProtocol']] = None,
+                 remote_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 router_integration_state: pulumi.Input[Optional['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: pulumi.Input[Optional[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
+                 smoothing_latency: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vpc_interface_attachment: pulumi.Input[Optional[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

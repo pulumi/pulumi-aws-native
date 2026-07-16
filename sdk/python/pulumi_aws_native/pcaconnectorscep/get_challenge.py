@@ -60,7 +60,6 @@ def get_challenge(challenge_arn: Optional[_builtins.str] = None,
     """
     Represents a SCEP Challenge that is used for certificate enrollment
 
-
     :param _builtins.str challenge_arn: The Amazon Resource Name (ARN) of the challenge.
     """
     __args__ = dict()
@@ -71,11 +70,10 @@ def get_challenge(challenge_arn: Optional[_builtins.str] = None,
     return AwaitableGetChallengeResult(
         challenge_arn=pulumi.get(__ret__, 'challenge_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_challenge_output(challenge_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_challenge_output(challenge_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChallengeResult]:
     """
     Represents a SCEP Challenge that is used for certificate enrollment
-
 
     :param _builtins.str challenge_arn: The Amazon Resource Name (ARN) of the challenge.
     """

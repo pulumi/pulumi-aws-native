@@ -62,7 +62,6 @@ def get_bucket_policy(bucket: Optional[_builtins.str] = None,
       +   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
       +   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
 
-
     :param _builtins.str bucket: The name of the Amazon S3 bucket to which the policy applies.
     """
     __args__ = dict()
@@ -72,7 +71,7 @@ def get_bucket_policy(bucket: Optional[_builtins.str] = None,
 
     return AwaitableGetBucketPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_bucket_policy_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bucket_policy_output(bucket: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS-account that owns the bucket, the calling identity must have the ``PutBucketPolicy`` permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
@@ -85,7 +84,6 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[_builtins.str]] = Non
      The following operations are related to ``PutBucketPolicy``:
       +   [CreateBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html)
       +   [DeleteBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html)
-
 
     :param _builtins.str bucket: The name of the Amazon S3 bucket to which the policy applies.
     """

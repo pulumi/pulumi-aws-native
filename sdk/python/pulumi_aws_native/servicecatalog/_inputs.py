@@ -18,14 +18,14 @@ from ._enums import *
 __all__ = [
     'CloudFormationProductCodeStarParametersArgs',
     'CloudFormationProductCodeStarParametersArgsDict',
-    'CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs',
-    'CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgsDict',
     'CloudFormationProductProvisioningArtifactPropertiesArgs',
     'CloudFormationProductProvisioningArtifactPropertiesArgsDict',
-    'CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs',
-    'CloudFormationProductSourceConnectionConnectionParametersPropertiesArgsDict',
+    'CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs',
+    'CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgsDict',
     'CloudFormationProductSourceConnectionArgs',
     'CloudFormationProductSourceConnectionArgsDict',
+    'CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs',
+    'CloudFormationProductSourceConnectionConnectionParametersPropertiesArgsDict',
     'CloudFormationProvisionedProductProvisioningParameterArgs',
     'CloudFormationProvisionedProductProvisioningParameterArgsDict',
     'CloudFormationProvisionedProductProvisioningPreferencesArgs',
@@ -119,68 +119,6 @@ class CloudFormationProductCodeStarParametersArgs:
         pulumi.set(self, "repository", value)
 
 
-class CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgsDict(TypedDict):
-    """
-    Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
-
-    "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
-
-    ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
-    """
-    import_from_physical_id: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
-    """
-    load_template_from_url: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
-    """
-
-@pulumi.input_type
-class CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs:
-    def __init__(__self__, *,
-                 import_from_physical_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 load_template_from_url: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
-
-        "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
-
-        ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
-
-        :param pulumi.Input[_builtins.str] import_from_physical_id: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
-        :param pulumi.Input[_builtins.str] load_template_from_url: The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
-        """
-        if import_from_physical_id is not None:
-            pulumi.set(__self__, "import_from_physical_id", import_from_physical_id)
-        if load_template_from_url is not None:
-            pulumi.set(__self__, "load_template_from_url", load_template_from_url)
-
-    @_builtins.property
-    @pulumi.getter(name="importFromPhysicalId")
-    def import_from_physical_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
-        """
-        return pulumi.get(self, "import_from_physical_id")
-
-    @import_from_physical_id.setter
-    def import_from_physical_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "import_from_physical_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loadTemplateFromUrl")
-    def load_template_from_url(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
-        """
-        return pulumi.get(self, "load_template_from_url")
-
-    @load_template_from_url.setter
-    def load_template_from_url(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "load_template_from_url", value)
-
-
 class CloudFormationProductProvisioningArtifactPropertiesArgsDict(TypedDict):
     info: pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgsDict']
     """
@@ -190,19 +128,19 @@ class CloudFormationProductProvisioningArtifactPropertiesArgsDict(TypedDict):
 
     ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
     """
-    disable_template_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    disable_template_validation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
     """
-    type: NotRequired[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesType']]
+    type: NotRequired[pulumi.Input[Optional['CloudFormationProductProvisioningArtifactPropertiesType']]]
     """
     The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
     """
@@ -211,10 +149,10 @@ class CloudFormationProductProvisioningArtifactPropertiesArgsDict(TypedDict):
 class CloudFormationProductProvisioningArtifactPropertiesArgs:
     def __init__(__self__, *,
                  info: pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 disable_template_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesType']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_template_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional['CloudFormationProductProvisioningArtifactPropertiesType']] = None):
         """
         :param pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs'] info: Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
                
@@ -254,77 +192,113 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableTemplateValidation")
-    def disable_template_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disable_template_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
         """
         return pulumi.get(self, "disable_template_validation")
 
     @disable_template_validation.setter
-    def disable_template_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disable_template_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_template_validation", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesType']]:
+    def type(self) -> pulumi.Input[Optional['CloudFormationProductProvisioningArtifactPropertiesType']]:
         """
         The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesType']]):
+    def type(self, value: pulumi.Input[Optional['CloudFormationProductProvisioningArtifactPropertiesType']]):
         pulumi.set(self, "type", value)
 
 
-class CloudFormationProductSourceConnectionConnectionParametersPropertiesArgsDict(TypedDict):
+class CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgsDict(TypedDict):
     """
-    The connection details based on the connection Type.
+    Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+
+    "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+
+    ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
     """
-    code_star: NotRequired[pulumi.Input['CloudFormationProductCodeStarParametersArgsDict']]
+    import_from_physical_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+    """
+    load_template_from_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+    """
 
 @pulumi.input_type
-class CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs:
+class CloudFormationProductProvisioningArtifactPropertiesInfoPropertiesArgs:
     def __init__(__self__, *,
-                 code_star: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']] = None):
+                 import_from_physical_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_template_from_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        The connection details based on the connection Type.
+        Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+
+        "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+
+        ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+
+        :param pulumi.Input[_builtins.str] import_from_physical_id: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+        :param pulumi.Input[_builtins.str] load_template_from_url: The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
         """
-        if code_star is not None:
-            pulumi.set(__self__, "code_star", code_star)
+        if import_from_physical_id is not None:
+            pulumi.set(__self__, "import_from_physical_id", import_from_physical_id)
+        if load_template_from_url is not None:
+            pulumi.set(__self__, "load_template_from_url", load_template_from_url)
 
     @_builtins.property
-    @pulumi.getter(name="codeStar")
-    def code_star(self) -> Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']]:
-        return pulumi.get(self, "code_star")
+    @pulumi.getter(name="importFromPhysicalId")
+    def import_from_physical_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+        """
+        return pulumi.get(self, "import_from_physical_id")
 
-    @code_star.setter
-    def code_star(self, value: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']]):
-        pulumi.set(self, "code_star", value)
+    @import_from_physical_id.setter
+    def import_from_physical_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "import_from_physical_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadTemplateFromUrl")
+    def load_template_from_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+        """
+        return pulumi.get(self, "load_template_from_url")
+
+    @load_template_from_url.setter
+    def load_template_from_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "load_template_from_url", value)
 
 
 class CloudFormationProductSourceConnectionArgsDict(TypedDict):
@@ -372,6 +346,32 @@ class CloudFormationProductSourceConnectionArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
+
+
+class CloudFormationProductSourceConnectionConnectionParametersPropertiesArgsDict(TypedDict):
+    """
+    The connection details based on the connection Type.
+    """
+    code_star: NotRequired[pulumi.Input[Optional['CloudFormationProductCodeStarParametersArgsDict']]]
+
+@pulumi.input_type
+class CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 code_star: pulumi.Input[Optional['CloudFormationProductCodeStarParametersArgs']] = None):
+        """
+        The connection details based on the connection Type.
+        """
+        if code_star is not None:
+            pulumi.set(__self__, "code_star", code_star)
+
+    @_builtins.property
+    @pulumi.getter(name="codeStar")
+    def code_star(self) -> pulumi.Input[Optional['CloudFormationProductCodeStarParametersArgs']]:
+        return pulumi.get(self, "code_star")
+
+    @code_star.setter
+    def code_star(self, value: pulumi.Input[Optional['CloudFormationProductCodeStarParametersArgs']]):
+        pulumi.set(self, "code_star", value)
 
 
 class CloudFormationProvisionedProductProvisioningParameterArgsDict(TypedDict):
@@ -422,7 +422,7 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
 
 
 class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict):
-    stack_set_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stack_set_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more AWS accounts where the provisioned product will be available.
 
@@ -432,7 +432,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 
     If no values are specified, the default value is all acounts from the `STACKSET` constraint.
     """
-    stack_set_failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    stack_set_failure_tolerance_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
@@ -442,7 +442,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 
     The default value is `0` if no value is specified.
     """
-    stack_set_failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    stack_set_failure_tolerance_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
@@ -452,7 +452,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 
     Conditional: You must specify either `StackSetFailureToleranceCount` or `StackSetFailureTolerancePercentage` , but not both.
     """
-    stack_set_max_concurrency_count: NotRequired[pulumi.Input[_builtins.int]]
+    stack_set_max_concurrency_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
 
@@ -462,7 +462,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 
     Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
     """
-    stack_set_max_concurrency_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    stack_set_max_concurrency_percentage: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum percentage of accounts in which to perform this operation at one time.
 
@@ -474,7 +474,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 
     Conditional: You must specify either `StackSetMaxConcurrentCount` or `StackSetMaxConcurrentPercentage` , but not both.
     """
-    stack_set_operation_type: NotRequired[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]
+    stack_set_operation_type: NotRequired[pulumi.Input[Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]]
     """
     Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
 
@@ -484,7 +484,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
     - **UPDATE** - Updates the stack set represented by the provisioned product and also its stack instances.
     - **DELETE** - Deletes a stack instance in the stack set represented by the provisioned product.
     """
-    stack_set_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stack_set_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     One or more AWS Regions where the provisioned product will be available.
 
@@ -498,13 +498,13 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgsDict(TypedDict)
 @pulumi.input_type
 class CloudFormationProvisionedProductProvisioningPreferencesArgs:
     def __init__(__self__, *,
-                 stack_set_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 stack_set_failure_tolerance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 stack_set_failure_tolerance_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 stack_set_max_concurrency_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 stack_set_max_concurrency_percentage: Optional[pulumi.Input[_builtins.int]] = None,
-                 stack_set_operation_type: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']] = None,
-                 stack_set_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 stack_set_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 stack_set_failure_tolerance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 stack_set_failure_tolerance_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 stack_set_max_concurrency_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 stack_set_max_concurrency_percentage: pulumi.Input[Optional[_builtins.int]] = None,
+                 stack_set_operation_type: pulumi.Input[Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']] = None,
+                 stack_set_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stack_set_accounts: One or more AWS accounts where the provisioned product will be available.
                
@@ -575,7 +575,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
 
     @_builtins.property
     @pulumi.getter(name="stackSetAccounts")
-    def stack_set_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stack_set_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more AWS accounts where the provisioned product will be available.
 
@@ -588,12 +588,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_accounts")
 
     @stack_set_accounts.setter
-    def stack_set_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stack_set_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stack_set_accounts", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetFailureToleranceCount")
-    def stack_set_failure_tolerance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stack_set_failure_tolerance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of accounts, per Region, for which this operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
@@ -606,12 +606,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_failure_tolerance_count")
 
     @stack_set_failure_tolerance_count.setter
-    def stack_set_failure_tolerance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stack_set_failure_tolerance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stack_set_failure_tolerance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetFailureTolerancePercentage")
-    def stack_set_failure_tolerance_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stack_set_failure_tolerance_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The percentage of accounts, per Region, for which this stack operation can fail before AWS Service Catalog stops the operation in that Region. If the operation is stopped in a Region, AWS Service Catalog doesn't attempt the operation in any subsequent Regions.
 
@@ -624,12 +624,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_failure_tolerance_percentage")
 
     @stack_set_failure_tolerance_percentage.setter
-    def stack_set_failure_tolerance_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stack_set_failure_tolerance_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stack_set_failure_tolerance_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetMaxConcurrencyCount")
-    def stack_set_max_concurrency_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stack_set_max_concurrency_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `StackSetFailureToleranceCount` . `StackSetMaxConcurrentCount` is at most one more than the `StackSetFailureToleranceCount` .
 
@@ -642,12 +642,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_max_concurrency_count")
 
     @stack_set_max_concurrency_count.setter
-    def stack_set_max_concurrency_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stack_set_max_concurrency_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stack_set_max_concurrency_count", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetMaxConcurrencyPercentage")
-    def stack_set_max_concurrency_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def stack_set_max_concurrency_percentage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum percentage of accounts in which to perform this operation at one time.
 
@@ -662,12 +662,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_max_concurrency_percentage")
 
     @stack_set_max_concurrency_percentage.setter
-    def stack_set_max_concurrency_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def stack_set_max_concurrency_percentage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "stack_set_max_concurrency_percentage", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetOperationType")
-    def stack_set_operation_type(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]:
+    def stack_set_operation_type(self) -> pulumi.Input[Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]:
         """
         Determines what action AWS Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is `UPDATE` if nothing is specified.
 
@@ -680,12 +680,12 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_operation_type")
 
     @stack_set_operation_type.setter
-    def stack_set_operation_type(self, value: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]):
+    def stack_set_operation_type(self, value: pulumi.Input[Optional['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']]):
         pulumi.set(self, "stack_set_operation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="stackSetRegions")
-    def stack_set_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stack_set_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         One or more AWS Regions where the provisioned product will be available.
 
@@ -698,7 +698,7 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
         return pulumi.get(self, "stack_set_regions")
 
     @stack_set_regions.setter
-    def stack_set_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stack_set_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stack_set_regions", value)
 
 

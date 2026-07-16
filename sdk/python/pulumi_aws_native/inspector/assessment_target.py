@@ -19,8 +19,8 @@ __all__ = ['AssessmentTargetArgs', 'AssessmentTarget']
 @pulumi.input_type
 class AssessmentTargetArgs:
     def __init__(__self__, *,
-                 assessment_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 assessment_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentTarget resource.
 
@@ -34,26 +34,26 @@ class AssessmentTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentTargetName")
-    def assessment_target_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def assessment_target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon Inspector assessment target. The name must be unique within the AWS account .
         """
         return pulumi.get(self, "assessment_target_name")
 
     @assessment_target_name.setter
-    def assessment_target_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def assessment_target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupArn")
-    def resource_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN that specifies the resource group that is used to create the assessment target. If `resourceGroupArn` is not specified, all EC2 instances in the current AWS account and Region are included in the assessment target.
         """
         return pulumi.get(self, "resource_group_arn")
 
     @resource_group_arn.setter
-    def resource_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group_arn", value)
 
 
@@ -63,12 +63,11 @@ class AssessmentTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Inspector::AssessmentTarget
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class AssessmentTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Inspector::AssessmentTarget
-
 
         :param str resource_name: The name of the resource.
         :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class AssessmentTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_target_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 assessment_target_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

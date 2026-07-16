@@ -125,7 +125,6 @@ def get_extension(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::AppConfig::Extension
 
-
     :param _builtins.str id: The system-generated ID of the extension.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_extension(id: Optional[_builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'),
         version_number=pulumi.get(__ret__, 'version_number'))
-def get_extension_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_extension_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Resource Type definition for AWS::AppConfig::Extension
-
 
     :param _builtins.str id: The system-generated ID of the extension.
     """

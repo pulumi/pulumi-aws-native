@@ -135,7 +135,6 @@ def get_target_domain(target_domain_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecurityAgent::TargetDomain
 
-
     :param _builtins.str target_domain_id: Unique identifier of the target domain
     """
     __args__ = dict()
@@ -152,11 +151,10 @@ def get_target_domain(target_domain_id: Optional[_builtins.str] = None,
         verification_status=pulumi.get(__ret__, 'verification_status'),
         verification_status_reason=pulumi.get(__ret__, 'verification_status_reason'),
         verified_at=pulumi.get(__ret__, 'verified_at'))
-def get_target_domain_output(target_domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_target_domain_output(target_domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetDomainResult]:
     """
     Resource Type definition for AWS::SecurityAgent::TargetDomain
-
 
     :param _builtins.str target_domain_id: Unique identifier of the target domain
     """

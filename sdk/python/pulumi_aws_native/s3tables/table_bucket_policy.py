@@ -63,12 +63,11 @@ class TableBucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: Optional[pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Applies an IAM resource policy to a table bucket.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class TableBucketPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Applies an IAM resource policy to a table bucket.
-
 
         :param str resource_name: The name of the resource.
         :param TableBucketPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class TableBucketPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: Optional[pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

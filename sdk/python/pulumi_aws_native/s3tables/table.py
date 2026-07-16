@@ -27,13 +27,13 @@ class TableArgs:
                  namespace: pulumi.Input[_builtins.str],
                  open_table_format: pulumi.Input['TableOpenTableFormat'],
                  table_bucket_arn: pulumi.Input[_builtins.str],
-                 compaction: Optional[pulumi.Input['TableCompactionArgs']] = None,
-                 iceberg_metadata: Optional[pulumi.Input['TableIcebergMetadataArgs']] = None,
-                 snapshot_management: Optional[pulumi.Input['TableSnapshotManagementArgs']] = None,
-                 storage_class_configuration: Optional[pulumi.Input['TableStorageClassConfigurationArgs']] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None):
+                 compaction: pulumi.Input[Optional['TableCompactionArgs']] = None,
+                 iceberg_metadata: pulumi.Input[Optional['TableIcebergMetadataArgs']] = None,
+                 snapshot_management: pulumi.Input[Optional['TableSnapshotManagementArgs']] = None,
+                 storage_class_configuration: pulumi.Input[Optional['TableStorageClassConfigurationArgs']] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 without_metadata: pulumi.Input[Optional['TableWithoutMetadata']] = None):
         """
         The set of arguments for constructing a Table resource.
 
@@ -104,86 +104,86 @@ class TableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def compaction(self) -> Optional[pulumi.Input['TableCompactionArgs']]:
+    def compaction(self) -> pulumi.Input[Optional['TableCompactionArgs']]:
         """
         Contains details about the compaction settings for an Iceberg table.
         """
         return pulumi.get(self, "compaction")
 
     @compaction.setter
-    def compaction(self, value: Optional[pulumi.Input['TableCompactionArgs']]):
+    def compaction(self, value: pulumi.Input[Optional['TableCompactionArgs']]):
         pulumi.set(self, "compaction", value)
 
     @_builtins.property
     @pulumi.getter(name="icebergMetadata")
-    def iceberg_metadata(self) -> Optional[pulumi.Input['TableIcebergMetadataArgs']]:
+    def iceberg_metadata(self) -> pulumi.Input[Optional['TableIcebergMetadataArgs']]:
         """
         Contains details about the metadata for an Iceberg table.
         """
         return pulumi.get(self, "iceberg_metadata")
 
     @iceberg_metadata.setter
-    def iceberg_metadata(self, value: Optional[pulumi.Input['TableIcebergMetadataArgs']]):
+    def iceberg_metadata(self, value: pulumi.Input[Optional['TableIcebergMetadataArgs']]):
         pulumi.set(self, "iceberg_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotManagement")
-    def snapshot_management(self) -> Optional[pulumi.Input['TableSnapshotManagementArgs']]:
+    def snapshot_management(self) -> pulumi.Input[Optional['TableSnapshotManagementArgs']]:
         """
         Contains details about the Iceberg snapshot management settings for the table.
         """
         return pulumi.get(self, "snapshot_management")
 
     @snapshot_management.setter
-    def snapshot_management(self, value: Optional[pulumi.Input['TableSnapshotManagementArgs']]):
+    def snapshot_management(self, value: pulumi.Input[Optional['TableSnapshotManagementArgs']]):
         pulumi.set(self, "snapshot_management", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
-    def storage_class_configuration(self) -> Optional[pulumi.Input['TableStorageClassConfigurationArgs']]:
+    def storage_class_configuration(self) -> pulumi.Input[Optional['TableStorageClassConfigurationArgs']]:
         """
         The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         """
         return pulumi.get(self, "storage_class_configuration")
 
     @storage_class_configuration.setter
-    def storage_class_configuration(self, value: Optional[pulumi.Input['TableStorageClassConfigurationArgs']]):
+    def storage_class_configuration(self, value: pulumi.Input[Optional['TableStorageClassConfigurationArgs']]):
         pulumi.set(self, "storage_class_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the table.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         User tags (key-value pairs) to associate with the table.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="withoutMetadata")
-    def without_metadata(self) -> Optional[pulumi.Input['TableWithoutMetadata']]:
+    def without_metadata(self) -> pulumi.Input[Optional['TableWithoutMetadata']]:
         """
         Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
         """
         return pulumi.get(self, "without_metadata")
 
     @without_metadata.setter
-    def without_metadata(self, value: Optional[pulumi.Input['TableWithoutMetadata']]):
+    def without_metadata(self, value: pulumi.Input[Optional['TableWithoutMetadata']]):
         pulumi.set(self, "without_metadata", value)
 
 
@@ -193,20 +193,19 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compaction: Optional[pulumi.Input[Union['TableCompactionArgs', 'TableCompactionArgsDict']]] = None,
-                 iceberg_metadata: Optional[pulumi.Input[Union['TableIcebergMetadataArgs', 'TableIcebergMetadataArgsDict']]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format: Optional[pulumi.Input['TableOpenTableFormat']] = None,
-                 snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
-                 storage_class_configuration: Optional[pulumi.Input[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None,
+                 compaction: pulumi.Input[Optional[Union['TableCompactionArgs', 'TableCompactionArgsDict']]] = None,
+                 iceberg_metadata: pulumi.Input[Optional[Union['TableIcebergMetadataArgs', 'TableIcebergMetadataArgsDict']]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format: pulumi.Input[Optional['TableOpenTableFormat']] = None,
+                 snapshot_management: pulumi.Input[Optional[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
+                 storage_class_configuration: pulumi.Input[Optional[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 without_metadata: pulumi.Input[Optional['TableWithoutMetadata']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Tables::Table
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +229,6 @@ class Table(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Tables::Table
 
-
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,16 +244,16 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compaction: Optional[pulumi.Input[Union['TableCompactionArgs', 'TableCompactionArgsDict']]] = None,
-                 iceberg_metadata: Optional[pulumi.Input[Union['TableIcebergMetadataArgs', 'TableIcebergMetadataArgsDict']]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 open_table_format: Optional[pulumi.Input['TableOpenTableFormat']] = None,
-                 snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
-                 storage_class_configuration: Optional[pulumi.Input[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
-                 table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None,
+                 compaction: pulumi.Input[Optional[Union['TableCompactionArgs', 'TableCompactionArgsDict']]] = None,
+                 iceberg_metadata: pulumi.Input[Optional[Union['TableIcebergMetadataArgs', 'TableIcebergMetadataArgsDict']]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 open_table_format: pulumi.Input[Optional['TableOpenTableFormat']] = None,
+                 snapshot_management: pulumi.Input[Optional[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
+                 storage_class_configuration: pulumi.Input[Optional[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
+                 table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 without_metadata: pulumi.Input[Optional['TableWithoutMetadata']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -47,7 +47,7 @@ class GetAnomalyMonitorResult:
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[_builtins.str]:
         """
-        The date when the monitor was created. 
+        The date when the monitor was created.
         """
         return pulumi.get(self, "creation_date")
 
@@ -111,7 +111,6 @@ def get_anomaly_monitor(monitor_arn: Optional[_builtins.str] = None,
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
 
-
     :param _builtins.str monitor_arn: The Amazon Resource Name (ARN) value for the monitor.
     """
     __args__ = dict()
@@ -126,11 +125,10 @@ def get_anomaly_monitor(monitor_arn: Optional[_builtins.str] = None,
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         monitor_arn=pulumi.get(__ret__, 'monitor_arn'),
         monitor_name=pulumi.get(__ret__, 'monitor_name'))
-def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_anomaly_monitor_output(monitor_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalyMonitorResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
-
 
     :param _builtins.str monitor_arn: The Amazon Resource Name (ARN) value for the monitor.
     """

@@ -24,11 +24,11 @@ __all__ = ['ApiKeyCredentialProviderArgs', 'ApiKeyCredentialProvider']
 @pulumi.input_type
 class ApiKeyCredentialProviderArgs:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_secret_config: Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']] = None,
-                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional['ApiKeyCredentialProviderSecretReferenceArgs']] = None,
+                 api_key_secret_source: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKeyCredentialProvider resource.
 
@@ -51,62 +51,62 @@ class ApiKeyCredentialProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The API key to use for authentication
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeySecretConfig")
-    def api_key_secret_config(self) -> Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']]:
+    def api_key_secret_config(self) -> pulumi.Input[Optional['ApiKeyCredentialProviderSecretReferenceArgs']]:
         """
         Configuration for a customer-provided secret containing the API key
         """
         return pulumi.get(self, "api_key_secret_config")
 
     @api_key_secret_config.setter
-    def api_key_secret_config(self, value: Optional[pulumi.Input['ApiKeyCredentialProviderSecretReferenceArgs']]):
+    def api_key_secret_config(self, value: pulumi.Input[Optional['ApiKeyCredentialProviderSecretReferenceArgs']]):
         pulumi.set(self, "api_key_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="apiKeySecretSource")
-    def api_key_secret_source(self) -> Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']]:
+    def api_key_secret_source(self) -> pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']]:
         """
         The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
         """
         return pulumi.get(self, "api_key_secret_source")
 
     @api_key_secret_source.setter
-    def api_key_secret_source(self, value: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']]):
+    def api_key_secret_source(self, value: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']]):
         pulumi.set(self, "api_key_secret_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the API key credential provider
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the API key credential provider
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -116,15 +116,14 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_secret_config: Optional[pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
-                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_source: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::ApiKeyCredentialProvider
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::ApiKeyCredentialProvider
 
-
         :param str resource_name: The name of the resource.
         :param ApiKeyCredentialProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,11 +157,11 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 api_key_secret_config: Optional[pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
-                 api_key_secret_source: Optional[pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_source: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

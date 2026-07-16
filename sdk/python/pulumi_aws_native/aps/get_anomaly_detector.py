@@ -113,7 +113,6 @@ def get_anomaly_detector(arn: Optional[_builtins.str] = None,
     """
     AnomalyDetector schema for cloudformation.
 
-
     :param _builtins.str arn: The AnomalyDetector ARN.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_anomaly_detector(arn: Optional[_builtins.str] = None,
         labels=pulumi.get(__ret__, 'labels'),
         missing_data_action=pulumi.get(__ret__, 'missing_data_action'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_anomaly_detector_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_anomaly_detector_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
     """
     AnomalyDetector schema for cloudformation.
-
 
     :param _builtins.str arn: The AnomalyDetector ARN.
     """

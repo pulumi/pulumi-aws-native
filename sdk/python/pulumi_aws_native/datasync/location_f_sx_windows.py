@@ -25,13 +25,13 @@ class LocationFSxWindowsArgs:
     def __init__(__self__, *,
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  user: pulumi.Input[_builtins.str],
-                 cmk_secret_config: Optional[pulumi.Input['LocationFSxWindowsCmkSecretConfigArgs']] = None,
-                 custom_secret_config: Optional[pulumi.Input['LocationFSxWindowsCustomSecretConfigArgs']] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cmk_secret_config: pulumi.Input[Optional['LocationFSxWindowsCmkSecretConfigArgs']] = None,
+                 custom_secret_config: pulumi.Input[Optional['LocationFSxWindowsCustomSecretConfigArgs']] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationFSxWindows resource.
 
@@ -86,80 +86,80 @@ class LocationFSxWindowsArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmkSecretConfig")
-    def cmk_secret_config(self) -> Optional[pulumi.Input['LocationFSxWindowsCmkSecretConfigArgs']]:
+    def cmk_secret_config(self) -> pulumi.Input[Optional['LocationFSxWindowsCmkSecretConfigArgs']]:
         return pulumi.get(self, "cmk_secret_config")
 
     @cmk_secret_config.setter
-    def cmk_secret_config(self, value: Optional[pulumi.Input['LocationFSxWindowsCmkSecretConfigArgs']]):
+    def cmk_secret_config(self, value: pulumi.Input[Optional['LocationFSxWindowsCmkSecretConfigArgs']]):
         pulumi.set(self, "cmk_secret_config", value)
 
     @_builtins.property
     @pulumi.getter(name="customSecretConfig")
-    def custom_secret_config(self) -> Optional[pulumi.Input['LocationFSxWindowsCustomSecretConfigArgs']]:
+    def custom_secret_config(self) -> pulumi.Input[Optional['LocationFSxWindowsCustomSecretConfigArgs']]:
         return pulumi.get(self, "custom_secret_config")
 
     @custom_secret_config.setter
-    def custom_secret_config(self, value: Optional[pulumi.Input['LocationFSxWindowsCustomSecretConfigArgs']]):
+    def custom_secret_config(self, value: pulumi.Input[Optional['LocationFSxWindowsCustomSecretConfigArgs']]):
         pulumi.set(self, "custom_secret_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Windows domain that the FSx for Windows server belongs to.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter(name="fsxFilesystemArn")
-    def fsx_filesystem_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fsx_filesystem_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) for the FSx for Windows file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
     @fsx_filesystem_arn.setter
-    def fsx_filesystem_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fsx_filesystem_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fsx_filesystem_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdirectory in the location's path.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -169,19 +169,18 @@ class LocationFSxWindows(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationFSxWindowsCmkSecretConfigArgs', 'LocationFSxWindowsCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationFSxWindowsCustomSecretConfigArgs', 'LocationFSxWindowsCustomSecretConfigArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationFSxWindowsCmkSecretConfigArgs', 'LocationFSxWindowsCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationFSxWindowsCustomSecretConfigArgs', 'LocationFSxWindowsCustomSecretConfigArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationFSxWindows.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +201,6 @@ class LocationFSxWindows(pulumi.CustomResource):
         """
         Resource Type definition for AWS::DataSync::LocationFSxWindows.
 
-
         :param str resource_name: The name of the resource.
         :param LocationFSxWindowsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,15 +216,15 @@ class LocationFSxWindows(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cmk_secret_config: Optional[pulumi.Input[Union['LocationFSxWindowsCmkSecretConfigArgs', 'LocationFSxWindowsCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: Optional[pulumi.Input[Union['LocationFSxWindowsCustomSecretConfigArgs', 'LocationFSxWindowsCustomSecretConfigArgsDict']]] = None,
-                 domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 fsx_filesystem_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user: Optional[pulumi.Input[_builtins.str]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationFSxWindowsCmkSecretConfigArgs', 'LocationFSxWindowsCmkSecretConfigArgsDict']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationFSxWindowsCustomSecretConfigArgs', 'LocationFSxWindowsCustomSecretConfigArgsDict']]] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 fsx_filesystem_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

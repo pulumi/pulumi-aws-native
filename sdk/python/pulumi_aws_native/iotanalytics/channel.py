@@ -23,10 +23,10 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_storage: Optional[pulumi.Input['ChannelStorageArgs']] = None,
-                 retention_period: Optional[pulumi.Input['ChannelRetentionPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_storage: pulumi.Input[Optional['ChannelStorageArgs']] = None,
+                 retention_period: pulumi.Input[Optional['ChannelRetentionPeriodArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
 
@@ -48,43 +48,43 @@ class ChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the channel.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelStorage")
-    def channel_storage(self) -> Optional[pulumi.Input['ChannelStorageArgs']]:
+    def channel_storage(self) -> pulumi.Input[Optional['ChannelStorageArgs']]:
         """
         Where channel data is stored.
         """
         return pulumi.get(self, "channel_storage")
 
     @channel_storage.setter
-    def channel_storage(self, value: Optional[pulumi.Input['ChannelStorageArgs']]):
+    def channel_storage(self, value: pulumi.Input[Optional['ChannelStorageArgs']]):
         pulumi.set(self, "channel_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input['ChannelRetentionPeriodArgs']]:
+    def retention_period(self) -> pulumi.Input[Optional['ChannelRetentionPeriodArgs']]:
         """
         How long, in days, message data is kept for the channel.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input['ChannelRetentionPeriodArgs']]):
+    def retention_period(self, value: pulumi.Input[Optional['ChannelRetentionPeriodArgs']]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata which can be used to manage the channel.
 
@@ -93,7 +93,7 @@ class ChannelArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -103,10 +103,10 @@ class Channel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_storage: Optional[pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
-                 retention_period: Optional[pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Channel
@@ -282,10 +282,10 @@ class Channel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 channel_storage: Optional[pulumi.Input[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
-                 retention_period: Optional[pulumi.Input[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 channel_storage: pulumi.Input[Optional[Union['ChannelStorageArgs', 'ChannelStorageArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['ChannelRetentionPeriodArgs', 'ChannelRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

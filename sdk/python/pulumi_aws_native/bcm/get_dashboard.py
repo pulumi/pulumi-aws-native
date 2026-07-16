@@ -128,7 +128,7 @@ def get_dashboard(arn: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         widgets=pulumi.get(__ret__, 'widgets'))
-def get_dashboard_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dashboard_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Definition of AWS::BCM::Dashboard Resource Type

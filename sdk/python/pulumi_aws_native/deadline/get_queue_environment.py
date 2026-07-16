@@ -102,7 +102,6 @@ def get_queue_environment(farm_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Deadline::QueueEnvironment
 
-
     :param _builtins.str farm_id: The identifier assigned to the farm that contains the queue.
     :param _builtins.str queue_environment_id: The queue environment ID.
     :param _builtins.str queue_id: The unique identifier of the queue that contains the environment.
@@ -120,13 +119,12 @@ def get_queue_environment(farm_id: Optional[_builtins.str] = None,
         queue_environment_id=pulumi.get(__ret__, 'queue_environment_id'),
         template=pulumi.get(__ret__, 'template'),
         template_type=pulumi.get(__ret__, 'template_type'))
-def get_queue_environment_output(farm_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 queue_environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                 queue_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_environment_output(farm_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 queue_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                 queue_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueEnvironmentResult]:
     """
     Resource Type definition for AWS::Deadline::QueueEnvironment
-
 
     :param _builtins.str farm_id: The identifier assigned to the farm that contains the queue.
     :param _builtins.str queue_environment_id: The queue environment ID.

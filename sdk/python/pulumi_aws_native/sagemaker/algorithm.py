@@ -25,11 +25,11 @@ __all__ = ['AlgorithmArgs', 'Algorithm']
 class AlgorithmArgs:
     def __init__(__self__, *,
                  training_specification: pulumi.Input['AlgorithmTrainingSpecificationArgs'],
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Algorithm resource.
 
@@ -61,59 +61,59 @@ class AlgorithmArgs:
 
     @_builtins.property
     @pulumi.getter(name="algorithmDescription")
-    def algorithm_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the algorithm.
         """
         return pulumi.get(self, "algorithm_description")
 
     @algorithm_description.setter
-    def algorithm_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_description", value)
 
     @_builtins.property
     @pulumi.getter(name="algorithmName")
-    def algorithm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def algorithm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the algorithm.
         """
         return pulumi.get(self, "algorithm_name")
 
     @algorithm_name.setter
-    def algorithm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def algorithm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "algorithm_name", value)
 
     @_builtins.property
     @pulumi.getter(name="certifyForMarketplace")
-    def certify_for_marketplace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def certify_for_marketplace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to certify the algorithm so that it can be listed in AWS Marketplace.
         """
         return pulumi.get(self, "certify_for_marketplace")
 
     @certify_for_marketplace.setter
-    def certify_for_marketplace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def certify_for_marketplace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "certify_for_marketplace", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceSpecification")
-    def inference_specification(self) -> Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]:
+    def inference_specification(self) -> pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]:
         return pulumi.get(self, "inference_specification")
 
     @inference_specification.setter
-    def inference_specification(self, value: Optional[pulumi.Input['AlgorithmInferenceSpecificationArgs']]):
+    def inference_specification(self, value: pulumi.Input[Optional['AlgorithmInferenceSpecificationArgs']]):
         pulumi.set(self, "inference_specification", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -123,16 +123,15 @@ class Algorithm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_specification: Optional[pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Algorithm
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +149,6 @@ class Algorithm(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::Algorithm
 
-
         :param str resource_name: The name of the resource.
         :param AlgorithmArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,12 +164,12 @@ class Algorithm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 algorithm_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 algorithm_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 certify_for_marketplace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 inference_specification: Optional[pulumi.Input[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_specification: Optional[pulumi.Input[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

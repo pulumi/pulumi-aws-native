@@ -64,7 +64,6 @@ def get_base_path_mapping(base_path: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL. Supported only for public custom domain names.
 
-
     :param _builtins.str base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
     :param _builtins.str domain_name: The domain name of the BasePathMapping resource to be described.
     """
@@ -77,12 +76,11 @@ def get_base_path_mapping(base_path: Optional[_builtins.str] = None,
     return AwaitableGetBasePathMappingResult(
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage=pulumi.get(__ret__, 'stage'))
-def get_base_path_mapping_output(base_path: Optional[pulumi.Input[_builtins.str]] = None,
-                                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_base_path_mapping_output(base_path: pulumi.Input[Optional[_builtins.str]] = None,
+                                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBasePathMappingResult]:
     """
     The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL. Supported only for public custom domain names.
-
 
     :param _builtins.str base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
     :param _builtins.str domain_name: The domain name of the BasePathMapping resource to be described.

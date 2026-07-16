@@ -233,7 +233,6 @@ def get_site_to_site_vpn_attachment(attachment_id: Optional[_builtins.str] = Non
     """
     AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
 
-
     :param _builtins.str attachment_id: The ID of the attachment.
     """
     __args__ = dict()
@@ -258,11 +257,10 @@ def get_site_to_site_vpn_attachment(attachment_id: Optional[_builtins.str] = Non
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_site_to_site_vpn_attachment_output(attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_site_to_site_vpn_attachment_output(attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteToSiteVpnAttachmentResult]:
     """
     AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
-
 
     :param _builtins.str attachment_id: The ID of the attachment.
     """

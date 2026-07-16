@@ -135,7 +135,6 @@ def get_identity_provider(identity_provider_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
 
-
     :param _builtins.str identity_provider_arn: The ARN of the identity provider.
     """
     __args__ = dict()
@@ -149,11 +148,10 @@ def get_identity_provider(identity_provider_arn: Optional[_builtins.str] = None,
         identity_provider_name=pulumi.get(__ret__, 'identity_provider_name'),
         identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_identity_provider_output(identity_provider_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
-
 
     :param _builtins.str identity_provider_arn: The ARN of the identity provider.
     """

@@ -51,7 +51,6 @@ def get_studio_lifecycle_config(studio_lifecycle_config_name: Optional[_builtins
     """
     Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
 
-
     :param _builtins.str studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_studio_lifecycle_config(studio_lifecycle_config_name: Optional[_builtins
 
     return AwaitableGetStudioLifecycleConfigResult(
         studio_lifecycle_config_arn=pulumi.get(__ret__, 'studio_lifecycle_config_arn'))
-def get_studio_lifecycle_config_output(studio_lifecycle_config_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_studio_lifecycle_config_output(studio_lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioLifecycleConfigResult]:
     """
     Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
-
 
     :param _builtins.str studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
     """

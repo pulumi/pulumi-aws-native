@@ -25,13 +25,13 @@ __all__ = ['DatasetArgs', 'Dataset']
 class DatasetArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]],
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
-                 retention_period: Optional[pulumi.Input['DatasetRetentionPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
-                 versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None):
+                 content_delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
+                 retention_period: pulumi.Input[Optional['DatasetRetentionPeriodArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
+                 versioning_configuration: pulumi.Input[Optional['DatasetVersioningConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -76,55 +76,55 @@ class DatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentDeliveryRules")
-    def content_delivery_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]:
+    def content_delivery_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]:
         """
         When dataset contents are created they are delivered to destinations specified here.
         """
         return pulumi.get(self, "content_delivery_rules")
 
     @content_delivery_rules.setter
-    def content_delivery_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]):
+    def content_delivery_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]]):
         pulumi.set(self, "content_delivery_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dataset.
         """
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
-    def dataset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lateDataRules")
-    def late_data_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]]:
+    def late_data_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]]:
         """
         A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
         """
         return pulumi.get(self, "late_data_rules")
 
     @late_data_rules.setter
-    def late_data_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]]):
+    def late_data_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]]):
         pulumi.set(self, "late_data_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input['DatasetRetentionPeriodArgs']]:
+    def retention_period(self) -> pulumi.Input[Optional['DatasetRetentionPeriodArgs']]:
         """
         Optional. How long, in days, message data is kept for the dataset.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input['DatasetRetentionPeriodArgs']]):
+    def retention_period(self, value: pulumi.Input[Optional['DatasetRetentionPeriodArgs']]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata which can be used to manage the data set.
 
@@ -133,31 +133,31 @@ class DatasetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]]:
+    def triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatasetTriggerArgs']]]]:
         """
         The `DatasetTrigger` objects that specify when the dataset is automatically updated.
         """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]]):
+    def triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatasetTriggerArgs']]]]):
         pulumi.set(self, "triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="versioningConfiguration")
-    def versioning_configuration(self) -> Optional[pulumi.Input['DatasetVersioningConfigurationArgs']]:
+    def versioning_configuration(self) -> pulumi.Input[Optional['DatasetVersioningConfigurationArgs']]:
         """
         Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
         """
         return pulumi.get(self, "versioning_configuration")
 
     @versioning_configuration.setter
-    def versioning_configuration(self, value: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']]):
+    def versioning_configuration(self, value: pulumi.Input[Optional['DatasetVersioningConfigurationArgs']]):
         pulumi.set(self, "versioning_configuration", value)
 
 
@@ -167,14 +167,14 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
-                 retention_period: Optional[pulumi.Input[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
+                 content_delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Dataset
@@ -470,14 +470,14 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
-                 content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
-                 retention_period: Optional[pulumi.Input[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
-                 versioning_configuration: Optional[pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetActionArgs', 'DatasetActionArgsDict']]]]] = None,
+                 content_delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetContentDeliveryRuleArgs', 'DatasetContentDeliveryRuleArgsDict']]]]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 late_data_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetLateDataRuleArgs', 'DatasetLateDataRuleArgsDict']]]]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatasetRetentionPeriodArgs', 'DatasetRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]]] = None,
+                 versioning_configuration: pulumi.Input[Optional[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

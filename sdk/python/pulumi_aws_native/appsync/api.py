@@ -24,10 +24,10 @@ __all__ = ['ApiArgs', 'Api']
 @pulumi.input_type
 class ApiArgs:
     def __init__(__self__, *,
-                 event_config: Optional[pulumi.Input['ApiEventConfigArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 event_config: pulumi.Input[Optional['ApiEventConfigArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Api resource.
 
@@ -49,31 +49,31 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventConfig")
-    def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
+    def event_config(self) -> pulumi.Input[Optional['ApiEventConfigArgs']]:
         """
         Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
         """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
-    def event_config(self, value: Optional[pulumi.Input['ApiEventConfigArgs']]):
+    def event_config(self, value: pulumi.Input[Optional['ApiEventConfigArgs']]):
         pulumi.set(self, "event_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the `Api` .
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownerContact")
-    def owner_contact(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner_contact(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The owner contact information for an API resource.
 
@@ -82,19 +82,19 @@ class ApiArgs:
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
-    def owner_contact(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner_contact(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner_contact", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A set of tags (key-value pairs) for this API.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,14 +104,13 @@ class Api(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: Optional[pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AppSync Api
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,6 @@ class Api(pulumi.CustomResource):
         """
         Resource schema for AppSync Api
 
-
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,10 +145,10 @@ class Api(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_config: Optional[pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 event_config: pulumi.Input[Optional[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_contact: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

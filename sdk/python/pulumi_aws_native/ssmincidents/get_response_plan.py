@@ -138,7 +138,6 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::SSMIncidents::ResponsePlan
 
-
     :param _builtins.str arn: The ARN of the response plan.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
         incident_template=pulumi.get(__ret__, 'incident_template'),
         integrations=pulumi.get(__ret__, 'integrations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_response_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_response_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
     Resource type definition for AWS::SSMIncidents::ResponsePlan
-
 
     :param _builtins.str arn: The ARN of the response plan.
     """

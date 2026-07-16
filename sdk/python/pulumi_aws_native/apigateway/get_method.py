@@ -164,7 +164,6 @@ def get_method(http_method: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 
-
     :param _builtins.str http_method: The method's HTTP verb.
     :param _builtins.str resource_id: The Resource identifier for the MethodResponse resource.
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
@@ -187,13 +186,12 @@ def get_method(http_method: Optional[_builtins.str] = None,
         request_models=pulumi.get(__ret__, 'request_models'),
         request_parameters=pulumi.get(__ret__, 'request_parameters'),
         request_validator_id=pulumi.get(__ret__, 'request_validator_id'))
-def get_method_output(http_method: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                      rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_method_output(http_method: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                      rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMethodResult]:
     """
     The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
-
 
     :param _builtins.str http_method: The method's HTTP verb.
     :param _builtins.str resource_id: The Resource identifier for the MethodResponse resource.

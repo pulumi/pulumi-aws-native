@@ -25,10 +25,10 @@ __all__ = ['LocationNfsArgs', 'LocationNfs']
 class LocationNfsArgs:
     def __init__(__self__, *,
                  on_prem_config: pulumi.Input['LocationNfsOnPremConfigArgs'],
-                 mount_options: Optional[pulumi.Input['LocationNfsMountOptionsArgs']] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 mount_options: pulumi.Input[Optional['LocationNfsMountOptionsArgs']] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationNfs resource.
 
@@ -66,50 +66,50 @@ class LocationNfsArgs:
 
     @_builtins.property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> Optional[pulumi.Input['LocationNfsMountOptionsArgs']]:
+    def mount_options(self) -> pulumi.Input[Optional['LocationNfsMountOptionsArgs']]:
         """
         Specifies the options that DataSync can use to mount your NFS file server.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: Optional[pulumi.Input['LocationNfsMountOptionsArgs']]):
+    def mount_options(self, value: pulumi.Input[Optional['LocationNfsMountOptionsArgs']]):
         pulumi.set(self, "mount_options", value)
 
     @_builtins.property
     @pulumi.getter(name="serverHostname")
-    def server_hostname(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def server_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the NFS server. This value is the IP address or DNS name of the NFS server.
         """
         return pulumi.get(self, "server_hostname")
 
     @server_hostname.setter
-    def server_hostname(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def server_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "server_hostname", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,15 +119,14 @@ class LocationNfs(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mount_options: Optional[pulumi.Input[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']]] = None,
-                 on_prem_config: Optional[pulumi.Input[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 mount_options: pulumi.Input[Optional[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']]] = None,
+                 on_prem_config: pulumi.Input[Optional[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationNFS
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +147,6 @@ class LocationNfs(pulumi.CustomResource):
         """
         Resource schema for AWS::DataSync::LocationNFS
 
-
         :param str resource_name: The name of the resource.
         :param LocationNfsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,11 +162,11 @@ class LocationNfs(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 mount_options: Optional[pulumi.Input[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']]] = None,
-                 on_prem_config: Optional[pulumi.Input[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']]] = None,
-                 server_hostname: Optional[pulumi.Input[_builtins.str]] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 mount_options: pulumi.Input[Optional[Union['LocationNfsMountOptionsArgs', 'LocationNfsMountOptionsArgsDict']]] = None,
+                 on_prem_config: pulumi.Input[Optional[Union['LocationNfsOnPremConfigArgs', 'LocationNfsOnPremConfigArgsDict']]] = None,
+                 server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

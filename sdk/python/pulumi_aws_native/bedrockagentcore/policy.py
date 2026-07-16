@@ -24,10 +24,10 @@ class PolicyArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['PolicyDefinitionArgs'],
                  policy_engine_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional['PolicyEnforcementMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_mode: pulumi.Input[Optional['PolicyValidationMode']] = None):
         """
         The set of arguments for constructing a Policy resource.
 
@@ -69,44 +69,44 @@ class PolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A human-readable description of the policy's purpose and functionality.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enforcementMode")
-    def enforcement_mode(self) -> Optional[pulumi.Input['PolicyEnforcementMode']]:
+    def enforcement_mode(self) -> pulumi.Input[Optional['PolicyEnforcementMode']]:
         return pulumi.get(self, "enforcement_mode")
 
     @enforcement_mode.setter
-    def enforcement_mode(self, value: Optional[pulumi.Input['PolicyEnforcementMode']]):
+    def enforcement_mode(self, value: pulumi.Input[Optional['PolicyEnforcementMode']]):
         pulumi.set(self, "enforcement_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The customer-assigned immutable name for the policy. Must be unique within the policy engine.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="validationMode")
-    def validation_mode(self) -> Optional[pulumi.Input['PolicyValidationMode']]:
+    def validation_mode(self) -> pulumi.Input[Optional['PolicyValidationMode']]:
         return pulumi.get(self, "validation_mode")
 
     @validation_mode.setter
-    def validation_mode(self, value: Optional[pulumi.Input['PolicyValidationMode']]):
+    def validation_mode(self, value: pulumi.Input[Optional['PolicyValidationMode']]):
         pulumi.set(self, "validation_mode", value)
 
 
@@ -116,16 +116,15 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional['PolicyEnforcementMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_mode: pulumi.Input[Optional['PolicyValidationMode']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Policy
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class Policy(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::Policy
 
-
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,12 +156,12 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enforcement_mode: Optional[pulumi.Input['PolicyEnforcementMode']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policy_engine_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 validation_mode: Optional[pulumi.Input['PolicyValidationMode']] = None,
+                 definition: pulumi.Input[Optional[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enforcement_mode: pulumi.Input[Optional['PolicyEnforcementMode']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_engine_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 validation_mode: pulumi.Input[Optional['PolicyValidationMode']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

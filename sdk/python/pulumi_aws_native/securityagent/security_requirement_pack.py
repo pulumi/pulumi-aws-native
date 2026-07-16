@@ -24,12 +24,12 @@ __all__ = ['SecurityRequirementPackArgs', 'SecurityRequirementPack']
 @pulumi.input_type
 class SecurityRequirementPackArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]] = None,
-                 status: Optional[pulumi.Input['SecurityRequirementPackStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]] = None,
+                 status: pulumi.Input[Optional['SecurityRequirementPackStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SecurityRequirementPack resource.
 
@@ -55,74 +55,74 @@ class SecurityRequirementPackArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the pack
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         KMS key for client-side encryption of pack contents
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the security requirement pack
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityRequirements")
-    def security_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]]:
+    def security_requirements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]]:
         """
         Security requirements within this pack
         """
         return pulumi.get(self, "security_requirements")
 
     @security_requirements.setter
-    def security_requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]]):
+    def security_requirements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecurityRequirementPackSecurityRequirementArgs']]]]):
         pulumi.set(self, "security_requirements", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['SecurityRequirementPackStatus']]:
+    def status(self) -> pulumi.Input[Optional['SecurityRequirementPackStatus']]:
         """
         Whether the pack is enabled or disabled
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['SecurityRequirementPackStatus']]):
+    def status(self, value: pulumi.Input[Optional['SecurityRequirementPackStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the security requirement pack
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -132,16 +132,15 @@ class SecurityRequirementPack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input['SecurityRequirementPackStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional['SecurityRequirementPackStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SecurityAgent::SecurityRequirementPack
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class SecurityRequirementPack(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SecurityAgent::SecurityRequirementPack
 
-
         :param str resource_name: The name of the resource.
         :param SecurityRequirementPackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class SecurityRequirementPack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_requirements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
-                 status: Optional[pulumi.Input['SecurityRequirementPackStatus']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_requirements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityRequirementPackSecurityRequirementArgs', 'SecurityRequirementPackSecurityRequirementArgsDict']]]]] = None,
+                 status: pulumi.Input[Optional['SecurityRequirementPackStatus']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

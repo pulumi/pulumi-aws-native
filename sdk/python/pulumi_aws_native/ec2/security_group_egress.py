@@ -21,13 +21,13 @@ class SecurityGroupEgressInitArgs:
     def __init__(__self__, *,
                  group_id: pulumi.Input[_builtins.str],
                  ip_protocol: pulumi.Input[_builtins.str],
-                 cidr_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None):
+                 cidr_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a SecurityGroupEgress resource.
 
@@ -93,7 +93,7 @@ class SecurityGroupEgressInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="cidrIp")
-    def cidr_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv4 address range, in CIDR format.
          You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
@@ -102,12 +102,12 @@ class SecurityGroupEgressInitArgs:
         return pulumi.get(self, "cidr_ip")
 
     @cidr_ip.setter
-    def cidr_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrIpv6")
-    def cidr_ipv6(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cidr_ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The IPv6 address range, in CIDR format.
          You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
@@ -116,12 +116,12 @@ class SecurityGroupEgressInitArgs:
         return pulumi.get(self, "cidr_ipv6")
 
     @cidr_ipv6.setter
-    def cidr_ipv6(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cidr_ipv6(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cidr_ipv6", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of an egress (outbound) security group rule.
          Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=;{}!$*
@@ -129,12 +129,12 @@ class SecurityGroupEgressInitArgs:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPrefixListId")
-    def destination_prefix_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix list IDs for an AWS service. This is the AWS service to access through a VPC endpoint from instances associated with the security group.
          You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
@@ -142,12 +142,12 @@ class SecurityGroupEgressInitArgs:
         return pulumi.get(self, "destination_prefix_list_id")
 
     @destination_prefix_list_id.setter
-    def destination_prefix_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_prefix_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_prefix_list_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationSecurityGroupId")
-    def destination_security_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the security group.
          You must specify exactly one of the following: ``CidrIp``, ``CidrIpv6``, ``DestinationPrefixListId``, or ``DestinationSecurityGroupId``.
@@ -155,31 +155,31 @@ class SecurityGroupEgressInitArgs:
         return pulumi.get(self, "destination_security_group_id")
 
     @destination_security_group_id.setter
-    def destination_security_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_security_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="fromPort")
-    def from_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def from_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).
         """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
-    def from_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def from_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "from_port", value)
 
     @_builtins.property
     @pulumi.getter(name="toPort")
-    def to_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def to_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         If the protocol is TCP or UDP, this is the end of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes). If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).
         """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
-    def to_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def to_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "to_port", value)
 
 
@@ -189,15 +189,15 @@ class SecurityGroupEgress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Adds the specified outbound (egress) rule to a security group.
@@ -205,7 +205,6 @@ class SecurityGroupEgress(pulumi.CustomResource):
          You must specify exactly one of the following destinations: an IPv4 address range, an IPv6 address range, a prefix list, or a security group.
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
          Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +239,6 @@ class SecurityGroupEgress(pulumi.CustomResource):
          You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
          Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
 
-
         :param str resource_name: The name of the resource.
         :param SecurityGroupEgressInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,15 +254,15 @@ class SecurityGroupEgress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cidr_ip: Optional[pulumi.Input[_builtins.str]] = None,
-                 cidr_ipv6: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 from_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_protocol: Optional[pulumi.Input[_builtins.str]] = None,
-                 to_port: Optional[pulumi.Input[_builtins.int]] = None,
+                 cidr_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 cidr_ipv6: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 from_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_protocol: pulumi.Input[Optional[_builtins.str]] = None,
+                 to_port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

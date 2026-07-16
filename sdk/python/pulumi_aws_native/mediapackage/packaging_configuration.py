@@ -26,11 +26,11 @@ class PackagingConfigurationArgs:
     def __init__(__self__, *,
                  aws_id: pulumi.Input[_builtins.str],
                  packaging_group_id: pulumi.Input[_builtins.str],
-                 cmaf_package: Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']] = None,
-                 dash_package: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']] = None,
-                 hls_package: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']] = None,
-                 mss_package: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 cmaf_package: pulumi.Input[Optional['PackagingConfigurationCmafPackageArgs']] = None,
+                 dash_package: pulumi.Input[Optional['PackagingConfigurationDashPackageArgs']] = None,
+                 hls_package: pulumi.Input[Optional['PackagingConfigurationHlsPackageArgs']] = None,
+                 mss_package: pulumi.Input[Optional['PackagingConfigurationMssPackageArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingConfiguration resource.
 
@@ -81,62 +81,62 @@ class PackagingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cmafPackage")
-    def cmaf_package(self) -> Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']]:
+    def cmaf_package(self) -> pulumi.Input[Optional['PackagingConfigurationCmafPackageArgs']]:
         """
         A CMAF packaging configuration.
         """
         return pulumi.get(self, "cmaf_package")
 
     @cmaf_package.setter
-    def cmaf_package(self, value: Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']]):
+    def cmaf_package(self, value: pulumi.Input[Optional['PackagingConfigurationCmafPackageArgs']]):
         pulumi.set(self, "cmaf_package", value)
 
     @_builtins.property
     @pulumi.getter(name="dashPackage")
-    def dash_package(self) -> Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']]:
+    def dash_package(self) -> pulumi.Input[Optional['PackagingConfigurationDashPackageArgs']]:
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         """
         return pulumi.get(self, "dash_package")
 
     @dash_package.setter
-    def dash_package(self, value: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']]):
+    def dash_package(self, value: pulumi.Input[Optional['PackagingConfigurationDashPackageArgs']]):
         pulumi.set(self, "dash_package", value)
 
     @_builtins.property
     @pulumi.getter(name="hlsPackage")
-    def hls_package(self) -> Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']]:
+    def hls_package(self) -> pulumi.Input[Optional['PackagingConfigurationHlsPackageArgs']]:
         """
         An HTTP Live Streaming (HLS) packaging configuration.
         """
         return pulumi.get(self, "hls_package")
 
     @hls_package.setter
-    def hls_package(self, value: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']]):
+    def hls_package(self, value: pulumi.Input[Optional['PackagingConfigurationHlsPackageArgs']]):
         pulumi.set(self, "hls_package", value)
 
     @_builtins.property
     @pulumi.getter(name="mssPackage")
-    def mss_package(self) -> Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']]:
+    def mss_package(self) -> pulumi.Input[Optional['PackagingConfigurationMssPackageArgs']]:
         """
         A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         """
         return pulumi.get(self, "mss_package")
 
     @mss_package.setter
-    def mss_package(self, value: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']]):
+    def mss_package(self, value: pulumi.Input[Optional['PackagingConfigurationMssPackageArgs']]):
         pulumi.set(self, "mss_package", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -146,17 +146,16 @@ class PackagingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmaf_package: Optional[pulumi.Input[Union['PackagingConfigurationCmafPackageArgs', 'PackagingConfigurationCmafPackageArgsDict']]] = None,
-                 dash_package: Optional[pulumi.Input[Union['PackagingConfigurationDashPackageArgs', 'PackagingConfigurationDashPackageArgsDict']]] = None,
-                 hls_package: Optional[pulumi.Input[Union['PackagingConfigurationHlsPackageArgs', 'PackagingConfigurationHlsPackageArgsDict']]] = None,
-                 mss_package: Optional[pulumi.Input[Union['PackagingConfigurationMssPackageArgs', 'PackagingConfigurationMssPackageArgsDict']]] = None,
-                 packaging_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmaf_package: pulumi.Input[Optional[Union['PackagingConfigurationCmafPackageArgs', 'PackagingConfigurationCmafPackageArgsDict']]] = None,
+                 dash_package: pulumi.Input[Optional[Union['PackagingConfigurationDashPackageArgs', 'PackagingConfigurationDashPackageArgsDict']]] = None,
+                 hls_package: pulumi.Input[Optional[Union['PackagingConfigurationHlsPackageArgs', 'PackagingConfigurationHlsPackageArgsDict']]] = None,
+                 mss_package: pulumi.Input[Optional[Union['PackagingConfigurationMssPackageArgs', 'PackagingConfigurationMssPackageArgsDict']]] = None,
+                 packaging_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::PackagingConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,7 +176,6 @@ class PackagingConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::MediaPackage::PackagingConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param PackagingConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,13 +191,13 @@ class PackagingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 cmaf_package: Optional[pulumi.Input[Union['PackagingConfigurationCmafPackageArgs', 'PackagingConfigurationCmafPackageArgsDict']]] = None,
-                 dash_package: Optional[pulumi.Input[Union['PackagingConfigurationDashPackageArgs', 'PackagingConfigurationDashPackageArgsDict']]] = None,
-                 hls_package: Optional[pulumi.Input[Union['PackagingConfigurationHlsPackageArgs', 'PackagingConfigurationHlsPackageArgsDict']]] = None,
-                 mss_package: Optional[pulumi.Input[Union['PackagingConfigurationMssPackageArgs', 'PackagingConfigurationMssPackageArgsDict']]] = None,
-                 packaging_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 aws_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cmaf_package: pulumi.Input[Optional[Union['PackagingConfigurationCmafPackageArgs', 'PackagingConfigurationCmafPackageArgsDict']]] = None,
+                 dash_package: pulumi.Input[Optional[Union['PackagingConfigurationDashPackageArgs', 'PackagingConfigurationDashPackageArgsDict']]] = None,
+                 hls_package: pulumi.Input[Optional[Union['PackagingConfigurationHlsPackageArgs', 'PackagingConfigurationHlsPackageArgsDict']]] = None,
+                 mss_package: pulumi.Input[Optional[Union['PackagingConfigurationMssPackageArgs', 'PackagingConfigurationMssPackageArgsDict']]] = None,
+                 packaging_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

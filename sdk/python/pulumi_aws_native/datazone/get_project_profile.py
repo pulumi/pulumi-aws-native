@@ -201,7 +201,6 @@ def get_project_profile(domain_identifier: Optional[_builtins.str] = None,
     """
     Definition of AWS::DataZone::ProjectProfile Resource Type
 
-
     :param _builtins.str domain_identifier: A domain ID of the project profile.
     :param _builtins.str identifier: Project profile ID.
     """
@@ -226,12 +225,11 @@ def get_project_profile(domain_identifier: Optional[_builtins.str] = None,
         project_resource_tags=pulumi.get(__ret__, 'project_resource_tags'),
         project_resource_tags_description=pulumi.get(__ret__, 'project_resource_tags_description'),
         status=pulumi.get(__ret__, 'status'))
-def get_project_profile_output(domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                               identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_profile_output(domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                               identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectProfileResult]:
     """
     Definition of AWS::DataZone::ProjectProfile Resource Type
-
 
     :param _builtins.str domain_identifier: A domain ID of the project profile.
     :param _builtins.str identifier: Project profile ID.

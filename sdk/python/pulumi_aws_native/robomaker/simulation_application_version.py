@@ -20,7 +20,7 @@ __all__ = ['SimulationApplicationVersionArgs', 'SimulationApplicationVersion']
 class SimulationApplicationVersionArgs:
     def __init__(__self__, *,
                  application: pulumi.Input[_builtins.str],
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SimulationApplicationVersion resource.
 
@@ -45,14 +45,14 @@ class SimulationApplicationVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="currentRevisionId")
-    def current_revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def current_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The revision ID of robot application.
         """
         return pulumi.get(self, "current_revision_id")
 
     @current_revision_id.setter
-    def current_revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def current_revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_revision_id", value)
 
 
@@ -62,12 +62,11 @@ class SimulationApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,7 +81,6 @@ class SimulationApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
-
 
         :param str resource_name: The name of the resource.
         :param SimulationApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -99,8 +97,8 @@ class SimulationApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application: Optional[pulumi.Input[_builtins.str]] = None,
-                 current_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application: pulumi.Input[Optional[_builtins.str]] = None,
+                 current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

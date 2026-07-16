@@ -78,7 +78,6 @@ def get_input(input_name: Optional[_builtins.str] = None,
     """
     The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
 
-
     :param _builtins.str input_name: The name of the input.
     """
     __args__ = dict()
@@ -90,11 +89,10 @@ def get_input(input_name: Optional[_builtins.str] = None,
         input_definition=pulumi.get(__ret__, 'input_definition'),
         input_description=pulumi.get(__ret__, 'input_description'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_input_output(input_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_input_output(input_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInputResult]:
     """
     The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
-
 
     :param _builtins.str input_name: The name of the input.
     """

@@ -51,7 +51,6 @@ def get_named_query(named_query_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Athena::NamedQuery
 
-
     :param _builtins.str named_query_id: The unique ID of the query.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_named_query(named_query_id: Optional[_builtins.str] = None,
 
     return AwaitableGetNamedQueryResult(
         named_query_id=pulumi.get(__ret__, 'named_query_id'))
-def get_named_query_output(named_query_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_named_query_output(named_query_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Resource schema for AWS::Athena::NamedQuery
-
 
     :param _builtins.str named_query_id: The unique ID of the query.
     """

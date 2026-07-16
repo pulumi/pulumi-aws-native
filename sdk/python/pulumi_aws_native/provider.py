@@ -20,28 +20,28 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
-                 auto_naming: Optional[pulumi.Input['ProviderAutoNamingArgs']] = None,
-                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role: pulumi.Input[Optional['ProviderAssumeRoleArgs']] = None,
+                 auto_naming: pulumi.Input[Optional['ProviderAutoNamingArgs']] = None,
+                 default_tags: pulumi.Input[Optional['ProviderDefaultTagsArgs']] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tags: pulumi.Input[Optional['ProviderIgnoreTagsArgs']] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_credentials_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_get_ec2_platforms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Provider resource.
 
@@ -140,254 +140,254 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessKey")
-    def access_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         """
         return pulumi.get(self, "access_key")
 
     @access_key.setter
-    def access_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_key", value)
 
     @_builtins.property
     @pulumi.getter(name="allowedAccountIds")
-    def allowed_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         """
         return pulumi.get(self, "allowed_account_ids")
 
     @allowed_account_ids.setter
-    def allowed_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="assumeRole")
-    def assume_role(self) -> Optional[pulumi.Input['ProviderAssumeRoleArgs']]:
+    def assume_role(self) -> pulumi.Input[Optional['ProviderAssumeRoleArgs']]:
         """
         Configuration for retrieving temporary credentials from the STS service.
         """
         return pulumi.get(self, "assume_role")
 
     @assume_role.setter
-    def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
+    def assume_role(self, value: pulumi.Input[Optional['ProviderAssumeRoleArgs']]):
         pulumi.set(self, "assume_role", value)
 
     @_builtins.property
     @pulumi.getter(name="autoNaming")
-    def auto_naming(self) -> Optional[pulumi.Input['ProviderAutoNamingArgs']]:
+    def auto_naming(self) -> pulumi.Input[Optional['ProviderAutoNamingArgs']]:
         """
         The configuration for automatically naming resources.
         """
         return pulumi.get(self, "auto_naming")
 
     @auto_naming.setter
-    def auto_naming(self, value: Optional[pulumi.Input['ProviderAutoNamingArgs']]):
+    def auto_naming(self, value: pulumi.Input[Optional['ProviderAutoNamingArgs']]):
         pulumi.set(self, "auto_naming", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultTags")
-    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
+    def default_tags(self) -> pulumi.Input[Optional['ProviderDefaultTagsArgs']]:
         """
         Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         """
         return pulumi.get(self, "default_tags")
 
     @default_tags.setter
-    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
+    def default_tags(self, value: pulumi.Input[Optional['ProviderDefaultTagsArgs']]):
         pulumi.set(self, "default_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
+    def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
         """
         Configuration block for customizing service endpoints.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
+    def endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @_builtins.property
     @pulumi.getter(name="forbiddenAccountIds")
-    def forbidden_account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def forbidden_account_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
         """
         return pulumi.get(self, "forbidden_account_ids")
 
     @forbidden_account_ids.setter
-    def forbidden_account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def forbidden_account_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "forbidden_account_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="ignoreTags")
-    def ignore_tags(self) -> Optional[pulumi.Input['ProviderIgnoreTagsArgs']]:
+    def ignore_tags(self) -> pulumi.Input[Optional['ProviderIgnoreTagsArgs']]:
         """
         Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
         """
         return pulumi.get(self, "ignore_tags")
 
     @ignore_tags.setter
-    def ignore_tags(self, value: Optional[pulumi.Input['ProviderIgnoreTagsArgs']]):
+    def ignore_tags(self, value: pulumi.Input[Optional['ProviderIgnoreTagsArgs']]):
         pulumi.set(self, "ignore_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def insecure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`.
         """
         return pulumi.get(self, "insecure")
 
     @insecure.setter
-    def insecure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRetries")
-    def max_retries(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_retries(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         """
         return pulumi.get(self, "max_retries")
 
     @max_retries.setter
-    def max_retries(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_retries(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_retries", value)
 
     @_builtins.property
     @pulumi.getter
-    def profile(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def profile(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         """
         return pulumi.get(self, "profile")
 
     @profile.setter
-    def profile(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def profile(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "profile", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3UsePathStyle")
-    def s3_use_path_style(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def s3_use_path_style(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.
         """
         return pulumi.get(self, "s3_use_path_style")
 
     @s3_use_path_style.setter
-    def s3_use_path_style(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def s3_use_path_style(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "s3_use_path_style", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
-    def secret_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
-    def secret_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_key", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedCredentialsFile")
-    def shared_credentials_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shared_credentials_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the shared credentials file. If not set this defaults to `~/.aws/credentials`.
         """
         return pulumi.get(self, "shared_credentials_file")
 
     @shared_credentials_file.setter
-    def shared_credentials_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shared_credentials_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shared_credentials_file", value)
 
     @_builtins.property
     @pulumi.getter(name="skipCredentialsValidation")
-    def skip_credentials_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_credentials_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
         """
         return pulumi.get(self, "skip_credentials_validation")
 
     @skip_credentials_validation.setter
-    def skip_credentials_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_credentials_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_credentials_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="skipGetEc2Platforms")
-    def skip_get_ec2_platforms(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_get_ec2_platforms(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.
         """
         return pulumi.get(self, "skip_get_ec2_platforms")
 
     @skip_get_ec2_platforms.setter
-    def skip_get_ec2_platforms(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_get_ec2_platforms(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_get_ec2_platforms", value)
 
     @_builtins.property
     @pulumi.getter(name="skipMetadataApiCheck")
-    def skip_metadata_api_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_metadata_api_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.
         """
         return pulumi.get(self, "skip_metadata_api_check")
 
     @skip_metadata_api_check.setter
-    def skip_metadata_api_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_metadata_api_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_metadata_api_check", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRegionValidation")
-    def skip_region_validation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_region_validation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.
         """
         return pulumi.get(self, "skip_region_validation")
 
     @skip_region_validation.setter
-    def skip_region_validation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_region_validation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_region_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="skipRequestingAccountId")
-    def skip_requesting_account_id(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def skip_requesting_account_id(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
         """
         return pulumi.get(self, "skip_requesting_account_id")
 
     @skip_requesting_account_id.setter
-    def skip_requesting_account_id(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def skip_requesting_account_id(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "skip_requesting_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.
         """
         return pulumi.get(self, "token")
 
     @token.setter
-    def token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "token", value)
 
 
@@ -397,32 +397,31 @@ class Provider(pulumi.ProviderResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
-                 auto_naming: Optional[pulumi.Input[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role: pulumi.Input[Optional[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 auto_naming: pulumi.Input[Optional[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tags: pulumi.Input[Optional[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_credentials_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_get_ec2_platforms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -458,7 +457,6 @@ class Provider(pulumi.ProviderResource):
         """
         The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
-
         :param str resource_name: The name of the resource.
         :param ProviderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -474,28 +472,28 @@ class Provider(pulumi.ProviderResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
-                 auto_naming: Optional[pulumi.Input[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
-                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
-                 forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
-                 insecure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_retries: Optional[pulumi.Input[_builtins.int]] = None,
-                 profile: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_use_path_style: Optional[pulumi.Input[_builtins.bool]] = None,
-                 secret_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 shared_credentials_file: Optional[pulumi.Input[_builtins.str]] = None,
-                 skip_credentials_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_get_ec2_platforms: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_region_validation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 skip_requesting_account_id: Optional[pulumi.Input[_builtins.bool]] = None,
-                 token: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 allowed_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assume_role: pulumi.Input[Optional[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 auto_naming: pulumi.Input[Optional[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
+                 default_tags: pulumi.Input[Optional[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
+                 forbidden_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ignore_tags: pulumi.Input[Optional[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
+                 insecure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile: pulumi.Input[Optional[_builtins.str]] = None,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_use_path_style: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secret_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_credentials_file: pulumi.Input[Optional[_builtins.str]] = None,
+                 skip_credentials_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_get_ec2_platforms: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_metadata_api_check: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_region_validation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 skip_requesting_account_id: pulumi.Input[Optional[_builtins.bool]] = None,
+                 token: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

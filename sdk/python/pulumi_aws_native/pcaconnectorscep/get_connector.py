@@ -95,7 +95,6 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
     """
     Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
 
-
     :param _builtins.str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """
     __args__ = dict()
@@ -109,11 +108,10 @@ def get_connector(connector_arn: Optional[_builtins.str] = None,
         open_id_configuration=pulumi.get(__ret__, 'open_id_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_connector_output(connector_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connector_output(connector_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
-
 
     :param _builtins.str connector_arn: The Amazon Resource Name (ARN) of the connector.
     """

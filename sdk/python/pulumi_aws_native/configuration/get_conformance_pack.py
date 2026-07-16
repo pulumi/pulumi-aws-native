@@ -101,7 +101,6 @@ def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
     """
     A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
 
-
     :param _builtins.str conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_conformance_pack(conformance_pack_name: Optional[_builtins.str] = None,
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_conformance_pack_output(conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConformancePackResult]:
     """
     A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
-
 
     :param _builtins.str conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
     """

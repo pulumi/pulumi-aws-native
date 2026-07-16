@@ -23,14 +23,14 @@ __all__ = ['HostArgs', 'Host']
 class HostArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[_builtins.str],
-                 asset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
-                 host_maintenance: Optional[pulumi.Input['HostMaintenance']] = None,
-                 host_recovery: Optional[pulumi.Input['HostRecovery']] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_placement: pulumi.Input[Optional['HostAutoPlacement']] = None,
+                 host_maintenance: pulumi.Input[Optional['HostMaintenance']] = None,
+                 host_recovery: pulumi.Input[Optional['HostRecovery']] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Host resource.
 
@@ -76,98 +76,98 @@ class HostArgs:
 
     @_builtins.property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def asset_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Outpost hardware asset.
         """
         return pulumi.get(self, "asset_id")
 
     @asset_id.setter
-    def asset_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def asset_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "asset_id", value)
 
     @_builtins.property
     @pulumi.getter(name="autoPlacement")
-    def auto_placement(self) -> Optional[pulumi.Input['HostAutoPlacement']]:
+    def auto_placement(self) -> pulumi.Input[Optional['HostAutoPlacement']]:
         """
         Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
         """
         return pulumi.get(self, "auto_placement")
 
     @auto_placement.setter
-    def auto_placement(self, value: Optional[pulumi.Input['HostAutoPlacement']]):
+    def auto_placement(self, value: pulumi.Input[Optional['HostAutoPlacement']]):
         pulumi.set(self, "auto_placement", value)
 
     @_builtins.property
     @pulumi.getter(name="hostMaintenance")
-    def host_maintenance(self) -> Optional[pulumi.Input['HostMaintenance']]:
+    def host_maintenance(self) -> pulumi.Input[Optional['HostMaintenance']]:
         """
         Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
         """
         return pulumi.get(self, "host_maintenance")
 
     @host_maintenance.setter
-    def host_maintenance(self, value: Optional[pulumi.Input['HostMaintenance']]):
+    def host_maintenance(self, value: pulumi.Input[Optional['HostMaintenance']]):
         pulumi.set(self, "host_maintenance", value)
 
     @_builtins.property
     @pulumi.getter(name="hostRecovery")
-    def host_recovery(self) -> Optional[pulumi.Input['HostRecovery']]:
+    def host_recovery(self) -> pulumi.Input[Optional['HostRecovery']]:
         """
         Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
         """
         return pulumi.get(self, "host_recovery")
 
     @host_recovery.setter
-    def host_recovery(self, value: Optional[pulumi.Input['HostRecovery']]):
+    def host_recovery(self, value: pulumi.Input[Optional['HostRecovery']]):
         pulumi.set(self, "host_recovery", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
-    def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
         """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
-    def instance_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_family", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_type", value)
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
         """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
-    def outpost_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outpost_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outpost_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Any tags assigned to the Host.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,19 +177,18 @@ class Host(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_maintenance: Optional[pulumi.Input['HostMaintenance']] = None,
-                 host_recovery: Optional[pulumi.Input['HostRecovery']] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_placement: pulumi.Input[Optional['HostAutoPlacement']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_maintenance: pulumi.Input[Optional['HostMaintenance']] = None,
+                 host_recovery: pulumi.Input[Optional['HostRecovery']] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::Host
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -212,7 +211,6 @@ class Host(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::Host
 
-
         :param str resource_name: The name of the resource.
         :param HostArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,15 +226,15 @@ class Host(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_placement: Optional[pulumi.Input['HostAutoPlacement']] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 host_maintenance: Optional[pulumi.Input['HostMaintenance']] = None,
-                 host_recovery: Optional[pulumi.Input['HostRecovery']] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 asset_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_placement: pulumi.Input[Optional['HostAutoPlacement']] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_maintenance: pulumi.Input[Optional['HostMaintenance']] = None,
+                 host_recovery: pulumi.Input[Optional['HostRecovery']] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -126,7 +126,6 @@ def get_session_logger(session_logger_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
 
-
     :param _builtins.str session_logger_arn: The ARN of the session logger resource.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_session_logger(session_logger_arn: Optional[_builtins.str] = None,
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         session_logger_arn=pulumi.get(__ret__, 'session_logger_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_session_logger_output(session_logger_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_session_logger_output(session_logger_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionLoggerResult]:
     """
     Definition of AWS::WorkSpacesWeb::SessionLogger Resource Type
-
 
     :param _builtins.str session_logger_arn: The ARN of the session logger resource.
     """

@@ -64,7 +64,6 @@ def get_prepared_statement(statement_name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Athena::PreparedStatement
 
-
     :param _builtins.str statement_name: The name of the prepared statement.
     :param _builtins.str work_group: The name of the workgroup to which the prepared statement belongs.
     """
@@ -77,12 +76,11 @@ def get_prepared_statement(statement_name: Optional[_builtins.str] = None,
     return AwaitableGetPreparedStatementResult(
         description=pulumi.get(__ret__, 'description'),
         query_statement=pulumi.get(__ret__, 'query_statement'))
-def get_prepared_statement_output(statement_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  work_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prepared_statement_output(statement_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  work_group: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPreparedStatementResult]:
     """
     Resource schema for AWS::Athena::PreparedStatement
-
 
     :param _builtins.str statement_name: The name of the prepared statement.
     :param _builtins.str work_group: The name of the workgroup to which the prepared statement belongs.

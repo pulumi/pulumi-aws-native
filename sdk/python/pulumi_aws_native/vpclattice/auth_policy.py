@@ -67,11 +67,10 @@ class AuthPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates or updates the auth policy.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,7 +88,6 @@ class AuthPolicy(pulumi.CustomResource):
         """
         Creates or updates the auth policy.
 
-
         :param str resource_name: The name of the resource.
         :param AuthPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +104,7 @@ class AuthPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[Any] = None,
-                 resource_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

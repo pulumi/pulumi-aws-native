@@ -149,7 +149,6 @@ def get_configuration_policy(arn: Optional[_builtins.str] = None,
     """
     The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the configuration policy.
     """
     __args__ = dict()
@@ -167,11 +166,10 @@ def get_configuration_policy(arn: Optional[_builtins.str] = None,
         service_enabled=pulumi.get(__ret__, 'service_enabled'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_configuration_policy_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_policy_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationPolicyResult]:
     """
     The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the configuration policy.
     """

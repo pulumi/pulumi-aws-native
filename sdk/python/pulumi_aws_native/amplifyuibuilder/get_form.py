@@ -175,7 +175,6 @@ def get_form(app_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type
 
-
     :param _builtins.str app_id: The unique ID of the Amplify app associated with the form.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.
     :param _builtins.str id: The ID for the form.
@@ -199,13 +198,12 @@ def get_form(app_id: Optional[_builtins.str] = None,
         sectional_elements=pulumi.get(__ret__, 'sectional_elements'),
         style=pulumi.get(__ret__, 'style'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_form_output(app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                    environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_form_output(app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                    environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFormResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type
-
 
     :param _builtins.str app_id: The unique ID of the Amplify app associated with the form.
     :param _builtins.str environment_name: The name of the backend environment that is a part of the Amplify app.

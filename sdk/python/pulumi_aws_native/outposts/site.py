@@ -24,13 +24,13 @@ __all__ = ['SiteArgs', 'Site']
 @pulumi.input_type
 class SiteArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_address: Optional[pulumi.Input['SiteAddressArgs']] = None,
-                 rack_physical_properties: Optional[pulumi.Input['SiteRackPhysicalPropertiesArgs']] = None,
-                 shipping_address: Optional[pulumi.Input['SiteAddressArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_address: pulumi.Input[Optional['SiteAddressArgs']] = None,
+                 rack_physical_properties: pulumi.Input[Optional['SiteRackPhysicalPropertiesArgs']] = None,
+                 shipping_address: pulumi.Input[Optional['SiteAddressArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Site resource.
         """
@@ -51,65 +51,65 @@ class SiteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
     @_builtins.property
     @pulumi.getter(name="operatingAddress")
-    def operating_address(self) -> Optional[pulumi.Input['SiteAddressArgs']]:
+    def operating_address(self) -> pulumi.Input[Optional['SiteAddressArgs']]:
         return pulumi.get(self, "operating_address")
 
     @operating_address.setter
-    def operating_address(self, value: Optional[pulumi.Input['SiteAddressArgs']]):
+    def operating_address(self, value: pulumi.Input[Optional['SiteAddressArgs']]):
         pulumi.set(self, "operating_address", value)
 
     @_builtins.property
     @pulumi.getter(name="rackPhysicalProperties")
-    def rack_physical_properties(self) -> Optional[pulumi.Input['SiteRackPhysicalPropertiesArgs']]:
+    def rack_physical_properties(self) -> pulumi.Input[Optional['SiteRackPhysicalPropertiesArgs']]:
         return pulumi.get(self, "rack_physical_properties")
 
     @rack_physical_properties.setter
-    def rack_physical_properties(self, value: Optional[pulumi.Input['SiteRackPhysicalPropertiesArgs']]):
+    def rack_physical_properties(self, value: pulumi.Input[Optional['SiteRackPhysicalPropertiesArgs']]):
         pulumi.set(self, "rack_physical_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="shippingAddress")
-    def shipping_address(self) -> Optional[pulumi.Input['SiteAddressArgs']]:
+    def shipping_address(self) -> pulumi.Input[Optional['SiteAddressArgs']]:
         return pulumi.get(self, "shipping_address")
 
     @shipping_address.setter
-    def shipping_address(self, value: Optional[pulumi.Input['SiteAddressArgs']]):
+    def shipping_address(self, value: pulumi.Input[Optional['SiteAddressArgs']]):
         pulumi.set(self, "shipping_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,17 +119,16 @@ class Site(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_address: Optional[pulumi.Input[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
-                 rack_physical_properties: Optional[pulumi.Input[Union['SiteRackPhysicalPropertiesArgs', 'SiteRackPhysicalPropertiesArgsDict']]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_address: pulumi.Input[Optional[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
+                 rack_physical_properties: pulumi.Input[Optional[Union['SiteRackPhysicalPropertiesArgs', 'SiteRackPhysicalPropertiesArgsDict']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Outposts::Site Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -142,7 +141,6 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::Outposts::Site Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.
@@ -159,13 +157,13 @@ class Site(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 operating_address: Optional[pulumi.Input[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
-                 rack_physical_properties: Optional[pulumi.Input[Union['SiteRackPhysicalPropertiesArgs', 'SiteRackPhysicalPropertiesArgsDict']]] = None,
-                 shipping_address: Optional[pulumi.Input[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 operating_address: pulumi.Input[Optional[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
+                 rack_physical_properties: pulumi.Input[Optional[Union['SiteRackPhysicalPropertiesArgs', 'SiteRackPhysicalPropertiesArgsDict']]] = None,
+                 shipping_address: pulumi.Input[Optional[Union['SiteAddressArgs', 'SiteAddressArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

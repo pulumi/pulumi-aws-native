@@ -22,12 +22,12 @@ __all__ = ['IngestConfigurationArgs', 'IngestConfiguration']
 @pulumi.input_type
 class IngestConfigurationArgs:
     def __init__(__self__, *,
-                 ingest_protocol: Optional[pulumi.Input['IngestConfigurationIngestProtocol']] = None,
-                 insecure_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 ingest_protocol: pulumi.Input[Optional['IngestConfigurationIngestProtocol']] = None,
+                 insecure_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IngestConfiguration resource.
 
@@ -53,74 +53,74 @@ class IngestConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="ingestProtocol")
-    def ingest_protocol(self) -> Optional[pulumi.Input['IngestConfigurationIngestProtocol']]:
+    def ingest_protocol(self) -> pulumi.Input[Optional['IngestConfigurationIngestProtocol']]:
         """
         Ingest Protocol.
         """
         return pulumi.get(self, "ingest_protocol")
 
     @ingest_protocol.setter
-    def ingest_protocol(self, value: Optional[pulumi.Input['IngestConfigurationIngestProtocol']]):
+    def ingest_protocol(self, value: pulumi.Input[Optional['IngestConfigurationIngestProtocol']]):
         pulumi.set(self, "ingest_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="insecureIngest")
-    def insecure_ingest(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def insecure_ingest(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether ingest configuration allows insecure ingest.
         """
         return pulumi.get(self, "insecure_ingest")
 
     @insecure_ingest.setter
-    def insecure_ingest(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def insecure_ingest(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "insecure_ingest", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         IngestConfiguration
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="stageArn")
-    def stage_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stage ARN. A value other than an empty string indicates that stage is linked to IngestConfiguration. Default: "" (recording is disabled).
         """
         return pulumi.get(self, "stage_arn")
 
     @stage_arn.setter
-    def stage_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userId")
-    def user_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User defined indentifier for participant associated with IngestConfiguration.
         """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
-    def user_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_id", value)
 
 
@@ -130,16 +130,15 @@ class IngestConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingest_protocol: Optional[pulumi.Input['IngestConfigurationIngestProtocol']] = None,
-                 insecure_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ingest_protocol: pulumi.Input[Optional['IngestConfigurationIngestProtocol']] = None,
+                 insecure_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::IngestConfiguration
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +158,6 @@ class IngestConfiguration(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IVS::IngestConfiguration
 
-
         :param str resource_name: The name of the resource.
         :param IngestConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,12 +173,12 @@ class IngestConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingest_protocol: Optional[pulumi.Input['IngestConfigurationIngestProtocol']] = None,
-                 insecure_ingest: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stage_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ingest_protocol: pulumi.Input[Optional['IngestConfigurationIngestProtocol']] = None,
+                 insecure_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

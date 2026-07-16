@@ -24,13 +24,13 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input['IamIdentityCenterOptionsPropertiesArgs']] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional['IamIdentityCenterOptionsPropertiesArgs']] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -59,86 +59,86 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="appConfigs")
-    def app_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
+    def app_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]:
         """
         List of application configurations.
         """
         return pulumi.get(self, "app_configs")
 
     @app_configs.setter
-    def app_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
+    def app_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationAppConfigArgs']]]]):
         pulumi.set(self, "app_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSources")
-    def data_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
+    def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]:
         """
         List of data sources.
         """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
-    def data_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
+    def data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationDataSourceArgs']]]]):
         pulumi.set(self, "data_sources", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The endpoint for the application.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="iamIdentityCenterOptions")
-    def iam_identity_center_options(self) -> Optional[pulumi.Input['IamIdentityCenterOptionsPropertiesArgs']]:
+    def iam_identity_center_options(self) -> pulumi.Input[Optional['IamIdentityCenterOptionsPropertiesArgs']]:
         """
         Options for configuring IAM Identity Center
         """
         return pulumi.get(self, "iam_identity_center_options")
 
     @iam_identity_center_options.setter
-    def iam_identity_center_options(self, value: Optional[pulumi.Input['IamIdentityCenterOptionsPropertiesArgs']]):
+    def iam_identity_center_options(self, value: pulumi.Input[Optional['IamIdentityCenterOptionsPropertiesArgs']]):
         pulumi.set(self, "iam_identity_center_options", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMS key used to encrypt the application.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) for this application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -148,17 +148,16 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Amazon OpenSearchService application resource
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +178,6 @@ class Application(pulumi.CustomResource):
         """
         Amazon OpenSearchService application resource
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,13 +193,13 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
-                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 iam_identity_center_options: Optional[pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

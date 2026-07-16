@@ -221,7 +221,6 @@ def get_log_alarm(alarm_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.
 
-
     :param _builtins.str alarm_name: The name of the log alarm.
     """
     __args__ = dict()
@@ -245,11 +244,10 @@ def get_log_alarm(alarm_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
-def get_log_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAlarmResult]:
     """
     Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.
-
 
     :param _builtins.str alarm_name: The name of the log alarm.
     """

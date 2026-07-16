@@ -344,8 +344,7 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
      When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
      When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 
-
-    :param _builtins.str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+    :param _builtins.str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name.
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     __args__ = dict()
@@ -378,15 +377,14 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         threshold_metric_id=pulumi.get(__ret__, 'threshold_metric_id'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
         unit=pulumi.get(__ret__, 'unit'))
-def get_alarm_output(alarm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
     The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
      When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
      When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
 
-
-    :param _builtins.str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name. 
+    :param _builtins.str alarm_name: The name of the alarm. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the alarm name.
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     """
     __args__ = dict()

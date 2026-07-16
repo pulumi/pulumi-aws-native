@@ -75,7 +75,6 @@ def get_observability_configuration(observability_configuration_arn: Optional[_b
     """
     The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
 
-
     :param _builtins.str observability_configuration_arn: The Amazon Resource Name (ARN) of this ObservabilityConfiguration
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_observability_configuration(observability_configuration_arn: Optional[_b
         latest=pulumi.get(__ret__, 'latest'),
         observability_configuration_arn=pulumi.get(__ret__, 'observability_configuration_arn'),
         observability_configuration_revision=pulumi.get(__ret__, 'observability_configuration_revision'))
-def get_observability_configuration_output(observability_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_observability_configuration_output(observability_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObservabilityConfigurationResult]:
     """
     The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
-
 
     :param _builtins.str observability_configuration_arn: The Amazon Resource Name (ARN) of this ObservabilityConfiguration
     """

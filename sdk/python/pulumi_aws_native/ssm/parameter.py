@@ -22,13 +22,13 @@ class ParameterArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['ParameterType'],
                  value: pulumi.Input[_builtins.str],
-                 allowed_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input['ParameterTier']] = None):
+                 allowed_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional['ParameterDataType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional['ParameterTier']] = None):
         """
         The set of arguments for constructing a Parameter resource.
 
@@ -92,43 +92,43 @@ class ParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedPattern")
-    def allowed_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allowed_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``
         """
         return pulumi.get(self, "allowed_pattern")
 
     @allowed_pattern.setter
-    def allowed_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allowed_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allowed_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input['ParameterDataType']]:
+    def data_type(self) -> pulumi.Input[Optional['ParameterDataType']]:
         """
         The data type of the parameter, such as ``text`` or ``aws:ec2:image``. The default is ``text``.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input['ParameterDataType']]):
+    def data_type(self, value: pulumi.Input[Optional['ParameterDataType']]):
         pulumi.set(self, "data_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the parameter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the parameter.
           The reported maximum length of 2048 characters for a parameter name includes 1037 characters that are reserved for internal use by SYS. The maximum length for a parameter name that you specify is 1011 characters.
@@ -137,12 +137,12 @@ class ParameterArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def policies(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policies(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Information about the policies assigned to a parameter.
          [Assigning parameter policies](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html) in the *User Guide*.
@@ -150,31 +150,31 @@ class ParameterArgs:
         return pulumi.get(self, "policies")
 
     @policies.setter
-    def policies(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policies(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policies", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a SYS parameter to identify the type of resource to which it applies, the environment, or the type of configuration data referenced by the parameter.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['ParameterTier']]:
+    def tier(self) -> pulumi.Input[Optional['ParameterTier']]:
         """
         The parameter tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['ParameterTier']]):
+    def tier(self, value: pulumi.Input[Optional['ParameterTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -184,15 +184,15 @@ class Parameter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input['ParameterTier']] = None,
-                 type: Optional[pulumi.Input['ParameterType']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional['ParameterDataType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional['ParameterTier']] = None,
+                 type: pulumi.Input[Optional['ParameterType']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::SSM::Parameter`` resource creates an SSM parameter in SYSlong Parameter Store.
@@ -450,15 +450,15 @@ class Parameter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_type: Optional[pulumi.Input['ParameterDataType']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 policies: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tier: Optional[pulumi.Input['ParameterTier']] = None,
-                 type: Optional[pulumi.Input['ParameterType']] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 allowed_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_type: pulumi.Input[Optional['ParameterDataType']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policies: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tier: pulumi.Input[Optional['ParameterTier']] = None,
+                 type: pulumi.Input[Optional['ParameterType']] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

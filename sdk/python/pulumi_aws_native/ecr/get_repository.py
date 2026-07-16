@@ -141,7 +141,6 @@ def get_repository(repository_name: Optional[_builtins.str] = None,
     """
     The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
 
-
     :param _builtins.str repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
             The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -160,11 +159,10 @@ def get_repository(repository_name: Optional[_builtins.str] = None,
         repository_policy_text=pulumi.get(__ret__, 'repository_policy_text'),
         repository_uri=pulumi.get(__ret__, 'repository_uri'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_repository_output(repository_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_output(repository_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
-
 
     :param _builtins.str repository_name: The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
             The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.

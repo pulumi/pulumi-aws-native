@@ -74,8 +74,8 @@ class GetScalableTargetResult:
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> Optional['outputs.ScalableTargetSuspendedState']:
         """
-        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
-          *Suspension Outcomes* 
+        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities.
+          *Suspension Outcomes*
           +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
           +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
           +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
@@ -104,7 +104,6 @@ def get_scalable_target(resource_id: Optional[_builtins.str] = None,
     The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
      For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
       If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
-
 
     :param _builtins.str resource_id: The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
              +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -167,15 +166,14 @@ def get_scalable_target(resource_id: Optional[_builtins.str] = None,
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         scheduled_actions=pulumi.get(__ret__, 'scheduled_actions'),
         suspended_state=pulumi.get(__ret__, 'suspended_state'))
-def get_scalable_target_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                               service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+def get_scalable_target_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                               service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalableTargetResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
      For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
       If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
-
 
     :param _builtins.str resource_id: The identifier of the resource associated with the scalable target. This string consists of the resource type and unique identifier.
              +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.

@@ -161,7 +161,6 @@ def get_event_bridge_rule_template(identifier: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
 
-
     :param _builtins.str identifier: Placeholder documentation for __string
     """
     __args__ = dict()
@@ -180,11 +179,10 @@ def get_event_bridge_rule_template(identifier: Optional[_builtins.str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         name=pulumi.get(__ret__, 'name'))
-def get_event_bridge_rule_template_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_bridge_rule_template_output(identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBridgeRuleTemplateResult]:
     """
     Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
-
 
     :param _builtins.str identifier: Placeholder documentation for __string
     """

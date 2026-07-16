@@ -114,7 +114,6 @@ def get_alias(alias_id: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
 
-
     :param _builtins.str alias_id: Unique alias ID
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_alias(alias_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_strategy=pulumi.get(__ret__, 'routing_strategy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_alias_output(alias_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_alias_output(alias_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
-
 
     :param _builtins.str alias_id: Unique alias ID
     """

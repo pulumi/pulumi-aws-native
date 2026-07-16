@@ -21,8 +21,8 @@ class TransitGatewayRouteArgs:
     def __init__(__self__, *,
                  destination_cidr_block: pulumi.Input[_builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[_builtins.str],
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransitGatewayRoute resource.
 
@@ -64,26 +64,26 @@ class TransitGatewayRouteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blackhole(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def blackhole(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether to drop traffic that matches this route.
         """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
-    def blackhole(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def blackhole(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "blackhole", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayAttachmentId")
-    def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of transit gateway attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
-    def transit_gateway_attachment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
 
 
@@ -93,14 +93,13 @@ class TransitGatewayRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::TransitGatewayRoute
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +117,6 @@ class TransitGatewayRoute(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::TransitGatewayRoute
 
-
         :param str resource_name: The name of the resource.
         :param TransitGatewayRouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,10 +132,10 @@ class TransitGatewayRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blackhole: Optional[pulumi.Input[_builtins.bool]] = None,
-                 destination_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 transit_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 blackhole: pulumi.Input[Optional[_builtins.bool]] = None,
+                 destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -77,7 +77,6 @@ def get_traffic_mirror_filter(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::EC2::TrafficMirrorFilter
 
-
     :param _builtins.str id: The ID of a traffic mirror filter.
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_traffic_mirror_filter(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         network_services=pulumi.get(__ret__, 'network_services'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_traffic_mirror_filter_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_traffic_mirror_filter_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficMirrorFilterResult]:
     """
     Resource schema for AWS::EC2::TrafficMirrorFilter
-
 
     :param _builtins.str id: The ID of a traffic mirror filter.
     """

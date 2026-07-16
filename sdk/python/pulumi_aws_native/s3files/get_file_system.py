@@ -128,7 +128,7 @@ def get_file_system(file_system_arn: Optional[_builtins.str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         synchronization_configuration=pulumi.get(__ret__, 'synchronization_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_file_system_output(file_system_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_system_output(file_system_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     Resource Type definition for AWS::S3Files::FileSystem

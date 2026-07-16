@@ -148,7 +148,7 @@ def get_outbound_external_link(arn: Optional[_builtins.str] = None,
         public_endpoint=pulumi.get(__ret__, 'public_endpoint'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_outbound_external_link_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_outbound_external_link_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundExternalLinkResult]:
     """
     Resource Type definition for AWS::RTBFabric::OutboundExternalLink Resource Type

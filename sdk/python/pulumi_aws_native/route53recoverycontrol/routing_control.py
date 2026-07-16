@@ -20,9 +20,9 @@ __all__ = ['RoutingControlArgs', 'RoutingControl']
 @pulumi.input_type
 class RoutingControlArgs:
     def __init__(__self__, *,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
 
@@ -39,38 +39,38 @@ class RoutingControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterArn")
-    def cluster_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Arn associated with Control Panel
         """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
-    def cluster_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_panel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the control panel.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
-    def control_panel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_panel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_panel_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the routing control. You can use any non-white space character in the name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -80,13 +80,12 @@ class RoutingControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         AWS Route53 Recovery Control Routing Control resource schema .
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class RoutingControl(pulumi.CustomResource):
         """
         AWS Route53 Recovery Control Routing Control resource schema .
 
-
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class RoutingControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

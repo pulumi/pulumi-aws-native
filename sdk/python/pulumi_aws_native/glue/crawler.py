@@ -23,17 +23,17 @@ class CrawlerArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[_builtins.str],
                  targets: pulumi.Input['CrawlerTargetsArgs'],
-                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 crawler_security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lake_formation_configuration: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
-                 schedule: Optional[pulumi.Input['CrawlerScheduleArgs']] = None,
-                 schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
-                 table_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 crawler_security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional['CrawlerLakeFormationConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recrawl_policy: pulumi.Input[Optional['CrawlerRecrawlPolicyArgs']] = None,
+                 schedule: pulumi.Input[Optional['CrawlerScheduleArgs']] = None,
+                 schema_change_policy: pulumi.Input[Optional['CrawlerSchemaChangePolicyArgs']] = None,
+                 table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a Crawler resource.
@@ -110,115 +110,115 @@ class CrawlerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def classifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def classifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of UTF-8 strings that specify the names of custom classifiers that are associated with the crawler.
         """
         return pulumi.get(self, "classifiers")
 
     @classifiers.setter
-    def classifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def classifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "classifiers", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Crawler configuration information. This versioned JSON string allows users to specify aspects of a crawler's behavior.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="crawlerSecurityConfiguration")
-    def crawler_security_configuration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def crawler_security_configuration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SecurityConfiguration structure to be used by this crawler.
         """
         return pulumi.get(self, "crawler_security_configuration")
 
     @crawler_security_configuration.setter
-    def crawler_security_configuration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def crawler_security_configuration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "crawler_security_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database in which the crawler's output is stored.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the crawler.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="lakeFormationConfiguration")
-    def lake_formation_configuration(self) -> Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]:
+    def lake_formation_configuration(self) -> pulumi.Input[Optional['CrawlerLakeFormationConfigurationArgs']]:
         """
         Specifies whether the crawler should use AWS Lake Formation credentials for the crawler instead of the IAM role credentials.
         """
         return pulumi.get(self, "lake_formation_configuration")
 
     @lake_formation_configuration.setter
-    def lake_formation_configuration(self, value: Optional[pulumi.Input['CrawlerLakeFormationConfigurationArgs']]):
+    def lake_formation_configuration(self, value: pulumi.Input[Optional['CrawlerLakeFormationConfigurationArgs']]):
         pulumi.set(self, "lake_formation_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the crawler.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="recrawlPolicy")
-    def recrawl_policy(self) -> Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']]:
+    def recrawl_policy(self) -> pulumi.Input[Optional['CrawlerRecrawlPolicyArgs']]:
         """
         A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.
         """
         return pulumi.get(self, "recrawl_policy")
 
     @recrawl_policy.setter
-    def recrawl_policy(self, value: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']]):
+    def recrawl_policy(self, value: pulumi.Input[Optional['CrawlerRecrawlPolicyArgs']]):
         pulumi.set(self, "recrawl_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['CrawlerScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['CrawlerScheduleArgs']]:
         """
         For scheduled crawlers, the schedule when the crawler runs.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['CrawlerScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['CrawlerScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaChangePolicy")
-    def schema_change_policy(self) -> Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']]:
+    def schema_change_policy(self) -> pulumi.Input[Optional['CrawlerSchemaChangePolicyArgs']]:
         """
         The policy that specifies update and delete behaviors for the crawler. The policy tells the crawler what to do in the event that it detects a change in a table that already exists in the customer's database at the time of the crawl. The `SchemaChangePolicy` does not affect whether or how new tables and partitions are added. New tables and partitions are always created regardless of the `SchemaChangePolicy` on a crawler.
 
@@ -227,19 +227,19 @@ class CrawlerArgs:
         return pulumi.get(self, "schema_change_policy")
 
     @schema_change_policy.setter
-    def schema_change_policy(self, value: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']]):
+    def schema_change_policy(self, value: pulumi.Input[Optional['CrawlerSchemaChangePolicyArgs']]):
         pulumi.set(self, "schema_change_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="tablePrefix")
-    def table_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix added to the names of tables that are created.
         """
         return pulumi.get(self, "table_prefix")
 
     @table_prefix.setter
-    def table_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_prefix", value)
 
     @_builtins.property
@@ -263,24 +263,23 @@ class Crawler(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 crawler_security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lake_formation_configuration: Optional[pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recrawl_policy: Optional[pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
-                 schema_change_policy: Optional[pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
-                 table_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 crawler_security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 targets: Optional[pulumi.Input[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::Crawler
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -312,7 +311,6 @@ class Crawler(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Glue::Crawler
 
-
         :param str resource_name: The name of the resource.
         :param CrawlerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,20 +326,20 @@ class Crawler(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 crawler_security_configuration: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 lake_formation_configuration: Optional[pulumi.Input[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recrawl_policy: Optional[pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
-                 schema_change_policy: Optional[pulumi.Input[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
-                 table_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 classifiers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 crawler_security_configuration: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lake_formation_configuration: pulumi.Input[Optional[Union['CrawlerLakeFormationConfigurationArgs', 'CrawlerLakeFormationConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recrawl_policy: pulumi.Input[Optional[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['CrawlerScheduleArgs', 'CrawlerScheduleArgsDict']]] = None,
+                 schema_change_policy: pulumi.Input[Optional[Union['CrawlerSchemaChangePolicyArgs', 'CrawlerSchemaChangePolicyArgsDict']]] = None,
+                 table_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: Optional[Any] = None,
-                 targets: Optional[pulumi.Input[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CrawlerTargetsArgs', 'CrawlerTargetsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

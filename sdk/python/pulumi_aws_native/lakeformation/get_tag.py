@@ -51,7 +51,6 @@ def get_tag(tag_key: Optional[_builtins.str] = None,
     """
     A resource schema representing a Lake Formation Tag.
 
-
     :param _builtins.str tag_key: The key-name for the LF-tag.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_tag(tag_key: Optional[_builtins.str] = None,
 
     return AwaitableGetTagResult(
         tag_values=pulumi.get(__ret__, 'tag_values'))
-def get_tag_output(tag_key: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_output(tag_key: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagResult]:
     """
     A resource schema representing a Lake Formation Tag.
-
 
     :param _builtins.str tag_key: The key-name for the LF-tag.
     """

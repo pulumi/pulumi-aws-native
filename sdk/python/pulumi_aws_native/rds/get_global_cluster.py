@@ -98,7 +98,6 @@ def get_global_cluster(global_cluster_identifier: Optional[_builtins.str] = None
     """
     Resource Type definition for AWS::RDS::GlobalCluster
 
-
     :param _builtins.str global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
     """
     __args__ = dict()
@@ -112,11 +111,10 @@ def get_global_cluster(global_cluster_identifier: Optional[_builtins.str] = None
         engine_version=pulumi.get(__ret__, 'engine_version'),
         global_endpoint=pulumi.get(__ret__, 'global_endpoint'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_global_cluster_output(global_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
     Resource Type definition for AWS::RDS::GlobalCluster
-
 
     :param _builtins.str global_cluster_identifier: The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
     """

@@ -64,7 +64,6 @@ def get_profile_association(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Route53Profiles::ProfileAssociation
 
-
     :param _builtins.str id: Primary Identifier for  Profile Association
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_profile_association(id: Optional[_builtins.str] = None,
     return AwaitableGetProfileAssociationResult(
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_profile_association_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_association_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileAssociationResult]:
     """
     Resource Type definition for AWS::Route53Profiles::ProfileAssociation
-
 
     :param _builtins.str id: Primary Identifier for  Profile Association
     """

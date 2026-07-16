@@ -25,18 +25,18 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  archive_policy: Optional[Any] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None):
+                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -44,9 +44,9 @@ class TopicArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics.
-                 +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+                 +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
                  +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-                (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+                     (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         :param Any data_protection_policy: The body of the policy document you want to use for this topic.
                 You can only add one policy per topic.
                 The policy must be in JSON string format.
@@ -54,12 +54,12 @@ class TopicArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-                 +  HTTP 
+                 +  HTTP
                  +  Amazon Kinesis Data Firehose
                  +   AWS Lambda
                  +  Platform application endpoint
                  +  Amazon Simple Queue Service
-                 
+               
                 Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[_builtins.str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         :param pulumi.Input[_builtins.str] fifo_throughput_scope: Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
@@ -119,17 +119,17 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO topics.
-          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
           +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-         (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+              (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
@@ -151,62 +151,62 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="deliveryStatusLogging")
-    def delivery_status_logging(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]:
+    def delivery_status_logging(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]:
         """
         The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-          +  HTTP 
+          +  HTTP
           +  Amazon Kinesis Data Firehose
           +   AWS Lambda
           +  Platform application endpoint
           +  Amazon Simple Queue Service
-          
+
          Once configured, log entries are sent to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_logging")
 
     @delivery_status_logging.setter
-    def delivery_status_logging(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]):
+    def delivery_status_logging(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]):
         pulumi.set(self, "delivery_status_logging", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputScope")
-    def fifo_throughput_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
         """
         return pulumi.get(self, "fifo_throughput_scope")
 
     @fifo_throughput_scope.setter
-    def fifo_throughput_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoTopic")
-    def fifo_topic(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_topic(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to create a FIFO topic.
         """
         return pulumi.get(self, "fifo_topic")
 
     @fifo_topic.setter
-    def fifo_topic(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_topic(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_topic", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
          This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
@@ -214,24 +214,24 @@ class TopicArgs:
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="signatureVersion")
-    def signature_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def signature_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         """
         return pulumi.get(self, "signature_version")
 
     @signature_version.setter
-    def signature_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def signature_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "signature_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def subscription(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]]:
+    def subscription(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicSubscriptionArgs']]]]:
         """
         The SNS subscriptions (endpoints) for this topic.
           If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
@@ -239,12 +239,12 @@ class TopicArgs:
         return pulumi.get(self, "subscription")
 
     @subscription.setter
-    def subscription(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]]):
+    def subscription(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicSubscriptionArgs']]]]):
         pulumi.set(self, "subscription", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The list of tags to add to a new topic.
           To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
@@ -252,12 +252,12 @@ class TopicArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
          If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -266,19 +266,19 @@ class TopicArgs:
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tracingConfig")
-    def tracing_config(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tracing_config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
         """
         return pulumi.get(self, "tracing_config")
 
     @tracing_config.setter
-    def tracing_config(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tracing_config(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tracing_config", value)
 
 
@@ -289,18 +289,18 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_policy: Optional[Any] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
@@ -398,9 +398,9 @@ class Topic(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.bool] content_based_deduplication: Enables content-based deduplication for FIFO topics.
-                 +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+                 +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
                  +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-                (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+                     (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         :param Any data_protection_policy: The body of the policy document you want to use for this topic.
                 You can only add one policy per topic.
                 The policy must be in JSON string format.
@@ -408,12 +408,12 @@ class Topic(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]] delivery_status_logging: The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-                 +  HTTP 
+                 +  HTTP
                  +  Amazon Kinesis Data Firehose
                  +   AWS Lambda
                  +  Platform application endpoint
                  +  Amazon Simple Queue Service
-                 
+               
                 Once configured, log entries are sent to Amazon CloudWatch Logs.
         :param pulumi.Input[_builtins.str] display_name: The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         :param pulumi.Input[_builtins.str] fifo_throughput_scope: Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
@@ -542,18 +542,18 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_policy: Optional[Any] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_protection_policy: Optional[Any] = None,
-                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_throughput_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 fifo_topic: Optional[pulumi.Input[_builtins.bool]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 signature_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tracing_config: Optional[pulumi.Input[_builtins.str]] = None,
+                 delivery_status_logging: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 signature_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tracing_config: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -632,9 +632,9 @@ class Topic(pulumi.CustomResource):
     def content_based_deduplication(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Enables content-based deduplication for FIFO topics.
-          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
           +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-         (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+              (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         """
         return pulumi.get(self, "content_based_deduplication")
 
@@ -656,12 +656,12 @@ class Topic(pulumi.CustomResource):
     def delivery_status_logging(self) -> pulumi.Output[Optional[Sequence['outputs.TopicLoggingConfig']]]:
         """
         The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-          +  HTTP 
+          +  HTTP
           +  Amazon Kinesis Data Firehose
           +   AWS Lambda
           +  Platform application endpoint
           +  Amazon Simple Queue Service
-          
+
          Once configured, log entries are sent to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_logging")

@@ -125,7 +125,6 @@ def get_resiliency_policy(policy_arn: Optional[_builtins.str] = None,
     """
     Resource Type Definition for Resiliency Policy.
 
-
     :param _builtins.str policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_resiliency_policy(policy_arn: Optional[_builtins.str] = None,
         policy_name=pulumi.get(__ret__, 'policy_name'),
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
-def get_resiliency_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resiliency_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResiliencyPolicyResult]:
     """
     Resource Type Definition for Resiliency Policy.
-
 
     :param _builtins.str policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
     """

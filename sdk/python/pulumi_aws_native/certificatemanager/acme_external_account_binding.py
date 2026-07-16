@@ -25,8 +25,8 @@ class AcmeExternalAccountBindingArgs:
     def __init__(__self__, *,
                  acme_endpoint_arn: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 expiration: Optional[pulumi.Input['AcmeExternalAccountBindingExpirationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 expiration: pulumi.Input[Optional['AcmeExternalAccountBindingExpirationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AcmeExternalAccountBinding resource.
 
@@ -67,23 +67,23 @@ class AcmeExternalAccountBindingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def expiration(self) -> Optional[pulumi.Input['AcmeExternalAccountBindingExpirationArgs']]:
+    def expiration(self) -> pulumi.Input[Optional['AcmeExternalAccountBindingExpirationArgs']]:
         return pulumi.get(self, "expiration")
 
     @expiration.setter
-    def expiration(self, value: Optional[pulumi.Input['AcmeExternalAccountBindingExpirationArgs']]):
+    def expiration(self, value: pulumi.Input[Optional['AcmeExternalAccountBindingExpirationArgs']]):
         pulumi.set(self, "expiration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags associated with the external account binding.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,14 +93,13 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acme_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CertificateManager::AcmeExternalAccountBinding
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +116,6 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CertificateManager::AcmeExternalAccountBinding
 
-
         :param str resource_name: The name of the resource.
         :param AcmeExternalAccountBindingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,10 +131,10 @@ class AcmeExternalAccountBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acme_endpoint_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 expiration: Optional[pulumi.Input[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 expiration: pulumi.Input[Optional[Union['AcmeExternalAccountBindingExpirationArgs', 'AcmeExternalAccountBindingExpirationArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

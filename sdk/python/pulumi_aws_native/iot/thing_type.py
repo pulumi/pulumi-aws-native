@@ -24,10 +24,10 @@ __all__ = ['ThingTypeArgs', 'ThingType']
 @pulumi.input_type
 class ThingTypeArgs:
     def __init__(__self__, *,
-                 deprecate_thing_type: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 thing_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None):
+                 deprecate_thing_type: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 thing_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_type_properties: pulumi.Input[Optional['ThingTypePropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingType resource.
 
@@ -49,7 +49,7 @@ class ThingTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="deprecateThingType")
-    def deprecate_thing_type(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deprecate_thing_type(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Deprecates a thing type. You can not associate new things with deprecated thing type.
 
@@ -58,43 +58,43 @@ class ThingTypeArgs:
         return pulumi.get(self, "deprecate_thing_type")
 
     @deprecate_thing_type.setter
-    def deprecate_thing_type(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deprecate_thing_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deprecate_thing_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="thingTypeName")
-    def thing_type_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the thing type.
         """
         return pulumi.get(self, "thing_type_name")
 
     @thing_type_name.setter
-    def thing_type_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thingTypeProperties")
-    def thing_type_properties(self) -> Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']]:
+    def thing_type_properties(self) -> pulumi.Input[Optional['ThingTypePropertiesPropertiesArgs']]:
         """
         The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
         """
         return pulumi.get(self, "thing_type_properties")
 
     @thing_type_properties.setter
-    def thing_type_properties(self, value: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']]):
+    def thing_type_properties(self, value: pulumi.Input[Optional['ThingTypePropertiesPropertiesArgs']]):
         pulumi.set(self, "thing_type_properties", value)
 
 
@@ -104,14 +104,13 @@ class ThingType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deprecate_thing_type: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_type_properties: Optional[pulumi.Input[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
+                 deprecate_thing_type: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_type_properties: pulumi.Input[Optional[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::ThingType
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,6 @@ class ThingType(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::ThingType
 
-
         :param str resource_name: The name of the resource.
         :param ThingTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,10 +145,10 @@ class ThingType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deprecate_thing_type: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_type_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_type_properties: Optional[pulumi.Input[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
+                 deprecate_thing_type: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_type_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_type_properties: pulumi.Input[Optional[Union['ThingTypePropertiesPropertiesArgs', 'ThingTypePropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

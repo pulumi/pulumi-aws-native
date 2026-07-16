@@ -48,7 +48,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
+                 cloud_front_origin_access_identity_config: pulumi.Input[Optional[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
                  __props__=None):
         """
         The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.
@@ -131,7 +131,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_front_origin_access_identity_config: Optional[pulumi.Input[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
+                 cloud_front_origin_access_identity_config: pulumi.Input[Optional[Union['CloudFrontOriginAccessIdentityConfigArgs', 'CloudFrontOriginAccessIdentityConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

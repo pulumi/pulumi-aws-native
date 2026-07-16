@@ -42,11 +42,10 @@ class TelemetryEnrichment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input['TelemetryEnrichmentScope']] = None,
+                 scope: pulumi.Input[Optional['TelemetryEnrichmentScope']] = None,
                  __props__=None):
         """
         AWS::ObservabilityAdmin::TelemetryEnrichment cloudformation resource enables the resource tags for telemetry feature in CloudWatch to enrich infrastructure metrics with AWS resource tags. For more details: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/resource-tags-for-telemetry.html
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -59,7 +58,6 @@ class TelemetryEnrichment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::ObservabilityAdmin::TelemetryEnrichment cloudformation resource enables the resource tags for telemetry feature in CloudWatch to enrich infrastructure metrics with AWS resource tags. For more details: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/resource-tags-for-telemetry.html
-
 
         :param str resource_name: The name of the resource.
         :param TelemetryEnrichmentArgs args: The arguments to use to populate this resource's properties.
@@ -76,7 +74,7 @@ class TelemetryEnrichment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 scope: Optional[pulumi.Input['TelemetryEnrichmentScope']] = None,
+                 scope: pulumi.Input[Optional['TelemetryEnrichmentScope']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

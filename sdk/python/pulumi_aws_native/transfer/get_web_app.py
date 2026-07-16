@@ -146,7 +146,6 @@ def get_web_app(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Transfer::WebApp
 
-
     :param _builtins.str arn: Specifies the unique Amazon Resource Name (ARN) for the web app.
     """
     __args__ = dict()
@@ -164,11 +163,10 @@ def get_web_app(arn: Optional[_builtins.str] = None,
         web_app_customization=pulumi.get(__ret__, 'web_app_customization'),
         web_app_id=pulumi.get(__ret__, 'web_app_id'),
         web_app_units=pulumi.get(__ret__, 'web_app_units'))
-def get_web_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppResult]:
     """
     Resource Type definition for AWS::Transfer::WebApp
-
 
     :param _builtins.str arn: Specifies the unique Amazon Resource Name (ARN) for the web app.
     """

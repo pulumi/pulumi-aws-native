@@ -79,9 +79,9 @@ class GetTopicResult:
     def content_based_deduplication(self) -> Optional[_builtins.bool]:
         """
         Enables content-based deduplication for FIFO topics.
-          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+          +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
           +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-         (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+              (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
         """
         return pulumi.get(self, "content_based_deduplication")
 
@@ -103,12 +103,12 @@ class GetTopicResult:
     def delivery_status_logging(self) -> Optional[Sequence['outputs.TopicLoggingConfig']]:
         """
         The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-          +  HTTP 
+          +  HTTP
           +  Amazon Kinesis Data Firehose
           +   AWS Lambda
           +  Platform application endpoint
           +  Amazon Simple Queue Service
-          
+
          Once configured, log entries are sent to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "delivery_status_logging")
@@ -208,7 +208,6 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
       One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
        The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
 
-
     :param _builtins.str topic_arn: Returns the ARN of an Amazon  topic.
     """
     __args__ = dict()
@@ -229,13 +228,12 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_arn=pulumi.get(__ret__, 'topic_arn'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'))
-def get_topic_output(topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_output(topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
       One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
        The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
-
 
     :param _builtins.str topic_arn: Returns the ARN of an Amazon  topic.
     """

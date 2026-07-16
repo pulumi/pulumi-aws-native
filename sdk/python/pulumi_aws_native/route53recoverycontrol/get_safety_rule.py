@@ -140,7 +140,6 @@ def get_safety_rule(safety_rule_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
-
     :param _builtins.str safety_rule_arn: The Amazon Resource Name (ARN) of the safety rule.
     """
     __args__ = dict()
@@ -157,11 +156,10 @@ def get_safety_rule(safety_rule_arn: Optional[_builtins.str] = None,
         safety_rule_arn=pulumi.get(__ret__, 'safety_rule_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_safety_rule_output(safety_rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSafetyRuleResult]:
     """
     Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
-
 
     :param _builtins.str safety_rule_arn: The Amazon Resource Name (ARN) of the safety rule.
     """

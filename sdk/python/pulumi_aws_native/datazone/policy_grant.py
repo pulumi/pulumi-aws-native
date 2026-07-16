@@ -26,8 +26,8 @@ class PolicyGrantArgs:
                  entity_identifier: pulumi.Input[_builtins.str],
                  entity_type: pulumi.Input['PolicyGrantTargetEntityType'],
                  policy_type: pulumi.Input['PolicyGrantManagedPolicyType'],
-                 detail: Optional[pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]] = None,
-                 principal: Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
+                 detail: pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]] = None,
+                 principal: pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PolicyGrant resource.
 
@@ -97,26 +97,26 @@ class PolicyGrantArgs:
 
     @_builtins.property
     @pulumi.getter
-    def detail(self) -> Optional[pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]:
+    def detail(self) -> pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]:
         """
         The details of the policy grant member.
         """
         return pulumi.get(self, "detail")
 
     @detail.setter
-    def detail(self, value: Optional[pulumi.Input[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]):
+    def detail(self, value: pulumi.Input[Optional[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail12PropertiesArgs']]]):
         pulumi.set(self, "detail", value)
 
     @_builtins.property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]:
+    def principal(self) -> pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]:
         """
         The principal of the policy grant member.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]):
+    def principal(self, value: pulumi.Input[Optional[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgs']]]):
         pulumi.set(self, "principal", value)
 
 
@@ -126,16 +126,15 @@ class PolicyGrant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail: Optional[pulumi.Input[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input['PolicyGrantTargetEntityType']] = None,
-                 policy_type: Optional[pulumi.Input['PolicyGrantManagedPolicyType']] = None,
-                 principal: Optional[pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
+                 detail: pulumi.Input[Optional[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional['PolicyGrantTargetEntityType']] = None,
+                 policy_type: pulumi.Input[Optional['PolicyGrantManagedPolicyType']] = None,
+                 principal: pulumi.Input[Optional[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
                  __props__=None):
         """
         Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +154,6 @@ class PolicyGrant(pulumi.CustomResource):
         """
         Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.
 
-
         :param str resource_name: The name of the resource.
         :param PolicyGrantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,12 +169,12 @@ class PolicyGrant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail: Optional[pulumi.Input[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 entity_type: Optional[pulumi.Input['PolicyGrantTargetEntityType']] = None,
-                 policy_type: Optional[pulumi.Input['PolicyGrantManagedPolicyType']] = None,
-                 principal: Optional[pulumi.Input[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
+                 detail: pulumi.Input[Optional[Union[Union['PolicyGrantDetail0PropertiesArgs', 'PolicyGrantDetail0PropertiesArgsDict'], Union['PolicyGrantDetail1PropertiesArgs', 'PolicyGrantDetail1PropertiesArgsDict'], Union['PolicyGrantDetail2PropertiesArgs', 'PolicyGrantDetail2PropertiesArgsDict'], Union['PolicyGrantDetail3PropertiesArgs', 'PolicyGrantDetail3PropertiesArgsDict'], Union['PolicyGrantDetail4PropertiesArgs', 'PolicyGrantDetail4PropertiesArgsDict'], Union['PolicyGrantDetail5PropertiesArgs', 'PolicyGrantDetail5PropertiesArgsDict'], Union['PolicyGrantDetail6PropertiesArgs', 'PolicyGrantDetail6PropertiesArgsDict'], Union['PolicyGrantDetail7PropertiesArgs', 'PolicyGrantDetail7PropertiesArgsDict'], Union['PolicyGrantDetail8PropertiesArgs', 'PolicyGrantDetail8PropertiesArgsDict'], Union['PolicyGrantDetail9PropertiesArgs', 'PolicyGrantDetail9PropertiesArgsDict'], Union['PolicyGrantDetail10PropertiesArgs', 'PolicyGrantDetail10PropertiesArgsDict'], Union['PolicyGrantDetail11PropertiesArgs', 'PolicyGrantDetail11PropertiesArgsDict'], Union['PolicyGrantDetail12PropertiesArgs', 'PolicyGrantDetail12PropertiesArgsDict']]]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_type: pulumi.Input[Optional['PolicyGrantTargetEntityType']] = None,
+                 policy_type: pulumi.Input[Optional['PolicyGrantManagedPolicyType']] = None,
+                 principal: pulumi.Input[Optional[Union[Union['PolicyGrantPrincipal0PropertiesArgs', 'PolicyGrantPrincipal0PropertiesArgsDict'], Union['PolicyGrantPrincipal1PropertiesArgs', 'PolicyGrantPrincipal1PropertiesArgsDict'], Union['PolicyGrantPrincipal2PropertiesArgs', 'PolicyGrantPrincipal2PropertiesArgsDict'], Union['PolicyGrantPrincipal3PropertiesArgs', 'PolicyGrantPrincipal3PropertiesArgsDict']]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

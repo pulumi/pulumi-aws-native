@@ -65,7 +65,6 @@ def get_resource_policy(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SecretsManager::ResourcePolicy
 
-
     :param _builtins.str id: The Arn of the secret.
     """
     __args__ = dict()
@@ -76,11 +75,10 @@ def get_resource_policy(id: Optional[_builtins.str] = None,
     return AwaitableGetResourcePolicyResult(
         id=pulumi.get(__ret__, 'id'),
         resource_policy=pulumi.get(__ret__, 'resource_policy'))
-def get_resource_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::SecretsManager::ResourcePolicy
-
 
     :param _builtins.str id: The Arn of the secret.
     """

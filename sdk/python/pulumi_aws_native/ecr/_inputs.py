@@ -20,14 +20,14 @@ __all__ = [
     'RegistryScanningConfigurationRepositoryFilterArgsDict',
     'RegistryScanningConfigurationScanningRuleArgs',
     'RegistryScanningConfigurationScanningRuleArgsDict',
+    'ReplicationConfigurationArgs',
+    'ReplicationConfigurationArgsDict',
     'ReplicationConfigurationReplicationDestinationArgs',
     'ReplicationConfigurationReplicationDestinationArgsDict',
     'ReplicationConfigurationReplicationRuleArgs',
     'ReplicationConfigurationReplicationRuleArgsDict',
     'ReplicationConfigurationRepositoryFilterArgs',
     'ReplicationConfigurationRepositoryFilterArgsDict',
-    'ReplicationConfigurationArgs',
-    'ReplicationConfigurationArgsDict',
     'RepositoryCreationTemplateEncryptionConfigurationArgs',
     'RepositoryCreationTemplateEncryptionConfigurationArgsDict',
     'RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs',
@@ -152,6 +152,39 @@ class RegistryScanningConfigurationScanningRuleArgs:
         pulumi.set(self, "scan_frequency", value)
 
 
+class ReplicationConfigurationArgsDict(TypedDict):
+    """
+    The replication configuration for a registry.
+    """
+    rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgsDict']]]
+    """
+    An array of objects representing the replication destinations and repository filters for a replication configuration.
+    """
+
+@pulumi.input_type
+class ReplicationConfigurationArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        """
+        The replication configuration for a registry.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication destinations and repository filters for a replication configuration.
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
+        """
+        An array of objects representing the replication destinations and repository filters for a replication configuration.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
 class ReplicationConfigurationReplicationDestinationArgsDict(TypedDict):
     """
     An array of objects representing the destination for a replication rule.
@@ -212,7 +245,7 @@ class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
     """
     An array of objects representing the destination for a replication rule.
     """
-    repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgsDict']]]]
+    repository_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgsDict']]]]]
     """
     An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
     """
@@ -221,7 +254,7 @@ class ReplicationConfigurationReplicationRuleArgsDict(TypedDict):
 class ReplicationConfigurationReplicationRuleArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]],
-                 repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None):
+                 repository_filters: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None):
         """
         An array of objects representing the replication destinations and repository filters for a replication configuration.
 
@@ -246,14 +279,14 @@ class ReplicationConfigurationReplicationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryFilters")
-    def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]:
+    def repository_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]:
         """
         An array of objects representing the filters for a replication rule. Specifying a repository filter for a replication rule provides a method for controlling which repositories in a private registry are replicated.
         """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
-    def repository_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]):
+    def repository_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]]):
         pulumi.set(self, "repository_filters", value)
 
 
@@ -309,39 +342,6 @@ class ReplicationConfigurationRepositoryFilterArgs:
         pulumi.set(self, "filter_type", value)
 
 
-class ReplicationConfigurationArgsDict(TypedDict):
-    """
-    The replication configuration for a registry.
-    """
-    rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgsDict']]]
-    """
-    An array of objects representing the replication destinations and repository filters for a replication configuration.
-    """
-
-@pulumi.input_type
-class ReplicationConfigurationArgs:
-    def __init__(__self__, *,
-                 rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
-        """
-        The replication configuration for a registry.
-
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication destinations and repository filters for a replication configuration.
-        """
-        pulumi.set(__self__, "rules", rules)
-
-    @_builtins.property
-    @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
-        """
-        An array of objects representing the replication destinations and repository filters for a replication configuration.
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
-        pulumi.set(self, "rules", value)
-
-
 class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
     """
     The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
@@ -352,11 +352,11 @@ class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
     """
     The encryption type to use.
      If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
-     If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+     If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created.
      If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
      For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
     """
-    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
     """
@@ -365,7 +365,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgsDict(TypedDict):
 class RepositoryCreationTemplateEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['RepositoryCreationTemplateEncryptionType'],
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
          By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
@@ -373,7 +373,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
 
         :param pulumi.Input['RepositoryCreationTemplateEncryptionType'] encryption_type: The encryption type to use.
                 If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
-                If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+                If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created.
                 If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
                 For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         :param pulumi.Input[_builtins.str] kms_key: If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
@@ -388,7 +388,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
         """
         The encryption type to use.
          If you use the ``KMS`` encryption type, the contents of the repository will be encrypted using server-side encryption with KMSlong key stored in KMS. When you use KMS to encrypt your data, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you already created.
-         If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created. 
+         If you use the ``KMS_DSSE`` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the KMS Management Service key stored in KMS. Similar to the ``KMS`` encryption type, you can either use the default AWS managed KMS key for Amazon ECR, or specify your own KMS key, which you've already created.
          If you use the ``AES256`` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
          For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         """
@@ -400,14 +400,14 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
 
@@ -518,7 +518,7 @@ class RepositoryEncryptionConfigurationArgsDict(TypedDict):
 
     For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide* .
     """
-    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
     """
@@ -527,7 +527,7 @@ class RepositoryEncryptionConfigurationArgsDict(TypedDict):
 class RepositoryEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['RepositoryEncryptionType'],
-                 kms_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
          By default, when no encryption configuration is set or the ``AES256`` encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES256 encryption algorithm. This does not require any action on your part.
@@ -570,14 +570,14 @@ class RepositoryEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKey")
-    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If you use the ``KMS`` encryption type, specify the KMS key to use for encryption. The alias, key ID, or full ARN of the KMS key can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed KMS key for Amazon ECR will be used.
         """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
-    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
 
 
@@ -585,7 +585,7 @@ class RepositoryImageScanningConfigurationArgsDict(TypedDict):
     """
     The image scanning configuration for a repository.
     """
-    scan_on_push: NotRequired[pulumi.Input[_builtins.bool]]
+    scan_on_push: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
     """
@@ -593,7 +593,7 @@ class RepositoryImageScanningConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryImageScanningConfigurationArgs:
     def __init__(__self__, *,
-                 scan_on_push: Optional[pulumi.Input[_builtins.bool]] = None):
+                 scan_on_push: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The image scanning configuration for a repository.
 
@@ -604,14 +604,14 @@ class RepositoryImageScanningConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="scanOnPush")
-    def scan_on_push(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def scan_on_push(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The setting that determines whether images are scanned after being pushed to a repository. If set to ``true``, images will be scanned after being pushed. If this parameter is not specified, it will default to ``false`` and images will not be scanned unless a scan is manually started.
         """
         return pulumi.get(self, "scan_on_push")
 
     @scan_on_push.setter
-    def scan_on_push(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def scan_on_push(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "scan_on_push", value)
 
 
@@ -656,11 +656,11 @@ class RepositoryLifecyclePolicyArgsDict(TypedDict):
     """
     The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
     """
-    lifecycle_policy_text: NotRequired[pulumi.Input[_builtins.str]]
+    lifecycle_policy_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The JSON repository policy text to apply to the repository.
     """
-    registry_id: NotRequired[pulumi.Input[_builtins.str]]
+    registry_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS account ID associated with the registry that contains the repository. If you do
      not specify a registry, the default registry is assumed.
@@ -669,8 +669,8 @@ class RepositoryLifecyclePolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RepositoryLifecyclePolicyArgs:
     def __init__(__self__, *,
-                 lifecycle_policy_text: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 lifecycle_policy_text: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.
 
@@ -685,19 +685,19 @@ class RepositoryLifecyclePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="lifecyclePolicyText")
-    def lifecycle_policy_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def lifecycle_policy_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The JSON repository policy text to apply to the repository.
         """
         return pulumi.get(self, "lifecycle_policy_text")
 
     @lifecycle_policy_text.setter
-    def lifecycle_policy_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def lifecycle_policy_text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lifecycle_policy_text", value)
 
     @_builtins.property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS account ID associated with the registry that contains the repository. If you do
          not specify a registry, the default registry is assumed.
@@ -705,7 +705,7 @@ class RepositoryLifecyclePolicyArgs:
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
-    def registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registry_id", value)
 
 
@@ -784,7 +784,7 @@ class SigningConfigurationRuleArgsDict(TypedDict):
     """
     AWS Signer signing profile ARN to use for matched repositories.
     """
-    repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgsDict']]]]
+    repository_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgsDict']]]]]
     """
     Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
     """
@@ -793,7 +793,7 @@ class SigningConfigurationRuleArgsDict(TypedDict):
 class SigningConfigurationRuleArgs:
     def __init__(__self__, *,
                  signing_profile_arn: pulumi.Input[_builtins.str],
-                 repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]] = None):
+                 repository_filters: pulumi.Input[Optional[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] signing_profile_arn: AWS Signer signing profile ARN to use for matched repositories.
         :param pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]] repository_filters: Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
@@ -816,14 +816,14 @@ class SigningConfigurationRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="repositoryFilters")
-    def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]:
+    def repository_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]:
         """
         Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
         """
         return pulumi.get(self, "repository_filters")
 
     @repository_filters.setter
-    def repository_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]):
+    def repository_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]):
         pulumi.set(self, "repository_filters", value)
 
 

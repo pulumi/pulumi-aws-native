@@ -128,7 +128,6 @@ def get_mail_manager_traffic_policy(traffic_policy_id: Optional[_builtins.str] =
     """
     Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
 
-
     :param _builtins.str traffic_policy_id: The identifier of the traffic policy resource.
     """
     __args__ = dict()
@@ -144,11 +143,10 @@ def get_mail_manager_traffic_policy(traffic_policy_id: Optional[_builtins.str] =
         traffic_policy_arn=pulumi.get(__ret__, 'traffic_policy_arn'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'),
         traffic_policy_name=pulumi.get(__ret__, 'traffic_policy_name'))
-def get_mail_manager_traffic_policy_output(traffic_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_traffic_policy_output(traffic_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerTrafficPolicyResult]:
     """
     Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
-
 
     :param _builtins.str traffic_policy_id: The identifier of the traffic policy resource.
     """

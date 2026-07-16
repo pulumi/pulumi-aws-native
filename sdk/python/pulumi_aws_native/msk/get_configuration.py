@@ -76,7 +76,6 @@ def get_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::MSK::Configuration
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the configuration.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_configuration(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         latest_revision=pulumi.get(__ret__, 'latest_revision'))
-def get_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource Type definition for AWS::MSK::Configuration
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the configuration.
     """

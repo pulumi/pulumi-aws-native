@@ -470,7 +470,6 @@ def get_user_pool(user_pool_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Cognito::UserPool Resource Type
 
-
     :param _builtins.str user_pool_id: The ID of the user pool.
     """
     __args__ = dict()
@@ -514,11 +513,10 @@ def get_user_pool(user_pool_id: Optional[_builtins.str] = None,
         web_authn_factor_configuration=pulumi.get(__ret__, 'web_authn_factor_configuration'),
         web_authn_relying_party_id=pulumi.get(__ret__, 'web_authn_relying_party_id'),
         web_authn_user_verification=pulumi.get(__ret__, 'web_authn_user_verification'))
-def get_user_pool_output(user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_output(user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Definition of AWS::Cognito::UserPool Resource Type
-
 
     :param _builtins.str user_pool_id: The ID of the user pool.
     """

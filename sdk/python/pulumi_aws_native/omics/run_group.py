@@ -19,12 +19,12 @@ __all__ = ['RunGroupArgs', 'RunGroup']
 @pulumi.input_type
 class RunGroupArgs:
     def __init__(__self__, *,
-                 max_cpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_duration: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_gpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_runs: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 max_cpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_duration: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_gpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_runs: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RunGroup resource.
 
@@ -50,74 +50,74 @@ class RunGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxCpus")
-    def max_cpus(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_cpus(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The group's maximum CPU count setting.
         """
         return pulumi.get(self, "max_cpus")
 
     @max_cpus.setter
-    def max_cpus(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_cpus(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_cpus", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDuration")
-    def max_duration(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_duration(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The group's maximum duration setting in minutes.
         """
         return pulumi.get(self, "max_duration")
 
     @max_duration.setter
-    def max_duration(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_duration(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="maxGpus")
-    def max_gpus(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_gpus(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum GPUs that can be used by a run group.
         """
         return pulumi.get(self, "max_gpus")
 
     @max_gpus.setter
-    def max_gpus(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_gpus(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_gpus", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRuns")
-    def max_runs(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_runs(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The group's maximum concurrent run setting.
         """
         return pulumi.get(self, "max_runs")
 
     @max_runs.setter
-    def max_runs(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_runs(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_runs", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group's name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,16 +127,15 @@ class RunGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 max_cpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_duration: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_gpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_runs: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 max_cpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_duration: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_gpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_runs: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::RunGroup Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +155,6 @@ class RunGroup(pulumi.CustomResource):
         """
         Definition of AWS::Omics::RunGroup Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param RunGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,12 +170,12 @@ class RunGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 max_cpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_duration: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_gpus: Optional[pulumi.Input[_builtins.float]] = None,
-                 max_runs: Optional[pulumi.Input[_builtins.float]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 max_cpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_duration: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_gpus: pulumi.Input[Optional[_builtins.float]] = None,
+                 max_runs: pulumi.Input[Optional[_builtins.float]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

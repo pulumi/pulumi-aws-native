@@ -56,7 +56,7 @@ def get_telemetry_enrichment(scope: Optional['TelemetryEnrichmentScope'] = None,
 
     return AwaitableGetTelemetryEnrichmentResult(
         status=pulumi.get(__ret__, 'status'))
-def get_telemetry_enrichment_output(scope: Optional[pulumi.Input['TelemetryEnrichmentScope']] = None,
+def get_telemetry_enrichment_output(scope: pulumi.Input[Optional['TelemetryEnrichmentScope']] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTelemetryEnrichmentResult]:
     """
     AWS::ObservabilityAdmin::TelemetryEnrichment cloudformation resource enables the resource tags for telemetry feature in CloudWatch to enrich infrastructure metrics with AWS resource tags. For more details: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/resource-tags-for-telemetry.html

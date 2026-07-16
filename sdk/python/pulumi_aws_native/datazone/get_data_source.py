@@ -246,7 +246,6 @@ def get_data_source(domain_id: Optional[_builtins.str] = None,
     """
     A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
-
     :param _builtins.str domain_id: The ID of the Amazon DataZone domain where the data source is created.
     :param _builtins.str id: The unique identifier of the data source.
     """
@@ -274,12 +273,11 @@ def get_data_source(domain_id: Optional[_builtins.str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_data_source_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
-
 
     :param _builtins.str domain_id: The ID of the Amazon DataZone domain where the data source is created.
     :param _builtins.str id: The unique identifier of the data source.

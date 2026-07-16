@@ -23,15 +23,15 @@ __all__ = ['MetricStreamArgs', 'MetricStream']
 @pulumi.input_type
 class MetricStreamArgs:
     def __init__(__self__, *,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
 
@@ -66,110 +66,110 @@ class MetricStreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludeFilters")
-    def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
+    def exclude_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
         """
         Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "exclude_filters")
 
     @exclude_filters.setter
-    def exclude_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
+    def exclude_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
         pulumi.set(self, "exclude_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="firehoseArn")
-    def firehose_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firehose_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Kinesis Firehose where to stream the data.
         """
         return pulumi.get(self, "firehose_arn")
 
     @firehose_arn.setter
-    def firehose_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firehose_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firehose_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="includeFilters")
-    def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
+    def include_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]:
         """
         Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "include_filters")
 
     @include_filters.setter
-    def include_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
+    def include_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamFilterArgs']]]]):
         pulumi.set(self, "include_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="includeLinkedAccountsMetrics")
-    def include_linked_accounts_metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_linked_accounts_metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
         """
         return pulumi.get(self, "include_linked_accounts_metrics")
 
     @include_linked_accounts_metrics.setter
-    def include_linked_accounts_metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_linked_accounts_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_linked_accounts_metrics", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the metric stream.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def output_format(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The output format of the data streamed to the Kinesis Firehose.
         """
         return pulumi.get(self, "output_format")
 
     @output_format.setter
-    def output_format(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def output_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "output_format", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the role that provides access to the Kinesis Firehose.
         """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="statisticsConfigurations")
-    def statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
+    def statistics_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]:
         """
         By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
         """
         return pulumi.get(self, "statistics_configurations")
 
     @statistics_configurations.setter
-    def statistics_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
+    def statistics_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]]):
         pulumi.set(self, "statistics_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A set of tags to assign to the delivery stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -179,15 +179,15 @@ class MetricStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for Metric Stream
@@ -274,15 +274,15 @@ class MetricStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
-                 firehose_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 include_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
-                 include_linked_accounts_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_format: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

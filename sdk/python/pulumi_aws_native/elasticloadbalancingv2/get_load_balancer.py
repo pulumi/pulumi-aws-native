@@ -234,7 +234,6 @@ def get_load_balancer(load_balancer_arn: Optional[_builtins.str] = None,
     """
     Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
-
     :param _builtins.str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
     """
     __args__ = dict()
@@ -258,11 +257,10 @@ def get_load_balancer(load_balancer_arn: Optional[_builtins.str] = None,
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
-
 
     :param _builtins.str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
     """

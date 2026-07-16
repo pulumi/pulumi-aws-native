@@ -113,7 +113,6 @@ def get_repository_link(repository_link_arn: Optional[_builtins.str] = None,
     """
     Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
 
-
     :param _builtins.str repository_link_arn: A unique Amazon Resource Name (ARN) to designate the repository link.
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_repository_link(repository_link_arn: Optional[_builtins.str] = None,
         repository_link_arn=pulumi.get(__ret__, 'repository_link_arn'),
         repository_link_id=pulumi.get(__ret__, 'repository_link_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_repository_link_output(repository_link_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_link_output(repository_link_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryLinkResult]:
     """
     Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
-
 
     :param _builtins.str repository_link_arn: A unique Amazon Resource Name (ARN) to designate the repository link.
     """

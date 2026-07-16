@@ -23,10 +23,10 @@ __all__ = ['ConfigurationAggregatorArgs', 'ConfigurationAggregator']
 @pulumi.input_type
 class ConfigurationAggregatorArgs:
     def __init__(__self__, *,
-                 account_aggregation_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]] = None,
-                 configuration_aggregator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_aggregation_source: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 account_aggregation_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]] = None,
+                 configuration_aggregator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_aggregation_source: pulumi.Input[Optional['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
 
@@ -46,50 +46,50 @@ class ConfigurationAggregatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountAggregationSources")
-    def account_aggregation_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]:
+    def account_aggregation_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]:
         """
         Provides a list of source accounts and regions to be aggregated.
         """
         return pulumi.get(self, "account_aggregation_sources")
 
     @account_aggregation_sources.setter
-    def account_aggregation_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]):
+    def account_aggregation_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]):
         pulumi.set(self, "account_aggregation_sources", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationAggregatorName")
-    def configuration_aggregator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_aggregator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the aggregator.
         """
         return pulumi.get(self, "configuration_aggregator_name")
 
     @configuration_aggregator_name.setter
-    def configuration_aggregator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_aggregator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_aggregator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationAggregationSource")
-    def organization_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']]:
+    def organization_aggregation_source(self) -> pulumi.Input[Optional['ConfigurationAggregatorOrganizationAggregationSourceArgs']]:
         """
         Provides an organization and list of regions to be aggregated.
         """
         return pulumi.get(self, "organization_aggregation_source")
 
     @organization_aggregation_source.setter
-    def organization_aggregation_source(self, value: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']]):
+    def organization_aggregation_source(self, value: pulumi.Input[Optional['ConfigurationAggregatorOrganizationAggregationSourceArgs']]):
         pulumi.set(self, "organization_aggregation_source", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the configuration aggregator.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -99,14 +99,13 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]]]] = None,
-                 configuration_aggregator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 account_aggregation_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]]]] = None,
+                 configuration_aggregator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Config::ConfigurationAggregator
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +123,6 @@ class ConfigurationAggregator(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Config::ConfigurationAggregator
 
-
         :param str resource_name: The name of the resource.
         :param ConfigurationAggregatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,10 +138,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]]]] = None,
-                 configuration_aggregator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 organization_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 account_aggregation_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]]]] = None,
+                 configuration_aggregator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_aggregation_source: pulumi.Input[Optional[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -101,7 +101,6 @@ def get_project(project_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::Project
 
-
     :param _builtins.str project_arn: The Amazon Resource Name (ARN) of the project.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_project(project_arn: Optional[_builtins.str] = None,
         project_id=pulumi.get(__ret__, 'project_id'),
         project_status=pulumi.get(__ret__, 'project_status'),
         service_catalog_provisioned_product_details=pulumi.get(__ret__, 'service_catalog_provisioned_product_details'))
-def get_project_output(project_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_project_output(project_arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::SageMaker::Project
-
 
     :param _builtins.str project_arn: The Amazon Resource Name (ARN) of the project.
     """

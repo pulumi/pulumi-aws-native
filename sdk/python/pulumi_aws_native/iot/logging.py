@@ -25,7 +25,7 @@ class LoggingArgs:
                  account_id: pulumi.Input[_builtins.str],
                  default_log_level: pulumi.Input['LoggingDefaultLogLevel'],
                  role_arn: pulumi.Input[_builtins.str],
-                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]] = None):
+                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Logging resource.
 
@@ -78,14 +78,14 @@ class LoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventConfigurations")
-    def event_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]:
+    def event_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]:
         """
         Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
         """
         return pulumi.get(self, "event_configurations")
 
     @event_configurations.setter
-    def event_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]):
+    def event_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['LoggingEventConfigurationArgs']]]]):
         pulumi.set(self, "event_configurations", value)
 
 
@@ -95,14 +95,13 @@ class Logging(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_log_level: Optional[pulumi.Input['LoggingDefaultLogLevel']] = None,
-                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_log_level: pulumi.Input[Optional['LoggingDefaultLogLevel']] = None,
+                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,7 +119,6 @@ class Logging(pulumi.CustomResource):
         """
         Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
 
-
         :param str resource_name: The name of the resource.
         :param LoggingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,10 +134,10 @@ class Logging(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_log_level: Optional[pulumi.Input['LoggingDefaultLogLevel']] = None,
-                 event_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_log_level: pulumi.Input[Optional['LoggingDefaultLogLevel']] = None,
+                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

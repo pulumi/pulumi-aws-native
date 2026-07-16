@@ -24,12 +24,12 @@ __all__ = ['SafetyRuleArgs', 'SafetyRule']
 @pulumi.input_type
 class SafetyRuleArgs:
     def __init__(__self__, *,
-                 assertion_rule: Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 assertion_rule: pulumi.Input[Optional['SafetyRuleAssertionRuleArgs']] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_rule: pulumi.Input[Optional['SafetyRuleGatingRuleArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional['SafetyRuleRuleConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
 
@@ -57,31 +57,31 @@ class SafetyRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="assertionRule")
-    def assertion_rule(self) -> Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']]:
+    def assertion_rule(self) -> pulumi.Input[Optional['SafetyRuleAssertionRuleArgs']]:
         """
         An assertion rule enforces that, when you change a routing control state, that the criteria that you set in the rule configuration is met. Otherwise, the change to the routing control is not accepted. For example, the criteria might be that at least one routing control state is `On` after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.
         """
         return pulumi.get(self, "assertion_rule")
 
     @assertion_rule.setter
-    def assertion_rule(self, value: Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']]):
+    def assertion_rule(self, value: pulumi.Input[Optional['SafetyRuleAssertionRuleArgs']]):
         pulumi.set(self, "assertion_rule", value)
 
     @_builtins.property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def control_panel_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the control panel.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @control_panel_arn.setter
-    def control_panel_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def control_panel_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_panel_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="gatingRule")
-    def gating_rule(self) -> Optional[pulumi.Input['SafetyRuleGatingRuleArgs']]:
+    def gating_rule(self) -> pulumi.Input[Optional['SafetyRuleGatingRuleArgs']]:
         """
         A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.
 
@@ -90,43 +90,43 @@ class SafetyRuleArgs:
         return pulumi.get(self, "gating_rule")
 
     @gating_rule.setter
-    def gating_rule(self, value: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']]):
+    def gating_rule(self, value: pulumi.Input[Optional['SafetyRuleGatingRuleArgs']]):
         pulumi.set(self, "gating_rule", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleConfig")
-    def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
+    def rule_config(self) -> pulumi.Input[Optional['SafetyRuleRuleConfigArgs']]:
         """
         The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         """
         return pulumi.get(self, "rule_config")
 
     @rule_config.setter
-    def rule_config(self, value: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]):
+    def rule_config(self, value: pulumi.Input[Optional['SafetyRuleRuleConfigArgs']]):
         pulumi.set(self, "rule_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -136,16 +136,15 @@ class SafetyRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assertion_rule: Optional[pulumi.Input[Union['SafetyRuleAssertionRuleArgs', 'SafetyRuleAssertionRuleArgsDict']]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_rule: Optional[pulumi.Input[Union['SafetyRuleGatingRuleArgs', 'SafetyRuleGatingRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 assertion_rule: pulumi.Input[Optional[Union['SafetyRuleAssertionRuleArgs', 'SafetyRuleAssertionRuleArgsDict']]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_rule: pulumi.Input[Optional[Union['SafetyRuleGatingRuleArgs', 'SafetyRuleGatingRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +166,6 @@ class SafetyRule(pulumi.CustomResource):
         """
         Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
-
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,12 +181,12 @@ class SafetyRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assertion_rule: Optional[pulumi.Input[Union['SafetyRuleAssertionRuleArgs', 'SafetyRuleAssertionRuleArgsDict']]] = None,
-                 control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 gating_rule: Optional[pulumi.Input[Union['SafetyRuleGatingRuleArgs', 'SafetyRuleGatingRuleArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 assertion_rule: pulumi.Input[Optional[Union['SafetyRuleAssertionRuleArgs', 'SafetyRuleAssertionRuleArgsDict']]] = None,
+                 control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 gating_rule: pulumi.Input[Optional[Union['SafetyRuleGatingRuleArgs', 'SafetyRuleGatingRuleArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_config: pulumi.Input[Optional[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

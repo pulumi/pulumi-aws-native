@@ -65,7 +65,6 @@ def get_aggregation_authorization(authorized_account_id: Optional[_builtins.str]
     """
     Resource Type definition for AWS::Config::AggregationAuthorization
 
-
     :param _builtins.str authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
     :param _builtins.str authorized_aws_region: The region authorized to collect aggregated data.
     """
@@ -78,12 +77,11 @@ def get_aggregation_authorization(authorized_account_id: Optional[_builtins.str]
     return AwaitableGetAggregationAuthorizationResult(
         aggregation_authorization_arn=pulumi.get(__ret__, 'aggregation_authorization_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                         authorized_aws_region: Optional[pulumi.Input[_builtins.str]] = None,
+def get_aggregation_authorization_output(authorized_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                         authorized_aws_region: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAggregationAuthorizationResult]:
     """
     Resource Type definition for AWS::Config::AggregationAuthorization
-
 
     :param _builtins.str authorized_account_id: The 12-digit account ID of the account authorized to aggregate data.
     :param _builtins.str authorized_aws_region: The region authorized to collect aggregated data.

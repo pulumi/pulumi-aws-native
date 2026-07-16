@@ -25,8 +25,8 @@ class SpendingLimitArgs:
     def __init__(__self__, *,
                  device_arn: pulumi.Input[_builtins.str],
                  spending_limit: pulumi.Input[_builtins.str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_period: Optional[pulumi.Input['SpendingLimitTimePeriodArgs']] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 time_period: pulumi.Input[Optional['SpendingLimitTimePeriodArgs']] = None):
         """
         The set of arguments for constructing a SpendingLimit resource.
 
@@ -67,23 +67,23 @@ class SpendingLimitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to apply to the spending limit.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="timePeriod")
-    def time_period(self) -> Optional[pulumi.Input['SpendingLimitTimePeriodArgs']]:
+    def time_period(self) -> pulumi.Input[Optional['SpendingLimitTimePeriodArgs']]:
         return pulumi.get(self, "time_period")
 
     @time_period.setter
-    def time_period(self, value: Optional[pulumi.Input['SpendingLimitTimePeriodArgs']]):
+    def time_period(self, value: pulumi.Input[Optional['SpendingLimitTimePeriodArgs']]):
         pulumi.set(self, "time_period", value)
 
 
@@ -93,14 +93,13 @@ class SpendingLimit(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 spending_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_period: Optional[pulumi.Input[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
+                 device_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 spending_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
                  __props__=None):
         """
         Creates a spending limit for a specified quantum device. Spending limits help you control costs by setting maximum amounts that can be spent on quantum computing tasks within a specified time period.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +116,6 @@ class SpendingLimit(pulumi.CustomResource):
         """
         Creates a spending limit for a specified quantum device. Spending limits help you control costs by setting maximum amounts that can be spent on quantum computing tasks within a specified time period.
 
-
         :param str resource_name: The name of the resource.
         :param SpendingLimitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,10 +131,10 @@ class SpendingLimit(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 spending_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 time_period: Optional[pulumi.Input[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
+                 device_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 spending_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 time_period: pulumi.Input[Optional[Union['SpendingLimitTimePeriodArgs', 'SpendingLimitTimePeriodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -43,23 +43,23 @@ __all__ = [
 ]
 
 class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
-    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    block_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
     - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
      - PUT Object calls fail if the request includes a public ACL.
-    . - PUT Bucket calls fail if the request includes a public ACL.
-    Enabling this setting doesn't affect existing policies or ACLs.
+       . - PUT Bucket calls fail if the request includes a public ACL.
+       Enabling this setting doesn't affect existing policies or ACLs.
     """
-    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    block_public_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
     """
-    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
     """
-    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
+    restrict_public_buckets: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
     Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
@@ -68,16 +68,16 @@ class AccessPointPublicAccessBlockConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPointPublicAccessBlockConfigurationArgs:
     def __init__(__self__, *,
-                 block_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 block_public_policy: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
-                 restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
+                 block_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
+                 restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.bool] block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
                - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
                 - PUT Object calls fail if the request includes a public ACL.
-               . - PUT Bucket calls fail if the request includes a public ACL.
-               Enabling this setting doesn't affect existing policies or ACLs.
+                  . - PUT Bucket calls fail if the request includes a public ACL.
+                  Enabling this setting doesn't affect existing policies or ACLs.
         :param pulumi.Input[_builtins.bool] block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         :param pulumi.Input[_builtins.bool] ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         :param pulumi.Input[_builtins.bool] restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
@@ -94,47 +94,47 @@ class AccessPointPublicAccessBlockConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
-    def block_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
         - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
          - PUT Object calls fail if the request includes a public ACL.
-        . - PUT Bucket calls fail if the request includes a public ACL.
-        Enabling this setting doesn't affect existing policies or ACLs.
+           . - PUT Bucket calls fail if the request includes a public ACL.
+           Enabling this setting doesn't affect existing policies or ACLs.
         """
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
-    def block_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
-    def block_public_policy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
         """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
-    def block_public_policy(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def block_public_policy(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
-    def ignore_public_acls(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
         """
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
-    def ignore_public_acls(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ignore_public_acls(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_public_acls", value)
 
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
-    def restrict_public_buckets(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
         Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
@@ -142,16 +142,16 @@ class AccessPointPublicAccessBlockConfigurationArgs:
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
-    def restrict_public_buckets(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def restrict_public_buckets(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restrict_public_buckets", value)
 
 
 class AccessPointScopeArgsDict(TypedDict):
-    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]
+    permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]]
     """
     You can include one or more API operations as permissions
     """
-    prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
     """
@@ -159,8 +159,8 @@ class AccessPointScopeArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPointScopeArgs:
     def __init__(__self__, *,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]] = None,
-                 prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]] = None,
+                 prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]] permissions: You can include one or more API operations as permissions
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefixes: You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
@@ -172,26 +172,26 @@ class AccessPointScopeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]:
+    def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]:
         """
         You can include one or more API operations as permissions
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]):
+    def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccessPointScopePermissionsItem']]]]):
         pulumi.set(self, "permissions", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
         """
         return pulumi.get(self, "prefixes")
 
     @prefixes.setter
-    def prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefixes", value)
 
 
@@ -199,7 +199,7 @@ class AccessPointVpcConfigurationArgsDict(TypedDict):
     """
     The Virtual Private Cloud (VPC) configuration for a bucket access point.
     """
-    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If this field is specified, this access point will only allow connections from the specified VPC ID.
     """
@@ -207,7 +207,7 @@ class AccessPointVpcConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AccessPointVpcConfigurationArgs:
     def __init__(__self__, *,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Virtual Private Cloud (VPC) configuration for a bucket access point.
 
@@ -218,14 +218,14 @@ class AccessPointVpcConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -307,11 +307,11 @@ class DirectoryBucketDestinationArgsDict(TypedDict):
     """
     Specifies the file format used when exporting data to Amazon S3.
     """
-    bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The account ID that owns the destination S3 bucket. 
+    The account ID that owns the destination S3 bucket.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix to use when exporting data. The prefix is prepended to all results.
     """
@@ -321,14 +321,14 @@ class DirectoryBucketDestinationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[_builtins.str],
                  format: pulumi.Input['DirectoryBucketDestinationFormat'],
-                 bucket_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
 
         :param pulumi.Input[_builtins.str] bucket_arn: The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
         :param pulumi.Input['DirectoryBucketDestinationFormat'] format: Specifies the file format used when exporting data to Amazon S3.
-        :param pulumi.Input[_builtins.str] bucket_account_id: The account ID that owns the destination S3 bucket. 
+        :param pulumi.Input[_builtins.str] bucket_account_id: The account ID that owns the destination S3 bucket.
         :param pulumi.Input[_builtins.str] prefix: The prefix to use when exporting data. The prefix is prepended to all results.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -364,26 +364,26 @@ class DirectoryBucketDestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketAccountId")
-    def bucket_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The account ID that owns the destination S3 bucket. 
+        The account ID that owns the destination S3 bucket.
         """
         return pulumi.get(self, "bucket_account_id")
 
     @bucket_account_id.setter
-    def bucket_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix to use when exporting data. The prefix is prepended to all results.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -408,11 +408,11 @@ class DirectoryBucketInventoryConfigurationArgsDict(TypedDict):
     """
     Specifies the schedule for generating inventory results.
     """
-    optional_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]
+    optional_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]]
     """
     Contains the optional fields that are included in the inventory results.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix that is prepended to all inventory results.
     """
@@ -425,8 +425,8 @@ class DirectoryBucketInventoryConfigurationArgs:
                  id: pulumi.Input[_builtins.str],
                  included_object_versions: pulumi.Input['DirectoryBucketInventoryConfigurationIncludedObjectVersions'],
                  schedule_frequency: pulumi.Input['DirectoryBucketInventoryConfigurationScheduleFrequency'],
-                 optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 optional_fields: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies an inventory configuration for an Amazon S3 Express bucket
 
@@ -506,26 +506,26 @@ class DirectoryBucketInventoryConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="optionalFields")
-    def optional_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]:
+    def optional_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]:
         """
         Contains the optional fields that are included in the inventory results.
         """
         return pulumi.get(self, "optional_fields")
 
     @optional_fields.setter
-    def optional_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]):
+    def optional_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DirectoryBucketInventoryConfigurationOptionalFieldsItem']]]]):
         pulumi.set(self, "optional_fields", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix that is prepended to all inventory results.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -565,11 +565,11 @@ class DirectoryBucketMetricsConfigurationArgsDict(TypedDict):
     """
     The ID used to identify the metrics configuration.
     """
-    access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    access_point_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The access point ARN used when evaluating a metrics filter.
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix used when evaluating a metrics filter.
     """
@@ -578,8 +578,8 @@ class DirectoryBucketMetricsConfigurationArgsDict(TypedDict):
 class DirectoryBucketMetricsConfigurationArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
-                 access_point_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
 
@@ -607,26 +607,26 @@ class DirectoryBucketMetricsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessPointArn")
-    def access_point_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_point_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The access point ARN used when evaluating a metrics filter.
         """
         return pulumi.get(self, "access_point_arn")
 
     @access_point_arn.setter
-    def access_point_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_point_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_point_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix used when evaluating a metrics filter.
         """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -638,27 +638,27 @@ class DirectoryBucketRuleArgsDict(TypedDict):
     """
     If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
     """
-    abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]]
     """
     Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
     """
-    expiration_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    expiration_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Unique identifier for the rule. The value can't be longer than 255 characters.
     """
-    object_size_greater_than: NotRequired[pulumi.Input[_builtins.str]]
+    object_size_greater_than: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
     """
-    object_size_less_than: NotRequired[pulumi.Input[_builtins.str]]
+    object_size_less_than: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
     """
-    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Object key prefix that identifies one or more objects to which this rule applies.
 
@@ -669,12 +669,12 @@ class DirectoryBucketRuleArgsDict(TypedDict):
 class DirectoryBucketRuleArgs:
     def __init__(__self__, *,
                  status: pulumi.Input['DirectoryBucketRuleStatus'],
-                 abort_incomplete_multipart_upload: Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']] = None,
-                 expiration_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_size_greater_than: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_size_less_than: Optional[pulumi.Input[_builtins.str]] = None,
-                 prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 abort_incomplete_multipart_upload: pulumi.Input[Optional['DirectoryBucketAbortIncompleteMultipartUploadArgs']] = None,
+                 expiration_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_size_greater_than: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_size_less_than: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
 
@@ -716,67 +716,67 @@ class DirectoryBucketRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="abortIncompleteMultipartUpload")
-    def abort_incomplete_multipart_upload(self) -> Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']]:
+    def abort_incomplete_multipart_upload(self) -> pulumi.Input[Optional['DirectoryBucketAbortIncompleteMultipartUploadArgs']]:
         """
         Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
         """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
     @abort_incomplete_multipart_upload.setter
-    def abort_incomplete_multipart_upload(self, value: Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']]):
+    def abort_incomplete_multipart_upload(self, value: pulumi.Input[Optional['DirectoryBucketAbortIncompleteMultipartUploadArgs']]):
         pulumi.set(self, "abort_incomplete_multipart_upload", value)
 
     @_builtins.property
     @pulumi.getter(name="expirationInDays")
-    def expiration_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def expiration_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
         """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
-    def expiration_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def expiration_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "expiration_in_days", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique identifier for the rule. The value can't be longer than 255 characters.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectSizeGreaterThan")
-    def object_size_greater_than(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_size_greater_than(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
         """
         return pulumi.get(self, "object_size_greater_than")
 
     @object_size_greater_than.setter
-    def object_size_greater_than(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_size_greater_than(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_size_greater_than", value)
 
     @_builtins.property
     @pulumi.getter(name="objectSizeLessThan")
-    def object_size_less_than(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_size_less_than(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
         """
         return pulumi.get(self, "object_size_less_than")
 
     @object_size_less_than.setter
-    def object_size_less_than(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_size_less_than(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_size_less_than", value)
 
     @_builtins.property
     @pulumi.getter
-    def prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object key prefix that identifies one or more objects to which this rule applies.
 
@@ -785,7 +785,7 @@ class DirectoryBucketRuleArgs:
         return pulumi.get(self, "prefix")
 
     @prefix.setter
-    def prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
 
 
@@ -799,7 +799,7 @@ class DirectoryBucketServerSideEncryptionByDefaultArgsDict(TypedDict):
 
     > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
     """
-    kms_master_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_master_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. This parameter is allowed only if SSEAlgorithm is set to aws:kms. You can specify this parameter with the key ID or the Amazon Resource Name (ARN) of the KMS key
     """
@@ -808,7 +808,7 @@ class DirectoryBucketServerSideEncryptionByDefaultArgsDict(TypedDict):
 class DirectoryBucketServerSideEncryptionByDefaultArgs:
     def __init__(__self__, *,
                  sse_algorithm: pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm'],
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 
@@ -837,14 +837,14 @@ class DirectoryBucketServerSideEncryptionByDefaultArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. This parameter is allowed only if SSEAlgorithm is set to aws:kms. You can specify this parameter with the key ID or the Amazon Resource Name (ARN) of the KMS key
         """
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
 
@@ -852,11 +852,11 @@ class DirectoryBucketServerSideEncryptionRuleArgsDict(TypedDict):
     """
     Specifies the default server-side encryption configuration.
     """
-    bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    bucket_key_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
     """
-    server_side_encryption_by_default: NotRequired[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgsDict']]
+    server_side_encryption_by_default: NotRequired[pulumi.Input[Optional['DirectoryBucketServerSideEncryptionByDefaultArgsDict']]]
     """
     Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
     """
@@ -864,8 +864,8 @@ class DirectoryBucketServerSideEncryptionRuleArgsDict(TypedDict):
 @pulumi.input_type
 class DirectoryBucketServerSideEncryptionRuleArgs:
     def __init__(__self__, *,
-                 bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 server_side_encryption_by_default: Optional[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgs']] = None):
+                 bucket_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 server_side_encryption_by_default: pulumi.Input[Optional['DirectoryBucketServerSideEncryptionByDefaultArgs']] = None):
         """
         Specifies the default server-side encryption configuration.
 
@@ -879,26 +879,26 @@ class DirectoryBucketServerSideEncryptionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
-    def bucket_key_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def bucket_key_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Amazon S3 Express One Zone uses an S3 Bucket Key with SSE-KMS and S3 Bucket Key cannot be disabled. It's only allowed to set the BucketKeyEnabled element to true.
         """
         return pulumi.get(self, "bucket_key_enabled")
 
     @bucket_key_enabled.setter
-    def bucket_key_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def bucket_key_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bucket_key_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionByDefault")
-    def server_side_encryption_by_default(self) -> Optional[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgs']]:
+    def server_side_encryption_by_default(self) -> pulumi.Input[Optional['DirectoryBucketServerSideEncryptionByDefaultArgs']]:
         """
         Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
         """
         return pulumi.get(self, "server_side_encryption_by_default")
 
     @server_side_encryption_by_default.setter
-    def server_side_encryption_by_default(self, value: Optional[pulumi.Input['DirectoryBucketServerSideEncryptionByDefaultArgs']]):
+    def server_side_encryption_by_default(self, value: pulumi.Input[Optional['DirectoryBucketServerSideEncryptionByDefaultArgs']]):
         pulumi.set(self, "server_side_encryption_by_default", value)
 
 

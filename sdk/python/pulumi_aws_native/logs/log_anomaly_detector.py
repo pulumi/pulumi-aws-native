@@ -20,13 +20,13 @@ __all__ = ['LogAnomalyDetectorArgs', 'LogAnomalyDetector']
 @pulumi.input_type
 class LogAnomalyDetectorArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_frequency: Optional[pulumi.Input['LogAnomalyDetectorEvaluationFrequency']] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_frequency: pulumi.Input[Optional['LogAnomalyDetectorEvaluationFrequency']] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogAnomalyDetector resource.
 
@@ -55,86 +55,86 @@ class LogAnomalyDetectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Account ID for owner of detector
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="anomalyVisibilityTime")
-    def anomaly_visibility_time(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def anomaly_visibility_time(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `AnomalyVisibilityTime` , it will be considered normal going forward and will not be detected as an anomaly.
         """
         return pulumi.get(self, "anomaly_visibility_time")
 
     @anomaly_visibility_time.setter
-    def anomaly_visibility_time(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def anomaly_visibility_time(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "anomaly_visibility_time", value)
 
     @_builtins.property
     @pulumi.getter(name="detectorName")
-    def detector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def detector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of detector
         """
         return pulumi.get(self, "detector_name")
 
     @detector_name.setter
-    def detector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def detector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "detector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="evaluationFrequency")
-    def evaluation_frequency(self) -> Optional[pulumi.Input['LogAnomalyDetectorEvaluationFrequency']]:
+    def evaluation_frequency(self) -> pulumi.Input[Optional['LogAnomalyDetectorEvaluationFrequency']]:
         """
         How often log group is evaluated
         """
         return pulumi.get(self, "evaluation_frequency")
 
     @evaluation_frequency.setter
-    def evaluation_frequency(self, value: Optional[pulumi.Input['LogAnomalyDetectorEvaluationFrequency']]):
+    def evaluation_frequency(self, value: pulumi.Input[Optional['LogAnomalyDetectorEvaluationFrequency']]):
         pulumi.set(self, "evaluation_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="filterPattern")
-    def filter_pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html) .
         """
         return pulumi.get(self, "filter_pattern")
 
     @filter_pattern.setter
-    def filter_pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_pattern", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupArnList")
-    def log_group_arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_group_arn_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Arns for the given log group
         """
         return pulumi.get(self, "log_group_arn_list")
 
     @log_group_arn_list.setter
-    def log_group_arn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_group_arn_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_group_arn_list", value)
 
 
@@ -144,17 +144,16 @@ class LogAnomalyDetector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_frequency: Optional[pulumi.Input['LogAnomalyDetectorEvaluationFrequency']] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_frequency: pulumi.Input[Optional['LogAnomalyDetectorEvaluationFrequency']] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class LogAnomalyDetector(pulumi.CustomResource):
         """
         The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
 
-
         :param str resource_name: The name of the resource.
         :param LogAnomalyDetectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class LogAnomalyDetector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 anomaly_visibility_time: Optional[pulumi.Input[_builtins.float]] = None,
-                 detector_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_frequency: Optional[pulumi.Input['LogAnomalyDetectorEvaluationFrequency']] = None,
-                 filter_pattern: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_group_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 anomaly_visibility_time: pulumi.Input[Optional[_builtins.float]] = None,
+                 detector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_frequency: pulumi.Input[Optional['LogAnomalyDetectorEvaluationFrequency']] = None,
+                 filter_pattern: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_group_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

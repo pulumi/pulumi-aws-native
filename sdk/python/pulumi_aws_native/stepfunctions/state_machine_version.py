@@ -20,8 +20,8 @@ __all__ = ['StateMachineVersionArgs', 'StateMachineVersion']
 class StateMachineVersionArgs:
     def __init__(__self__, *,
                  state_machine_arn: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_revision_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_revision_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StateMachineVersion resource.
 
@@ -53,19 +53,19 @@ class StateMachineVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the state machine version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="stateMachineRevisionId")
-    def state_machine_revision_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def state_machine_revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
 
@@ -76,7 +76,7 @@ class StateMachineVersionArgs:
         return pulumi.get(self, "state_machine_revision_id")
 
     @state_machine_revision_id.setter
-    def state_machine_revision_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def state_machine_revision_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "state_machine_revision_id", value)
 
 
@@ -86,13 +86,12 @@ class StateMachineVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for StateMachineVersion
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +112,6 @@ class StateMachineVersion(pulumi.CustomResource):
         """
         Resource schema for StateMachineVersion
 
-
         :param str resource_name: The name of the resource.
         :param StateMachineVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,9 +127,9 @@ class StateMachineVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 state_machine_revision_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_machine_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

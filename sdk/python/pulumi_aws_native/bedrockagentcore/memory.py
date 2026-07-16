@@ -23,14 +23,14 @@ __all__ = ['MemoryArgs', 'Memory']
 class MemoryArgs:
     def __init__(__self__, *,
                  event_expiry_duration: pulumi.Input[_builtins.int],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_delivery_resources: Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryStrategyArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional['MemoryStreamDeliveryResourcesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Memory resource.
 
@@ -73,89 +73,89 @@ class MemoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The memory encryption key Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "encryption_key_arn")
 
     @encryption_key_arn.setter
-    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="indexedKeys")
-    def indexed_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]:
+    def indexed_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]:
         return pulumi.get(self, "indexed_keys")
 
     @indexed_keys.setter
-    def indexed_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]):
+    def indexed_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryIndexedKeyArgs']]]]):
         pulumi.set(self, "indexed_keys", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
-    def memory_execution_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The memory role ARN.
         """
         return pulumi.get(self, "memory_execution_role_arn")
 
     @memory_execution_role_arn.setter
-    def memory_execution_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory_execution_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory_execution_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="memoryStrategies")
-    def memory_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]]]:
+    def memory_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemoryStrategyArgs']]]]:
         """
         The memory strategies.
         """
         return pulumi.get(self, "memory_strategies")
 
     @memory_strategies.setter
-    def memory_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemoryStrategyArgs']]]]):
+    def memory_strategies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryStrategyArgs']]]]):
         pulumi.set(self, "memory_strategies", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The memory name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="streamDeliveryResources")
-    def stream_delivery_resources(self) -> Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']]:
+    def stream_delivery_resources(self) -> pulumi.Input[Optional['MemoryStreamDeliveryResourcesArgs']]:
         return pulumi.get(self, "stream_delivery_resources")
 
     @stream_delivery_resources.setter
-    def stream_delivery_resources(self, value: Optional[pulumi.Input['MemoryStreamDeliveryResourcesArgs']]):
+    def stream_delivery_resources(self, value: pulumi.Input[Optional['MemoryStreamDeliveryResourcesArgs']]):
         pulumi.set(self, "stream_delivery_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags for the resources.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -165,19 +165,18 @@ class Memory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_expiry_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_delivery_resources: Optional[pulumi.Input[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Memory
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class Memory(pulumi.CustomResource):
         """
         Resource Type definition for AWS::BedrockAgentCore::Memory
 
-
         :param str resource_name: The name of the resource.
         :param MemoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,15 +211,15 @@ class Memory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_expiry_duration: Optional[pulumi.Input[_builtins.int]] = None,
-                 indexed_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
-                 memory_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 stream_delivery_resources: Optional[pulumi.Input[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
+                 memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

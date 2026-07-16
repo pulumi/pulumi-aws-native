@@ -20,10 +20,10 @@ __all__ = [
     'ObservabilityConfigurationTraceConfigurationArgsDict',
     'ServiceAuthenticationConfigurationArgs',
     'ServiceAuthenticationConfigurationArgsDict',
-    'ServiceCodeConfigurationValuesArgs',
-    'ServiceCodeConfigurationValuesArgsDict',
     'ServiceCodeConfigurationArgs',
     'ServiceCodeConfigurationArgsDict',
+    'ServiceCodeConfigurationValuesArgs',
+    'ServiceCodeConfigurationValuesArgsDict',
     'ServiceCodeRepositoryArgs',
     'ServiceCodeRepositoryArgsDict',
     'ServiceEgressConfigurationArgs',
@@ -91,11 +91,11 @@ class ServiceAuthenticationConfigurationArgsDict(TypedDict):
     """
     Authentication Configuration
     """
-    access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Access Role Arn
     """
-    connection_arn: NotRequired[pulumi.Input[_builtins.str]]
+    connection_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connection Arn
     """
@@ -103,8 +103,8 @@ class ServiceAuthenticationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceAuthenticationConfigurationArgs:
     def __init__(__self__, *,
-                 access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 connection_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 connection_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Authentication Configuration
 
@@ -118,27 +118,80 @@ class ServiceAuthenticationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessRoleArn")
-    def access_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Access Role Arn
         """
         return pulumi.get(self, "access_role_arn")
 
     @access_role_arn.setter
-    def access_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionArn")
-    def connection_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Connection Arn
         """
         return pulumi.get(self, "connection_arn")
 
     @connection_arn.setter
-    def connection_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_arn", value)
+
+
+class ServiceCodeConfigurationArgsDict(TypedDict):
+    """
+    Code Configuration
+    """
+    configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource']
+    """
+    Configuration Source
+    """
+    code_configuration_values: NotRequired[pulumi.Input[Optional['ServiceCodeConfigurationValuesArgsDict']]]
+    """
+    The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
+    """
+
+@pulumi.input_type
+class ServiceCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource'],
+                 code_configuration_values: pulumi.Input[Optional['ServiceCodeConfigurationValuesArgs']] = None):
+        """
+        Code Configuration
+
+        :param pulumi.Input['ServiceCodeConfigurationConfigurationSource'] configuration_source: Configuration Source
+        :param pulumi.Input['ServiceCodeConfigurationValuesArgs'] code_configuration_values: The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
+        """
+        pulumi.set(__self__, "configuration_source", configuration_source)
+        if code_configuration_values is not None:
+            pulumi.set(__self__, "code_configuration_values", code_configuration_values)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationSource")
+    def configuration_source(self) -> pulumi.Input['ServiceCodeConfigurationConfigurationSource']:
+        """
+        Configuration Source
+        """
+        return pulumi.get(self, "configuration_source")
+
+    @configuration_source.setter
+    def configuration_source(self, value: pulumi.Input['ServiceCodeConfigurationConfigurationSource']):
+        pulumi.set(self, "configuration_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfigurationValues")
+    def code_configuration_values(self) -> pulumi.Input[Optional['ServiceCodeConfigurationValuesArgs']]:
+        """
+        The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
+        """
+        return pulumi.get(self, "code_configuration_values")
+
+    @code_configuration_values.setter
+    def code_configuration_values(self, value: pulumi.Input[Optional['ServiceCodeConfigurationValuesArgs']]):
+        pulumi.set(self, "code_configuration_values", value)
 
 
 class ServiceCodeConfigurationValuesArgsDict(TypedDict):
@@ -149,23 +202,23 @@ class ServiceCodeConfigurationValuesArgsDict(TypedDict):
     """
     Runtime
     """
-    build_command: NotRequired[pulumi.Input[_builtins.str]]
+    build_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Build Command
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port
     """
-    runtime_environment_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
+    runtime_environment_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]]
     """
     The secrets and parameters that get referenced by your service as environment variables
     """
-    runtime_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
+    runtime_environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]]
     """
     The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
     """
-    start_command: NotRequired[pulumi.Input[_builtins.str]]
+    start_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start Command
     """
@@ -174,11 +227,11 @@ class ServiceCodeConfigurationValuesArgsDict(TypedDict):
 class ServiceCodeConfigurationValuesArgs:
     def __init__(__self__, *,
                  runtime: pulumi.Input['ServiceCodeConfigurationValuesRuntime'],
-                 build_command: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
-                 runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
-                 start_command: Optional[pulumi.Input[_builtins.str]] = None):
+                 build_command: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_secrets: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
+                 runtime_environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
+                 start_command: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Code Configuration Values
 
@@ -215,116 +268,63 @@ class ServiceCodeConfigurationValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildCommand")
-    def build_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Build Command
         """
         return pulumi.get(self, "build_command")
 
     @build_command.setter
-    def build_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_command", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentSecrets")
-    def runtime_environment_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+    def runtime_environment_secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
         """
         The secrets and parameters that get referenced by your service as environment variables
         """
         return pulumi.get(self, "runtime_environment_secrets")
 
     @runtime_environment_secrets.setter
-    def runtime_environment_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+    def runtime_environment_secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
         pulumi.set(self, "runtime_environment_secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentVariables")
-    def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+    def runtime_environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
         """
         The environment variables that are available to your running AWS App Runner service. An array of key-value pairs.
         """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
-    def runtime_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+    def runtime_environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
         pulumi.set(self, "runtime_environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="startCommand")
-    def start_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start Command
         """
         return pulumi.get(self, "start_command")
 
     @start_command.setter
-    def start_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_command", value)
-
-
-class ServiceCodeConfigurationArgsDict(TypedDict):
-    """
-    Code Configuration
-    """
-    configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource']
-    """
-    Configuration Source
-    """
-    code_configuration_values: NotRequired[pulumi.Input['ServiceCodeConfigurationValuesArgsDict']]
-    """
-    The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-    """
-
-@pulumi.input_type
-class ServiceCodeConfigurationArgs:
-    def __init__(__self__, *,
-                 configuration_source: pulumi.Input['ServiceCodeConfigurationConfigurationSource'],
-                 code_configuration_values: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']] = None):
-        """
-        Code Configuration
-
-        :param pulumi.Input['ServiceCodeConfigurationConfigurationSource'] configuration_source: Configuration Source
-        :param pulumi.Input['ServiceCodeConfigurationValuesArgs'] code_configuration_values: The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-        """
-        pulumi.set(__self__, "configuration_source", configuration_source)
-        if code_configuration_values is not None:
-            pulumi.set(__self__, "code_configuration_values", code_configuration_values)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationSource")
-    def configuration_source(self) -> pulumi.Input['ServiceCodeConfigurationConfigurationSource']:
-        """
-        Configuration Source
-        """
-        return pulumi.get(self, "configuration_source")
-
-    @configuration_source.setter
-    def configuration_source(self, value: pulumi.Input['ServiceCodeConfigurationConfigurationSource']):
-        pulumi.set(self, "configuration_source", value)
-
-    @_builtins.property
-    @pulumi.getter(name="codeConfigurationValues")
-    def code_configuration_values(self) -> Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']]:
-        """
-        The basic configuration for building and running the App Runner service. Use it to quickly launch an App Runner service without providing a `apprunner.yaml` file in the source code repository (or ignoring the file if it exists).
-        """
-        return pulumi.get(self, "code_configuration_values")
-
-    @code_configuration_values.setter
-    def code_configuration_values(self, value: Optional[pulumi.Input['ServiceCodeConfigurationValuesArgs']]):
-        pulumi.set(self, "code_configuration_values", value)
 
 
 class ServiceCodeRepositoryArgsDict(TypedDict):
@@ -339,13 +339,13 @@ class ServiceCodeRepositoryArgsDict(TypedDict):
     """
     The version that should be used within the source code repository.
     """
-    code_configuration: NotRequired[pulumi.Input['ServiceCodeConfigurationArgsDict']]
+    code_configuration: NotRequired[pulumi.Input[Optional['ServiceCodeConfigurationArgsDict']]]
     """
     Configuration for building and running the service from a source code repository.
 
     > `CodeConfiguration` is required only for `CreateService` request.
     """
-    source_directory: NotRequired[pulumi.Input[_builtins.str]]
+    source_directory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source Directory
     """
@@ -355,8 +355,8 @@ class ServiceCodeRepositoryArgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[_builtins.str],
                  source_code_version: pulumi.Input['ServiceSourceCodeVersionArgs'],
-                 code_configuration: Optional[pulumi.Input['ServiceCodeConfigurationArgs']] = None,
-                 source_directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 code_configuration: pulumi.Input[Optional['ServiceCodeConfigurationArgs']] = None,
+                 source_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Source Code Repository
 
@@ -400,7 +400,7 @@ class ServiceCodeRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['ServiceCodeConfigurationArgs']]:
+    def code_configuration(self) -> pulumi.Input[Optional['ServiceCodeConfigurationArgs']]:
         """
         Configuration for building and running the service from a source code repository.
 
@@ -409,19 +409,19 @@ class ServiceCodeRepositoryArgs:
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['ServiceCodeConfigurationArgs']]):
+    def code_configuration(self, value: pulumi.Input[Optional['ServiceCodeConfigurationArgs']]):
         pulumi.set(self, "code_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDirectory")
-    def source_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source Directory
         """
         return pulumi.get(self, "source_directory")
 
     @source_directory.setter
-    def source_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_directory", value)
 
 
@@ -433,7 +433,7 @@ class ServiceEgressConfigurationArgsDict(TypedDict):
     """
     Network egress type.
     """
-    vpc_connector_arn: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_connector_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the App Runner VpcConnector.
     """
@@ -442,7 +442,7 @@ class ServiceEgressConfigurationArgsDict(TypedDict):
 class ServiceEgressConfigurationArgs:
     def __init__(__self__, *,
                  egress_type: pulumi.Input['ServiceEgressConfigurationEgressType'],
-                 vpc_connector_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 vpc_connector_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Network egress configuration
 
@@ -467,14 +467,14 @@ class ServiceEgressConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="vpcConnectorArn")
-    def vpc_connector_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_connector_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the App Runner VpcConnector.
         """
         return pulumi.get(self, "vpc_connector_arn")
 
     @vpc_connector_arn.setter
-    def vpc_connector_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_connector_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_connector_arn", value)
 
 
@@ -515,27 +515,27 @@ class ServiceHealthCheckConfigurationArgsDict(TypedDict):
     """
     Health check configuration
     """
-    healthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    healthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Health check Healthy Threshold
     """
-    interval: NotRequired[pulumi.Input[_builtins.int]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Health check Interval
     """
-    path: NotRequired[pulumi.Input[_builtins.str]]
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Health check Path
     """
-    protocol: NotRequired[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]
+    protocol: NotRequired[pulumi.Input[Optional['ServiceHealthCheckConfigurationProtocol']]]
     """
     Health Check Protocol
     """
-    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Health check Timeout
     """
-    unhealthy_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    unhealthy_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Health check Unhealthy Threshold
     """
@@ -543,12 +543,12 @@ class ServiceHealthCheckConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceHealthCheckConfigurationArgs:
     def __init__(__self__, *,
-                 healthy_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 interval: Optional[pulumi.Input[_builtins.int]] = None,
-                 path: Optional[pulumi.Input[_builtins.str]] = None,
-                 protocol: Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']] = None,
-                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
-                 unhealthy_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 healthy_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 interval: pulumi.Input[Optional[_builtins.int]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 protocol: pulumi.Input[Optional['ServiceHealthCheckConfigurationProtocol']] = None,
+                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 unhealthy_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Health check configuration
 
@@ -574,74 +574,74 @@ class ServiceHealthCheckConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="healthyThreshold")
-    def healthy_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def healthy_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Health check Healthy Threshold
         """
         return pulumi.get(self, "healthy_threshold")
 
     @healthy_threshold.setter
-    def healthy_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def healthy_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "healthy_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Health check Interval
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "interval", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Health check Path
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]:
+    def protocol(self) -> pulumi.Input[Optional['ServiceHealthCheckConfigurationProtocol']]:
         """
         Health Check Protocol
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationProtocol']]):
+    def protocol(self, value: pulumi.Input[Optional['ServiceHealthCheckConfigurationProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Health check Timeout
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter(name="unhealthyThreshold")
-    def unhealthy_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def unhealthy_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Health check Unhealthy Threshold
         """
         return pulumi.get(self, "unhealthy_threshold")
 
     @unhealthy_threshold.setter
-    def unhealthy_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def unhealthy_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "unhealthy_threshold", value)
 
 
@@ -649,19 +649,19 @@ class ServiceImageConfigurationArgsDict(TypedDict):
     """
     Image Configuration
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Port
     """
-    runtime_environment_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
+    runtime_environment_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]]
     """
     The secrets and parameters that get referenced by your service as environment variables
     """
-    runtime_environment_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]
+    runtime_environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgsDict']]]]]
     """
     Environment variables that are available to your running App Runner service. An array of key-value pairs.
     """
-    start_command: NotRequired[pulumi.Input[_builtins.str]]
+    start_command: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start Command
     """
@@ -669,10 +669,10 @@ class ServiceImageConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceImageConfigurationArgs:
     def __init__(__self__, *,
-                 port: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_environment_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
-                 runtime_environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
-                 start_command: Optional[pulumi.Input[_builtins.str]] = None):
+                 port: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_secrets: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
+                 runtime_environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]] = None,
+                 start_command: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Image Configuration
 
@@ -692,50 +692,50 @@ class ServiceImageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Port
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentSecrets")
-    def runtime_environment_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+    def runtime_environment_secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
         """
         The secrets and parameters that get referenced by your service as environment variables
         """
         return pulumi.get(self, "runtime_environment_secrets")
 
     @runtime_environment_secrets.setter
-    def runtime_environment_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+    def runtime_environment_secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
         pulumi.set(self, "runtime_environment_secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeEnvironmentVariables")
-    def runtime_environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
+    def runtime_environment_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]:
         """
         Environment variables that are available to your running App Runner service. An array of key-value pairs.
         """
         return pulumi.get(self, "runtime_environment_variables")
 
     @runtime_environment_variables.setter
-    def runtime_environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
+    def runtime_environment_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceKeyValuePairArgs']]]]):
         pulumi.set(self, "runtime_environment_variables", value)
 
     @_builtins.property
     @pulumi.getter(name="startCommand")
-    def start_command(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_command(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start Command
         """
         return pulumi.get(self, "start_command")
 
     @start_command.setter
-    def start_command(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_command(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_command", value)
 
 
@@ -751,7 +751,7 @@ class ServiceImageRepositoryArgsDict(TypedDict):
     """
     Image Repository Type
     """
-    image_configuration: NotRequired[pulumi.Input['ServiceImageConfigurationArgsDict']]
+    image_configuration: NotRequired[pulumi.Input[Optional['ServiceImageConfigurationArgsDict']]]
     """
     Configuration for running the identified image.
     """
@@ -761,7 +761,7 @@ class ServiceImageRepositoryArgs:
     def __init__(__self__, *,
                  image_identifier: pulumi.Input[_builtins.str],
                  image_repository_type: pulumi.Input['ServiceImageRepositoryImageRepositoryType'],
-                 image_configuration: Optional[pulumi.Input['ServiceImageConfigurationArgs']] = None):
+                 image_configuration: pulumi.Input[Optional['ServiceImageConfigurationArgs']] = None):
         """
         Image Repository
 
@@ -800,14 +800,14 @@ class ServiceImageRepositoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageConfiguration")
-    def image_configuration(self) -> Optional[pulumi.Input['ServiceImageConfigurationArgs']]:
+    def image_configuration(self) -> pulumi.Input[Optional['ServiceImageConfigurationArgs']]:
         """
         Configuration for running the identified image.
         """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
-    def image_configuration(self, value: Optional[pulumi.Input['ServiceImageConfigurationArgs']]):
+    def image_configuration(self, value: pulumi.Input[Optional['ServiceImageConfigurationArgs']]):
         pulumi.set(self, "image_configuration", value)
 
 
@@ -848,15 +848,15 @@ class ServiceInstanceConfigurationArgsDict(TypedDict):
     """
     Instance Configuration
     """
-    cpu: NotRequired[pulumi.Input[_builtins.str]]
+    cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     CPU
     """
-    instance_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    instance_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Instance Role Arn
     """
-    memory: NotRequired[pulumi.Input[_builtins.str]]
+    memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Memory
     """
@@ -864,9 +864,9 @@ class ServiceInstanceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceInstanceConfigurationArgs:
     def __init__(__self__, *,
-                 cpu: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 memory: Optional[pulumi.Input[_builtins.str]] = None):
+                 cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 memory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Instance Configuration
 
@@ -883,47 +883,47 @@ class ServiceInstanceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cpu(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         CPU
         """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
-    def cpu(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRoleArn")
-    def instance_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Instance Role Arn
         """
         return pulumi.get(self, "instance_role_arn")
 
     @instance_role_arn.setter
-    def instance_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def memory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Memory
         """
         return pulumi.get(self, "memory")
 
     @memory.setter
-    def memory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def memory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "memory", value)
 
 
 class ServiceKeyValuePairArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The key name string to map to a value.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value string to which the key name is mapped.
     """
@@ -931,8 +931,8 @@ class ServiceKeyValuePairArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceKeyValuePairArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The key name string to map to a value.
         :param pulumi.Input[_builtins.str] value: The value string to which the key name is mapped.
@@ -944,26 +944,26 @@ class ServiceKeyValuePairArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The key name string to map to a value.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value string to which the key name is mapped.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -971,15 +971,15 @@ class ServiceNetworkConfigurationArgsDict(TypedDict):
     """
     Network configuration
     """
-    egress_configuration: NotRequired[pulumi.Input['ServiceEgressConfigurationArgsDict']]
+    egress_configuration: NotRequired[pulumi.Input[Optional['ServiceEgressConfigurationArgsDict']]]
     """
     Network configuration settings for outbound message traffic.
     """
-    ingress_configuration: NotRequired[pulumi.Input['ServiceIngressConfigurationArgsDict']]
+    ingress_configuration: NotRequired[pulumi.Input[Optional['ServiceIngressConfigurationArgsDict']]]
     """
     Network configuration settings for inbound message traffic.
     """
-    ip_address_type: NotRequired[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]
+    ip_address_type: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationIpAddressType']]]
     """
     App Runner service endpoint IP address type
     """
@@ -987,9 +987,9 @@ class ServiceNetworkConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceNetworkConfigurationArgs:
     def __init__(__self__, *,
-                 egress_configuration: Optional[pulumi.Input['ServiceEgressConfigurationArgs']] = None,
-                 ingress_configuration: Optional[pulumi.Input['ServiceIngressConfigurationArgs']] = None,
-                 ip_address_type: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']] = None):
+                 egress_configuration: pulumi.Input[Optional['ServiceEgressConfigurationArgs']] = None,
+                 ingress_configuration: pulumi.Input[Optional['ServiceIngressConfigurationArgs']] = None,
+                 ip_address_type: pulumi.Input[Optional['ServiceNetworkConfigurationIpAddressType']] = None):
         """
         Network configuration
 
@@ -1006,38 +1006,38 @@ class ServiceNetworkConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="egressConfiguration")
-    def egress_configuration(self) -> Optional[pulumi.Input['ServiceEgressConfigurationArgs']]:
+    def egress_configuration(self) -> pulumi.Input[Optional['ServiceEgressConfigurationArgs']]:
         """
         Network configuration settings for outbound message traffic.
         """
         return pulumi.get(self, "egress_configuration")
 
     @egress_configuration.setter
-    def egress_configuration(self, value: Optional[pulumi.Input['ServiceEgressConfigurationArgs']]):
+    def egress_configuration(self, value: pulumi.Input[Optional['ServiceEgressConfigurationArgs']]):
         pulumi.set(self, "egress_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressConfiguration")
-    def ingress_configuration(self) -> Optional[pulumi.Input['ServiceIngressConfigurationArgs']]:
+    def ingress_configuration(self) -> pulumi.Input[Optional['ServiceIngressConfigurationArgs']]:
         """
         Network configuration settings for inbound message traffic.
         """
         return pulumi.get(self, "ingress_configuration")
 
     @ingress_configuration.setter
-    def ingress_configuration(self, value: Optional[pulumi.Input['ServiceIngressConfigurationArgs']]):
+    def ingress_configuration(self, value: pulumi.Input[Optional['ServiceIngressConfigurationArgs']]):
         pulumi.set(self, "ingress_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]:
+    def ip_address_type(self) -> pulumi.Input[Optional['ServiceNetworkConfigurationIpAddressType']]:
         """
         App Runner service endpoint IP address type
         """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]):
+    def ip_address_type(self, value: pulumi.Input[Optional['ServiceNetworkConfigurationIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
 
@@ -1049,7 +1049,7 @@ class ServiceObservabilityConfigurationArgsDict(TypedDict):
     """
     Observability enabled
     """
-    observability_configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
+    observability_configuration_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
     """
@@ -1058,7 +1058,7 @@ class ServiceObservabilityConfigurationArgsDict(TypedDict):
 class ServiceObservabilityConfigurationArgs:
     def __init__(__self__, *,
                  observability_enabled: pulumi.Input[_builtins.bool],
-                 observability_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 observability_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Service observability configuration
 
@@ -1083,14 +1083,14 @@ class ServiceObservabilityConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="observabilityConfigurationArn")
-    def observability_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def observability_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the App Runner ObservabilityConfiguration.
         """
         return pulumi.get(self, "observability_configuration_arn")
 
     @observability_configuration_arn.setter
-    def observability_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def observability_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "observability_configuration_arn", value)
 
 
@@ -1150,21 +1150,21 @@ class ServiceSourceConfigurationArgsDict(TypedDict):
     """
     Source Code configuration
     """
-    authentication_configuration: NotRequired[pulumi.Input['ServiceAuthenticationConfigurationArgsDict']]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['ServiceAuthenticationConfigurationArgsDict']]]
     """
     Describes the resources that are needed to authenticate access to some source repositories.
     """
-    auto_deployments_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    auto_deployments_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Auto Deployment enabled
     """
-    code_repository: NotRequired[pulumi.Input['ServiceCodeRepositoryArgsDict']]
+    code_repository: NotRequired[pulumi.Input[Optional['ServiceCodeRepositoryArgsDict']]]
     """
     The description of a source code repository.
 
     You must provide either this member or `ImageRepository` (but not both).
     """
-    image_repository: NotRequired[pulumi.Input['ServiceImageRepositoryArgsDict']]
+    image_repository: NotRequired[pulumi.Input[Optional['ServiceImageRepositoryArgsDict']]]
     """
     The description of a source image repository.
 
@@ -1174,10 +1174,10 @@ class ServiceSourceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceSourceConfigurationArgs:
     def __init__(__self__, *,
-                 authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
-                 auto_deployments_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 code_repository: Optional[pulumi.Input['ServiceCodeRepositoryArgs']] = None,
-                 image_repository: Optional[pulumi.Input['ServiceImageRepositoryArgs']] = None):
+                 authentication_configuration: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']] = None,
+                 auto_deployments_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 code_repository: pulumi.Input[Optional['ServiceCodeRepositoryArgs']] = None,
+                 image_repository: pulumi.Input[Optional['ServiceImageRepositoryArgs']] = None):
         """
         Source Code configuration
 
@@ -1201,31 +1201,31 @@ class ServiceSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]:
         """
         Describes the resources that are needed to authenticate access to some source repositories.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['ServiceAuthenticationConfigurationArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="autoDeploymentsEnabled")
-    def auto_deployments_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def auto_deployments_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Auto Deployment enabled
         """
         return pulumi.get(self, "auto_deployments_enabled")
 
     @auto_deployments_enabled.setter
-    def auto_deployments_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def auto_deployments_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_deployments_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="codeRepository")
-    def code_repository(self) -> Optional[pulumi.Input['ServiceCodeRepositoryArgs']]:
+    def code_repository(self) -> pulumi.Input[Optional['ServiceCodeRepositoryArgs']]:
         """
         The description of a source code repository.
 
@@ -1234,12 +1234,12 @@ class ServiceSourceConfigurationArgs:
         return pulumi.get(self, "code_repository")
 
     @code_repository.setter
-    def code_repository(self, value: Optional[pulumi.Input['ServiceCodeRepositoryArgs']]):
+    def code_repository(self, value: pulumi.Input[Optional['ServiceCodeRepositoryArgs']]):
         pulumi.set(self, "code_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="imageRepository")
-    def image_repository(self) -> Optional[pulumi.Input['ServiceImageRepositoryArgs']]:
+    def image_repository(self) -> pulumi.Input[Optional['ServiceImageRepositoryArgs']]:
         """
         The description of a source image repository.
 
@@ -1248,7 +1248,7 @@ class ServiceSourceConfigurationArgs:
         return pulumi.get(self, "image_repository")
 
     @image_repository.setter
-    def image_repository(self, value: Optional[pulumi.Input['ServiceImageRepositoryArgs']]):
+    def image_repository(self, value: pulumi.Input[Optional['ServiceImageRepositoryArgs']]):
         pulumi.set(self, "image_repository", value)
 
 

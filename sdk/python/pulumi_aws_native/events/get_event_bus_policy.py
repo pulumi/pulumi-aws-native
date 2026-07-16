@@ -54,7 +54,6 @@ def get_event_bus_policy(event_bus_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Events::EventBusPolicy
 
-
     :param _builtins.str event_bus_name: The name of the event bus associated with the rule. If you omit this, the default event bus is used.
     :param _builtins.str statement_id: An identifier string for the external account that you are granting permissions to
     """
@@ -66,12 +65,11 @@ def get_event_bus_policy(event_bus_name: Optional[_builtins.str] = None,
 
     return AwaitableGetEventBusPolicyResult(
         statement=pulumi.get(__ret__, 'statement'))
-def get_event_bus_policy_output(event_bus_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                statement_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_event_bus_policy_output(event_bus_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                statement_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusPolicyResult]:
     """
     Resource Type definition for AWS::Events::EventBusPolicy
-
 
     :param _builtins.str event_bus_name: The name of the event bus associated with the rule. If you omit this, the default event bus is used.
     :param _builtins.str statement_id: An identifier string for the external account that you are granting permissions to

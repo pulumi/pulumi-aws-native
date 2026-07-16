@@ -123,7 +123,6 @@ def get_stack_set_constraint(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
 
-
     :param _builtins.str id: Unique identifier for the constraint
     """
     __args__ = dict()
@@ -139,11 +138,10 @@ def get_stack_set_constraint(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         region_list=pulumi.get(__ret__, 'region_list'),
         stack_instance_control=pulumi.get(__ret__, 'stack_instance_control'))
-def get_stack_set_constraint_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stack_set_constraint_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackSetConstraintResult]:
     """
     Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
-
 
     :param _builtins.str id: Unique identifier for the constraint
     """

@@ -25,9 +25,9 @@ __all__ = ['FirewallPolicyInitArgs', 'FirewallPolicy']
 class FirewallPolicyInitArgs:
     def __init__(__self__, *,
                  firewall_policy: pulumi.Input['FirewallPolicyArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
 
@@ -60,31 +60,31 @@ class FirewallPolicyInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the firewall policy.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyName")
-    def firewall_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
         """
         return pulumi.get(self, "firewall_policy_name")
 
     @firewall_policy_name.setter
-    def firewall_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -93,7 +93,7 @@ class FirewallPolicyInitArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -103,14 +103,13 @@ class FirewallPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
-                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
+                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +129,6 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
-
         :param str resource_name: The name of the resource.
         :param FirewallPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,10 +144,10 @@ class FirewallPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
-                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy: pulumi.Input[Optional[Union['FirewallPolicyArgs', 'FirewallPolicyArgsDict']]] = None,
+                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

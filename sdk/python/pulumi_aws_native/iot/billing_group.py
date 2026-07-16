@@ -23,9 +23,9 @@ __all__ = ['BillingGroupArgs', 'BillingGroup']
 @pulumi.input_type
 class BillingGroupArgs:
     def __init__(__self__, *,
-                 billing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_group_properties: Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 billing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_group_properties: pulumi.Input[Optional['BillingGroupPropertiesPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a BillingGroup resource.
 
@@ -42,38 +42,38 @@ class BillingGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingGroupName")
-    def billing_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the billing group.
         """
         return pulumi.get(self, "billing_group_name")
 
     @billing_group_name.setter
-    def billing_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="billingGroupProperties")
-    def billing_group_properties(self) -> Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']]:
+    def billing_group_properties(self) -> pulumi.Input[Optional['BillingGroupPropertiesPropertiesArgs']]:
         """
         The properties of the billing group.
         """
         return pulumi.get(self, "billing_group_properties")
 
     @billing_group_properties.setter
-    def billing_group_properties(self, value: Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']]):
+    def billing_group_properties(self, value: pulumi.Input[Optional['BillingGroupPropertiesPropertiesArgs']]):
         pulumi.set(self, "billing_group_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -83,13 +83,12 @@ class BillingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_group_properties: Optional[pulumi.Input[Union['BillingGroupPropertiesPropertiesArgs', 'BillingGroupPropertiesPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 billing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_group_properties: pulumi.Input[Optional[Union['BillingGroupPropertiesPropertiesArgs', 'BillingGroupPropertiesPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::BillingGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -106,7 +105,6 @@ class BillingGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::BillingGroup
 
-
         :param str resource_name: The name of the resource.
         :param BillingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,9 +120,9 @@ class BillingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 billing_group_properties: Optional[pulumi.Input[Union['BillingGroupPropertiesPropertiesArgs', 'BillingGroupPropertiesPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 billing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 billing_group_properties: pulumi.Input[Optional[Union['BillingGroupPropertiesPropertiesArgs', 'BillingGroupPropertiesPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

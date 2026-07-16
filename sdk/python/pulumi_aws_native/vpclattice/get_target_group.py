@@ -138,7 +138,6 @@ def get_target_group(arn: Optional[_builtins.str] = None,
     """
     A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the target group.
     """
     __args__ = dict()
@@ -155,11 +154,10 @@ def get_target_group(arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
-def get_target_group_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_target_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the target group.
     """

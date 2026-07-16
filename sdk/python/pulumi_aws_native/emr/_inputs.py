@@ -27,15 +27,15 @@ class StepHadoopJarStepConfigArgsDict(TypedDict):
     """
     A path to a JAR file run during the step.
     """
-    args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    args: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of command line arguments passed to the JAR file's main function when executed.
     """
-    main_class: NotRequired[pulumi.Input[_builtins.str]]
+    main_class: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
     """
-    step_properties: NotRequired[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgsDict']]]]
+    step_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StepKeyValueArgsDict']]]]]
     """
     A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
     """
@@ -44,9 +44,9 @@ class StepHadoopJarStepConfigArgsDict(TypedDict):
 class StepHadoopJarStepConfigArgs:
     def __init__(__self__, *,
                  jar: pulumi.Input[_builtins.str],
-                 args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 main_class: Optional[pulumi.Input[_builtins.str]] = None,
-                 step_properties: Optional[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgs']]]] = None):
+                 args: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 main_class: pulumi.Input[Optional[_builtins.str]] = None,
+                 step_properties: pulumi.Input[Optional[Sequence[pulumi.Input['StepKeyValueArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] jar: A path to a JAR file run during the step.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] args: A list of command line arguments passed to the JAR file's main function when executed.
@@ -75,47 +75,47 @@ class StepHadoopJarStepConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def args(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of command line arguments passed to the JAR file's main function when executed.
         """
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def args(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "args", value)
 
     @_builtins.property
     @pulumi.getter(name="mainClass")
-    def main_class(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main_class(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
         """
         return pulumi.get(self, "main_class")
 
     @main_class.setter
-    def main_class(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main_class(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main_class", value)
 
     @_builtins.property
     @pulumi.getter(name="stepProperties")
-    def step_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgs']]]]:
+    def step_properties(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StepKeyValueArgs']]]]:
         """
         A list of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         """
         return pulumi.get(self, "step_properties")
 
     @step_properties.setter
-    def step_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgs']]]]):
+    def step_properties(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StepKeyValueArgs']]]]):
         pulumi.set(self, "step_properties", value)
 
 
 class StepKeyValueArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The unique identifier of a key-value pair.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value part of the identified key.
     """
@@ -123,8 +123,8 @@ class StepKeyValueArgsDict(TypedDict):
 @pulumi.input_type
 class StepKeyValueArgs:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] key: The unique identifier of a key-value pair.
         :param pulumi.Input[_builtins.str] value: The value part of the identified key.
@@ -136,26 +136,26 @@ class StepKeyValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of a key-value pair.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value part of the identified key.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

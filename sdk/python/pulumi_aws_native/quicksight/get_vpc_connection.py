@@ -187,7 +187,6 @@ def get_vpc_connection(aws_account_id: Optional[_builtins.str] = None,
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.
 
-
     :param _builtins.str aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
     :param _builtins.str vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.
     """
@@ -210,12 +209,11 @@ def get_vpc_connection(aws_account_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_vpc_connection_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              vpc_connection_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_connection_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              vpc_connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
     Definition of the AWS::QuickSight::VPCConnection Resource Type.
-
 
     :param _builtins.str aws_account_id: The AWS account ID of the account where you want to create a new VPC connection.
     :param _builtins.str vpc_connection_id: The ID of the VPC connection that you're creating. This ID is a unique identifier for each AWS Region in an AWS account.

@@ -22,11 +22,11 @@ __all__ = ['UserPoolRegionalConfigurationAttachmentArgs', 'UserPoolRegionalConfi
 class UserPoolRegionalConfigurationAttachmentArgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[_builtins.str],
-                 email_configuration: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']] = None,
-                 lambda_config: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']] = None,
-                 sms_configuration: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 email_configuration: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']] = None,
+                 lambda_config: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']] = None,
+                 sms_configuration: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserPoolRegionalConfigurationAttachment resource.
 
@@ -55,50 +55,50 @@ class UserPoolRegionalConfigurationAttachmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailConfiguration")
-    def email_configuration(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']]:
+    def email_configuration(self) -> pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']]:
         return pulumi.get(self, "email_configuration")
 
     @email_configuration.setter
-    def email_configuration(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']]):
+    def email_configuration(self, value: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs']]):
         pulumi.set(self, "email_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaConfig")
-    def lambda_config(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']]:
+    def lambda_config(self) -> pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']]:
         return pulumi.get(self, "lambda_config")
 
     @lambda_config.setter
-    def lambda_config(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']]):
+    def lambda_config(self, value: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs']]):
         pulumi.set(self, "lambda_config", value)
 
     @_builtins.property
     @pulumi.getter(name="smsConfiguration")
-    def sms_configuration(self) -> Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']]:
+    def sms_configuration(self) -> pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']]:
         return pulumi.get(self, "sms_configuration")
 
     @sms_configuration.setter
-    def sms_configuration(self, value: Optional[pulumi.Input['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']]):
+    def sms_configuration(self, value: pulumi.Input[Optional['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs']]):
         pulumi.set(self, "sms_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The status of the replica. Set to ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolTags")
-    def user_pool_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def user_pool_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "user_pool_tags")
 
     @user_pool_tags.setter
-    def user_pool_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def user_pool_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_pool_tags", value)
 
 
@@ -108,16 +108,15 @@ class UserPoolRegionalConfigurationAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_configuration: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict']]] = None,
-                 lambda_config: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs', 'UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict']]] = None,
-                 sms_configuration: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 email_configuration: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict']]] = None,
+                 lambda_config: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs', 'UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict']]] = None,
+                 sms_configuration: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolRegionalConfigurationAttachment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,6 @@ class UserPoolRegionalConfigurationAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Cognito::UserPoolRegionalConfigurationAttachment
-
 
         :param str resource_name: The name of the resource.
         :param UserPoolRegionalConfigurationAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -148,12 +146,12 @@ class UserPoolRegionalConfigurationAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 email_configuration: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict']]] = None,
-                 lambda_config: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs', 'UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict']]] = None,
-                 sms_configuration: Optional[pulumi.Input[Union['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict']]] = None,
-                 status: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 email_configuration: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentEmailConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentEmailConfigurationArgsDict']]] = None,
+                 lambda_config: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentLambdaConfigArgs', 'UserPoolRegionalConfigurationAttachmentLambdaConfigArgsDict']]] = None,
+                 sms_configuration: pulumi.Input[Optional[Union['UserPoolRegionalConfigurationAttachmentSmsConfigurationArgs', 'UserPoolRegionalConfigurationAttachmentSmsConfigurationArgsDict']]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_pool_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
