@@ -31,7 +31,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 
 		res, ok := allResources[r]
 		if !ok {
-			return fmt.Errorf("Resource not found: %s", res)
+			return fmt.Errorf("resource not found: %s", res)
 		}
 
 		props, err := findProperties(schemaAbsPath, r)

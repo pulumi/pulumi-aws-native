@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package provider
 
 import (

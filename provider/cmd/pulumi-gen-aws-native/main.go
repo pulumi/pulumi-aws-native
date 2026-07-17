@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package main
 
 import (
@@ -11,28 +12,27 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
-
-	"slices"
-
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/pkg/errors"
+
 	jsschema "github.com/pulumi/jsschema"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
-	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // ensureDir ensures that a target directory exists (like `mkdir -p`), returning a non-nil error if any problem occurs.
@@ -86,18 +86,31 @@ func main() {
 		flag.PrintDefaults()
 	}
 
-	var version, operation, schemaFolder, docsUrl, metadataFolder string
+	var version, operation, schemaFolder, docsURL, metadataFolder string
 	var jsonSchemaUrls schemaUrls
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
 	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
-	flag.StringVar(&docsUrl, "docs-url", "", "The URL to download the CloudFormation docs")
-	flag.StringVar(&metadataFolder, "metadata-folder", "", "The folder containing metadata files needed for schema generation")
+	flag.StringVar(&docsURL, "docs-url", "", "The URL to download the CloudFormation docs")
+	flag.StringVar(
+		&metadataFolder,
+		"metadata-folder",
+		"",
+		"The folder containing metadata files needed for schema generation",
+	)
 	flag.Var(&jsonSchemaUrls, "schema-urls", "A comma delimited list of CloudFormation schema urls")
 
 	flag.Parse()
 	operation = flag.Arg(0)
-	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s, metadata-folder: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls, metadataFolder)
-	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsUrl == "") {
+	fmt.Printf(
+		"%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s, metadata-folder: %s\n",
+		operation,
+		version,
+		schemaFolder,
+		docsURL,
+		jsonSchemaUrls,
+		metadataFolder,
+	)
+	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsURL == "") {
 		flag.Usage()
 		return
 	}
@@ -114,13 +127,13 @@ func main() {
 
 	switch operation {
 	case "docs":
-		if docsUrl == "" {
+		if docsURL == "" {
 			fmt.Println("Error: docs operation requires additional --docs-url argument")
 			flag.Usage()
 			return
 		}
 
-		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
+		if err := downloadCloudFormationDocs(docsURL, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
 			fatalf("error download CloudFormation docs: %v", err)
 		}
 
@@ -140,8 +153,10 @@ func main() {
 
 	case "schema":
 		supportedTypes := readSupportedResourceTypes(genDir)
-		jsonSchemas := readJsonSchemas(schemaFolder, autoNameOverlay)
-		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
+		jsonSchemas := readJSONSchemas(schemaFolder, autoNameOverlay)
+		docsTypes, err := schema.ReadCloudFormationDocsFile(
+			filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"),
+		)
 		if err != nil {
 			fatalf("error reading CloudFormation docs file: %v", err)
 		}
@@ -160,7 +175,15 @@ func main() {
 			fatalf("error reading %q", refDBFile)
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes, regions, refDB)
+		packageSpec, meta, reports, err := schema.GatherPackage(
+			supportedTypes,
+			jsonSchemas,
+			false,
+			&semanticsDocument,
+			docsTypes,
+			regions,
+			refDB,
+		)
 		if err != nil {
 			fatalf("error generating schema: %v", err)
 		}
@@ -211,10 +234,13 @@ func fatalf(format string, a ...any) {
 	log.Fatalf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier)
 }
 
-func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (res []*jsschema.Schema) {
+func readJSONSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (res []*jsschema.Schema) {
 	var fileNames []string
 	root := filepath.Join(".", schemaDir)
-	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+	err := filepath.Walk(root, func(path string, info os.FileInfo, walkErr error) error {
+		if walkErr != nil {
+			return walkErr
+		}
 		if info != nil && !info.IsDir() {
 			fileNames = append(fileNames, path)
 		}
@@ -226,12 +252,12 @@ func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (re
 
 	sort.Strings(fileNames)
 	for _, fileName := range fileNames {
-		res = append(res, readJsonSchema(fileName, overlay))
+		res = append(res, readJSONSchema(fileName, overlay))
 	}
 	return
 }
 
-func readJsonSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *jsschema.Schema {
+func readJSONSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *jsschema.Schema {
 	raw, err := os.ReadFile(schemaPath)
 	if err != nil {
 		fatalf("error reading json schema: %v", errors.Wrap(err, schemaPath))
@@ -381,7 +407,11 @@ func writeSupportedResourceTypes(outDir string) error {
 	cfn := cloudformation.NewFromConfig(cfg)
 
 	supported := codegen.NewStringSet()
-	for _, provisioningType := range []types.ProvisioningType{types.ProvisioningTypeFullyMutable, types.ProvisioningTypeImmutable} {
+	provisioningTypes := []types.ProvisioningType{
+		types.ProvisioningTypeFullyMutable,
+		types.ProvisioningTypeImmutable,
+	}
+	for _, provisioningType := range provisioningTypes {
 		var nextToken *string
 		for {
 			out, err := cfn.ListTypes(ctx.Background(), &cloudformation.ListTypesInput{
@@ -453,7 +483,7 @@ func downloadCloudFormationDocs(url, outDir string) error {
 	if err != nil {
 		return err
 	}
-	resp, err := http.Get(url)
+	resp, err := http.Get(url) //nolint:gosec // The documentation URL is a trusted generation input.
 	if err != nil {
 		return err
 	}
@@ -464,7 +494,7 @@ func downloadCloudFormationDocs(url, outDir string) error {
 		return err
 	}
 	outPath := filepath.Join(outDir, "CloudFormationDocumentation.json")
-	if err := os.WriteFile(outPath, body, 0644); err != nil {
+	if err := os.WriteFile(outPath, body, 0o644); err != nil { //nolint:gosec // Generated docs are public data.
 		return err
 	}
 	return nil
@@ -478,13 +508,13 @@ func downloadCloudFormationSchemas(urls []string, outDir string, genDir string) 
 	}
 
 	for _, url := range urls {
-		resp, err := http.Get(url)
+		resp, err := http.Get(url) //nolint:gosec // Schema URLs are trusted generation inputs.
 		if err != nil {
 			return err
 		}
 		defer resp.Body.Close()
 
-		body, err := ioutil.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			return err
 		}
@@ -496,7 +526,10 @@ func downloadCloudFormationSchemas(urls []string, outDir string, genDir string) 
 
 		// Read all the files from zip archive
 		for _, f := range zipReader.File {
-			outPath := filepath.Join(outDir, f.Name)
+			if !filepath.IsLocal(f.Name) {
+				return fmt.Errorf("invalid schema archive path %q", f.Name)
+			}
+			outPath := filepath.Join(outDir, f.Name) //nolint:gosec // filepath.IsLocal above prevents traversal.
 
 			outFile, err := os.OpenFile(outPath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, f.Mode())
 			if err != nil {
@@ -508,7 +541,7 @@ func downloadCloudFormationSchemas(urls []string, outDir string, genDir string) 
 				return err
 			}
 
-			_, err = io.Copy(outFile, rc)
+			_, err = io.Copy(outFile, rc) //nolint:gosec // CloudFormation schema archives are trusted inputs.
 			if err != nil {
 				return err
 			}
@@ -526,7 +559,7 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, includeUncomp
 	if err != nil {
 		return errors.Wrap(err, "failed to compress schema")
 	}
-	err = emitFile(outdir, "schema.json.gz", []byte(compressedSchema))
+	err = emitFile(outdir, "schema.json.gz", compressedSchema)
 	if err != nil {
 		panic(errors.Wrap(err, "saving metadata"))
 	}
@@ -560,7 +593,7 @@ func writeMetadata(metadata *metadata.CloudAPIMetadata, outDir string, includeUn
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	err = emitFile(outDir, "metadata.json.gz", []byte(compressedMeta.Bytes()))
+	err = emitFile(outDir, "metadata.json.gz", compressedMeta.Bytes())
 	if err != nil {
 		return err
 	}

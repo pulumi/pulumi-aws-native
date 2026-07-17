@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
@@ -470,9 +471,11 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 				"Version": resource.NewStringProperty("2012-10-17"),
 				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"Effect":    resource.NewStringProperty("Allow"),
-						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
-						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+						"Effect": resource.NewStringProperty("Allow"),
+						"Principal": resource.NewObjectProperty(
+							resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")},
+						),
+						"Action": resource.NewStringProperty("sts:AssumeRole"),
 					}),
 				}),
 			}),
@@ -483,8 +486,10 @@ func TestCalcPatchWithActualOutputs(t *testing.T) {
 						"Version": resource.NewStringProperty("2012-10-17"),
 						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 							resource.NewObjectProperty(resource.PropertyMap{
-								"Effect":   resource.NewStringProperty("Allow"),
-								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Effect": resource.NewStringProperty("Allow"),
+								"Action": resource.NewArrayProperty(
+									[]resource.PropertyValue{resource.NewStringProperty("*")},
+								),
 								"Resource": resource.NewStringProperty("*"),
 							}),
 						}),

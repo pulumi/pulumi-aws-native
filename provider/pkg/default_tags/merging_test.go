@@ -1,10 +1,12 @@
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package default_tags
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func TestDefaultTags(t *testing.T) {
@@ -24,9 +26,9 @@ func TestDefaultTags(t *testing.T) {
 
 	t.Run("string map empty resource tags", func(t *testing.T) {
 		tags := resource.NewPropertyValue(resource.NewObjectProperty(map[resource.PropertyKey]resource.PropertyValue{}))
-		expected := resource.PropertyValue(resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+		expected := resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 			"defaultTag": "defaultTagValue",
-		})))
+		}))
 		actual, err := MergeDefaultTags(tags, defaultTags, TagsStyleStringMap)
 		assert.NoError(t, err)
 		assert.Equal(t, expected, actual)

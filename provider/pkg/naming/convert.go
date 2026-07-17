@@ -22,14 +22,23 @@ import (
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
 // are lowerCamelCase, while CloudFormation is usually (but not always) PascalCase.
-func SdkToCfn(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType, properties map[string]interface{}) (map[string]interface{}, error) {
+func SdkToCfn(
+	res *metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	properties map[string]interface{},
+) (map[string]interface{}, error) {
 	converter := sdkToCfnConverter{res, types}
 	return converter.sdkToCfn(properties)
 }
 
-// DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
+// DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete
+// operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
-func DiffToPatch(res *metadata.CloudAPIResource, types map[string]metadata.CloudAPIType, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
+func DiffToPatch(
+	res *metadata.CloudAPIResource,
+	types map[string]metadata.CloudAPIType,
+	diff *resource.ObjectDiff,
+) ([]jsonpatch.JsonPatchOperation, error) {
 	if diff == nil {
 		return []jsonpatch.JsonPatchOperation{}, nil
 	}
@@ -45,7 +54,15 @@ var schemaStringReplacer = strings.NewReplacer(
 	// Paragraph separator
 	"\u2029", "\n")
 
-const schemaTypeObject = "object"
+const (
+	schemaTypeArray   = "array"
+	schemaTypeBoolean = "boolean"
+	schemaTypeInteger = "integer"
+	schemaTypeNumber  = "number"
+	schemaTypeObject  = "object"
+	schemaTypeString  = "string"
+	pulumiAnyTypeRef  = "pulumi.json#/Any"
+)
 
 // SanitizeCfnString ensures that a string from CFN docs meets the requirements for Pulumi schema strings.
 func SanitizeCfnString(str string) string {
@@ -184,7 +201,7 @@ func (c *cfnToSdkConverter) cfnTypedValueToSdk(spec *pschema.TypeSpec, v interfa
 	}
 
 	if spec.Ref != "" {
-		if spec.Ref == "pulumi.json#/Any" {
+		if spec.Ref == pulumiAnyTypeRef {
 			return v, nil
 		}
 
@@ -227,7 +244,7 @@ func (c *cfnToSdkConverter) cfnTypedValueToSdk(spec *pschema.TypeSpec, v interfa
 	}
 
 	switch spec.Type {
-	case "array":
+	case schemaTypeArray:
 		s := reflect.ValueOf(v)
 		if s.Kind() != reflect.Slice && s.Kind() != reflect.Array {
 			return v, nil
@@ -297,7 +314,7 @@ func largestConversionResult(results []any) any {
 
 func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interface{}) (interface{}, error) {
 	if spec.Ref != "" {
-		if spec.Ref == "pulumi.json#/Any" {
+		if spec.Ref == pulumiAnyTypeRef {
 			return v, nil
 		}
 
@@ -306,7 +323,7 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 		switch typSpec.Type {
 		case schemaTypeObject:
 			return c.sdkObjectValueToCfn(typName, typSpec, v)
-		case "string":
+		case schemaTypeString:
 			if _, ok := v.(string); ok {
 				return v, nil
 			}
@@ -346,7 +363,7 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 	}
 
 	switch spec.Type {
-	case "array":
+	case schemaTypeArray:
 		if array, ok := v.([]interface{}); ok {
 			vs := make([]interface{}, len(array))
 			for i, item := range array {
@@ -370,19 +387,19 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 			}
 			return vs, nil
 		}
-	case "string":
+	case schemaTypeString:
 		if _, ok := v.(string); ok {
 			return v, nil
 		}
-	case "number":
+	case schemaTypeNumber:
 		if isNumberLike(v) {
 			return v, nil
 		}
-	case "integer":
+	case schemaTypeInteger:
 		if isNumberLike(v) {
 			return v, nil
 		}
-	case "boolean":
+	case schemaTypeBoolean:
 		if _, ok := v.(bool); ok {
 			return v, nil
 		}
@@ -400,7 +417,11 @@ func isNumberLike(v interface{}) bool {
 	return false
 }
 
-func (c *sdkToCfnConverter) sdkObjectValueToCfn(typeName string, spec metadata.CloudAPIType, value interface{}) (interface{}, error) {
+func (c *sdkToCfnConverter) sdkObjectValueToCfn(
+	typeName string,
+	spec metadata.CloudAPIType,
+	value interface{},
+) (interface{}, error) {
 	properties, ok := value.(map[string]interface{})
 	if !ok {
 		return nil, &ConversionError{typeName, value}
@@ -424,7 +445,7 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.
 	// Sort keys to ensure deterministic ordering of patch operations.
 	sortedKeys := make([]string, 0, len(c.spec.Inputs))
 	for sdkName := range c.spec.Inputs {
-		sortedKeys = append(sortedKeys, string(sdkName))
+		sortedKeys = append(sortedKeys, sdkName)
 	}
 	slices.Sort(sortedKeys)
 	for _, sdkName := range sortedKeys {
@@ -463,12 +484,16 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) ([]jsonpatch.
 	return ops, nil
 }
 
-func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop pschema.PropertySpec, value resource.PropertyValue) (*jsonpatch.JsonPatchOperation, error) {
+func (c *sdkToCfnConverter) valueToPatch(
+	opName, propName string,
+	prop pschema.PropertySpec,
+	value resource.PropertyValue,
+) (*jsonpatch.JsonPatchOperation, error) {
 	op := jsonpatch.NewPatch(opName, "/"+propName, nil)
 	switch {
 	case value.IsSecret():
 		return c.valueToPatch(opName, propName, prop, value.SecretValue().Element)
-	case value.IsNumber() && prop.Type == "integer":
+	case value.IsNumber() && prop.Type == schemaTypeInteger:
 		i := int32(value.NumberValue())
 		op.Value = i
 	case value.IsNumber():

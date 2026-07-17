@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
@@ -12,14 +13,26 @@ import (
 	"time"
 
 	"github.com/aws/aws-lambda-go/cfn"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	gomock "go.uber.org/mock/gomock"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+)
+
+const (
+	testStackID            = "stack-id"
+	testServiceToken       = "arn:aws:lambda:us-west-2:123456789012:function:my-function" //nolint:gosec // Test fixture.
+	testBucketKeyPrefix    = "bucket-key-prefix"
+	testBucketName         = "bucket-name"
+	testPhysicalResourceID = "physical-resource-id"
+	testResourceType       = "Custom::MyResource"
+	testResponseURL        = "https://example.com"
 )
 
 func TestCfnCustomResource_Check(t *testing.T) {
@@ -34,12 +47,16 @@ func TestCfnCustomResource_Check(t *testing.T) {
 		{
 			name: "Valid inputs",
 			inputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"stackId":      resource.NewStringProperty("testProject"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"stackId": resource.NewStringProperty("testProject"),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"stackId":      resource.NewStringProperty("testProject"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"stackId": resource.NewStringProperty("testProject"),
 			},
 		},
 		{
@@ -70,22 +87,30 @@ func TestCfnCustomResource_Check(t *testing.T) {
 		{
 			name: "Default StackID",
 			inputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"stackId":      resource.NewStringProperty("testProject"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"stackId": resource.NewStringProperty("testProject"),
 			},
 		},
 		{
 			name: "Stringify CustomResourceProperties",
 			inputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"stackId":      resource.NewStringProperty("testProject"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"stackId": resource.NewStringProperty("testProject"),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"stackId":      resource.NewStringProperty("testProject"),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"stackId": resource.NewStringProperty("testProject"),
 			},
 		},
 		{
@@ -102,12 +127,16 @@ func TestCfnCustomResource_Check(t *testing.T) {
 		{
 			name: "Preserves Secrets",
 			inputs: resource.PropertyMap{
-				"serviceToken": resource.MakeSecret(resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function")),
-				"stackId":      resource.MakeSecret(resource.NewStringProperty("testProject")),
+				"serviceToken": resource.MakeSecret(
+					resource.NewStringProperty(testServiceToken),
+				),
+				"stackId": resource.MakeSecret(resource.NewStringProperty("testProject")),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken": resource.MakeSecret(resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function")),
-				"stackId":      resource.MakeSecret(resource.NewStringProperty("testProject")),
+				"serviceToken": resource.MakeSecret(
+					resource.NewStringProperty(testServiceToken),
+				),
+				"stackId": resource.MakeSecret(resource.NewStringProperty("testProject")),
 			},
 		},
 	}
@@ -255,12 +284,12 @@ func TestCfnCustomResource_Create(t *testing.T) {
 			mockLambdaClient := client.NewMockLambdaClient(ctrl)
 			mockS3Client := client.NewMockS3Client(ctrl)
 
-			stackID := "stack-id"
-			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-			bucketKeyPrefix := "bucket-key-prefix"
-			bucketName := "bucket-name"
-			physicalResourceID := "physical-resource-id"
-			resourceType := "Custom::MyResource"
+			stackID := testStackID
+			serviceToken := testServiceToken
+			bucketKeyPrefix := testBucketKeyPrefix
+			bucketName := testBucketName
+			physicalResourceID := testPhysicalResourceID
+			resourceType := testResourceType
 
 			expectedTimeout := DefaultCustomResourceTimeout
 			if tt.timeout != 0 {
@@ -268,7 +297,7 @@ func TestCfnCustomResource_Create(t *testing.T) {
 			}
 
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
-			responseUrl := "https://example.com"
+			responseUrl := testResponseURL
 			expectedPayload := cfn.Event{
 				RequestType:        cfn.RequestCreate,
 				ResponseURL:        responseUrl,
@@ -282,7 +311,7 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				gomock.Any(),
 				serviceToken,
 				gomock.Any(),
-			).DoAndReturn(func(ctx context.Context, functionName string, payload []byte) error {
+			).DoAndReturn(func(_ context.Context, _ string, payload []byte) error {
 				var event cfn.Event
 				err := json.Unmarshal(payload, &event)
 				require.NoError(t, err)
@@ -292,7 +321,9 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				return nil
 			})
 
-			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return(responseUrl, nil)
+			mockS3Client.EXPECT().
+				PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+				Return(responseUrl, nil)
 
 			response := cfn.Response{
 				Status:             cfn.StatusSuccess,
@@ -322,12 +353,14 @@ func TestCfnCustomResource_Create(t *testing.T) {
 			ctx := context.Background()
 
 			inputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(tt.customResourceInputs)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(tt.customResourceInputs),
+				),
 			}
 
 			id, outputs, err := c.Create(ctx, urn, inputs, tt.timeout)
@@ -376,7 +409,7 @@ func TestCfnCustomResource_Create_PartialError(t *testing.T) {
 	}{
 		{
 			name:               "With PhysicalResourceID",
-			physicalResourceID: "physical-resource-id",
+			physicalResourceID: testPhysicalResourceID,
 			expectedError:      "some error occurred",
 			customResourceData: map[string]interface{}{"key": "value"},
 		},
@@ -398,14 +431,16 @@ func TestCfnCustomResource_Create_PartialError(t *testing.T) {
 			mockLambdaClient := client.NewMockLambdaClient(ctrl)
 			mockS3Client := client.NewMockS3Client(ctrl)
 
-			stackID := "stack-id"
-			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-			bucketKeyPrefix := "bucket-key-prefix"
-			bucketName := "bucket-name"
-			resourceType := "Custom::MyResource"
+			stackID := testStackID
+			serviceToken := testServiceToken
+			bucketKeyPrefix := testBucketKeyPrefix
+			bucketName := testBucketName
+			resourceType := testResourceType
 
 			mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(nil)
-			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
+			mockS3Client.EXPECT().
+				PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+				Return(testResponseURL, nil)
 
 			response := cfn.Response{
 				Status:             cfn.StatusFailed,
@@ -436,12 +471,14 @@ func TestCfnCustomResource_Create_PartialError(t *testing.T) {
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
 
 			inputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{"key": "value"})),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(map[string]interface{}{"key": "value"}),
+				),
 			}
 
 			id, outputs, err := c.Create(ctx, urn, inputs, 0)
@@ -478,13 +515,15 @@ func TestCfnCustomResource_Create_PresignPutObjectFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to presign put object")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
 
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("", expectedError)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return("", expectedError)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -522,14 +561,16 @@ func TestCfnCustomResource_Create_LambdaInvokeFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to invoke lambda")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(expectedError)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return(testResponseURL, nil)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -567,15 +608,19 @@ func TestCfnCustomResource_Create_S3WaitForObjectFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to fetch custom resource response")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(nil)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
-	mockS3Client.EXPECT().WaitForObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), DefaultCustomResourceTimeout).Return(nil, expectedError)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return(testResponseURL, nil)
+	mockS3Client.EXPECT().
+		WaitForObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), DefaultCustomResourceTimeout).
+		Return(nil, expectedError)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -643,12 +688,12 @@ func TestCfnCustomResource_Update(t *testing.T) {
 			mockLambdaClient := client.NewMockLambdaClient(ctrl)
 			mockS3Client := client.NewMockS3Client(ctrl)
 
-			stackID := "stack-id"
-			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-			bucketKeyPrefix := "bucket-key-prefix"
-			bucketName := "bucket-name"
-			physicalResourceID := "physical-resource-id"
-			resourceType := "Custom::MyResource"
+			stackID := testStackID
+			serviceToken := testServiceToken
+			bucketKeyPrefix := testBucketKeyPrefix
+			bucketName := testBucketName
+			physicalResourceID := testPhysicalResourceID
+			resourceType := testResourceType
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
 			expectedTimeout := DefaultCustomResourceTimeout
 			if tt.timeout != 0 {
@@ -664,7 +709,7 @@ func TestCfnCustomResource_Update(t *testing.T) {
 				"key":    42,
 			}
 
-			responseUrl := "https://example.com"
+			responseUrl := testResponseURL
 			expectedPayload := cfn.Event{
 				RequestType:           cfn.RequestUpdate,
 				ResponseURL:           responseUrl,
@@ -680,7 +725,7 @@ func TestCfnCustomResource_Update(t *testing.T) {
 				gomock.Any(),
 				serviceToken,
 				gomock.Any(),
-			).DoAndReturn(func(ctx context.Context, functionName string, payload []byte) error {
+			).DoAndReturn(func(_ context.Context, _ string, payload []byte) error {
 				var event cfn.Event
 				err := json.Unmarshal(payload, &event)
 				require.NoError(t, err)
@@ -690,7 +735,9 @@ func TestCfnCustomResource_Update(t *testing.T) {
 				return nil
 			})
 
-			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).Return("https://example.com", nil)
+			mockS3Client.EXPECT().
+				PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).
+				Return(testResponseURL, nil)
 
 			response := cfn.Response{
 				Status:             cfn.StatusSuccess,
@@ -721,21 +768,25 @@ func TestCfnCustomResource_Update(t *testing.T) {
 			ctx := context.Background()
 
 			oldInputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(oldResourceProperties)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(oldResourceProperties),
+				),
 			}
 
 			inputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(newResourceProperties)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(newResourceProperties),
+				),
 			}
 
 			oldState := CfnCustomResourceState{
@@ -749,7 +800,15 @@ func TestCfnCustomResource_Update(t *testing.T) {
 				ResourceType: resourceType,
 			}
 
-			outputs, err := c.Update(ctx, urn, physicalResourceID, inputs, oldInputs, CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()), tt.timeout)
+			outputs, err := c.Update(
+				ctx,
+				urn,
+				physicalResourceID,
+				inputs,
+				oldInputs,
+				CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()),
+				tt.timeout,
+			)
 
 			require.NoError(t, err)
 
@@ -786,15 +845,17 @@ func TestCfnCustomResource_Update_LambdaInvokeFailure(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to invoke lambda")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	physicalResourceID := "physical-resource-id"
-	resourceType := "Custom::MyResource"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	physicalResourceID := testPhysicalResourceID
+	resourceType := testResourceType
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(expectedError)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return(testResponseURL, nil)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -838,7 +899,15 @@ func TestCfnCustomResource_Update_LambdaInvokeFailure(t *testing.T) {
 		ResourceType: resourceType,
 	}
 
-	outputs, err := c.Update(ctx, urn, physicalResourceID, inputs, oldInputs, CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()), 0)
+	outputs, err := c.Update(
+		ctx,
+		urn,
+		physicalResourceID,
+		inputs,
+		oldInputs,
+		CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()),
+		0,
+	)
 
 	require.Error(t, err)
 	assert.Nil(t, outputs)
@@ -894,12 +963,12 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 			mockLambdaClient := client.NewMockLambdaClient(ctrl)
 			mockS3Client := client.NewMockS3Client(ctrl)
 
-			stackID := "stack-id"
-			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-			bucketKeyPrefix := "bucket-key-prefix"
-			bucketName := "bucket-name"
-			physicalResourceID := "physical-resource-id"
-			resourceType := "Custom::MyResource"
+			stackID := testStackID
+			serviceToken := testServiceToken
+			bucketKeyPrefix := testBucketKeyPrefix
+			bucketName := testBucketName
+			physicalResourceID := testPhysicalResourceID
+			resourceType := testResourceType
 			expectedTimeout := DefaultCustomResourceTimeout
 			if tt.timeout != 0 {
 				expectedTimeout = tt.timeout
@@ -914,7 +983,7 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
 
-			responseUrl := "https://example.com"
+			responseUrl := testResponseURL
 			expectedUpdatePayload := cfn.Event{
 				RequestType:           cfn.RequestUpdate,
 				ResponseURL:           responseUrl,
@@ -930,7 +999,7 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 				gomock.Any(),
 				serviceToken,
 				gomock.Any(),
-			).DoAndReturn(func(ctx context.Context, functionName string, payload []byte) error {
+			).DoAndReturn(func(_ context.Context, _ string, payload []byte) error {
 				var event cfn.Event
 				err := json.Unmarshal(payload, &event)
 				require.NoError(t, err)
@@ -954,7 +1023,7 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 				gomock.Any(),
 				serviceToken,
 				gomock.Any(),
-			).DoAndReturn(func(ctx context.Context, functionName string, payload []byte) error {
+			).DoAndReturn(func(_ context.Context, _ string, payload []byte) error {
 				var event cfn.Event
 				err := json.Unmarshal(payload, &event)
 				require.NoError(t, err)
@@ -964,7 +1033,10 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 				return nil
 			})
 
-			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).Return("https://example.com", nil).Times(2)
+			mockS3Client.EXPECT().
+				PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).
+				Return(testResponseURL, nil).
+				Times(2)
 
 			response := cfn.Response{
 				Status:             cfn.StatusSuccess,
@@ -1012,21 +1084,25 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 			ctx := context.Background()
 
 			oldInputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(oldResourceProperties)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(oldResourceProperties),
+				),
 			}
 
 			inputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(newResourceProperties)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(newResourceProperties),
+				),
 			}
 
 			oldState := CfnCustomResourceState{
@@ -1040,7 +1116,15 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChange(t *testing.T) {
 				ResourceType: resourceType,
 			}
 
-			outputs, err := c.Update(ctx, urn, physicalResourceID, inputs, oldInputs, CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()), tt.timeout)
+			outputs, err := c.Update(
+				ctx,
+				urn,
+				physicalResourceID,
+				inputs,
+				oldInputs,
+				CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()),
+				tt.timeout,
+			)
 
 			if tt.expectedError != "" {
 				require.Error(t, err)
@@ -1083,15 +1167,17 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChangeDeleteTimeout(t *testi
 	mockLambdaClient := client.NewMockLambdaClient(ctrl)
 	mockS3Client := client.NewMockS3Client(ctrl)
 
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	physicalResourceID := "physical-resource-id"
-	resourceType := "Custom::MyResource"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	physicalResourceID := testPhysicalResourceID
+	resourceType := testResourceType
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(nil)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).Return("https://example.com", nil)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), expectedTimeout).
+		Return(testResponseURL, nil)
 
 	response := cfn.Response{
 		Status:             cfn.StatusSuccess,
@@ -1155,10 +1241,23 @@ func TestCfnCustomResource_Update_PhysicalResourceIDChangeDeleteTimeout(t *testi
 		ResourceType: resourceType,
 	}
 
-	outputs, err := c.Update(ctx, urn, physicalResourceID, inputs, oldInputs, CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()), expectedTimeout)
+	outputs, err := c.Update(
+		ctx,
+		urn,
+		physicalResourceID,
+		inputs,
+		oldInputs,
+		CheckpointPropertyMap(oldInputs, oldState.ToPropertyMap()),
+		expectedTimeout,
+	)
 
 	require.Error(t, err)
-	assert.Contains(t, err.Error(), "failed to clean up old custom resource: not enough time left to delete the old resource. Consider increasing the timeout")
+	assert.Contains(
+		t,
+		err.Error(),
+		//nolint:lll // Preserve the exact fixture or documentation text.
+		"failed to clean up old custom resource: not enough time left to delete the old resource. Consider increasing the timeout",
+	)
 	assert.Nil(t, outputs)
 }
 
@@ -1176,44 +1275,56 @@ func TestCfnCustomResource_Read(t *testing.T) {
 		{
 			name: "Success",
 			oldState: resource.PropertyMap{
-				"physicalResourceId": resource.NewStringProperty("physical-resource-id"),
+				"physicalResourceId": resource.NewStringProperty(testPhysicalResourceID),
 				"data": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 					"key": "value",
 				})),
-				"stackId":      resource.NewStringProperty("stack-id"),
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"bucket":       resource.NewStringProperty("bucket-name"),
-				"resourceType": resource.NewStringProperty("Custom::MyResource"),
+				"stackId": resource.NewStringProperty(testStackID),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"bucket":       resource.NewStringProperty(testBucketName),
+				"resourceType": resource.NewStringProperty(testResourceType),
 			},
 			oldInputs: resource.PropertyMap{
-				"serviceToken":    resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"resourceType":    resource.NewStringProperty("Custom::MyResource"),
-				"stackID":         resource.NewStringProperty("stack-id"),
-				"bucketName":      resource.NewStringProperty("bucket-name"),
-				"bucketKeyPrefix": resource.NewStringProperty("bucket-key-prefix"),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"key": "value",
-				})),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"resourceType":    resource.NewStringProperty(testResourceType),
+				"stackID":         resource.NewStringProperty(testStackID),
+				"bucketName":      resource.NewStringProperty(testBucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(testBucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(map[string]interface{}{
+						"key": "value",
+					}),
+				),
 			},
 			expectedState: resource.PropertyMap{
-				"physicalResourceId": resource.NewStringProperty("physical-resource-id"),
+				"physicalResourceId": resource.NewStringProperty(testPhysicalResourceID),
 				"data": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 					"key": "value",
 				})),
-				"stackId":      resource.NewStringProperty("stack-id"),
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"bucket":       resource.NewStringProperty("bucket-name"),
-				"resourceType": resource.NewStringProperty("Custom::MyResource"),
+				"stackId": resource.NewStringProperty(testStackID),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"bucket":       resource.NewStringProperty(testBucketName),
+				"resourceType": resource.NewStringProperty(testResourceType),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken":    resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"resourceType":    resource.NewStringProperty("Custom::MyResource"),
-				"stackID":         resource.NewStringProperty("stack-id"),
-				"bucketName":      resource.NewStringProperty("bucket-name"),
-				"bucketKeyPrefix": resource.NewStringProperty("bucket-key-prefix"),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"key": "value",
-				})),
+				"serviceToken": resource.NewStringProperty(
+					testServiceToken,
+				),
+				"resourceType":    resource.NewStringProperty(testResourceType),
+				"stackID":         resource.NewStringProperty(testStackID),
+				"bucketName":      resource.NewStringProperty(testBucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(testBucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(map[string]interface{}{
+						"key": "value",
+					}),
+				),
 			},
 		},
 		{
@@ -1236,7 +1347,7 @@ func TestCfnCustomResource_Read(t *testing.T) {
 			}
 			expectedState := CheckpointPropertyMap(tt.expectedInputs, tt.expectedState)
 
-			state, inputs, supported, err := c.Read(ctx, urn, "physical-resource-id", tt.oldInputs, oldState)
+			state, inputs, supported, err := c.Read(ctx, urn, testPhysicalResourceID, tt.oldInputs, oldState)
 
 			if tt.expectedError != "" {
 				require.Error(t, err)
@@ -1300,12 +1411,12 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 			mockLambdaClient := client.NewMockLambdaClient(ctrl)
 			mockS3Client := client.NewMockS3Client(ctrl)
 
-			stackID := "stack-id"
-			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-			bucketKeyPrefix := "bucket-key-prefix"
-			bucketName := "bucket-name"
-			physicalResourceID := "physical-resource-id"
-			resourceType := "Custom::MyResource"
+			stackID := testStackID
+			serviceToken := testServiceToken
+			bucketKeyPrefix := testBucketKeyPrefix
+			bucketName := testBucketName
+			physicalResourceID := testPhysicalResourceID
+			resourceType := testResourceType
 
 			expectedTimeout := DefaultCustomResourceTimeout
 			if tt.timeout != 0 {
@@ -1313,7 +1424,7 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 			}
 
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
-			responseUrl := "https://example.com"
+			responseUrl := testResponseURL
 			expectedPayload := cfn.Event{
 				RequestType:        cfn.RequestDelete,
 				ResponseURL:        responseUrl,
@@ -1328,7 +1439,7 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 				gomock.Any(),
 				serviceToken,
 				gomock.Any(),
-			).DoAndReturn(func(ctx context.Context, functionName string, payload []byte) error {
+			).DoAndReturn(func(_ context.Context, _ string, payload []byte) error {
 				var event cfn.Event
 				err := json.Unmarshal(payload, &event)
 				require.NoError(t, err)
@@ -1338,7 +1449,9 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 				return nil
 			})
 
-			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return(responseUrl, nil)
+			mockS3Client.EXPECT().
+				PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+				Return(responseUrl, nil)
 
 			response := cfn.Response{
 				Status:             cfn.StatusSuccess,
@@ -1367,21 +1480,25 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 			ctx := context.Background()
 
 			inputs := resource.PropertyMap{
-				"serviceToken":             resource.NewStringProperty(serviceToken),
-				"resourceType":             resource.NewStringProperty(resourceType),
-				"stackID":                  resource.NewStringProperty(stackID),
-				"bucketName":               resource.NewStringProperty(bucketName),
-				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(tt.customResourceInputs)),
+				"serviceToken":    resource.NewStringProperty(serviceToken),
+				"resourceType":    resource.NewStringProperty(resourceType),
+				"stackID":         resource.NewStringProperty(stackID),
+				"bucketName":      resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix": resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(tt.customResourceInputs),
+				),
 			}
 
 			state := resource.PropertyMap{
 				"physicalResourceId": resource.NewStringProperty(physicalResourceID),
-				"data":               resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{})),
-				"stackId":            resource.NewStringProperty(stackID),
-				"serviceToken":       resource.NewStringProperty(serviceToken),
-				"bucket":             resource.NewStringProperty(bucketName),
-				"resourceType":       resource.NewStringProperty(resourceType),
+				"data": resource.NewObjectProperty(
+					resource.NewPropertyMapFromMap(map[string]interface{}{}),
+				),
+				"stackId":      resource.NewStringProperty(stackID),
+				"serviceToken": resource.NewStringProperty(serviceToken),
+				"bucket":       resource.NewStringProperty(bucketName),
+				"resourceType": resource.NewStringProperty(resourceType),
 			}
 
 			err = c.Delete(ctx, urn, physicalResourceID, inputs, state, tt.timeout)
@@ -1405,14 +1522,16 @@ func TestCfnCustomResource_Delete_PresignPutObjectFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to presign put object")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
-	physicalResourceID := "physical-resource-id"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
+	physicalResourceID := testPhysicalResourceID
 
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("", expectedError)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return("", expectedError)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -1457,15 +1576,17 @@ func TestCfnCustomResource_Delete_LambdaInvokeFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to invoke lambda")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
-	physicalResourceID := "physical-resource-id"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
+	physicalResourceID := testPhysicalResourceID
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(expectedError)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return(testResponseURL, nil)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -1510,16 +1631,20 @@ func TestCfnCustomResource_Delete_S3WaitForObjectFail(t *testing.T) {
 	mockS3Client := client.NewMockS3Client(ctrl)
 
 	expectedError := fmt.Errorf("failed to fetch custom resource response")
-	stackID := "stack-id"
-	serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
-	bucketKeyPrefix := "bucket-key-prefix"
-	bucketName := "bucket-name"
-	resourceType := "Custom::MyResource"
-	physicalResourceID := "physical-resource-id"
+	stackID := testStackID
+	serviceToken := testServiceToken
+	bucketKeyPrefix := testBucketKeyPrefix
+	bucketName := testBucketName
+	resourceType := testResourceType
+	physicalResourceID := testPhysicalResourceID
 
 	mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(nil)
-	mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
-	mockS3Client.EXPECT().WaitForObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), DefaultCustomResourceTimeout).Return(nil, expectedError)
+	mockS3Client.EXPECT().
+		PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).
+		Return(testResponseURL, nil)
+	mockS3Client.EXPECT().
+		WaitForObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), DefaultCustomResourceTimeout).
+		Return(nil, expectedError)
 
 	c := &cfnCustomResource{
 		providerName: "testProvider",
@@ -1572,6 +1697,6 @@ func (c *MockClock) Now() time.Time {
 	return c.freezeTime
 }
 
-func (c *MockClock) Since(t time.Time) time.Duration {
+func (c *MockClock) Since(_ time.Time) time.Duration {
 	return c.customDuration
 }

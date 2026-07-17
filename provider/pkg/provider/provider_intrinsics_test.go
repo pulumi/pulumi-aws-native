@@ -1,10 +1,12 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package provider
 
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func Test_cidr(t *testing.T) {

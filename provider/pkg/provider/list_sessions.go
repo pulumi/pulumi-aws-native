@@ -93,7 +93,10 @@ func (s *listSessionStore) get(
 		return nil, nil, status.Error(codes.FailedPrecondition, "continuation_token is already in use")
 	}
 	if session.resourceToken != resourceToken {
-		return nil, nil, status.Error(codes.InvalidArgument, "continuation_token was created for a different resource type")
+		return nil, nil, status.Error(
+			codes.InvalidArgument,
+			"continuation_token was created for a different resource type",
+		)
 	}
 	if session.queryHash != queryHash {
 		return nil, nil, status.Error(codes.InvalidArgument, "continuation_token was created for a different query")

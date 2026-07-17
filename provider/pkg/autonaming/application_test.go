@@ -1,15 +1,18 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package autonaming
 
 import (
 	"fmt"
 	"testing"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func Test_getDefaultName(t *testing.T) {
@@ -61,7 +64,11 @@ func Test_getDefaultName(t *testing.T) {
 			name:       "Autoname with max length too small",
 			maxLength:  6,
 			comparison: within(15, 15),
-			err:        fmt.Errorf("failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 6. Please provide a value for %[1]q", sdkName),
+			err: fmt.Errorf(
+				//nolint:lll // Preserve the exact fixture or documentation text.
+				"failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 6. Please provide a value for %[1]q",
+				sdkName,
+			),
 		},
 		{
 			name:       "Autoname with constraints on min and max length",
@@ -90,7 +97,7 @@ func Test_getDefaultName(t *testing.T) {
 			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModeDisable),
 			},
-			comparison: func(t *testing.T, actual *resource.PropertyValue) bool {
+			comparison: func(_ *testing.T, actual *resource.PropertyValue) bool {
 				return actual == nil
 			},
 			noName: true,
@@ -134,7 +141,9 @@ func Test_getDefaultName(t *testing.T) {
 				AutoTrim:              true,
 				RandomSuffixMinLength: 5,
 			},
-			err: fmt.Errorf("pulumi:autonaming conflicts with provider autonaming configuration, please specify only one"),
+			err: fmt.Errorf(
+				"pulumi:autonaming conflicts with provider autonaming configuration, please specify only one",
+			),
 		},
 	}
 
@@ -163,10 +172,9 @@ func Test_getDefaultName(t *testing.T) {
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
-			} else {
-				require.NoError(t, err)
-				require.Equal(t, tt.noName, got == nil)
 			}
+			require.NoError(t, err)
+			require.Equal(t, tt.noName, got == nil)
 			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
 			}
@@ -240,7 +248,11 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 				RandomSuffixMinLength: 2,
 			},
 			comparison: within(15, 15),
-			err:        fmt.Errorf("failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 4. Please provide a value for %[1]q", sdkName),
+			err: fmt.Errorf(
+				//nolint:lll // Preserve the exact fixture or documentation text.
+				"failed to auto-generate value for %[1]q. Prefix: \"myName-\" is too large to fix max length constraint of 4. Please provide a value for %[1]q",
+				sdkName,
+			),
 		},
 		{
 			name:         "Autoname with constraints on min and max length",
@@ -262,13 +274,19 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			},
 			maxLength:  13,
 			comparison: within(13, 13),
-			err:        fmt.Errorf("failed to auto-generate value for %[1]q. Prefix: \"myReallyLongName-\" is too large to fix max length constraint of 13 with required suffix length 14. Please provide a value for %[1]q", sdkName),
+			err: fmt.Errorf(
+				//nolint:lll // Preserve the exact fixture or documentation text.
+				"failed to auto-generate value for %[1]q. Prefix: \"myReallyLongName-\" is too large to fix max length constraint of 13 with required suffix length 14. Please provide a value for %[1]q",
+				sdkName,
+			),
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			urn := resource.URN(fmt.Sprintf("urn:pulumi:dev::test::test-provider:testModule:TestResource::%s", tt.resourceName))
+			urn := resource.URN(
+				fmt.Sprintf("urn:pulumi:dev::test::test-provider:testModule:TestResource::%s", tt.resourceName),
+			)
 			autoNamingSpec := &metadata.AutoNamingSpec{
 				SdkName:   "autoName",
 				MinLength: tt.minLength,
@@ -281,10 +299,9 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
-			} else {
-				require.NoError(t, err)
-				require.True(t, got != nil)
 			}
+			require.NoError(t, err)
+			require.NotNil(t, got)
 			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
 			}
@@ -294,7 +311,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 }
 
 func equals(expected resource.PropertyValue) func(t *testing.T, actual *resource.PropertyValue) bool {
-	return func(t *testing.T, actual *resource.PropertyValue) bool {
+	return func(_ *testing.T, actual *resource.PropertyValue) bool {
 		return expected == *actual
 	}
 }
@@ -305,10 +322,10 @@ func startsWith(prefix string, randomLen int) func(t *testing.T, actual *resourc
 	}
 }
 
-func within(min, max int) func(t *testing.T, value *resource.PropertyValue) bool {
-	return func(t *testing.T, actual *resource.PropertyValue) bool {
+func within(minLength, maxLength int) func(t *testing.T, value *resource.PropertyValue) bool {
+	return func(_ *testing.T, actual *resource.PropertyValue) bool {
 		l := len(actual.V.(string))
-		return min <= l && l <= max
+		return minLength <= l && l <= maxLength
 	}
 }
 

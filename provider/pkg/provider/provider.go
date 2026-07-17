@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// nolint: gosec
+//nolint:gosec,goconst // Repeated domain vocabulary is clearer inline; credentials are handled by provider config.
 package provider
 
 import (
@@ -74,7 +74,7 @@ import (
 )
 
 // The APN 1.1 AWS Marketplace identifier to should be used in the User-Agent header.
-var PulumiAWSMarketplaceCode string = "c7qiae2l6usvzoynupds6v7hf"
+var PulumiAWSMarketplaceCode = "c7qiae2l6usvzoynupds6v7hf"
 
 type cancellationContext struct {
 	context context.Context
@@ -162,7 +162,7 @@ func LoadMetadata(metadataBytes []byte) (*metadata.CloudAPIMetadata, error) {
 	return &resourceMap, nil
 }
 
-func (p *cfnProvider) Attach(context context.Context, req *pulumirpc.PluginAttach) (*emptypb.Empty, error) {
+func (p *cfnProvider) Attach(_ context.Context, req *pulumirpc.PluginAttach) (*emptypb.Empty, error) {
 	host, err := provider.NewHostClient(req.GetAddress())
 	if err != nil {
 		return nil, err
@@ -171,7 +171,10 @@ func (p *cfnProvider) Attach(context context.Context, req *pulumirpc.PluginAttac
 	return &pbempty.Empty{}, nil
 }
 
-func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaRequest) (*pulumirpc.GetSchemaResponse, error) {
+func (p *cfnProvider) GetSchema(
+	_ context.Context,
+	req *pulumirpc.GetSchemaRequest,
+) (*pulumirpc.GetSchemaResponse, error) {
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
@@ -184,7 +187,7 @@ func (p *cfnProvider) GetSchema(ctx context.Context, req *pulumirpc.GetSchemaReq
 }
 
 // CheckConfig validates the configuration for this provider.
-func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
+func (p *cfnProvider) CheckConfig(_ context.Context, req *pulumirpc.CheckRequest) (*pulumirpc.CheckResponse, error) {
 	news, err := plugin.UnmarshalProperties(req.GetNews(), plugin.MarshalOptions{
 		Label:        fmt.Sprintf("%s.CheckConfig.news", p.name),
 		KeepUnknowns: true,
@@ -211,28 +214,28 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 		switch k {
 		case "ignoreTags":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110")})
+				Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/110"})
 		case "insecure":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/111")})
+				Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/111"})
 		case "skipGetEc2Platforms":
 			if !truthyValue(k, news) {
 				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/115")})
+					Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/115"})
 			}
 		case "skipMetadataApiCheck":
 			if !truthyValue(k, news) {
 				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/116")})
+					Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/116"})
 			}
 		case "skipRegionValidation":
 			if !truthyValue(k, news) {
 				failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-					Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/117")})
+					Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/117"})
 			}
 		case "skipRequestingAccountId":
 			failures = append(failures, &pulumirpc.CheckFailure{Property: string(k),
-				Reason: fmt.Sprintf("not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/118")})
+				Reason: "not yet implemented. See https://github.com/pulumi/pulumi-aws-native/issues/118"})
 		}
 	}
 	if failures != nil {
@@ -243,7 +246,7 @@ func (p *cfnProvider) CheckConfig(ctx context.Context, req *pulumirpc.CheckReque
 }
 
 // DiffConfig diffs the configuration for this provider.
-func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
+func (p *cfnProvider) DiffConfig(_ context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.DiffConfig(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -281,8 +284,11 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
-func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureRequest) (*pulumirpc.ConfigureResponse, error) {
-	vars := req.GetVariables()
+func (p *cfnProvider) Configure(
+	ctx context.Context,
+	req *pulumirpc.ConfigureRequest,
+) (*pulumirpc.ConfigureResponse, error) {
+	vars := req.GetVariables() //nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 
 	// loadOptions are used to override default config loading behavior.
 	var loadOptions []func(*config.LoadOptions) error
@@ -294,6 +300,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	} else {
 		return nil, errors.New("missing required configuration key \"aws-native:region\":" +
 			"The region where AWS operations will take place. Examples are eu-east-1, eu-west-2, etc.\n" +
+			//nolint:lll // Preserve the exact fixture or documentation text.
 			"\tSet a value using the command `pulumi config set aws-native:region <value>`, or by setting the environment variables `AWS_REGION` or `AWS_DEFAULT_REGION`.")
 	}
 
@@ -304,7 +311,11 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		glog.V(4).Infof(`using AWS profile: "default"`)
 	}
 
-	if sharedCredentialsFilePath, ok := varsOrEnv(vars, "aws-native:config:sharedCredentialsFile", "AWS_SHARED_CREDENTIALS_FILE"); ok {
+	if sharedCredentialsFilePath, ok := varsOrEnv(
+		vars,
+		"aws-native:config:sharedCredentialsFile",
+		"AWS_SHARED_CREDENTIALS_FILE",
+	); ok {
 		glog.V(4).Infof("using AWS shared credentials file at path: %q", sharedCredentialsFilePath)
 		normalizedPath, err := normalizeFilePath(sharedCredentialsFilePath)
 		if err != nil {
@@ -347,12 +358,17 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 			return nil, fmt.Errorf("failed to unmarshal 'endpoints' config: %w", err)
 		}
 		glog.V(4).Infof("using AWS endpoints: %v", endpoints)
-		resolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
-			if endpoint, ok := endpoints[strings.ToLower(service)]; ok {
-				return aws.Endpoint{URL: endpoint}, nil
-			}
-			return aws.Endpoint{}, &aws.EndpointNotFoundError{}
-		})
+		// The provider supports a cross-service endpoint map, which the replacement service-specific API cannot model.
+		//nolint:staticcheck // Keep the deprecated global resolver until that configuration contract can be migrated.
+		resolver := aws.EndpointResolverWithOptionsFunc(
+			func(service, _ string, _ ...interface{}) (aws.Endpoint, error) {
+				if endpoint, ok := endpoints[strings.ToLower(service)]; ok {
+					return aws.Endpoint{URL: endpoint}, nil
+				}
+				return aws.Endpoint{}, &aws.EndpointNotFoundError{}
+			},
+		)
+		//nolint:staticcheck // See resolver comment above; this preserves the cross-service endpoint contract.
 		loadOptions = append(loadOptions, config.WithEndpointResolverWithOptions(resolver))
 	}
 
@@ -479,7 +495,11 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	skipCredentialsValidation := false
-	if skipCredentialsValidationVar, ok := varsOrEnv(vars, "aws-native:config:skipCredentialsValidation", "AWS_SKIP_CREDENTIALS_VALIDATION"); ok {
+	if skipCredentialsValidationVar, ok := varsOrEnv(
+		vars,
+		"aws-native:config:skipCredentialsValidation",
+		"AWS_SKIP_CREDENTIALS_VALIDATION",
+	); ok {
 		if skipCredentialsValidationVar == "true" {
 			skipCredentialsValidation = true
 		}
@@ -655,7 +675,7 @@ func (p *cfnProvider) Invoke(ctx context.Context,
 	return &pulumirpc.InvokeResponse{Return: res}, nil
 }
 
-func (p *cfnProvider) getInvokeFunc(ctx context.Context, tok string) (invokeFunc, bool) {
+func (p *cfnProvider) getInvokeFunc(_ context.Context, tok string) (invokeFunc, bool) {
 	cf, ok := p.resourceMap.Functions[tok]
 	if !ok {
 		return nil, false
@@ -823,7 +843,7 @@ func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutoNamingCo
 	return engineAutonaming
 }
 
-func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
+func (p *cfnProvider) Diff(_ context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
 	glog.V(9).Infof("%s executing", label)
@@ -907,12 +927,24 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			if !hasSpec {
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
-			outputs = pOutputs.PreviewOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly, urn.Type().Name(), nil)
+			outputs = pOutputs.PreviewOutputs(
+				inputs,
+				p.resourceMap.Types,
+				spec.Outputs,
+				spec.ReadOnly,
+				urn.Type().Name(),
+				nil,
+			)
 		}
 
 		previewState, err := plugin.MarshalProperties(
 			outputs,
-			plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+			plugin.MarshalOptions{
+				Label:        fmt.Sprintf("%s.checkpoint", label),
+				KeepSecrets:  true,
+				KeepUnknowns: true,
+				SkipNulls:    true,
+			},
 		)
 		if err != nil {
 			return nil, err
@@ -953,7 +985,8 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		if err != nil {
 			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
 		}
-		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent
+		// from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
 			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
 			classifier := resources.NewPathClassifier(&spec, p.resourceMap.Types)
@@ -987,7 +1020,12 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Store both outputs and inputs into the state.
 	checkpoint, err := plugin.MarshalProperties(
 		outputs,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.checkpoint", label),
+			KeepSecrets:  true,
+			KeepUnknowns: true,
+			SkipNulls:    true,
+		},
 	)
 	if err != nil {
 		return nil, err
@@ -1075,7 +1113,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
 		newState,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.checkpoint", label),
+			KeepSecrets:  true,
+			KeepUnknowns: true,
+			SkipNulls:    true,
+		},
 	)
 	if err != nil {
 		return nil, err
@@ -1084,7 +1127,13 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 	// Serialize and return the calculated inputs.
 	inputsRecord, err := plugin.MarshalProperties(
 		newInputs,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.inputs", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true})
+		plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.inputs", label),
+			KeepSecrets:  true,
+			KeepUnknowns: true,
+			SkipNulls:    true,
+		},
+	)
 	if err != nil {
 		return nil, err
 	}
@@ -1135,12 +1184,24 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
 			resourceTypeName := urn.Type().Name()
-			outputs = pOutputs.PreviewOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly, resourceTypeName, &oldState)
+			outputs = pOutputs.PreviewOutputs(
+				newInputs,
+				p.resourceMap.Types,
+				spec.Outputs,
+				spec.ReadOnly,
+				resourceTypeName,
+				&oldState,
+			)
 		}
 
 		previewState, err := plugin.MarshalProperties(
 			outputs,
-			plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+			plugin.MarshalOptions{
+				Label:        fmt.Sprintf("%s.checkpoint", label),
+				KeepSecrets:  true,
+				KeepUnknowns: true,
+				SkipNulls:    true,
+			},
 		)
 		if err != nil {
 			return nil, err
@@ -1178,7 +1239,8 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 			return nil, fmt.Errorf("failed to convert value for %s: %w", resourceToken, err)
 		}
 
-		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
+		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent
+		// from the inputs.
 		if len(spec.WriteOnly) > 0 {
 			outputProps := resource.NewPropertyMapFromMap(rawOutputs)
 			classifier.AddWriteOnlyOutputFallbacks(outputProps, newInputs)
@@ -1189,7 +1251,12 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	// Store both outputs and inputs into the state and return RPC checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
 		outputs,
-		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+		plugin.MarshalOptions{
+			Label:        fmt.Sprintf("%s.checkpoint", label),
+			KeepSecrets:  true,
+			KeepUnknowns: true,
+			SkipNulls:    true,
+		},
 	)
 	if err != nil {
 		return nil, err
@@ -1220,6 +1287,9 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.state", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
 		})
+		if err != nil {
+			return nil, errors.Wrap(err, "failed to parse state for delete")
+		}
 
 		timeout := time.Duration(req.GetTimeout()) * time.Second
 		err = customResource.Delete(ctx, urn, id, oldInputs, state, timeout)
@@ -1531,7 +1601,10 @@ func effectiveCloudControlListMaxResults(pageSize, limit int64) *int32 {
 }
 
 // Construct creates a new component resource.
-func (p *cfnProvider) Construct(_ context.Context, _ *pulumirpc.ConstructRequest) (*pulumirpc.ConstructResponse, error) {
+func (p *cfnProvider) Construct(
+	_ context.Context,
+	_ *pulumirpc.ConstructRequest,
+) (*pulumirpc.ConstructResponse, error) {
 	panic("Construct not implemented")
 }
 

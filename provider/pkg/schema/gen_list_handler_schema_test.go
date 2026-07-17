@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep schema fixtures readable.
 package schema
 
 import (

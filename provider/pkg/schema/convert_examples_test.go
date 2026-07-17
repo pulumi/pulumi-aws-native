@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package schema
 
 import (
@@ -7,9 +8,10 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestDynamoKeySchemaConversion(t *testing.T) {

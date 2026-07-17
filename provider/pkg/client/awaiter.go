@@ -13,6 +13,8 @@ import (
 	"github.com/pkg/errors"
 )
 
+const operationStatusFailed = "FAILED"
+
 // CloudControlAwaiter provides a mechanism to poll long-running Cloud Control operations until they resolve
 // to completion or failure.
 type CloudControlAwaiter interface {
@@ -32,7 +34,10 @@ type ccAwaiterImpl struct {
 	client CloudControlApiClient
 }
 
-func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+func (a *ccAwaiterImpl) WaitForResourceOpCompletion(
+	ctx context.Context,
+	pi *types.ProgressEvent,
+) (*types.ProgressEvent, error) {
 	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
 	i := 0
 	for {
@@ -48,7 +53,7 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 			err        error
 			hookEvents []types.HookProgressEvent
 		)
-		if status == "FAILED" && pi.RequestToken != nil {
+		if status == operationStatusFailed && pi.RequestToken != nil {
 			pi, hookEvents, err = a.client.GetResourceRequestStatusWithHooks(ctx, *pi.RequestToken)
 			if err != nil {
 				return nil, errors.Wrap(err, "getting resource request status")
@@ -91,7 +96,7 @@ func (a *ccAwaiterImpl) WaitForResourceOpCompletion(ctx context.Context, pi *typ
 		if finished || err != nil {
 			return pi, err
 		}
-		i += 1
+		i++
 	}
 }
 
@@ -104,7 +109,7 @@ func hasFinishedWithHooks(pi *types.ProgressEvent, hookEvents []types.HookProgre
 	switch status {
 	case "SUCCESS":
 		return true, nil
-	case "FAILED":
+	case operationStatusFailed:
 		statusMessage := ""
 		if pi.StatusMessage != nil {
 			statusMessage = *pi.StatusMessage
@@ -118,7 +123,7 @@ func hasFinishedWithHooks(pi *types.ProgressEvent, hookEvents []types.HookProgre
 				hookStatus := aws.ToString(hookEvent.HookStatus)
 				// Check for failed hook statuses
 				if hookStatus == "HOOK_COMPLETE_FAILED" || hookStatus == "HOOK_FAILED" {
-					hookErr.WithHookEvent(hookEvent)
+					hookErr = hookErr.WithHookEvent(hookEvent)
 				}
 			}
 		}

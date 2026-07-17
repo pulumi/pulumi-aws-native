@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package provider
 
 import (
@@ -37,7 +38,13 @@ type listTestStream struct {
 	responses    []*pulumirpc.ListResponse
 }
 
-const testBucketA = "bucket-a"
+const (
+	testBucketA = "bucket-a"
+
+	// Resource type tokens, not credentials.
+	classicAWSBucketToken          = "aws:s3/bucket:Bucket"          //nolint:gosec
+	classicAWSMissingResourceToken = "aws:missing/resource:Resource" //nolint:gosec
+)
 
 func (s *listTestStream) Send(response *pulumirpc.ListResponse) error {
 	if s.sendErr != nil && (s.sendErrAfter == 0 || len(s.responses) >= s.sendErrAfter) {
@@ -133,7 +140,7 @@ func TestListRejectsNonListableResource(t *testing.T) {
 
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType: "AWS::S3::Bucket",
 			},
 		}},
@@ -141,7 +148,7 @@ func TestListRejectsNonListableResource(t *testing.T) {
 		ccc:             client.NewMockCloudControlClient(ctrl),
 	}
 
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, &listTestStream{})
 
 	require.Error(t, err)
 	assert.Contains(t, err.Error(), "does not support List")
@@ -157,7 +164,7 @@ func TestListRejectsUnknownResource(t *testing.T) {
 		ccc:             client.NewMockCloudControlClient(ctrl),
 	}
 
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:missing/resource:Resource"}, &listTestStream{})
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSMissingResourceToken}, &listTestStream{})
 
 	require.Error(t, err)
 	assert.Contains(t, err.Error(), "not found")
@@ -227,7 +234,7 @@ func TestListRejectsQueryWhenListInputsAreEmpty(t *testing.T) {
 
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:            "AWS::S3::Bucket",
 				HasListHandler:    true,
 				ListHandlerSchema: &metadata.ListHandlerSchema{},
@@ -238,7 +245,7 @@ func TestListRejectsQueryWhenListInputsAreEmpty(t *testing.T) {
 	}
 
 	err := provider.List(&pulumirpc.ListRequest{
-		Token: "aws:s3/bucket:Bucket",
+		Token: classicAWSBucketToken,
 		Query: listQueryStruct(t, resource.PropertyMap{
 			"name": resource.NewStringProperty(testBucketA),
 		}),
@@ -321,7 +328,7 @@ func TestListEmptyQueryAndContinuationUsesProviderToken(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -352,7 +359,7 @@ func TestListEmptyQueryAndContinuationUsesProviderToken(t *testing.T) {
 
 	stream := &listTestStream{}
 	err := provider.List(&pulumirpc.ListRequest{
-		Token:    "aws:s3/bucket:Bucket",
+		Token:    classicAWSBucketToken,
 		PageSize: 75,
 		Limit:    50,
 	}, stream)
@@ -367,7 +374,7 @@ func TestListEmptyQueryAndContinuationUsesProviderToken(t *testing.T) {
 
 	continuationStream := &listTestStream{}
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		PageSize:          75,
 		Limit:             50,
 		ContinuationToken: providerContinuation,
@@ -385,7 +392,7 @@ func TestListStoresInitializedSessionBeforeSendingContinuation(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -416,7 +423,7 @@ func TestListStoresInitializedSessionBeforeSendingContinuation(t *testing.T) {
 		},
 	}
 
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, stream)
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, stream)
 
 	require.NoError(t, err)
 	require.Len(t, stream.responses, 2)
@@ -444,7 +451,7 @@ func TestListMaxResults(t *testing.T) {
 			mockCCC := client.NewMockCloudControlClient(ctrl)
 			provider := &cfnProvider{
 				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-					"aws:s3/bucket:Bucket": {
+					classicAWSBucketToken: {
 						CfType:         "AWS::S3::Bucket",
 						HasListHandler: true,
 					},
@@ -458,7 +465,7 @@ func TestListMaxResults(t *testing.T) {
 				Return(nil, nil, nil)
 
 			err := provider.List(&pulumirpc.ListRequest{
-				Token:    "aws:s3/bucket:Bucket",
+				Token:    classicAWSBucketToken,
 				PageSize: tt.pageSize,
 				Limit:    tt.limit,
 			}, &listTestStream{})
@@ -514,7 +521,7 @@ func TestListContinuationStopsAtLimit(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -545,7 +552,7 @@ func TestListContinuationStopsAtLimit(t *testing.T) {
 
 	stream := &listTestStream{}
 	err := provider.List(&pulumirpc.ListRequest{
-		Token:    "aws:s3/bucket:Bucket",
+		Token:    classicAWSBucketToken,
 		PageSize: 20,
 		Limit:    5,
 	}, stream)
@@ -557,7 +564,7 @@ func TestListContinuationStopsAtLimit(t *testing.T) {
 
 	continuationStream := &listTestStream{}
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		PageSize:          20,
 		Limit:             5,
 		ContinuationToken: providerContinuation,
@@ -568,7 +575,7 @@ func TestListContinuationStopsAtLimit(t *testing.T) {
 	assert.Equal(t, "bucket-5", continuationStream.responses[0].GetResult().GetId())
 
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		PageSize:          20,
 		Limit:             5,
 		ContinuationToken: providerContinuation,
@@ -584,7 +591,7 @@ func TestListRejectsInvalidContinuation(t *testing.T) {
 
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -594,7 +601,7 @@ func TestListRejectsInvalidContinuation(t *testing.T) {
 	}
 
 	err := provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		ContinuationToken: "missing",
 	}, &listTestStream{})
 
@@ -612,7 +619,7 @@ func TestListRejectsExpiredAndInUseContinuation(t *testing.T) {
 			name: "expired",
 			session: &listSession{
 				cloudControlNextToken: "next",
-				resourceToken:         "aws:s3/bucket:Bucket",
+				resourceToken:         classicAWSBucketToken,
 				lastAccess:            time.Now().Add(-2 * defaultListSessionTTL),
 			},
 			wantError: "invalid or expired continuation_token",
@@ -621,7 +628,7 @@ func TestListRejectsExpiredAndInUseContinuation(t *testing.T) {
 			name: "in use",
 			session: &listSession{
 				cloudControlNextToken: "next",
-				resourceToken:         "aws:s3/bucket:Bucket",
+				resourceToken:         classicAWSBucketToken,
 				lastAccess:            time.Now(),
 				inUse:                 true,
 			},
@@ -636,7 +643,7 @@ func TestListRejectsExpiredAndInUseContinuation(t *testing.T) {
 
 			provider := &cfnProvider{
 				resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-					"aws:s3/bucket:Bucket": {
+					classicAWSBucketToken: {
 						CfType:         "AWS::S3::Bucket",
 						HasListHandler: true,
 					},
@@ -648,7 +655,7 @@ func TestListRejectsExpiredAndInUseContinuation(t *testing.T) {
 			provider.listSessions.sessions["provider-token"] = tt.session
 
 			err := provider.List(&pulumirpc.ListRequest{
-				Token:             "aws:s3/bucket:Bucket",
+				Token:             classicAWSBucketToken,
 				ContinuationToken: "provider-token",
 			}, &listTestStream{})
 
@@ -668,6 +675,7 @@ func TestListRejectsContinuationRequestChanges(t *testing.T) {
 	}{
 		{
 			name: "changed token",
+			//nolint:gosec // The request contains a resource type token, not a credential.
 			req: &pulumirpc.ListRequest{
 				Token:             "aws:logs/logGroup:LogGroup",
 				Limit:             5,
@@ -675,7 +683,7 @@ func TestListRejectsContinuationRequestChanges(t *testing.T) {
 			},
 			session: &listSession{
 				cloudControlNextToken: "next",
-				resourceToken:         "aws:s3/bucket:Bucket",
+				resourceToken:         classicAWSBucketToken,
 				limit:                 5,
 			},
 			wantError: "different resource type",
@@ -683,13 +691,13 @@ func TestListRejectsContinuationRequestChanges(t *testing.T) {
 		{
 			name: "changed limit",
 			req: &pulumirpc.ListRequest{
-				Token:             "aws:s3/bucket:Bucket",
+				Token:             classicAWSBucketToken,
 				Limit:             6,
 				ContinuationToken: "provider-token",
 			},
 			session: &listSession{
 				cloudControlNextToken: "next",
-				resourceToken:         "aws:s3/bucket:Bucket",
+				resourceToken:         classicAWSBucketToken,
 				limit:                 5,
 			},
 			wantError: "different limit",
@@ -727,7 +735,7 @@ func TestListRejectsContinuationRequestChanges(t *testing.T) {
 			defer ctrl.Finish()
 
 			resourcesByToken := map[string]metadata.CloudAPIResource{
-				"aws:s3/bucket:Bucket": {
+				classicAWSBucketToken: {
 					CfType:         "AWS::S3::Bucket",
 					HasListHandler: true,
 				},
@@ -763,7 +771,7 @@ func TestListBuffersWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -780,7 +788,7 @@ func TestListBuffersWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 
 	stream := &listTestStream{}
 	err := provider.List(&pulumirpc.ListRequest{
-		Token:    "aws:s3/bucket:Bucket",
+		Token:    classicAWSBucketToken,
 		PageSize: 1,
 	}, stream)
 
@@ -792,7 +800,7 @@ func TestListBuffersWhenCloudControlReturnsMoreThanRequested(t *testing.T) {
 
 	continuationStream := &listTestStream{}
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		PageSize:          1,
 		ContinuationToken: providerContinuation,
 	}, continuationStream)
@@ -809,7 +817,7 @@ func TestListWrapsCloudControlErrorsWithTokenContext(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -823,10 +831,10 @@ func TestListWrapsCloudControlErrorsWithTokenContext(t *testing.T) {
 		List(gomock.Any(), "AWS::S3::Bucket", client.ListRequest{}).
 		Return(nil, nil, expectedErr)
 
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, &listTestStream{})
 
 	require.ErrorIs(t, err, expectedErr)
-	assert.Contains(t, err.Error(), "aws:s3/bucket:Bucket")
+	assert.Contains(t, err.Error(), classicAWSBucketToken)
 	assert.Contains(t, err.Error(), "AWS::S3::Bucket")
 }
 
@@ -839,7 +847,7 @@ func TestListPropagatesProviderCancellation(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -868,7 +876,7 @@ func TestListPropagatesProviderCancellation(t *testing.T) {
 			return nil, nil, ctx.Err()
 		})
 
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{})
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, &listTestStream{})
 
 	require.ErrorIs(t, err, context.Canceled)
 }
@@ -880,7 +888,7 @@ func TestListReturnsStreamSendError(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -895,7 +903,7 @@ func TestListReturnsStreamSendError(t *testing.T) {
 		Return([]string{id}, nil, nil)
 
 	sendErr := errors.New("send failed")
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, &listTestStream{sendErr: sendErr})
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, &listTestStream{sendErr: sendErr})
 
 	require.ErrorIs(t, err, sendErr)
 }
@@ -907,7 +915,7 @@ func TestListContinuationSendErrorKeepsOldTokenUsable(t *testing.T) {
 	mockCCC := client.NewMockCloudControlClient(ctrl)
 	provider := &cfnProvider{
 		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
-			"aws:s3/bucket:Bucket": {
+			classicAWSBucketToken: {
 				CfType:         "AWS::S3::Bucket",
 				HasListHandler: true,
 			},
@@ -944,7 +952,7 @@ func TestListContinuationSendErrorKeepsOldTokenUsable(t *testing.T) {
 	)
 
 	stream := &listTestStream{}
-	err := provider.List(&pulumirpc.ListRequest{Token: "aws:s3/bucket:Bucket"}, stream)
+	err := provider.List(&pulumirpc.ListRequest{Token: classicAWSBucketToken}, stream)
 
 	require.NoError(t, err)
 	require.Len(t, stream.responses, 2)
@@ -952,7 +960,7 @@ func TestListContinuationSendErrorKeepsOldTokenUsable(t *testing.T) {
 
 	sendErr := errors.New("send failed")
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		ContinuationToken: providerContinuation,
 	}, &listTestStream{sendErr: sendErr, sendErrAfter: 1})
 
@@ -960,7 +968,7 @@ func TestListContinuationSendErrorKeepsOldTokenUsable(t *testing.T) {
 
 	retryStream := &listTestStream{}
 	err = provider.List(&pulumirpc.ListRequest{
-		Token:             "aws:s3/bucket:Bucket",
+		Token:             classicAWSBucketToken,
 		ContinuationToken: providerContinuation,
 	}, retryStream)
 
@@ -1329,10 +1337,13 @@ func TestCreatePreview(t *testing.T) {
 
 	t.Run("Outputs are computed", func(t *testing.T) {
 		req := &pulumirpc.CreateRequest{
-			Urn:        string(urn),
-			Preview:    true,
-			Properties: mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
-			Timeout:    float64((5 * time.Minute).Seconds()),
+			Urn:     string(urn),
+			Preview: true,
+			Properties: mustMarshalProperties(
+				t,
+				resource.PropertyMap{"bucketName": resource.NewStringProperty("name")},
+			),
+			Timeout: float64((5 * time.Minute).Seconds()),
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws-native:s3:Bucket", "name"))
 
@@ -1349,10 +1360,13 @@ func TestCreatePreview(t *testing.T) {
 
 	t.Run("Outputs are computed for custom resource", func(t *testing.T) {
 		req := &pulumirpc.CreateRequest{
-			Urn:        string(urn),
-			Preview:    true,
-			Properties: mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
-			Timeout:    float64((5 * time.Minute).Seconds()),
+			Urn:     string(urn),
+			Preview: true,
+			Properties: mustMarshalProperties(
+				t,
+				resource.PropertyMap{"bucketName": resource.NewStringProperty("name")},
+			),
+			Timeout: float64((5 * time.Minute).Seconds()),
 		}
 		req.Urn = string(resource.NewURN("stack", "project", "parent", "custom:resource", "name"))
 
@@ -1497,10 +1511,10 @@ func TestCreate(t *testing.T) {
 	})
 
 	t.Run("StandardResource", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			stringPtr("bucket-id"), map[string]interface{}{"foo": "bar"}, nil,
@@ -1579,10 +1593,10 @@ func TestCreate(t *testing.T) {
 	})
 
 	t.Run("StandardResource/Error", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
 			nil, nil, assert.AnError,
@@ -1594,10 +1608,10 @@ func TestCreate(t *testing.T) {
 	})
 
 	t.Run("PartialError", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 		req.Properties = mustMarshalProperties(t, resource.PropertyMap{"my": resource.NewStringProperty("input value")})
 
 		mockCCC.EXPECT().Create(ctx, gomock.Any(), "AWS::S3::Bucket", gomock.Any()).Return(
@@ -1698,14 +1712,14 @@ func TestRead(t *testing.T) {
 
 	// In the import case there is no `__inputs` field in the old state.
 	t.Run("StandardResource/Import", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName":        {TypeSpec: schema.TypeSpec{Type: "string"}},
 				"objectLockEnabled": {TypeSpec: schema.TypeSpec{Type: "boolean"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Read(ctx, "AWS::S3::Bucket", "resource-id").Return(
 			map[string]interface{}{
@@ -1780,10 +1794,10 @@ func TestRead(t *testing.T) {
 	})
 
 	t.Run("StandardResource/Error", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Read(ctx, "AWS::S3::Bucket", "resource-id").Return(
 			nil, false, assert.AnError,
@@ -1795,14 +1809,14 @@ func TestRead(t *testing.T) {
 	})
 
 	t.Run("StandardResource/NoDiff", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName":        {TypeSpec: schema.TypeSpec{Type: "string"}},
 				"objectLockEnabled": {TypeSpec: schema.TypeSpec{Type: "boolean"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		inputs := resource.PropertyMap{
 			"bucketName":        resource.NewStringProperty("my-bucket"),
@@ -1839,14 +1853,14 @@ func TestRead(t *testing.T) {
 	})
 
 	t.Run("StandardResource/Diff", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName":        {TypeSpec: schema.TypeSpec{Type: "string"}},
 				"objectLockEnabled": {TypeSpec: schema.TypeSpec{Type: "boolean"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		inputs := resource.PropertyMap{
 			"bucketName":        resource.NewStringProperty("my-bucket"),
@@ -1917,9 +1931,11 @@ func TestUpdate(t *testing.T) {
 	}
 
 	t.Run("CustomResource", func(t *testing.T) {
-		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).Return(
-			resource.PropertyMap{"foo": resource.NewStringProperty("bar")}, nil,
-		)
+		mockCustomResource.EXPECT().
+			Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).
+			Return(
+				resource.PropertyMap{"foo": resource.NewStringProperty("bar")}, nil,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		assert.NoError(t, err)
@@ -1930,9 +1946,11 @@ func TestUpdate(t *testing.T) {
 	})
 
 	t.Run("CustomResource/Error", func(t *testing.T) {
-		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).Return(
-			nil, assert.AnError,
-		)
+		mockCustomResource.EXPECT().
+			Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).
+			Return(
+				nil, assert.AnError,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		assert.Error(t, err)
@@ -1940,14 +1958,14 @@ func TestUpdate(t *testing.T) {
 	})
 
 	t.Run("StandardResource", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName":        {TypeSpec: schema.TypeSpec{Type: "string"}},
 				"objectLockEnabled": {TypeSpec: schema.TypeSpec{Type: "boolean"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		inputs := resource.PropertyMap{
 			"bucketName":        resource.NewStringProperty("new-bucket"),
@@ -1965,16 +1983,18 @@ func TestUpdate(t *testing.T) {
 			"__inputs":          resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
-			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
-			{Operation: "replace", Path: "/ObjectLockEnabled", Value: false},
-		})).Return(
-			map[string]interface{}{
-				// Change the bucket name and object lock status according to the inputs
-				"bucketName":        resource.NewStringProperty("new-bucket"),
-				"objectLockEnabled": resource.NewBoolProperty(false),
-			}, nil,
-		)
+		mockCCC.EXPECT().
+			Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+				{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+				{Operation: "replace", Path: "/ObjectLockEnabled", Value: false},
+			})).
+			Return(
+				map[string]interface{}{
+					// Change the bucket name and object lock status according to the inputs
+					"bucketName":        resource.NewStringProperty("new-bucket"),
+					"objectLockEnabled": resource.NewBoolProperty(false),
+				}, nil,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		assert.NoError(t, err)
@@ -2053,7 +2073,7 @@ func TestUpdate(t *testing.T) {
 	})
 
 	t.Run("StandardResource/ActualBaselineRepairDrift", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
@@ -2062,7 +2082,7 @@ func TestUpdate(t *testing.T) {
 				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 		req.News = mustMarshalProperties(t, resource.PropertyMap{
 			"bucketName": resource.NewStringProperty("desired-bucket"),
 		})
@@ -2073,13 +2093,15 @@ func TestUpdate(t *testing.T) {
 			})),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
-			{Operation: "replace", Path: "/BucketName", Value: "desired-bucket"},
-		})).Return(
-			map[string]interface{}{
-				"bucketName": "desired-bucket",
-			}, nil,
-		)
+		mockCCC.EXPECT().
+			Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+				{Operation: "replace", Path: "/BucketName", Value: "desired-bucket"},
+			})).
+			Return(
+				map[string]interface{}{
+					"bucketName": "desired-bucket",
+				}, nil,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		require.NoError(t, err)
@@ -2112,14 +2134,16 @@ func TestUpdate(t *testing.T) {
 			})),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
-			{Operation: "replace", Path: "/Engine", Value: "mysql"},
-			{Operation: "add", Path: "/Password", Value: "secret"},
-		})).Return(
-			map[string]interface{}{
-				"engine": "mysql",
-			}, nil,
-		)
+		mockCCC.EXPECT().
+			Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+				{Operation: "replace", Path: "/Engine", Value: "mysql"},
+				{Operation: "add", Path: "/Password", Value: "secret"},
+			})).
+			Return(
+				map[string]interface{}{
+					"engine": "mysql",
+				}, nil,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		require.NoError(t, err)
@@ -2154,13 +2178,15 @@ func TestUpdate(t *testing.T) {
 			})),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
-			{Operation: "replace", Path: "/Engine", Value: "mysql"},
-		})).Return(
-			map[string]interface{}{
-				"engine": "mysql",
-			}, nil,
-		)
+		mockCCC.EXPECT().
+			Update(ctx, gomock.Any(), "AWS::RDS::DBInstance", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+				{Operation: "replace", Path: "/Engine", Value: "mysql"},
+			})).
+			Return(
+				map[string]interface{}{
+					"engine": "mysql",
+				}, nil,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		require.NoError(t, err)
@@ -2170,26 +2196,32 @@ func TestUpdate(t *testing.T) {
 	})
 
 	t.Run("StandardResource/Error", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 			Inputs: map[string]schema.PropertySpec{
 				"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
 			},
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 		req.News = mustMarshalProperties(t, resource.PropertyMap{
 			"bucketName": resource.NewStringProperty("new-bucket"),
 		})
 		req.Olds = mustMarshalProperties(t, resource.PropertyMap{
 			"bucketName": resource.NewStringProperty("old-bucket"),
-			"__inputs":   resource.MakeSecret(resource.NewObjectProperty(resource.PropertyMap{"bucketName": resource.NewStringProperty("old-bucket")})),
+			"__inputs": resource.MakeSecret(
+				resource.NewObjectProperty(
+					resource.PropertyMap{"bucketName": resource.NewStringProperty("old-bucket")},
+				),
+			),
 		})
 
-		mockCCC.EXPECT().Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
-			{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
-		})).Return(
-			nil, assert.AnError,
-		)
+		mockCCC.EXPECT().
+			Update(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id", jsonPatchEquals([]jsonpatch.JsonPatchOperation{
+				{Operation: "replace", Path: "/BucketName", Value: "new-bucket"},
+			})).
+			Return(
+				nil, assert.AnError,
+			)
 
 		resp, err := provider.Update(ctx, req)
 		assert.Error(t, err)
@@ -2468,9 +2500,11 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 				"Version": resource.NewStringProperty("2012-10-17"),
 				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"Effect":    resource.NewStringProperty("Allow"),
-						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
-						"Action":    resource.NewStringProperty("sts:AssumeRole"),
+						"Effect": resource.NewStringProperty("Allow"),
+						"Principal": resource.NewObjectProperty(
+							resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")},
+						),
+						"Action": resource.NewStringProperty("sts:AssumeRole"),
 					}),
 				}),
 			}),
@@ -2481,8 +2515,10 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 						"Version": resource.NewStringProperty("2012-10-17"),
 						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 							resource.NewObjectProperty(resource.PropertyMap{
-								"Effect":   resource.NewStringProperty("Allow"),
-								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Effect": resource.NewStringProperty("Allow"),
+								"Action": resource.NewArrayProperty(
+									[]resource.PropertyValue{resource.NewStringProperty("*")},
+								),
 								"Resource": resource.NewStringProperty("*"),
 							}),
 						}),
@@ -2997,24 +3033,28 @@ func TestDelete(t *testing.T) {
 	}
 
 	t.Run("CustomResource", func(t *testing.T) {
-		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
+		mockCustomResource.EXPECT().
+			Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).
+			Return(nil)
 
 		_, err := provider.Delete(ctx, req)
 		assert.NoError(t, err)
 	})
 
 	t.Run("CustomResource/Error", func(t *testing.T) {
-		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).Return(assert.AnError)
+		mockCustomResource.EXPECT().
+			Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).
+			Return(assert.AnError)
 
 		_, err := provider.Delete(ctx, req)
 		assert.Error(t, err)
 	})
 
 	t.Run("StandardResource", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Delete(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id").Return(nil)
 
@@ -3023,10 +3063,10 @@ func TestDelete(t *testing.T) {
 	})
 
 	t.Run("StandardResource/Error", func(t *testing.T) {
-		provider.resourceMap.Resources["aws:s3/bucket:Bucket"] = metadata.CloudAPIResource{
+		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",
 		}
-		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws:s3/bucket:Bucket", "name"))
+		req.Urn = string(resource.NewURN("stack", "project", "parent", classicAWSBucketToken, "name"))
 
 		mockCCC.EXPECT().Delete(ctx, gomock.Any(), "AWS::S3::Bucket", "resource-id").Return(assert.AnError)
 

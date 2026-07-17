@@ -3,8 +3,9 @@
 package schema
 
 import (
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 func GetInputsFromState(res *metadata.CloudAPIResource, state resource.PropertyMap) (resource.PropertyMap, error) {

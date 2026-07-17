@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 
-	"fmt"
 	metadata "github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 )
 
@@ -51,9 +51,9 @@ func reportOnRefAsPrimaryIdentifier(dbFile, schemaAbsPath string) error {
 			return err
 		}
 
-		if sr.RefReturns.CfRefBehavior.Property != "" {
+		if sr.RefReturns.Property != "" {
 			fmt.Printf("Strange resource: %s --> %q (pid=#%v)\n", refID,
-				sr.RefReturns.CfRefBehavior.Property,
+				sr.RefReturns.Property,
 				strings.Join(sch.PrimaryIdentifier, "|"))
 		} else {
 			fmt.Printf("Strange resource: %s --> %#v\n", refID, sr.RefReturns.CfRefBehavior)

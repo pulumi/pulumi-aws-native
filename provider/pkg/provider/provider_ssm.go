@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package provider
 
 import (
@@ -10,6 +11,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/ssm/types"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -31,7 +33,10 @@ func (p *cfnProvider) getSSMParameter(ctx context.Context, inputs resource.Prope
 	return out.Parameter, nil
 }
 
-func (p *cfnProvider) getSSMParameterString(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) getSSMParameterString(
+	ctx context.Context,
+	inputs resource.PropertyMap,
+) (resource.PropertyMap, error) {
 	param, err := p.getSSMParameter(ctx, inputs)
 	if err != nil {
 		return nil, err
@@ -44,7 +49,10 @@ func (p *cfnProvider) getSSMParameterString(ctx context.Context, inputs resource
 	}, nil
 }
 
-func (p *cfnProvider) getSSMParameterList(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func (p *cfnProvider) getSSMParameterList(
+	ctx context.Context,
+	inputs resource.PropertyMap,
+) (resource.PropertyMap, error) {
 	param, err := p.getSSMParameter(ctx, inputs)
 	if err != nil {
 		return nil, err

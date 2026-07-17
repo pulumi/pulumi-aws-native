@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package main
 
 import (
@@ -14,10 +15,7 @@ import (
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
+
 	"github.com/pulumi/pulumi-dotnet/pulumi-language-dotnet/v3/codegen"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/syntax"
@@ -25,6 +23,11 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/pcl"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/cf2pulumi"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	pschema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 )
 
 func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMetadata, languages []string) error {
@@ -70,7 +73,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 			ExampleDescription:       "Example",
 			LanguageToExampleProgram: example.LanguageToExampleProgram,
 		})
-		total += 1
+		total++
 	}
 	fmt.Printf("Number of examples: %v\n", total)
 
@@ -84,7 +87,13 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 	return nil
 }
 
-func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages []string, loader schema.Loader, bindOpts ...pcl.BindOption) (*resourceExample, error) {
+func generateExample(
+	yaml string,
+	metadata *metadata.CloudAPIMetadata,
+	languages []string,
+	loader schema.Loader,
+	bindOpts ...pcl.BindOption,
+) (*resourceExample, error) {
 	body, diagnostics, err := cf2pulumi.RenderText(yaml, metadata)
 	if err != nil {
 		return nil, errors.Wrapf(err, "rendering YAML")
@@ -233,7 +242,10 @@ func findExamples(fileName string) ([]string, error) {
 
 type programGenFn func(*pcl.Program) (map[string][]byte, hcl.Diagnostics, error)
 
-func recoverableProgramGen(program *pcl.Program, fn programGenFn) (files map[string][]byte, d hcl.Diagnostics, err error) {
+func recoverableProgramGen(
+	program *pcl.Program,
+	fn programGenFn,
+) (files map[string][]byte, d hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during generation: %v", r)

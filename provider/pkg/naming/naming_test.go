@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package naming
 
 import (

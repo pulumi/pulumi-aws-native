@@ -29,26 +29,40 @@ type Logger interface {
 	LogStatus(ctx context.Context, sev diag.Severity, urn resource.URN, msg string) error
 }
 
-// CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
+// CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted
+// away.
 // For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
 //
 //go:generate mockgen -package client -source client.go -destination mock_client.go CloudControlClient,Logger
 type CloudControlClient interface {
 	// Create creates a resource of the specified type with the desired state.
 	// It awaits the operation until completion and returns a map of output property values.
-	Create(ctx context.Context, urn resource.URN, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error)
+	Create(
+		ctx context.Context,
+		urn resource.URN,
+		typeName string,
+		desiredState map[string]any,
+	) (identifier *string, resourceState map[string]any, err error)
 
 	// Read returns the current state of the specified resource. It deserializes
 	// the response from the service into a map of untyped values.
 	// If the resource does not exist, no error is returned but the flag exists is set to false.
-	Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error)
+	Read(
+		ctx context.Context,
+		typeName, identifier string,
+	) (resourceState map[string]interface{}, exists bool, err error)
 
 	// List returns one CloudControl page of resource identifiers for a type.
 	List(ctx context.Context, typeName string, request ListRequest) ([]string, *string, error)
 
 	// Update updates a resource of the specified type with the specified changeset.
 	// It awaits the operation until completion and returns a map of output property values.
-	Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error)
+	Update(
+		ctx context.Context,
+		urn resource.URN,
+		typeName, identifier string,
+		patches []jsonpatch.JsonPatchOperation,
+	) (map[string]interface{}, error)
 
 	// Delete deletes a resource of the specified type with the given identifier.
 	// It awaits the operation until completion.
@@ -71,7 +85,12 @@ type clientImpl struct {
 	logger  Logger
 }
 
-func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string, retryer func() aws.Retryer, logger Logger) CloudControlClient {
+func NewCloudControlClient(
+	cctl *cloudcontrol.Client,
+	roleArn *string,
+	retryer func() aws.Retryer,
+	logger Logger,
+) CloudControlClient {
 	api := NewCloudControlApiClient(cctl, roleArn)
 	return &clientImpl{
 		api:     api,
@@ -81,7 +100,12 @@ func NewCloudControlClient(cctl *cloudcontrol.Client, roleArn *string, retryer f
 	}
 }
 
-func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName string, desiredState map[string]any) (identifier *string, resourceState map[string]any, err error) {
+func (c *clientImpl) Create(
+	ctx context.Context,
+	urn resource.URN,
+	typeName string,
+	desiredState map[string]any,
+) (identifier *string, resourceState map[string]any, err error) {
 	// Serialize inputs as a desired state JSON.
 	jsonBytes, err := json.Marshal(desiredState)
 	if err != nil {
@@ -134,7 +158,10 @@ func (c *clientImpl) Create(ctx context.Context, urn resource.URN, typeName stri
 	return pi.Identifier, resourceState, waitErr
 }
 
-func (c *clientImpl) Read(ctx context.Context, typeName, identifier string) (resourceState map[string]interface{}, exists bool, err error) {
+func (c *clientImpl) Read(
+	ctx context.Context,
+	typeName, identifier string,
+) (resourceState map[string]interface{}, exists bool, err error) {
 	resourceState, err = c.api.GetResource(ctx, typeName, identifier)
 	if err != nil {
 		var oe *smithy.OperationError
@@ -164,8 +191,14 @@ func (c *clientImpl) List(
 	descriptions, continuation, err := c.api.ListResources(
 		ctx, typeName, request.ResourceModel, request.NextToken, request.MaxResults)
 	if err != nil {
-		return nil, nil, fmt.Errorf("listing resources of type %s (resourceModel=%t, nextToken=%t, maxResults=%s): %w",
-			typeName, request.ResourceModel != nil, request.NextToken != nil, FormatListMaxResults(request.MaxResults), err)
+		return nil, nil, fmt.Errorf(
+			"listing resources of type %s (resourceModel=%t, nextToken=%t, maxResults=%s): %w",
+			typeName,
+			request.ResourceModel != nil,
+			request.NextToken != nil,
+			FormatListMaxResults(request.MaxResults),
+			err,
+		)
 	}
 	identifiers := make([]string, 0, len(descriptions))
 	for _, description := range descriptions {
@@ -186,7 +219,12 @@ func FormatListMaxResults(maxResults *int32) string {
 	return fmt.Sprintf("%d", *maxResults)
 }
 
-func (c *clientImpl) Update(ctx context.Context, urn resource.URN, typeName, identifier string, patches []jsonpatch.JsonPatchOperation) (map[string]interface{}, error) {
+func (c *clientImpl) Update(
+	ctx context.Context,
+	urn resource.URN,
+	typeName, identifier string,
+	patches []jsonpatch.JsonPatchOperation,
+) (map[string]interface{}, error) {
 	_, err := c.withRetries(ctx, urn, func() (*types.ProgressEvent, error) {
 		res, err := c.api.UpdateResource(ctx, typeName, identifier, patches)
 		if err != nil {

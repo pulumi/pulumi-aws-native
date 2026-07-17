@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package outputs
 
 import (
@@ -5,12 +6,13 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
-	rSchema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	rSchema "github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 )
 
 // PreviewOutputs calculates the outputs of a resource based on the inputs and the output
@@ -124,8 +126,10 @@ func populateStableOutputs(
 // e.g. sometimes the arn property does not contain the full resource type name
 // - `aws-native:sagemaker:ModelExplainabilityJobDefinition` has a property `jobDefinitionArn`
 // - `aws-native:securityhub:PolicyAssociation` has a property `associationIdentifier`
-//   - TODO[pulumi/aws-native#1892]: in some cases this property is the `primaryIdentifier`. Could we use that as another heuristic?
-//     a readonly property that is also a primary identifier? It doesn't catch all cases, but would catch more
+// - TODO[pulumi/aws-native#1892]: in some cases this property is the `primaryIdentifier`. Could we use that as another
+// heuristic?
+//
+//	a readonly property that is also a primary identifier? It doesn't catch all cases, but would catch more
 func isStableOutput(propName string, resourceTypeName tokens.TypeName) bool {
 	typeName := naming.ToSdkName(resourceTypeName.String())
 	stableOutputsNameOnly := []string{

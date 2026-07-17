@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCategorize(t *testing.T) {
@@ -10,55 +11,118 @@ func TestCategorize(t *testing.T) {
 		RefReturnsArn,
 		Categorize("\nThe Amazon Resource Name \\(ARN\\) of the certificate authority\\.\n\n"))
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the ARN of the analyzer created\\.\n\nFor more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html"))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the ARN of the analyzer created\\.\n\nFor more information about using the `Ref`function, see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		ShouldNotBeUsed,
-		Categorize("\nThis reference should not be used in CloudFormation templates\\. Instead, use `AWS::ACMPCA::Certificate.Arn` to identify a certificate, and use `AWS::ACMPCA::Certificate.CertificateAuthorityArn` to identify a certificate authority\\.\n\n"))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"\nThis reference should not be used in CloudFormation templates\\. Instead, use `AWS::ACMPCA::Certificate.Arn` to identify a certificate, and use `AWS::ACMPCA::Certificate.CertificateAuthorityArn` to identify a certificate authority\\.\n\n",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Arn of the Cost Category that is created by the template\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Arn of the Cost Category that is created by the template\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource ARN\\. For example:"))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource ARN\\. For example:",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsName,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the value of `DashboardName`\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the value of `DashboardName`\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsName,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the name of the resource\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the name of the resource\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsName,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the DB instance name\\."))
+		Categorize(
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the DB instance name\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the scheduling policy ARN, such as `arn:aws:batch:us-east-1:111122223333:scheduling-policy/HighPriority`\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the scheduling policy ARN, such as `arn:aws:batch:us-east-1:111122223333:scheduling-policy/HighPriority`\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsID,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the wireless device ID\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the wireless device ID\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsID,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns a generated ID, such as `us-east-2_zgaEXAMPLE`\\."))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns a generated ID, such as `us-east-2_zgaEXAMPLE`\\.",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Amazon Resource Name \\(ARN\\) of the endpoint configuration, such as `arn:aws:sagemaker:us-west-2:012345678901:notebook-instance-lifecycle-config/mylifecycleconfig`"))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Amazon Resource Name \\(ARN\\) of the endpoint configuration, such as `arn:aws:sagemaker:us-west-2:012345678901:notebook-instance-lifecycle-config/mylifecycleconfig`",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsName,
-		Categorize("When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the resource name"))
+		Categorize(
+			"When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the resource name",
+		),
+	)
 
-	assert.Equal(t,
+	assert.Equal(
+		t,
 		RefReturnsArn,
-		Categorize("When you pass the logical ID of an `AWS::RoboMaker::SimulationApplication` resource to the intrinsic `Ref` function, the function returns the Amazon Resource Name \\(ARN\\) of the simulation application, such as `arn:aws:robomaker:us-west-2:123456789012:simulation-application/MySimulationApplication/1546541201334`\\. "))
+		Categorize(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"When you pass the logical ID of an `AWS::RoboMaker::SimulationApplication` resource to the intrinsic `Ref` function, the function returns the Amazon Resource Name \\(ARN\\) of the simulation application, such as `arn:aws:robomaker:us-west-2:123456789012:simulation-application/MySimulationApplication/1546541201334`\\. ",
+		),
+	)
 }

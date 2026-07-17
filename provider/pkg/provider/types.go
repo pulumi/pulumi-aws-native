@@ -18,6 +18,8 @@ package provider
 // having the provider depend on the SDK.
 
 // The configuration for a Provider to assume a role.
+//
+//nolint:revive // The name must match the corresponding public SDK type.
 type ProviderAssumeRole struct {
 	// Number of seconds to restrict the assume role session duration.
 	DurationSeconds *int `json:"durationSeconds"`
@@ -33,6 +35,7 @@ type ProviderAssumeRole struct {
 	SessionName *string `json:"sessionName"`
 	// Map of assume role session tags.
 	Tags map[string]string `json:"tags"`
-	// A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
+	// A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive,
+	// the corresponding key and value passes to subsequent sessions in a role chain.
 	TransitiveTagKeys []string `json:"transitiveTagKeys"`
 }

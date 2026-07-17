@@ -15,8 +15,19 @@ PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
 VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-${PACK}/provider/pkg/version.Version=${VERSION_GENERIC}"
 
-CFN_SCHEMA_DIR  := aws-cloudformation-schema
-METADATA_DIR    := meta
+CFN_SCHEMA_DIR      := aws-cloudformation-schema
+METADATA_DIR        := meta
+PROVIDER_RESOURCE_DIR := provider/cmd/pulumi-resource-aws-native
+CF2PULUMI_DIR       := provider/cmd/cf2pulumi
+
+PROVIDER_EMBED_ARTIFACTS := \
+	$(PROVIDER_RESOURCE_DIR)/schema.json.gz \
+	$(PROVIDER_RESOURCE_DIR)/metadata.json.gz
+CF2PULUMI_EMBED_ARTIFACTS := \
+	$(CF2PULUMI_DIR)/schema.json.gz \
+	$(CF2PULUMI_DIR)/metadata.json.gz
+TEST_RUNTIME_ARTIFACTS := bin/schema.json.gz bin/metadata.json.gz
+LOCAL_ARTIFACTS := $(PROVIDER_EMBED_ARTIFACTS) $(CF2PULUMI_EMBED_ARTIFACTS) $(TEST_RUNTIME_ARTIFACTS)
 
 # Only use explicitly installed plugins - this is to avoid using any ambient plugins from the PATH
 export PULUMI_IGNORE_AMBIENT_PLUGINS = true
@@ -60,7 +71,20 @@ ensure:: init_submodules
 	cd sdk/go && GO111MODULE=on go mod tidy
 	cd examples && GO111MODULE=on go mod tidy
 
-prepare_local_workspace:: init_submodules
+$(PROVIDER_RESOURCE_DIR)/%.json.gz: $(PROVIDER_RESOURCE_DIR)/%.json
+	@tmp="$@.tmp"; trap 'rm -f "$$tmp"' EXIT; gzip -n -c "$<" > "$$tmp"; mv "$$tmp" "$@"
+
+$(CF2PULUMI_DIR)/%.json.gz: $(PROVIDER_RESOURCE_DIR)/%.json
+	@tmp="$@.tmp"; trap 'rm -f "$$tmp"' EXIT; gzip -n -c "$<" > "$$tmp"; mv "$$tmp" "$@"
+
+bin/%.json.gz: $(PROVIDER_RESOURCE_DIR)/%.json
+	@mkdir -p "$(@D)"
+	@tmp="$@.tmp"; trap 'rm -f "$$tmp"' EXIT; gzip -n -c "$<" > "$$tmp"; mv "$$tmp" "$@"
+
+prepare_local_artifacts:: $(LOCAL_ARTIFACTS)
+.PHONY: prepare_local_artifacts
+
+prepare_local_workspace:: init_submodules prepare_local_artifacts
 	@command -v mise >/dev/null 2>&1 || (echo "mise is required to install pinned toolchain versions. Install from https://mise.jdx.dev/" && exit 1)
 	mise install
 	cd provider && GO111MODULE=on go mod download
@@ -76,22 +100,30 @@ generate_schema:: docs
 codegen::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(CODEGEN))
 
-provider::
+provider:: $(PROVIDER_EMBED_ARTIFACTS)
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-install_provider::
+install_provider:: $(PROVIDER_EMBED_ARTIFACTS)
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-cf2pulumi::
+cf2pulumi:: $(CF2PULUMI_EMBED_ARTIFACTS)
 	(cd provider && go build -o $(WORKING_DIR)/bin/cf2pulumi $(VERSION_FLAGS) $(PROJECT)/provider/cmd/cf2pulumi)
 
-test_provider::
+test_provider:: $(LOCAL_ARTIFACTS)
 	(cd provider && go test -v -coverpkg=./... -coverprofile=coverage.txt ./...)
 
-test_provider_fast:: # Runs short-mode provider unit tests
+test_provider_fast:: $(TEST_RUNTIME_ARTIFACTS) # Runs short-mode provider unit tests
 	(cd provider && go test -short ./pkg/...)
 
-lint:: provider # lint the provider code
+lint:: # lint the provider code
+	@set -e; \
+	embed_files="$$(git grep -l 'go:embed' -- provider)"; \
+	restore_embeds() { \
+		cd "$(WORKING_DIR)"; \
+		for file in $$embed_files; do perl -i -pe 's/ goembed/go:embed/g' "$$file"; done; \
+	}; \
+	trap restore_embeds EXIT INT TERM; \
+	for file in $$embed_files; do perl -i -pe 's/go:embed/ goembed/g' "$$file"; done; \
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 .pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
@@ -264,5 +296,5 @@ sign-goreleaser-exe-%: bin/jsign-7.4.jar
 # - Run make ci-mgmt to apply the change locally.
 #
 ci-mgmt: .ci-mgmt.yaml
-	go run github.com/pulumi/ci-mgmt/provider-ci@b6bfde4bf3d1f9e539671e20aad7801e4ba5d300 generate
+	go run github.com/pulumi/ci-mgmt/provider-ci@master generate
 .PHONY: ci-mgmt

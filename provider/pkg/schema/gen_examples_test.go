@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep table-driven test fixtures readable.
 package schema
 
 import (
@@ -11,9 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 
 	jsschema "github.com/pulumi/jsschema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 type PropertyTypeSpecTestCase struct {
@@ -109,7 +111,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			}`,
 		expected: pschema.TypeSpec{Type: "string"},
 	}))
-	t.Run("oneOf-primatives", test(PropertyTypeSpecTestCase{
+	t.Run("oneOf-primitives", test(PropertyTypeSpecTestCase{
 		json: `{
 				"oneOf": [
 					{"type": "string"},
@@ -120,7 +122,7 @@ func TestPropertyTypeSpec(t *testing.T) {
 			OneOf: []pschema.TypeSpec{{Type: "string"}, {Type: "number"}},
 		},
 	}))
-	t.Run("anyOf-primatives", test(PropertyTypeSpecTestCase{
+	t.Run("anyOf-primitives", test(PropertyTypeSpecTestCase{
 		json: `{
 				"anyOf": [
 					{"type": "string"},
@@ -418,12 +420,12 @@ func TestMarkCreateOnlyProperties(t *testing.T) {
 
 	typesWithReplaceOnChangesBar := newBaseTypes()
 	modifedObjT := typesWithReplaceOnChangesBar["obj"]
-	modifedObjT.ObjectTypeSpec.Properties["bar"] = pschema.PropertySpec{ReplaceOnChanges: true}
+	modifedObjT.Properties["bar"] = pschema.PropertySpec{ReplaceOnChanges: true}
 	typesWithReplaceOnChangesBar["obj"] = modifedObjT
 
 	typesWithReplaceOnChangesZZ := newBaseTypes()
 	modifedObj2T := typesWithReplaceOnChangesZZ["obj2"]
-	modifedObj2T.ObjectTypeSpec.Properties["zz"] = pschema.PropertySpec{ReplaceOnChanges: true}
+	modifedObj2T.Properties["zz"] = pschema.PropertySpec{ReplaceOnChanges: true}
 	typesWithReplaceOnChangesZZ["obj2"] = modifedObj2T
 
 	cases := []MarkCreateOnlyPropertiesTestCase{
@@ -437,13 +439,15 @@ func TestMarkCreateOnlyProperties(t *testing.T) {
 			createOnlyProperties: codegen.NewStringSet("obj/quxx"),
 			resourceSpec:         newBaseResourceSpec(),
 			types:                newBaseTypes(),
-			expectedErr:          "Could not mark createOnlyProperty obj/quxx in  as replaceOnChanges: Type #/types/obj does not have property named 'quxx'",
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			expectedErr: "Could not mark createOnlyProperty obj/quxx in  as replaceOnChanges: Type #/types/obj does not have property named 'quxx'",
 		},
 		{
 			createOnlyProperties: codegen.NewStringSet("foo/quxx"),
 			resourceSpec:         newBaseResourceSpec(),
 			types:                newBaseTypes(),
-			expectedErr:          "Could not mark createOnlyProperty foo/quxx in  as replaceOnChanges: Property is not a Ref or Array[Ref], can't traverse",
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			expectedErr: "Could not mark createOnlyProperty foo/quxx in  as replaceOnChanges: Property is not a Ref or Array[Ref], can't traverse",
 		},
 		{
 			createOnlyProperties: codegen.NewStringSet("foo"),

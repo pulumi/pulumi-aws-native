@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package resources
 
 import (
@@ -10,19 +11,23 @@ import (
 	"github.com/aws/aws-lambda-go/cfn"
 	"github.com/golang/glog"
 	"github.com/google/uuid"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 )
 
 // This is the default timeout for custom resource operations in CloudFormation
 const DefaultCustomResourceTimeout = 60 * time.Minute
 
-var lambdaFunctionArnRegex = regexp.MustCompile(`^arn:[^:]+:lambda:[^:]+:[^:]+:function:[a-zA-Z0-9-_]+(:[a-zA-Z0-9-_]+)?$`)
+var lambdaFunctionArnRegex = regexp.MustCompile(
+	`^arn:[^:]+:lambda:[^:]+:[^:]+:function:[a-zA-Z0-9-_]+(:[a-zA-Z0-9-_]+)?$`,
+)
 
 type Clock interface {
 	Now() time.Time
@@ -95,7 +100,13 @@ var _ CustomResource = (*cfnCustomResource)(nil)
 //	                              └─────►│    S3    │◄──────┘
 //	                           Poll for  │  Bucket  │ Response
 //	                           Response  └──────────┘
-func NewCfnCustomResource(providerName string, s3Client client.S3Client, lambdaClient client.LambdaClient) *cfnCustomResource {
+//
+//nolint:revive // The concrete return type is used by package tests and internal configuration.
+func NewCfnCustomResource(
+	providerName string,
+	s3Client client.S3Client,
+	lambdaClient client.LambdaClient,
+) *cfnCustomResource {
 	return &cfnCustomResource{
 		providerName: providerName,
 		s3Client:     s3Client,
@@ -115,7 +126,8 @@ type CfnCustomResourceInputs struct {
 	CustomResourceProperties map[string]interface{}
 	// The CloudFormation type of the custom resource (e.g. "Custom::MyCustomResource")
 	ResourceType string
-	// A stand-in value for the CloudFormation stack ID required by the custom resource. If not provided, the project ID is used.
+	// A stand-in value for the CloudFormation stack ID required by the custom resource. If not provided, the project ID
+	// is used.
 	StackID *string
 }
 
@@ -146,6 +158,7 @@ func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 			Description: description,
 			Properties: map[string]pschema.PropertySpec{
 				"physicalResourceId": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The name or unique identifier that corresponds to the `PhysicalResourceId` included in the Custom Resource response. If no `PhysicalResourceId` is provided in the response, a random ID will be generated.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
@@ -163,6 +176,7 @@ func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"serviceToken": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The service token, such as a Lambda function ARN, that is invoked when the resource is created, updated, or deleted.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
@@ -175,15 +189,25 @@ func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"noEcho": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Whether the response data contains sensitive information that should be marked as secret and not logged.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 			},
-			Required: []string{"physicalResourceId", "data", "stackId", "serviceToken", "bucket", "resourceType", "noEcho"},
+			Required: []string{
+				"physicalResourceId",
+				"data",
+				"stackId",
+				"serviceToken",
+				"bucket",
+				"resourceType",
+				"noEcho",
+			},
 		},
 		InputProperties: map[string]pschema.PropertySpec{
 			"bucketName": {
 				Description: "The name of the S3 bucket to use for storing the response from the Custom Resource.\n\n" +
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					"The IAM principal configured for the provider must have `s3:PutObject`, `s3:HeadObject` and `s3:GetObject` permissions on this bucket.",
 				TypeSpec: pschema.TypeSpec{Type: "string"},
 			},
@@ -192,12 +216,15 @@ func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 				TypeSpec:    pschema.TypeSpec{Type: "string"},
 			},
 			"serviceToken": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "The service token to use for the Custom Resource. The service token is invoked when the resource is created, updated, or deleted.\n" +
 					"This can be a Lambda Function ARN with optional version or alias identifiers.\n\n" +
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					"The IAM principal configured for the provider must have `lambda:InvokeFunction` permissions on this service token.",
 				TypeSpec: pschema.TypeSpec{Type: "string"},
 			},
 			"customResourceProperties": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "The properties to pass as an input to the Custom Resource.\nThe properties are passed as a map of key-value pairs whereas all " +
 					"primitive values (number, boolean) are converted to strings for CloudFormation interoperability.",
 				TypeSpec: pschema.TypeSpec{
@@ -213,12 +240,19 @@ func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 				TypeSpec: pschema.TypeSpec{Type: "string"},
 			},
 			"stackId": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "A stand-in value for the CloudFormation stack ID. This is required for CloudFormation interoperability.\n" +
 					"If not provided, the Pulumi Stack ID is used.",
 				TypeSpec: pschema.TypeSpec{Type: "string"},
 			},
 		},
-		RequiredInputs: []string{"bucketName", "bucketKeyPrefix", "serviceToken", "customResourceProperties", "resourceType"},
+		RequiredInputs: []string{
+			"bucketName",
+			"bucketKeyPrefix",
+			"serviceToken",
+			"customResourceProperties",
+			"resourceType",
+		},
 	}
 }
 
@@ -233,7 +267,14 @@ type customResourceInvokeData struct {
 
 // Check validates the inputs of the resource and applies default values if necessary.
 // It returns the inputs, validation failures, and an error if the inputs cannot be unmarshalled.
-func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming.EngineAutoNamingConfig, inputs resource.PropertyMap, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (c *cfnCustomResource) Check(
+	_ context.Context,
+	urn urn.URN,
+	_ autonaming.EngineAutoNamingConfig,
+	inputs resource.PropertyMap,
+	_ resource.PropertyMap,
+	_ map[string]string,
+) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -243,7 +284,8 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming
 	var failures []ValidationFailure
 
 	serviceTokenInput, hasServiceToken := inputs[resource.PropertyKey("serviceToken")]
-	if (!hasServiceToken || !serviceTokenInput.ContainsUnknowns()) && !lambdaFunctionArnRegex.MatchString(typedInputs.ServiceToken) {
+	if (!hasServiceToken || !serviceTokenInput.ContainsUnknowns()) &&
+		!lambdaFunctionArnRegex.MatchString(typedInputs.ServiceToken) {
 		failures = append(failures, ValidationFailure{
 			Path:   "serviceToken",
 			Reason: "serviceToken must be a valid Lambda function ARN.",
@@ -291,7 +333,12 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming
 //   - On success: Returns PhysicalResourceId and properties
 //   - On failure: Returns error with reason
 //   - Handles `NoEcho` for sensitive data
-func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs resource.PropertyMap, timeout time.Duration) (*string, resource.PropertyMap, error) {
+func (c *cfnCustomResource) Create(
+	ctx context.Context,
+	urn urn.URN,
+	inputs resource.PropertyMap,
+	timeout time.Duration,
+) (*string, resource.PropertyMap, error) {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -332,7 +379,8 @@ func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs reso
 		// this could happen if parts of the custom resource creation succeeded but the overall operation failed
 		if response.PhysicalResourceID != "" {
 			partialID = &response.PhysicalResourceID
-			glog.V(9).Infof("%s custom resource creation partially succeeded, physical resource ID: %s", label, *partialID)
+			glog.V(9).
+				Infof("%s custom resource creation partially succeeded, physical resource ID: %s", label, *partialID)
 		}
 
 		return partialID, outputs, fmt.Errorf("failed to create custom resource: %s", response.Reason)
@@ -369,7 +417,13 @@ func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs reso
 // 4. Handles response:
 //   - Success: Completes deletion
 //   - Failure: Returns error with reason from Lambda
-func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error {
+func (c *cfnCustomResource) Delete(
+	ctx context.Context,
+	urn urn.URN,
+	_ string,
+	inputs, state resource.PropertyMap,
+	timeout time.Duration,
+) error {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -415,7 +469,8 @@ func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, 
 	return nil
 }
 
-// Update updates the custom resource with the given inputs and state by invoking the Lambda function with the UPDATE request type.
+// Update updates the custom resource with the given inputs and state by invoking the Lambda function with the UPDATE
+// request type.
 // If the update is successful and the physical resource ID has changed,
 // it deletes the old resource. The function returns the updated resource properties or an error.
 //
@@ -460,7 +515,13 @@ func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, 
 //   - Sends DELETE event for old PhysicalResourceId
 //
 // 5. Returns updated properties and new PhysicalResourceId
-func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
+func (c *cfnCustomResource) Update(
+	ctx context.Context,
+	urn urn.URN,
+	_ string,
+	inputs, oldInputs, state resource.PropertyMap,
+	timeout time.Duration,
+) (resource.PropertyMap, error) {
 	var oldTypedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&oldTypedInputs, oldInputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -516,7 +577,9 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 
 	// if the physical resource ID has changed, we need to delete the old resource
 	if response.PhysicalResourceID != typedState.PhysicalResourceID {
-		glog.V(9).Infof("%s physical resource ID changed from %q to %q, deleting old resource", label, typedState.PhysicalResourceID, response.PhysicalResourceID)
+		glog.V(9).
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			Infof("%s physical resource ID changed from %q to %q, deleting old resource", label, typedState.PhysicalResourceID, response.PhysicalResourceID)
 
 		deleteEvent := cfn.Event{
 			PhysicalResourceID: typedState.PhysicalResourceID,
@@ -532,9 +595,14 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 		// otherwise we allow it to take the default timeout
 		if timeout != 0 {
 			deleteTimeout = timeout - updateDuration
-			glog.V(9).Infof("%s custom resource update took %s, clean up of the old resource is allowed to take %s", label, updateDuration, deleteTimeout)
+			glog.V(9).
+				//nolint:lll // Preserve the exact fixture or documentation text.
+				Infof("%s custom resource update took %s, clean up of the old resource is allowed to take %s", label, updateDuration, deleteTimeout)
 			if deleteTimeout <= 0 {
-				return nil, fmt.Errorf("failed to clean up old custom resource: not enough time left to delete the old resource. Consider increasing the timeout")
+				return nil, fmt.Errorf(
+					//nolint:lll // Preserve the exact fixture or documentation text.
+					"failed to clean up old custom resource: not enough time left to delete the old resource. Consider increasing the timeout",
+				)
 			}
 		}
 
@@ -551,7 +619,11 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 			return nil, fmt.Errorf("failed to clean up old custom resource: %w", err)
 		}
 		if deleteResponse.Status == cfn.StatusFailed {
-			return nil, fmt.Errorf("failed to clean up old custom resource %q: %s", typedState.PhysicalResourceID, deleteResponse.Reason)
+			return nil, fmt.Errorf(
+				"failed to clean up old custom resource %q: %s",
+				typedState.PhysicalResourceID,
+				deleteResponse.Reason,
+			)
 		}
 		glog.V(9).Infof("%s old custom resource %q successfully cleaned up", label, typedState.PhysicalResourceID)
 	}
@@ -562,7 +634,13 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 
 // Read returns the current inputs and outputs of the custom resource because CFN custom resources do not store state.
 // They are just a stateless wrapper around a Lambda function or SNS topic.
-func (c *cfnCustomResource) Read(ctx context.Context, urn urn.URN, id string, oldInputs resource.PropertyMap, oldState resource.PropertyMap) (resource.PropertyMap, resource.PropertyMap, bool, error) {
+func (c *cfnCustomResource) Read(
+	_ context.Context,
+	_ urn.URN,
+	_ string,
+	oldInputs resource.PropertyMap,
+	oldState resource.PropertyMap,
+) (resource.PropertyMap, resource.PropertyMap, bool, error) {
 	// Assuming that Read without old state is an import operation
 	if len(oldState) == 0 {
 		// We can't support import because CustomResources do not store any state
@@ -572,7 +650,10 @@ func (c *cfnCustomResource) Read(ctx context.Context, urn urn.URN, id string, ol
 	return oldState, oldInputs, true, nil
 }
 
-func (c *cfnCustomResource) invokeCustomResource(ctx context.Context, invokeData customResourceInvokeData) (*cfn.Response, error) {
+func (c *cfnCustomResource) invokeCustomResource(
+	ctx context.Context,
+	invokeData customResourceInvokeData,
+) (*cfn.Response, error) {
 	timeout := invokeData.timeout
 	if timeout == 0 {
 		timeout = DefaultCustomResourceTimeout
@@ -586,7 +667,8 @@ func (c *cfnCustomResource) invokeCustomResource(ctx context.Context, invokeData
 		// presigning is not an API call, it should not fail unless there's issues with the SDK or crypto libs
 		return nil, fmt.Errorf("failed to generate response URL: %w", err)
 	}
-	glog.V(9).Infof("%s created presigned response URL for s3://%s/%s", invokeData.loggingLabel, invokeData.bucket, bucketKey)
+	glog.V(9).
+		Infof("%s created presigned response URL for s3://%s/%s", invokeData.loggingLabel, invokeData.bucket, bucketKey)
 
 	event := invokeData.event
 	event.RequestID = requestID
@@ -673,9 +755,11 @@ func sanitizeCustomResourceResponse(event *cfn.Event, response *cfn.Response) *c
 
 	// ensure PhysicalResourceID is set. For Create requests we fall back to the RequestID,
 	// for Update and Delete requests we fall back to the PhysicalResourceID from state
-	if response.PhysicalResourceID == "" && (event.RequestType == cfn.RequestDelete || event.RequestType == cfn.RequestUpdate) {
+	if response.PhysicalResourceID == "" &&
+		(event.RequestType == cfn.RequestDelete || event.RequestType == cfn.RequestUpdate) {
 		response.PhysicalResourceID = event.PhysicalResourceID
-	} else if response.PhysicalResourceID == "" && event.RequestType == cfn.RequestCreate {
+	} else if response.PhysicalResourceID == "" &&
+		event.RequestType == cfn.RequestCreate {
 		response.PhysicalResourceID = event.RequestID
 	}
 

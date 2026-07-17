@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 // ProviderAutoNamingConfig contains autonaming parameters configured for the provider.
@@ -88,7 +89,9 @@ func getDefaultName(
 	if engineConfig.AutonamingMode != nil {
 		// Engine autonaming conflicts with provider autonaming. If both are specified, return an error.
 		if providerConfig != nil {
-			return nil, fmt.Errorf("pulumi:autonaming conflicts with provider autonaming configuration, please specify only one")
+			return nil, fmt.Errorf(
+				"pulumi:autonaming conflicts with provider autonaming configuration, please specify only one",
+			)
 		}
 
 		switch *engineConfig.AutonamingMode {
@@ -107,10 +110,18 @@ func getDefaultName(
 
 			// Validate the proposed name against the length constraints.
 			if propertySpec.MaxLength > 0 && len(proposedName) > propertySpec.MaxLength {
-				return nil, fmt.Errorf("proposed name %q exceeds max length of %d", proposedName, propertySpec.MaxLength)
+				return nil, fmt.Errorf(
+					"proposed name %q exceeds max length of %d",
+					proposedName,
+					propertySpec.MaxLength,
+				)
 			}
 			if propertySpec.MinLength > 0 && len(proposedName) < propertySpec.MinLength {
-				return nil, fmt.Errorf("proposed name %q is shorter than min length of %d", proposedName, propertySpec.MinLength)
+				return nil, fmt.Errorf(
+					"proposed name %q is shorter than min length of %d",
+					proposedName,
+					propertySpec.MinLength,
+				)
 			}
 
 			v := resource.NewStringProperty(proposedName)
@@ -162,11 +173,10 @@ func getDefaultName(
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix %[4]q. Please provide a value for %[1]q",
 					sdkName, prefix, propertySpec.MaxLength, namingTrivia.Suffix)
-			} else {
-				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
-					" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
-					sdkName, prefix, propertySpec.MaxLength)
 			}
+			return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
+				" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
+				sdkName, prefix, propertySpec.MaxLength)
 		}
 		if left < randLength {
 			randLength = left

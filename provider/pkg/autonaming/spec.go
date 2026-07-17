@@ -6,11 +6,19 @@ import (
 	"strings"
 
 	jsschema "github.com/pulumi/jsschema"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
-func CreateAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resourceTypeName string, jsonSchemaProperties map[string]*jsschema.Schema, semanticsSpec metadata.SemanticsSpec) *metadata.AutoNamingSpec {
+const schemaTypeString = "string"
+
+func CreateAutoNamingSpec(
+	inputProperties map[string]pschema.PropertySpec,
+	resourceTypeName string,
+	jsonSchemaProperties map[string]*jsschema.Schema,
+	semanticsSpec metadata.SemanticsSpec,
+) *metadata.AutoNamingSpec {
 	type names struct {
 		cfName  string
 		sdkName string
@@ -32,7 +40,7 @@ func CreateAutoNamingSpec(inputProperties map[string]pschema.PropertySpec, resou
 
 	tryMakeSpecForField := func(loweredName string) *metadata.AutoNamingSpec {
 		sdkName := fieldsLowered[loweredName].sdkName
-		if prop, has := inputProperties[sdkName]; !has || prop.Type != "string" {
+		if prop, has := inputProperties[sdkName]; !has || prop.Type != schemaTypeString {
 			return nil
 		}
 		jsonSpec := jsonSchemaProperties[fieldsLowered[loweredName].cfName]

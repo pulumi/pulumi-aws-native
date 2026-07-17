@@ -1,5 +1,6 @@
 // Copyright 2024, Pulumi Corporation.
 
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package resources
 
 import (
@@ -176,7 +177,12 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("fileSystemTags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"fileSystemTags",
+			default_tags.TagsStyleKeyValueArray,
+			diff,
+			originalInputs,
+		)
 
 		_, hasAdd := result.Adds["fileSystemTags"]
 		assert.False(t, hasAdd, "aws: prefixed tag addition should be removed")
@@ -269,7 +275,12 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			}),
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags",
+			default_tags.TagsStyleKeyValueArrayUpperCase,
+			diff,
+			originalInputs,
+		)
 
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "aws: tag in the old actual baseline should not become removal drift")
@@ -384,7 +395,12 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArrayUpperCase, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags",
+			default_tags.TagsStyleKeyValueArrayUpperCase,
+			diff,
+			originalInputs,
+		)
 
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "uppercase reordered key/value tags should not register as drift")
@@ -515,7 +531,13 @@ func TestBuildCfnContext(t *testing.T) {
 func TestSuppressAWSManagedDiffs(t *testing.T) {
 	t.Run("handles nil diff", func(t *testing.T) {
 		spec := &metadata.CloudAPIResource{TagsProperty: "tags"}
-		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, nil, resource.PropertyMap{}, NewTransformCache())
+		result := SuppressAWSManagedDiffs(
+			"aws-native:s3:Bucket",
+			spec,
+			nil,
+			resource.PropertyMap{},
+			NewTransformCache(),
+		)
 		assert.Nil(t, result)
 	})
 
@@ -535,7 +557,13 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 			Sames:   resource.PropertyMap{},
 		}
 
-		result := SuppressAWSManagedDiffs("aws-native:s3:Bucket", spec, diff, resource.PropertyMap{}, NewTransformCache())
+		result := SuppressAWSManagedDiffs(
+			"aws-native:s3:Bucket",
+			spec,
+			diff,
+			resource.PropertyMap{},
+			NewTransformCache(),
+		)
 
 		_, hasAdd := result.Adds["tags"]
 		assert.False(t, hasAdd)
@@ -544,11 +572,13 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 	t.Run("applies EFS-specific suppression via propertyTransform", func(t *testing.T) {
 		// EFS replication protection is now handled via propertyTransform
 		// The transform normalizes DISABLED -> REPLICATING for comparison
-		// NOTE: The actual CloudFormation expression uses nested path: FileSystemProtection.ReplicationOverwriteProtection
+		// NOTE: The actual CloudFormation expression uses nested path:
+		// FileSystemProtection.ReplicationOverwriteProtection
 		// This tests that buildCfnContext correctly builds the nested context structure
 		spec := &metadata.CloudAPIResource{
 			TagsProperty: "fileSystemTags",
 			PropertyTransforms: map[string]string{
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				"fileSystemProtection/replicationOverwriteProtection": "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)",
 			},
 		}
@@ -636,9 +666,13 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 				"Version": resource.NewStringProperty("2012-10-17"),
 				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"Effect":    resource.NewStringProperty("Allow"),
-						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
-						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Effect": resource.NewStringProperty("Allow"),
+						"Action": resource.NewArrayProperty(
+							[]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")},
+						),
+						"Principal": resource.NewObjectProperty(
+							resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")},
+						),
 					}),
 				}),
 			}),
@@ -649,8 +683,10 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 						"Version": resource.NewStringProperty("2012-10-17"),
 						"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 							resource.NewObjectProperty(resource.PropertyMap{
-								"Effect":   resource.NewStringProperty("Allow"),
-								"Action":   resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("*")}),
+								"Effect": resource.NewStringProperty("Allow"),
+								"Action": resource.NewArrayProperty(
+									[]resource.PropertyValue{resource.NewStringProperty("*")},
+								),
 								"Resource": resource.NewStringProperty("*"),
 							}),
 						}),
@@ -691,9 +727,13 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 				"Version": resource.NewStringProperty("2012-10-17"),
 				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"Effect":    resource.NewStringProperty("Allow"),
-						"Action":    resource.NewArrayProperty([]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")}),
-						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Effect": resource.NewStringProperty("Allow"),
+						"Action": resource.NewArrayProperty(
+							[]resource.PropertyValue{resource.NewStringProperty("sts:AssumeRole")},
+						),
+						"Principal": resource.NewObjectProperty(
+							resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")},
+						),
 					}),
 				}),
 			}),
@@ -703,9 +743,11 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 				"Version": resource.NewStringProperty("2012-10-17"),
 				"Statement": resource.NewArrayProperty([]resource.PropertyValue{
 					resource.NewObjectProperty(resource.PropertyMap{
-						"Effect":    resource.NewStringProperty("Allow"),
-						"Action":    resource.NewStringProperty("sts:AssumeRole"),
-						"Principal": resource.NewObjectProperty(resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")}),
+						"Effect": resource.NewStringProperty("Allow"),
+						"Action": resource.NewStringProperty("sts:AssumeRole"),
+						"Principal": resource.NewObjectProperty(
+							resource.PropertyMap{"Service": resource.NewStringProperty("ec2.amazonaws.com")},
+						),
 					}),
 				}),
 			}),
@@ -730,7 +772,13 @@ func TestSuppressAWSManagedDiffs(t *testing.T) {
 			Sames:   resource.PropertyMap{},
 		}
 
-		result := SuppressAWSManagedDiffs("aws-native:some:Resource", spec, diff, resource.PropertyMap{}, NewTransformCache())
+		result := SuppressAWSManagedDiffs(
+			"aws-native:some:Resource",
+			spec,
+			diff,
+			resource.PropertyMap{},
+			NewTransformCache(),
+		)
 
 		// Should pass through unchanged
 		_, hasAdd := result.Adds["someProperty"]

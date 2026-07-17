@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Schema definitions intentionally repeat configuration and documentation text.
 package schema
 
 import (
@@ -30,10 +31,11 @@ import (
 )
 
 const packageName = "aws-native"
-const globalTagToken = "aws-native:index:Tag"
-const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag"
+const globalTagToken = "aws-native:index:Tag"                     //nolint:gosec // Pulumi type token, not a credential.
+const globalCreateOnlyTagToken = "aws-native:index:CreateOnlyTag" //nolint:gosec // Pulumi type token.
 
-// The documentation of some resources/properties is incomplete or incorrect in the AWS CloudFormation schema. The CloudFormation docs are more complete and accurate in these cases.
+// The documentation of some resources/properties is incomplete or incorrect in the AWS CloudFormation schema. The
+// CloudFormation docs are more complete and accurate in these cases.
 var forceDocumentationAugmentation = map[string]bool{
 	// Documentation is truncated
 	"AWS::EC2::Volume":      true,
@@ -71,8 +73,16 @@ func GatherPackage(
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
 		Properties: map[string]pschema.PropertySpec{
-			"key":   {TypeSpec: primitiveTypeSpec("String"), Description: "The key name of the tag", ReplaceOnChanges: true},
-			"value": {TypeSpec: primitiveTypeSpec("String"), Description: "The value of the tag", ReplaceOnChanges: true},
+			"key": {
+				TypeSpec:         primitiveTypeSpec("String"),
+				Description:      "The key name of the tag",
+				ReplaceOnChanges: true,
+			},
+			"value": {
+				TypeSpec:         primitiveTypeSpec("String"),
+				Description:      "The value of the tag",
+				ReplaceOnChanges: true,
+			},
 		},
 		Required: []string{"key", "value"},
 	}
@@ -96,11 +106,13 @@ func GatherPackage(
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
 				"accessKey": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Secret:      true,
 				},
 				"allowedAccountIds": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
 					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 				},
@@ -109,10 +121,12 @@ func GatherPackage(
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:AssumeRole"},
 				},
 				"roleArn": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"defaultTags": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:DefaultTags"},
 				},
@@ -121,22 +135,27 @@ func GatherPackage(
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:Endpoints"},
 				},
 				"forbiddenAccountIds": {
-					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					TypeSpec: pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
 				},
 				"ignoreTags": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:IgnoreTags"},
 				},
 				"insecure": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"maxRetries": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.",
 					TypeSpec:    pschema.TypeSpec{Type: "integer"},
 				},
 				"profile": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The profile for API operations. If not set, the default profile created with `aws configure` will be used.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
@@ -148,10 +167,12 @@ func GatherPackage(
 					},
 				},
 				"s3UsePathStyle": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"secretKey": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Secret:      true,
@@ -161,30 +182,36 @@ func GatherPackage(
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"skipCredentialsValidation": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipGetEc2Platforms": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipMetadataApiCheck": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipRegionValidation": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipRequestingAccountId": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"token": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Secret:      true,
@@ -200,9 +227,11 @@ func GatherPackage(
 		},
 		Provider: &pschema.ResourceSpec{
 			ObjectTypeSpec: pschema.ObjectTypeSpec{
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "The provider type for the AWS Cloud Control package. By default, resources use package-wide configuration settings, however an explicit `Provider` instance may be created and passed during resource construction to achieve fine-grained programmatic control over provider settings. See the [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.",
 				Properties: map[string]pschema.PropertySpec{
 					"allowedAccountIds": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
 						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 					},
@@ -211,34 +240,44 @@ func GatherPackage(
 						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
 					},
 					"roleArn": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
 						TypeSpec:    pschema.TypeSpec{Type: "string"},
 					},
 					"defaultTags": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderDefaultTags"},
 					},
 					"endpoints": {
 						Description: "Configuration block for customizing service endpoints.",
-						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
+						TypeSpec: pschema.TypeSpec{
+							Type:  "array",
+							Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"},
+						},
 					},
 					"forbiddenAccountIds": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
 						TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 					},
 					"ignoreTags": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
 						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderIgnoreTags"},
 					},
 					"insecure": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"maxRetries": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.",
 						TypeSpec:    pschema.TypeSpec{Type: "integer"},
 					},
 					"profile": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "The profile for API operations. If not set, the default profile created with `aws configure` will be used.",
 						TypeSpec:    pschema.TypeSpec{Type: "string"},
 					},
@@ -250,6 +289,7 @@ func GatherPackage(
 						},
 					},
 					"s3UsePathStyle": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
@@ -258,22 +298,27 @@ func GatherPackage(
 						TypeSpec:    pschema.TypeSpec{Type: "string"},
 					},
 					"skipCredentialsValidation": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"skipGetEc2Platforms": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"skipMetadataApiCheck": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"skipRegionValidation": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
 					"skipRequestingAccountId": {
+						//nolint:lll // Preserve the exact fixture or documentation text.
 						Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					},
@@ -285,11 +330,13 @@ func GatherPackage(
 			},
 			InputProperties: map[string]pschema.PropertySpec{
 				"accessKey": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.",
 					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"allowedAccountIds": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.",
 					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 				},
@@ -298,30 +345,39 @@ func GatherPackage(
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAssumeRole"},
 				},
 				"roleArn": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for Cloud Control API to use when performing this resource operation. Note, this is a unique feature for server side security enforcement, not to be confused with assumeRole, which is used to obtain temporary client credentials. If you do not specify a role, Cloud Control API uses a temporary session created using your AWS user credentials instead.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"defaultTags": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderDefaultTags"},
 				},
 				"endpoints": {
 					Description: "Configuration block for customizing service endpoints.",
-					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"}},
+					TypeSpec: pschema.TypeSpec{
+						Type:  "array",
+						Items: &pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderEndpoint"},
+					},
 				},
 				"forbiddenAccountIds": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.",
 					TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 				},
 				"ignoreTags": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
 					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderIgnoreTags"},
 				},
 				"insecure": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Explicitly allow the provider to perform \"insecure\" SSL requests. If omitted,default value is `false`.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"maxRetries": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.",
 					TypeSpec:    pschema.TypeSpec{Type: "integer"},
 				},
@@ -331,6 +387,7 @@ func GatherPackage(
 							"AWS_PROFILE",
 						},
 					},
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The profile for API operations. If not set, the default profile created with `aws configure` will be used.",
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
@@ -348,10 +405,12 @@ func GatherPackage(
 					},
 				},
 				"s3UsePathStyle": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Set this to true to use path-style addressing, i.e., `http://s3.amazonaws.com/BUCKET/KEY`. By default, the S3 client will use virtual hosted bucket addressing when possible (`http://BUCKET.s3.amazonaws.com/KEY`). Specific to the Amazon S3 service.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"secretKey": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.",
 					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -366,30 +425,36 @@ func GatherPackage(
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"skipCredentialsValidation": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipGetEc2Platforms": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip getting the supported EC2 platforms. Used by users that don't have `ec2:DescribeAccountAttributes` permissions.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipMetadataApiCheck": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Pulumi from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipRegionValidation": {
-					Default:     true,
+					Default: true,
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip static validation of region name. Used by users of alternative AWS-like APIs or users with access to regions that are not public.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"skipRequestingAccountId": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 				},
 				"token": {
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
 					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -507,7 +572,7 @@ func GatherPackage(
 			if val == "0" {
 				continue
 			}
-			missingCount += 1
+			missingCount++
 		}
 	}
 	fmt.Printf("Number of docs augmented: %d\n", reports.DocsUpdated)
@@ -544,7 +609,8 @@ func GatherPackage(
 					Description: "Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).",
 				},
 				"dnsSuffix": {
-					TypeSpec:    primitiveTypeSpec("String"),
+					TypeSpec: primitiveTypeSpec("String"),
+					//nolint:lll // Preserve the exact fixture or documentation text.
 					Description: "Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).",
 				},
 			},
@@ -677,19 +743,37 @@ type cfSchemaContext struct {
 	docs             *Docs
 }
 
-func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
+func (ctx *cfSchemaContext) markCreateOnlyProperties(
+	createOnlyProperties codegen.StringSet,
+	resource *pschema.ResourceSpec,
+) error {
 	errs := []error{}
 	for _, propPath := range createOnlyProperties.SortedValues() {
 		// each path in createOnlyProperties is delimited with "/"
 		path := strings.Split(propPath, "/")
 		prop, ok := resource.Properties[path[0]]
 		if !ok {
-			errs = append(errs, errors.Errorf("Could not mark createOnlyProperty %s in %s as replaceOnChanges: property not found on Resource", propPath, ctx.cfTypeName))
+			errs = append(
+				errs,
+				errors.Errorf(
+					"Could not mark createOnlyProperty %s in %s as replaceOnChanges: property not found on Resource",
+					propPath,
+					ctx.cfTypeName,
+				),
+			)
 			continue
 		}
 		err := ctx.markCreateOnlyProperty(path[1:], &prop)
 		if err != nil {
-			errs = append(errs, errors.Wrapf(err, "Could not mark createOnlyProperty %s in %s as replaceOnChanges", propPath, ctx.cfTypeName))
+			errs = append(
+				errs,
+				errors.Wrapf(
+					err,
+					"Could not mark createOnlyProperty %s in %s as replaceOnChanges",
+					propPath,
+					ctx.cfTypeName,
+				),
+			)
 		}
 		resource.Properties[path[0]] = prop
 	}
@@ -717,7 +801,8 @@ func (ctx *cfSchemaContext) markCreateOnlyProperty(propPath []string, property *
 	}
 
 	// Next try looking at it as an array of objects
-	if property.Items != nil && len(property.Items.Ref) != 0 && !strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
+	if property.Items != nil && len(property.Items.Ref) != 0 &&
+		!strings.HasPrefix(property.Items.Ref, "#/types/aws-native:index") {
 		typeRef := property.Items.Ref
 		if len(typeRef) == 0 {
 			return errors.Errorf("Property does not reference an array: %v", property)
@@ -968,7 +1053,12 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 
 	}
 
-	autoNamingSpec := autonaming.CreateAutoNamingSpec(inputProperties, resourceTypeName, ctx.resourceSpec.Properties, ctx.semantics.Resources[ctx.resourceToken])
+	autoNamingSpec := autonaming.CreateAutoNamingSpec(
+		inputProperties,
+		resourceTypeName,
+		ctx.resourceSpec.Properties,
+		ctx.semantics.Resources[ctx.resourceToken],
+	)
 	// If a field can be auto-named, its no longer required.
 	if autoNamingSpec != nil {
 		delete(requiredInputs, autoNamingSpec.SdkName)
@@ -982,7 +1072,11 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	ctx.updateDesc(ctx.cfTypeName, "", ctx.resourceSpec)
 	var deprecationMessage string
 	if !ctx.isSupported {
-		deprecationMessage = fmt.Sprintf("%s is not yet supported by AWS Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.", resourceTypeName)
+		deprecationMessage = fmt.Sprintf(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"%s is not yet supported by AWS Cloud Control, so its creation will currently fail. Please use the classic AWS provider, if possible.",
+			resourceTypeName,
+		)
 	}
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
@@ -1231,7 +1325,11 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() (*metadata.ListHandlerSche
 		}
 		prop := ctx.listHandlerPropertyFromResourceProperty(requiredName)
 		if prop.Description == "" && prop.Type == "" {
-			return nil, fmt.Errorf("required list handler property %q for %s has no schema", requiredName, ctx.cfTypeName)
+			return nil, fmt.Errorf(
+				"required list handler property %q for %s has no schema",
+				requiredName,
+				ctx.cfTypeName,
+			)
 		}
 		if result.Properties == nil {
 			result.Properties = map[string]metadata.ListHandlerProperty{}
@@ -1401,7 +1499,11 @@ func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
 		if propertySpec.Description != "" {
 			propertySpec.Description += "\n\n"
 		}
-		propertySpec.Description += fmt.Sprintf("Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.", cfTypeName)
+		propertySpec.Description += fmt.Sprintf(
+			//nolint:lll // Preserve the exact fixture or documentation text.
+			"Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `%s` for more information about the expected schema for this property.",
+			cfTypeName,
+		)
 	}
 }
 
@@ -1421,7 +1523,10 @@ func (ctx *cfSchemaContext) reportMissingDocs(desc, propName string) {
 	}
 }
 
-func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+func (ctx *cfSchemaContext) propertySpec(
+	propName, resourceTypeName string,
+	spec *jsschema.Schema,
+) (*pschema.PropertySpec, error) {
 	typeSpec, err := ctx.propertyTypeSpec(naming.LowerAcronyms(propName), spec)
 	if err != nil {
 		return nil, err
@@ -1437,7 +1542,7 @@ func (ctx *cfSchemaContext) propertySpec(propName, resourceTypeName string, spec
 	// If the property name is the same as the resource type name, we need to rename the property's C# name
 	// to avoid 'member names cannot be the same as their enclosing type'. We normalize the property and resource
 	// type names to lowercase to avoid case sensitivity issues.
-	if strings.ToLower(resourceTypeName) == strings.ToLower(propName) {
+	if strings.EqualFold(resourceTypeName, propName) {
 		propertySpec.Language = map[string]pschema.RawMessage{
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 				Name: propName + "Value",
@@ -1460,7 +1565,7 @@ func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.
 		spec.Description = desc
 		// if it has been updated then increment the count
 		if spec.Description != "" {
-			ctx.reports.DocsUpdated += 1
+			ctx.reports.DocsUpdated++
 		}
 
 		if !found {
@@ -1475,10 +1580,13 @@ func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.
 	} else if _, ok := forceDocumentationAugmentation[fullyQualifiedPropertyName]; ok {
 		if desc, found := ctx.docs.GetPropertyDesc(refName, propName); found {
 			spec.Description = desc
-			ctx.reports.DocsUpdated += 1
+			ctx.reports.DocsUpdated++
 		} else {
 			ctx.reportMissingDocs(desc, propName)
-			fmt.Printf("Description augmentation configured for type %s but CloudFormation Docs do not include description\n", fullyQualifiedPropertyName)
+			fmt.Printf(
+				"Description augmentation configured for type %s but CloudFormation Docs do not include description\n",
+				fullyQualifiedPropertyName,
+			)
 		}
 	}
 }
@@ -1513,7 +1621,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 			refName := fmt.Sprintf("%s.%s", ctx.cfTypeName, schemaName)
 
 			if len(typeSchema.Type) == 1 {
-				if typeSchema.PatternProperties != nil && len(typeSchema.PatternProperties) == 1 {
+				if len(typeSchema.PatternProperties) == 1 {
 					for _, schema := range typeSchema.PatternProperties {
 						ctx.augmentDocumentation(refName, schemaName, schema)
 					}
@@ -1547,7 +1655,7 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 		}
 	}
 
-	if spec.PatternProperties != nil && len(spec.PatternProperties) == 1 {
+	if len(spec.PatternProperties) == 1 {
 		for _, schema := range spec.PatternProperties {
 			ctx.augmentDocumentation(referenceName, propName, schema)
 		}
@@ -1569,7 +1677,10 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.
-func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jsschema.Schema) (*pschema.TypeSpec, error) {
+func (ctx *cfSchemaContext) propertyTypeSpec(
+	parentName string,
+	propSchema *jsschema.Schema,
+) (*pschema.TypeSpec, error) {
 	propSchema = NormaliseTypes(propSchema)
 
 	// References to other type definitions.
@@ -1606,7 +1717,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 		var mapType *jsschema.Schema
 		if typeSchema.AdditionalProperties != nil && typeSchema.AdditionalProperties.Schema != nil {
 			mapType = typeSchema.AdditionalProperties.Schema
-		} else if typeSchema.PatternProperties != nil && len(typeSchema.PatternProperties) == 1 {
+		} else if len(typeSchema.PatternProperties) == 1 {
 			// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
 			// https://github.com/pulumi/pulumi-aws-native/issues/1346
 			for _, schema := range typeSchema.PatternProperties {
@@ -1620,7 +1731,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 				return nil, err
 			}
 
-			// Where a map type has a value which is either a map or a list, replace the value with "Any" to appease Go codegen
+			// Where a map type has a value which is either a map or a list, replace the value with "Any" to appease Go
+			// codegen
 			// TODO: remove once Go codegen issue is solved: https://github.com/pulumi/pulumi/issues/15478
 			if valueType.Items != nil || valueType.AdditionalProperties != nil {
 				valueType = &pschema.TypeSpec{
@@ -1664,9 +1776,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 
 			referencedTypeName := fmt.Sprintf("#/types/%s", tok)
 			return &pschema.TypeSpec{Ref: referencedTypeName}, nil
-		} else {
-			return ctx.propertyTypeSpec(typName, typeSchema)
 		}
+		return ctx.propertyTypeSpec(typName, typeSchema)
 	}
 
 	// Inline properties.
@@ -1740,9 +1851,8 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 
 		if len(types) == 1 {
 			return &types[0], nil
-		} else {
-			return &pschema.TypeSpec{OneOf: types}, nil
 		}
+		return &pschema.TypeSpec{OneOf: types}, nil
 	}
 
 	if len(propSchema.Enum) > 0 {
@@ -1758,7 +1868,7 @@ func (ctx *cfSchemaContext) propertyTypeSpec(parentName string, propSchema *jssc
 	var mapType *jsschema.Schema
 	if propSchema.AdditionalProperties != nil && propSchema.AdditionalProperties.Schema != nil {
 		mapType = propSchema.AdditionalProperties.Schema
-	} else if propSchema.PatternProperties != nil && len(propSchema.PatternProperties) == 1 {
+	} else if len(propSchema.PatternProperties) == 1 {
 		// TODO: Capture pattern add add to documentation or even provider metadata for early validation feedback.
 		// https://github.com/pulumi/pulumi-aws-native/issues/1346
 		for _, schema := range propSchema.PatternProperties {
@@ -1830,7 +1940,10 @@ func parseJsonType(t jsschema.PrimitiveType) pschema.TypeSpec {
 	}
 }
 
-func (ctx *cfSchemaContext) genProperties(parentName string, typeSchema *jsschema.Schema) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
+func (ctx *cfSchemaContext) genProperties(
+	parentName string,
+	typeSchema *jsschema.Schema,
+) (map[string]pschema.PropertySpec, codegen.StringSet, map[string]string, error) {
 	specs := map[string]pschema.PropertySpec{}
 	requiredSpecs := codegen.NewStringSet()
 	irreversibleNames := map[string]string{}
@@ -1935,7 +2048,9 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 		}
 
 		// Enum values cannot end in `*Input` or `*Output`. Special casing these instances
-		if (typName == "FlowNodeType" || typName == "FlowVersionFlowNodeType" || typName == "ConfiguredModelAlgorithmAssociationTrainedModelExportFileType") && (str == "Input" || str == "Output") {
+		//nolint:lll // Preserve the exact fixture or documentation text.
+		if (typName == "FlowNodeType" || typName == "FlowVersionFlowNodeType" || typName == "ConfiguredModelAlgorithmAssociationTrainedModelExportFileType") &&
+			(str == "Input" || str == "Output") {
 			str = str + "Type"
 		}
 		values.Add(str)
@@ -1985,7 +2100,7 @@ var pseudoParameters = map[string]string{
 
 func rawMessage(v interface{}) pschema.RawMessage {
 	bytes, err := json.Marshal(v)
-	contract.Assert(err == nil)
+	contract.Assertf(err == nil, "converting enum value: %v", err)
 	return bytes
 }
 

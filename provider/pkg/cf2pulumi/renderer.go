@@ -1,5 +1,6 @@
 // Copyright 2016-2021, Pulumi Corporation.
 
+//nolint:goconst // Repeated domain and schema vocabulary is clearer inline.
 package cf2pulumi
 
 import (
@@ -13,13 +14,15 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/zclconf/go-cty/cty"
+	"github.com/zclconf/go-cty/cty/convert"
+
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/zclconf/go-cty/cty"
-	"github.com/zclconf/go-cty/cty/convert"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 )
 
 // null represents PCL's builtin `null` variable
@@ -102,23 +105,24 @@ type renderContext struct {
 //
 // If the argument is a single value and the minimum count is greater than one, the argument is wrapped in an array
 // and returned.
-func (ctx *renderContext) checkArgsArray(name string, v ast.Node, min, max int) ([]ast.Node, error) {
+func (ctx *renderContext) checkArgsArray(name string, v ast.Node, minArgs, maxArgs int) ([]ast.Node, error) {
 	if v.Type() != ast.SequenceType {
-		if min > 1 {
+		if minArgs > 1 {
 			return nil, fmt.Errorf("the argument to '%s' must be an array", name)
 		}
 		return []ast.Node{v}, nil
 	}
 
 	arr := v.(*ast.SequenceNode).Values
-	if len(arr) < min || (max >= 0 && len(arr) > max) {
-		if min == max {
-			return nil, fmt.Errorf("the argument to '%s' must have exactly %v elements", name, min)
+	if len(arr) < minArgs || (maxArgs >= 0 && len(arr) > maxArgs) {
+		if minArgs == maxArgs {
+			return nil, fmt.Errorf("the argument to '%s' must have exactly %v elements", name, minArgs)
 		}
-		if max >= 0 {
-			return nil, fmt.Errorf("the argument to '%s' must have between %v and %v elements", name, min, max)
+		if maxArgs >= 0 {
+			return nil, fmt.Errorf(
+				"the argument to '%s' must have between %v and %v elements", name, minArgs, maxArgs)
 		}
-		return nil, fmt.Errorf("the argument to '%s' must have at least %v elements", name, min)
+		return nil, fmt.Errorf("the argument to '%s' must have at least %v elements", name, minArgs)
 	}
 	return arr, nil
 }
@@ -151,7 +155,7 @@ func (ctx *renderContext) renderRef(name string) (model.Expression, error) {
 
 var holePattern = regexp.MustCompile(`\${([^}]*)}`)
 
-// renderSub renders a call to Fn::Sub. The call is converted to a template expression. If an envrionment map is
+// renderSub renders a call to Fn::Sub. The call is converted to a template expression. If an environment map is
 // provided, references to map elements are replaced with the corresponding elements.
 func (ctx *renderContext) renderSub(name string, value ast.Node) (model.Expression, error) {
 	arr, err := ctx.checkArgsArray(name, value, 1, 2)
@@ -213,7 +217,9 @@ func (ctx *renderContext) renderSub(name string, value ast.Node) (model.Expressi
 	literals = append(literals, text[start:])
 
 	if len(literals) != len(refs)+1 {
-		return nil, fmt.Errorf("the number of literals must be exactly one more than the number of references in 'Fn::Sub'")
+		return nil, fmt.Errorf(
+			"the number of literals must be exactly one more than the number of references in 'Fn::Sub'",
+		)
 	}
 
 	var parts []model.Expression
@@ -227,8 +233,8 @@ func (ctx *renderContext) renderSub(name string, value ast.Node) (model.Expressi
 }
 
 // renderArgsArray validates and renders the argument to a function as an array of expressions.
-func (ctx *renderContext) renderArgsArray(name string, arg ast.Node, min, max int) ([]model.Expression, error) {
-	arr, err := ctx.checkArgsArray(name, arg, min, max)
+func (ctx *renderContext) renderArgsArray(name string, arg ast.Node, minArgs, maxArgs int) ([]model.Expression, error) {
+	arr, err := ctx.checkArgsArray(name, arg, minArgs, maxArgs)
 	if err != nil {
 		return nil, err
 	}
@@ -458,7 +464,7 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 		return &model.ScopeTraversalExpression{
 			Traversal: hcl.Traversal{
 				hcl.TraverseRoot{Name: resourceVar.Name},
-				hcl.TraverseAttr{Name: strings.Replace(sdkName, ".", "", -1)},
+				hcl.TraverseAttr{Name: strings.ReplaceAll(sdkName, ".", "")},
 			},
 			Parts: []model.Traversable{
 				resourceVar,
@@ -692,15 +698,17 @@ func (ctx *renderContext) renderPseudoParameters(items *[]model.BodyItem) {
 
 // renderParameterType converts a CloudFormation parameter type to its equivalent PCL type.
 func renderParameterType(s string) (string, bool) {
+	const stringType = "string"
+
 	switch s {
 	case "String":
-		return "string", true
+		return stringType, true
 	case "Number":
 		return "number", true
 	case "List<Number>":
 		return "list(number)", true
 	case "CommaDelimitedList", "List<String>":
-		return "list(string)", true
+		return "list(" + stringType + ")", true
 	case "AWS::EC2::AvailabilityZone::Name",
 		"AWS::EC2::Image::Id",
 		"AWS::EC2::Instance::Id",
@@ -712,7 +720,7 @@ func renderParameterType(s string) (string, bool) {
 		"AWS::EC2::VPC::Id",
 		"AWS::Route53::HostedZone::Id",
 		"AWS::SSM::Parameter::Name":
-		return "string", true
+		return stringType, true
 	case "List<AWS::EC2::AvailabilityZone::Name>",
 		"List<AWS::EC2::Image::Id>",
 		"List<AWS::EC2::Instance::Id>",
@@ -722,7 +730,7 @@ func renderParameterType(s string) (string, bool) {
 		"List<AWS::EC2::Volume::Id>",
 		"List<AWS::EC2::VPC::Id>",
 		"List<AWS::Route53::HostedZone::Id>":
-		return "list(string)", true
+		return "list(" + stringType + ")", true
 	default:
 		return "", false
 	}
@@ -755,7 +763,7 @@ func (ctx *renderContext) renderParameter(attr *ast.MappingValueNode) ([]model.B
 
 	typeExpr, ok := renderParameterType(typeValue)
 	if !ok {
-		return nil, fmt.Errorf("Unrecognized type '%v' for parameter '%s'", typeValue, name)
+		return nil, fmt.Errorf("unrecognized type '%v' for parameter '%s'", typeValue, name)
 	}
 
 	paramRefVar, ok := ctx.parameters[keyString(attr)]
@@ -920,13 +928,19 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 			case ast.SequenceType:
 				arr = f.Value.(*ast.SequenceNode).Values
 			default:
-				return nil, diagnostics, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
+				return nil, diagnostics, fmt.Errorf(
+					"the \"DependsOn\" attribute for resource '%v' must be a string or list of strings",
+					name,
+				)
 			}
 
 			var refs []model.Expression
 			for _, v := range arr {
 				if v.Type() != ast.StringType {
-					return nil, diagnostics, fmt.Errorf("the \"DependsOn\" attribute for resource '%v' must be a string or list of strings", name)
+					return nil, diagnostics, fmt.Errorf(
+						"the \"DependsOn\" attribute for resource '%v' must be a string or list of strings",
+						name,
+					)
 				}
 				resourceName := v.(*ast.StringNode).Value
 				resourceVar, ok := ctx.resources[resourceName]
@@ -963,7 +977,11 @@ func (ctx *renderContext) renderResource(attr *ast.MappingValueNode) (model.Body
 				diagnostics = append(diagnostics, &hcl.Diagnostic{
 					Severity: hcl.DiagWarning,
 					Summary:  "Resource not supported",
-					Detail:   fmt.Sprintf("Resource %q is not yet supported by AWS CloudControl API. Code generated for %q is for reference only.", token, resourceVar.Name),
+					Detail: fmt.Sprintf(
+						"Resource %q is not yet supported by AWS CloudControl API. Code generated for %q is for reference only.",
+						token,
+						resourceVar.Name,
+					),
 				})
 			}
 		case "Version":
@@ -1027,7 +1045,10 @@ type objectRenderer func(*ast.MappingValueNode) (model.BodyItem, hcl.Diagnostics
 
 // renderObjects is a helper that renders a set of named objects in a mapping. Each named object is passed to the
 // provided renderer.
-func (ctx *renderContext) renderObjects(attr *ast.MappingValueNode, render objectRenderer) ([]model.BodyItem, hcl.Diagnostics, error) {
+func (ctx *renderContext) renderObjects(
+	attr *ast.MappingValueNode,
+	render objectRenderer,
+) ([]model.BodyItem, hcl.Diagnostics, error) {
 	values, ok := mapValues(attr.Value)
 	if !ok {
 		return nil, nil, fmt.Errorf("%s must be a mapping", keyString(attr))
@@ -1261,7 +1282,7 @@ func RenderTemplate(file *ast.File, metadata *metadata.CloudAPIMetadata) (*model
 			// Ignore this
 		case "Description":
 			if f.Value.Type() != ast.StringType {
-				return nil, diagnostics, fmt.Errorf("Description must be a string")
+				return nil, diagnostics, fmt.Errorf("description must be a string")
 			}
 			//comment = f.Value.(jsonast.String).String()
 		case "Metadata":
@@ -1271,7 +1292,7 @@ func RenderTemplate(file *ast.File, metadata *metadata.CloudAPIMetadata) (*model
 
 			values, ok := mapValues(f.Value)
 			if !ok {
-				return nil, diagnostics, fmt.Errorf("Parameters must be a map")
+				return nil, diagnostics, fmt.Errorf("parameters must be a map")
 			}
 
 			for _, f := range values {
@@ -1344,7 +1365,10 @@ func RenderFile(path string, metadata *metadata.CloudAPIMetadata) (*model.Body, 
 
 // RenderText parses and renders a CloudFormation template to a PCL program body. If there are errors in the template,
 // the function returns an error.
-func RenderText(yaml string, metadata *metadata.CloudAPIMetadata) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
+func RenderText(
+	yaml string,
+	metadata *metadata.CloudAPIMetadata,
+) (body *model.Body, diagnostics hcl.Diagnostics, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during YAML parsing: %v", r)

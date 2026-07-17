@@ -1,3 +1,4 @@
+//nolint:goconst // Repeated literals keep test and schema fixtures readable.
 package provider_test
 
 import (
@@ -5,12 +6,14 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 
-	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/structpb"
+
+	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 )
 
 func TestProviderEndpoints(t *testing.T) {
@@ -29,9 +32,9 @@ func TestProviderEndpoints(t *testing.T) {
 	t.Run("preview calls sts caller identity", func(t *testing.T) {
 		t.Parallel()
 		stsRequestCount := 0
-		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 			stsRequestCount++
-			w.Write([]byte(stsGetCallerIdentityResponse))
+			_, _ = w.Write([]byte(stsGetCallerIdentityResponse))
 		}))
 		t.Cleanup(server.Close)
 
@@ -60,14 +63,13 @@ func TestProviderEndpoints(t *testing.T) {
 		}, invokeResponse.Return.AsMap())
 	})
 
-
 	t.Run("configure calls set the APN/1.1 marketplace identifier in the User-Agent header", func(t *testing.T) {
 		t.Parallel()
 		requestCount := 0
 		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			assert.Equal(t, "APN/1.1 ("+provider.PulumiAWSMarketplaceCode+")", r.Header.Get("User-Agent"))
 			requestCount++
-			w.Write([]byte(stsGetCallerIdentityResponse))
+			_, _ = w.Write([]byte(stsGetCallerIdentityResponse))
 		}))
 		t.Cleanup(server.Close)
 
@@ -91,9 +93,9 @@ func TestProviderEndpoints(t *testing.T) {
 	t.Run("skipping credentials doesn't break getAccountId", func(t *testing.T) {
 		t.Parallel()
 		stsRequestCount := 0
-		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 			stsRequestCount++
-			w.Write([]byte(stsGetCallerIdentityResponse))
+			_, _ = w.Write([]byte(stsGetCallerIdentityResponse))
 		}))
 		t.Cleanup(server.Close)
 
@@ -128,10 +130,10 @@ func TestProviderEndpoints(t *testing.T) {
 		t.Parallel()
 
 		reqCount := 0
-		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 			reqCount++
 			if reqCount == 1 {
-				w.Write([]byte(`
+				_, _ = w.Write([]byte(`
 			{
 				"ProgressEvent": {
 					"Identifier": "CloudApiLogGroup",
@@ -145,7 +147,7 @@ func TestProviderEndpoints(t *testing.T) {
 				return
 			}
 			if reqCount == 2 {
-				w.Write([]byte(`
+				_, _ = w.Write([]byte(`
 			{
 				"ProgressEvent": {
 					"Identifier": "CloudApiLogGroup",
@@ -158,7 +160,7 @@ func TestProviderEndpoints(t *testing.T) {
 			}`))
 				return
 			}
-			w.Write([]byte(`
+			_, _ = w.Write([]byte(`
 			{
 				"ResourceDescription": {
 					"Identifier": "CloudApiLogGroup",

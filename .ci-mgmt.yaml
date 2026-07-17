@@ -6,7 +6,7 @@ providerDefaultBranch: master
 checkoutSubmodules: true
 pulumiVersionFile: .pulumi.version
 parallel: 3
-lint: false
+lint: true
 enableChangelog: true
 envOverride:
     AWS_REGION: us-west-2

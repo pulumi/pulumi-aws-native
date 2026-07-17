@@ -10,8 +10,9 @@ import (
 	"github.com/goccy/go-yaml/ast"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/zclconf/go-cty/cty"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 )
 
 // camel replaces the first contiguous string of upper case runes in the given string with its lower-case equivalent.
@@ -171,9 +172,10 @@ func resourceToken(typ string) string {
 	moduleName, resourceName := components[1], components[2]
 
 	// Override the name of the Config module.
-	if moduleName == "Config" {
+	switch moduleName {
+	case "Config":
 		moduleName = "Configuration"
-	} else if moduleName == "config" {
+	case "config":
 		moduleName = "configuration"
 	}
 	return "aws-native:" + moduleName + ":" + resourceName

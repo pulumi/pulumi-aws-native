@@ -26,7 +26,11 @@ type CloudControlApiClient interface {
 	// It returns a ProgressEvent which is the initial progress returned directly from the API call,
 	// without awaiting any long-running operations.
 	// The changes to be applied are expressed as a list of JSON patch operations.
-	UpdateResource(ctx context.Context, cfType, id string, patches []jsonpatch.JsonPatchOperation) (*types.ProgressEvent, error)
+	UpdateResource(
+		ctx context.Context,
+		cfType, id string,
+		patches []jsonpatch.JsonPatchOperation,
+	) (*types.ProgressEvent, error)
 
 	// DeleteResource deletes a resource of the specified type with the given identifier.
 	// It returns a ProgressEvent which is the initial progress returned directly from the API call,
@@ -44,8 +48,12 @@ type CloudControlApiClient interface {
 	// GetResourceRequestStatus returns the current status of a resource operation request.
 	GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error)
 
-	// GetResourceRequestStatusWithHooks returns the current status of a resource operation request with hook information.
-	GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error)
+	// GetResourceRequestStatusWithHooks returns the current status of a resource operation request with hook
+	// information.
+	GetResourceRequestStatusWithHooks(
+		ctx context.Context,
+		requestToken string,
+	) (*types.ProgressEvent, []types.HookProgressEvent, error)
 }
 
 // NewCloudControlApiClient creates a wrapper around the AWS SDK's Cloud Control client.
@@ -61,7 +69,10 @@ type ccApiClientImpl struct {
 	roleArn *string
 }
 
-func (client *ccApiClientImpl) CreateResource(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) CreateResource(
+	ctx context.Context,
+	cfType, desiredState string,
+) (*types.ProgressEvent, error) {
 	clientToken := uuid.New().String()
 	res, err := client.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
@@ -75,7 +86,11 @@ func (client *ccApiClientImpl) CreateResource(ctx context.Context, cfType, desir
 	return res.ProgressEvent, nil
 }
 
-func (client *ccApiClientImpl) UpdateResource(ctx context.Context, cfType, id string, patches []jsonpatch.JsonPatchOperation) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) UpdateResource(
+	ctx context.Context,
+	cfType, id string,
+	patches []jsonpatch.JsonPatchOperation,
+) (*types.ProgressEvent, error) {
 	doc, err := json.Marshal(patches)
 	if err != nil {
 		return nil, fmt.Errorf("serializing patch as json: %w", err)
@@ -110,7 +125,10 @@ func (client *ccApiClientImpl) DeleteResource(ctx context.Context, cfType, id st
 	return res.ProgressEvent, nil
 }
 
-func (client *ccApiClientImpl) GetResource(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+func (client *ccApiClientImpl) GetResource(
+	ctx context.Context,
+	typeName, identifier string,
+) (map[string]interface{}, error) {
 	getRes, err := client.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
@@ -152,7 +170,10 @@ func (client *ccApiClientImpl) ListResources(
 	return res.ResourceDescriptions, res.NextToken, nil
 }
 
-func (client *ccApiClientImpl) GetResourceRequestStatus(ctx context.Context, requestToken string) (*types.ProgressEvent, error) {
+func (client *ccApiClientImpl) GetResourceRequestStatus(
+	ctx context.Context,
+	requestToken string,
+) (*types.ProgressEvent, error) {
 	res, err := client.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
 		RequestToken: aws.String(requestToken),
 	})
@@ -162,7 +183,10 @@ func (client *ccApiClientImpl) GetResourceRequestStatus(ctx context.Context, req
 	return res.ProgressEvent, nil
 }
 
-func (client *ccApiClientImpl) GetResourceRequestStatusWithHooks(ctx context.Context, requestToken string) (*types.ProgressEvent, []types.HookProgressEvent, error) {
+func (client *ccApiClientImpl) GetResourceRequestStatusWithHooks(
+	ctx context.Context,
+	requestToken string,
+) (*types.ProgressEvent, []types.HookProgressEvent, error) {
 	res, err := client.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
 		RequestToken: aws.String(requestToken),
 	})

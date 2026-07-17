@@ -12,14 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//nolint:goconst // Schema definitions intentionally repeat user-facing type and description text.
 package schema
 
 import (
 	"sort"
 	"strings"
 
-	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 )
 
 func configToProvider(config pschema.ComplexTypeSpec) pschema.ComplexTypeSpec {
@@ -52,6 +54,7 @@ var assumeRole = pschema.ComplexTypeSpec{
 				TypeSpec:    pschema.TypeSpec{Type: "string"},
 			},
 			"policyArns": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.",
 				TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 			},
@@ -70,6 +73,7 @@ var assumeRole = pschema.ComplexTypeSpec{
 					AdditionalProperties: &pschema.TypeSpec{Type: "string"}},
 			},
 			"transitiveTagKeys": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.",
 				TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 			},
@@ -80,6 +84,7 @@ var assumeRole = pschema.ComplexTypeSpec{
 
 var defaultTags = pschema.ComplexTypeSpec{
 	ObjectTypeSpec: pschema.ObjectTypeSpec{
+		//nolint:lll // Preserve the exact fixture or documentation text.
 		Description: "The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.",
 		Properties: map[string]pschema.PropertySpec{
 			"tags": {
@@ -124,13 +129,16 @@ var endpoints = pschema.ComplexTypeSpec{
 
 var ignoreTags = pschema.ComplexTypeSpec{
 	ObjectTypeSpec: pschema.ObjectTypeSpec{
+		//nolint:lll // Preserve the exact fixture or documentation text.
 		Description: "The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.",
 		Properties: map[string]pschema.PropertySpec{
 			"keyPrefixes": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.",
 				TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 			},
 			"keys": {
+				//nolint:lll // Preserve the exact fixture or documentation text.
 				Description: "List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.",
 				TypeSpec:    pschema.TypeSpec{Type: "array", Items: &pschema.TypeSpec{Type: "string"}},
 			},

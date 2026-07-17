@@ -75,7 +75,7 @@ func firstUppercaseAcronym(s string) (int, int) {
 	// - we're at the end of the string
 	// - the acronym is followed by a single lowercase 's' (eg. as in "ARNs")
 	// Note: we've defined uppercase to be ASCII [A-Z] so index math is safe here
-	if !(endIndex == len(s) || startsWithIsolatedLowercaseS(s[endIndex:])) {
+	if endIndex != len(s) && !startsWithIsolatedLowercaseS(s[endIndex:]) {
 		endIndex = endIndex - 1
 	}
 
@@ -106,9 +106,8 @@ func findFirstRunOfUppercase(s string, minLength int) (int, int) {
 				// Note: we've defined uppercase to be ASCII [0-9A-Z] so index math is safe here
 				if i-startIndex >= minLength {
 					return startIndex, i
-				} else {
-					startIndex = -1
 				}
+				startIndex = -1
 			}
 		}
 	}
