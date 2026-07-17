@@ -12,6 +12,8 @@ import (
 
 const (
 	childrenProperty = "Children"
+	outerProperty    = "Outer"
+	parentProperty   = "Parent"
 	valuesProperty   = "Values"
 )
 
@@ -40,7 +42,7 @@ func TestReadUnorderedCollections(t *testing.T) {
 		},
 		"nested array": {
 			schema: resourceSchema(map[string]*jsschema.Schema{
-				"Outer": orderedArraySchema(&jsschema.Schema{
+				outerProperty: orderedArraySchema(&jsschema.Schema{
 					Type: jsschema.PrimitiveTypes{jsschema.ObjectType},
 					Properties: map[string]*jsschema.Schema{
 						"InnerValues": unorderedArraySchema(stringSchema()),
@@ -48,6 +50,12 @@ func TestReadUnorderedCollections(t *testing.T) {
 				}),
 			}),
 			expected: []string{"outer/*/innerValues"},
+		},
+		"unordered array of unordered arrays": {
+			schema: resourceSchema(map[string]*jsschema.Schema{
+				outerProperty: unorderedArraySchema(unorderedArraySchema(stringSchema())),
+			}),
+			expected: []string{"outer", "outer/*"},
 		},
 		"same definition at multiple paths": {
 			schema: &jsschema.Schema{
@@ -74,7 +82,7 @@ func TestReadUnorderedCollections(t *testing.T) {
 		},
 		"ordered parent and unordered child": {
 			schema: resourceSchema(map[string]*jsschema.Schema{
-				"Parent": orderedArraySchema(&jsschema.Schema{
+				parentProperty: orderedArraySchema(&jsschema.Schema{
 					Properties: map[string]*jsschema.Schema{
 						childrenProperty: unorderedArraySchema(stringSchema()),
 					},
@@ -84,7 +92,7 @@ func TestReadUnorderedCollections(t *testing.T) {
 		},
 		"unordered parent and ordered child": {
 			schema: resourceSchema(map[string]*jsschema.Schema{
-				"Parent": unorderedArraySchema(&jsschema.Schema{
+				parentProperty: unorderedArraySchema(&jsschema.Schema{
 					Properties: map[string]*jsschema.Schema{
 						childrenProperty: orderedArraySchema(stringSchema()),
 					},
@@ -151,7 +159,7 @@ func TestReadUnorderedCollections(t *testing.T) {
 		},
 		"multiple item schemas": {
 			schema: resourceSchema(map[string]*jsschema.Schema{
-				"Outer": {
+				outerProperty: {
 					Type: jsschema.PrimitiveTypes{jsschema.ArrayType},
 					Items: &jsschema.ItemSpec{TupleMode: true, Schemas: jsschema.SchemaList{
 						{Properties: map[string]*jsschema.Schema{
@@ -175,6 +183,28 @@ func TestReadUnorderedCollections(t *testing.T) {
 				},
 			},
 			expected: []string{"values"},
+		},
+		"missing local definition preserves sibling fields": {
+			schema: resourceSchema(map[string]*jsschema.Schema{
+				parentProperty: {
+					Reference: "#/definitions/Missing",
+					Properties: map[string]*jsschema.Schema{
+						valuesProperty: unorderedArraySchema(stringSchema()),
+					},
+				},
+			}),
+			expected: []string{"parent/values"},
+		},
+		"unsupported reference preserves sibling fields": {
+			schema: resourceSchema(map[string]*jsschema.Schema{
+				parentProperty: {
+					Reference: "#/$defs/Values",
+					Properties: map[string]*jsschema.Schema{
+						valuesProperty: unorderedArraySchema(stringSchema()),
+					},
+				},
+			}),
+			expected: []string{"parent/values"},
 		},
 	}
 

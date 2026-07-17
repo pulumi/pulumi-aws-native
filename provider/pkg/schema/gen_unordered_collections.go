@@ -41,9 +41,11 @@ const insertionOrderProperty = "insertionOrder"
 //
 // That shape produces "containerDefinitions/*/environment". At runtime the
 // wildcard matches concrete diff paths such as
-// "containerDefinitions/0/environment". Walking from each resource property,
-// rather than collecting annotations directly from definitions, is necessary
-// because one definition can be referenced at several resource paths.
+// "containerDefinitions/0/environment". When an array item is itself an
+// unordered array, the inner collection path ends in "*"; for example,
+// "outer/*" matches the inner array at "outer/0". Walking from each resource
+// property, rather than collecting annotations directly from definitions, is
+// necessary because one definition can be referenced at several resource paths.
 //
 // unorderedSchemaBranch represents one effective schema alternative at a
 // resource path. refs is the reference stack for that path; it prevents cycles

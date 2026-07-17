@@ -41,7 +41,8 @@ type CloudAPIResource struct {
 	WriteOnly []string `json:"writeOnly,omitempty"`
 	// UnorderedCollections contains SDK-name slash paths for arrays whose
 	// CloudFormation schema declares insertionOrder: false. Array element
-	// traversal uses "*" path segments.
+	// traversal uses "*" path segments, including a terminal "*" when an array
+	// item is itself an unordered array.
 	UnorderedCollections []string               `json:"unorderedCollections,omitempty"`
 	IrreversibleNames    map[string]string      `json:"irreversibleNames,omitempty"`
 	TagsProperty         string                 `json:"tagsProperty,omitempty"`
