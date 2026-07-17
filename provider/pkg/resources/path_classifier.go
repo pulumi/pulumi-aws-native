@@ -178,7 +178,13 @@ func SuppressBaselineDiffs(
 		baseline,
 		transformCache,
 	)
-	return ApplyDiff(oldDesired, diff)
+	if len(spec.UnorderedCollections) == 0 {
+		return ApplyDiff(oldDesired, diff)
+	}
+	// Unordered suppression can remove an update nested inside a retained
+	// object or array. Rebuild from the surviving detailed diff so applying a
+	// real sibling change does not also restore the suppressed AWS-only reorder.
+	return applyFilteredDiff(oldDesired, diff)
 }
 
 // classify does the schema-only part of Classify before metadata path sets are

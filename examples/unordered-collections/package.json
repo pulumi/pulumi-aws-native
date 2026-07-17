@@ -1,0 +1,12 @@
+{
+  "name": "aws-native-unordered-collections",
+  "devDependencies": {
+    "@types/node": "^16"
+  },
+  "dependencies": {
+    "@pulumi/pulumi": "3.244.0"
+  },
+  "peerDependencies": {
+    "@pulumi/aws-native": "dev"
+  }
+}

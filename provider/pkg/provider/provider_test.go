@@ -39,7 +39,9 @@ type listTestStream struct {
 }
 
 const (
-	testBucketA = "bucket-a"
+	testBucketA             = "bucket-a"
+	nestedConfigProperty    = "config"
+	cfnPoliciesPropertyName = "Policies"
 
 	// Resource type tokens, not credentials.
 	classicAWSBucketToken          = "aws:s3/bucket:Bucket"          //nolint:gosec
@@ -2306,6 +2308,8 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 							},
 						},
 					},
+					UnorderedCollections: []string{"policies"},
+					CreateOnly:           []string{"policies/*/policyName"},
 				},
 			},
 			Types: map[string]metadata.CloudAPIType{
@@ -2466,6 +2470,85 @@ func TestStandardResourceDiffUsesActualOutputBaseline(t *testing.T) {
 		})
 		require.NoError(t, err)
 		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("legacy unordered IAM policy order with create-only children does not report diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		awsOrder := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("A"),
+			testRolePolicy("B"),
+		})
+		programOrder := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("B"),
+			testRolePolicy("A"),
+		})
+		oldInputs := resource.PropertyMap{"policies": awsOrder}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": awsOrder,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{"policies": programOrder}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, resp.Changes)
+	})
+
+	t.Run("unordered IAM policy create-only membership change reports diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		awsOrder := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("A"),
+			testRolePolicy("B"),
+		})
+		oldInputs := resource.PropertyMap{"policies": awsOrder}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": awsOrder,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": resource.NewArrayProperty([]resource.PropertyValue{
+					testRolePolicy("B"),
+					testRolePolicy("C"),
+				}),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
+	})
+
+	t.Run("mixed legacy unordered order retains real diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		awsOrder := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("A"),
+			testRolePolicy("B"),
+		})
+		programOrder := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("B"),
+			testRolePolicy("A"),
+		})
+		oldInputs := resource.PropertyMap{
+			"assumeRolePolicyDocument": resource.NewStringProperty(`{"Version":"old"}`),
+			"policies":                 awsOrder,
+		}
+		resp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn: string(roleURN),
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": oldInputs["assumeRolePolicyDocument"],
+				"policies":                 awsOrder,
+				"__inputs":                 resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"assumeRolePolicyDocument": resource.NewStringProperty(`{"Version":"new"}`),
+				"policies":                 programOrder,
+			}),
+		})
+		require.NoError(t, err)
+		// Pulumi's subsequent positional old-input/new-input fallback may still
+		// display the reorder. That mixed-diff behavior is intentionally out of scope.
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_UNKNOWN, resp.Changes)
 	})
 
 	t.Run("normalized IAM policy document actual baseline does not report diff", func(t *testing.T) {
@@ -2646,6 +2729,16 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 					TagsProperty: "tags",
 					TagsStyle:    default_tags.TagsStyleKeyValueArray,
 				},
+				"aws:test:NestedResource": {
+					CfType: "AWS::Test::NestedResource",
+					Inputs: map[string]schema.PropertySpec{
+						nestedConfigProperty: {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:test:Config"}},
+					},
+					Outputs: map[string]schema.PropertySpec{
+						nestedConfigProperty: {TypeSpec: schema.TypeSpec{Ref: "#/types/aws-native:test:Config"}},
+					},
+					UnorderedCollections: []string{"config/items"},
+				},
 				"aws:iam:Role": {
 					CfType: "AWS::IAM::Role",
 					Inputs: map[string]schema.PropertySpec{
@@ -2666,6 +2759,7 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 							},
 						},
 					},
+					UnorderedCollections: []string{"policies"},
 				},
 			},
 			Types: map[string]metadata.CloudAPIType{
@@ -2673,6 +2767,18 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 					Properties: map[string]schema.PropertySpec{
 						"key":   {TypeSpec: schema.TypeSpec{Type: "string"}},
 						"value": {TypeSpec: schema.TypeSpec{Type: "string"}},
+					},
+				},
+				"aws-native:test:Config": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"mode": {TypeSpec: schema.TypeSpec{Type: "string"}},
+						"items": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Type: "string"},
+							},
+						},
 					},
 				},
 				"aws-native:iam:RolePolicy": {
@@ -2899,6 +3005,149 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 		assert.Equal(t, resource.NewStringProperty("secretbar"), checkpointTagValue.SecretValue().Element)
 	})
 
+	t.Run("nested unordered refresh applies sibling drift without adopting live order", func(t *testing.T) {
+		nestedURN := resource.NewURN("stack", "project", "parent", "aws:test:NestedResource", "name")
+		oldItems := resource.NewArrayProperty([]resource.PropertyValue{
+			resource.NewStringProperty("B"), resource.NewStringProperty("A"),
+		})
+		oldInputs := resource.PropertyMap{
+			nestedConfigProperty: resource.NewObjectProperty(resource.PropertyMap{
+				"mode": resource.NewStringProperty("old"), "items": oldItems,
+			}),
+		}
+		mockCCC.EXPECT().Read(ctx, "AWS::Test::NestedResource", "resource-id").Return(
+			map[string]interface{}{
+				"Config": map[string]interface{}{
+					"Mode": "new", "Items": []interface{}{"A", "B"},
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(nestedURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				nestedConfigProperty: oldInputs[nestedConfigProperty],
+				"__inputs":           resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		inputConfig := inputs[nestedConfigProperty].ObjectValue()
+		assert.Equal(t, "new", inputConfig["mode"].StringValue())
+		assert.True(t, oldItems.DeepEquals(inputConfig["items"]))
+
+		props := mustUnmarshalProperties(t, resp.Properties)
+		outputItems := props[nestedConfigProperty].ObjectValue()["items"].ArrayValue()
+		assert.Equal(t, "A", outputItems[0].StringValue())
+		checkpointConfig := props["__inputs"].SecretValue().Element.ObjectValue()[nestedConfigProperty].ObjectValue()
+		assert.Equal(t, "new", checkpointConfig["mode"].StringValue())
+		assert.True(t, oldItems.DeepEquals(checkpointConfig["items"]))
+	})
+
+	t.Run("unordered IAM policy refresh preserves desired order", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldPolicies := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("B"),
+			testRolePolicy("A"),
+		})
+		oldInputs := resource.PropertyMap{"policies": oldPolicies}
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				cfnPoliciesPropertyName: []interface{}{
+					testRolePolicyRaw("A"),
+					testRolePolicyRaw("B"),
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(roleURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": oldPolicies,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.True(t, oldPolicies.DeepEquals(inputs["policies"]))
+		props := mustUnmarshalProperties(t, resp.Properties)
+		assert.Equal(t, "A", props["policies"].ArrayValue()[0].ObjectValue()["policyName"].StringValue())
+		checkpointPolicies := props["__inputs"].SecretValue().Element.ObjectValue()["policies"]
+		assert.True(t, oldPolicies.DeepEquals(checkpointPolicies))
+	})
+
+	t.Run("unordered IAM policy membership drift is checkpointed", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		oldPolicies := resource.NewArrayProperty([]resource.PropertyValue{
+			testRolePolicy("B"),
+			testRolePolicy("A"),
+		})
+		oldInputs := resource.PropertyMap{"policies": oldPolicies}
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				cfnPoliciesPropertyName: []interface{}{
+					testRolePolicyRaw("A"),
+					testRolePolicyRaw("C"),
+				},
+			}, true, nil,
+		)
+
+		resp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn: string(roleURN),
+			Id:  "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": oldPolicies,
+				"__inputs": resource.MakeSecret(resource.NewObjectProperty(oldInputs)),
+			}),
+		})
+		require.NoError(t, err)
+
+		inputs := mustUnmarshalProperties(t, resp.Inputs)
+		assert.Equal(t, "A", inputs["policies"].ArrayValue()[0].ObjectValue()["policyName"].StringValue())
+		assert.Equal(t, "C", inputs["policies"].ArrayValue()[1].ObjectValue()["policyName"].StringValue())
+		props := mustUnmarshalProperties(t, resp.Properties)
+		checkpointPolicies := props["__inputs"].SecretValue().Element.ObjectValue()["policies"]
+		assert.True(t, inputs["policies"].DeepEquals(checkpointPolicies))
+	})
+
+	t.Run("import adopts live order and later equivalent order has no diff", func(t *testing.T) {
+		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
+		mockCCC.EXPECT().Read(ctx, "AWS::IAM::Role", "resource-id").Return(
+			map[string]interface{}{
+				cfnPoliciesPropertyName: []interface{}{
+					testRolePolicyRaw("A"),
+					testRolePolicyRaw("B"),
+				},
+			}, true, nil,
+		)
+
+		readResp, err := provider.Read(ctx, &pulumirpc.ReadRequest{
+			Urn:        string(roleURN),
+			Id:         "resource-id",
+			Properties: mustMarshalProperties(t, resource.PropertyMap{}),
+		})
+		require.NoError(t, err)
+		importedInputs := mustUnmarshalProperties(t, readResp.Inputs)
+		assert.Equal(t, "A", importedInputs["policies"].ArrayValue()[0].ObjectValue()["policyName"].StringValue())
+
+		diffResp, err := provider.Diff(ctx, &pulumirpc.DiffRequest{
+			Urn:  string(roleURN),
+			Olds: readResp.Properties,
+			News: mustMarshalProperties(t, resource.PropertyMap{
+				"policies": resource.NewArrayProperty([]resource.PropertyValue{
+					testRolePolicy("B"),
+					testRolePolicy("A"),
+				}),
+			}),
+		})
+		require.NoError(t, err)
+		assert.Equal(t, pulumirpc.DiffResponse_DIFF_NONE, diffResp.Changes)
+	})
+
 	t.Run("normalized IAM policy document is not checkpointed as owned input drift", func(t *testing.T) {
 		roleURN := resource.NewURN("stack", "project", "parent", "aws:iam:Role", "name")
 		oldInputs := resource.PropertyMap{
@@ -2938,7 +3187,7 @@ func TestStandardResourceReadReturnsOwnershipFilteredInputs(t *testing.T) {
 						},
 					},
 				},
-				"Policies": []interface{}{
+				cfnPoliciesPropertyName: []interface{}{
 					map[string]interface{}{
 						"PolicyName": "test-policy",
 						"PolicyDocument": map[string]interface{}{
@@ -3095,6 +3344,24 @@ func TestDelete(t *testing.T) {
 		_, err := provider.Delete(ctx, req)
 		assert.Error(t, err)
 	})
+}
+
+func testRolePolicy(name string) resource.PropertyValue {
+	return resource.NewObjectProperty(resource.PropertyMap{
+		"policyName": resource.NewStringProperty(name),
+		"policyDocument": resource.NewObjectProperty(resource.PropertyMap{
+			"Version": resource.NewStringProperty("2012-10-17"),
+		}),
+	})
+}
+
+func testRolePolicyRaw(name string) map[string]interface{} {
+	return map[string]interface{}{
+		"PolicyName": name,
+		"PolicyDocument": map[string]interface{}{
+			"Version": "2012-10-17",
+		},
+	}
 }
 
 func mustMarshalProperties(t *testing.T, props resource.PropertyMap) *structpb.Struct {

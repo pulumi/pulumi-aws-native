@@ -1,0 +1,3 @@
+name: aws-native-unordered-collections
+runtime: nodejs
+description: Verifies refresh semantics for CloudFormation unordered collections

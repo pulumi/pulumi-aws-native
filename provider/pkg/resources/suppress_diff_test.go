@@ -182,6 +182,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			default_tags.TagsStyleKeyValueArray,
 			diff,
 			originalInputs,
+			false,
 		)
 
 		_, hasAdd := result.Adds["fileSystemTags"]
@@ -205,7 +206,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 
 		originalInputs := resource.PropertyMap{}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs, false,
+		)
 
 		addedTags, hasAdd := result.Adds["tags"]
 		assert.True(t, hasAdd)
@@ -244,7 +247,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs, false,
+		)
 
 		// After filtering aws: tag, old and new should be equal, so update should be removed
 		_, hasUpdate := result.Updates["tags"]
@@ -280,6 +285,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			default_tags.TagsStyleKeyValueArrayUpperCase,
 			diff,
 			originalInputs,
+			false,
 		)
 
 		_, hasUpdate := result.Updates["tags"]
@@ -321,7 +327,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs, false,
+		)
 
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "reordered key/value tags should not register as drift")
@@ -354,7 +362,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs, false,
+		)
 
 		_, hasUpdate := result.Updates["tags"]
 		assert.False(t, hasUpdate, "secret/plaintext wrapper differences should not register as tag drift")
@@ -400,6 +410,7 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			default_tags.TagsStyleKeyValueArrayUpperCase,
 			diff,
 			originalInputs,
+			false,
 		)
 
 		_, hasUpdate := result.Updates["tags"]
@@ -438,7 +449,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleKeyValueArray, diff, originalInputs, false,
+		)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")
@@ -469,7 +482,9 @@ func TestSuppressAWSManagedTagAdditions(t *testing.T) {
 			"tags": oldTags,
 		}
 
-		result := suppressAWSManagedTagAdditions("tags", default_tags.TagsStyleStringMap, diff, originalInputs)
+		result := suppressAWSManagedTagAdditions(
+			"tags", default_tags.TagsStyleStringMap, diff, originalInputs, false,
+		)
 
 		update, hasUpdate := result.Updates["tags"]
 		assert.True(t, hasUpdate, "non-aws tag change should be preserved")
