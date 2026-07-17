@@ -166,7 +166,6 @@ def get_state_machine(arn: Optional[_builtins.str] = None,
     """
     Resource schema for StateMachine
 
-
     :param _builtins.str arn: Returns the ARN of the resource.
     """
     __args__ = dict()
@@ -184,11 +183,10 @@ def get_state_machine(arn: Optional[_builtins.str] = None,
         state_machine_revision_id=pulumi.get(__ret__, 'state_machine_revision_id'),
         tags=pulumi.get(__ret__, 'tags'),
         tracing_configuration=pulumi.get(__ret__, 'tracing_configuration'))
-def get_state_machine_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_state_machine_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineResult]:
     """
     Resource schema for StateMachine
-
 
     :param _builtins.str arn: Returns the ARN of the resource.
     """

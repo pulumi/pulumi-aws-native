@@ -25,9 +25,9 @@ class EndpointArgs:
                  outpost_id: pulumi.Input[_builtins.str],
                  security_group_id: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None):
+                 access_type: pulumi.Input[Optional['EndpointAccessType']] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 failed_reason: pulumi.Input[Optional['EndpointFailedReasonArgs']] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -86,38 +86,38 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> Optional[pulumi.Input['EndpointAccessType']]:
+    def access_type(self) -> pulumi.Input[Optional['EndpointAccessType']]:
         """
         The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: Optional[pulumi.Input['EndpointAccessType']]):
+    def access_type(self, value: pulumi.Input[Optional['EndpointAccessType']]):
         pulumi.set(self, "access_type", value)
 
     @_builtins.property
     @pulumi.getter(name="customerOwnedIpv4Pool")
-    def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customer_owned_ipv4_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
-    def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customer_owned_ipv4_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="failedReason")
-    def failed_reason(self) -> Optional[pulumi.Input['EndpointFailedReasonArgs']]:
+    def failed_reason(self) -> pulumi.Input[Optional['EndpointFailedReasonArgs']]:
         """
         The failure reason, if any, for a create or delete endpoint operation.
         """
         return pulumi.get(self, "failed_reason")
 
     @failed_reason.setter
-    def failed_reason(self, value: Optional[pulumi.Input['EndpointFailedReasonArgs']]):
+    def failed_reason(self, value: pulumi.Input[Optional['EndpointFailedReasonArgs']]):
         pulumi.set(self, "failed_reason", value)
 
 
@@ -127,16 +127,15 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 failed_reason: Optional[pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
-                 outpost_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_type: pulumi.Input[Optional['EndpointAccessType']] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
+                 outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::S3Outposts::Endpoint
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,7 +155,6 @@ class Endpoint(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::S3Outposts::Endpoint
 
-
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,12 +170,12 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[_builtins.str]] = None,
-                 failed_reason: Optional[pulumi.Input[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
-                 outpost_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_type: pulumi.Input[Optional['EndpointAccessType']] = None,
+                 customer_owned_ipv4_pool: pulumi.Input[Optional[_builtins.str]] = None,
+                 failed_reason: pulumi.Input[Optional[Union['EndpointFailedReasonArgs', 'EndpointFailedReasonArgsDict']]] = None,
+                 outpost_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -204,19 +204,19 @@ export interface VpcAttachmentArgs {
     /**
      * Vpc options of the attachment.
      */
-    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentVpcOptionsArgs>;
+    options?: pulumi.Input<inputs.networkmanager.VpcAttachmentVpcOptionsArgs | undefined>;
     /**
      * The attachment to move from one network function group to another.
      */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChangeArgs>;
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedSegmentChangeArgs>;
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Subnet Arn list
      */
@@ -224,7 +224,7 @@ export interface VpcAttachmentArgs {
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the VPC.
      */

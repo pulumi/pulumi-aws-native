@@ -141,49 +141,49 @@ export interface MigrationProjectArgs {
     /**
      * The optional description of the migration project.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The property describes an instance profile arn for the migration project. For read
      */
-    instanceProfileArn?: pulumi.Input<string>;
+    instanceProfileArn?: pulumi.Input<string | undefined>;
     /**
      * The property describes an instance profile identifier for the migration project. For create
      */
-    instanceProfileIdentifier?: pulumi.Input<string>;
+    instanceProfileIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The property describes an instance profile name for the migration project. For read
      */
-    instanceProfileName?: pulumi.Input<string>;
+    instanceProfileName?: pulumi.Input<string | undefined>;
     /**
      * The property describes a creating time of the migration project.
      */
-    migrationProjectCreationTime?: pulumi.Input<string>;
+    migrationProjectCreationTime?: pulumi.Input<string | undefined>;
     /**
      * The property describes an identifier for the migration project. It is used for describing/deleting/modifying can be name/arn
      */
-    migrationProjectIdentifier?: pulumi.Input<string>;
+    migrationProjectIdentifier?: pulumi.Input<string | undefined>;
     /**
      * The property describes a name to identify the migration project.
      */
-    migrationProjectName?: pulumi.Input<string>;
+    migrationProjectName?: pulumi.Input<string | undefined>;
     /**
      * The property describes schema conversion application attributes for the migration project.
      */
-    schemaConversionApplicationAttributes?: pulumi.Input<inputs.dms.SchemaConversionApplicationAttributesPropertiesArgs>;
+    schemaConversionApplicationAttributes?: pulumi.Input<inputs.dms.SchemaConversionApplicationAttributesPropertiesArgs | undefined>;
     /**
      * The property describes source data provider descriptors for the migration project.
      */
-    sourceDataProviderDescriptors?: pulumi.Input<pulumi.Input<inputs.dms.MigrationProjectDataProviderDescriptorArgs>[]>;
+    sourceDataProviderDescriptors?: pulumi.Input<pulumi.Input<inputs.dms.MigrationProjectDataProviderDescriptorArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The property describes target data provider descriptors for the migration project.
      */
-    targetDataProviderDescriptors?: pulumi.Input<pulumi.Input<inputs.dms.MigrationProjectDataProviderDescriptorArgs>[]>;
+    targetDataProviderDescriptors?: pulumi.Input<pulumi.Input<inputs.dms.MigrationProjectDataProviderDescriptorArgs>[] | undefined>;
     /**
      * The property describes transformation rules for the migration project.
      */
-    transformationRules?: pulumi.Input<string>;
+    transformationRules?: pulumi.Input<string | undefined>;
 }

@@ -56,7 +56,7 @@ class GetResourcePolicyResult:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[_builtins.str]:
         """
-        An unique identifier within the policies of a resource. 
+        An unique identifier within the policies of a resource.
         """
         return pulumi.get(self, "policy_id")
 
@@ -78,8 +78,7 @@ def get_resource_policy(policy_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SSM::ResourcePolicy
 
-
-    :param _builtins.str policy_id: An unique identifier within the policies of a resource. 
+    :param _builtins.str policy_id: An unique identifier within the policies of a resource.
     :param _builtins.str resource_arn: Arn of OpsItemGroup etc.
     """
     __args__ = dict()
@@ -92,14 +91,13 @@ def get_resource_policy(policy_id: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         policy_hash=pulumi.get(__ret__, 'policy_hash'),
         policy_id=pulumi.get(__ret__, 'policy_id'))
-def get_resource_policy_output(policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_policy_output(policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::SSM::ResourcePolicy
 
-
-    :param _builtins.str policy_id: An unique identifier within the policies of a resource. 
+    :param _builtins.str policy_id: An unique identifier within the policies of a resource.
     :param _builtins.str resource_arn: Arn of OpsItemGroup etc.
     """
     __args__ = dict()

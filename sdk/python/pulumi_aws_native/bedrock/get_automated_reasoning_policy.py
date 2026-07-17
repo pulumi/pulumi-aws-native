@@ -157,7 +157,6 @@ def get_automated_reasoning_policy(policy_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::AutomatedReasoningPolicy Resource Type
 
-
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the policy.
     """
     __args__ = dict()
@@ -176,11 +175,10 @@ def get_automated_reasoning_policy(policy_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         version=pulumi.get(__ret__, 'version'))
-def get_automated_reasoning_policy_output(policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_automated_reasoning_policy_output(policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomatedReasoningPolicyResult]:
     """
     Definition of AWS::Bedrock::AutomatedReasoningPolicy Resource Type
-
 
     :param _builtins.str policy_arn: The Amazon Resource Name (ARN) of the policy.
     """

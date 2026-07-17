@@ -116,7 +116,6 @@ def get_access_point(name: Optional[_builtins.str] = None,
     """
     The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
 
-
     :param _builtins.str name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
     """
     __args__ = dict()
@@ -131,11 +130,10 @@ def get_access_point(name: Optional[_builtins.str] = None,
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'),
         scope=pulumi.get(__ret__, 'scope'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_access_point_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3Express::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
-
 
     :param _builtins.str name: The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name. For directory buckets, the access point name must consist of a base name that you provide and suﬃx that includes the ZoneID (AWS Availability Zone or Local Zone) of your bucket location, followed by --xa-s3.
     """

@@ -113,15 +113,15 @@ export class OAuthClientApplication extends pulumi.CustomResource {
  * The set of arguments for constructing a OAuthClientApplication resource.
  */
 export interface OAuthClientApplicationArgs {
-    clientId?: pulumi.Input<string>;
-    clientSecret?: pulumi.Input<string>;
-    dataSourceType?: pulumi.Input<enums.quicksight.OAuthClientApplicationDataSourceType>;
-    identityProviderVpcConnectionProperties?: pulumi.Input<inputs.quicksight.OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs>;
-    name?: pulumi.Input<string>;
-    oAuthAuthorizationEndpointUrl?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string | undefined>;
+    clientSecret?: pulumi.Input<string | undefined>;
+    dataSourceType?: pulumi.Input<enums.quicksight.OAuthClientApplicationDataSourceType | undefined>;
+    identityProviderVpcConnectionProperties?: pulumi.Input<inputs.quicksight.OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    oAuthAuthorizationEndpointUrl?: pulumi.Input<string | undefined>;
     oAuthClientApplicationId: pulumi.Input<string>;
     oAuthClientAuthenticationType: pulumi.Input<enums.quicksight.OAuthClientApplicationOAuthClientAuthenticationType>;
-    oAuthScopes?: pulumi.Input<string>;
+    oAuthScopes?: pulumi.Input<string | undefined>;
     oAuthTokenEndpointUrl: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

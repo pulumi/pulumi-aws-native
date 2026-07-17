@@ -23,9 +23,9 @@ class DestinationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[_builtins.str],
                  target_arn: pulumi.Input[_builtins.str],
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Destination resource.
 
@@ -70,38 +70,38 @@ class DestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationName")
-    def destination_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the destination resource
         """
         return pulumi.get(self, "destination_name")
 
     @destination_name.setter
-    def destination_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_name", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPolicy")
-    def destination_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
         """
         return pulumi.get(self, "destination_policy")
 
     @destination_policy.setter
-    def destination_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,15 +111,14 @@ class Destination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +137,6 @@ class Destination(pulumi.CustomResource):
         """
         The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 
-
         :param str resource_name: The name of the resource.
         :param DestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,11 +152,11 @@ class Destination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

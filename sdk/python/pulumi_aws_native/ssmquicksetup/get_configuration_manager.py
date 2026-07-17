@@ -137,7 +137,6 @@ def get_configuration_manager(manager_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
 
-
     :param _builtins.str manager_arn: The ARN of the Quick Setup configuration.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_configuration_manager(manager_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status_summaries=pulumi.get(__ret__, 'status_summaries'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_manager_output(manager_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationManagerResult]:
     """
     Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
-
 
     :param _builtins.str manager_arn: The ARN of the Quick Setup configuration.
     """

@@ -184,7 +184,6 @@ def get_connection_group(id: Optional[_builtins.str] = None,
     """
     The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
 
-
     :param _builtins.str id: The ID of the connection group.
     """
     __args__ = dict()
@@ -205,11 +204,10 @@ def get_connection_group(id: Optional[_builtins.str] = None,
         routing_endpoint=pulumi.get(__ret__, 'routing_endpoint'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connection_group_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connection_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGroupResult]:
     """
     The connection group for your distribution tenants. When you first create a distribution tenant and you don't specify a connection group, CloudFront will automatically create a default connection group for you. When you create a new distribution tenant and don't specify a connection group, the default one will be associated with your distribution tenant.
-
 
     :param _builtins.str id: The ID of the connection group.
     """

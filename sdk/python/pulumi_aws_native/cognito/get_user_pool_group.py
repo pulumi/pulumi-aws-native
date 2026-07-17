@@ -80,7 +80,6 @@ def get_user_pool_group(group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Cognito::UserPoolGroup
 
-
     :param _builtins.str group_name: A name for the group. This name must be unique in your user pool.
     :param _builtins.str user_pool_id: The ID of the user pool where you want to create a user group.
     """
@@ -94,12 +93,11 @@ def get_user_pool_group(group_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         precedence=pulumi.get(__ret__, 'precedence'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
-def get_user_pool_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               user_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_pool_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolGroupResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolGroup
-
 
     :param _builtins.str group_name: A name for the group. This name must be unique in your user pool.
     :param _builtins.str user_pool_id: The ID of the user pool where you want to create a user group.

@@ -212,7 +212,7 @@ export interface VerifiedAccessEndpointArgs {
     /**
      * The DNS name for users to reach your application.
      */
-    applicationDomain?: pulumi.Input<string>;
+    applicationDomain?: pulumi.Input<string | undefined>;
     /**
      * The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
      */
@@ -220,19 +220,19 @@ export interface VerifiedAccessEndpointArgs {
     /**
      * The options for cidr type endpoint.
      */
-    cidrOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointCidrOptionsArgs>;
+    cidrOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointCidrOptionsArgs | undefined>;
     /**
      * A description for the AWS Verified Access endpoint.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of a public TLS/SSL certificate imported into or created with ACM.
      */
-    domainCertificateArn?: pulumi.Input<string>;
+    domainCertificateArn?: pulumi.Input<string | undefined>;
     /**
      * A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
      */
-    endpointDomainPrefix?: pulumi.Input<string>;
+    endpointDomainPrefix?: pulumi.Input<string | undefined>;
     /**
      * The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
      */
@@ -240,35 +240,35 @@ export interface VerifiedAccessEndpointArgs {
     /**
      * The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
      */
-    loadBalancerOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointLoadBalancerOptionsArgs>;
+    loadBalancerOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointLoadBalancerOptionsArgs | undefined>;
     /**
      * The options for network-interface type endpoint.
      */
-    networkInterfaceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointNetworkInterfaceOptionsArgs>;
+    networkInterfaceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointNetworkInterfaceOptionsArgs | undefined>;
     /**
      * The AWS Verified Access policy document.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * The status of the Verified Access policy.
      */
-    policyEnabled?: pulumi.Input<boolean>;
+    policyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The options for rds type endpoint.
      */
-    rdsOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointRdsOptionsArgs>;
+    rdsOptions?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointRdsOptionsArgs | undefined>;
     /**
      * The IDs of the security groups for the endpoint.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointSseSpecificationArgs>;
+    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessEndpointSseSpecificationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the AWS Verified Access group.
      */

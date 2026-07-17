@@ -83,10 +83,10 @@ export interface DataTableRecordArgs {
     /**
      * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
      */
-    dataTableArn?: pulumi.Input<string>;
-    dataTableRecord?: pulumi.Input<inputs.connect.DataTableRecordPropertiesArgs>;
+    dataTableArn?: pulumi.Input<string | undefined>;
+    dataTableRecord?: pulumi.Input<inputs.connect.DataTableRecordPropertiesArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string | undefined>;
 }

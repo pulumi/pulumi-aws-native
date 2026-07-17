@@ -70,7 +70,7 @@ class GetGroupResult:
     def policies(self) -> Optional[Sequence['outputs.GroupPolicy']]:
         """
         Adds or updates an inline policy document that is embedded in the specified IAM group. To view AWS::IAM::Group snippets, see [Declaring an Group Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-iam-group).
-          The name of each inline policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail. 
+          The name of each inline policy for a role, user, or group must be unique. If you don't choose unique names, updates to the IAM identity will fail.
           For information about limits on the number of inline policies that you can embed in a group, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
         """
         return pulumi.get(self, "policies")
@@ -94,7 +94,6 @@ def get_group(group_name: Optional[_builtins.str] = None,
     Creates a new group.
       For information about the number of groups you can create, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
 
-
     :param _builtins.str group_name: The name of the group to create. Do not include the path in this value.
             The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins". If you don't specify a name, CFN generates a unique physical ID and uses that ID for the group name.
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -111,12 +110,11 @@ def get_group(group_name: Optional[_builtins.str] = None,
         managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
         path=pulumi.get(__ret__, 'path'),
         policies=pulumi.get(__ret__, 'policies'))
-def get_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Creates a new group.
       For information about the number of groups you can create, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
-
 
     :param _builtins.str group_name: The name of the group to create. Do not include the path in this value.
             The group name must be unique within the account. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins". If you don't specify a name, CFN generates a unique physical ID and uses that ID for the group name.

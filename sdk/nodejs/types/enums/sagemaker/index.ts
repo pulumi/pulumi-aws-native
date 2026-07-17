@@ -749,7 +749,7 @@ export const DomainUserSettingsAutoMountHomeEfs = {
 } as const;
 
 /**
- * Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+ * Indicates whether auto-mounting of an EFS volume is supported for the user profile.
  */
 export type DomainUserSettingsAutoMountHomeEfs = (typeof DomainUserSettingsAutoMountHomeEfs)[keyof typeof DomainUserSettingsAutoMountHomeEfs];
 
@@ -1335,7 +1335,7 @@ export const ModelPackageTransformInputSplitType = {
 } as const;
 
 /**
- * The method to use to split the transform job's data files into smaller batches. 
+ * The method to use to split the transform job's data files into smaller batches.
  */
 export type ModelPackageTransformInputSplitType = (typeof ModelPackageTransformInputSplitType)[keyof typeof ModelPackageTransformInputSplitType];
 
@@ -2314,7 +2314,7 @@ export const UserProfileUserSettingsAutoMountHomeEfs = {
 } as const;
 
 /**
- * Indicates whether auto-mounting of an EFS volume is supported for the user profile. 
+ * Indicates whether auto-mounting of an EFS volume is supported for the user profile.
  */
 export type UserProfileUserSettingsAutoMountHomeEfs = (typeof UserProfileUserSettingsAutoMountHomeEfs)[keyof typeof UserProfileUserSettingsAutoMountHomeEfs];
 

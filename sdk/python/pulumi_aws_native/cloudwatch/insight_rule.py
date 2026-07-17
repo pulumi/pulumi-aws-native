@@ -24,9 +24,9 @@ class InsightRuleArgs:
     def __init__(__self__, *,
                  rule_body: pulumi.Input[_builtins.str],
                  rule_state: pulumi.Input['InsightRuleRuleState'],
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a InsightRule resource.
 
@@ -75,31 +75,31 @@ class InsightRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnTransformedLogs")
-    def apply_on_transformed_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_on_transformed_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Determines whether the rules is evaluated on transformed versions of logs. Valid values are `TRUE` and `FALSE` .
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 
     @apply_on_transformed_logs.setter
-    def apply_on_transformed_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_on_transformed_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_on_transformed_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs to associate with the Contributor Insights rule. You can associate as many as 50 tags with a rule.
 
@@ -110,7 +110,7 @@ class InsightRuleArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -120,15 +120,14 @@ class InsightRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input['InsightRuleRuleState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional['InsightRuleRuleState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +150,6 @@ class InsightRule(pulumi.CustomResource):
         """
         Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
 
-
         :param str resource_name: The name of the resource.
         :param InsightRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,11 +165,11 @@ class InsightRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_transformed_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 rule_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_state: Optional[pulumi.Input['InsightRuleRuleState']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 apply_on_transformed_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rule_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_state: pulumi.Input[Optional['InsightRuleRuleState']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

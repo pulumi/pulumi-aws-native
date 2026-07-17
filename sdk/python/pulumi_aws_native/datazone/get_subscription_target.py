@@ -210,7 +210,6 @@ def get_subscription_target(domain_id: Optional[_builtins.str] = None,
     """
     Subscription targets enables one to access the data to which you have subscribed in your projects.
 
-
     :param _builtins.str domain_id: The ID of the Amazon DataZone domain in which subscription target is created.
     :param _builtins.str environment_id: The ID of the environment in which subscription target is created.
     :param _builtins.str id: The ID of the subscription target.
@@ -237,13 +236,12 @@ def get_subscription_target(domain_id: Optional[_builtins.str] = None,
         subscription_target_config=pulumi.get(__ret__, 'subscription_target_config'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-def get_subscription_target_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   environment_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                   id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subscription_target_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   environment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                   id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionTargetResult]:
     """
     Subscription targets enables one to access the data to which you have subscribed in your projects.
-
 
     :param _builtins.str domain_id: The ID of the Amazon DataZone domain in which subscription target is created.
     :param _builtins.str environment_id: The ID of the environment in which subscription target is created.

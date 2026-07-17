@@ -24,16 +24,16 @@ __all__ = ['TopicArgs', 'Topic']
 @pulumi.input_type
 class TopicArgs:
     def __init__(__self__, *,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_options: Optional[pulumi.Input['TopicConfigOptionsArgs']] = None,
-                 custom_instructions: Optional[pulumi.Input['TopicCustomInstructionsArgs']] = None,
-                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_options: pulumi.Input[Optional['TopicConfigOptionsArgs']] = None,
+                 custom_instructions: pulumi.Input[Optional['TopicCustomInstructionsArgs']] = None,
+                 data_sets: pulumi.Input[Optional[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_experience_version: pulumi.Input[Optional['TopicUserExperienceVersion']] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -68,113 +68,113 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
-    def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account that you want to create a topic in.
         """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
-    def aws_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="configOptions")
-    def config_options(self) -> Optional[pulumi.Input['TopicConfigOptionsArgs']]:
+    def config_options(self) -> pulumi.Input[Optional['TopicConfigOptionsArgs']]:
         """
         Configuration options for a `Topic` .
         """
         return pulumi.get(self, "config_options")
 
     @config_options.setter
-    def config_options(self, value: Optional[pulumi.Input['TopicConfigOptionsArgs']]):
+    def config_options(self, value: pulumi.Input[Optional['TopicConfigOptionsArgs']]):
         pulumi.set(self, "config_options", value)
 
     @_builtins.property
     @pulumi.getter(name="customInstructions")
-    def custom_instructions(self) -> Optional[pulumi.Input['TopicCustomInstructionsArgs']]:
+    def custom_instructions(self) -> pulumi.Input[Optional['TopicCustomInstructionsArgs']]:
         return pulumi.get(self, "custom_instructions")
 
     @custom_instructions.setter
-    def custom_instructions(self, value: Optional[pulumi.Input['TopicCustomInstructionsArgs']]):
+    def custom_instructions(self, value: pulumi.Input[Optional['TopicCustomInstructionsArgs']]):
         pulumi.set(self, "custom_instructions", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSets")
-    def data_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]:
+    def data_sets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]:
         """
         The data sets that the topic is associated with.
         """
         return pulumi.get(self, "data_sets")
 
     @data_sets.setter
-    def data_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]):
+    def data_sets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]):
         pulumi.set(self, "data_sets", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the topic.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="folderArns")
-    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def folder_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "folder_arns")
 
     @folder_arns.setter
-    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def folder_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "folder_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the topic.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="topicId")
-    def topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID for the topic. This ID is unique per AWS Region for each AWS account.
         """
         return pulumi.get(self, "topic_id")
 
     @topic_id.setter
-    def topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "topic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userExperienceVersion")
-    def user_experience_version(self) -> Optional[pulumi.Input['TopicUserExperienceVersion']]:
+    def user_experience_version(self) -> pulumi.Input[Optional['TopicUserExperienceVersion']]:
         """
         The user experience version of the topic.
         """
         return pulumi.get(self, "user_experience_version")
 
     @user_experience_version.setter
-    def user_experience_version(self, value: Optional[pulumi.Input['TopicUserExperienceVersion']]):
+    def user_experience_version(self, value: pulumi.Input[Optional['TopicUserExperienceVersion']]):
         pulumi.set(self, "user_experience_version", value)
 
 
@@ -184,20 +184,19 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_options: Optional[pulumi.Input[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
-                 custom_instructions: Optional[pulumi.Input[Union['TopicCustomInstructionsArgs', 'TopicCustomInstructionsArgsDict']]] = None,
-                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_options: pulumi.Input[Optional[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
+                 custom_instructions: pulumi.Input[Optional[Union['TopicCustomInstructionsArgs', 'TopicCustomInstructionsArgsDict']]] = None,
+                 data_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_experience_version: pulumi.Input[Optional['TopicUserExperienceVersion']] = None,
                  __props__=None):
         """
         Definition of the AWS::QuickSight::Topic Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +217,6 @@ class Topic(pulumi.CustomResource):
         """
         Definition of the AWS::QuickSight::Topic Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,16 +232,16 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 config_options: Optional[pulumi.Input[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
-                 custom_instructions: Optional[pulumi.Input[Union['TopicCustomInstructionsArgs', 'TopicCustomInstructionsArgsDict']]] = None,
-                 data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
+                 aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 config_options: pulumi.Input[Optional[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
+                 custom_instructions: pulumi.Input[Optional[Union['TopicCustomInstructionsArgs', 'TopicCustomInstructionsArgsDict']]] = None,
+                 data_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_experience_version: pulumi.Input[Optional['TopicUserExperienceVersion']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

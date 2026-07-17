@@ -222,7 +222,6 @@ def get_cloud_formation_product(id: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
 
-
     :param _builtins.str id: The ID of the product, such as prod-tsjbmal34qvek
     """
     __args__ = dict()
@@ -246,11 +245,10 @@ def get_cloud_formation_product(id: Optional[_builtins.str] = None,
         support_email=pulumi.get(__ret__, 'support_email'),
         support_url=pulumi.get(__ret__, 'support_url'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cloud_formation_product_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cloud_formation_product_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationProductResult]:
     """
     Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
-
 
     :param _builtins.str id: The ID of the product, such as prod-tsjbmal34qvek
     """

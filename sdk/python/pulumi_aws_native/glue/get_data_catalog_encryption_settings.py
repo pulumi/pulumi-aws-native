@@ -52,7 +52,6 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[_builtins.str] = N
     """
     Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
 
-
     :param _builtins.str catalog_id: The ID of the Data Catalog in which the settings are created.
     """
     __args__ = dict()
@@ -62,11 +61,10 @@ def get_data_catalog_encryption_settings(catalog_id: Optional[_builtins.str] = N
 
     return AwaitableGetDataCatalogEncryptionSettingsResult(
         data_catalog_encryption_settings=pulumi.get(__ret__, 'data_catalog_encryption_settings'))
-def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_catalog_encryption_settings_output(catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
     Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
-
 
     :param _builtins.str catalog_id: The ID of the Data Catalog in which the settings are created.
     """

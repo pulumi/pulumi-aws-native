@@ -25,14 +25,14 @@ class MicrosoftTeamsChannelConfigurationArgs:
                  team_id: pulumi.Input[_builtins.str],
                  teams_channel_id: pulumi.Input[_builtins.str],
                  teams_tenant_id: pulumi.Input[_builtins.str],
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 teams_channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_role_required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 guardrail_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 teams_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_role_required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a MicrosoftTeamsChannelConfiguration resource.
 
@@ -120,98 +120,98 @@ class MicrosoftTeamsChannelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the configuration
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customizationResourceArns")
-    def customization_resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def customization_resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ARNs of Custom Actions to associate with notifications in the provided chat channel.
         """
         return pulumi.get(self, "customization_resource_arns")
 
     @customization_resource_arns.setter
-    def customization_resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def customization_resource_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "customization_resource_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailPolicies")
-    def guardrail_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def guardrail_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         """
         return pulumi.get(self, "guardrail_policies")
 
     @guardrail_policies.setter
-    def guardrail_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def guardrail_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "guardrail_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingLevel")
-    def logging_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         """
         return pulumi.get(self, "logging_level")
 
     @logging_level.setter
-    def logging_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_level", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArns")
-    def sns_topic_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def sns_topic_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
         """
         return pulumi.get(self, "sns_topic_arns")
 
     @sns_topic_arns.setter
-    def sns_topic_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def sns_topic_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "sns_topic_arns", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags to add to the configuration
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="teamsChannelName")
-    def teams_channel_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def teams_channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Microsoft Teams channel
         """
         return pulumi.get(self, "teams_channel_name")
 
     @teams_channel_name.setter
-    def teams_channel_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def teams_channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "teams_channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userRoleRequired")
-    def user_role_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def user_role_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables use of a user role requirement in your chat configuration
         """
         return pulumi.get(self, "user_role_required")
 
     @user_role_required.setter
-    def user_role_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def user_role_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "user_role_required", value)
 
 
@@ -221,22 +221,21 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_role_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 guardrail_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_role_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +261,6 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         """
         Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
 
-
         :param str resource_name: The name of the resource.
         :param MicrosoftTeamsChannelConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,18 +276,18 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 iam_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 team_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 teams_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_role_required: Optional[pulumi.Input[_builtins.bool]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customization_resource_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 guardrail_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 team_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 teams_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_role_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

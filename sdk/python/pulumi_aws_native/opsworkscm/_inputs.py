@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 class ServerEngineAttributeArgsDict(TypedDict):
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the engine attribute.
 
@@ -34,7 +34,7 @@ class ServerEngineAttributeArgsDict(TypedDict):
     - `PUPPET_R10K_REMOTE`
     - `PUPPET_R10K_PRIVATE_KEY`
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the engine attribute.
 
@@ -56,8 +56,8 @@ class ServerEngineAttributeArgsDict(TypedDict):
 @pulumi.input_type
 class ServerEngineAttributeArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the engine attribute.
                
@@ -93,7 +93,7 @@ class ServerEngineAttributeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the engine attribute.
 
@@ -110,12 +110,12 @@ class ServerEngineAttributeArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the engine attribute.
 
@@ -136,7 +136,7 @@ class ServerEngineAttributeArgs:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 

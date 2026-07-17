@@ -58,10 +58,10 @@ __all__ = [
     'EventSourceMappingDocumentDbEventSourceConfigArgsDict',
     'EventSourceMappingEndpointsArgs',
     'EventSourceMappingEndpointsArgsDict',
-    'EventSourceMappingFilterCriteriaArgs',
-    'EventSourceMappingFilterCriteriaArgsDict',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingFilterArgsDict',
+    'EventSourceMappingFilterCriteriaArgs',
+    'EventSourceMappingFilterCriteriaArgsDict',
     'EventSourceMappingLoggingConfigArgs',
     'EventSourceMappingLoggingConfigArgsDict',
     'EventSourceMappingMetricsConfigArgs',
@@ -187,7 +187,7 @@ class AliasRoutingConfigurationArgsDict(TypedDict):
     """
     The traffic-shifting configuration of a Lambda function alias.
     """
-    additional_version_weights: NotRequired[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgsDict']]]]
+    additional_version_weights: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AliasVersionWeightArgsDict']]]]]
     """
     The second version, and the percentage of traffic that's routed to it.
     """
@@ -195,7 +195,7 @@ class AliasRoutingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AliasRoutingConfigurationArgs:
     def __init__(__self__, *,
-                 additional_version_weights: Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]] = None):
+                 additional_version_weights: pulumi.Input[Optional[Sequence[pulumi.Input['AliasVersionWeightArgs']]]] = None):
         """
         The traffic-shifting configuration of a Lambda function alias.
 
@@ -206,14 +206,14 @@ class AliasRoutingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalVersionWeights")
-    def additional_version_weights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]:
+    def additional_version_weights(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]:
         """
         The second version, and the percentage of traffic that's routed to it.
         """
         return pulumi.get(self, "additional_version_weights")
 
     @additional_version_weights.setter
-    def additional_version_weights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]):
+    def additional_version_weights(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AliasVersionWeightArgs']]]]):
         pulumi.set(self, "additional_version_weights", value)
 
 
@@ -273,15 +273,15 @@ class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
     """
     Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
     """
-    allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
     """
-    architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]
+    architectures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]]
     """
     A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
     """
-    excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
     """
@@ -289,9 +289,9 @@ class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
 @pulumi.input_type
 class CapacityProviderInstanceRequirementsArgs:
     def __init__(__self__, *,
-                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]] = None,
-                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 allowed_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 architectures: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderArchitecture']]]] = None,
+                 excluded_instance_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
 
@@ -308,50 +308,50 @@ class CapacityProviderInstanceRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedInstanceTypes")
-    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
         """
         return pulumi.get(self, "allowed_instance_types")
 
     @allowed_instance_types.setter
-    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_instance_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]:
+    def architectures(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]:
         """
         A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
         """
         return pulumi.get(self, "architectures")
 
     @architectures.setter
-    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]):
+    def architectures(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]):
         pulumi.set(self, "architectures", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedInstanceTypes")
-    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_instance_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
         """
         return pulumi.get(self, "excluded_instance_types")
 
     @excluded_instance_types.setter
-    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_instance_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_instance_types", value)
 
 
 class CapacityProviderLoggingConfigArgsDict(TypedDict):
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
-    system_log_level: NotRequired[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    system_log_level: NotRequired[pulumi.Input[Optional['CapacityProviderLoggingConfigSystemLogLevel']]]
 
 @pulumi.input_type
 class CapacityProviderLoggingConfigArgs:
     def __init__(__self__, *,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_log_level: Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_log_level: pulumi.Input[Optional['CapacityProviderLoggingConfigSystemLogLevel']] = None):
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if system_log_level is not None:
@@ -359,20 +359,20 @@ class CapacityProviderLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
-    def system_log_level(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]:
+    def system_log_level(self) -> pulumi.Input[Optional['CapacityProviderLoggingConfigSystemLogLevel']]:
         return pulumi.get(self, "system_log_level")
 
     @system_log_level.setter
-    def system_log_level(self, value: Optional[pulumi.Input['CapacityProviderLoggingConfigSystemLogLevel']]):
+    def system_log_level(self, value: pulumi.Input[Optional['CapacityProviderLoggingConfigSystemLogLevel']]):
         pulumi.set(self, "system_log_level", value)
 
 
@@ -413,11 +413,11 @@ class CapacityProviderPropagateTagsConfigArgsDict(TypedDict):
     """
     Configuration that defines how tags are propagated to managed resources.
     """
-    explicit_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgsDict']]]]
+    explicit_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTagArgsDict']]]]]
     """
     A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
     """
-    mode: NotRequired[pulumi.Input['CapacityProviderPropagateTagsMode']]
+    mode: NotRequired[pulumi.Input[Optional['CapacityProviderPropagateTagsMode']]]
     """
     The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
     """
@@ -425,8 +425,8 @@ class CapacityProviderPropagateTagsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CapacityProviderPropagateTagsConfigArgs:
     def __init__(__self__, *,
-                 explicit_tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
-                 mode: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']] = None):
+                 explicit_tags: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
+                 mode: pulumi.Input[Optional['CapacityProviderPropagateTagsMode']] = None):
         """
         Configuration that defines how tags are propagated to managed resources.
 
@@ -440,26 +440,26 @@ class CapacityProviderPropagateTagsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="explicitTags")
-    def explicit_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]:
+    def explicit_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]:
         """
         A list of tags to explicitly propagate to managed resources. Maximum of 40 tags.
         """
         return pulumi.get(self, "explicit_tags")
 
     @explicit_tags.setter
-    def explicit_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]):
+    def explicit_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTagArgs']]]]):
         pulumi.set(self, "explicit_tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['CapacityProviderPropagateTagsMode']]:
+    def mode(self) -> pulumi.Input[Optional['CapacityProviderPropagateTagsMode']]:
         """
         The mode for tag propagation. Use ``Explicit`` to propagate specific tags, or ``None`` to disable propagation.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['CapacityProviderPropagateTagsMode']]):
+    def mode(self, value: pulumi.Input[Optional['CapacityProviderPropagateTagsMode']]):
         pulumi.set(self, "mode", value)
 
 
@@ -467,15 +467,15 @@ class CapacityProviderScalingConfigArgsDict(TypedDict):
     """
     Configuration that defines how the capacity provider scales compute instances based on demand and policies.
     """
-    max_v_cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+    max_v_cpu_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of vCPUs that the capacity provider can provision across all compute instances.
     """
-    scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
+    scaling_mode: NotRequired[pulumi.Input[Optional['CapacityProviderScalingMode']]]
     """
     The scaling mode that determines how the capacity provider responds to changes in demand.
     """
-    scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]
+    scaling_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]]
     """
     A list of target tracking scaling policies for the capacity provider.
     """
@@ -483,9 +483,9 @@ class CapacityProviderScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class CapacityProviderScalingConfigArgs:
     def __init__(__self__, *,
-                 max_v_cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 scaling_mode: Optional[pulumi.Input['CapacityProviderScalingMode']] = None,
-                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]] = None):
+                 max_v_cpu_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 scaling_mode: pulumi.Input[Optional['CapacityProviderScalingMode']] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]] = None):
         """
         Configuration that defines how the capacity provider scales compute instances based on demand and policies.
 
@@ -502,38 +502,38 @@ class CapacityProviderScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxVCpuCount")
-    def max_v_cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_v_cpu_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of vCPUs that the capacity provider can provision across all compute instances.
         """
         return pulumi.get(self, "max_v_cpu_count")
 
     @max_v_cpu_count.setter
-    def max_v_cpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_v_cpu_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_v_cpu_count", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingMode")
-    def scaling_mode(self) -> Optional[pulumi.Input['CapacityProviderScalingMode']]:
+    def scaling_mode(self) -> pulumi.Input[Optional['CapacityProviderScalingMode']]:
         """
         The scaling mode that determines how the capacity provider responds to changes in demand.
         """
         return pulumi.get(self, "scaling_mode")
 
     @scaling_mode.setter
-    def scaling_mode(self, value: Optional[pulumi.Input['CapacityProviderScalingMode']]):
+    def scaling_mode(self, value: pulumi.Input[Optional['CapacityProviderScalingMode']]):
         pulumi.set(self, "scaling_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="scalingPolicies")
-    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]:
+    def scaling_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]:
         """
         A list of target tracking scaling policies for the capacity provider.
         """
         return pulumi.get(self, "scaling_policies")
 
     @scaling_policies.setter
-    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]):
+    def scaling_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]):
         pulumi.set(self, "scaling_policies", value)
 
 
@@ -545,7 +545,7 @@ class CapacityProviderTagArgsDict(TypedDict):
     """
     The key name of the tag.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value for the tag.
     """
@@ -554,7 +554,7 @@ class CapacityProviderTagArgsDict(TypedDict):
 class CapacityProviderTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A key-value pair that provides metadata for the capacity provider.
 
@@ -579,14 +579,14 @@ class CapacityProviderTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value for the tag.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -643,22 +643,22 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
 
 
 class CapacityProviderTelemetryConfigArgsDict(TypedDict):
-    logging_config: NotRequired[pulumi.Input['CapacityProviderLoggingConfigArgsDict']]
+    logging_config: NotRequired[pulumi.Input[Optional['CapacityProviderLoggingConfigArgsDict']]]
 
 @pulumi.input_type
 class CapacityProviderTelemetryConfigArgs:
     def __init__(__self__, *,
-                 logging_config: Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']] = None):
+                 logging_config: pulumi.Input[Optional['CapacityProviderLoggingConfigArgs']] = None):
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfig")
-    def logging_config(self) -> Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']]:
+    def logging_config(self) -> pulumi.Input[Optional['CapacityProviderLoggingConfigArgs']]:
         return pulumi.get(self, "logging_config")
 
     @logging_config.setter
-    def logging_config(self, value: Optional[pulumi.Input['CapacityProviderLoggingConfigArgs']]):
+    def logging_config(self, value: pulumi.Input[Optional['CapacityProviderLoggingConfigArgs']]):
         pulumi.set(self, "logging_config", value)
 
 
@@ -784,13 +784,13 @@ class EventInvokeConfigDestinationConfigArgsDict(TypedDict):
     """
     A destination for events after they have been sent to a function for processing.
     """
-    on_failure: NotRequired[pulumi.Input['EventInvokeConfigOnFailureArgsDict']]
+    on_failure: NotRequired[pulumi.Input[Optional['EventInvokeConfigOnFailureArgsDict']]]
     """
     The destination configuration for failed invocations.
 
     > When using an Amazon SQS queue as a destination, FIFO queues cannot be used.
     """
-    on_success: NotRequired[pulumi.Input['EventInvokeConfigOnSuccessArgsDict']]
+    on_success: NotRequired[pulumi.Input[Optional['EventInvokeConfigOnSuccessArgsDict']]]
     """
     The destination configuration for successful invocations.
 
@@ -800,8 +800,8 @@ class EventInvokeConfigDestinationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventInvokeConfigDestinationConfigArgs:
     def __init__(__self__, *,
-                 on_failure: Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']] = None,
-                 on_success: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']] = None):
+                 on_failure: pulumi.Input[Optional['EventInvokeConfigOnFailureArgs']] = None,
+                 on_success: pulumi.Input[Optional['EventInvokeConfigOnSuccessArgs']] = None):
         """
         A destination for events after they have been sent to a function for processing.
 
@@ -819,7 +819,7 @@ class EventInvokeConfigDestinationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]:
+    def on_failure(self) -> pulumi.Input[Optional['EventInvokeConfigOnFailureArgs']]:
         """
         The destination configuration for failed invocations.
 
@@ -828,12 +828,12 @@ class EventInvokeConfigDestinationConfigArgs:
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]):
+    def on_failure(self, value: pulumi.Input[Optional['EventInvokeConfigOnFailureArgs']]):
         pulumi.set(self, "on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]:
+    def on_success(self) -> pulumi.Input[Optional['EventInvokeConfigOnSuccessArgs']]:
         """
         The destination configuration for successful invocations.
 
@@ -842,7 +842,7 @@ class EventInvokeConfigDestinationConfigArgs:
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]):
+    def on_success(self, value: pulumi.Input[Optional['EventInvokeConfigOnSuccessArgs']]):
         pulumi.set(self, "on_success", value)
 
 
@@ -916,11 +916,11 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
     """
     Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
     """
-    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
     """
-    schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
+    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgsDict']]]
     """
     Specific configuration settings for a Kafka schema registry.
     """
@@ -928,8 +928,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
-                 consumer_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_config: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']] = None):
+                 consumer_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_config: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']] = None):
         """
         Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.
 
@@ -943,26 +943,26 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
-    def consumer_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-consumer-group-id).
         """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
-    def consumer_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
-    def schema_registry_config(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']]:
+    def schema_registry_config(self) -> pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']]:
         """
         Specific configuration settings for a Kafka schema registry.
         """
         return pulumi.get(self, "schema_registry_config")
 
     @schema_registry_config.setter
-    def schema_registry_config(self, value: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']]):
+    def schema_registry_config(self, value: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']]):
         pulumi.set(self, "schema_registry_config", value)
 
 
@@ -970,7 +970,7 @@ class EventSourceMappingDestinationConfigArgsDict(TypedDict):
     """
     A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
     """
-    on_failure: NotRequired[pulumi.Input['EventSourceMappingOnFailureArgsDict']]
+    on_failure: NotRequired[pulumi.Input[Optional['EventSourceMappingOnFailureArgsDict']]]
     """
     The destination configuration for failed invocations.
     """
@@ -978,7 +978,7 @@ class EventSourceMappingDestinationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
-                 on_failure: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']] = None):
+                 on_failure: pulumi.Input[Optional['EventSourceMappingOnFailureArgs']] = None):
         """
         A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
@@ -989,14 +989,14 @@ class EventSourceMappingDestinationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingOnFailureArgs']]:
+    def on_failure(self) -> pulumi.Input[Optional['EventSourceMappingOnFailureArgs']]:
         """
         The destination configuration for failed invocations.
         """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']]):
+    def on_failure(self, value: pulumi.Input[Optional['EventSourceMappingOnFailureArgs']]):
         pulumi.set(self, "on_failure", value)
 
 
@@ -1004,15 +1004,15 @@ class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
     """
     Specific configuration settings for a DocumentDB event source.
     """
-    collection_name: NotRequired[pulumi.Input[_builtins.str]]
+    collection_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
     """
-    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the database to consume within the DocumentDB cluster.
     """
-    full_document: NotRequired[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]
+    full_document: NotRequired[pulumi.Input[Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]]
     """
     Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
     """
@@ -1020,9 +1020,9 @@ class EventSourceMappingDocumentDbEventSourceConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingDocumentDbEventSourceConfigArgs:
     def __init__(__self__, *,
-                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 full_document: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']] = None):
+                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_document: pulumi.Input[Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument']] = None):
         """
         Specific configuration settings for a DocumentDB event source.
 
@@ -1039,38 +1039,38 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the database to consume within the DocumentDB cluster.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fullDocument")
-    def full_document(self) -> Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]:
+    def full_document(self) -> pulumi.Input[Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]:
         """
         Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
         """
         return pulumi.get(self, "full_document")
 
     @full_document.setter
-    def full_document(self, value: Optional[pulumi.Input['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]):
+    def full_document(self, value: pulumi.Input[Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument']]):
         pulumi.set(self, "full_document", value)
 
 
@@ -1078,7 +1078,7 @@ class EventSourceMappingEndpointsArgsDict(TypedDict):
     """
     The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
     """
-    kafka_bootstrap_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    kafka_bootstrap_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
     """
@@ -1086,7 +1086,7 @@ class EventSourceMappingEndpointsArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingEndpointsArgs:
     def __init__(__self__, *,
-                 kafka_bootstrap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 kafka_bootstrap_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
 
@@ -1097,56 +1097,22 @@ class EventSourceMappingEndpointsArgs:
 
     @_builtins.property
     @pulumi.getter(name="kafkaBootstrapServers")
-    def kafka_bootstrap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def kafka_bootstrap_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         return pulumi.get(self, "kafka_bootstrap_servers")
 
     @kafka_bootstrap_servers.setter
-    def kafka_bootstrap_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def kafka_bootstrap_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kafka_bootstrap_servers", value)
-
-
-class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
-    """
-    An object that contains the filters for an event source.
-    """
-    filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgsDict']]]]
-    """
-    A list of filters.
-    """
-
-@pulumi.input_type
-class EventSourceMappingFilterCriteriaArgs:
-    def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]] = None):
-        """
-        An object that contains the filters for an event source.
-
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: A list of filters.
-        """
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-
-    @_builtins.property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]:
-        """
-        A list of filters.
-        """
-        return pulumi.get(self, "filters")
-
-    @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]):
-        pulumi.set(self, "filters", value)
 
 
 class EventSourceMappingFilterArgsDict(TypedDict):
     """
     A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
     """
-    pattern: NotRequired[pulumi.Input[_builtins.str]]
+    pattern: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
     """
@@ -1154,7 +1120,7 @@ class EventSourceMappingFilterArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingFilterArgs:
     def __init__(__self__, *,
-                 pattern: Optional[pulumi.Input[_builtins.str]] = None):
+                 pattern: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A structure within a ``FilterCriteria`` object that defines an event filtering pattern.
 
@@ -1165,22 +1131,56 @@ class EventSourceMappingFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def pattern(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pattern(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A filter pattern. For more information on the syntax of a filter pattern, see [Filter rule syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
         """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
-    def pattern(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pattern(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pattern", value)
+
+
+class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
+    """
+    An object that contains the filters for an event source.
+    """
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterArgsDict']]]]]
+    """
+    A list of filters.
+    """
+
+@pulumi.input_type
+class EventSourceMappingFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]] = None):
+        """
+        An object that contains the filters for an event source.
+
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]] filters: A list of filters.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]:
+        """
+        A list of filters.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
 
 
 class EventSourceMappingLoggingConfigArgsDict(TypedDict):
     """
     The function's Amazon CloudWatch Logs configuration settings.
     """
-    system_log_level: NotRequired[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]
+    system_log_level: NotRequired[pulumi.Input[Optional['EventSourceMappingLoggingConfigSystemLogLevel']]]
     """
     Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
     """
@@ -1188,7 +1188,7 @@ class EventSourceMappingLoggingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingLoggingConfigArgs:
     def __init__(__self__, *,
-                 system_log_level: Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']] = None):
+                 system_log_level: pulumi.Input[Optional['EventSourceMappingLoggingConfigSystemLogLevel']] = None):
         """
         The function's Amazon CloudWatch Logs configuration settings.
 
@@ -1199,14 +1199,14 @@ class EventSourceMappingLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
-    def system_log_level(self) -> Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]:
+    def system_log_level(self) -> pulumi.Input[Optional['EventSourceMappingLoggingConfigSystemLogLevel']]:
         """
         Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         """
         return pulumi.get(self, "system_log_level")
 
     @system_log_level.setter
-    def system_log_level(self, value: Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]):
+    def system_log_level(self, value: pulumi.Input[Optional['EventSourceMappingLoggingConfigSystemLogLevel']]):
         pulumi.set(self, "system_log_level", value)
 
 
@@ -1214,7 +1214,7 @@ class EventSourceMappingMetricsConfigArgsDict(TypedDict):
     """
     The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
     """
-    metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]]
     """
     The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
     """
@@ -1222,7 +1222,7 @@ class EventSourceMappingMetricsConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingMetricsConfigArgs:
     def __init__(__self__, *,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]] = None):
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]] = None):
         """
         The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
 
@@ -1233,14 +1233,14 @@ class EventSourceMappingMetricsConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]:
         """
         The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]):
         pulumi.set(self, "metrics", value)
 
 
@@ -1248,7 +1248,7 @@ class EventSourceMappingOnFailureArgsDict(TypedDict):
     """
     A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
     """
-    destination: NotRequired[pulumi.Input[_builtins.str]]
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the destination resource.
      To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -1259,7 +1259,7 @@ class EventSourceMappingOnFailureArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingOnFailureArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
 
@@ -1273,7 +1273,7 @@ class EventSourceMappingOnFailureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the destination resource.
          To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
@@ -1283,7 +1283,7 @@ class EventSourceMappingOnFailureArgs:
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination", value)
 
 
@@ -1291,15 +1291,15 @@ class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
     """
     The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
     """
-    maximum_pollers: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_pollers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
     """
-    minimum_pollers: NotRequired[pulumi.Input[_builtins.int]]
+    minimum_pollers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
     """
-    poller_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    poller_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
     """
@@ -1307,9 +1307,9 @@ class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingProvisionedPollerConfigArgs:
     def __init__(__self__, *,
-                 maximum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
-                 poller_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 maximum_pollers: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_pollers: pulumi.Input[Optional[_builtins.int]] = None,
+                 poller_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 
@@ -1326,38 +1326,38 @@ class EventSourceMappingProvisionedPollerConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumPollers")
-    def maximum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_pollers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
         """
         return pulumi.get(self, "maximum_pollers")
 
     @maximum_pollers.setter
-    def maximum_pollers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_pollers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_pollers", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumPollers")
-    def minimum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def minimum_pollers(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
         """
         return pulumi.get(self, "minimum_pollers")
 
     @minimum_pollers.setter
-    def minimum_pollers(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def minimum_pollers(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "minimum_pollers", value)
 
     @_builtins.property
     @pulumi.getter(name="pollerGroupName")
-    def poller_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def poller_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
         return pulumi.get(self, "poller_group_name")
 
     @poller_group_name.setter
-    def poller_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def poller_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "poller_group_name", value)
 
 
@@ -1365,7 +1365,7 @@ class EventSourceMappingScalingConfigArgsDict(TypedDict):
     """
     (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
     """
-    maximum_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    maximum_concurrency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Limits the number of concurrent instances that the SQS event source can invoke.
     """
@@ -1373,7 +1373,7 @@ class EventSourceMappingScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingScalingConfigArgs:
     def __init__(__self__, *,
-                 maximum_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
+                 maximum_concurrency: pulumi.Input[Optional[_builtins.int]] = None):
         """
         (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
 
@@ -1384,14 +1384,14 @@ class EventSourceMappingScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumConcurrency")
-    def maximum_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Limits the number of concurrent instances that the SQS event source can invoke.
         """
         return pulumi.get(self, "maximum_concurrency")
 
     @maximum_concurrency.setter
-    def maximum_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_concurrency", value)
 
 
@@ -1401,11 +1401,11 @@ class EventSourceMappingSchemaRegistryAccessConfigArgsDict(TypedDict):
      If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
      If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
     """
-    type: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]
+    type: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaRegistryAccessConfigType']]]
     """
     The type of authentication Lambda uses to access your schema registry.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
     """
@@ -1413,8 +1413,8 @@ class EventSourceMappingSchemaRegistryAccessConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSchemaRegistryAccessConfigArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional['EventSourceMappingSchemaRegistryAccessConfigType']] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
          If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
@@ -1430,26 +1430,26 @@ class EventSourceMappingSchemaRegistryAccessConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]:
+    def type(self) -> pulumi.Input[Optional['EventSourceMappingSchemaRegistryAccessConfigType']]:
         """
         The type of authentication Lambda uses to access your schema registry.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigType']]):
+    def type(self, value: pulumi.Input[Optional['EventSourceMappingSchemaRegistryAccessConfigType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -1457,23 +1457,23 @@ class EventSourceMappingSchemaRegistryConfigArgsDict(TypedDict):
     """
     Specific configuration settings for a Kafka schema registry.
     """
-    access_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgsDict']]]]
+    access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgsDict']]]]]
     """
     An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
     """
-    event_record_format: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]
+    event_record_format: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]]
     """
     The record format that Lambda delivers to your function after schema validation.
       +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
       +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
     """
-    schema_registry_uri: NotRequired[pulumi.Input[_builtins.str]]
+    schema_registry_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
       +  For GLU schema registries, use the ARN of the registry.
       +  For Confluent schema registries, use the URL of the registry.
     """
-    schema_validation_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgsDict']]]]
+    schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgsDict']]]]]
     """
     An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
     """
@@ -1481,10 +1481,10 @@ class EventSourceMappingSchemaRegistryConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSchemaRegistryConfigArgs:
     def __init__(__self__, *,
-                 access_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]] = None,
-                 event_record_format: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']] = None,
-                 schema_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_validation_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]] = None):
+                 access_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]] = None,
+                 event_record_format: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']] = None,
+                 schema_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_validation_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]] = None):
         """
         Specific configuration settings for a Kafka schema registry.
 
@@ -1508,19 +1508,19 @@ class EventSourceMappingSchemaRegistryConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessConfigs")
-    def access_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]]:
+    def access_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]]:
         """
         An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
         """
         return pulumi.get(self, "access_configs")
 
     @access_configs.setter
-    def access_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]]):
+    def access_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaRegistryAccessConfigArgs']]]]):
         pulumi.set(self, "access_configs", value)
 
     @_builtins.property
     @pulumi.getter(name="eventRecordFormat")
-    def event_record_format(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]:
+    def event_record_format(self) -> pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]:
         """
         The record format that Lambda delivers to your function after schema validation.
           +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
@@ -1529,12 +1529,12 @@ class EventSourceMappingSchemaRegistryConfigArgs:
         return pulumi.get(self, "event_record_format")
 
     @event_record_format.setter
-    def event_record_format(self, value: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]):
+    def event_record_format(self, value: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigEventRecordFormat']]):
         pulumi.set(self, "event_record_format", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryUri")
-    def schema_registry_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_registry_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
           +  For GLU schema registries, use the ARN of the registry.
@@ -1543,19 +1543,19 @@ class EventSourceMappingSchemaRegistryConfigArgs:
         return pulumi.get(self, "schema_registry_uri")
 
     @schema_registry_uri.setter
-    def schema_registry_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_registry_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_registry_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaValidationConfigs")
-    def schema_validation_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]]:
+    def schema_validation_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]]:
         """
         An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
         """
         return pulumi.get(self, "schema_validation_configs")
 
     @schema_validation_configs.setter
-    def schema_validation_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]]):
+    def schema_validation_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSchemaValidationConfigArgs']]]]):
         pulumi.set(self, "schema_validation_configs", value)
 
 
@@ -1563,7 +1563,7 @@ class EventSourceMappingSchemaValidationConfigArgsDict(TypedDict):
     """
     Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
     """
-    attribute: NotRequired[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]
+    attribute: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaValidationConfigAttribute']]]
     """
     The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
     """
@@ -1571,7 +1571,7 @@ class EventSourceMappingSchemaValidationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSchemaValidationConfigArgs:
     def __init__(__self__, *,
-                 attribute: Optional[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']] = None):
+                 attribute: pulumi.Input[Optional['EventSourceMappingSchemaValidationConfigAttribute']] = None):
         """
         Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
 
@@ -1582,14 +1582,14 @@ class EventSourceMappingSchemaValidationConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attribute(self) -> Optional[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]:
+    def attribute(self) -> pulumi.Input[Optional['EventSourceMappingSchemaValidationConfigAttribute']]:
         """
         The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
         """
         return pulumi.get(self, "attribute")
 
     @attribute.setter
-    def attribute(self, value: Optional[pulumi.Input['EventSourceMappingSchemaValidationConfigAttribute']]):
+    def attribute(self, value: pulumi.Input[Optional['EventSourceMappingSchemaValidationConfigAttribute']]):
         pulumi.set(self, "attribute", value)
 
 
@@ -1597,7 +1597,7 @@ class EventSourceMappingSelfManagedEventSourceArgsDict(TypedDict):
     """
     The self-managed Apache Kafka cluster for your event source.
     """
-    endpoints: NotRequired[pulumi.Input['EventSourceMappingEndpointsArgsDict']]
+    endpoints: NotRequired[pulumi.Input[Optional['EventSourceMappingEndpointsArgsDict']]]
     """
     The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
     """
@@ -1605,7 +1605,7 @@ class EventSourceMappingSelfManagedEventSourceArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
-                 endpoints: Optional[pulumi.Input['EventSourceMappingEndpointsArgs']] = None):
+                 endpoints: pulumi.Input[Optional['EventSourceMappingEndpointsArgs']] = None):
         """
         The self-managed Apache Kafka cluster for your event source.
 
@@ -1616,14 +1616,14 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]:
+    def endpoints(self) -> pulumi.Input[Optional['EventSourceMappingEndpointsArgs']]:
         """
         The list of bootstrap servers for your Kafka brokers in the following format: ``"KafkaBootstrapServers": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]``.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]):
+    def endpoints(self, value: pulumi.Input[Optional['EventSourceMappingEndpointsArgs']]):
         pulumi.set(self, "endpoints", value)
 
 
@@ -1631,11 +1631,11 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
     """
     Specific configuration settings for a self-managed Apache Kafka event source.
     """
-    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    consumer_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
     """
-    schema_registry_config: NotRequired[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgsDict']]
+    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgsDict']]]
     """
     Specific configuration settings for a Kafka schema registry.
     """
@@ -1643,8 +1643,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
-                 consumer_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_registry_config: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']] = None):
+                 consumer_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_config: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']] = None):
         """
         Specific configuration settings for a self-managed Apache Kafka event source.
 
@@ -1658,26 +1658,26 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
-    def consumer_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def consumer_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the Kafka consumer group to join. The consumer group ID must be unique among all your Kafka event sources. After creating a Kafka event source mapping with the consumer group ID specified, you cannot update this value. For more information, see [Customizable consumer group ID](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka-process.html#services-smaa-topic-add).
         """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
-    def consumer_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def consumer_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "consumer_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryConfig")
-    def schema_registry_config(self) -> Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']]:
+    def schema_registry_config(self) -> pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']]:
         """
         Specific configuration settings for a Kafka schema registry.
         """
         return pulumi.get(self, "schema_registry_config")
 
     @schema_registry_config.setter
-    def schema_registry_config(self, value: Optional[pulumi.Input['EventSourceMappingSchemaRegistryConfigArgs']]):
+    def schema_registry_config(self, value: pulumi.Input[Optional['EventSourceMappingSchemaRegistryConfigArgs']]):
         pulumi.set(self, "schema_registry_config", value)
 
 
@@ -1685,7 +1685,7 @@ class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
     """
     An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
     """
-    type: NotRequired[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]
+    type: NotRequired[pulumi.Input[Optional['EventSourceMappingSourceAccessConfigurationType']]]
     """
     The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
       +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
@@ -1698,7 +1698,7 @@ class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
       +  ``CLIENT_CERTIFICATE_TLS_AUTH`` – (Amazon MSK, self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private key password (optional) used for mutual TLS authentication of your MSK/Apache Kafka brokers.
       +  ``SERVER_ROOT_CA_CERTIFICATE`` – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key containing the root CA certificate (X.509 PEM) used for TLS encryption of your Apache Kafka brokers.
     """
-    uri: NotRequired[pulumi.Input[_builtins.str]]
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
     """
@@ -1706,8 +1706,8 @@ class EventSourceMappingSourceAccessConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']] = None,
-                 uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 type: pulumi.Input[Optional['EventSourceMappingSourceAccessConfigurationType']] = None,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
 
@@ -1730,7 +1730,7 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]:
+    def type(self) -> pulumi.Input[Optional['EventSourceMappingSourceAccessConfigurationType']]:
         """
         The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
           +  ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.
@@ -1746,19 +1746,19 @@ class EventSourceMappingSourceAccessConfigurationArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]):
+    def type(self, value: pulumi.Input[Optional['EventSourceMappingSourceAccessConfigurationType']]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value for your chosen configuration in ``Type``. For example: ``"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"``.
         """
         return pulumi.get(self, "uri")
 
     @uri.setter
-    def uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uri", value)
 
 
@@ -1801,28 +1801,28 @@ class FunctionCodeArgsDict(TypedDict):
       When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
       Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
     """
-    image_uri: NotRequired[pulumi.Input[_builtins.str]]
+    image_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
     """
-    s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
     """
-    s3_key: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon S3 key of the deployment package.
     """
-    s3_object_storage_mode: NotRequired[pulumi.Input['FunctionCodeS3ObjectStorageMode']]
-    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_storage_mode: NotRequired[pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']]]
+    s3_object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For versioned objects, the version of the deployment package object to use.
     """
-    source_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
     """
-    zip_file: NotRequired[pulumi.Input[_builtins.str]]
+    zip_file: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
       When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
@@ -1834,13 +1834,13 @@ class FunctionCodeArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionCodeArgs:
     def __init__(__self__, *,
-                 image_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_storage_mode: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 zip_file: Optional[pulumi.Input[_builtins.str]] = None):
+                 image_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_storage_mode: pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 zip_file: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
           When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
@@ -1874,76 +1874,76 @@ class FunctionCodeArgs:
 
     @_builtins.property
     @pulumi.getter(name="imageUri")
-    def image_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URI of a [container image](https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html) in the Amazon ECR registry.
         """
         return pulumi.get(self, "image_uri")
 
     @image_uri.setter
-    def image_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Bucket")
-    def s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         """
         return pulumi.get(self, "s3_bucket")
 
     @s3_bucket.setter
-    def s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Key")
-    def s3_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon S3 key of the deployment package.
         """
         return pulumi.get(self, "s3_key")
 
     @s3_key.setter
-    def s3_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectStorageMode")
-    def s3_object_storage_mode(self) -> Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]:
+    def s3_object_storage_mode(self) -> pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']]:
         return pulumi.get(self, "s3_object_storage_mode")
 
     @s3_object_storage_mode.setter
-    def s3_object_storage_mode(self, value: Optional[pulumi.Input['FunctionCodeS3ObjectStorageMode']]):
+    def s3_object_storage_mode(self, value: pulumi.Input[Optional['FunctionCodeS3ObjectStorageMode']]):
         pulumi.set(self, "s3_object_storage_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For versioned objects, the version of the deployment package object to use.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceKmsKeyArn")
-    def source_kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the KMSlong (KMS) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk).
         """
         return pulumi.get(self, "source_kms_key_arn")
 
     @source_kms_key_arn.setter
-    def source_kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="zipFile")
-    def zip_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def zip_file(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
           When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
@@ -1954,7 +1954,7 @@ class FunctionCodeArgs:
         return pulumi.get(self, "zip_file")
 
     @zip_file.setter
-    def zip_file(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def zip_file(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "zip_file", value)
 
 
@@ -1962,7 +1962,7 @@ class FunctionDeadLetterConfigArgsDict(TypedDict):
     """
     The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
     """
-    target_arn: NotRequired[pulumi.Input[_builtins.str]]
+    target_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
     """
@@ -1970,7 +1970,7 @@ class FunctionDeadLetterConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionDeadLetterConfigArgs:
     def __init__(__self__, *,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) for failed asynchronous invocations.
 
@@ -1981,14 +1981,14 @@ class FunctionDeadLetterConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetArn")
-    def target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
-    def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
 
 
@@ -2000,8 +2000,8 @@ class FunctionDurableConfigArgsDict(TypedDict):
     """
     The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-    retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    retention_period_in_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
     """
@@ -2010,8 +2010,8 @@ class FunctionDurableConfigArgsDict(TypedDict):
 class FunctionDurableConfigArgs:
     def __init__(__self__, *,
                  execution_timeout: pulumi.Input[_builtins.int],
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
 
@@ -2038,23 +2038,23 @@ class FunctionDurableConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
         """
         return pulumi.get(self, "retention_period_in_days")
 
     @retention_period_in_days.setter
-    def retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_in_days", value)
 
 
@@ -2062,7 +2062,7 @@ class FunctionEnvironmentArgsDict(TypedDict):
     """
     A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
     """
-    variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    variables: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
      If the value of the environment variable is a time or a duration, enclose the value in quotes.
@@ -2071,7 +2071,7 @@ class FunctionEnvironmentArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionEnvironmentArgs:
     def __init__(__self__, *,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 
@@ -2083,7 +2083,7 @@ class FunctionEnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
          If the value of the environment variable is a time or a duration, enclose the value in quotes.
@@ -2091,7 +2091,7 @@ class FunctionEnvironmentArgs:
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "variables", value)
 
 
@@ -2184,15 +2184,15 @@ class FunctionImageConfigArgsDict(TypedDict):
     """
     Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
     """
-    command: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    command: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
     """
-    entry_point: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    entry_point: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
     """
-    working_directory: NotRequired[pulumi.Input[_builtins.str]]
+    working_directory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
     """
@@ -2200,9 +2200,9 @@ class FunctionImageConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionImageConfigArgs:
     def __init__(__self__, *,
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 entry_point: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 command: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 entry_point: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
 
@@ -2219,38 +2219,38 @@ class FunctionImageConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def command(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies parameters that you want to pass in with ENTRYPOINT. You can specify a maximum of 1,500 parameters in the list.
         """
         return pulumi.get(self, "command")
 
     @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def command(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "command", value)
 
     @_builtins.property
     @pulumi.getter(name="entryPoint")
-    def entry_point(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def entry_point(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the entry point to their application, which is typically the location of the runtime executable. You can specify a maximum of 1,500 string entries in the list.
         """
         return pulumi.get(self, "entry_point")
 
     @entry_point.setter
-    def entry_point(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def entry_point(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "entry_point", value)
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def working_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
         """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
-    def working_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def working_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "working_directory", value)
 
 
@@ -2262,11 +2262,11 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the capacity provider.
     """
-    execution_environment_memory_gi_b_per_v_cpu: NotRequired[pulumi.Input[_builtins.float]]
+    execution_environment_memory_gi_b_per_v_cpu: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The amount of memory in GiB allocated per vCPU for execution environments.
     """
-    per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+    per_execution_environment_max_concurrency: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of concurrent executions that can run on each execution environment.
     """
@@ -2275,8 +2275,8 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
 class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
     def __init__(__self__, *,
                  capacity_provider_arn: pulumi.Input[_builtins.str],
-                 execution_environment_memory_gi_b_per_v_cpu: Optional[pulumi.Input[_builtins.float]] = None,
-                 per_execution_environment_max_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
+                 execution_environment_memory_gi_b_per_v_cpu: pulumi.Input[Optional[_builtins.float]] = None,
+                 per_execution_environment_max_concurrency: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration for Lambda-managed instances used by the capacity provider.
 
@@ -2304,26 +2304,26 @@ class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionEnvironmentMemoryGiBPerVCpu")
-    def execution_environment_memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def execution_environment_memory_gi_b_per_v_cpu(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The amount of memory in GiB allocated per vCPU for execution environments.
         """
         return pulumi.get(self, "execution_environment_memory_gi_b_per_v_cpu")
 
     @execution_environment_memory_gi_b_per_v_cpu.setter
-    def execution_environment_memory_gi_b_per_v_cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def execution_environment_memory_gi_b_per_v_cpu(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "execution_environment_memory_gi_b_per_v_cpu", value)
 
     @_builtins.property
     @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
-    def per_execution_environment_max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def per_execution_environment_max_concurrency(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of concurrent executions that can run on each execution environment.
         """
         return pulumi.get(self, "per_execution_environment_max_concurrency")
 
     @per_execution_environment_max_concurrency.setter
-    def per_execution_environment_max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def per_execution_environment_max_concurrency(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "per_execution_environment_max_concurrency", value)
 
 
@@ -2331,19 +2331,19 @@ class FunctionLoggingConfigArgsDict(TypedDict):
     """
     The function's Amazon CloudWatch Logs configuration settings.
     """
-    application_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']]
+    application_log_level: NotRequired[pulumi.Input[Optional['FunctionLoggingConfigApplicationLogLevel']]]
     """
     Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
     """
-    log_format: NotRequired[pulumi.Input['FunctionLoggingConfigLogFormat']]
+    log_format: NotRequired[pulumi.Input[Optional['FunctionLoggingConfigLogFormat']]]
     """
     The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
     """
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
     """
-    system_log_level: NotRequired[pulumi.Input['FunctionLoggingConfigSystemLogLevel']]
+    system_log_level: NotRequired[pulumi.Input[Optional['FunctionLoggingConfigSystemLogLevel']]]
     """
     Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
     """
@@ -2351,10 +2351,10 @@ class FunctionLoggingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionLoggingConfigArgs:
     def __init__(__self__, *,
-                 application_log_level: Optional[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']] = None,
-                 log_format: Optional[pulumi.Input['FunctionLoggingConfigLogFormat']] = None,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 system_log_level: Optional[pulumi.Input['FunctionLoggingConfigSystemLogLevel']] = None):
+                 application_log_level: pulumi.Input[Optional['FunctionLoggingConfigApplicationLogLevel']] = None,
+                 log_format: pulumi.Input[Optional['FunctionLoggingConfigLogFormat']] = None,
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 system_log_level: pulumi.Input[Optional['FunctionLoggingConfigSystemLogLevel']] = None):
         """
         The function's Amazon CloudWatch Logs configuration settings.
 
@@ -2374,50 +2374,50 @@ class FunctionLoggingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLogLevel")
-    def application_log_level(self) -> Optional[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']]:
+    def application_log_level(self) -> pulumi.Input[Optional['FunctionLoggingConfigApplicationLogLevel']]:
         """
         Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
         """
         return pulumi.get(self, "application_log_level")
 
     @application_log_level.setter
-    def application_log_level(self, value: Optional[pulumi.Input['FunctionLoggingConfigApplicationLogLevel']]):
+    def application_log_level(self, value: pulumi.Input[Optional['FunctionLoggingConfigApplicationLogLevel']]):
         pulumi.set(self, "application_log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> Optional[pulumi.Input['FunctionLoggingConfigLogFormat']]:
+    def log_format(self) -> pulumi.Input[Optional['FunctionLoggingConfigLogFormat']]:
         """
         The format in which Lambda sends your function's application and system logs to CloudWatch. Select between plain text and structured JSON.
         """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
-    def log_format(self, value: Optional[pulumi.Input['FunctionLoggingConfigLogFormat']]):
+    def log_format(self, value: pulumi.Input[Optional['FunctionLoggingConfigLogFormat']]):
         pulumi.set(self, "log_format", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default log group named ``/aws/lambda/<function name>``. To use a different log group, enter an existing log group or enter a new log group name.
         """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
     @_builtins.property
     @pulumi.getter(name="systemLogLevel")
-    def system_log_level(self) -> Optional[pulumi.Input['FunctionLoggingConfigSystemLogLevel']]:
+    def system_log_level(self) -> pulumi.Input[Optional['FunctionLoggingConfigSystemLogLevel']]:
         """
         Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
         """
         return pulumi.get(self, "system_log_level")
 
     @system_log_level.setter
-    def system_log_level(self, value: Optional[pulumi.Input['FunctionLoggingConfigSystemLogLevel']]):
+    def system_log_level(self, value: pulumi.Input[Optional['FunctionLoggingConfigSystemLogLevel']]):
         pulumi.set(self, "system_log_level", value)
 
 
@@ -2431,10 +2431,10 @@ class FunctionRuntimeManagementConfigArgsDict(TypedDict):
       +  *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
       +  *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
       +  *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
-      
+
      *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
     """
-    runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_version_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the runtime version you want the function to use.
       This is only required if you're using the *Manual* runtime update mode.
@@ -2444,7 +2444,7 @@ class FunctionRuntimeManagementConfigArgsDict(TypedDict):
 class FunctionRuntimeManagementConfigArgs:
     def __init__(__self__, *,
                  update_runtime_on: pulumi.Input['FunctionRuntimeManagementConfigUpdateRuntimeOn'],
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 
@@ -2452,7 +2452,7 @@ class FunctionRuntimeManagementConfigArgs:
                  +  *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
                  +  *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
                  +  *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
-                 
+               
                 *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
         :param pulumi.Input[_builtins.str] runtime_version_arn: The ARN of the runtime version you want the function to use.
                  This is only required if you're using the *Manual* runtime update mode.
@@ -2469,7 +2469,7 @@ class FunctionRuntimeManagementConfigArgs:
           +  *Auto (default)* - Automatically update to the most recent and secure runtime version using a [Two-phase runtime version rollout](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-two-phase). This is the best choice for most customers to ensure they always benefit from runtime updates.
           +  *FunctionUpdate* - LAM updates the runtime of you function to the most recent and secure runtime version when you update your function. This approach synchronizes runtime updates with function deployments, giving you control over when runtime updates are applied and allowing you to detect and mitigate rare runtime update incompatibilities early. When using this setting, you need to regularly update your functions to keep their runtime up-to-date.
           +  *Manual* - You specify a runtime version in your function configuration. The function will use this runtime version indefinitely. In the rare case where a new runtime version is incompatible with an existing function, this allows you to roll back your function to an earlier runtime version. For more information, see [Roll back a runtime version](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-management-rollback).
-          
+
          *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
         """
         return pulumi.get(self, "update_runtime_on")
@@ -2480,7 +2480,7 @@ class FunctionRuntimeManagementConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersionArn")
-    def runtime_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the runtime version you want the function to use.
           This is only required if you're using the *Manual* runtime update mode.
@@ -2488,7 +2488,7 @@ class FunctionRuntimeManagementConfigArgs:
         return pulumi.get(self, "runtime_version_arn")
 
     @runtime_version_arn.setter
-    def runtime_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
 
 
@@ -2496,11 +2496,11 @@ class FunctionScalingConfigArgsDict(TypedDict):
     """
     Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
     """
-    max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    max_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of execution environments that can be provisioned for the function.
     """
-    min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    min_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of execution environments to maintain for the function.
     """
@@ -2508,8 +2508,8 @@ class FunctionScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionScalingConfigArgs:
     def __init__(__self__, *,
-                 max_execution_environments: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_execution_environments: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_execution_environments: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_execution_environments: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 
@@ -2523,26 +2523,26 @@ class FunctionScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxExecutionEnvironments")
-    def max_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of execution environments that can be provisioned for the function.
         """
         return pulumi.get(self, "max_execution_environments")
 
     @max_execution_environments.setter
-    def max_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_execution_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="minExecutionEnvironments")
-    def min_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of execution environments to maintain for the function.
         """
         return pulumi.get(self, "min_execution_environments")
 
     @min_execution_environments.setter
-    def min_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_execution_environments", value)
 
 
@@ -2616,7 +2616,7 @@ class FunctionTracingConfigArgsDict(TypedDict):
     """
     The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
     """
-    mode: NotRequired[pulumi.Input['FunctionTracingConfigMode']]
+    mode: NotRequired[pulumi.Input[Optional['FunctionTracingConfigMode']]]
     """
     The tracing mode.
     """
@@ -2624,7 +2624,7 @@ class FunctionTracingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionTracingConfigArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input['FunctionTracingConfigMode']] = None):
+                 mode: pulumi.Input[Optional['FunctionTracingConfigMode']] = None):
         """
         The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set ``Mode`` to ``Active``.
 
@@ -2635,14 +2635,14 @@ class FunctionTracingConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['FunctionTracingConfigMode']]:
+    def mode(self) -> pulumi.Input[Optional['FunctionTracingConfigMode']]:
         """
         The tracing mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['FunctionTracingConfigMode']]):
+    def mode(self, value: pulumi.Input[Optional['FunctionTracingConfigMode']]):
         pulumi.set(self, "mode", value)
 
 
@@ -2652,15 +2652,15 @@ class FunctionVpcConfigArgsDict(TypedDict):
       When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
      To monitor network interfaces, CFN needs the ``ec2:DescribeNetworkInterfaces`` permission. It obtains this from the user or role that modifies the stack. If you don't provide this permission, CFN does not wait for network interfaces to be deleted.
     """
-    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of VPC security group IDs.
     """
-    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of VPC subnet IDs.
     """
@@ -2668,9 +2668,9 @@ class FunctionVpcConfigArgsDict(TypedDict):
 @pulumi.input_type
 class FunctionVpcConfigArgs:
     def __init__(__self__, *,
-                 ipv6_allowed_for_dual_stack: Optional[pulumi.Input[_builtins.bool]] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 ipv6_allowed_for_dual_stack: pulumi.Input[Optional[_builtins.bool]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC. For more information, see [VPC Settings](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
           When you delete a function, CFN monitors the state of its network interfaces and waits for Lambda to delete them before proceeding. If the VPC is defined in the same stack, the network interfaces need to be deleted by Lambda before CFN can delete the VPC's resources.
@@ -2689,52 +2689,52 @@ class FunctionVpcConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="ipv6AllowedForDualStack")
-    def ipv6_allowed_for_dual_stack(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ipv6_allowed_for_dual_stack(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.
         """
         return pulumi.get(self, "ipv6_allowed_for_dual_stack")
 
     @ipv6_allowed_for_dual_stack.setter
-    def ipv6_allowed_for_dual_stack(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ipv6_allowed_for_dual_stack(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ipv6_allowed_for_dual_stack", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of VPC security group IDs.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def subnet_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
 
 class HooksArgsDict(TypedDict):
-    microvm_hooks: NotRequired[pulumi.Input['MicrovmImageMicrovmHooksArgsDict']]
-    microvm_image_hooks: NotRequired[pulumi.Input['MicrovmImageHooksArgsDict']]
-    port: NotRequired[pulumi.Input[_builtins.int]]
+    microvm_hooks: NotRequired[pulumi.Input[Optional['MicrovmImageMicrovmHooksArgsDict']]]
+    microvm_image_hooks: NotRequired[pulumi.Input[Optional['MicrovmImageHooksArgsDict']]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class HooksArgs:
     def __init__(__self__, *,
-                 microvm_hooks: Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']] = None,
-                 microvm_image_hooks: Optional[pulumi.Input['MicrovmImageHooksArgs']] = None,
-                 port: Optional[pulumi.Input[_builtins.int]] = None):
+                 microvm_hooks: pulumi.Input[Optional['MicrovmImageMicrovmHooksArgs']] = None,
+                 microvm_image_hooks: pulumi.Input[Optional['MicrovmImageHooksArgs']] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None):
         if microvm_hooks is not None:
             pulumi.set(__self__, "microvm_hooks", microvm_hooks)
         if microvm_image_hooks is not None:
@@ -2744,29 +2744,29 @@ class HooksArgs:
 
     @_builtins.property
     @pulumi.getter(name="microvmHooks")
-    def microvm_hooks(self) -> Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']]:
+    def microvm_hooks(self) -> pulumi.Input[Optional['MicrovmImageMicrovmHooksArgs']]:
         return pulumi.get(self, "microvm_hooks")
 
     @microvm_hooks.setter
-    def microvm_hooks(self, value: Optional[pulumi.Input['MicrovmImageMicrovmHooksArgs']]):
+    def microvm_hooks(self, value: pulumi.Input[Optional['MicrovmImageMicrovmHooksArgs']]):
         pulumi.set(self, "microvm_hooks", value)
 
     @_builtins.property
     @pulumi.getter(name="microvmImageHooks")
-    def microvm_image_hooks(self) -> Optional[pulumi.Input['MicrovmImageHooksArgs']]:
+    def microvm_image_hooks(self) -> pulumi.Input[Optional['MicrovmImageHooksArgs']]:
         return pulumi.get(self, "microvm_image_hooks")
 
     @microvm_image_hooks.setter
-    def microvm_image_hooks(self, value: Optional[pulumi.Input['MicrovmImageHooksArgs']]):
+    def microvm_image_hooks(self, value: pulumi.Input[Optional['MicrovmImageHooksArgs']]):
         pulumi.set(self, "microvm_image_hooks", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "port", value)
 
 
@@ -2779,11 +2779,11 @@ class LayerVersionContentArgsDict(TypedDict):
     """
     The Amazon S3 key of the layer archive.
     """
-    s3_object_storage_mode: NotRequired[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]
+    s3_object_storage_mode: NotRequired[pulumi.Input[Optional['LayerVersionContentS3ObjectStorageMode']]]
     """
     Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
     """
-    s3_object_version: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     For versioned objects, the version of the layer archive object to use.
     """
@@ -2793,8 +2793,8 @@ class LayerVersionContentArgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[_builtins.str],
                  s3_key: pulumi.Input[_builtins.str],
-                 s3_object_storage_mode: Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']] = None,
-                 s3_object_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_object_storage_mode: pulumi.Input[Optional['LayerVersionContentS3ObjectStorageMode']] = None,
+                 s3_object_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] s3_bucket: The Amazon S3 bucket of the layer archive.
         :param pulumi.Input[_builtins.str] s3_key: The Amazon S3 key of the layer archive.
@@ -2834,38 +2834,38 @@ class LayerVersionContentArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectStorageMode")
-    def s3_object_storage_mode(self) -> Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]:
+    def s3_object_storage_mode(self) -> pulumi.Input[Optional['LayerVersionContentS3ObjectStorageMode']]:
         """
         Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
         """
         return pulumi.get(self, "s3_object_storage_mode")
 
     @s3_object_storage_mode.setter
-    def s3_object_storage_mode(self, value: Optional[pulumi.Input['LayerVersionContentS3ObjectStorageMode']]):
+    def s3_object_storage_mode(self, value: pulumi.Input[Optional['LayerVersionContentS3ObjectStorageMode']]):
         pulumi.set(self, "s3_object_storage_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectVersion")
-    def s3_object_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For versioned objects, the version of the layer archive object to use.
         """
         return pulumi.get(self, "s3_object_version")
 
     @s3_object_version.setter
-    def s3_object_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_version", value)
 
 
 class MicrovmImageCloudWatchLoggingArgsDict(TypedDict):
-    log_group: NotRequired[pulumi.Input[_builtins.str]]
-    log_stream: NotRequired[pulumi.Input[_builtins.str]]
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class MicrovmImageCloudWatchLoggingArgs:
     def __init__(__self__, *,
-                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_stream: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_stream: pulumi.Input[Optional[_builtins.str]] = None):
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
         if log_stream is not None:
@@ -2873,20 +2873,20 @@ class MicrovmImageCloudWatchLoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "log_group")
 
     @log_group.setter
-    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group", value)
 
     @_builtins.property
     @pulumi.getter(name="logStream")
-    def log_stream(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "log_stream")
 
     @log_stream.setter
-    def log_stream(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_stream", value)
 
 
@@ -2960,18 +2960,18 @@ class MicrovmImageEnvironmentVariableArgs:
 
 
 class MicrovmImageHooksArgsDict(TypedDict):
-    ready: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    ready_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    validate: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    validate_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    ready: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    ready_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    validate: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    validate_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MicrovmImageHooksArgs:
     def __init__(__self__, *,
-                 ready: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 ready_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 validate: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 validate_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 ready: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 ready_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 validate: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 validate_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         if ready is not None:
             pulumi.set(__self__, "ready", ready)
         if ready_timeout_in_seconds is not None:
@@ -2983,50 +2983,50 @@ class MicrovmImageHooksArgs:
 
     @_builtins.property
     @pulumi.getter
-    def ready(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def ready(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "ready")
 
     @ready.setter
-    def ready(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def ready(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "ready", value)
 
     @_builtins.property
     @pulumi.getter(name="readyTimeoutInSeconds")
-    def ready_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def ready_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "ready_timeout_in_seconds")
 
     @ready_timeout_in_seconds.setter
-    def ready_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def ready_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ready_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def validate(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def validate(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "validate", value)
 
     @_builtins.property
     @pulumi.getter(name="validateTimeoutInSeconds")
-    def validate_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def validate_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "validate_timeout_in_seconds")
 
     @validate_timeout_in_seconds.setter
-    def validate_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def validate_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "validate_timeout_in_seconds", value)
 
 
 class MicrovmImageLoggingArgsDict(TypedDict):
-    cloud_watch: NotRequired[pulumi.Input['MicrovmImageCloudWatchLoggingArgsDict']]
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    cloud_watch: NotRequired[pulumi.Input[Optional['MicrovmImageCloudWatchLoggingArgsDict']]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
 
 @pulumi.input_type
 class MicrovmImageLoggingArgs:
     def __init__(__self__, *,
-                 cloud_watch: Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']] = None,
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 cloud_watch: pulumi.Input[Optional['MicrovmImageCloudWatchLoggingArgs']] = None,
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         if cloud_watch is not None:
             pulumi.set(__self__, "cloud_watch", cloud_watch)
         if disabled is not None:
@@ -3034,44 +3034,44 @@ class MicrovmImageLoggingArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatch")
-    def cloud_watch(self) -> Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']]:
+    def cloud_watch(self) -> pulumi.Input[Optional['MicrovmImageCloudWatchLoggingArgs']]:
         return pulumi.get(self, "cloud_watch")
 
     @cloud_watch.setter
-    def cloud_watch(self, value: Optional[pulumi.Input['MicrovmImageCloudWatchLoggingArgs']]):
+    def cloud_watch(self, value: pulumi.Input[Optional['MicrovmImageCloudWatchLoggingArgs']]):
         pulumi.set(self, "cloud_watch", value)
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
 
 class MicrovmImageMicrovmHooksArgsDict(TypedDict):
-    resume: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    resume_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    run: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    run_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    suspend: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    suspend_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-    terminate: NotRequired[pulumi.Input['MicrovmImageHookState']]
-    terminate_timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    resume: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    resume_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    run: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    run_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    suspend: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    suspend_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    terminate: NotRequired[pulumi.Input[Optional['MicrovmImageHookState']]]
+    terminate_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class MicrovmImageMicrovmHooksArgs:
     def __init__(__self__, *,
-                 resume: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 resume_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 run: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 run_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 suspend_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 terminate: Optional[pulumi.Input['MicrovmImageHookState']] = None,
-                 terminate_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 resume: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 resume_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 run: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 run_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 suspend_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 terminate: pulumi.Input[Optional['MicrovmImageHookState']] = None,
+                 terminate_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         if resume is not None:
             pulumi.set(__self__, "resume", resume)
         if resume_timeout_in_seconds is not None:
@@ -3091,74 +3091,74 @@ class MicrovmImageMicrovmHooksArgs:
 
     @_builtins.property
     @pulumi.getter
-    def resume(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def resume(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "resume")
 
     @resume.setter
-    def resume(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def resume(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "resume", value)
 
     @_builtins.property
     @pulumi.getter(name="resumeTimeoutInSeconds")
-    def resume_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def resume_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "resume_timeout_in_seconds")
 
     @resume_timeout_in_seconds.setter
-    def resume_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def resume_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "resume_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def run(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def run(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "run")
 
     @run.setter
-    def run(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def run(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "run", value)
 
     @_builtins.property
     @pulumi.getter(name="runTimeoutInSeconds")
-    def run_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def run_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "run_timeout_in_seconds")
 
     @run_timeout_in_seconds.setter
-    def run_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def run_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "run_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def suspend(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def suspend(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "suspend")
 
     @suspend.setter
-    def suspend(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def suspend(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "suspend", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendTimeoutInSeconds")
-    def suspend_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "suspend_timeout_in_seconds")
 
     @suspend_timeout_in_seconds.setter
-    def suspend_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
-    def terminate(self) -> Optional[pulumi.Input['MicrovmImageHookState']]:
+    def terminate(self) -> pulumi.Input[Optional['MicrovmImageHookState']]:
         return pulumi.get(self, "terminate")
 
     @terminate.setter
-    def terminate(self, value: Optional[pulumi.Input['MicrovmImageHookState']]):
+    def terminate(self, value: pulumi.Input[Optional['MicrovmImageHookState']]):
         pulumi.set(self, "terminate", value)
 
     @_builtins.property
     @pulumi.getter(name="terminateTimeoutInSeconds")
-    def terminate_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def terminate_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "terminate_timeout_in_seconds")
 
     @terminate_timeout_in_seconds.setter
-    def terminate_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def terminate_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "terminate_timeout_in_seconds", value)
 
 
@@ -3218,11 +3218,11 @@ class NetworkConnectorVpcEgressConfigurationArgsDict(TypedDict):
     """
     The IDs of the VPC subnets where Lambda provisions elastic network interfaces (ENIs). Specify 1 to 16 subnets. All subnets must be in the same VPC.
     """
-    network_protocol: NotRequired[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]
+    network_protocol: NotRequired[pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]]
     """
     The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
     """
-    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
     """
@@ -3232,8 +3232,8 @@ class NetworkConnectorVpcEgressConfigurationArgs:
     def __init__(__self__, *,
                  associated_compute_resource_types: pulumi.Input[Sequence[pulumi.Input['NetworkConnectorVpcEgressConfigurationAssociatedComputeResourceTypesItem']]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 network_protocol: Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']] = None,
-                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 network_protocol: pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.
 
@@ -3275,51 +3275,51 @@ class NetworkConnectorVpcEgressConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="networkProtocol")
-    def network_protocol(self) -> Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]:
+    def network_protocol(self) -> pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]:
         """
         The network protocol for the connector. Specify IPv4 for IPv4-only networking, or DualStack for both IPv4 and IPv6.
         """
         return pulumi.get(self, "network_protocol")
 
     @network_protocol.setter
-    def network_protocol(self, value: Optional[pulumi.Input['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]):
+    def network_protocol(self, value: pulumi.Input[Optional['NetworkConnectorVpcEgressConfigurationNetworkProtocol']]):
         pulumi.set(self, "network_protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
-    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.
         """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
-    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
 
 
 class UrlCorsArgsDict(TypedDict):
-    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    allow_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether credentials are included in the CORS request.
     """
-    allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of allowed headers.
     """
-    allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]
+    allow_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]]
     """
     Represents a collection of allowed HTTP methods.
     """
-    allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allow_origins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of allowed origins.
     """
-    expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    expose_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Represents a collection of exposed headers.
     """
-    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    max_age: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
     """
@@ -3327,12 +3327,12 @@ class UrlCorsArgsDict(TypedDict):
 @pulumi.input_type
 class UrlCorsArgs:
     def __init__(__self__, *,
-                 allow_credentials: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 allow_methods: Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]] = None,
-                 allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 max_age: Optional[pulumi.Input[_builtins.int]] = None):
+                 allow_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allow_methods: pulumi.Input[Optional[Sequence[pulumi.Input['UrlAllowMethodsItem']]]] = None,
+                 allow_origins: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 expose_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 max_age: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] allow_credentials: Specifies whether credentials are included in the CORS request.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_headers: Represents a collection of allowed headers.
@@ -3356,74 +3356,74 @@ class UrlCorsArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowCredentials")
-    def allow_credentials(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether credentials are included in the CORS request.
         """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
-    def allow_credentials(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_credentials", value)
 
     @_builtins.property
     @pulumi.getter(name="allowHeaders")
-    def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of allowed headers.
         """
         return pulumi.get(self, "allow_headers")
 
     @allow_headers.setter
-    def allow_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="allowMethods")
-    def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]:
+    def allow_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]:
         """
         Represents a collection of allowed HTTP methods.
         """
         return pulumi.get(self, "allow_methods")
 
     @allow_methods.setter
-    def allow_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]):
+    def allow_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UrlAllowMethodsItem']]]]):
         pulumi.set(self, "allow_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="allowOrigins")
-    def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allow_origins(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of allowed origins.
         """
         return pulumi.get(self, "allow_origins")
 
     @allow_origins.setter
-    def allow_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allow_origins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allow_origins", value)
 
     @_builtins.property
     @pulumi.getter(name="exposeHeaders")
-    def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def expose_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Represents a collection of exposed headers.
         """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
-    def expose_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def expose_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "expose_headers", value)
 
     @_builtins.property
     @pulumi.getter(name="maxAge")
-    def max_age(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_age(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum amount of time, in seconds, that browsers can cache results of a preflight request. By default, this is set to `0` , which means the browser will not cache results.
         """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
-    def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_age(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_age", value)
 
 
@@ -3431,11 +3431,11 @@ class VersionFunctionScalingConfigArgsDict(TypedDict):
     """
     Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
     """
-    max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    max_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of execution environments that can be provisioned for the function.
     """
-    min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+    min_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of execution environments to maintain for the function.
     """
@@ -3443,8 +3443,8 @@ class VersionFunctionScalingConfigArgsDict(TypedDict):
 @pulumi.input_type
 class VersionFunctionScalingConfigArgs:
     def __init__(__self__, *,
-                 max_execution_environments: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_execution_environments: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_execution_environments: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_execution_environments: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 
@@ -3458,26 +3458,26 @@ class VersionFunctionScalingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxExecutionEnvironments")
-    def max_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of execution environments that can be provisioned for the function.
         """
         return pulumi.get(self, "max_execution_environments")
 
     @max_execution_environments.setter
-    def max_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_execution_environments", value)
 
     @_builtins.property
     @pulumi.getter(name="minExecutionEnvironments")
-    def min_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of execution environments to maintain for the function.
         """
         return pulumi.get(self, "min_execution_environments")
 
     @min_execution_environments.setter
-    def min_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_execution_environments", value)
 
 
@@ -3522,7 +3522,7 @@ class VersionRuntimePolicyArgsDict(TypedDict):
     """
     The runtime update mode.
     """
-    runtime_version_arn: NotRequired[pulumi.Input[_builtins.str]]
+    runtime_version_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
     """
@@ -3531,7 +3531,7 @@ class VersionRuntimePolicyArgsDict(TypedDict):
 class VersionRuntimePolicyArgs:
     def __init__(__self__, *,
                  update_runtime_on: pulumi.Input[_builtins.str],
-                 runtime_version_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 runtime_version_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Runtime Management Config of a function.
 
@@ -3556,14 +3556,14 @@ class VersionRuntimePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersionArn")
-    def runtime_version_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
         """
         return pulumi.get(self, "runtime_version_arn")
 
     @runtime_version_arn.setter
-    def runtime_version_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
 
 

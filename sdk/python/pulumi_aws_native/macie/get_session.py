@@ -100,7 +100,6 @@ def get_session(aws_account_id: Optional[_builtins.str] = None,
     """
     The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
-
     :param _builtins.str aws_account_id: AWS account ID of customer
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_session(aws_account_id: Optional[_builtins.str] = None,
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'))
-def get_session_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_session_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionResult]:
     """
     The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
-
 
     :param _builtins.str aws_account_id: AWS account ID of customer
     """

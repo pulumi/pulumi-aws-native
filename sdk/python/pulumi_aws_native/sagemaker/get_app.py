@@ -92,7 +92,6 @@ def get_app(app_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::App
 
-
     :param _builtins.str app_name: The name of the app.
     :param 'AppType' app_type: The type of app.
     :param _builtins.str domain_id: The domain ID.
@@ -111,14 +110,13 @@ def get_app(app_name: Optional[_builtins.str] = None,
         built_in_lifecycle_config_arn=pulumi.get(__ret__, 'built_in_lifecycle_config_arn'),
         recovery_mode=pulumi.get(__ret__, 'recovery_mode'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_app_output(app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                   app_type: Optional[pulumi.Input['AppType']] = None,
-                   domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                   user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_output(app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                   app_type: pulumi.Input[Optional['AppType']] = None,
+                   domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                   user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type definition for AWS::SageMaker::App
-
 
     :param _builtins.str app_name: The name of the app.
     :param 'AppType' app_type: The type of app.

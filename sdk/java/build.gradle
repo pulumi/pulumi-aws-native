@@ -95,7 +95,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-aws-native"
                 packaging = "jar"
-                description = "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources."
+                description = $/A native Pulumi package for creating and managing Amazon Web Services (AWS) resources./$
 
                 url = "https://github.com/pulumi/pulumi-aws-native"
 

@@ -23,11 +23,11 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 app_config_resource: Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']] = None,
-                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 app_config_resource: pulumi.Input[Optional['ProjectAppConfigResourceObjectArgs']] = None,
+                 data_delivery: pulumi.Input[Optional['ProjectDataDeliveryObjectArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -56,7 +56,7 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="appConfigResource")
-    def app_config_resource(self) -> Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']]:
+    def app_config_resource(self) -> pulumi.Input[Optional['ProjectAppConfigResourceObjectArgs']]:
         """
         Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
 
@@ -67,12 +67,12 @@ class ProjectArgs:
         return pulumi.get(self, "app_config_resource")
 
     @app_config_resource.setter
-    def app_config_resource(self, value: Optional[pulumi.Input['ProjectAppConfigResourceObjectArgs']]):
+    def app_config_resource(self, value: pulumi.Input[Optional['ProjectAppConfigResourceObjectArgs']]):
         pulumi.set(self, "app_config_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="dataDelivery")
-    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']]:
+    def data_delivery(self) -> pulumi.Input[Optional['ProjectDataDeliveryObjectArgs']]:
         """
         A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
 
@@ -81,43 +81,43 @@ class ProjectArgs:
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
-    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryObjectArgs']]):
+    def data_delivery(self, value: pulumi.Input[Optional['ProjectDataDeliveryObjectArgs']]):
         pulumi.set(self, "data_delivery", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the project. It can include up to 127 characters.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,15 +127,14 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config_resource: Optional[pulumi.Input[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
-                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 app_config_resource: pulumi.Input[Optional[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Evidently::Project
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class Project(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Evidently::Project
 
-
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,11 +174,11 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_config_resource: Optional[pulumi.Input[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
-                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 app_config_resource: pulumi.Input[Optional[Union['ProjectAppConfigResourceObjectArgs', 'ProjectAppConfigResourceObjectArgsDict']]] = None,
+                 data_delivery: pulumi.Input[Optional[Union['ProjectDataDeliveryObjectArgs', 'ProjectDataDeliveryObjectArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

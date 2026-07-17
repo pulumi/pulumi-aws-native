@@ -133,7 +133,7 @@ class StreamProcessorConnectedHomeSettingsArgsDict(TypedDict):
     """
     Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: "PERSON", "PET", "PACKAGE", and "ALL".
     """
-    min_confidence: NotRequired[pulumi.Input[_builtins.float]]
+    min_confidence: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Minimum object class match confidence score that must be met to return a result for a recognized object.
     """
@@ -142,7 +142,7 @@ class StreamProcessorConnectedHomeSettingsArgsDict(TypedDict):
 class StreamProcessorConnectedHomeSettingsArgs:
     def __init__(__self__, *,
                  labels: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 min_confidence: Optional[pulumi.Input[_builtins.float]] = None):
+                 min_confidence: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
 
@@ -167,14 +167,14 @@ class StreamProcessorConnectedHomeSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="minConfidence")
-    def min_confidence(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def min_confidence(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimum object class match confidence score that must be met to return a result for a recognized object.
         """
         return pulumi.get(self, "min_confidence")
 
     @min_confidence.setter
-    def min_confidence(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def min_confidence(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "min_confidence", value)
 
 
@@ -219,7 +219,7 @@ class StreamProcessorFaceSearchSettingsArgsDict(TypedDict):
     """
     The ID of a collection that contains faces that you want to search for.
     """
-    face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    face_match_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
     """
@@ -228,7 +228,7 @@ class StreamProcessorFaceSearchSettingsArgsDict(TypedDict):
 class StreamProcessorFaceSearchSettingsArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
-                 face_match_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 face_match_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Face search settings to use on a streaming video. Note that either FaceSearchSettings or ConnectedHomeSettings should be set. Not both
 
@@ -253,14 +253,14 @@ class StreamProcessorFaceSearchSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="faceMatchThreshold")
-    def face_match_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def face_match_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
         """
         return pulumi.get(self, "face_match_threshold")
 
     @face_match_threshold.setter
-    def face_match_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def face_match_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "face_match_threshold", value)
 
 
@@ -423,7 +423,7 @@ class StreamProcessorS3DestinationArgsDict(TypedDict):
     """
     Name of the S3 bucket.
     """
-    object_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    object_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The object key prefix path where the results will be stored. Default is no prefix path
     """
@@ -432,7 +432,7 @@ class StreamProcessorS3DestinationArgsDict(TypedDict):
 class StreamProcessorS3DestinationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
-                 object_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 object_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The S3 location in customer's account where inference output & artifacts are stored, as part of connected home feature.
 
@@ -457,14 +457,14 @@ class StreamProcessorS3DestinationArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectKeyPrefix")
-    def object_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The object key prefix path where the results will be stored. Default is no prefix path
         """
         return pulumi.get(self, "object_key_prefix")
 
     @object_key_prefix.setter
-    def object_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_key_prefix", value)
 
 

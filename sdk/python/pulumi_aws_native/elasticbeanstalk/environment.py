@@ -24,17 +24,17 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
-                 cname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]] = None,
-                 platform_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input['EnvironmentTierArgs']] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None):
+                 cname_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_settings: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]] = None,
+                 platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional['EnvironmentTierArgs']] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Environment resource.
 
@@ -89,134 +89,134 @@ class EnvironmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="cnamePrefix")
-    def cname_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cname_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If specified, the environment attempts to use this value as the prefix for the CNAME in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by appending a random alphanumeric string to the environment name.
         """
         return pulumi.get(self, "cname_prefix")
 
     @cname_prefix.setter
-    def cname_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cname_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cname_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Your description for this environment.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
-    def environment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A unique name for the environment.
         """
         return pulumi.get(self, "environment_name")
 
     @environment_name.setter
-    def environment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationsRole")
-    def operations_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def operations_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
         """
         return pulumi.get(self, "operations_role")
 
     @operations_role.setter
-    def operations_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def operations_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "operations_role", value)
 
     @_builtins.property
     @pulumi.getter(name="optionSettings")
-    def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]]:
+    def option_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]]:
         """
         Key-value pairs defining configuration options for this environment, such as the instance type.
         """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
-    def option_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]]):
+    def option_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentOptionSettingArgs']]]]):
         pulumi.set(self, "option_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="platformArn")
-    def platform_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def platform_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the custom platform to use with the environment.
         """
         return pulumi.get(self, "platform_arn")
 
     @platform_arn.setter
-    def platform_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def platform_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "platform_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionStackName")
-    def solution_stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an Elastic Beanstalk solution stack (platform version) to use with the environment.
         """
         return pulumi.get(self, "solution_stack_name")
 
     @solution_stack_name.setter
-    def solution_stack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_stack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_stack_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Specifies the tags applied to resources in the environment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Elastic Beanstalk configuration template to use with the environment.
         """
         return pulumi.get(self, "template_name")
 
     @template_name.setter
-    def template_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input['EnvironmentTierArgs']]:
+    def tier(self) -> pulumi.Input[Optional['EnvironmentTierArgs']]:
         """
         Specifies the tier to use in creating this environment. The environment tier that you choose determines whether Elastic Beanstalk provisions resources to support a web application that handles HTTP(S) requests or a web application that handles background-processing tasks.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input['EnvironmentTierArgs']]):
+    def tier(self, value: pulumi.Input[Optional['EnvironmentTierArgs']]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter(name="versionLabel")
-    def version_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application version to deploy.
         """
         return pulumi.get(self, "version_label")
 
     @version_label.setter
-    def version_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_label(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_label", value)
 
 
@@ -226,22 +226,21 @@ class Environment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
-                 platform_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
+                 platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::Environment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,7 +266,6 @@ class Environment(pulumi.CustomResource):
         """
         Resource Type definition for AWS::ElasticBeanstalk::Environment
 
-
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -283,18 +281,18 @@ class Environment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cname_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 operations_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
-                 platform_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_stack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier: Optional[pulumi.Input[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
-                 version_label: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cname_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operations_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 option_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentOptionSettingArgs', 'EnvironmentOptionSettingArgsDict']]]]] = None,
+                 platform_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier: pulumi.Input[Optional[Union['EnvironmentTierArgs', 'EnvironmentTierArgsDict']]] = None,
+                 version_label: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

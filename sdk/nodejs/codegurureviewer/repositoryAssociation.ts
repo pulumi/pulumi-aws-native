@@ -236,23 +236,23 @@ export interface RepositoryAssociationArgs {
     /**
      * The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
      */
-    bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
-    connectionArn?: pulumi.Input<string>;
+    connectionArn?: pulumi.Input<string | undefined>;
     /**
      * Name of the repository to be associated.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with a repository association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
     /**
      * The type of repository to be associated.
      */

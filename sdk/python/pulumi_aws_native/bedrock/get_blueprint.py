@@ -139,7 +139,6 @@ def get_blueprint(blueprint_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::Bedrock::Blueprint Resource Type
 
-
     :param _builtins.str blueprint_arn: ARN of a Blueprint
     """
     __args__ = dict()
@@ -156,11 +155,10 @@ def get_blueprint(blueprint_arn: Optional[_builtins.str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_blueprint_output(blueprint_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_blueprint_output(blueprint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlueprintResult]:
     """
     Definition of AWS::Bedrock::Blueprint Resource Type
-
 
     :param _builtins.str blueprint_arn: ARN of a Blueprint
     """

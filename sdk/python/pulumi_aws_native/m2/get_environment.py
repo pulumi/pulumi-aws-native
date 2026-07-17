@@ -75,7 +75,7 @@ class GetEnvironmentResult:
     @pulumi.getter(name="highAvailabilityConfig")
     def high_availability_config(self) -> Optional['outputs.EnvironmentHighAvailabilityConfig']:
         """
-        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) . 
+        > AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html) .
 
         Defines the details of a high availability configuration.
         """
@@ -126,7 +126,6 @@ def get_environment(environment_arn: Optional[_builtins.str] = None,
     """
     Represents a runtime environment that can run migrated mainframe applications.
 
-
     :param _builtins.str environment_arn: The Amazon Resource Name (ARN) of the runtime environment.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_environment(environment_arn: Optional[_builtins.str] = None,
         instance_type=pulumi.get(__ret__, 'instance_type'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_output(environment_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_output(environment_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Represents a runtime environment that can run migrated mainframe applications.
-
 
     :param _builtins.str environment_arn: The Amazon Resource Name (ARN) of the runtime environment.
     """

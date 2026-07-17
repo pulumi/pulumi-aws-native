@@ -101,7 +101,6 @@ def get_route_server(id: Optional[_builtins.str] = None,
     """
     VPC Route Server
 
-
     :param _builtins.str id: The ID of the Route Server.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_route_server(id: Optional[_builtins.str] = None,
         persist_routes=pulumi.get(__ret__, 'persist_routes'),
         sns_notifications_enabled=pulumi.get(__ret__, 'sns_notifications_enabled'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_route_server_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_server_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteServerResult]:
     """
     VPC Route Server
-
 
     :param _builtins.str id: The ID of the Route Server.
     """

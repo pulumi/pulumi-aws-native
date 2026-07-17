@@ -51,7 +51,6 @@ def get_domain_name_access_association(domain_name_access_association_arn: Optio
     """
     Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
 
-
     :param _builtins.str domain_name_access_association_arn: The amazon resource name (ARN) of the domain name access association resource.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_domain_name_access_association(domain_name_access_association_arn: Optio
 
     return AwaitableGetDomainNameAccessAssociationResult(
         domain_name_access_association_arn=pulumi.get(__ret__, 'domain_name_access_association_arn'))
-def get_domain_name_access_association_output(domain_name_access_association_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_name_access_association_output(domain_name_access_association_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameAccessAssociationResult]:
     """
     Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
-
 
     :param _builtins.str domain_name_access_association_arn: The amazon resource name (ARN) of the domain name access association resource.
     """

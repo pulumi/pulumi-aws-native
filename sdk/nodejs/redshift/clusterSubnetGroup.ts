@@ -38,7 +38,7 @@ export class ClusterSubnetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default". 
+     * This name must be unique for all subnet groups that are created by your AWS account. If costumer do not provide it, cloudformation will generate it. Must not be "Default".
      */
     declare public /*out*/ readonly clusterSubnetGroupName: pulumi.Output<string>;
     /**
@@ -101,5 +101,5 @@ export interface ClusterSubnetGroupArgs {
     /**
      * The list of tags for the cluster parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -178,29 +178,29 @@ export interface WorkspaceArgs {
     /**
      * The AMP Workspace alert manager definition data
      */
-    alertManagerDefinition?: pulumi.Input<string>;
+    alertManagerDefinition?: pulumi.Input<string | undefined>;
     /**
      * AMP Workspace alias.
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * KMS Key ARN used to encrypt and decrypt AMP workspace data.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the logging configuration for the workspace.
      */
-    loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceLoggingConfigurationArgs | undefined>;
     /**
      * The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
      */
-    queryLoggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceQueryLoggingConfigurationArgs>;
+    queryLoggingConfiguration?: pulumi.Input<inputs.aps.WorkspaceQueryLoggingConfigurationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
      */
-    workspaceConfiguration?: pulumi.Input<inputs.aps.WorkspaceConfigurationArgs>;
+    workspaceConfiguration?: pulumi.Input<inputs.aps.WorkspaceConfigurationArgs | undefined>;
 }

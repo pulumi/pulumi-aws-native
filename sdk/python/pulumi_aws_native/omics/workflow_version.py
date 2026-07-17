@@ -23,24 +23,24 @@ __all__ = ['WorkflowVersionArgs', 'WorkflowVersion']
 class WorkflowVersionArgs:
     def __init__(__self__, *,
                  workflow_id: pulumi.Input[_builtins.str],
-                 accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
-                 container_registry_map: Optional[pulumi.Input['WorkflowVersionContainerRegistryMapArgs']] = None,
-                 container_registry_map_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_repository: Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']] = None,
-                 definition_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
-                 main: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]] = None,
-                 parameter_template_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_markdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_bucket_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 accelerators: pulumi.Input[Optional['WorkflowVersionAccelerators']] = None,
+                 container_registry_map: pulumi.Input[Optional['WorkflowVersionContainerRegistryMapArgs']] = None,
+                 container_registry_map_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_repository: pulumi.Input[Optional['WorkflowVersionDefinitionRepositoryArgs']] = None,
+                 definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional['WorkflowVersionWorkflowEngine']] = None,
+                 main: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]] = None,
+                 parameter_template_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_markdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 storage_type: pulumi.Input[Optional['WorkflowVersionStorageType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_bucket_owner_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowVersion resource.
 
@@ -106,188 +106,188 @@ class WorkflowVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def accelerators(self) -> Optional[pulumi.Input['WorkflowVersionAccelerators']]:
+    def accelerators(self) -> pulumi.Input[Optional['WorkflowVersionAccelerators']]:
         return pulumi.get(self, "accelerators")
 
     @accelerators.setter
-    def accelerators(self, value: Optional[pulumi.Input['WorkflowVersionAccelerators']]):
+    def accelerators(self, value: pulumi.Input[Optional['WorkflowVersionAccelerators']]):
         pulumi.set(self, "accelerators", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryMap")
-    def container_registry_map(self) -> Optional[pulumi.Input['WorkflowVersionContainerRegistryMapArgs']]:
+    def container_registry_map(self) -> pulumi.Input[Optional['WorkflowVersionContainerRegistryMapArgs']]:
         """
         Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
         """
         return pulumi.get(self, "container_registry_map")
 
     @container_registry_map.setter
-    def container_registry_map(self, value: Optional[pulumi.Input['WorkflowVersionContainerRegistryMapArgs']]):
+    def container_registry_map(self, value: pulumi.Input[Optional['WorkflowVersionContainerRegistryMapArgs']]):
         pulumi.set(self, "container_registry_map", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistryMapUri")
-    def container_registry_map_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_registry_map_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "container_registry_map_uri")
 
     @container_registry_map_uri.setter
-    def container_registry_map_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_registry_map_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_registry_map_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionRepository")
-    def definition_repository(self) -> Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']]:
+    def definition_repository(self) -> pulumi.Input[Optional['WorkflowVersionDefinitionRepositoryArgs']]:
         """
         Contains information about a source code repository that hosts the workflow definition files.
         """
         return pulumi.get(self, "definition_repository")
 
     @definition_repository.setter
-    def definition_repository(self, value: Optional[pulumi.Input['WorkflowVersionDefinitionRepositoryArgs']]):
+    def definition_repository(self, value: pulumi.Input[Optional['WorkflowVersionDefinitionRepositoryArgs']]):
         pulumi.set(self, "definition_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="definitionUri")
-    def definition_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def definition_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "definition_uri")
 
     @definition_uri.setter
-    def definition_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def definition_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "definition_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the workflow version.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input['WorkflowVersionWorkflowEngine']]:
+    def engine(self) -> pulumi.Input[Optional['WorkflowVersionWorkflowEngine']]:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']]):
+    def engine(self, value: pulumi.Input[Optional['WorkflowVersionWorkflowEngine']]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter
-    def main(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def main(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "main")
 
     @main.setter
-    def main(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def main(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "main", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterTemplate")
-    def parameter_template(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]]:
+    def parameter_template(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]]:
         return pulumi.get(self, "parameter_template")
 
     @parameter_template.setter
-    def parameter_template(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]]):
+    def parameter_template(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['WorkflowVersionWorkflowParameterArgs']]]]):
         pulumi.set(self, "parameter_template", value)
 
     @_builtins.property
     @pulumi.getter(name="parameterTemplatePath")
-    def parameter_template_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parameter_template_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Path to the primary workflow parameter template JSON file inside the repository
         """
         return pulumi.get(self, "parameter_template_path")
 
     @parameter_template_path.setter
-    def parameter_template_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parameter_template_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parameter_template_path", value)
 
     @_builtins.property
     @pulumi.getter(name="readmeMarkdown")
-    def readme_markdown(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def readme_markdown(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
         """
         return pulumi.get(self, "readme_markdown")
 
     @readme_markdown.setter
-    def readme_markdown(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def readme_markdown(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "readme_markdown", value)
 
     @_builtins.property
     @pulumi.getter(name="readmePath")
-    def readme_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def readme_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
         """
         return pulumi.get(self, "readme_path")
 
     @readme_path.setter
-    def readme_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def readme_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "readme_path", value)
 
     @_builtins.property
     @pulumi.getter(name="readmeUri")
-    def readme_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def readme_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
         """
         return pulumi.get(self, "readme_uri")
 
     @readme_uri.setter
-    def readme_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def readme_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "readme_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def storage_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
-    def storage_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def storage_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "storage_capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input['WorkflowVersionStorageType']]:
+    def storage_type(self) -> pulumi.Input[Optional['WorkflowVersionStorageType']]:
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input['WorkflowVersionStorageType']]):
+    def storage_type(self, value: pulumi.Input[Optional['WorkflowVersionStorageType']]):
         pulumi.set(self, "storage_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workflow version.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workflowBucketOwnerId")
-    def workflow_bucket_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workflow_bucket_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "workflow_bucket_owner_id")
 
     @workflow_bucket_owner_id.setter
-    def workflow_bucket_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workflow_bucket_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workflow_bucket_owner_id", value)
 
 
@@ -297,29 +297,28 @@ class WorkflowVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
-                 container_registry_map: Optional[pulumi.Input[Union['WorkflowVersionContainerRegistryMapArgs', 'WorkflowVersionContainerRegistryMapArgsDict']]] = None,
-                 container_registry_map_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_repository: Optional[pulumi.Input[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
-                 definition_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
-                 main: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
-                 parameter_template_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_markdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_bucket_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accelerators: pulumi.Input[Optional['WorkflowVersionAccelerators']] = None,
+                 container_registry_map: pulumi.Input[Optional[Union['WorkflowVersionContainerRegistryMapArgs', 'WorkflowVersionContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_repository: pulumi.Input[Optional[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
+                 definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional['WorkflowVersionWorkflowEngine']] = None,
+                 main: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
+                 parameter_template_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_markdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 storage_type: pulumi.Input[Optional['WorkflowVersionStorageType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_bucket_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of AWS::Omics::WorkflowVersion Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,7 +341,6 @@ class WorkflowVersion(pulumi.CustomResource):
         """
         Definition of AWS::Omics::WorkflowVersion Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param WorkflowVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,25 +356,25 @@ class WorkflowVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerators: Optional[pulumi.Input['WorkflowVersionAccelerators']] = None,
-                 container_registry_map: Optional[pulumi.Input[Union['WorkflowVersionContainerRegistryMapArgs', 'WorkflowVersionContainerRegistryMapArgsDict']]] = None,
-                 container_registry_map_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 definition_repository: Optional[pulumi.Input[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
-                 definition_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input['WorkflowVersionWorkflowEngine']] = None,
-                 main: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameter_template: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
-                 parameter_template_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_markdown: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 readme_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_capacity: Optional[pulumi.Input[_builtins.float]] = None,
-                 storage_type: Optional[pulumi.Input['WorkflowVersionStorageType']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_bucket_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workflow_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 accelerators: pulumi.Input[Optional['WorkflowVersionAccelerators']] = None,
+                 container_registry_map: pulumi.Input[Optional[Union['WorkflowVersionContainerRegistryMapArgs', 'WorkflowVersionContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 definition_repository: pulumi.Input[Optional[Union['WorkflowVersionDefinitionRepositoryArgs', 'WorkflowVersionDefinitionRepositoryArgsDict']]] = None,
+                 definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional['WorkflowVersionWorkflowEngine']] = None,
+                 main: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowVersionWorkflowParameterArgs', 'WorkflowVersionWorkflowParameterArgsDict']]]]] = None,
+                 parameter_template_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_markdown: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 readme_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_capacity: pulumi.Input[Optional[_builtins.float]] = None,
+                 storage_type: pulumi.Input[Optional['WorkflowVersionStorageType']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_bucket_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workflow_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

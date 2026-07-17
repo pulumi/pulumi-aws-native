@@ -22,9 +22,9 @@ __all__ = ['TrafficMirrorFilterArgs', 'TrafficMirrorFilter']
 @pulumi.input_type
 class TrafficMirrorFilterArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_services: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_services: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilter resource.
 
@@ -41,38 +41,38 @@ class TrafficMirrorFilterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of a traffic mirror filter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="networkServices")
-    def network_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]]:
+    def network_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]]:
         """
         The network service that is associated with the traffic mirror filter.
         """
         return pulumi.get(self, "network_services")
 
     @network_services.setter
-    def network_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]]):
+    def network_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]]):
         pulumi.set(self, "network_services", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for a traffic mirror filter.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -82,13 +82,12 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_services: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_services: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::EC2::TrafficMirrorFilter
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +104,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         """
         Resource schema for AWS::EC2::TrafficMirrorFilter
 
-
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,9 +119,9 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_services: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_services: pulumi.Input[Optional[Sequence[pulumi.Input['TrafficMirrorFilterTrafficMirrorNetworkService']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

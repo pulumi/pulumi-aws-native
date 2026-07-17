@@ -233,7 +233,6 @@ def get_direct_connect_gateway_attachment(attachment_id: Optional[_builtins.str]
     """
     AWS::NetworkManager::DirectConnectGatewayAttachment Resource Type
 
-
     :param _builtins.str attachment_id: Id of the attachment.
     """
     __args__ = dict()
@@ -258,11 +257,10 @@ def get_direct_connect_gateway_attachment(attachment_id: Optional[_builtins.str]
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_direct_connect_gateway_attachment_output(attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_direct_connect_gateway_attachment_output(attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
     """
     AWS::NetworkManager::DirectConnectGatewayAttachment Resource Type
-
 
     :param _builtins.str attachment_id: Id of the attachment.
     """

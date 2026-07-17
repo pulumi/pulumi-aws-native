@@ -148,7 +148,6 @@ def get_data_table_attribute(attribute_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::DataTableAttribute
 
-
     :param _builtins.str attribute_id: The unique identifier for the attribute within the data table.
     :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.
     :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the instance.
@@ -170,13 +169,12 @@ def get_data_table_attribute(attribute_id: Optional[_builtins.str] = None,
         primary=pulumi.get(__ret__, 'primary'),
         validation=pulumi.get(__ret__, 'validation'),
         value_type=pulumi.get(__ret__, 'value_type'))
-def get_data_table_attribute_output(attribute_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    data_table_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                                    instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_table_attribute_output(attribute_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                                    instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataTableAttributeResult]:
     """
     Resource Type definition for AWS::Connect::DataTableAttribute
-
 
     :param _builtins.str attribute_id: The unique identifier for the attribute within the data table.
     :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.

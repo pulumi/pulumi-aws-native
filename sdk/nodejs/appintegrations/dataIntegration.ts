@@ -131,11 +131,11 @@ export interface DataIntegrationArgs {
     /**
      * The data integration description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The configuration for what files should be pulled from the source.
      */
-    fileConfiguration?: pulumi.Input<inputs.appintegrations.DataIntegrationFileConfigurationArgs>;
+    fileConfiguration?: pulumi.Input<inputs.appintegrations.DataIntegrationFileConfigurationArgs | undefined>;
     /**
      * The KMS key of the data integration.
      */
@@ -143,15 +143,15 @@ export interface DataIntegrationArgs {
     /**
      * The name of the data integration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The configuration for what data should be pulled from the source.
      */
-    objectConfiguration?: pulumi.Input<{[key: string]: any}>;
+    objectConfiguration?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * The name of the data and how often it should be pulled from the source.
      */
-    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfigArgs>;
+    scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfigArgs | undefined>;
     /**
      * The URI of the data source.
      */
@@ -159,5 +159,5 @@ export interface DataIntegrationArgs {
     /**
      * The tags (keys and values) associated with the data integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

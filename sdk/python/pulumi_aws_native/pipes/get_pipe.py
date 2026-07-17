@@ -215,7 +215,6 @@ def get_pipe(name: Optional[_builtins.str] = None,
     """
     Definition of AWS::Pipes::Pipe Resource Type
 
-
     :param _builtins.str name: The name of the pipe.
     """
     __args__ = dict()
@@ -238,11 +237,10 @@ def get_pipe(name: Optional[_builtins.str] = None,
         state_reason=pulumi.get(__ret__, 'state_reason'),
         tags=pulumi.get(__ret__, 'tags'),
         target=pulumi.get(__ret__, 'target'))
-def get_pipe_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_pipe_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipeResult]:
     """
     Definition of AWS::Pipes::Pipe Resource Type
-
 
     :param _builtins.str name: The name of the pipe.
     """

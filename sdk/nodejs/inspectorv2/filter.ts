@@ -105,7 +105,7 @@ export interface FilterArgs {
     /**
      * Findings filter description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Findings filter action.
      */
@@ -117,9 +117,9 @@ export interface FilterArgs {
     /**
      * Findings filter name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The tags attached to the filter.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -172,7 +172,6 @@ def get_processing_job(processing_job_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::ProcessingJob
 
-
     :param _builtins.str processing_job_arn: The Amazon Resource Name (ARN) of the processing job.
     """
     __args__ = dict()
@@ -192,11 +191,10 @@ def get_processing_job(processing_job_arn: Optional[_builtins.str] = None,
         processing_job_status=pulumi.get(__ret__, 'processing_job_status'),
         processing_start_time=pulumi.get(__ret__, 'processing_start_time'),
         training_job_arn=pulumi.get(__ret__, 'training_job_arn'))
-def get_processing_job_output(processing_job_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_processing_job_output(processing_job_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProcessingJobResult]:
     """
     Resource Type definition for AWS::SageMaker::ProcessingJob
-
 
     :param _builtins.str processing_job_arn: The Amazon Resource Name (ARN) of the processing job.
     """

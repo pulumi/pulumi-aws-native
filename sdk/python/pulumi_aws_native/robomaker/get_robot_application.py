@@ -101,7 +101,6 @@ def get_robot_application(arn: Optional[_builtins.str] = None,
     """
     This schema is for testing purpose only.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the robot application.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_robot_application(arn: Optional[_builtins.str] = None,
         environment=pulumi.get(__ret__, 'environment'),
         robot_software_suite=pulumi.get(__ret__, 'robot_software_suite'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_robot_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_robot_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRobotApplicationResult]:
     """
     This schema is for testing purpose only.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the robot application.
     """

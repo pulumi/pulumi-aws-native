@@ -163,7 +163,6 @@ def get_environment_account_connection(arn: Optional[_builtins.str] = None,
     """
     Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the environment account connection.
     """
     __args__ = dict()
@@ -182,11 +181,10 @@ def get_environment_account_connection(arn: Optional[_builtins.str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_environment_account_connection_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_environment_account_connection_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentAccountConnectionResult]:
     """
     Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the environment account connection.
     """

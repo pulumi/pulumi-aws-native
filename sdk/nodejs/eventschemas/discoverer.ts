@@ -124,11 +124,11 @@ export interface DiscovererArgs {
     /**
      * Defines whether event schemas from other accounts are discovered. Default is True.
      */
-    crossAccount?: pulumi.Input<boolean>;
+    crossAccount?: pulumi.Input<boolean | undefined>;
     /**
      * A description for the discoverer.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the event bus.
      */
@@ -136,5 +136,5 @@ export interface DiscovererArgs {
     /**
      * Tags associated with the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

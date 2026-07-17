@@ -285,7 +285,7 @@ class ComponentTypeDataValue(dict):
         :param _builtins.int integer_value: An integer value.
         :param Sequence['ComponentTypeDataValue'] list_value: A list of multiple values.
         :param _builtins.float long_value: A long value.
-        :param Mapping[str, 'ComponentTypeDataValue'] map_value: An object that maps strings to multiple DataValue objects. 
+        :param Mapping[str, 'ComponentTypeDataValue'] map_value: An object that maps strings to multiple DataValue objects.
         :param 'ComponentTypeDataValueRelationshipValueProperties' relationship_value: A value that relates a component to another component.
         :param _builtins.str string_value: A string value.
         """
@@ -360,7 +360,7 @@ class ComponentTypeDataValue(dict):
     @pulumi.getter(name="mapValue")
     def map_value(self) -> Optional[Mapping[str, 'outputs.ComponentTypeDataValue']]:
         """
-        An object that maps strings to multiple DataValue objects. 
+        An object that maps strings to multiple DataValue objects.
         """
         return pulumi.get(self, "map_value")
 

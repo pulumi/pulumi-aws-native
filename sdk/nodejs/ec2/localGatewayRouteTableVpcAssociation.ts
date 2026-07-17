@@ -111,7 +111,7 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
     /**
      * The tags for the association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the VPC.
      */

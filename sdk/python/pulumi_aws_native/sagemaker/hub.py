@@ -25,11 +25,11 @@ __all__ = ['HubArgs', 'Hub']
 class HubArgs:
     def __init__(__self__, *,
                  hub_description: pulumi.Input[_builtins.str],
-                 hub_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_search_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_storage_config: Optional[pulumi.Input['S3StorageConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_storage_config: pulumi.Input[Optional['S3StorageConfigPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Hub resource.
 
@@ -66,62 +66,62 @@ class HubArgs:
 
     @_builtins.property
     @pulumi.getter(name="hubDisplayName")
-    def hub_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the hub.
         """
         return pulumi.get(self, "hub_display_name")
 
     @hub_display_name.setter
-    def hub_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hubName")
-    def hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the hub.
         """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
-    def hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hubSearchKeywords")
-    def hub_search_keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def hub_search_keywords(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The searchable keywords for the hub.
         """
         return pulumi.get(self, "hub_search_keywords")
 
     @hub_search_keywords.setter
-    def hub_search_keywords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def hub_search_keywords(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "hub_search_keywords", value)
 
     @_builtins.property
     @pulumi.getter(name="s3StorageConfig")
-    def s3_storage_config(self) -> Optional[pulumi.Input['S3StorageConfigPropertiesArgs']]:
+    def s3_storage_config(self) -> pulumi.Input[Optional['S3StorageConfigPropertiesArgs']]:
         """
         The Amazon S3 storage configuration for the hub.
         """
         return pulumi.get(self, "s3_storage_config")
 
     @s3_storage_config.setter
-    def s3_storage_config(self, value: Optional[pulumi.Input['S3StorageConfigPropertiesArgs']]):
+    def s3_storage_config(self, value: pulumi.Input[Optional['S3StorageConfigPropertiesArgs']]):
         pulumi.set(self, "s3_storage_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to associate with the hub.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,16 +131,15 @@ class Hub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_search_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_storage_config: Optional[pulumi.Input[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 hub_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::Hub
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +159,6 @@ class Hub(pulumi.CustomResource):
         """
         Resource type definition for AWS::SageMaker::Hub
 
-
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,12 +174,12 @@ class Hub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 hub_search_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_storage_config: Optional[pulumi.Input[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 hub_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_search_keywords: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_storage_config: pulumi.Input[Optional[Union['S3StorageConfigPropertiesArgs', 'S3StorageConfigPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

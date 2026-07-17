@@ -25,18 +25,18 @@ __all__ = ['FirewallArgs', 'Firewall']
 class FirewallArgs:
     def __init__(__self__, *,
                  firewall_policy_arn: pulumi.Input[_builtins.str],
-                 availability_zone_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_analysis_types: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Firewall resource.
 
@@ -104,103 +104,103 @@ class FirewallArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneChangeProtection")
-    def availability_zone_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def availability_zone_change_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `TRUE` , you must first disable this protection before adding or removing Availability Zones.
         """
         return pulumi.get(self, "availability_zone_change_protection")
 
     @availability_zone_change_protection.setter
-    def availability_zone_change_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def availability_zone_change_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "availability_zone_change_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneMappings")
-    def availability_zone_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
+    def availability_zone_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]:
         """
         The Availability Zones where the firewall endpoints are created for a transit gateway-attached firewall. Each mapping specifies an Availability Zone where the firewall processes traffic.
         """
         return pulumi.get(self, "availability_zone_mappings")
 
     @availability_zone_mappings.setter
-    def availability_zone_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]):
+    def availability_zone_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallAvailabilityZoneMappingArgs']]]]):
         pulumi.set(self, "availability_zone_mappings", value)
 
     @_builtins.property
     @pulumi.getter(name="deleteProtection")
-    def delete_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def delete_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A flag indicating whether it is possible to delete the firewall. A setting of `TRUE` indicates that the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. When you create a firewall, the operation initializes this flag to `TRUE` .
         """
         return pulumi.get(self, "delete_protection")
 
     @delete_protection.setter
-    def delete_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def delete_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "delete_protection", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the firewall.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledAnalysisTypes")
-    def enabled_analysis_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]:
+    def enabled_analysis_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]:
         """
         The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
         """
         return pulumi.get(self, "enabled_analysis_types")
 
     @enabled_analysis_types.setter
-    def enabled_analysis_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]):
+    def enabled_analysis_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]]):
         pulumi.set(self, "enabled_analysis_types", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallName")
-    def firewall_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The descriptive name of the firewall. You can't change the name of a firewall after you create it.
         """
         return pulumi.get(self, "firewall_name")
 
     @firewall_name.setter
-    def firewall_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicyChangeProtection")
-    def firewall_policy_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def firewall_policy_change_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A setting indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @firewall_policy_change_protection.setter
-    def firewall_policy_change_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def firewall_policy_change_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "firewall_policy_change_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetChangeProtection")
-    def subnet_change_protection(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def subnet_change_protection(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
         """
         return pulumi.get(self, "subnet_change_protection")
 
     @subnet_change_protection.setter
-    def subnet_change_protection(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def subnet_change_protection(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subnet_change_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetMappings")
-    def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
+    def subnet_mappings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]:
         """
         The primary public subnets that Network Firewall is using for the firewall. Network Firewall creates a firewall endpoint in each subnet. Create a subnet mapping for each Availability Zone where you want to use the firewall.
 
@@ -211,12 +211,12 @@ class FirewallArgs:
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
-    def subnet_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]):
+    def subnet_mappings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]]):
         pulumi.set(self, "subnet_mappings", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -225,31 +225,31 @@ class FirewallArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
-    def transit_gateway_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the transit gateway associated with this firewall. This field is only present for transit gateway-attached firewalls.
         """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
-    def transit_gateway_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def transit_gateway_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transit_gateway_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
-    def vpc_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
         """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
-    def vpc_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
 
 
@@ -259,23 +259,22 @@ class Firewall(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_analysis_types: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::NetworkFirewall::Firewall
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -310,7 +309,6 @@ class Firewall(pulumi.CustomResource):
         """
         Resource type definition for AWS::NetworkFirewall::Firewall
 
-
         :param str resource_name: The name of the resource.
         :param FirewallArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,19 +324,19 @@ class Firewall(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 availability_zone_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
-                 delete_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_analysis_types: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
-                 firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_policy_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_change_protection: Optional[pulumi.Input[_builtins.bool]] = None,
-                 subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 availability_zone_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallAvailabilityZoneMappingArgs', 'FirewallAvailabilityZoneMappingArgsDict']]]]] = None,
+                 delete_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_analysis_types: pulumi.Input[Optional[Sequence[pulumi.Input['FirewallEnabledAnalysisType']]]] = None,
+                 firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_policy_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_change_protection: pulumi.Input[Optional[_builtins.bool]] = None,
+                 subnet_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallSubnetMappingArgs', 'FirewallSubnetMappingArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,7 +124,6 @@ def get_list(arn: Optional[_builtins.str] = None,
     """
     A resource schema for a List in Amazon Fraud Detector.
 
-
     :param _builtins.str arn: The list ARN.
     """
     __args__ = dict()
@@ -140,11 +139,10 @@ def get_list(arn: Optional[_builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
-def get_list_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_list_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListResult]:
     """
     A resource schema for a List in Amazon Fraud Detector.
-
 
     :param _builtins.str arn: The list ARN.
     """

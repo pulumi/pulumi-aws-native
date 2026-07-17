@@ -17,7 +17,7 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
 
 export interface GetResourcePolicyArgs {
     /**
-     * An unique identifier within the policies of a resource. 
+     * An unique identifier within the policies of a resource.
      */
     policyId: string;
     /**
@@ -38,7 +38,7 @@ export interface GetResourcePolicyResult {
      */
     readonly policyHash?: string;
     /**
-     * An unique identifier within the policies of a resource. 
+     * An unique identifier within the policies of a resource.
      */
     readonly policyId?: string;
 }
@@ -55,7 +55,7 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
 
 export interface GetResourcePolicyOutputArgs {
     /**
-     * An unique identifier within the policies of a resource. 
+     * An unique identifier within the policies of a resource.
      */
     policyId: pulumi.Input<string>;
     /**

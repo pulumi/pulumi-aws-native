@@ -101,7 +101,7 @@ export class Activity extends pulumi.CustomResource {
      * - white space
      * - brackets `< > { } [ ]`
      * - wildcard characters `? *`
-     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
      * - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
      * - surrogates ( `U+D800-DFFF` )
      * - invalid characters ( `U+10FFFF` )
@@ -155,7 +155,7 @@ export interface ActivityArgs {
      *
      * To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.ActivityEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.ActivityEncryptionConfigurationArgs | undefined>;
     /**
      * The name of the activity.
      *
@@ -164,18 +164,18 @@ export interface ActivityArgs {
      * - white space
      * - brackets `< > { } [ ]`
      * - wildcard characters `? *`
-     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
      * - control characters ( `U+0000-001F` , `U+007F-009F` , `U+FFFE-FFFF` )
      * - surrogates ( `U+D800-DFFF` )
      * - invalid characters ( `U+10FFFF` )
      *
      * To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The list of tags to add to a resource.
      *
      * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

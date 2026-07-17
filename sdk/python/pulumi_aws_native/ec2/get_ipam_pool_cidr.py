@@ -64,7 +64,6 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[_builtins.str] = None,
     """
     Resource Schema of AWS::EC2::IPAMPoolCidr Type
 
-
     :param _builtins.str ipam_pool_cidr_id: Id of the IPAM Pool Cidr.
     :param _builtins.str ipam_pool_id: Id of the IPAM Pool.
     """
@@ -77,12 +76,11 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[_builtins.str] = None,
     return AwaitableGetIpamPoolCidrResult(
         ipam_pool_cidr_id=pulumi.get(__ret__, 'ipam_pool_cidr_id'),
         state=pulumi.get(__ret__, 'state'))
-def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_pool_cidr_output(ipam_pool_cidr_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolCidrResult]:
     """
     Resource Schema of AWS::EC2::IPAMPoolCidr Type
-
 
     :param _builtins.str ipam_pool_cidr_id: Id of the IPAM Pool Cidr.
     :param _builtins.str ipam_pool_id: Id of the IPAM Pool.

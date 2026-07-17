@@ -219,19 +219,19 @@ export interface SimulationApplicationArgs {
     /**
      * The current revision id.
      */
-    currentRevisionId?: pulumi.Input<string>;
+    currentRevisionId?: pulumi.Input<string | undefined>;
     /**
      * The URI of the Docker image for the robot application.
      */
-    environment?: pulumi.Input<string>;
+    environment?: pulumi.Input<string | undefined>;
     /**
      * The name of the simulation application.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The rendering engine for the simulation application.
      */
-    renderingEngine?: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs>;
+    renderingEngine?: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs | undefined>;
     /**
      * The robot software suite used by the simulation application.
      */
@@ -243,9 +243,9 @@ export interface SimulationApplicationArgs {
     /**
      * The sources of the simulation application.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[] | undefined>;
     /**
      * A map that contains tag keys and tag values that are attached to the simulation application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

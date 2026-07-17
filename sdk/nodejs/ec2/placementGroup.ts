@@ -95,17 +95,17 @@ export interface PlacementGroupArgs {
     /**
      * The number of partitions. Valid only when **Strategy** is set to `partition`
      */
-    partitionCount?: pulumi.Input<number>;
+    partitionCount?: pulumi.Input<number | undefined>;
     /**
      * The Spread Level of Placement Group is an enum where it accepts either host or rack when strategy is spread
      */
-    spreadLevel?: pulumi.Input<string>;
+    spreadLevel?: pulumi.Input<string | undefined>;
     /**
      * The placement strategy.
      */
-    strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

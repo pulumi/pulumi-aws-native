@@ -25,7 +25,7 @@ export interface GetDbClusterParameterGroupArgs {
      * The name of the DB cluster parameter group.
      *  Constraints:
      *   +  Must not match the name of an existing DB cluster parameter group.
-     *   
+     *
      *   This value is stored as a lowercase string.
      */
     dbClusterParameterGroupName: string;
@@ -61,7 +61,7 @@ export interface GetDbClusterParameterGroupOutputArgs {
      * The name of the DB cluster parameter group.
      *  Constraints:
      *   +  Must not match the name of an existing DB cluster parameter group.
-     *   
+     *
      *   This value is stored as a lowercase string.
      */
     dbClusterParameterGroupName: pulumi.Input<string>;

@@ -50,7 +50,7 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly connectorProvisioningConfig: pulumi.Output<outputs.appflow.ConnectorProvisioningConfig>;
     /**
-     * The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+     * The provisioning type of the connector. Currently the only supported value is LAMBDA.
      */
     declare public readonly connectorProvisioningType: pulumi.Output<string>;
     /**
@@ -101,17 +101,17 @@ export interface ConnectorArgs {
     /**
      *  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
      */
-    connectorLabel?: pulumi.Input<string>;
+    connectorLabel?: pulumi.Input<string | undefined>;
     /**
      * Contains information about the configuration of the connector being registered.
      */
     connectorProvisioningConfig: pulumi.Input<inputs.appflow.ConnectorProvisioningConfigArgs>;
     /**
-     * The provisioning type of the connector. Currently the only supported value is LAMBDA. 
+     * The provisioning type of the connector. Currently the only supported value is LAMBDA.
      */
     connectorProvisioningType: pulumi.Input<string>;
     /**
      * A description about the connector that's being registered.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
 }

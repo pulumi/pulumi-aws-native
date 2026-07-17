@@ -95,13 +95,13 @@ export interface DirectConnectGatewayArgs {
     /**
      * The autonomous system number (ASN) for the Amazon side of the connection.
      */
-    amazonSideAsn?: pulumi.Input<string>;
+    amazonSideAsn?: pulumi.Input<string | undefined>;
     /**
      * The name of the Direct Connect gateway.
      */
-    directConnectGatewayName?: pulumi.Input<string>;
+    directConnectGatewayName?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the Direct Connect gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -126,7 +126,6 @@ def get_directory_bucket(bucket_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::S3Express::DirectoryBucket.
 
-
     :param _builtins.str bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_directory_bucket(bucket_name: Optional[_builtins.str] = None,
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         metrics_configurations=pulumi.get(__ret__, 'metrics_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_directory_bucket_output(bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
     """
     Resource Type definition for AWS::S3Express::DirectoryBucket.
-
 
     :param _builtins.str bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
     """

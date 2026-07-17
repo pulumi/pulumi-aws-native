@@ -76,7 +76,6 @@ def get_matchmaking_rule_set(name: Optional[_builtins.str] = None,
     """
     The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 
-
     :param _builtins.str name: A unique identifier for the matchmaking rule set.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_matchmaking_rule_set(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_matchmaking_rule_set_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_matchmaking_rule_set_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMatchmakingRuleSetResult]:
     """
     The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
-
 
     :param _builtins.str name: A unique identifier for the matchmaking rule set.
     """

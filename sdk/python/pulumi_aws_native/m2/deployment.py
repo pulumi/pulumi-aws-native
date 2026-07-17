@@ -76,13 +76,12 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +98,6 @@ class Deployment(pulumi.CustomResource):
         """
         Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,9 +113,9 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_version: pulumi.Input[Optional[_builtins.int]] = None,
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

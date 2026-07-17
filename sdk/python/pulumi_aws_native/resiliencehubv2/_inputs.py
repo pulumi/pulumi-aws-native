@@ -49,7 +49,7 @@ __all__ = [
 ]
 
 class PolicyAvailabilitySloArgsDict(TypedDict):
-    target: NotRequired[pulumi.Input[_builtins.float]]
+    target: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Availability target percentage.
     """
@@ -57,7 +57,7 @@ class PolicyAvailabilitySloArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyAvailabilitySloArgs:
     def __init__(__self__, *,
-                 target: Optional[pulumi.Input[_builtins.float]] = None):
+                 target: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] target: Availability target percentage.
         """
@@ -66,19 +66,19 @@ class PolicyAvailabilitySloArgs:
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def target(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Availability target percentage.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def target(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "target", value)
 
 
 class PolicyDataRecoveryTargetsArgsDict(TypedDict):
-    time_between_backups_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    time_between_backups_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time between backups in minutes.
     """
@@ -86,7 +86,7 @@ class PolicyDataRecoveryTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyDataRecoveryTargetsArgs:
     def __init__(__self__, *,
-                 time_between_backups_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 time_between_backups_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] time_between_backups_in_minutes: Time between backups in minutes.
         """
@@ -95,27 +95,27 @@ class PolicyDataRecoveryTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="timeBetweenBackupsInMinutes")
-    def time_between_backups_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def time_between_backups_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Time between backups in minutes.
         """
         return pulumi.get(self, "time_between_backups_in_minutes")
 
     @time_between_backups_in_minutes.setter
-    def time_between_backups_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def time_between_backups_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "time_between_backups_in_minutes", value)
 
 
 class PolicyMultiAzTargetsArgsDict(TypedDict):
-    disaster_recovery_approach: NotRequired[pulumi.Input['PolicyMultiAzTargetsDisasterRecoveryApproach']]
+    disaster_recovery_approach: NotRequired[pulumi.Input[Optional['PolicyMultiAzTargetsDisasterRecoveryApproach']]]
     """
     Multi-AZ disaster recovery approach.
     """
-    rpo_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    rpo_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Recovery Point Objective in minutes.
     """
-    rto_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    rto_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Recovery Time Objective in minutes.
     """
@@ -123,9 +123,9 @@ class PolicyMultiAzTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyMultiAzTargetsArgs:
     def __init__(__self__, *,
-                 disaster_recovery_approach: Optional[pulumi.Input['PolicyMultiAzTargetsDisasterRecoveryApproach']] = None,
-                 rpo_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 rto_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 disaster_recovery_approach: pulumi.Input[Optional['PolicyMultiAzTargetsDisasterRecoveryApproach']] = None,
+                 rpo_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 rto_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['PolicyMultiAzTargetsDisasterRecoveryApproach'] disaster_recovery_approach: Multi-AZ disaster recovery approach.
         :param pulumi.Input[_builtins.int] rpo_in_minutes: Recovery Point Objective in minutes.
@@ -140,51 +140,51 @@ class PolicyMultiAzTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="disasterRecoveryApproach")
-    def disaster_recovery_approach(self) -> Optional[pulumi.Input['PolicyMultiAzTargetsDisasterRecoveryApproach']]:
+    def disaster_recovery_approach(self) -> pulumi.Input[Optional['PolicyMultiAzTargetsDisasterRecoveryApproach']]:
         """
         Multi-AZ disaster recovery approach.
         """
         return pulumi.get(self, "disaster_recovery_approach")
 
     @disaster_recovery_approach.setter
-    def disaster_recovery_approach(self, value: Optional[pulumi.Input['PolicyMultiAzTargetsDisasterRecoveryApproach']]):
+    def disaster_recovery_approach(self, value: pulumi.Input[Optional['PolicyMultiAzTargetsDisasterRecoveryApproach']]):
         pulumi.set(self, "disaster_recovery_approach", value)
 
     @_builtins.property
     @pulumi.getter(name="rpoInMinutes")
-    def rpo_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rpo_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery Point Objective in minutes.
         """
         return pulumi.get(self, "rpo_in_minutes")
 
     @rpo_in_minutes.setter
-    def rpo_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rpo_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rpo_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="rtoInMinutes")
-    def rto_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rto_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery Time Objective in minutes.
         """
         return pulumi.get(self, "rto_in_minutes")
 
     @rto_in_minutes.setter
-    def rto_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rto_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rto_in_minutes", value)
 
 
 class PolicyMultiRegionTargetsArgsDict(TypedDict):
-    disaster_recovery_approach: NotRequired[pulumi.Input['PolicyMultiRegionTargetsDisasterRecoveryApproach']]
+    disaster_recovery_approach: NotRequired[pulumi.Input[Optional['PolicyMultiRegionTargetsDisasterRecoveryApproach']]]
     """
     Multi-Region disaster recovery approach.
     """
-    rpo_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    rpo_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Recovery Point Objective in minutes.
     """
-    rto_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    rto_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Recovery Time Objective in minutes.
     """
@@ -192,9 +192,9 @@ class PolicyMultiRegionTargetsArgsDict(TypedDict):
 @pulumi.input_type
 class PolicyMultiRegionTargetsArgs:
     def __init__(__self__, *,
-                 disaster_recovery_approach: Optional[pulumi.Input['PolicyMultiRegionTargetsDisasterRecoveryApproach']] = None,
-                 rpo_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
-                 rto_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 disaster_recovery_approach: pulumi.Input[Optional['PolicyMultiRegionTargetsDisasterRecoveryApproach']] = None,
+                 rpo_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
+                 rto_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input['PolicyMultiRegionTargetsDisasterRecoveryApproach'] disaster_recovery_approach: Multi-Region disaster recovery approach.
         :param pulumi.Input[_builtins.int] rpo_in_minutes: Recovery Point Objective in minutes.
@@ -209,38 +209,38 @@ class PolicyMultiRegionTargetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="disasterRecoveryApproach")
-    def disaster_recovery_approach(self) -> Optional[pulumi.Input['PolicyMultiRegionTargetsDisasterRecoveryApproach']]:
+    def disaster_recovery_approach(self) -> pulumi.Input[Optional['PolicyMultiRegionTargetsDisasterRecoveryApproach']]:
         """
         Multi-Region disaster recovery approach.
         """
         return pulumi.get(self, "disaster_recovery_approach")
 
     @disaster_recovery_approach.setter
-    def disaster_recovery_approach(self, value: Optional[pulumi.Input['PolicyMultiRegionTargetsDisasterRecoveryApproach']]):
+    def disaster_recovery_approach(self, value: pulumi.Input[Optional['PolicyMultiRegionTargetsDisasterRecoveryApproach']]):
         pulumi.set(self, "disaster_recovery_approach", value)
 
     @_builtins.property
     @pulumi.getter(name="rpoInMinutes")
-    def rpo_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rpo_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery Point Objective in minutes.
         """
         return pulumi.get(self, "rpo_in_minutes")
 
     @rpo_in_minutes.setter
-    def rpo_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rpo_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rpo_in_minutes", value)
 
     @_builtins.property
     @pulumi.getter(name="rtoInMinutes")
-    def rto_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rto_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Recovery Time Objective in minutes.
         """
         return pulumi.get(self, "rto_in_minutes")
 
     @rto_in_minutes.setter
-    def rto_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rto_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rto_in_minutes", value)
 
 
@@ -282,7 +282,7 @@ class ServiceAssociatedSystemArgsDict(TypedDict):
     """
     The system ARN.
     """
-    user_journey_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_journey_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     User journey IDs associated with this system.
     """
@@ -291,7 +291,7 @@ class ServiceAssociatedSystemArgsDict(TypedDict):
 class ServiceAssociatedSystemArgs:
     def __init__(__self__, *,
                  system_arn: pulumi.Input[_builtins.str],
-                 user_journey_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_journey_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] system_arn: The system ARN.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_journey_ids: User journey IDs associated with this system.
@@ -314,14 +314,14 @@ class ServiceAssociatedSystemArgs:
 
     @_builtins.property
     @pulumi.getter(name="userJourneyIds")
-    def user_journey_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_journey_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         User journey IDs associated with this system.
         """
         return pulumi.get(self, "user_journey_ids")
 
     @user_journey_ids.setter
-    def user_journey_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_journey_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_journey_ids", value)
 
 
@@ -330,7 +330,7 @@ class ServiceCrossAccountRoleConfigurationArgsDict(TypedDict):
     """
     ARN of the cross-account IAM role.
     """
-    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     External ID for cross-account access.
     """
@@ -339,7 +339,7 @@ class ServiceCrossAccountRoleConfigurationArgsDict(TypedDict):
 class ServiceCrossAccountRoleConfigurationArgs:
     def __init__(__self__, *,
                  cross_account_role_arn: pulumi.Input[_builtins.str],
-                 external_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 external_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] cross_account_role_arn: ARN of the cross-account IAM role.
         :param pulumi.Input[_builtins.str] external_id: External ID for cross-account access.
@@ -362,14 +362,14 @@ class ServiceCrossAccountRoleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         External ID for cross-account access.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "external_id", value)
 
 
@@ -450,7 +450,7 @@ class ServicePermissionModelArgsDict(TypedDict):
     """
     Name of the invoker IAM role.
     """
-    cross_account_role_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgsDict']]]]
+    cross_account_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgsDict']]]]]
     """
     Cross-account role ARNs.
     """
@@ -459,7 +459,7 @@ class ServicePermissionModelArgsDict(TypedDict):
 class ServicePermissionModelArgs:
     def __init__(__self__, *,
                  invoker_role_name: pulumi.Input[_builtins.str],
-                 cross_account_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]] = None):
+                 cross_account_role_arns: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] invoker_role_name: Name of the invoker IAM role.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]] cross_account_role_arns: Cross-account role ARNs.
@@ -482,14 +482,14 @@ class ServicePermissionModelArgs:
 
     @_builtins.property
     @pulumi.getter(name="crossAccountRoleArns")
-    def cross_account_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]]:
+    def cross_account_role_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]]:
         """
         Cross-account role ARNs.
         """
         return pulumi.get(self, "cross_account_role_arns")
 
     @cross_account_role_arns.setter
-    def cross_account_role_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]]):
+    def cross_account_role_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceCrossAccountRoleConfigurationArgs']]]]):
         pulumi.set(self, "cross_account_role_arns", value)
 
 
@@ -530,12 +530,12 @@ class ServiceReportOutputConfigurationArgsDict(TypedDict):
     """
     Configuration for a report output destination.
     """
-    s3: NotRequired[pulumi.Input['ServiceS3ReportOutputConfigurationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['ServiceS3ReportOutputConfigurationArgsDict']]]
 
 @pulumi.input_type
 class ServiceReportOutputConfigurationArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['ServiceS3ReportOutputConfigurationArgs']] = None):
+                 s3: pulumi.Input[Optional['ServiceS3ReportOutputConfigurationArgs']] = None):
         """
         Configuration for a report output destination.
         """
@@ -544,11 +544,11 @@ class ServiceReportOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ServiceS3ReportOutputConfigurationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['ServiceS3ReportOutputConfigurationArgs']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ServiceS3ReportOutputConfigurationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['ServiceS3ReportOutputConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -556,20 +556,20 @@ class ServiceResourceConfigurationArgsDict(TypedDict):
     """
     Resource configuration for an input source. Provide exactly one field.
     """
-    cfn_stack_arn: NotRequired[pulumi.Input[_builtins.str]]
+    cfn_stack_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of a CloudFormation stack.
     """
-    design_file_s3_url: NotRequired[pulumi.Input[_builtins.str]]
+    design_file_s3_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 URL of a design file.
     """
-    eks: NotRequired[pulumi.Input['ServiceEksSourceArgsDict']]
-    resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceResourceTagArgsDict']]]]
+    eks: NotRequired[pulumi.Input[Optional['ServiceEksSourceArgsDict']]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceTagArgsDict']]]]]
     """
     Resource tags to discover resources.
     """
-    tf_state_file_url: NotRequired[pulumi.Input[_builtins.str]]
+    tf_state_file_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL of a Terraform state file.
     """
@@ -577,11 +577,11 @@ class ServiceResourceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class ServiceResourceConfigurationArgs:
     def __init__(__self__, *,
-                 cfn_stack_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 design_file_s3_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 eks: Optional[pulumi.Input['ServiceEksSourceArgs']] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceTagArgs']]]] = None,
-                 tf_state_file_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 cfn_stack_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 design_file_s3_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 eks: pulumi.Input[Optional['ServiceEksSourceArgs']] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceTagArgs']]]] = None,
+                 tf_state_file_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Resource configuration for an input source. Provide exactly one field.
 
@@ -603,59 +603,59 @@ class ServiceResourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cfnStackArn")
-    def cfn_stack_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cfn_stack_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a CloudFormation stack.
         """
         return pulumi.get(self, "cfn_stack_arn")
 
     @cfn_stack_arn.setter
-    def cfn_stack_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cfn_stack_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cfn_stack_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="designFileS3Url")
-    def design_file_s3_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def design_file_s3_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URL of a design file.
         """
         return pulumi.get(self, "design_file_s3_url")
 
     @design_file_s3_url.setter
-    def design_file_s3_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def design_file_s3_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "design_file_s3_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def eks(self) -> Optional[pulumi.Input['ServiceEksSourceArgs']]:
+    def eks(self) -> pulumi.Input[Optional['ServiceEksSourceArgs']]:
         return pulumi.get(self, "eks")
 
     @eks.setter
-    def eks(self, value: Optional[pulumi.Input['ServiceEksSourceArgs']]):
+    def eks(self, value: pulumi.Input[Optional['ServiceEksSourceArgs']]):
         pulumi.set(self, "eks", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceTagArgs']]]]:
         """
         Resource tags to discover resources.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceResourceTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="tfStateFileUrl")
-    def tf_state_file_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tf_state_file_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL of a Terraform state file.
         """
         return pulumi.get(self, "tf_state_file_url")
 
     @tf_state_file_url.setter
-    def tf_state_file_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tf_state_file_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tf_state_file_url", value)
 
 

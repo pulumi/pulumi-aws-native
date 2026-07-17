@@ -26,11 +26,11 @@ class ConnectionAttachPointArgsDict(TypedDict):
     """
     The logical attachment point in your AWS network where the managed connection will be connected.
     """
-    arn: NotRequired[pulumi.Input[_builtins.str]]
+    arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the resource to attach to.
     """
-    direct_connect_gateway: NotRequired[pulumi.Input[_builtins.str]]
+    direct_connect_gateway: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the Direct Connect Gateway to attach to.
     """
@@ -38,8 +38,8 @@ class ConnectionAttachPointArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectionAttachPointArgs:
     def __init__(__self__, *,
-                 arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 direct_connect_gateway: Optional[pulumi.Input[_builtins.str]] = None):
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 direct_connect_gateway: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The logical attachment point in your AWS network where the managed connection will be connected.
 
@@ -53,26 +53,26 @@ class ConnectionAttachPointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the resource to attach to.
         """
         return pulumi.get(self, "arn")
 
     @arn.setter
-    def arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="directConnectGateway")
-    def direct_connect_gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direct_connect_gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Direct Connect Gateway to attach to.
         """
         return pulumi.get(self, "direct_connect_gateway")
 
     @direct_connect_gateway.setter
-    def direct_connect_gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direct_connect_gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direct_connect_gateway", value)
 
 

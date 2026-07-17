@@ -22,9 +22,9 @@ __all__ = ['ComponentVersionArgs', 'ComponentVersion']
 @pulumi.input_type
 class ComponentVersionArgs:
     def __init__(__self__, *,
-                 inline_recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_function: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 inline_recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_function: pulumi.Input[Optional['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComponentVersion resource.
 
@@ -52,7 +52,7 @@ class ComponentVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="inlineRecipe")
-    def inline_recipe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def inline_recipe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
 
@@ -61,12 +61,12 @@ class ComponentVersionArgs:
         return pulumi.get(self, "inline_recipe")
 
     @inline_recipe.setter
-    def inline_recipe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def inline_recipe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "inline_recipe", value)
 
     @_builtins.property
     @pulumi.getter(name="lambdaFunction")
-    def lambda_function(self) -> Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']]:
+    def lambda_function(self) -> pulumi.Input[Optional['ComponentVersionLambdaFunctionRecipeSourceArgs']]:
         """
         The parameters to create a component from a Lambda function.
 
@@ -75,12 +75,12 @@ class ComponentVersionArgs:
         return pulumi.get(self, "lambda_function")
 
     @lambda_function.setter
-    def lambda_function(self, value: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']]):
+    def lambda_function(self, value: pulumi.Input[Optional['ComponentVersionLambdaFunctionRecipeSourceArgs']]):
         pulumi.set(self, "lambda_function", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
 
@@ -94,7 +94,7 @@ class ComponentVersionArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,13 +104,12 @@ class ComponentVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inline_recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_function: Optional[pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 inline_recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource for Greengrass component version.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +137,6 @@ class ComponentVersion(pulumi.CustomResource):
         """
         Resource for Greengrass component version.
 
-
         :param str resource_name: The name of the resource.
         :param ComponentVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,9 +152,9 @@ class ComponentVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inline_recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 lambda_function: Optional[pulumi.Input[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 inline_recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambda_function: pulumi.Input[Optional[Union['ComponentVersionLambdaFunctionRecipeSourceArgs', 'ComponentVersionLambdaFunctionRecipeSourceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

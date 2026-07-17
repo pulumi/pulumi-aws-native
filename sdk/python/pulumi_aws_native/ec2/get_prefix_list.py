@@ -150,7 +150,6 @@ def get_prefix_list(prefix_list_id: Optional[_builtins.str] = None,
     """
     Resource schema of AWS::EC2::PrefixList Type
 
-
     :param _builtins.str prefix_list_id: Id of Prefix List.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_prefix_list(prefix_list_id: Optional[_builtins.str] = None,
         prefix_list_name=pulumi.get(__ret__, 'prefix_list_name'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prefix_list_output(prefix_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     Resource schema of AWS::EC2::PrefixList Type
-
 
     :param _builtins.str prefix_list_id: Id of Prefix List.
     """

@@ -116,11 +116,11 @@ export interface ConfigurationArgs {
     /**
      * Optional description for the configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-friendly name for the configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Required run-specific configurations.
      */
@@ -128,5 +128,5 @@ export interface ConfigurationArgs {
     /**
      * Tags for the configuration.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

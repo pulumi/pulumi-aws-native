@@ -116,11 +116,11 @@ export interface ServiceArgs {
     /**
      * The ARN of the KMS key to use for encryption.
      */
-    kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * Service-specific configuration details for create operation
      */
-    serviceDetails?: pulumi.Input<inputs.devopsagent.ServiceDetailsArgs>;
+    serviceDetails?: pulumi.Input<inputs.devopsagent.ServiceDetailsArgs | undefined>;
     /**
      * The type of service being registered
      */
@@ -128,5 +128,5 @@ export interface ServiceArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

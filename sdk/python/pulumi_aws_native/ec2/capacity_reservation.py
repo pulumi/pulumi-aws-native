@@ -24,30 +24,30 @@ class CapacityReservationArgs:
                  instance_count: pulumi.Input[_builtins.int],
                  instance_platform: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_match_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 out_post_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 unused_reservation_billing_owner_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_match_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 out_post_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 unused_reservation_billing_owner_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
 
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
                
                Valid range: 1 - 1000
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity.
         :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -70,13 +70,13 @@ class CapacityReservationArgs:
                - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
                - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
                
-               > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+               > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
                
                Default: `open`
-        :param pulumi.Input[_builtins.str] out_post_arn: > Not supported for future-dated Capacity Reservations. 
+        :param pulumi.Input[_builtins.str] out_post_arn: > Not supported for future-dated Capacity Reservations.
                
                The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: > Not supported for future-dated Capacity Reservations. 
+        :param pulumi.Input[_builtins.str] placement_group_arn: > Not supported for future-dated Capacity Reservations.
                
                The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
@@ -122,7 +122,7 @@ class CapacityReservationArgs:
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 
         Valid range: 1 - 1000
         """
@@ -150,7 +150,7 @@ class CapacityReservationArgs:
         """
         The instance type for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
 
         For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         """
@@ -162,43 +162,43 @@ class CapacityReservationArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create the Capacity Reservation.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
-    def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Availability Zone in which the capacity is reserved.
         """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
-    def availability_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ebs_optimized(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
         """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
-    def ebs_optimized(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ebs_optimized(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ebs_optimized", value)
 
     @_builtins.property
     @pulumi.getter(name="endDate")
-    def end_date(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.
 
@@ -211,12 +211,12 @@ class CapacityReservationArgs:
         return pulumi.get(self, "end_date")
 
     @end_date.setter
-    def end_date(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date", value)
 
     @_builtins.property
     @pulumi.getter(name="endDateType")
-    def end_date_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_date_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 
@@ -226,83 +226,83 @@ class CapacityReservationArgs:
         return pulumi.get(self, "end_date_type")
 
     @end_date_type.setter
-    def end_date_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_date_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_date_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ephemeralStorage")
-    def ephemeral_storage(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def ephemeral_storage(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         *Deprecated.*
         """
         return pulumi.get(self, "ephemeral_storage")
 
     @ephemeral_storage.setter
-    def ephemeral_storage(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def ephemeral_storage(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ephemeral_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceMatchCriteria")
-    def instance_match_criteria(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_match_criteria(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
 
         - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 
-        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 
         Default: `open`
         """
         return pulumi.get(self, "instance_match_criteria")
 
     @instance_match_criteria.setter
-    def instance_match_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_match_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_match_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="outPostArn")
-    def out_post_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def out_post_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        > Not supported for future-dated Capacity Reservations. 
+        > Not supported for future-dated Capacity Reservations.
 
         The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         """
         return pulumi.get(self, "out_post_arn")
 
     @out_post_arn.setter
-    def out_post_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def out_post_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "out_post_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="placementGroupArn")
-    def placement_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def placement_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        > Not supported for future-dated Capacity Reservations. 
+        > Not supported for future-dated Capacity Reservations.
 
         The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "placement_group_arn")
 
     @placement_group_arn.setter
-    def placement_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def placement_group_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "placement_group_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="tagSpecifications")
-    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]:
+    def tag_specifications(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]:
         """
         The tags to apply to the Capacity Reservation during launch.
         """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
-    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]):
+    def tag_specifications(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]):
         pulumi.set(self, "tag_specifications", value)
 
     @_builtins.property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenancy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 
@@ -312,12 +312,12 @@ class CapacityReservationArgs:
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenancy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenancy", value)
 
     @_builtins.property
     @pulumi.getter(name="unusedReservationBillingOwnerId")
-    def unused_reservation_billing_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def unused_reservation_billing_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
 
@@ -326,7 +326,7 @@ class CapacityReservationArgs:
         return pulumi.get(self, "unused_reservation_billing_owner_id")
 
     @unused_reservation_billing_owner_id.setter
-    def unused_reservation_billing_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def unused_reservation_billing_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unused_reservation_billing_owner_id", value)
 
 
@@ -336,25 +336,24 @@ class CapacityReservation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_match_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 out_post_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 unused_reservation_billing_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_match_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 out_post_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 unused_reservation_billing_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::CapacityReservation
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,7 +374,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ephemeral_storage: *Deprecated.*
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
                
                Valid range: 1 - 1000
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -383,19 +382,19 @@ class CapacityReservation(pulumi.CustomResource):
                - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
                - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
                
-               > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+               > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
                
                Default: `open`
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity.
         :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+               > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
                
                For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[_builtins.str] out_post_arn: > Not supported for future-dated Capacity Reservations. 
+        :param pulumi.Input[_builtins.str] out_post_arn: > Not supported for future-dated Capacity Reservations.
                
                The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: > Not supported for future-dated Capacity Reservations. 
+        :param pulumi.Input[_builtins.str] placement_group_arn: > Not supported for future-dated Capacity Reservations.
                
                The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
@@ -416,7 +415,6 @@ class CapacityReservation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::EC2::CapacityReservation
 
-
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -432,21 +430,21 @@ class CapacityReservation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 availability_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ebs_optimized: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_date: Optional[pulumi.Input[_builtins.str]] = None,
-                 end_date_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 ephemeral_storage: Optional[pulumi.Input[_builtins.bool]] = None,
-                 instance_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 instance_match_criteria: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_platform: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 out_post_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 placement_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
-                 tenancy: Optional[pulumi.Input[_builtins.str]] = None,
-                 unused_reservation_billing_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ebs_optimized: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_date_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 instance_match_criteria: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_platform: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 out_post_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 placement_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
+                 tenancy: pulumi.Input[Optional[_builtins.str]] = None,
+                 unused_reservation_billing_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -665,7 +663,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 
         Valid range: 1 - 1000
         """
@@ -680,7 +678,7 @@ class CapacityReservation(pulumi.CustomResource):
         - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 
-        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
+        > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 
         Default: `open`
         """
@@ -700,7 +698,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         The instance type for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only. 
+        > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, T, and G instance families only.
 
         For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         """
@@ -710,7 +708,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="outPostArn")
     def out_post_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        > Not supported for future-dated Capacity Reservations. 
+        > Not supported for future-dated Capacity Reservations.
 
         The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         """
@@ -728,7 +726,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        > Not supported for future-dated Capacity Reservations. 
+        > Not supported for future-dated Capacity Reservations.
 
         The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
         """

@@ -51,7 +51,6 @@ def get_placement_group(group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::PlacementGroup
 
-
     :param _builtins.str group_name: The Group Name of Placement Group.
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_placement_group(group_name: Optional[_builtins.str] = None,
 
     return AwaitableGetPlacementGroupResult(
         group_name=pulumi.get(__ret__, 'group_name'))
-def get_placement_group_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_placement_group_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementGroupResult]:
     """
     Resource Type definition for AWS::EC2::PlacementGroup
-
 
     :param _builtins.str group_name: The Group Name of Placement Group.
     """

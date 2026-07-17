@@ -78,13 +78,12 @@ class AccessPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_identity: Optional[pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
-                 access_policy_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_resource: Optional[pulumi.Input[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
+                 access_policy_identity: pulumi.Input[Optional[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
+                 access_policy_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_resource: pulumi.Input[Optional[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::AccessPolicy
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -101,7 +100,6 @@ class AccessPolicy(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::AccessPolicy
 
-
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,9 +115,9 @@ class AccessPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policy_identity: Optional[pulumi.Input[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
-                 access_policy_permission: Optional[pulumi.Input[_builtins.str]] = None,
-                 access_policy_resource: Optional[pulumi.Input[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
+                 access_policy_identity: pulumi.Input[Optional[Union['AccessPolicyIdentityArgs', 'AccessPolicyIdentityArgsDict']]] = None,
+                 access_policy_permission: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_policy_resource: pulumi.Input[Optional[Union['AccessPolicyResourceArgs', 'AccessPolicyResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

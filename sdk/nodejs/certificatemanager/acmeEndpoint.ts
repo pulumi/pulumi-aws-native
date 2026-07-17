@@ -115,13 +115,13 @@ export interface AcmeEndpointArgs {
     /**
      * Tags applied to certificates issued via this endpoint.
      */
-    certificateTags?: pulumi.Input<pulumi.Input<inputs.certificatemanager.AcmeEndpointTagArgs>[]>;
+    certificateTags?: pulumi.Input<pulumi.Input<inputs.certificatemanager.AcmeEndpointTagArgs>[] | undefined>;
     /**
      * Whether contact information is required for the ACME endpoint.
      */
-    contact?: pulumi.Input<string>;
+    contact?: pulumi.Input<string | undefined>;
     /**
      * Tags associated with the ACME endpoint.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

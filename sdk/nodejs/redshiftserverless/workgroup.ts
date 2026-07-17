@@ -173,73 +173,73 @@ export interface WorkgroupArgs {
     /**
      * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    baseCapacity?: pulumi.Input<number>;
+    baseCapacity?: pulumi.Input<number | undefined>;
     /**
      * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
      */
-    configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[]>;
+    configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameterArgs>[] | undefined>;
     /**
      * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
      */
-    enhancedVpcRouting?: pulumi.Input<boolean>;
+    enhancedVpcRouting?: pulumi.Input<boolean | undefined>;
     /**
      * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
      */
-    maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number | undefined>;
     /**
      * The namespace the workgroup is associated with.
      */
-    namespaceName?: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * A property that represents the price performance target settings for the workgroup.
      */
-    pricePerformanceTarget?: pulumi.Input<inputs.redshiftserverless.WorkgroupPerformanceTargetArgs>;
+    pricePerformanceTarget?: pulumi.Input<inputs.redshiftserverless.WorkgroupPerformanceTargetArgs | undefined>;
     /**
      * A value that specifies whether the workgroup can be accessible from a public network.
      */
-    publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean | undefined>;
     /**
      * The identifier of the recovery point to restore the namespace from. When this resource is first created, the namespace is restored from this recovery point. On subsequent updates, a restore occurs only when RecoveryPointId changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
      */
-    recoveryPointId?: pulumi.Input<string>;
+    recoveryPointId?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs to associate with the workgroup.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the snapshot to restore the namespace from. Specify either SnapshotArn or SnapshotName, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotArn changes from its previous value. If the value is unchanged or removed, no restore takes place and existing data is preserved.
      */
-    snapshotArn?: pulumi.Input<string>;
+    snapshotArn?: pulumi.Input<string | undefined>;
     /**
      * The name of the snapshot to restore the namespace from. Because snapshot names are unique only within an account, also specify SnapshotOwnerAccount when restoring from a snapshot owned by a different account. Specify either SnapshotName or SnapshotArn, but not both. When this resource is first created, the namespace is restored from this snapshot. On subsequent updates, a restore occurs only when SnapshotName or SnapshotOwnerAccount changes from its previous value. If both values are unchanged or SnapshotName is removed, no restore takes place and existing data is preserved.
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * The AWS account ID that owns the snapshot. Required when restoring from a snapshot shared by another account. Used in combination with SnapshotName. On updates, changing this value while SnapshotName is set triggers a restore from the newly referenced snapshot. If the value is unchanged, no restore takes place and existing data is preserved.
      */
-    snapshotOwnerAccount?: pulumi.Input<string>;
+    snapshotOwnerAccount?: pulumi.Input<string | undefined>;
     /**
      * A list of subnet IDs the workgroup is associated with.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The map of the key-value pairs used to tag the workgroup.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * An optional parameter for the name of the track for the workgroup. If you don't provide a track name, the workgroup is assigned to the current track.
      */
-    trackName?: pulumi.Input<string>;
+    trackName?: pulumi.Input<string | undefined>;
     /**
      * Definition for workgroup resource
      */
-    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs>;
+    workgroup?: pulumi.Input<inputs.redshiftserverless.WorkgroupArgs | undefined>;
     /**
      * The name of the workgroup.
      */
-    workgroupName?: pulumi.Input<string>;
+    workgroupName?: pulumi.Input<string | undefined>;
 }

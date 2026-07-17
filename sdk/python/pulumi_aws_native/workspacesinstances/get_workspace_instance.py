@@ -84,7 +84,6 @@ def get_workspace_instance(workspace_instance_id: Optional[_builtins.str] = None
     """
     Resource Type definition for AWS::WorkspacesInstances::WorkspaceInstance
 
-
     :param _builtins.str workspace_instance_id: Unique identifier for the workspace instance
     """
     __args__ = dict()
@@ -97,11 +96,10 @@ def get_workspace_instance(workspace_instance_id: Optional[_builtins.str] = None
         provision_state=pulumi.get(__ret__, 'provision_state'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_instance_id=pulumi.get(__ret__, 'workspace_instance_id'))
-def get_workspace_instance_output(workspace_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_instance_output(workspace_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceInstanceResult]:
     """
     Resource Type definition for AWS::WorkspacesInstances::WorkspaceInstance
-
 
     :param _builtins.str workspace_instance_id: Unique identifier for the workspace instance
     """

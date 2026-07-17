@@ -148,7 +148,7 @@ def get_o_auth_client_application(arn: Optional[_builtins.str] = None,
         o_auth_scopes=pulumi.get(__ret__, 'o_auth_scopes'),
         o_auth_token_endpoint_url=pulumi.get(__ret__, 'o_auth_token_endpoint_url'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_o_auth_client_application_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_o_auth_client_application_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOAuthClientApplicationResult]:
     """
     Definition of AWS::QuickSight::OAuthClientApplication Resource Type

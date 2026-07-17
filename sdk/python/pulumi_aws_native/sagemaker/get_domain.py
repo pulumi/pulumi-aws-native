@@ -246,7 +246,6 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::Domain
 
-
     :param _builtins.str domain_id: The domain name.
     """
     __args__ = dict()
@@ -272,11 +271,10 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_domain_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Resource Type definition for AWS::SageMaker::Domain
-
 
     :param _builtins.str domain_id: The domain name.
     """

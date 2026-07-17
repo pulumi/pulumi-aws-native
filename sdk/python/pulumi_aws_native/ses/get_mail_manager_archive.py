@@ -117,7 +117,6 @@ def get_mail_manager_archive(archive_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::SES::MailManagerArchive Resource Type
 
-
     :param _builtins.str archive_id: The unique identifier of the archive.
     """
     __args__ = dict()
@@ -132,11 +131,10 @@ def get_mail_manager_archive(archive_id: Optional[_builtins.str] = None,
         archive_state=pulumi.get(__ret__, 'archive_state'),
         retention=pulumi.get(__ret__, 'retention'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_mail_manager_archive_output(archive_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_mail_manager_archive_output(archive_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerArchiveResult]:
     """
     Definition of AWS::SES::MailManagerArchive Resource Type
-
 
     :param _builtins.str archive_id: The unique identifier of the archive.
     """

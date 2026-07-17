@@ -20,7 +20,7 @@ __all__ = ['MessageTemplateVersionArgs', 'MessageTemplateVersion']
 class MessageTemplateVersionArgs:
     def __init__(__self__, *,
                  message_template_arn: pulumi.Input[_builtins.str],
-                 message_template_content_sha256: Optional[pulumi.Input[_builtins.str]] = None):
+                 message_template_content_sha256: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MessageTemplateVersion resource.
 
@@ -45,14 +45,14 @@ class MessageTemplateVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="messageTemplateContentSha256")
-    def message_template_content_sha256(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message_template_content_sha256(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The content SHA256 of the message template.
         """
         return pulumi.get(self, "message_template_content_sha256")
 
     @message_template_content_sha256.setter
-    def message_template_content_sha256(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message_template_content_sha256(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message_template_content_sha256", value)
 
 
@@ -62,12 +62,11 @@ class MessageTemplateVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 message_template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_template_content_sha256: Optional[pulumi.Input[_builtins.str]] = None,
+                 message_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_template_content_sha256: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A version for the specified customer-managed message template within the specified knowledge base.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,7 +81,6 @@ class MessageTemplateVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A version for the specified customer-managed message template within the specified knowledge base.
-
 
         :param str resource_name: The name of the resource.
         :param MessageTemplateVersionArgs args: The arguments to use to populate this resource's properties.
@@ -99,8 +97,8 @@ class MessageTemplateVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 message_template_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 message_template_content_sha256: Optional[pulumi.Input[_builtins.str]] = None,
+                 message_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 message_template_content_sha256: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

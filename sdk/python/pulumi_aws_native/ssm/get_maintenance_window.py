@@ -184,7 +184,6 @@ def get_maintenance_window(window_id: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::SSM::MaintenanceWindow
 
-
     :param _builtins.str window_id: The ID of the maintenance window.
     """
     __args__ = dict()
@@ -205,11 +204,10 @@ def get_maintenance_window(window_id: Optional[_builtins.str] = None,
         start_date=pulumi.get(__ret__, 'start_date'),
         tags=pulumi.get(__ret__, 'tags'),
         window_id=pulumi.get(__ret__, 'window_id'))
-def get_maintenance_window_output(window_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_maintenance_window_output(window_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceWindowResult]:
     """
     Resource type definition for AWS::SSM::MaintenanceWindow
-
 
     :param _builtins.str window_id: The ID of the maintenance window.
     """

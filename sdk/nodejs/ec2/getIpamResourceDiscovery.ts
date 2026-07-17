@@ -38,7 +38,7 @@ export interface GetIpamResourceDiscoveryResult {
      */
     readonly ipamResourceDiscoveryId?: string;
     /**
-     * The region the resource discovery is setup in. 
+     * The region the resource discovery is setup in.
      */
     readonly ipamResourceDiscoveryRegion?: string;
     /**

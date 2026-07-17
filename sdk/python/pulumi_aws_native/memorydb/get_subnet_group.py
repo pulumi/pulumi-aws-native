@@ -100,7 +100,6 @@ def get_subnet_group(subnet_group_name: Optional[_builtins.str] = None,
     """
     The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
 
-
     :param _builtins.str subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_subnet_group(subnet_group_name: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subnet_group_output(subnet_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_group_output(subnet_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
-
 
     :param _builtins.str subnet_group_name: The name of the subnet group. This value must be unique as it also serves as the subnet group identifier.
     """

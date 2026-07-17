@@ -183,65 +183,65 @@ export interface EventDataStoreArgs {
     /**
      * The advanced event selectors that were used to select events for the data store.
      */
-    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelectorArgs>[]>;
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelectorArgs>[] | undefined>;
     /**
      * The mode that the event data store will use to charge for event storage.
      */
-    billingMode?: pulumi.Input<string>;
+    billingMode?: pulumi.Input<string | undefined>;
     /**
      * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
      */
-    contextKeySelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreContextKeySelectorArgs>[]>;
+    contextKeySelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreContextKeySelectorArgs>[] | undefined>;
     /**
      * Indicates whether federation is enabled on an event data store.
      */
-    federationEnabled?: pulumi.Input<boolean>;
+    federationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The ARN of the role used for event data store federation.
      */
-    federationRoleArn?: pulumi.Input<string>;
+    federationRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the event data store is ingesting events.
      */
-    ingestionEnabled?: pulumi.Input<boolean>;
+    ingestionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
      */
-    insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreInsightSelectorArgs>[]>;
+    insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreInsightSelectorArgs>[] | undefined>;
     /**
      * Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
      */
-    insightsDestination?: pulumi.Input<string>;
+    insightsDestination?: pulumi.Input<string | undefined>;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
-    kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
      */
-    maxEventSize?: pulumi.Input<enums.cloudtrail.EventDataStoreMaxEventSize>;
+    maxEventSize?: pulumi.Input<enums.cloudtrail.EventDataStoreMaxEventSize | undefined>;
     /**
      * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
      */
-    multiRegionEnabled?: pulumi.Input<boolean>;
+    multiRegionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the event data store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Indicates that an event data store is collecting logged events for an organization.
      */
-    organizationEnabled?: pulumi.Input<boolean>;
+    organizationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The retention period, in days.
      */
-    retentionPeriod?: pulumi.Input<number>;
+    retentionPeriod?: pulumi.Input<number | undefined>;
     /**
      * A list of tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Indicates whether the event data store is protected from termination.
      */
-    terminationProtectionEnabled?: pulumi.Input<boolean>;
+    terminationProtectionEnabled?: pulumi.Input<boolean | undefined>;
 }

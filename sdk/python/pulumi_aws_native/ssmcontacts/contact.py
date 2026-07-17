@@ -27,8 +27,8 @@ class ContactArgs:
                  alias: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['ContactType'],
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 plan: pulumi.Input[Optional[Sequence[pulumi.Input['ContactStageArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
@@ -83,23 +83,23 @@ class ContactArgs:
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]]:
+    def plan(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ContactStageArgs']]]]:
         """
         The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]]):
+    def plan(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ContactStageArgs']]]]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,15 +109,14 @@ class Contact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['ContactType']] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['ContactType']] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSMContacts::Contact
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +134,6 @@ class Contact(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMContacts::Contact
 
-
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,11 +149,11 @@ class Contact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 plan: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input['ContactType']] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional['ContactType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

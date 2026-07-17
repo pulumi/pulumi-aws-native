@@ -112,9 +112,9 @@ export interface OrganizationConfigurationArgs {
     /**
      * Whether to automatically enable Security Hub default standards in new member accounts when they join the organization.
      */
-    autoEnableStandards?: pulumi.Input<enums.securityhub.OrganizationConfigurationAutoEnableStandards>;
+    autoEnableStandards?: pulumi.Input<enums.securityhub.OrganizationConfigurationAutoEnableStandards | undefined>;
     /**
      * Indicates whether the organization uses local or central configuration.
      */
-    configurationType?: pulumi.Input<enums.securityhub.OrganizationConfigurationConfigurationType>;
+    configurationType?: pulumi.Input<enums.securityhub.OrganizationConfigurationConfigurationType | undefined>;
 }

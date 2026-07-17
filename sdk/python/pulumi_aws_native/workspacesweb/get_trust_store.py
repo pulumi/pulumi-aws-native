@@ -88,7 +88,6 @@ def get_trust_store(trust_store_arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
 
-
     :param _builtins.str trust_store_arn: The ARN of the trust store.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_trust_store(trust_store_arn: Optional[_builtins.str] = None,
         certificate_list=pulumi.get(__ret__, 'certificate_list'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'))
-def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_output(trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
-
 
     :param _builtins.str trust_store_arn: The ARN of the trust store.
     """

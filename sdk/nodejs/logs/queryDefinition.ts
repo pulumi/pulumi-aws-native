@@ -102,19 +102,19 @@ export interface QueryDefinitionArgs {
     /**
      * Optionally define specific log groups as part of your query definition
      */
-    logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name for the saved query definition
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Use this parameter to include specific query parameters as part of your query definition. Query parameters are supported only for Logs Insights QL queries. Query parameters allow you to use placeholder variables in your query string that are substituted with values at execution time. Use the {{parameterName}} syntax in your query string to reference a parameter.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.logs.QueryDefinitionQueryParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.logs.QueryDefinitionQueryParameterArgs>[] | undefined>;
     /**
      * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
      */
-    queryLanguage?: pulumi.Input<enums.logs.QueryDefinitionQueryLanguage>;
+    queryLanguage?: pulumi.Input<enums.logs.QueryDefinitionQueryLanguage | undefined>;
     /**
      * The query string to use for this definition
      */

@@ -25,12 +25,12 @@ __all__ = ['WebAppArgs', 'WebApp']
 class WebAppArgs:
     def __init__(__self__, *,
                  identity_provider_details: pulumi.Input['WebAppIdentityProviderDetailsArgs'],
-                 access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_details: Optional[pulumi.Input['WebAppEndpointDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 web_app_customization: Optional[pulumi.Input['WebAppCustomizationArgs']] = None,
-                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
-                 web_app_units: Optional[pulumi.Input['WebAppUnitsPropertiesArgs']] = None):
+                 access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_details: pulumi.Input[Optional['WebAppEndpointDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 web_app_customization: pulumi.Input[Optional['WebAppCustomizationArgs']] = None,
+                 web_app_endpoint_policy: pulumi.Input[Optional['WebAppEndpointPolicy']] = None,
+                 web_app_units: pulumi.Input[Optional['WebAppUnitsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a WebApp resource.
 
@@ -75,52 +75,52 @@ class WebAppArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessEndpoint")
-    def access_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def access_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
         """
         return pulumi.get(self, "access_endpoint")
 
     @access_endpoint.setter
-    def access_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def access_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointDetails")
-    def endpoint_details(self) -> Optional[pulumi.Input['WebAppEndpointDetailsArgs']]:
+    def endpoint_details(self) -> pulumi.Input[Optional['WebAppEndpointDetailsArgs']]:
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
-    def endpoint_details(self, value: Optional[pulumi.Input['WebAppEndpointDetailsArgs']]):
+    def endpoint_details(self, value: pulumi.Input[Optional['WebAppEndpointDetailsArgs']]):
         pulumi.set(self, "endpoint_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for web apps.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="webAppCustomization")
-    def web_app_customization(self) -> Optional[pulumi.Input['WebAppCustomizationArgs']]:
+    def web_app_customization(self) -> pulumi.Input[Optional['WebAppCustomizationArgs']]:
         """
         A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
         """
         return pulumi.get(self, "web_app_customization")
 
     @web_app_customization.setter
-    def web_app_customization(self, value: Optional[pulumi.Input['WebAppCustomizationArgs']]):
+    def web_app_customization(self, value: pulumi.Input[Optional['WebAppCustomizationArgs']]):
         pulumi.set(self, "web_app_customization", value)
 
     @_builtins.property
     @pulumi.getter(name="webAppEndpointPolicy")
-    def web_app_endpoint_policy(self) -> Optional[pulumi.Input['WebAppEndpointPolicy']]:
+    def web_app_endpoint_policy(self) -> pulumi.Input[Optional['WebAppEndpointPolicy']]:
         """
         Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
 
@@ -129,19 +129,19 @@ class WebAppArgs:
         return pulumi.get(self, "web_app_endpoint_policy")
 
     @web_app_endpoint_policy.setter
-    def web_app_endpoint_policy(self, value: Optional[pulumi.Input['WebAppEndpointPolicy']]):
+    def web_app_endpoint_policy(self, value: pulumi.Input[Optional['WebAppEndpointPolicy']]):
         pulumi.set(self, "web_app_endpoint_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="webAppUnits")
-    def web_app_units(self) -> Optional[pulumi.Input['WebAppUnitsPropertiesArgs']]:
+    def web_app_units(self) -> pulumi.Input[Optional['WebAppUnitsPropertiesArgs']]:
         """
         A union that contains the value for number of concurrent connections or the user sessions on your web app.
         """
         return pulumi.get(self, "web_app_units")
 
     @web_app_units.setter
-    def web_app_units(self, value: Optional[pulumi.Input['WebAppUnitsPropertiesArgs']]):
+    def web_app_units(self, value: pulumi.Input[Optional['WebAppUnitsPropertiesArgs']]):
         pulumi.set(self, "web_app_units", value)
 
 
@@ -151,17 +151,16 @@ class WebApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
-                 identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
-                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
-                 web_app_units: Optional[pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
+                 access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 web_app_endpoint_policy: pulumi.Input[Optional['WebAppEndpointPolicy']] = None,
+                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::WebApp
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +184,6 @@ class WebApp(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::WebApp
 
-
         :param str resource_name: The name of the resource.
         :param WebAppArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -201,13 +199,13 @@ class WebApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_details: Optional[pulumi.Input[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
-                 identity_provider_details: Optional[pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 web_app_customization: Optional[pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
-                 web_app_endpoint_policy: Optional[pulumi.Input['WebAppEndpointPolicy']] = None,
-                 web_app_units: Optional[pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
+                 access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 web_app_endpoint_policy: pulumi.Input[Optional['WebAppEndpointPolicy']] = None,
+                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

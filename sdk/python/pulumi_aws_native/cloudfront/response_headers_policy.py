@@ -48,14 +48,13 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_headers_policy_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
+                 response_headers_policy_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
         A response headers policy.
          A response headers policy contains information about a set of HTTP response headers.
          After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
          For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -73,7 +72,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
          After you create a response headers policy, you can use its ID to attach it to one or more cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to requests that match the cache behavior. CloudFront adds or removes response headers according to the configuration of the response headers policy.
          For more information, see [Adding or removing HTTP headers in CloudFront responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html) in the *Amazon CloudFront Developer Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param ResponseHeadersPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,7 +87,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 response_headers_policy_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
+                 response_headers_policy_config: pulumi.Input[Optional[Union['ResponseHeadersPolicyConfigArgs', 'ResponseHeadersPolicyConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

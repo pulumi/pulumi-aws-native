@@ -88,7 +88,6 @@ def get_trust_store(trust_store_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
 
-
     :param _builtins.str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_trust_store(trust_store_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'))
-def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_trust_store_output(trust_store_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
-
 
     :param _builtins.str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
     """

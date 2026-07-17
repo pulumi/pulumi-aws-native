@@ -24,11 +24,11 @@ __all__ = [
 ]
 
 class InvestigationGroupChatbotNotificationChannelArgsDict(TypedDict):
-    chat_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    chat_configuration_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
     """
-    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    sns_topic_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Returns the ARN of an Amazon  topic used for third-party chat integrations.
     """
@@ -36,8 +36,8 @@ class InvestigationGroupChatbotNotificationChannelArgsDict(TypedDict):
 @pulumi.input_type
 class InvestigationGroupChatbotNotificationChannelArgs:
     def __init__(__self__, *,
-                 chat_configuration_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 chat_configuration_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chat_configuration_arns: Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
         :param pulumi.Input[_builtins.str] sns_topic_arn: Returns the ARN of an Amazon  topic used for third-party chat integrations.
@@ -49,31 +49,31 @@ class InvestigationGroupChatbotNotificationChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="chatConfigurationArns")
-    def chat_configuration_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def chat_configuration_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
         """
         return pulumi.get(self, "chat_configuration_arns")
 
     @chat_configuration_arns.setter
-    def chat_configuration_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def chat_configuration_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "chat_configuration_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Returns the ARN of an Amazon  topic used for third-party chat integrations.
         """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
-    def sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sns_topic_arn", value)
 
 
 class InvestigationGroupCrossAccountConfigurationArgsDict(TypedDict):
-    source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    source_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an existing role which will be used to do investigations on your behalf.
     """
@@ -81,7 +81,7 @@ class InvestigationGroupCrossAccountConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class InvestigationGroupCrossAccountConfigurationArgs:
     def __init__(__self__, *,
-                 source_role_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 source_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] source_role_arn: The ARN of an existing role which will be used to do investigations on your behalf.
         """
@@ -90,23 +90,23 @@ class InvestigationGroupCrossAccountConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="sourceRoleArn")
-    def source_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an existing role which will be used to do investigations on your behalf.
         """
         return pulumi.get(self, "source_role_arn")
 
     @source_role_arn.setter
-    def source_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_role_arn", value)
 
 
 class InvestigationGroupEncryptionConfigMapArgsDict(TypedDict):
-    encryption_configuration_type: NotRequired[pulumi.Input[_builtins.str]]
+    encryption_configuration_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
     """
@@ -114,8 +114,8 @@ class InvestigationGroupEncryptionConfigMapArgsDict(TypedDict):
 @pulumi.input_type
 class InvestigationGroupEncryptionConfigMapArgs:
     def __init__(__self__, *,
-                 encryption_configuration_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] encryption_configuration_type: Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
         :param pulumi.Input[_builtins.str] kms_key_id: If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
@@ -127,26 +127,26 @@ class InvestigationGroupEncryptionConfigMapArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfigurationType")
-    def encryption_configuration_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def encryption_configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays whether investigation data is encrypted by a customer managed key or an AWS owned key.
         """
         return pulumi.get(self, "encryption_configuration_type")
 
     @encryption_configuration_type.setter
-    def encryption_configuration_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def encryption_configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "encryption_configuration_type", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         If the investigation group uses a customer managed key for encryption, this field displays the ID of that key.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 

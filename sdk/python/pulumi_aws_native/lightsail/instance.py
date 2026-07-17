@@ -26,16 +26,16 @@ class InstanceArgs:
     def __init__(__self__, *,
                  blueprint_id: pulumi.Input[_builtins.str],
                  bundle_id: pulumi.Input[_builtins.str],
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input['InstanceHardwareArgs']] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input['InstanceLocationArgs']] = None,
-                 networking: Optional[pulumi.Input['InstanceNetworkingArgs']] = None,
-                 state: Optional[pulumi.Input['InstanceStateArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None):
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional['InstanceHardwareArgs']] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional['InstanceLocationArgs']] = None,
+                 networking: pulumi.Input[Optional['InstanceNetworkingArgs']] = None,
+                 state: pulumi.Input[Optional['InstanceStateArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Instance resource.
 
@@ -107,31 +107,31 @@ class InstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="addOns")
-    def add_ons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]]:
+    def add_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAddOnArgs']]]]:
         """
         An array of objects representing the add-ons to enable for the new instance.
         """
         return pulumi.get(self, "add_ons")
 
     @add_ons.setter
-    def add_ons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]]):
+    def add_ons(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InstanceAddOnArgs']]]]):
         pulumi.set(self, "add_ons", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter
-    def hardware(self) -> Optional[pulumi.Input['InstanceHardwareArgs']]:
+    def hardware(self) -> pulumi.Input[Optional['InstanceHardwareArgs']]:
         """
         The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
 
@@ -140,36 +140,36 @@ class InstanceArgs:
         return pulumi.get(self, "hardware")
 
     @hardware.setter
-    def hardware(self, value: Optional[pulumi.Input['InstanceHardwareArgs']]):
+    def hardware(self, value: pulumi.Input[Optional['InstanceHardwareArgs']]):
         pulumi.set(self, "hardware", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
-    def instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The names to use for your new Lightsail instance.
         """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
-    def instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyPairName")
-    def key_pair_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_pair_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your key pair.
         """
         return pulumi.get(self, "key_pair_name")
 
     @key_pair_name.setter
-    def key_pair_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_pair_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_pair_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input['InstanceLocationArgs']]:
+    def location(self) -> pulumi.Input[Optional['InstanceLocationArgs']]:
         """
         The location for the instance, such as the AWS Region and Availability Zone.
 
@@ -178,24 +178,24 @@ class InstanceArgs:
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input['InstanceLocationArgs']]):
+    def location(self, value: pulumi.Input[Optional['InstanceLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def networking(self) -> Optional[pulumi.Input['InstanceNetworkingArgs']]:
+    def networking(self) -> pulumi.Input[Optional['InstanceNetworkingArgs']]:
         """
         The public ports and the monthly amount of data transfer allocated for the instance.
         """
         return pulumi.get(self, "networking")
 
     @networking.setter
-    def networking(self, value: Optional[pulumi.Input['InstanceNetworkingArgs']]):
+    def networking(self, value: pulumi.Input[Optional['InstanceNetworkingArgs']]):
         pulumi.set(self, "networking", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['InstanceStateArgs']]:
+    def state(self) -> pulumi.Input[Optional['InstanceStateArgs']]:
         """
         The status code and the state (for example, `running` ) of the instance.
 
@@ -204,31 +204,31 @@ class InstanceArgs:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['InstanceStateArgs']]):
+    def state(self, value: pulumi.Input[Optional['InstanceStateArgs']]):
         pulumi.set(self, "state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userData")
-    def user_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_data(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
         return pulumi.get(self, "user_data")
 
     @user_data.setter
-    def user_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_data", value)
 
 
@@ -238,22 +238,21 @@ class Instance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
-                 networking: Optional[pulumi.Input[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
-                 state: Optional[pulumi.Input[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
+                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Instance
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,7 +284,6 @@ class Instance(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Instance
 
-
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,18 +299,18 @@ class Instance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 add_ons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 hardware: Optional[pulumi.Input[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
-                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 key_pair_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
-                 networking: Optional[pulumi.Input[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
-                 state: Optional[pulumi.Input[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 add_ons: pulumi.Input[Optional[Sequence[pulumi.Input[Union['InstanceAddOnArgs', 'InstanceAddOnArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hardware: pulumi.Input[Optional[Union['InstanceHardwareArgs', 'InstanceHardwareArgsDict']]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_pair_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[Union['InstanceLocationArgs', 'InstanceLocationArgsDict']]] = None,
+                 networking: pulumi.Input[Optional[Union['InstanceNetworkingArgs', 'InstanceNetworkingArgsDict']]] = None,
+                 state: pulumi.Input[Optional[Union['InstanceStateArgs', 'InstanceStateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

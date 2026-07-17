@@ -160,7 +160,6 @@ def get_studio(studio_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::EMR::Studio
 
-
     :param _builtins.str studio_id: The ID of the EMR Studio.
     """
     __args__ = dict()
@@ -179,11 +178,10 @@ def get_studio(studio_id: Optional[_builtins.str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_studio_output(studio_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_studio_output(studio_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioResult]:
     """
     Resource schema for AWS::EMR::Studio
-
 
     :param _builtins.str studio_id: The ID of the EMR Studio.
     """

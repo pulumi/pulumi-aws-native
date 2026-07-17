@@ -195,7 +195,6 @@ def get_data_source(aws_account_id: Optional[_builtins.str] = None,
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.
 
-
     :param _builtins.str aws_account_id: The AWS account ID.
     :param _builtins.str data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.
     """
@@ -218,12 +217,11 @@ def get_data_source(aws_account_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_connection_properties=pulumi.get(__ret__, 'vpc_connection_properties'))
-def get_data_source_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                           data_source_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_data_source_output(aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                           data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of the AWS::QuickSight::DataSource Resource Type.
-
 
     :param _builtins.str aws_account_id: The AWS account ID.
     :param _builtins.str data_source_id: An ID for the data source. This ID is unique per AWS Region for each AWS account.

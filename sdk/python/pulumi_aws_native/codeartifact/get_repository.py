@@ -126,7 +126,6 @@ def get_repository(arn: Optional[_builtins.str] = None,
     """
     The resource schema to create a CodeArtifact repository.
 
-
     :param _builtins.str arn: The ARN of the repository.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_repository(arn: Optional[_builtins.str] = None,
         permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
         tags=pulumi.get(__ret__, 'tags'),
         upstreams=pulumi.get(__ret__, 'upstreams'))
-def get_repository_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_repository_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The resource schema to create a CodeArtifact repository.
-
 
     :param _builtins.str arn: The ARN of the repository.
     """

@@ -153,7 +153,6 @@ def get_node(arn: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaLive::Node Resource Type
 
-
     :param _builtins.str arn: The ARN of the Node. It is automatically assigned when the Node is created.
     """
     __args__ = dict()
@@ -172,11 +171,10 @@ def get_node(arn: Optional[_builtins.str] = None,
         sdi_source_mappings=pulumi.get(__ret__, 'sdi_source_mappings'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_node_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_node_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeResult]:
     """
     Definition of AWS::MediaLive::Node Resource Type
-
 
     :param _builtins.str arn: The ARN of the Node. It is automatically assigned when the Node is created.
     """

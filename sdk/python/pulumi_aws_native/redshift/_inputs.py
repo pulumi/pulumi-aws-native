@@ -27,11 +27,11 @@ __all__ = [
 ]
 
 class ClusterEndpointArgsDict(TypedDict):
-    address: NotRequired[pulumi.Input[_builtins.str]]
+    address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The DNS address of the cluster. This property is read only.
     """
-    port: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The port that the database engine is listening on. This property is read only.
     """
@@ -39,8 +39,8 @@ class ClusterEndpointArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterEndpointArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[_builtins.str]] = None,
-                 port: Optional[pulumi.Input[_builtins.str]] = None):
+                 address: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] address: The DNS address of the cluster. This property is read only.
         :param pulumi.Input[_builtins.str] port: The port that the database engine is listening on. This property is read only.
@@ -52,31 +52,31 @@ class ClusterEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The DNS address of the cluster. This property is read only.
         """
         return pulumi.get(self, "address")
 
     @address.setter
-    def address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "address", value)
 
     @_builtins.property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def port(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The port that the database engine is listening on. This property is read only.
         """
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def port(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "port", value)
 
 
 class ClusterLoggingPropertiesArgsDict(TypedDict):
-    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of an existing S3 bucket where the log files are to be stored.
 
@@ -85,15 +85,15 @@ class ClusterLoggingPropertiesArgsDict(TypedDict):
     - Must be in the same region as the cluster
     - The cluster must have read bucket and put object permissions
     """
-    log_destination_type: NotRequired[pulumi.Input[_builtins.str]]
+    log_destination_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The log destination type. An enum with possible values of `s3` and `cloudwatch` .
     """
-    log_exports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    log_exports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
     """
-    s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_key_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix applied to the log file names.
 
@@ -103,10 +103,10 @@ class ClusterLoggingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ClusterLoggingPropertiesArgs:
     def __init__(__self__, *,
-                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_destination_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_exports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: The name of an existing S3 bucket where the log files are to be stored.
                
@@ -131,7 +131,7 @@ class ClusterLoggingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of an existing S3 bucket where the log files are to be stored.
 
@@ -143,36 +143,36 @@ class ClusterLoggingPropertiesArgs:
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_destination_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The log destination type. An enum with possible values of `s3` and `cloudwatch` .
         """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_destination_type", value)
 
     @_builtins.property
     @pulumi.getter(name="logExports")
-    def log_exports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def log_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The collection of exported log types. Possible values are `connectionlog` , `useractivitylog` , and `userlog` .
         """
         return pulumi.get(self, "log_exports")
 
     @log_exports.setter
-    def log_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def log_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "log_exports", value)
 
     @_builtins.property
     @pulumi.getter(name="s3KeyPrefix")
-    def s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix applied to the log file names.
 
@@ -181,7 +181,7 @@ class ClusterLoggingPropertiesArgs:
         return pulumi.get(self, "s3_key_prefix")
 
     @s3_key_prefix.setter
-    def s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_key_prefix", value)
 
 

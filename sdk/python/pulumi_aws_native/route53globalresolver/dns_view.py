@@ -23,13 +23,13 @@ __all__ = ['DnsViewArgs', 'DnsView']
 class DnsViewArgs:
     def __init__(__self__, *,
                  global_resolver_id: pulumi.Input[_builtins.str],
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dnssec_validation: Optional[pulumi.Input['DnsViewDnsSecValidationType']] = None,
-                 edns_client_subnet: Optional[pulumi.Input['DnsViewEdnsClientSubnetType']] = None,
-                 firewall_rules_fail_open: Optional[pulumi.Input['DnsViewFirewallRulesFailOpenType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dnssec_validation: pulumi.Input[Optional['DnsViewDnsSecValidationType']] = None,
+                 edns_client_subnet: pulumi.Input[Optional['DnsViewEdnsClientSubnetType']] = None,
+                 firewall_rules_fail_open: pulumi.Input[Optional['DnsViewFirewallRulesFailOpenType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DnsView resource.
         """
@@ -60,65 +60,65 @@ class DnsViewArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dnssecValidation")
-    def dnssec_validation(self) -> Optional[pulumi.Input['DnsViewDnsSecValidationType']]:
+    def dnssec_validation(self) -> pulumi.Input[Optional['DnsViewDnsSecValidationType']]:
         return pulumi.get(self, "dnssec_validation")
 
     @dnssec_validation.setter
-    def dnssec_validation(self, value: Optional[pulumi.Input['DnsViewDnsSecValidationType']]):
+    def dnssec_validation(self, value: pulumi.Input[Optional['DnsViewDnsSecValidationType']]):
         pulumi.set(self, "dnssec_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="ednsClientSubnet")
-    def edns_client_subnet(self) -> Optional[pulumi.Input['DnsViewEdnsClientSubnetType']]:
+    def edns_client_subnet(self) -> pulumi.Input[Optional['DnsViewEdnsClientSubnetType']]:
         return pulumi.get(self, "edns_client_subnet")
 
     @edns_client_subnet.setter
-    def edns_client_subnet(self, value: Optional[pulumi.Input['DnsViewEdnsClientSubnetType']]):
+    def edns_client_subnet(self, value: pulumi.Input[Optional['DnsViewEdnsClientSubnetType']]):
         pulumi.set(self, "edns_client_subnet", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallRulesFailOpen")
-    def firewall_rules_fail_open(self) -> Optional[pulumi.Input['DnsViewFirewallRulesFailOpenType']]:
+    def firewall_rules_fail_open(self) -> pulumi.Input[Optional['DnsViewFirewallRulesFailOpenType']]:
         return pulumi.get(self, "firewall_rules_fail_open")
 
     @firewall_rules_fail_open.setter
-    def firewall_rules_fail_open(self, value: Optional[pulumi.Input['DnsViewFirewallRulesFailOpenType']]):
+    def firewall_rules_fail_open(self, value: pulumi.Input[Optional['DnsViewFirewallRulesFailOpenType']]):
         pulumi.set(self, "firewall_rules_fail_open", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,18 +128,17 @@ class DnsView(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dnssec_validation: Optional[pulumi.Input['DnsViewDnsSecValidationType']] = None,
-                 edns_client_subnet: Optional[pulumi.Input['DnsViewEdnsClientSubnetType']] = None,
-                 firewall_rules_fail_open: Optional[pulumi.Input['DnsViewFirewallRulesFailOpenType']] = None,
-                 global_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dnssec_validation: pulumi.Input[Optional['DnsViewDnsSecValidationType']] = None,
+                 edns_client_subnet: pulumi.Input[Optional['DnsViewEdnsClientSubnetType']] = None,
+                 firewall_rules_fail_open: pulumi.Input[Optional['DnsViewFirewallRulesFailOpenType']] = None,
+                 global_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53GlobalResolver::DnsView
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +151,6 @@ class DnsView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53GlobalResolver::DnsView
-
 
         :param str resource_name: The name of the resource.
         :param DnsViewArgs args: The arguments to use to populate this resource's properties.
@@ -169,14 +167,14 @@ class DnsView(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dnssec_validation: Optional[pulumi.Input['DnsViewDnsSecValidationType']] = None,
-                 edns_client_subnet: Optional[pulumi.Input['DnsViewEdnsClientSubnetType']] = None,
-                 firewall_rules_fail_open: Optional[pulumi.Input['DnsViewFirewallRulesFailOpenType']] = None,
-                 global_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dnssec_validation: pulumi.Input[Optional['DnsViewDnsSecValidationType']] = None,
+                 edns_client_subnet: pulumi.Input[Optional['DnsViewEdnsClientSubnetType']] = None,
+                 firewall_rules_fail_open: pulumi.Input[Optional['DnsViewFirewallRulesFailOpenType']] = None,
+                 global_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

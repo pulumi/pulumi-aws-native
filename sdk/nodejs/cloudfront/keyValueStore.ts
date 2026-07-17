@@ -107,17 +107,17 @@ export interface KeyValueStoreArgs {
     /**
      * A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The import source for the key value store.
      */
-    importSource?: pulumi.Input<inputs.cloudfront.KeyValueStoreImportSourceArgs>;
+    importSource?: pulumi.Input<inputs.cloudfront.KeyValueStoreImportSourceArgs | undefined>;
     /**
      * The name of the key value store.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A complex type that contains zero or more ``Tag`` elements.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

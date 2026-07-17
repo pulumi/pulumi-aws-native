@@ -103,11 +103,11 @@ export interface VectorBucketArgs {
     /**
      * The encryption configuration for the vector bucket.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3vectors.VectorBucketEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3vectors.VectorBucketEncryptionConfigurationArgs | undefined>;
     /**
      * User tags (key-value pairs) to associate with the vector bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
      *
@@ -115,5 +115,5 @@ export interface VectorBucketArgs {
      *
      * > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
-    vectorBucketName?: pulumi.Input<string>;
+    vectorBucketName?: pulumi.Input<string | undefined>;
 }

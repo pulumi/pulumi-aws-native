@@ -77,7 +77,6 @@ def get_transit_gateway_vpc_attachment(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
 
-
     :param _builtins.str id: The ID of the attachment.
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_transit_gateway_vpc_attachment(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         options=pulumi.get(__ret__, 'options'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_transit_gateway_vpc_attachment_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_gateway_vpc_attachment_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayVpcAttachmentResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
-
 
     :param _builtins.str id: The ID of the attachment.
     """

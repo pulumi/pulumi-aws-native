@@ -112,7 +112,6 @@ def get_integration(integration_arn: Optional[_builtins.str] = None,
     """
     A zero-ETL integration with Amazon Redshift.
 
-
     :param _builtins.str integration_arn: The ARN of the integration.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_integration(integration_arn: Optional[_builtins.str] = None,
         integration_arn=pulumi.get(__ret__, 'integration_arn'),
         integration_name=pulumi.get(__ret__, 'integration_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_integration_output(integration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_output(integration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     A zero-ETL integration with Amazon Redshift.
-
 
     :param _builtins.str integration_arn: The ARN of the integration.
     """

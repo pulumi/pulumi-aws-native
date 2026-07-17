@@ -95,13 +95,13 @@ export interface DeviceProfileArgs {
     /**
      * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
-    loRaWan?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWanDeviceProfileArgs>;
+    loRaWan?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWanDeviceProfileArgs | undefined>;
     /**
      * Name of service profile
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the device profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

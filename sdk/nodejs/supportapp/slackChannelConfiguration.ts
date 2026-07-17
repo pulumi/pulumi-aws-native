@@ -193,7 +193,7 @@ export interface SlackChannelConfigurationArgs {
     /**
      * The channel name in Slack.
      */
-    channelName?: pulumi.Input<string>;
+    channelName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role that grants the AWS Support App access to perform operations for AWS services.
      */
@@ -201,7 +201,7 @@ export interface SlackChannelConfigurationArgs {
     /**
      * Whether to notify when a correspondence is added to a case.
      */
-    notifyOnAddCorrespondenceToCase?: pulumi.Input<boolean>;
+    notifyOnAddCorrespondenceToCase?: pulumi.Input<boolean | undefined>;
     /**
      * The severity level of a support case that a customer wants to get notified for.
      */
@@ -209,11 +209,11 @@ export interface SlackChannelConfigurationArgs {
     /**
      * Whether to notify when a case is created or reopened.
      */
-    notifyOnCreateOrReopenCase?: pulumi.Input<boolean>;
+    notifyOnCreateOrReopenCase?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to notify when a case is resolved.
      */
-    notifyOnResolveCase?: pulumi.Input<boolean>;
+    notifyOnResolveCase?: pulumi.Input<boolean | undefined>;
     /**
      * The team ID in Slack, which uniquely identifies a workspace.
      */

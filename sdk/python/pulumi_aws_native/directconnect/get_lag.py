@@ -112,7 +112,6 @@ def get_lag(lag_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DirectConnect::Lag
 
-
     :param _builtins.str lag_arn: The ARN of the LAG.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_lag(lag_arn: Optional[_builtins.str] = None,
         lag_state=pulumi.get(__ret__, 'lag_state'),
         minimum_links=pulumi.get(__ret__, 'minimum_links'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_lag_output(lag_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_lag_output(lag_arn: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLagResult]:
     """
     Resource Type definition for AWS::DirectConnect::Lag
-
 
     :param _builtins.str lag_arn: The ARN of the LAG.
     """

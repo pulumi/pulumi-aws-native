@@ -197,7 +197,7 @@ export class StateMachine extends pulumi.CustomResource {
      * - white space
      * - brackets `< > { } [ ]`
      * - wildcard characters `? *`
-     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
      * - control characters ( `U+0000-001F` , `U+007F-009F` )
      *
      * > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
@@ -280,31 +280,31 @@ export interface StateMachineArgs {
     /**
      * The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
      */
-    definition?: pulumi.Input<inputs.stepfunctions.StateMachineDefinitionArgs>;
+    definition?: pulumi.Input<inputs.stepfunctions.StateMachineDefinitionArgs | undefined>;
     /**
      * The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
      */
-    definitionS3Location?: pulumi.Input<inputs.stepfunctions.StateMachineS3LocationArgs>;
+    definitionS3Location?: pulumi.Input<inputs.stepfunctions.StateMachineS3LocationArgs | undefined>;
     /**
      * The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
      */
-    definitionString?: pulumi.Input<string>;
+    definitionString?: pulumi.Input<string | undefined>;
     /**
      * A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
      *
      * Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
      */
-    definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>}>;
+    definitionSubstitutions?: pulumi.Input<{[key: string]: pulumi.Input<string | number | boolean>} | undefined>;
     /**
      * Encryption configuration for the state machine.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineEncryptionConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineEncryptionConfigurationArgs | undefined>;
     /**
      * Defines what execution history events are logged and where they are logged.
      *
      * > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    loggingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineLoggingConfigurationArgs>;
+    loggingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineLoggingConfigurationArgs | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
@@ -317,24 +317,24 @@ export interface StateMachineArgs {
      * - white space
      * - brackets `< > { } [ ]`
      * - wildcard characters `? *`
-     * - special characters `" # % \ ^ | ~ ` $ & , ; : /`
+     * - special characters ` " # % \ ^ | ~  ` $ & , ; : /`
      * - control characters ( `U+0000-001F` , `U+007F-009F` )
      *
      * > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    stateMachineName?: pulumi.Input<string>;
+    stateMachineName?: pulumi.Input<string | undefined>;
     /**
      * Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
      */
-    stateMachineType?: pulumi.Input<enums.stepfunctions.StateMachineType>;
+    stateMachineType?: pulumi.Input<enums.stepfunctions.StateMachineType | undefined>;
     /**
      * The list of tags to add to a resource.
      *
      * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Selects whether or not the state machine's AWS X-Ray tracing is enabled.
      */
-    tracingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineTracingConfigurationArgs>;
+    tracingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineTracingConfigurationArgs | undefined>;
 }

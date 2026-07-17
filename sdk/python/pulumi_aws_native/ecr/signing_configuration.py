@@ -49,11 +49,10 @@ class SigningConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -67,7 +66,6 @@ class SigningConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ECR::SigningConfiguration resource creates or updates the signing configuration for an Amazon ECR registry.
-
 
         :param str resource_name: The name of the resource.
         :param SigningConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -84,7 +82,7 @@ class SigningConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SigningConfigurationRuleArgs', 'SigningConfigurationRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

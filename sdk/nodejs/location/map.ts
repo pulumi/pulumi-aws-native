@@ -138,7 +138,7 @@ export interface MapArgs {
     /**
      * An optional description for the map resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name for the map resource.
      *
@@ -148,15 +148,15 @@ export interface MapArgs {
      * - Must be a unique map resource name.
      * - No spaces allowed. For example, `ExampleMap` .
      */
-    mapName?: pulumi.Input<string>;
+    mapName?: pulumi.Input<string | undefined>;
     /**
      * No longer used. If included, the only allowed value is `RequestBasedUsage` .
      *
      * *Allowed Values* : `RequestBasedUsage`
      */
-    pricingPlan?: pulumi.Input<enums.location.MapPricingPlan>;
+    pricingPlan?: pulumi.Input<enums.location.MapPricingPlan | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

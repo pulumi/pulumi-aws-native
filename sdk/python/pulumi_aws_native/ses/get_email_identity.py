@@ -187,7 +187,6 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SES::EmailIdentity
 
-
     :param _builtins.str email_identity: The email address or domain to verify.
     """
     __args__ = dict()
@@ -208,11 +207,10 @@ def get_email_identity(email_identity: Optional[_builtins.str] = None,
         feedback_attributes=pulumi.get(__ret__, 'feedback_attributes'),
         mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_email_identity_output(email_identity: Optional[pulumi.Input[_builtins.str]] = None,
+def get_email_identity_output(email_identity: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Resource Type definition for AWS::SES::EmailIdentity
-
 
     :param _builtins.str email_identity: The email address or domain to verify.
     """

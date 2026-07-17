@@ -27,10 +27,10 @@ class DatasetArgs:
                  dataset_type: pulumi.Input['DatasetType'],
                  domain: pulumi.Input['DatasetDomain'],
                  schema: pulumi.Input['SchemaPropertiesArgs'],
-                 data_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_config: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 data_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_config: pulumi.Input[Optional['EncryptionConfigPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -94,43 +94,43 @@ class DatasetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataFrequency")
-    def data_frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
         """
         return pulumi.get(self, "data_frequency")
 
     @data_frequency.setter
-    def data_frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="datasetName")
-    def dataset_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dataset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the dataset
         """
         return pulumi.get(self, "dataset_name")
 
     @dataset_name.setter
-    def dataset_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dataset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional[pulumi.Input['EncryptionConfigPropertiesArgs']]:
+    def encryption_config(self) -> pulumi.Input[Optional['EncryptionConfigPropertiesArgs']]:
         """
         A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
         """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']]):
+    def encryption_config(self, value: pulumi.Input[Optional['EncryptionConfigPropertiesArgs']]):
         pulumi.set(self, "encryption_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
 
@@ -139,7 +139,7 @@ class DatasetArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -149,17 +149,16 @@ class Dataset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_type: Optional[pulumi.Input['DatasetType']] = None,
-                 domain: Optional[pulumi.Input['DatasetDomain']] = None,
-                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
+                 domain: pulumi.Input[Optional['DatasetDomain']] = None,
+                 encryption_config: pulumi.Input[Optional[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS::Forecast::Dataset
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +181,6 @@ class Dataset(pulumi.CustomResource):
         """
         Resource Type Definition for AWS::Forecast::Dataset
 
-
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,13 +196,13 @@ class Dataset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 dataset_type: Optional[pulumi.Input['DatasetType']] = None,
-                 domain: Optional[pulumi.Input['DatasetDomain']] = None,
-                 encryption_config: Optional[pulumi.Input[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 data_frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dataset_type: pulumi.Input[Optional['DatasetType']] = None,
+                 domain: pulumi.Input[Optional['DatasetDomain']] = None,
+                 encryption_config: pulumi.Input[Optional[Union['EncryptionConfigPropertiesArgs', 'EncryptionConfigPropertiesArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[Union['SchemaPropertiesArgs', 'SchemaPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

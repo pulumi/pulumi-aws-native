@@ -132,23 +132,23 @@ export interface VerifiedAccessGroupArgs {
     /**
      * A description for the AWS Verified Access group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The AWS Verified Access policy document.
      */
-    policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string | undefined>;
     /**
      * The status of the Verified Access policy.
      */
-    policyEnabled?: pulumi.Input<boolean>;
+    policyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The configuration options for customer provided KMS encryption.
      */
-    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessGroupSseSpecificationArgs>;
+    sseSpecification?: pulumi.Input<inputs.ec2.VerifiedAccessGroupSseSpecificationArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ID of the AWS Verified Access instance.
      */

@@ -179,61 +179,61 @@ export interface LocationSmbArgs {
     /**
      * The authentication mode used to determine identity of user.
      */
-    authenticationType?: pulumi.Input<enums.datasync.LocationSmbAuthenticationType>;
+    authenticationType?: pulumi.Input<enums.datasync.LocationSmbAuthenticationType | undefined>;
     /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCmkSecretConfigArgs>;
+    cmkSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCmkSecretConfigArgs | undefined>;
     /**
      * Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
      *
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
-    customSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCustomSecretConfigArgs>;
+    customSecretConfig?: pulumi.Input<inputs.datasync.LocationSmbCustomSecretConfigArgs | undefined>;
     /**
      * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
      */
-    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the Windows domain that the SMB server belongs to.
      */
-    domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string | undefined>;
     /**
      * The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
      */
-    kerberosKeytab?: pulumi.Input<string>;
+    kerberosKeytab?: pulumi.Input<string | undefined>;
     /**
      * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
      */
-    kerberosKrb5Conf?: pulumi.Input<string>;
+    kerberosKrb5Conf?: pulumi.Input<string | undefined>;
     /**
      * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
      */
-    kerberosPrincipal?: pulumi.Input<string>;
+    kerberosPrincipal?: pulumi.Input<string | undefined>;
     /**
      * Specifies the version of the SMB protocol that DataSync uses to access your SMB file server.
      */
-    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptionsArgs>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptionsArgs | undefined>;
     /**
      * The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
      */
-    serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string | undefined>;
     /**
      * The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The user who can mount the share, has the permissions to access files and folders in the SMB share.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }

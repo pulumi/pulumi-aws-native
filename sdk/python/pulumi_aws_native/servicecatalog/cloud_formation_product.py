@@ -25,18 +25,18 @@ __all__ = ['CloudFormationProductArgs', 'CloudFormationProduct']
 class CloudFormationProductArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[_builtins.str],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
-                 replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_connection: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_type: pulumi.Input[Optional['CloudFormationProductProductType']] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
+                 replace_provisioning_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_connection: pulumi.Input[Optional['CloudFormationProductSourceConnectionArgs']] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CloudFormationProduct resource.
 
@@ -94,146 +94,146 @@ class CloudFormationProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the product.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def distributor(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distributor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The distributor of the product.
         """
         return pulumi.get(self, "distributor")
 
     @distributor.setter
-    def distributor(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distributor(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distributor", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the product.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="productType")
-    def product_type(self) -> Optional[pulumi.Input['CloudFormationProductProductType']]:
+    def product_type(self) -> pulumi.Input[Optional['CloudFormationProductProductType']]:
         """
         The type of product.
         """
         return pulumi.get(self, "product_type")
 
     @product_type.setter
-    def product_type(self, value: Optional[pulumi.Input['CloudFormationProductProductType']]):
+    def product_type(self, value: pulumi.Input[Optional['CloudFormationProductProductType']]):
         pulumi.set(self, "product_type", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]:
+    def provisioning_artifact_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]:
         """
         The configuration of the provisioning artifact (also known as a version).
         """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
-    def provisioning_artifact_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]):
+    def provisioning_artifact_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]]):
         pulumi.set(self, "provisioning_artifact_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="replaceProvisioningArtifacts")
-    def replace_provisioning_artifacts(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def replace_provisioning_artifacts(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
         """
         return pulumi.get(self, "replace_provisioning_artifacts")
 
     @replace_provisioning_artifacts.setter
-    def replace_provisioning_artifacts(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def replace_provisioning_artifacts(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "replace_provisioning_artifacts", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceConnection")
-    def source_connection(self) -> Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']]:
+    def source_connection(self) -> pulumi.Input[Optional['CloudFormationProductSourceConnectionArgs']]:
         """
         A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
         """
         return pulumi.get(self, "source_connection")
 
     @source_connection.setter
-    def source_connection(self, value: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']]):
+    def source_connection(self, value: pulumi.Input[Optional['CloudFormationProductSourceConnectionArgs']]):
         pulumi.set(self, "source_connection", value)
 
     @_builtins.property
     @pulumi.getter(name="supportDescription")
-    def support_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The support information about the product.
         """
         return pulumi.get(self, "support_description")
 
     @support_description.setter
-    def support_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_description", value)
 
     @_builtins.property
     @pulumi.getter(name="supportEmail")
-    def support_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contact email for product support.
         """
         return pulumi.get(self, "support_email")
 
     @support_email.setter
-    def support_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_email", value)
 
     @_builtins.property
     @pulumi.getter(name="supportUrl")
-    def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def support_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The contact URL for product support.
         """
         return pulumi.get(self, "support_url")
 
     @support_url.setter
-    def support_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def support_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "support_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -243,23 +243,22 @@ class CloudFormationProduct(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
-                 replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_connection: Optional[pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_type: pulumi.Input[Optional['CloudFormationProductProductType']] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
+                 replace_provisioning_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,7 +285,6 @@ class CloudFormationProduct(pulumi.CustomResource):
         """
         Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
 
-
         :param str resource_name: The name of the resource.
         :param CloudFormationProductArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,19 +300,19 @@ class CloudFormationProduct(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distributor: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
-                 replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
-                 source_connection: Optional[pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
-                 support_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 support_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distributor: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_type: pulumi.Input[Optional['CloudFormationProductProductType']] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
+                 replace_provisioning_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
+                 support_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 support_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

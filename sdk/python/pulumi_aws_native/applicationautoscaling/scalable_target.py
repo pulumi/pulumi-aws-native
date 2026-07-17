@@ -26,9 +26,9 @@ class ScalableTargetArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  scalable_dimension: pulumi.Input[_builtins.str],
                  service_namespace: pulumi.Input[_builtins.str],
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
-                 suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
+                 suspended_state: pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']] = None):
         """
         The set of arguments for constructing a ScalableTarget resource.
 
@@ -84,8 +84,8 @@ class ScalableTargetArgs:
         :param pulumi.Input[_builtins.str] role_arn: Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide*.
                 To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide*. Look for the ARN in the table at the bottom of the page.
         :param pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
-        :param pulumi.Input['ScalableTargetSuspendedStateArgs'] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
-                 *Suspension Outcomes* 
+        :param pulumi.Input['ScalableTargetSuspendedStateArgs'] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities.
+                 *Suspension Outcomes*
                  +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
                  +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
                  +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
@@ -208,7 +208,7 @@ class ScalableTargetArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specify the Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that allows Application Auto Scaling to modify the scalable target on your behalf. This can be either an IAM service role that Application Auto Scaling can assume to make calls to other AWS resources on your behalf, or a service-linked role for the specified service. For more information, see [How Application Auto Scaling works with IAM](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html) in the *Application Auto Scaling User Guide*.
          To automatically create a service-linked role (recommended), specify the full ARN of the service-linked role in your stack template. To find the exact ARN of the service-linked role for your AWS or custom resource, see the [Service-linked roles](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html) topic in the *Application Auto Scaling User Guide*. Look for the ARN in the table at the bottom of the page.
@@ -216,27 +216,27 @@ class ScalableTargetArgs:
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
-    def role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduledActions")
-    def scheduled_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]]:
+    def scheduled_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]]:
         """
         The scheduled actions for the scalable target. Duplicates aren't allowed.
         """
         return pulumi.get(self, "scheduled_actions")
 
     @scheduled_actions.setter
-    def scheduled_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]]):
+    def scheduled_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]]):
         pulumi.set(self, "scheduled_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendedState")
-    def suspended_state(self) -> Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']]:
+    def suspended_state(self) -> pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']]:
         """
-        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
-          *Suspension Outcomes* 
+        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities.
+          *Suspension Outcomes*
           +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
           +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
           +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
@@ -244,7 +244,7 @@ class ScalableTargetArgs:
         return pulumi.get(self, "suspended_state")
 
     @suspended_state.setter
-    def suspended_state(self, value: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']]):
+    def suspended_state(self, value: pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']]):
         pulumi.set(self, "suspended_state", value)
 
 
@@ -254,20 +254,19 @@ class ScalableTarget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
-                 service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_state: Optional[pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
+                 service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_state: pulumi.Input[Optional[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
          For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
           If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,8 +322,8 @@ class ScalableTarget(pulumi.CustomResource):
                  +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]] scheduled_actions: The scheduled actions for the scalable target. Duplicates aren't allowed.
         :param pulumi.Input[_builtins.str] service_namespace: The namespace of the AWS service that provides the resource, or a ``custom-resource``.
-        :param pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
-                 *Suspension Outcomes* 
+        :param pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']] suspended_state: An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities.
+                 *Suspension Outcomes*
                  +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
                  +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
                  +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
@@ -339,7 +338,6 @@ class ScalableTarget(pulumi.CustomResource):
         The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
          For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
           If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
-
 
         :param str resource_name: The name of the resource.
         :param ScalableTargetArgs args: The arguments to use to populate this resource's properties.
@@ -356,14 +354,14 @@ class ScalableTarget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 max_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 scalable_dimension: Optional[pulumi.Input[_builtins.str]] = None,
-                 scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
-                 service_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspended_state: Optional[pulumi.Input[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
+                 max_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
+                 scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
+                 service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspended_state: pulumi.Input[Optional[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -537,8 +535,8 @@ class ScalableTarget(pulumi.CustomResource):
     @pulumi.getter(name="suspendedState")
     def suspended_state(self) -> pulumi.Output[Optional['outputs.ScalableTargetSuspendedState']]:
         """
-        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. 
-          *Suspension Outcomes* 
+        An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities.
+          *Suspension Outcomes*
           +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.
           +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
           +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.

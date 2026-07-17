@@ -64,7 +64,6 @@ def get_application(application_name: Optional[_builtins.str] = None,
     """
     The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
 
-
     :param _builtins.str application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """
     __args__ = dict()
@@ -75,11 +74,10 @@ def get_application(application_name: Optional[_builtins.str] = None,
     return AwaitableGetApplicationResult(
         description=pulumi.get(__ret__, 'description'),
         resource_lifecycle_config=pulumi.get(__ret__, 'resource_lifecycle_config'))
-def get_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
-
 
     :param _builtins.str application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
     """

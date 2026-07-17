@@ -66,22 +66,22 @@ class FeedAspectRatioArgs:
 
 
 class FeedClippingConfigArgsDict(TypedDict):
-    callback_metadata: NotRequired[pulumi.Input[_builtins.str]]
+    callback_metadata: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FeedClippingConfigArgs:
     def __init__(__self__, *,
-                 callback_metadata: Optional[pulumi.Input[_builtins.str]] = None):
+                 callback_metadata: pulumi.Input[Optional[_builtins.str]] = None):
         if callback_metadata is not None:
             pulumi.set(__self__, "callback_metadata", callback_metadata)
 
     @_builtins.property
     @pulumi.getter(name="callbackMetadata")
-    def callback_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def callback_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "callback_metadata")
 
     @callback_metadata.setter
-    def callback_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def callback_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "callback_metadata", value)
 
 
@@ -98,7 +98,7 @@ class FeedGetOutputArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     output_config: pulumi.Input[Union['FeedOutputConfig0PropertiesArgsDict', 'FeedOutputConfig1PropertiesArgsDict', 'FeedOutputConfig2PropertiesArgsDict']]
     status: pulumi.Input['FeedOutputStatus']
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class FeedGetOutputArgs:
@@ -106,7 +106,7 @@ class FeedGetOutputArgs:
                  name: pulumi.Input[_builtins.str],
                  output_config: pulumi.Input[Union['FeedOutputConfig0PropertiesArgs', 'FeedOutputConfig1PropertiesArgs', 'FeedOutputConfig2PropertiesArgs']],
                  status: pulumi.Input['FeedOutputStatus'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "output_config", output_config)
         pulumi.set(__self__, "status", status)
@@ -142,11 +142,11 @@ class FeedGetOutputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -209,17 +209,17 @@ class FeedOutputConfig2PropertiesArgs:
 
 class FeedSubtitlingConfigArgsDict(TypedDict):
     language: pulumi.Input['FeedTranscriptionLanguage']
-    aspect_ratio: NotRequired[pulumi.Input['FeedAspectRatioArgsDict']]
-    dictionary: NotRequired[pulumi.Input[_builtins.str]]
-    profanity_filter: NotRequired[pulumi.Input['FeedProfanityFilterMode']]
+    aspect_ratio: NotRequired[pulumi.Input[Optional['FeedAspectRatioArgsDict']]]
+    dictionary: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    profanity_filter: NotRequired[pulumi.Input[Optional['FeedProfanityFilterMode']]]
 
 @pulumi.input_type
 class FeedSubtitlingConfigArgs:
     def __init__(__self__, *,
                  language: pulumi.Input['FeedTranscriptionLanguage'],
-                 aspect_ratio: Optional[pulumi.Input['FeedAspectRatioArgs']] = None,
-                 dictionary: Optional[pulumi.Input[_builtins.str]] = None,
-                 profanity_filter: Optional[pulumi.Input['FeedProfanityFilterMode']] = None):
+                 aspect_ratio: pulumi.Input[Optional['FeedAspectRatioArgs']] = None,
+                 dictionary: pulumi.Input[Optional[_builtins.str]] = None,
+                 profanity_filter: pulumi.Input[Optional['FeedProfanityFilterMode']] = None):
         pulumi.set(__self__, "language", language)
         if aspect_ratio is not None:
             pulumi.set(__self__, "aspect_ratio", aspect_ratio)
@@ -239,29 +239,29 @@ class FeedSubtitlingConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="aspectRatio")
-    def aspect_ratio(self) -> Optional[pulumi.Input['FeedAspectRatioArgs']]:
+    def aspect_ratio(self) -> pulumi.Input[Optional['FeedAspectRatioArgs']]:
         return pulumi.get(self, "aspect_ratio")
 
     @aspect_ratio.setter
-    def aspect_ratio(self, value: Optional[pulumi.Input['FeedAspectRatioArgs']]):
+    def aspect_ratio(self, value: pulumi.Input[Optional['FeedAspectRatioArgs']]):
         pulumi.set(self, "aspect_ratio", value)
 
     @_builtins.property
     @pulumi.getter
-    def dictionary(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def dictionary(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "dictionary")
 
     @dictionary.setter
-    def dictionary(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def dictionary(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dictionary", value)
 
     @_builtins.property
     @pulumi.getter(name="profanityFilter")
-    def profanity_filter(self) -> Optional[pulumi.Input['FeedProfanityFilterMode']]:
+    def profanity_filter(self) -> pulumi.Input[Optional['FeedProfanityFilterMode']]:
         return pulumi.get(self, "profanity_filter")
 
     @profanity_filter.setter
-    def profanity_filter(self, value: Optional[pulumi.Input['FeedProfanityFilterMode']]):
+    def profanity_filter(self, value: pulumi.Input[Optional['FeedProfanityFilterMode']]):
         pulumi.set(self, "profanity_filter", value)
 
 

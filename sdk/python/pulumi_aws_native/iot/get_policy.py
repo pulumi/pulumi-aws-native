@@ -87,7 +87,6 @@ def get_policy(id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoT::Policy
 
-
     :param _builtins.str id: The name of this policy.
     """
     __args__ = dict()
@@ -100,11 +99,10 @@ def get_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Resource Type definition for AWS::IoT::Policy
-
 
     :param _builtins.str id: The name of this policy.
     """

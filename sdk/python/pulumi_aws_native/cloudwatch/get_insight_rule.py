@@ -105,7 +105,6 @@ def get_insight_rule(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
 
-
     :param _builtins.str arn: The ARN of the Contributor Insights rule, such as `arn:aws:cloudwatch:us-west-2:123456789012:insight-rule/MyInsightRuleName` .
     """
     __args__ = dict()
@@ -119,11 +118,10 @@ def get_insight_rule(arn: Optional[_builtins.str] = None,
         rule_body=pulumi.get(__ret__, 'rule_body'),
         rule_state=pulumi.get(__ret__, 'rule_state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_insight_rule_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_insight_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightRuleResult]:
     """
     Resource Type definition for AWS::CloudWatch::InsightRule. Creates a Contributor Insights rule that analyzes log data to identify top contributors and usage patterns.
-
 
     :param _builtins.str arn: The ARN of the Contributor Insights rule, such as `arn:aws:cloudwatch:us-west-2:123456789012:insight-rule/MyInsightRuleName` .
     """

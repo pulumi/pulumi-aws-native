@@ -99,7 +99,7 @@ export interface AcmeExternalAccountBindingArgs {
      * The ARN of the ACME endpoint this binding is associated with.
      */
     acmeEndpointArn: pulumi.Input<string>;
-    expiration?: pulumi.Input<inputs.certificatemanager.AcmeExternalAccountBindingExpirationArgs>;
+    expiration?: pulumi.Input<inputs.certificatemanager.AcmeExternalAccountBindingExpirationArgs | undefined>;
     /**
      * The IAM role ARN for cross-account access.
      */
@@ -107,5 +107,5 @@ export interface AcmeExternalAccountBindingArgs {
     /**
      * Tags associated with the external account binding.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

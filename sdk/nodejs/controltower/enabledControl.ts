@@ -125,11 +125,11 @@ export interface EnabledControlArgs {
     /**
      * Parameters to configure the enabled control behavior.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledControlParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledControlParameterArgs>[] | undefined>;
     /**
      * A set of tags to assign to the enabled control.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Arn for Organizational unit to which the control needs to be applied
      */

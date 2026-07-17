@@ -63,12 +63,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::ConfigurationSetEventDestination
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +82,6 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SES::ConfigurationSetEventDestination
-
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetEventDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -100,8 +98,8 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 event_destination: Optional[pulumi.Input[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
+                 configuration_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_destination: pulumi.Input[Optional[Union['ConfigurationSetEventDestinationEventDestinationArgs', 'ConfigurationSetEventDestinationEventDestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

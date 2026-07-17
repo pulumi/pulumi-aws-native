@@ -16,88 +16,39 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'EnvironmentFederationParametersAttributeMapItemPropertiesArgs',
-    'EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict',
     'EnvironmentFederationParametersArgs',
     'EnvironmentFederationParametersArgsDict',
+    'EnvironmentFederationParametersAttributeMapItemPropertiesArgs',
+    'EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict',
     'EnvironmentSuperuserParametersArgs',
     'EnvironmentSuperuserParametersArgsDict',
 ]
-
-class EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict(TypedDict):
-    key: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-    """
-    value: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-    """
-
-@pulumi.input_type
-class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "key", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "value", value)
-
 
 class EnvironmentFederationParametersArgsDict(TypedDict):
     """
     Additional parameters to identify Federation mode
     """
-    application_call_back_url: NotRequired[pulumi.Input[_builtins.str]]
+    application_call_back_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAML metadata URL to link with the Environment
     """
-    attribute_map: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict']]]]
+    attribute_map: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict']]]]]
     """
     Attribute map for SAML configuration
     """
-    federation_provider_name: NotRequired[pulumi.Input[_builtins.str]]
+    federation_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Federation provider name to link with the Environment
     """
-    federation_urn: NotRequired[pulumi.Input[_builtins.str]]
+    federation_urn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAML metadata URL to link with the Environment
     """
-    saml_metadata_document: NotRequired[pulumi.Input[_builtins.str]]
+    saml_metadata_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAML metadata document to link the federation provider to the Environment
     """
-    saml_metadata_url: NotRequired[pulumi.Input[_builtins.str]]
+    saml_metadata_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     SAML metadata URL to link with the Environment
     """
@@ -105,12 +56,12 @@ class EnvironmentFederationParametersArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentFederationParametersArgs:
     def __init__(__self__, *,
-                 application_call_back_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 attribute_map: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]] = None,
-                 federation_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 federation_urn: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_metadata_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 saml_metadata_url: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_call_back_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 attribute_map: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]] = None,
+                 federation_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 federation_urn: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_metadata_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 saml_metadata_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Additional parameters to identify Federation mode
 
@@ -136,90 +87,139 @@ class EnvironmentFederationParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationCallBackUrl")
-    def application_call_back_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_call_back_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "application_call_back_url")
 
     @application_call_back_url.setter
-    def application_call_back_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_call_back_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_call_back_url", value)
 
     @_builtins.property
     @pulumi.getter(name="attributeMap")
-    def attribute_map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]]:
+    def attribute_map(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]]:
         """
         Attribute map for SAML configuration
         """
         return pulumi.get(self, "attribute_map")
 
     @attribute_map.setter
-    def attribute_map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]]):
+    def attribute_map(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]]):
         pulumi.set(self, "attribute_map", value)
 
     @_builtins.property
     @pulumi.getter(name="federationProviderName")
-    def federation_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federation_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Federation provider name to link with the Environment
         """
         return pulumi.get(self, "federation_provider_name")
 
     @federation_provider_name.setter
-    def federation_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federation_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federation_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="federationUrn")
-    def federation_urn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federation_urn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "federation_urn")
 
     @federation_urn.setter
-    def federation_urn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federation_urn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federation_urn", value)
 
     @_builtins.property
     @pulumi.getter(name="samlMetadataDocument")
-    def saml_metadata_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_metadata_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML metadata document to link the federation provider to the Environment
         """
         return pulumi.get(self, "saml_metadata_document")
 
     @saml_metadata_document.setter
-    def saml_metadata_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_metadata_document(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_metadata_document", value)
 
     @_builtins.property
     @pulumi.getter(name="samlMetadataUrl")
-    def saml_metadata_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saml_metadata_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SAML metadata URL to link with the Environment
         """
         return pulumi.get(self, "saml_metadata_url")
 
     @saml_metadata_url.setter
-    def saml_metadata_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saml_metadata_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saml_metadata_url", value)
+
+
+class EnvironmentFederationParametersAttributeMapItemPropertiesArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+    """
+
+@pulumi.input_type
+class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[_builtins.str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class EnvironmentSuperuserParametersArgsDict(TypedDict):
     """
     Parameters of the first Superuser for the FinSpace Environment
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email address
     """
-    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    first_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     First name
     """
-    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    last_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Last name
     """
@@ -227,9 +227,9 @@ class EnvironmentSuperuserParametersArgsDict(TypedDict):
 @pulumi.input_type
 class EnvironmentSuperuserParametersArgs:
     def __init__(__self__, *,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 last_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Parameters of the first Superuser for the FinSpace Environment
 
@@ -246,38 +246,38 @@ class EnvironmentSuperuserParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         First name
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Last name
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
 

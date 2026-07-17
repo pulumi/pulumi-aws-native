@@ -105,7 +105,7 @@ export interface UserArgs {
     /**
      * Access permissions string used for this user account.
      */
-    accessString?: pulumi.Input<string>;
+    accessString?: pulumi.Input<string | undefined>;
     /**
      * Denotes whether the user requires a password to authenticate.
      *
@@ -113,13 +113,13 @@ export interface UserArgs {
      *
      * `mynewdbuser: Type: AWS::MemoryDB::User Properties: AccessString: on ~* &* +@all AuthenticationMode: Passwords: '1234567890123456' Type: password UserName: mynewdbuser AuthenticationMode: { "Passwords": ["1234567890123456"], "Type": "Password" }`
      */
-    authenticationMode?: pulumi.Input<inputs.memorydb.AuthenticationModePropertiesArgs>;
+    authenticationMode?: pulumi.Input<inputs.memorydb.AuthenticationModePropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this user.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the user.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

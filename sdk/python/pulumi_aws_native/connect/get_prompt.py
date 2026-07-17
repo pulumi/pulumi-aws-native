@@ -100,7 +100,6 @@ def get_prompt(prompt_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::Prompt
 
-
     :param _builtins.str prompt_arn: The Amazon Resource Name (ARN) for the prompt.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_prompt(prompt_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         prompt_arn=pulumi.get(__ret__, 'prompt_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_prompt_output(prompt_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prompt_output(prompt_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
     """
     Resource Type definition for AWS::Connect::Prompt
-
 
     :param _builtins.str prompt_arn: The Amazon Resource Name (ARN) for the prompt.
     """

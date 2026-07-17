@@ -137,7 +137,6 @@ def get_connect_peer(connect_peer_id: Optional[_builtins.str] = None,
     """
     AWS::NetworkManager::ConnectPeer Resource Type Definition.
 
-
     :param _builtins.str connect_peer_id: The ID of the Connect peer.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_connect_peer(connect_peer_id: Optional[_builtins.str] = None,
         last_modification_errors=pulumi.get(__ret__, 'last_modification_errors'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_connect_peer_output(connect_peer_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
     AWS::NetworkManager::ConnectPeer Resource Type Definition.
-
 
     :param _builtins.str connect_peer_id: The ID of the Connect peer.
     """

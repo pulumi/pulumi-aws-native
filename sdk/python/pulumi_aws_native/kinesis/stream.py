@@ -24,15 +24,15 @@ __all__ = ['StreamArgs', 'Stream']
 @pulumi.input_type
 class StreamArgs:
     def __init__(__self__, *,
-                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
-                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
-                 stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None):
+                 desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_encryption: pulumi.Input[Optional['StreamEncryptionArgs']] = None,
+                 stream_mode_details: pulumi.Input[Optional['StreamModeDetailsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 warm_throughput_mi_bps: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stream resource.
 
@@ -67,110 +67,110 @@ class StreamArgs:
 
     @_builtins.property
     @pulumi.getter(name="desiredShardLevelMetrics")
-    def desired_shard_level_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]]:
+    def desired_shard_level_metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]]:
         """
         The final list of shard-level metrics
         """
         return pulumi.get(self, "desired_shard_level_metrics")
 
     @desired_shard_level_metrics.setter
-    def desired_shard_level_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]]):
+    def desired_shard_level_metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]]):
         pulumi.set(self, "desired_shard_level_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="maxRecordSizeInKiB")
-    def max_record_size_in_ki_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_record_size_in_ki_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         """
         return pulumi.get(self, "max_record_size_in_ki_b")
 
     @max_record_size_in_ki_b.setter
-    def max_record_size_in_ki_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_record_size_in_ki_b(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_record_size_in_ki_b", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Kinesis stream.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
-    def retention_period_hours(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retention_period_hours(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of hours for the data records that are stored in shards to remain accessible.
         """
         return pulumi.get(self, "retention_period_hours")
 
     @retention_period_hours.setter
-    def retention_period_hours(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retention_period_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_hours", value)
 
     @_builtins.property
     @pulumi.getter(name="shardCount")
-    def shard_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def shard_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         """
         return pulumi.get(self, "shard_count")
 
     @shard_count.setter
-    def shard_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def shard_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "shard_count", value)
 
     @_builtins.property
     @pulumi.getter(name="streamEncryption")
-    def stream_encryption(self) -> Optional[pulumi.Input['StreamEncryptionArgs']]:
+    def stream_encryption(self) -> pulumi.Input[Optional['StreamEncryptionArgs']]:
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         """
         return pulumi.get(self, "stream_encryption")
 
     @stream_encryption.setter
-    def stream_encryption(self, value: Optional[pulumi.Input['StreamEncryptionArgs']]):
+    def stream_encryption(self, value: pulumi.Input[Optional['StreamEncryptionArgs']]):
         pulumi.set(self, "stream_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="streamModeDetails")
-    def stream_mode_details(self) -> Optional[pulumi.Input['StreamModeDetailsArgs']]:
+    def stream_mode_details(self) -> pulumi.Input[Optional['StreamModeDetailsArgs']]:
         """
         The mode in which the stream is running.
         """
         return pulumi.get(self, "stream_mode_details")
 
     @stream_mode_details.setter
-    def stream_mode_details(self, value: Optional[pulumi.Input['StreamModeDetailsArgs']]):
+    def stream_mode_details(self, value: pulumi.Input[Optional['StreamModeDetailsArgs']]):
         pulumi.set(self, "stream_mode_details", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="warmThroughputMiBps")
-    def warm_throughput_mi_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def warm_throughput_mi_bps(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
         """
         return pulumi.get(self, "warm_throughput_mi_bps")
 
     @warm_throughput_mi_bps.setter
-    def warm_throughput_mi_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def warm_throughput_mi_bps(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "warm_throughput_mi_bps", value)
 
 
@@ -180,19 +180,18 @@ class Stream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
-                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
-                 stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None,
+                 desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput_mi_bps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::Stream
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,7 +214,6 @@ class Stream(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Kinesis::Stream
 
-
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,15 +229,15 @@ class Stream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
-                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
-                 shard_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
-                 stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None,
+                 desired_shard_level_metrics: pulumi.Input[Optional[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 shard_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_encryption: pulumi.Input[Optional[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
+                 stream_mode_details: pulumi.Input[Optional[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput_mi_bps: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

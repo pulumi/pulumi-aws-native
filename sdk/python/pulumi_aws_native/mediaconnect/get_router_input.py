@@ -261,7 +261,6 @@ def get_router_input(arn: Optional[_builtins.str] = None,
     """
     Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router input.
     """
     __args__ = dict()
@@ -289,11 +288,10 @@ def get_router_input(arn: Optional[_builtins.str] = None,
         tier=pulumi.get(__ret__, 'tier'),
         transit_encryption=pulumi.get(__ret__, 'transit_encryption'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_router_input_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_router_input_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouterInputResult]:
     """
     Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the router input.
     """

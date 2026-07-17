@@ -104,7 +104,6 @@ def get_thing_type(thing_type_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IoT::ThingType
 
-
     :param _builtins.str thing_type_name: The name of the thing type.
     """
     __args__ = dict()
@@ -118,11 +117,10 @@ def get_thing_type(thing_type_name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'),
         thing_type_properties=pulumi.get(__ret__, 'thing_type_properties'))
-def get_thing_type_output(thing_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_thing_type_output(thing_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThingTypeResult]:
     """
     Resource Type definition for AWS::IoT::ThingType
-
 
     :param _builtins.str thing_type_name: The name of the thing type.
     """

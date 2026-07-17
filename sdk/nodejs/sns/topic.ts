@@ -137,9 +137,9 @@ export class Topic extends pulumi.CustomResource {
     declare public readonly archivePolicy: pulumi.Output<any | undefined>;
     /**
      * Enables content-based deduplication for FIFO topics.
-     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
      *   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-     *  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+     *       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
      */
     declare public readonly contentBasedDeduplication: pulumi.Output<boolean | undefined>;
     /**
@@ -153,12 +153,12 @@ export class Topic extends pulumi.CustomResource {
     declare public readonly dataProtectionPolicy: pulumi.Output<any | undefined>;
     /**
      * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-     *   +  HTTP 
+     *   +  HTTP
      *   +  Amazon Kinesis Data Firehose
      *   +   AWS Lambda
      *   +  Platform application endpoint
      *   +  Amazon Simple Queue Service
-     *   
+     *
      *  Once configured, log entries are sent to Amazon CloudWatch Logs.
      */
     declare public readonly deliveryStatusLogging: pulumi.Output<outputs.sns.TopicLoggingConfig[] | undefined>;
@@ -265,14 +265,14 @@ export interface TopicArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
-    archivePolicy?: any;
+    archivePolicy?: any | undefined;
     /**
      * Enables content-based deduplication for FIFO topics.
-     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
      *   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-     *  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+     *       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
      */
-    contentBasedDeduplication?: pulumi.Input<boolean>;
+    contentBasedDeduplication?: pulumi.Input<boolean | undefined>;
     /**
      * The body of the policy document you want to use for this topic.
      *  You can only add one policy per topic.
@@ -281,57 +281,57 @@ export interface TopicArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SNS::Topic` for more information about the expected schema for this property.
      */
-    dataProtectionPolicy?: any;
+    dataProtectionPolicy?: any | undefined;
     /**
      * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-     *   +  HTTP 
+     *   +  HTTP
      *   +  Amazon Kinesis Data Firehose
      *   +   AWS Lambda
      *   +  Platform application endpoint
      *   +  Amazon Simple Queue Service
-     *   
+     *
      *  Once configured, log entries are sent to Amazon CloudWatch Logs.
      */
-    deliveryStatusLogging?: pulumi.Input<pulumi.Input<inputs.sns.TopicLoggingConfigArgs>[]>;
+    deliveryStatusLogging?: pulumi.Input<pulumi.Input<inputs.sns.TopicLoggingConfigArgs>[] | undefined>;
     /**
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the throughput quota and deduplication behavior to apply for the FIFO topic. Valid values are `Topic` or `MessageGroup` .
      */
-    fifoThroughputScope?: pulumi.Input<string>;
+    fifoThroughputScope?: pulumi.Input<string | undefined>;
     /**
      * Set to true to create a FIFO topic.
      */
-    fifoTopic?: pulumi.Input<boolean>;
+    fifoTopic?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
      *  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
-    kmsMasterKeyId?: pulumi.Input<string>;
+    kmsMasterKeyId?: pulumi.Input<string | undefined>;
     /**
      * The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
      */
-    signatureVersion?: pulumi.Input<string>;
+    signatureVersion?: pulumi.Input<string | undefined>;
     /**
      * The SNS subscriptions (endpoints) for this topic.
      *   If you specify the ``Subscription`` property in the ``AWS::SNS::Topic`` resource and it creates an associated subscription resource, the associated subscription is not deleted when the ``AWS::SNS::Topic`` resource is deleted.
      */
-    subscription?: pulumi.Input<pulumi.Input<inputs.sns.TopicSubscriptionArgs>[]>;
+    subscription?: pulumi.Input<pulumi.Input<inputs.sns.TopicSubscriptionArgs>[] | undefined>;
     /**
      * The list of tags to add to a new topic.
      *   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
      *  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      *   If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
-    topicName?: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
     /**
      * Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
      */
-    tracingConfig?: pulumi.Input<string>;
+    tracingConfig?: pulumi.Input<string | undefined>;
 }

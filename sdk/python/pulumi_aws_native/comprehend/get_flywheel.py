@@ -101,7 +101,6 @@ def get_flywheel(arn: Optional[_builtins.str] = None,
     """
     The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the flywheel.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_flywheel(arn: Optional[_builtins.str] = None,
         data_access_role_arn=pulumi.get(__ret__, 'data_access_role_arn'),
         data_security_config=pulumi.get(__ret__, 'data_security_config'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_flywheel_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flywheel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlywheelResult]:
     """
     The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the flywheel.
     """

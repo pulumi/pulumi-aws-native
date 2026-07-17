@@ -19,7 +19,7 @@ __all__ = ['TransactionSearchConfigArgs', 'TransactionSearchConfig']
 @pulumi.input_type
 class TransactionSearchConfigArgs:
     def __init__(__self__, *,
-                 indexing_percentage: Optional[pulumi.Input[_builtins.float]] = None):
+                 indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a TransactionSearchConfig resource.
         """
@@ -28,11 +28,11 @@ class TransactionSearchConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="indexingPercentage")
-    def indexing_percentage(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def indexing_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
         return pulumi.get(self, "indexing_percentage")
 
     @indexing_percentage.setter
-    def indexing_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def indexing_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "indexing_percentage", value)
 
 
@@ -42,11 +42,10 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 indexing_percentage: Optional[pulumi.Input[_builtins.float]] = None,
+                 indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         """
         This schema provides construct and validation rules for AWS-XRay TransactionSearchConfig resource parameters.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -59,7 +58,6 @@ class TransactionSearchConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This schema provides construct and validation rules for AWS-XRay TransactionSearchConfig resource parameters.
-
 
         :param str resource_name: The name of the resource.
         :param TransactionSearchConfigArgs args: The arguments to use to populate this resource's properties.
@@ -76,7 +74,7 @@ class TransactionSearchConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 indexing_percentage: Optional[pulumi.Input[_builtins.float]] = None,
+                 indexing_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

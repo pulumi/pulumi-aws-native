@@ -23,13 +23,13 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]] = None,
-                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
-                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSettingsArgs']]]] = None,
+                 configuration: pulumi.Input[Optional['ClusterConfigurationArgs']] = None,
+                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
+                 service_connect_defaults: pulumi.Input[Optional['ClusterServiceConnectDefaultsArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -39,7 +39,7 @@ class ClusterArgs:
                 The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
         :param pulumi.Input[_builtins.str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
-                Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+                Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
                 For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command and managed storage configuration for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
@@ -72,7 +72,7 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def capacity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The short name of one or more capacity providers to associate with the cluster. A capacity provider must be associated with a cluster before it can be included as part of the default capacity provider strategy of the cluster or used in a capacity provider strategy when calling the [CreateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html) or [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) actions.
          If specifying a capacity provider that uses an Auto Scaling group, the capacity provider must be created but not associated with another cluster. New Auto Scaling group capacity providers can be created with the [CreateCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html) API operation.
@@ -82,62 +82,62 @@ class ClusterArgs:
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
-    def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def capacity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "capacity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterSettings")
-    def cluster_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]]:
+    def cluster_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSettingsArgs']]]]:
         """
         The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
-         Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+         Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
          For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "cluster_settings")
 
     @cluster_settings.setter
-    def cluster_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingsArgs']]]]):
+    def cluster_settings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterSettingsArgs']]]]):
         pulumi.set(self, "cluster_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+    def configuration(self) -> pulumi.Input[Optional['ClusterConfigurationArgs']]:
         """
         The execute command and managed storage configuration for the cluster.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
+    def configuration(self, value: pulumi.Input[Optional['ClusterConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
-    def default_capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]:
+    def default_capacity_provider_strategy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]:
         """
         The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
         """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @default_capacity_provider_strategy.setter
-    def default_capacity_provider_strategy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]):
+    def default_capacity_provider_strategy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]]):
         pulumi.set(self, "default_capacity_provider_strategy", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceConnectDefaults")
-    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+    def service_connect_defaults(self) -> pulumi.Input[Optional['ClusterServiceConnectDefaultsArgs']]:
         """
         Use this parameter to set a default Service Connect namespace. After you set a default Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as client services in the namespace. This setting only applies to new services that set the ``enabled`` parameter to ``true`` in the ``ServiceConnectConfiguration``. You can set the namespace of each service individually in the ``ServiceConnectConfiguration`` to override this default parameter.
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -145,12 +145,12 @@ class ClusterArgs:
         return pulumi.get(self, "service_connect_defaults")
 
     @service_connect_defaults.setter
-    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+    def service_connect_defaults(self, value: pulumi.Input[Optional['ClusterServiceConnectDefaultsArgs']]):
         pulumi.set(self, "service_connect_defaults", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
          The following basic restrictions apply to tags:
@@ -165,7 +165,7 @@ class ClusterArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -175,17 +175,16 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
+                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 service_connect_defaults: pulumi.Input[Optional[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,7 @@ class Cluster(pulumi.CustomResource):
                 The [PutCapacityProvider](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProvider.html) API operation is used to update the list of available capacity providers for a cluster after the cluster is created.
         :param pulumi.Input[_builtins.str] cluster_name: A user-generated string that you use to identify your cluster. If you don't specify a name, CFNlong generates a unique physical ID for the name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]] cluster_settings: The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
-                Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+                Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
                 For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']] configuration: The execute command and managed storage configuration for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]] default_capacity_provider_strategy: The default capacity provider strategy for the cluster. When services or tasks are run in the cluster with no launch type or capacity provider strategy specified, the default capacity provider strategy is used.
@@ -220,7 +219,6 @@ class Cluster(pulumi.CustomResource):
         """
         The ``AWS::ECS::Cluster`` resource creates an Amazon Elastic Container Service (Amazon ECS) cluster.
 
-
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,13 +234,13 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
-                 default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterSettingsArgs', 'ClusterSettingsArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['ClusterConfigurationArgs', 'ClusterConfigurationArgsDict']]] = None,
+                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderStrategyItemArgs', 'ClusterCapacityProviderStrategyItemArgsDict']]]]] = None,
+                 service_connect_defaults: pulumi.Input[Optional[Union['ClusterServiceConnectDefaultsArgs', 'ClusterServiceConnectDefaultsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -326,7 +324,7 @@ class Cluster(pulumi.CustomResource):
     def cluster_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterSettings']]]:
         """
         The settings to use when creating a cluster. This parameter is used to turn on CloudWatch Container Insights with enhanced observability or CloudWatch Container Insights for a cluster.
-         Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up. 
+         Container Insights with enhanced observability provides all the Container Insights metrics, plus additional task and container metrics. This version supports enhanced observability for Amazon ECS clusters using the Amazon EC2 and Fargate launch types. After you configure Container Insights with enhanced observability on Amazon ECS, Container Insights auto-collects detailed infrastructure telemetry from the cluster level down to the container level in your environment and displays these critical performance data in curated dashboards removing the heavy lifting in observability set-up.
          For more information, see [Monitor Amazon ECS containers using Container Insights with enhanced observability](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html) in the *Amazon Elastic Container Service Developer Guide*.
         """
         return pulumi.get(self, "cluster_settings")

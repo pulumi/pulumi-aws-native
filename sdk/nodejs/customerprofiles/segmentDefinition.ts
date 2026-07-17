@@ -137,7 +137,7 @@ export interface SegmentDefinitionArgs {
     /**
      * The description of the segment definition.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the segment definition.
      */
@@ -149,21 +149,21 @@ export interface SegmentDefinitionArgs {
     /**
      * The unique name of the segment definition.
      */
-    segmentDefinitionName?: pulumi.Input<string>;
+    segmentDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
      */
-    segmentGroups?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentGroupArgs>;
+    segmentGroups?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentGroupArgs | undefined>;
     /**
      * The segment sort configuration for ordering segment results.
      */
-    segmentSort?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentSortArgs>;
+    segmentSort?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentSortArgs | undefined>;
     /**
      * The SQL query that defines the segment criteria.
      */
-    segmentSqlQuery?: pulumi.Input<string>;
+    segmentSqlQuery?: pulumi.Input<string | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

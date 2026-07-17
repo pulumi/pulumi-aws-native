@@ -76,7 +76,6 @@ def get_group(group_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::IdentityStore::Group
 
-
     :param _builtins.str group_id: The unique identifier for a group in the identity store.
     :param _builtins.str identity_store_id: The globally unique identifier for the identity store.
     """
@@ -90,12 +89,11 @@ def get_group(group_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         group_id=pulumi.get(__ret__, 'group_id'))
-def get_group_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     identity_store_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_group_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Resource Type definition for AWS::IdentityStore::Group
-
 
     :param _builtins.str group_id: The unique identifier for a group in the identity store.
     :param _builtins.str identity_store_id: The globally unique identifier for the identity store.

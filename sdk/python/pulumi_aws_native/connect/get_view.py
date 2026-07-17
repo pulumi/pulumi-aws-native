@@ -150,7 +150,6 @@ def get_view(view_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::View
 
-
     :param _builtins.str view_arn: The Amazon Resource Name (ARN) of the view.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_view(view_arn: Optional[_builtins.str] = None,
         view_arn=pulumi.get(__ret__, 'view_arn'),
         view_content_sha256=pulumi.get(__ret__, 'view_content_sha256'),
         view_id=pulumi.get(__ret__, 'view_id'))
-def get_view_output(view_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_view_output(view_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Resource Type definition for AWS::Connect::View
-
 
     :param _builtins.str view_arn: The Amazon Resource Name (ARN) of the view.
     """

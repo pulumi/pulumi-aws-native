@@ -32,7 +32,7 @@ class GetAccessPointPolicyResult:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
         """
-        A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
+        A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::S3ObjectLambda::AccessPointPolicy` for more information about the expected schema for this property.
         """
@@ -53,7 +53,6 @@ def get_access_point_policy(object_lambda_access_point: Optional[_builtins.str] 
     """
     AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
 
-
     :param _builtins.str object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
     """
     __args__ = dict()
@@ -63,11 +62,10 @@ def get_access_point_policy(object_lambda_access_point: Optional[_builtins.str] 
 
     return AwaitableGetAccessPointPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
-def get_access_point_policy_output(object_lambda_access_point: Optional[pulumi.Input[_builtins.str]] = None,
+def get_access_point_policy_output(object_lambda_access_point: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointPolicyResult]:
     """
     AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
-
 
     :param _builtins.str object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
     """

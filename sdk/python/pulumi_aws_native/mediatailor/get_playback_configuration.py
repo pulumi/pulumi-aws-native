@@ -143,7 +143,7 @@ class GetPlaybackConfigurationResult:
     @pulumi.getter(name="configurationAliases")
     def configuration_aliases(self) -> Optional[Mapping[str, Any]]:
         """
-        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables. 
+        The player parameters and aliases used as dynamic variables during session initialization. For more information, see Domain Variables.
         """
         return pulumi.get(self, "configuration_aliases")
 
@@ -303,7 +303,6 @@ def get_playback_configuration(name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaTailor::PlaybackConfiguration
 
-
     :param _builtins.str name: The identifier for the playback configuration.
     """
     __args__ = dict()
@@ -334,11 +333,10 @@ def get_playback_configuration(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transcode_profile_name=pulumi.get(__ret__, 'transcode_profile_name'),
         video_content_source_url=pulumi.get(__ret__, 'video_content_source_url'))
-def get_playback_configuration_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_playback_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaybackConfigurationResult]:
     """
     Resource schema for AWS::MediaTailor::PlaybackConfiguration
-
 
     :param _builtins.str name: The identifier for the playback configuration.
     """

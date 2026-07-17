@@ -102,7 +102,6 @@ def get_work_group(name: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::Athena::WorkGroup
 
-
     :param _builtins.str name: The workGroup name.
     """
     __args__ = dict()
@@ -116,11 +115,10 @@ def get_work_group(name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         work_group_configuration=pulumi.get(__ret__, 'work_group_configuration'))
-def get_work_group_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_work_group_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkGroupResult]:
     """
     Resource schema for AWS::Athena::WorkGroup
-
 
     :param _builtins.str name: The workGroup name.
     """

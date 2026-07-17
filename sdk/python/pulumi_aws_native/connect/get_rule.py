@@ -115,7 +115,6 @@ def get_rule(rule_arn: Optional[_builtins.str] = None,
     """
     Creates a rule for the specified CON instance.
 
-
     :param _builtins.str rule_arn: The Amazon Resource Name (ARN) of the rule.
     """
     __args__ = dict()
@@ -130,11 +129,10 @@ def get_rule(rule_arn: Optional[_builtins.str] = None,
         publish_status=pulumi.get(__ret__, 'publish_status'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_rule_output(rule_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_output(rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Creates a rule for the specified CON instance.
-
 
     :param _builtins.str rule_arn: The Amazon Resource Name (ARN) of the rule.
     """

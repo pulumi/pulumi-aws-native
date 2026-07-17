@@ -66,7 +66,6 @@ def get_model(name: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
 
-
     :param _builtins.str name: A name for the model. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the model name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
@@ -80,12 +79,11 @@ def get_model(name: Optional[_builtins.str] = None,
     return AwaitableGetModelResult(
         description=pulumi.get(__ret__, 'description'),
         schema=pulumi.get(__ret__, 'schema'))
-def get_model_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                     rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_model_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                     rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
-
 
     :param _builtins.str name: A name for the model. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the model name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
              If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.

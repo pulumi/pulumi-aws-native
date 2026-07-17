@@ -103,5 +103,5 @@ export interface BotVersionArgs {
     /**
      * The description of the version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
 }

@@ -122,15 +122,15 @@ export interface CapacityReservationArgs {
     /**
      * Assigns Athena workgroups (and hence their queries) to capacity reservations. A capacity reservation can have only one capacity assignment configuration, but the capacity assignment configuration can be made up of multiple individual assignments. Each assignment specifies how Athena queries can consume capacity from the capacity reservation that their workgroup is mapped to.
      */
-    capacityAssignmentConfiguration?: pulumi.Input<inputs.athena.CapacityReservationCapacityAssignmentConfigurationArgs>;
+    capacityAssignmentConfiguration?: pulumi.Input<inputs.athena.CapacityReservationCapacityAssignmentConfigurationArgs | undefined>;
     /**
      * The reservation name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The number of DPUs to request to be allocated to the reservation.
      */

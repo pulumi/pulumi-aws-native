@@ -122,7 +122,6 @@ def get_ca_certificate(id: Optional[_builtins.str] = None,
     """
     Registers a CA Certificate in IoT.
 
-
     :param _builtins.str id: The CA certificate ID.
     """
     __args__ = dict()
@@ -137,11 +136,10 @@ def get_ca_certificate(id: Optional[_builtins.str] = None,
         registration_config=pulumi.get(__ret__, 'registration_config'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ca_certificate_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ca_certificate_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Registers a CA Certificate in IoT.
-
 
     :param _builtins.str id: The CA certificate ID.
     """

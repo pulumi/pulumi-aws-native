@@ -16,12 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentActionGroupArgs',
+    'AgentActionGroupArgsDict',
     'AgentActionGroupExecutor0PropertiesArgs',
     'AgentActionGroupExecutor0PropertiesArgsDict',
     'AgentActionGroupExecutor1PropertiesArgs',
     'AgentActionGroupExecutor1PropertiesArgsDict',
-    'AgentActionGroupArgs',
-    'AgentActionGroupArgsDict',
     'AgentAdditionalModelRequestFieldsArgs',
     'AgentAdditionalModelRequestFieldsArgsDict',
     'AgentAliasRoutingConfigurationListItemArgs',
@@ -30,16 +30,16 @@ __all__ = [
     'AgentApiSchema0PropertiesArgsDict',
     'AgentApiSchema1PropertiesArgs',
     'AgentApiSchema1PropertiesArgsDict',
-    'AgentCollaboratorAgentDescriptorPropertiesArgs',
-    'AgentCollaboratorAgentDescriptorPropertiesArgsDict',
     'AgentCollaboratorArgs',
     'AgentCollaboratorArgsDict',
+    'AgentCollaboratorAgentDescriptorPropertiesArgs',
+    'AgentCollaboratorAgentDescriptorPropertiesArgsDict',
     'AgentCustomOrchestrationArgs',
     'AgentCustomOrchestrationArgsDict',
-    'AgentFunctionSchemaArgs',
-    'AgentFunctionSchemaArgsDict',
     'AgentFunctionArgs',
     'AgentFunctionArgsDict',
+    'AgentFunctionSchemaArgs',
+    'AgentFunctionSchemaArgsDict',
     'AgentGuardrailConfigurationArgs',
     'AgentGuardrailConfigurationArgsDict',
     'AgentInferenceConfigurationArgs',
@@ -62,22 +62,22 @@ __all__ = [
     'AgentSessionSummaryConfigurationArgsDict',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs',
     'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict',
-    'AutomatedReasoningPolicyPolicyDefinitionRuleArgs',
-    'AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict',
-    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs',
-    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict',
-    'AutomatedReasoningPolicyPolicyDefinitionTypeArgs',
-    'AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict',
-    'AutomatedReasoningPolicyPolicyDefinitionVariableArgs',
-    'AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict',
     'AutomatedReasoningPolicyPolicyDefinitionArgs',
     'AutomatedReasoningPolicyPolicyDefinitionArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionRuleArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict',
+    'AutomatedReasoningPolicyPolicyDefinitionVariableArgs',
+    'AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict',
     'DataAutomationLibraryEncryptionConfigurationArgs',
     'DataAutomationLibraryEncryptionConfigurationArgsDict',
-    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs',
-    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
     'DataAutomationProjectAudioExtractionCategoryArgsDict',
+    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs',
+    'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict',
     'DataAutomationProjectAudioLanguageConfigurationArgs',
     'DataAutomationProjectAudioLanguageConfigurationArgsDict',
     'DataAutomationProjectAudioOverrideConfigurationArgs',
@@ -200,10 +200,10 @@ __all__ = [
     'DataSourceParsingConfigurationArgsDict',
     'DataSourceParsingPromptArgs',
     'DataSourceParsingPromptArgsDict',
-    'DataSourcePatternObjectFilterConfigurationArgs',
-    'DataSourcePatternObjectFilterConfigurationArgsDict',
     'DataSourcePatternObjectFilterArgs',
     'DataSourcePatternObjectFilterArgsDict',
+    'DataSourcePatternObjectFilterConfigurationArgs',
+    'DataSourcePatternObjectFilterConfigurationArgsDict',
     'DataSourceS3DataSourceConfigurationArgs',
     'DataSourceS3DataSourceConfigurationArgsDict',
     'DataSourceS3LocationArgs',
@@ -226,12 +226,12 @@ __all__ = [
     'DataSourceSharePointDataSourceConfigurationArgsDict',
     'DataSourceSharePointSourceConfigurationArgs',
     'DataSourceSharePointSourceConfigurationArgsDict',
+    'DataSourceTransformationArgs',
+    'DataSourceTransformationArgsDict',
     'DataSourceTransformationFunctionArgs',
     'DataSourceTransformationFunctionArgsDict',
     'DataSourceTransformationLambdaConfigurationArgs',
     'DataSourceTransformationLambdaConfigurationArgsDict',
-    'DataSourceTransformationArgs',
-    'DataSourceTransformationArgsDict',
     'DataSourceUrlConfigurationArgs',
     'DataSourceUrlConfigurationArgsDict',
     'DataSourceVectorIngestionConfigurationArgs',
@@ -260,18 +260,18 @@ __all__ = [
     'FlowAliasRoutingConfigurationListItemArgsDict',
     'FlowCollectorFlowNodeConfigurationArgs',
     'FlowCollectorFlowNodeConfigurationArgsDict',
+    'FlowConditionArgs',
+    'FlowConditionArgsDict',
     'FlowConditionFlowNodeConfigurationArgs',
     'FlowConditionFlowNodeConfigurationArgsDict',
     'FlowConditionalConnectionConfigurationArgs',
     'FlowConditionalConnectionConfigurationArgsDict',
-    'FlowConditionArgs',
-    'FlowConditionArgsDict',
+    'FlowConnectionArgs',
+    'FlowConnectionArgsDict',
     'FlowConnectionConfiguration0PropertiesArgs',
     'FlowConnectionConfiguration0PropertiesArgsDict',
     'FlowConnectionConfiguration1PropertiesArgs',
     'FlowConnectionConfiguration1PropertiesArgsDict',
-    'FlowConnectionArgs',
-    'FlowConnectionArgsDict',
     'FlowDataConnectionConfigurationArgs',
     'FlowDataConnectionConfigurationArgsDict',
     'FlowDefinitionArgs',
@@ -304,6 +304,8 @@ __all__ = [
     'FlowLoopInputFlowNodeConfigurationArgsDict',
     'FlowMetadataConfigurationForRerankingArgs',
     'FlowMetadataConfigurationForRerankingArgsDict',
+    'FlowNodeArgs',
+    'FlowNodeArgsDict',
     'FlowNodeConfiguration0PropertiesArgs',
     'FlowNodeConfiguration0PropertiesArgsDict',
     'FlowNodeConfiguration10PropertiesArgs',
@@ -340,8 +342,6 @@ __all__ = [
     'FlowNodeInputArgsDict',
     'FlowNodeOutputArgs',
     'FlowNodeOutputArgsDict',
-    'FlowNodeArgs',
-    'FlowNodeArgsDict',
     'FlowOutputFlowNodeConfigurationArgs',
     'FlowOutputFlowNodeConfigurationArgsDict',
     'FlowPerformanceConfigurationArgs',
@@ -394,10 +394,10 @@ __all__ = [
     'GuardrailAutomatedReasoningPolicyConfigArgsDict',
     'GuardrailContentFilterConfigArgs',
     'GuardrailContentFilterConfigArgsDict',
-    'GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs',
-    'GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict',
     'GuardrailContentPolicyConfigArgs',
     'GuardrailContentPolicyConfigArgsDict',
+    'GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs',
+    'GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict',
     'GuardrailContextualGroundingFilterConfigArgs',
     'GuardrailContextualGroundingFilterConfigArgsDict',
     'GuardrailContextualGroundingPolicyConfigArgs',
@@ -414,10 +414,10 @@ __all__ = [
     'GuardrailSensitiveInformationPolicyConfigArgsDict',
     'GuardrailTopicConfigArgs',
     'GuardrailTopicConfigArgsDict',
-    'GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs',
-    'GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict',
     'GuardrailTopicPolicyConfigArgs',
     'GuardrailTopicPolicyConfigArgsDict',
+    'GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs',
+    'GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict',
     'GuardrailWordConfigArgs',
     'GuardrailWordConfigArgsDict',
     'GuardrailWordPolicyConfigArgs',
@@ -574,6 +574,185 @@ __all__ = [
     'PromptVariantArgsDict',
 ]
 
+class AgentActionGroupArgsDict(TypedDict):
+    """
+    Contains the information of an Agent Action Group
+    """
+    action_group_name: pulumi.Input[_builtins.str]
+    """
+    Name of the action group
+    """
+    action_group_executor: NotRequired[pulumi.Input[Optional[Union['AgentActionGroupExecutor0PropertiesArgsDict', 'AgentActionGroupExecutor1PropertiesArgsDict']]]]
+    """
+    The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+    """
+    action_group_state: NotRequired[pulumi.Input[Optional['AgentActionGroupState']]]
+    """
+    Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+    """
+    api_schema: NotRequired[pulumi.Input[Optional[Union['AgentApiSchema0PropertiesArgsDict', 'AgentApiSchema1PropertiesArgsDict']]]]
+    """
+    Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of action group
+    """
+    function_schema: NotRequired[pulumi.Input[Optional['AgentFunctionSchemaArgsDict']]]
+    """
+    Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+    """
+    parent_action_group_signature: NotRequired[pulumi.Input[Optional['AgentActionGroupSignature']]]
+    """
+    If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+
+    During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
+    """
+    skip_resource_in_use_check_on_delete: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Specifies whether to allow deleting action group while it is in use.
+    """
+
+@pulumi.input_type
+class AgentActionGroupArgs:
+    def __init__(__self__, *,
+                 action_group_name: pulumi.Input[_builtins.str],
+                 action_group_executor: pulumi.Input[Optional[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]] = None,
+                 action_group_state: pulumi.Input[Optional['AgentActionGroupState']] = None,
+                 api_schema: pulumi.Input[Optional[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_schema: pulumi.Input[Optional['AgentFunctionSchemaArgs']] = None,
+                 parent_action_group_signature: pulumi.Input[Optional['AgentActionGroupSignature']] = None,
+                 skip_resource_in_use_check_on_delete: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Contains the information of an Agent Action Group
+
+        :param pulumi.Input[_builtins.str] action_group_name: Name of the action group
+        :param pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        :param pulumi.Input['AgentActionGroupState'] action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+        :param pulumi.Input[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
+        :param pulumi.Input[_builtins.str] description: Description of action group
+        :param pulumi.Input['AgentFunctionSchemaArgs'] function_schema: Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        :param pulumi.Input['AgentActionGroupSignature'] parent_action_group_signature: If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+               
+               During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
+        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting action group while it is in use.
+        """
+        pulumi.set(__self__, "action_group_name", action_group_name)
+        if action_group_executor is not None:
+            pulumi.set(__self__, "action_group_executor", action_group_executor)
+        if action_group_state is not None:
+            pulumi.set(__self__, "action_group_state", action_group_state)
+        if api_schema is not None:
+            pulumi.set(__self__, "api_schema", api_schema)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if function_schema is not None:
+            pulumi.set(__self__, "function_schema", function_schema)
+        if parent_action_group_signature is not None:
+            pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
+        if skip_resource_in_use_check_on_delete is not None:
+            pulumi.set(__self__, "skip_resource_in_use_check_on_delete", skip_resource_in_use_check_on_delete)
+
+    @_builtins.property
+    @pulumi.getter(name="actionGroupName")
+    def action_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the action group
+        """
+        return pulumi.get(self, "action_group_name")
+
+    @action_group_name.setter
+    def action_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "action_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionGroupExecutor")
+    def action_group_executor(self) -> pulumi.Input[Optional[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]]:
+        """
+        The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        """
+        return pulumi.get(self, "action_group_executor")
+
+    @action_group_executor.setter
+    def action_group_executor(self, value: pulumi.Input[Optional[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]]):
+        pulumi.set(self, "action_group_executor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionGroupState")
+    def action_group_state(self) -> pulumi.Input[Optional['AgentActionGroupState']]:
+        """
+        Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
+        """
+        return pulumi.get(self, "action_group_state")
+
+    @action_group_state.setter
+    def action_group_state(self, value: pulumi.Input[Optional['AgentActionGroupState']]):
+        pulumi.set(self, "action_group_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiSchema")
+    def api_schema(self) -> pulumi.Input[Optional[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]]:
+        """
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
+        """
+        return pulumi.get(self, "api_schema")
+
+    @api_schema.setter
+    def api_schema(self, value: pulumi.Input[Optional[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]]):
+        pulumi.set(self, "api_schema", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of action group
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionSchema")
+    def function_schema(self) -> pulumi.Input[Optional['AgentFunctionSchemaArgs']]:
+        """
+        Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+        """
+        return pulumi.get(self, "function_schema")
+
+    @function_schema.setter
+    def function_schema(self, value: pulumi.Input[Optional['AgentFunctionSchemaArgs']]):
+        pulumi.set(self, "function_schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parentActionGroupSignature")
+    def parent_action_group_signature(self) -> pulumi.Input[Optional['AgentActionGroupSignature']]:
+        """
+        If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
+
+        During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
+        """
+        return pulumi.get(self, "parent_action_group_signature")
+
+    @parent_action_group_signature.setter
+    def parent_action_group_signature(self, value: pulumi.Input[Optional['AgentActionGroupSignature']]):
+        pulumi.set(self, "parent_action_group_signature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="skipResourceInUseCheckOnDelete")
+    def skip_resource_in_use_check_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether to allow deleting action group while it is in use.
+        """
+        return pulumi.get(self, "skip_resource_in_use_check_on_delete")
+
+    @skip_resource_in_use_check_on_delete.setter
+    def skip_resource_in_use_check_on_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "skip_resource_in_use_check_on_delete", value)
+
+
 class AgentActionGroupExecutor0PropertiesArgsDict(TypedDict):
     """
     Type of Executors for an Action Group
@@ -630,185 +809,6 @@ class AgentActionGroupExecutor1PropertiesArgs:
     @custom_control.setter
     def custom_control(self, value: pulumi.Input['AgentCustomControlMethod']):
         pulumi.set(self, "custom_control", value)
-
-
-class AgentActionGroupArgsDict(TypedDict):
-    """
-    Contains the information of an Agent Action Group
-    """
-    action_group_name: pulumi.Input[_builtins.str]
-    """
-    Name of the action group
-    """
-    action_group_executor: NotRequired[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgsDict', 'AgentActionGroupExecutor1PropertiesArgsDict']]]
-    """
-    The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
-    """
-    action_group_state: NotRequired[pulumi.Input['AgentActionGroupState']]
-    """
-    Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-    """
-    api_schema: NotRequired[pulumi.Input[Union['AgentApiSchema0PropertiesArgsDict', 'AgentApiSchema1PropertiesArgsDict']]]
-    """
-    Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Description of action group
-    """
-    function_schema: NotRequired[pulumi.Input['AgentFunctionSchemaArgsDict']]
-    """
-    Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
-    """
-    parent_action_group_signature: NotRequired[pulumi.Input['AgentActionGroupSignature']]
-    """
-    If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
-
-    During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
-    """
-    skip_resource_in_use_check_on_delete: NotRequired[pulumi.Input[_builtins.bool]]
-    """
-    Specifies whether to allow deleting action group while it is in use.
-    """
-
-@pulumi.input_type
-class AgentActionGroupArgs:
-    def __init__(__self__, *,
-                 action_group_name: pulumi.Input[_builtins.str],
-                 action_group_executor: Optional[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]] = None,
-                 action_group_state: Optional[pulumi.Input['AgentActionGroupState']] = None,
-                 api_schema: Optional[pulumi.Input[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_schema: Optional[pulumi.Input['AgentFunctionSchemaArgs']] = None,
-                 parent_action_group_signature: Optional[pulumi.Input['AgentActionGroupSignature']] = None,
-                 skip_resource_in_use_check_on_delete: Optional[pulumi.Input[_builtins.bool]] = None):
-        """
-        Contains the information of an Agent Action Group
-
-        :param pulumi.Input[_builtins.str] action_group_name: Name of the action group
-        :param pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
-        :param pulumi.Input['AgentActionGroupState'] action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        :param pulumi.Input[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
-        :param pulumi.Input[_builtins.str] description: Description of action group
-        :param pulumi.Input['AgentFunctionSchemaArgs'] function_schema: Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
-        :param pulumi.Input['AgentActionGroupSignature'] parent_action_group_signature: If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
-               
-               During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
-        :param pulumi.Input[_builtins.bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting action group while it is in use.
-        """
-        pulumi.set(__self__, "action_group_name", action_group_name)
-        if action_group_executor is not None:
-            pulumi.set(__self__, "action_group_executor", action_group_executor)
-        if action_group_state is not None:
-            pulumi.set(__self__, "action_group_state", action_group_state)
-        if api_schema is not None:
-            pulumi.set(__self__, "api_schema", api_schema)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if function_schema is not None:
-            pulumi.set(__self__, "function_schema", function_schema)
-        if parent_action_group_signature is not None:
-            pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
-        if skip_resource_in_use_check_on_delete is not None:
-            pulumi.set(__self__, "skip_resource_in_use_check_on_delete", skip_resource_in_use_check_on_delete)
-
-    @_builtins.property
-    @pulumi.getter(name="actionGroupName")
-    def action_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the action group
-        """
-        return pulumi.get(self, "action_group_name")
-
-    @action_group_name.setter
-    def action_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "action_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="actionGroupExecutor")
-    def action_group_executor(self) -> Optional[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]]:
-        """
-        The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
-        """
-        return pulumi.get(self, "action_group_executor")
-
-    @action_group_executor.setter
-    def action_group_executor(self, value: Optional[pulumi.Input[Union['AgentActionGroupExecutor0PropertiesArgs', 'AgentActionGroupExecutor1PropertiesArgs']]]):
-        pulumi.set(self, "action_group_executor", value)
-
-    @_builtins.property
-    @pulumi.getter(name="actionGroupState")
-    def action_group_state(self) -> Optional[pulumi.Input['AgentActionGroupState']]:
-        """
-        Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        """
-        return pulumi.get(self, "action_group_state")
-
-    @action_group_state.setter
-    def action_group_state(self, value: Optional[pulumi.Input['AgentActionGroupState']]):
-        pulumi.set(self, "action_group_state", value)
-
-    @_builtins.property
-    @pulumi.getter(name="apiSchema")
-    def api_schema(self) -> Optional[pulumi.Input[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]]:
-        """
-        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
-        """
-        return pulumi.get(self, "api_schema")
-
-    @api_schema.setter
-    def api_schema(self, value: Optional[pulumi.Input[Union['AgentApiSchema0PropertiesArgs', 'AgentApiSchema1PropertiesArgs']]]):
-        pulumi.set(self, "api_schema", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of action group
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="functionSchema")
-    def function_schema(self) -> Optional[pulumi.Input['AgentFunctionSchemaArgs']]:
-        """
-        Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
-        """
-        return pulumi.get(self, "function_schema")
-
-    @function_schema.setter
-    def function_schema(self, value: Optional[pulumi.Input['AgentFunctionSchemaArgs']]):
-        pulumi.set(self, "function_schema", value)
-
-    @_builtins.property
-    @pulumi.getter(name="parentActionGroupSignature")
-    def parent_action_group_signature(self) -> Optional[pulumi.Input['AgentActionGroupSignature']]:
-        """
-        If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
-
-        During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
-        """
-        return pulumi.get(self, "parent_action_group_signature")
-
-    @parent_action_group_signature.setter
-    def parent_action_group_signature(self, value: Optional[pulumi.Input['AgentActionGroupSignature']]):
-        pulumi.set(self, "parent_action_group_signature", value)
-
-    @_builtins.property
-    @pulumi.getter(name="skipResourceInUseCheckOnDelete")
-    def skip_resource_in_use_check_on_delete(self) -> Optional[pulumi.Input[_builtins.bool]]:
-        """
-        Specifies whether to allow deleting action group while it is in use.
-        """
-        return pulumi.get(self, "skip_resource_in_use_check_on_delete")
-
-    @skip_resource_in_use_check_on_delete.setter
-    def skip_resource_in_use_check_on_delete(self, value: Optional[pulumi.Input[_builtins.bool]]):
-        pulumi.set(self, "skip_resource_in_use_check_on_delete", value)
 
 
 class AgentAdditionalModelRequestFieldsArgsDict(TypedDict):
@@ -917,40 +917,6 @@ class AgentApiSchema1PropertiesArgs:
         pulumi.set(self, "payload", value)
 
 
-class AgentCollaboratorAgentDescriptorPropertiesArgsDict(TypedDict):
-    """
-    Agent descriptor for agent collaborator
-    """
-    alias_arn: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Alias ARN for agent descriptor
-    """
-
-@pulumi.input_type
-class AgentCollaboratorAgentDescriptorPropertiesArgs:
-    def __init__(__self__, *,
-                 alias_arn: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Agent descriptor for agent collaborator
-
-        :param pulumi.Input[_builtins.str] alias_arn: Alias ARN for agent descriptor
-        """
-        if alias_arn is not None:
-            pulumi.set(__self__, "alias_arn", alias_arn)
-
-    @_builtins.property
-    @pulumi.getter(name="aliasArn")
-    def alias_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Alias ARN for agent descriptor
-        """
-        return pulumi.get(self, "alias_arn")
-
-    @alias_arn.setter
-    def alias_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "alias_arn", value)
-
-
 class AgentCollaboratorArgsDict(TypedDict):
     """
     Agent Collaborator
@@ -967,7 +933,7 @@ class AgentCollaboratorArgsDict(TypedDict):
     """
     Agent collaborator name
     """
-    relay_conversation_history: NotRequired[pulumi.Input['AgentRelayConversationHistory']]
+    relay_conversation_history: NotRequired[pulumi.Input[Optional['AgentRelayConversationHistory']]]
     """
     The collaborator's relay conversation history.
     """
@@ -978,7 +944,7 @@ class AgentCollaboratorArgs:
                  agent_descriptor: pulumi.Input['AgentCollaboratorAgentDescriptorPropertiesArgs'],
                  collaboration_instruction: pulumi.Input[_builtins.str],
                  collaborator_name: pulumi.Input[_builtins.str],
-                 relay_conversation_history: Optional[pulumi.Input['AgentRelayConversationHistory']] = None):
+                 relay_conversation_history: pulumi.Input[Optional['AgentRelayConversationHistory']] = None):
         """
         Agent Collaborator
 
@@ -1031,22 +997,56 @@ class AgentCollaboratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="relayConversationHistory")
-    def relay_conversation_history(self) -> Optional[pulumi.Input['AgentRelayConversationHistory']]:
+    def relay_conversation_history(self) -> pulumi.Input[Optional['AgentRelayConversationHistory']]:
         """
         The collaborator's relay conversation history.
         """
         return pulumi.get(self, "relay_conversation_history")
 
     @relay_conversation_history.setter
-    def relay_conversation_history(self, value: Optional[pulumi.Input['AgentRelayConversationHistory']]):
+    def relay_conversation_history(self, value: pulumi.Input[Optional['AgentRelayConversationHistory']]):
         pulumi.set(self, "relay_conversation_history", value)
+
+
+class AgentCollaboratorAgentDescriptorPropertiesArgsDict(TypedDict):
+    """
+    Agent descriptor for agent collaborator
+    """
+    alias_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Alias ARN for agent descriptor
+    """
+
+@pulumi.input_type
+class AgentCollaboratorAgentDescriptorPropertiesArgs:
+    def __init__(__self__, *,
+                 alias_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Agent descriptor for agent collaborator
+
+        :param pulumi.Input[_builtins.str] alias_arn: Alias ARN for agent descriptor
+        """
+        if alias_arn is not None:
+            pulumi.set(__self__, "alias_arn", alias_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="aliasArn")
+    def alias_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alias ARN for agent descriptor
+        """
+        return pulumi.get(self, "alias_arn")
+
+    @alias_arn.setter
+    def alias_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alias_arn", value)
 
 
 class AgentCustomOrchestrationArgsDict(TypedDict):
     """
     Structure for custom orchestration
     """
-    executor: NotRequired[pulumi.Input['AgentOrchestrationExecutorArgsDict']]
+    executor: NotRequired[pulumi.Input[Optional['AgentOrchestrationExecutorArgsDict']]]
     """
     The structure of the executor invoking the actions in custom orchestration.
     """
@@ -1054,7 +1054,7 @@ class AgentCustomOrchestrationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentCustomOrchestrationArgs:
     def __init__(__self__, *,
-                 executor: Optional[pulumi.Input['AgentOrchestrationExecutorArgs']] = None):
+                 executor: pulumi.Input[Optional['AgentOrchestrationExecutorArgs']] = None):
         """
         Structure for custom orchestration
 
@@ -1065,15 +1065,108 @@ class AgentCustomOrchestrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def executor(self) -> Optional[pulumi.Input['AgentOrchestrationExecutorArgs']]:
+    def executor(self) -> pulumi.Input[Optional['AgentOrchestrationExecutorArgs']]:
         """
         The structure of the executor invoking the actions in custom orchestration.
         """
         return pulumi.get(self, "executor")
 
     @executor.setter
-    def executor(self, value: Optional[pulumi.Input['AgentOrchestrationExecutorArgs']]):
+    def executor(self, value: pulumi.Input[Optional['AgentOrchestrationExecutorArgs']]):
         pulumi.set(self, "executor", value)
+
+
+class AgentFunctionArgsDict(TypedDict):
+    """
+    Function definition
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for a resource.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of function
+    """
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['AgentParameterDetailArgsDict']]]]]
+    """
+    The parameters that the agent elicits from the user to fulfill the function.
+    """
+    require_confirmation: NotRequired[pulumi.Input[Optional['AgentRequireConfirmation']]]
+    """
+    Contains information if user confirmation is required to invoke the function.
+    """
+
+@pulumi.input_type
+class AgentFunctionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]] = None,
+                 require_confirmation: pulumi.Input[Optional['AgentRequireConfirmation']] = None):
+        """
+        Function definition
+
+        :param pulumi.Input[_builtins.str] name: Name for a resource.
+        :param pulumi.Input[_builtins.str] description: Description of function
+        :param pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]] parameters: The parameters that the agent elicits from the user to fulfill the function.
+        :param pulumi.Input['AgentRequireConfirmation'] require_confirmation: Contains information if user confirmation is required to invoke the function.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if require_confirmation is not None:
+            pulumi.set(__self__, "require_confirmation", require_confirmation)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name for a resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of function
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]:
+        """
+        The parameters that the agent elicits from the user to fulfill the function.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireConfirmation")
+    def require_confirmation(self) -> pulumi.Input[Optional['AgentRequireConfirmation']]:
+        """
+        Contains information if user confirmation is required to invoke the function.
+        """
+        return pulumi.get(self, "require_confirmation")
+
+    @require_confirmation.setter
+    def require_confirmation(self, value: pulumi.Input[Optional['AgentRequireConfirmation']]):
+        pulumi.set(self, "require_confirmation", value)
 
 
 class AgentFunctionSchemaArgsDict(TypedDict):
@@ -1109,108 +1202,15 @@ class AgentFunctionSchemaArgs:
         pulumi.set(self, "functions", value)
 
 
-class AgentFunctionArgsDict(TypedDict):
-    """
-    Function definition
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name for a resource.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Description of function
-    """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgsDict']]]]
-    """
-    The parameters that the agent elicits from the user to fulfill the function.
-    """
-    require_confirmation: NotRequired[pulumi.Input['AgentRequireConfirmation']]
-    """
-    Contains information if user confirmation is required to invoke the function.
-    """
-
-@pulumi.input_type
-class AgentFunctionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]] = None,
-                 require_confirmation: Optional[pulumi.Input['AgentRequireConfirmation']] = None):
-        """
-        Function definition
-
-        :param pulumi.Input[_builtins.str] name: Name for a resource.
-        :param pulumi.Input[_builtins.str] description: Description of function
-        :param pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]] parameters: The parameters that the agent elicits from the user to fulfill the function.
-        :param pulumi.Input['AgentRequireConfirmation'] require_confirmation: Contains information if user confirmation is required to invoke the function.
-        """
-        pulumi.set(__self__, "name", name)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if require_confirmation is not None:
-            pulumi.set(__self__, "require_confirmation", require_confirmation)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for a resource.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Description of function
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]:
-        """
-        The parameters that the agent elicits from the user to fulfill the function.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]):
-        pulumi.set(self, "parameters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="requireConfirmation")
-    def require_confirmation(self) -> Optional[pulumi.Input['AgentRequireConfirmation']]:
-        """
-        Contains information if user confirmation is required to invoke the function.
-        """
-        return pulumi.get(self, "require_confirmation")
-
-    @require_confirmation.setter
-    def require_confirmation(self, value: Optional[pulumi.Input['AgentRequireConfirmation']]):
-        pulumi.set(self, "require_confirmation", value)
-
-
 class AgentGuardrailConfigurationArgsDict(TypedDict):
     """
     Configuration for a guardrail.
     """
-    guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    guardrail_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier for the guardrail, could be the id or the arn
     """
-    guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
+    guardrail_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the guardrail
     """
@@ -1218,8 +1218,8 @@ class AgentGuardrailConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentGuardrailConfigurationArgs:
     def __init__(__self__, *,
-                 guardrail_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for a guardrail.
 
@@ -1233,26 +1233,26 @@ class AgentGuardrailConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
-    def guardrail_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the guardrail, could be the id or the arn
         """
         return pulumi.get(self, "guardrail_identifier")
 
     @guardrail_identifier.setter
-    def guardrail_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
-    def guardrail_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the guardrail
         """
         return pulumi.get(self, "guardrail_version")
 
     @guardrail_version.setter
-    def guardrail_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_version", value)
 
 
@@ -1260,23 +1260,23 @@ class AgentInferenceConfigurationArgsDict(TypedDict):
     """
     Configuration for inference in prompt configuration
     """
-    maximum_length: NotRequired[pulumi.Input[_builtins.float]]
+    maximum_length: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum length of output
     """
-    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stop_sequences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stop sequences
     """
-    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Controls randomness, higher values increase diversity
     """
-    top_k: NotRequired[pulumi.Input[_builtins.float]]
+    top_k: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Sample from the k most likely next tokens
     """
-    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Cumulative probability cutoff for token selection
     """
@@ -1284,11 +1284,11 @@ class AgentInferenceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentInferenceConfigurationArgs:
     def __init__(__self__, *,
-                 maximum_length: Optional[pulumi.Input[_builtins.float]] = None,
-                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
-                 top_k: Optional[pulumi.Input[_builtins.float]] = None,
-                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+                 maximum_length: pulumi.Input[Optional[_builtins.float]] = None,
+                 stop_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_k: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Configuration for inference in prompt configuration
 
@@ -1311,62 +1311,62 @@ class AgentInferenceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maximumLength")
-    def maximum_length(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def maximum_length(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum length of output
         """
         return pulumi.get(self, "maximum_length")
 
     @maximum_length.setter
-    def maximum_length(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def maximum_length(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "maximum_length", value)
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
-    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stop_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stop sequences
         """
         return pulumi.get(self, "stop_sequences")
 
     @stop_sequences.setter
-    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stop_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stop_sequences", value)
 
     @_builtins.property
     @pulumi.getter
-    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
 
     @temperature.setter
-    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "temperature", value)
 
     @_builtins.property
     @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top_k(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Sample from the k most likely next tokens
         """
         return pulumi.get(self, "top_k")
 
     @top_k.setter
-    def top_k(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top_k(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_k", value)
 
     @_builtins.property
     @pulumi.getter(name="topP")
-    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Cumulative probability cutoff for token selection
         """
         return pulumi.get(self, "top_p")
 
     @top_p.setter
-    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_p", value)
 
 
@@ -1382,7 +1382,7 @@ class AgentKnowledgeBaseArgsDict(TypedDict):
     """
     Identifier for a resource.
     """
-    knowledge_base_state: NotRequired[pulumi.Input['AgentKnowledgeBaseState']]
+    knowledge_base_state: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseState']]]
     """
     Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
     """
@@ -1392,7 +1392,7 @@ class AgentKnowledgeBaseArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  knowledge_base_id: pulumi.Input[_builtins.str],
-                 knowledge_base_state: Optional[pulumi.Input['AgentKnowledgeBaseState']] = None):
+                 knowledge_base_state: pulumi.Input[Optional['AgentKnowledgeBaseState']] = None):
         """
         Agent Knowledge Base
 
@@ -1431,14 +1431,14 @@ class AgentKnowledgeBaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseState")
-    def knowledge_base_state(self) -> Optional[pulumi.Input['AgentKnowledgeBaseState']]:
+    def knowledge_base_state(self) -> pulumi.Input[Optional['AgentKnowledgeBaseState']]:
         """
         Specifies whether to use the knowledge base or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
         """
         return pulumi.get(self, "knowledge_base_state")
 
     @knowledge_base_state.setter
-    def knowledge_base_state(self, value: Optional[pulumi.Input['AgentKnowledgeBaseState']]):
+    def knowledge_base_state(self, value: pulumi.Input[Optional['AgentKnowledgeBaseState']]):
         pulumi.set(self, "knowledge_base_state", value)
 
 
@@ -1446,15 +1446,15 @@ class AgentMemoryConfigurationArgsDict(TypedDict):
     """
     Configuration for memory storage
     """
-    enabled_memory_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]
+    enabled_memory_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentMemoryType']]]]]
     """
     The type of memory that is stored.
     """
-    session_summary_configuration: NotRequired[pulumi.Input['AgentSessionSummaryConfigurationArgsDict']]
+    session_summary_configuration: NotRequired[pulumi.Input[Optional['AgentSessionSummaryConfigurationArgsDict']]]
     """
     Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
     """
-    storage_days: NotRequired[pulumi.Input[_builtins.float]]
+    storage_days: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum number of days to store session details
     """
@@ -1462,9 +1462,9 @@ class AgentMemoryConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentMemoryConfigurationArgs:
     def __init__(__self__, *,
-                 enabled_memory_types: Optional[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]] = None,
-                 session_summary_configuration: Optional[pulumi.Input['AgentSessionSummaryConfigurationArgs']] = None,
-                 storage_days: Optional[pulumi.Input[_builtins.float]] = None):
+                 enabled_memory_types: pulumi.Input[Optional[Sequence[pulumi.Input['AgentMemoryType']]]] = None,
+                 session_summary_configuration: pulumi.Input[Optional['AgentSessionSummaryConfigurationArgs']] = None,
+                 storage_days: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Configuration for memory storage
 
@@ -1481,38 +1481,38 @@ class AgentMemoryConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enabledMemoryTypes")
-    def enabled_memory_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]:
+    def enabled_memory_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentMemoryType']]]]:
         """
         The type of memory that is stored.
         """
         return pulumi.get(self, "enabled_memory_types")
 
     @enabled_memory_types.setter
-    def enabled_memory_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentMemoryType']]]]):
+    def enabled_memory_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentMemoryType']]]]):
         pulumi.set(self, "enabled_memory_types", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionSummaryConfiguration")
-    def session_summary_configuration(self) -> Optional[pulumi.Input['AgentSessionSummaryConfigurationArgs']]:
+    def session_summary_configuration(self) -> pulumi.Input[Optional['AgentSessionSummaryConfigurationArgs']]:
         """
         Contains the configuration for SESSION_SUMMARY memory type enabled for the agent.
         """
         return pulumi.get(self, "session_summary_configuration")
 
     @session_summary_configuration.setter
-    def session_summary_configuration(self, value: Optional[pulumi.Input['AgentSessionSummaryConfigurationArgs']]):
+    def session_summary_configuration(self, value: pulumi.Input[Optional['AgentSessionSummaryConfigurationArgs']]):
         pulumi.set(self, "session_summary_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="storageDays")
-    def storage_days(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def storage_days(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum number of days to store session details
         """
         return pulumi.get(self, "storage_days")
 
     @storage_days.setter
-    def storage_days(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def storage_days(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "storage_days", value)
 
 
@@ -1557,11 +1557,11 @@ class AgentParameterDetailArgsDict(TypedDict):
     """
     The data type of the parameter.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of function parameter.
     """
-    required: NotRequired[pulumi.Input[_builtins.bool]]
+    required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Information about if a parameter is required for function call. Default to false.
     """
@@ -1570,8 +1570,8 @@ class AgentParameterDetailArgsDict(TypedDict):
 class AgentParameterDetailArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['AgentType'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 required: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 required: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Parameter detail
 
@@ -1599,26 +1599,26 @@ class AgentParameterDetailArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of function parameter.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Information about if a parameter is required for function call. Default to false.
         """
         return pulumi.get(self, "required")
 
     @required.setter
-    def required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "required", value)
 
 
@@ -1626,33 +1626,33 @@ class AgentPromptConfigurationArgsDict(TypedDict):
     """
     BasePromptConfiguration per Prompt Type.
     """
-    additional_model_request_fields: NotRequired[pulumi.Input['AgentAdditionalModelRequestFieldsArgsDict']]
+    additional_model_request_fields: NotRequired[pulumi.Input[Optional['AgentAdditionalModelRequestFieldsArgsDict']]]
     """
     If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
 
     For more information, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
     """
-    base_prompt_template: NotRequired[pulumi.Input[_builtins.str]]
+    base_prompt_template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Base Prompt Template.
     """
-    foundation_model: NotRequired[pulumi.Input[_builtins.str]]
+    foundation_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The agent's foundation model.
     """
-    inference_configuration: NotRequired[pulumi.Input['AgentInferenceConfigurationArgsDict']]
+    inference_configuration: NotRequired[pulumi.Input[Optional['AgentInferenceConfigurationArgsDict']]]
     """
     Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
     """
-    parser_mode: NotRequired[pulumi.Input['AgentCreationMode']]
+    parser_mode: NotRequired[pulumi.Input[Optional['AgentCreationMode']]]
     """
     Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
     """
-    prompt_creation_mode: NotRequired[pulumi.Input['AgentCreationMode']]
+    prompt_creation_mode: NotRequired[pulumi.Input[Optional['AgentCreationMode']]]
     """
     Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
     """
-    prompt_state: NotRequired[pulumi.Input['AgentPromptState']]
+    prompt_state: NotRequired[pulumi.Input[Optional['AgentPromptState']]]
     """
     Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 
@@ -1661,7 +1661,7 @@ class AgentPromptConfigurationArgsDict(TypedDict):
     - `KNOWLEDGE_BASE_RESPONSE_GENERATION` – `ENABLED`
     - `POST_PROCESSING` – `DISABLED`
     """
-    prompt_type: NotRequired[pulumi.Input['AgentPromptType']]
+    prompt_type: NotRequired[pulumi.Input[Optional['AgentPromptType']]]
     """
     The step in the agent sequence that this prompt configuration applies to.
     """
@@ -1669,14 +1669,14 @@ class AgentPromptConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentPromptConfigurationArgs:
     def __init__(__self__, *,
-                 additional_model_request_fields: Optional[pulumi.Input['AgentAdditionalModelRequestFieldsArgs']] = None,
-                 base_prompt_template: Optional[pulumi.Input[_builtins.str]] = None,
-                 foundation_model: Optional[pulumi.Input[_builtins.str]] = None,
-                 inference_configuration: Optional[pulumi.Input['AgentInferenceConfigurationArgs']] = None,
-                 parser_mode: Optional[pulumi.Input['AgentCreationMode']] = None,
-                 prompt_creation_mode: Optional[pulumi.Input['AgentCreationMode']] = None,
-                 prompt_state: Optional[pulumi.Input['AgentPromptState']] = None,
-                 prompt_type: Optional[pulumi.Input['AgentPromptType']] = None):
+                 additional_model_request_fields: pulumi.Input[Optional['AgentAdditionalModelRequestFieldsArgs']] = None,
+                 base_prompt_template: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundation_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_configuration: pulumi.Input[Optional['AgentInferenceConfigurationArgs']] = None,
+                 parser_mode: pulumi.Input[Optional['AgentCreationMode']] = None,
+                 prompt_creation_mode: pulumi.Input[Optional['AgentCreationMode']] = None,
+                 prompt_state: pulumi.Input[Optional['AgentPromptState']] = None,
+                 prompt_type: pulumi.Input[Optional['AgentPromptType']] = None):
         """
         BasePromptConfiguration per Prompt Type.
 
@@ -1715,7 +1715,7 @@ class AgentPromptConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
-    def additional_model_request_fields(self) -> Optional[pulumi.Input['AgentAdditionalModelRequestFieldsArgs']]:
+    def additional_model_request_fields(self) -> pulumi.Input[Optional['AgentAdditionalModelRequestFieldsArgs']]:
         """
         If the Converse or ConverseStream operations support the model, `additionalModelRequestFields` contains additional inference parameters, beyond the base set of inference parameters in the `inferenceConfiguration` field.
 
@@ -1724,72 +1724,72 @@ class AgentPromptConfigurationArgs:
         return pulumi.get(self, "additional_model_request_fields")
 
     @additional_model_request_fields.setter
-    def additional_model_request_fields(self, value: Optional[pulumi.Input['AgentAdditionalModelRequestFieldsArgs']]):
+    def additional_model_request_fields(self, value: pulumi.Input[Optional['AgentAdditionalModelRequestFieldsArgs']]):
         pulumi.set(self, "additional_model_request_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="basePromptTemplate")
-    def base_prompt_template(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def base_prompt_template(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Base Prompt Template.
         """
         return pulumi.get(self, "base_prompt_template")
 
     @base_prompt_template.setter
-    def base_prompt_template(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def base_prompt_template(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "base_prompt_template", value)
 
     @_builtins.property
     @pulumi.getter(name="foundationModel")
-    def foundation_model(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def foundation_model(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The agent's foundation model.
         """
         return pulumi.get(self, "foundation_model")
 
     @foundation_model.setter
-    def foundation_model(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def foundation_model(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "foundation_model", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
-    def inference_configuration(self) -> Optional[pulumi.Input['AgentInferenceConfigurationArgs']]:
+    def inference_configuration(self) -> pulumi.Input[Optional['AgentInferenceConfigurationArgs']]:
         """
         Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         """
         return pulumi.get(self, "inference_configuration")
 
     @inference_configuration.setter
-    def inference_configuration(self, value: Optional[pulumi.Input['AgentInferenceConfigurationArgs']]):
+    def inference_configuration(self, value: pulumi.Input[Optional['AgentInferenceConfigurationArgs']]):
         pulumi.set(self, "inference_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="parserMode")
-    def parser_mode(self) -> Optional[pulumi.Input['AgentCreationMode']]:
+    def parser_mode(self) -> pulumi.Input[Optional['AgentCreationMode']]:
         """
         Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         """
         return pulumi.get(self, "parser_mode")
 
     @parser_mode.setter
-    def parser_mode(self, value: Optional[pulumi.Input['AgentCreationMode']]):
+    def parser_mode(self, value: pulumi.Input[Optional['AgentCreationMode']]):
         pulumi.set(self, "parser_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="promptCreationMode")
-    def prompt_creation_mode(self) -> Optional[pulumi.Input['AgentCreationMode']]:
+    def prompt_creation_mode(self) -> pulumi.Input[Optional['AgentCreationMode']]:
         """
         Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
         """
         return pulumi.get(self, "prompt_creation_mode")
 
     @prompt_creation_mode.setter
-    def prompt_creation_mode(self, value: Optional[pulumi.Input['AgentCreationMode']]):
+    def prompt_creation_mode(self, value: pulumi.Input[Optional['AgentCreationMode']]):
         pulumi.set(self, "prompt_creation_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="promptState")
-    def prompt_state(self) -> Optional[pulumi.Input['AgentPromptState']]:
+    def prompt_state(self) -> pulumi.Input[Optional['AgentPromptState']]:
         """
         Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 
@@ -1801,19 +1801,19 @@ class AgentPromptConfigurationArgs:
         return pulumi.get(self, "prompt_state")
 
     @prompt_state.setter
-    def prompt_state(self, value: Optional[pulumi.Input['AgentPromptState']]):
+    def prompt_state(self, value: pulumi.Input[Optional['AgentPromptState']]):
         pulumi.set(self, "prompt_state", value)
 
     @_builtins.property
     @pulumi.getter(name="promptType")
-    def prompt_type(self) -> Optional[pulumi.Input['AgentPromptType']]:
+    def prompt_type(self) -> pulumi.Input[Optional['AgentPromptType']]:
         """
         The step in the agent sequence that this prompt configuration applies to.
         """
         return pulumi.get(self, "prompt_type")
 
     @prompt_type.setter
-    def prompt_type(self, value: Optional[pulumi.Input['AgentPromptType']]):
+    def prompt_type(self, value: pulumi.Input[Optional['AgentPromptType']]):
         pulumi.set(self, "prompt_type", value)
 
 
@@ -1825,7 +1825,7 @@ class AgentPromptOverrideConfigurationArgsDict(TypedDict):
     """
     List of BasePromptConfiguration
     """
-    override_lambda: NotRequired[pulumi.Input[_builtins.str]]
+    override_lambda: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of a Lambda.
     """
@@ -1834,7 +1834,7 @@ class AgentPromptOverrideConfigurationArgsDict(TypedDict):
 class AgentPromptOverrideConfigurationArgs:
     def __init__(__self__, *,
                  prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentPromptConfigurationArgs']]],
-                 override_lambda: Optional[pulumi.Input[_builtins.str]] = None):
+                 override_lambda: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for prompt override.
 
@@ -1859,14 +1859,14 @@ class AgentPromptOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="overrideLambda")
-    def override_lambda(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def override_lambda(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN of a Lambda.
         """
         return pulumi.get(self, "override_lambda")
 
     @override_lambda.setter
-    def override_lambda(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def override_lambda(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "override_lambda", value)
 
 
@@ -1874,11 +1874,11 @@ class AgentS3IdentifierArgsDict(TypedDict):
     """
     The identifier for the S3 resource.
     """
-    s3_bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    s3_bucket_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A bucket in S3.
     """
-    s3_object_key: NotRequired[pulumi.Input[_builtins.str]]
+    s3_object_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A object key in S3.
     """
@@ -1886,8 +1886,8 @@ class AgentS3IdentifierArgsDict(TypedDict):
 @pulumi.input_type
 class AgentS3IdentifierArgs:
     def __init__(__self__, *,
-                 s3_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_object_key: Optional[pulumi.Input[_builtins.str]] = None):
+                 s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_object_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The identifier for the S3 resource.
 
@@ -1901,26 +1901,26 @@ class AgentS3IdentifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketName")
-    def s3_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A bucket in S3.
         """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
-    def s3_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="s3ObjectKey")
-    def s3_object_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_object_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A object key in S3.
         """
         return pulumi.get(self, "s3_object_key")
 
     @s3_object_key.setter
-    def s3_object_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_object_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_object_key", value)
 
 
@@ -1928,7 +1928,7 @@ class AgentSessionSummaryConfigurationArgsDict(TypedDict):
     """
     Configuration for Session Summarization
     """
-    max_recent_sessions: NotRequired[pulumi.Input[_builtins.float]]
+    max_recent_sessions: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum number of Sessions to Summarize
     """
@@ -1936,7 +1936,7 @@ class AgentSessionSummaryConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentSessionSummaryConfigurationArgs:
     def __init__(__self__, *,
-                 max_recent_sessions: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_recent_sessions: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Configuration for Session Summarization
 
@@ -1947,14 +1947,14 @@ class AgentSessionSummaryConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxRecentSessions")
-    def max_recent_sessions(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_recent_sessions(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum number of Sessions to Summarize
         """
         return pulumi.get(self, "max_recent_sessions")
 
     @max_recent_sessions.setter
-    def max_recent_sessions(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_recent_sessions(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_recent_sessions", value)
 
 
@@ -1994,6 +1994,95 @@ class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
         pulumi.set(self, "copy_from", value)
 
 
+class AutomatedReasoningPolicyPolicyDefinitionArgsDict(TypedDict):
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict']]]]]
+    """
+    The rules definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict']]]]]
+    """
+    The types definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict']]]]]
+    """
+    The variables definition block of an AutomatedReasoningPolicyDefinition.
+    """
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The policy format version.
+    """
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]] rules: The rules definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]] types: The types definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]] variables: The variables definition block of an AutomatedReasoningPolicyDefinition.
+        :param pulumi.Input[_builtins.str] version: The policy format version.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]:
+        """
+        The rules definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]:
+        """
+        The types definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]):
+        pulumi.set(self, "types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]:
+        """
+        The variables definition block of an AutomatedReasoningPolicyDefinition.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The policy format version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
 class AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict(TypedDict):
     expression: pulumi.Input[_builtins.str]
     """
@@ -2003,7 +2092,7 @@ class AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict(TypedDict):
     """
     A unique id within the PolicyDefinition
     """
-    alternate_expression: NotRequired[pulumi.Input[_builtins.str]]
+    alternate_expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     An alternate expression for this rule
     """
@@ -2013,7 +2102,7 @@ class AutomatedReasoningPolicyPolicyDefinitionRuleArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[_builtins.str],
                  id: pulumi.Input[_builtins.str],
-                 alternate_expression: Optional[pulumi.Input[_builtins.str]] = None):
+                 alternate_expression: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] expression: The SMT expression for this rule
         :param pulumi.Input[_builtins.str] id: A unique id within the PolicyDefinition
@@ -2050,63 +2139,15 @@ class AutomatedReasoningPolicyPolicyDefinitionRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="alternateExpression")
-    def alternate_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alternate_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An alternate expression for this rule
         """
         return pulumi.get(self, "alternate_expression")
 
     @alternate_expression.setter
-    def alternate_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alternate_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alternate_expression", value)
-
-
-class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict(TypedDict):
-    value: pulumi.Input[_builtins.str]
-    """
-    The value of the type value.
-    """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    A natural language description of the type's value.
-    """
-
-@pulumi.input_type
-class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs:
-    def __init__(__self__, *,
-                 value: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] value: The value of the type value.
-        :param pulumi.Input[_builtins.str] description: A natural language description of the type's value.
-        """
-        pulumi.set(__self__, "value", value)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        The value of the type value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        A natural language description of the type's value.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "description", value)
 
 
 class AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict(TypedDict):
@@ -2118,7 +2159,7 @@ class AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict(TypedDict):
     """
     A list of valid values for this type.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A natural language description of this type.
     """
@@ -2128,7 +2169,7 @@ class AutomatedReasoningPolicyPolicyDefinitionTypeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: A name for this type.
         :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs']]] values: A list of valid values for this type.
@@ -2165,14 +2206,62 @@ class AutomatedReasoningPolicyPolicyDefinitionTypeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A natural language description of this type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the type value.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A natural language description of the type's value.
+    """
+
+@pulumi.input_type
+class AutomatedReasoningPolicyPolicyDefinitionTypeValueArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] value: The value of the type value.
+        :param pulumi.Input[_builtins.str] description: A natural language description of the type's value.
+        """
+        pulumi.set(__self__, "value", value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value of the type value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A natural language description of the type's value.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -2242,95 +2331,6 @@ class AutomatedReasoningPolicyPolicyDefinitionVariableArgs:
         pulumi.set(self, "type", value)
 
 
-class AutomatedReasoningPolicyPolicyDefinitionArgsDict(TypedDict):
-    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgsDict']]]]
-    """
-    The rules definition block of an AutomatedReasoningPolicyDefinition.
-    """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgsDict']]]]
-    """
-    The types definition block of an AutomatedReasoningPolicyDefinition.
-    """
-    variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgsDict']]]]
-    """
-    The variables definition block of an AutomatedReasoningPolicyDefinition.
-    """
-    version: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    The policy format version.
-    """
-
-@pulumi.input_type
-class AutomatedReasoningPolicyPolicyDefinitionArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]] rules: The rules definition block of an AutomatedReasoningPolicyDefinition.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]] types: The types definition block of an AutomatedReasoningPolicyDefinition.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]] variables: The variables definition block of an AutomatedReasoningPolicyDefinition.
-        :param pulumi.Input[_builtins.str] version: The policy format version.
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-        if types is not None:
-            pulumi.set(__self__, "types", types)
-        if variables is not None:
-            pulumi.set(__self__, "variables", variables)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]:
-        """
-        The rules definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]:
-        """
-        The types definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        return pulumi.get(self, "types")
-
-    @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionTypeArgs']]]]):
-        pulumi.set(self, "types", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]:
-        """
-        The variables definition block of an AutomatedReasoningPolicyDefinition.
-        """
-        return pulumi.get(self, "variables")
-
-    @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomatedReasoningPolicyPolicyDefinitionVariableArgs']]]]):
-        pulumi.set(self, "variables", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The policy format version.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "version", value)
-
-
 class DataAutomationLibraryEncryptionConfigurationArgsDict(TypedDict):
     """
     KMS Encryption Configuration
@@ -2339,13 +2339,13 @@ class DataAutomationLibraryEncryptionConfigurationArgsDict(TypedDict):
     """
     KMS Key Identifier
     """
-    kms_encryption_context: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    kms_encryption_context: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class DataAutomationLibraryEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: pulumi.Input[_builtins.str],
-                 kms_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 kms_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         KMS Encryption Configuration
 
@@ -2369,41 +2369,12 @@ class DataAutomationLibraryEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsEncryptionContext")
-    def kms_encryption_context(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def kms_encryption_context(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "kms_encryption_context")
 
     @kms_encryption_context.setter
-    def kms_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def kms_encryption_context(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "kms_encryption_context", value)
-
-
-class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
-    transcript: NotRequired[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgsDict']]
-    """
-    This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
-    """
-
-@pulumi.input_type
-class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs:
-    def __init__(__self__, *,
-                 transcript: Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs'] transcript: This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
-        """
-        if transcript is not None:
-            pulumi.set(__self__, "transcript", transcript)
-
-    @_builtins.property
-    @pulumi.getter
-    def transcript(self) -> Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']]:
-        """
-        This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
-        """
-        return pulumi.get(self, "transcript")
-
-    @transcript.setter
-    def transcript(self, value: Optional[pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs']]):
-        pulumi.set(self, "transcript", value)
 
 
 class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
@@ -2411,11 +2382,11 @@ class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
     """
     Whether generating categorical data from audio is enabled.
     """
-    type_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict']]
+    type_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict']]]
     """
     This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]]
     """
     The types of data to generate.
     """
@@ -2424,8 +2395,8 @@ class DataAutomationProjectAudioExtractionCategoryArgsDict(TypedDict):
 class DataAutomationProjectAudioExtractionCategoryArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 type_configuration: Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]] = None):
+                 type_configuration: pulumi.Input[Optional['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']] = None,
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating categorical data from audio is enabled.
         :param pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs'] type_configuration: This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
@@ -2451,39 +2422,68 @@ class DataAutomationProjectAudioExtractionCategoryArgs:
 
     @_builtins.property
     @pulumi.getter(name="typeConfiguration")
-    def type_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]:
+    def type_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]:
         """
         This element contains information about extractions from different types. Used to enable speaker and channel labeling for transcripts.
         """
         return pulumi.get(self, "type_configuration")
 
     @type_configuration.setter
-    def type_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]):
+    def type_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs']]):
         pulumi.set(self, "type_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]:
         """
         The types of data to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioExtractionCategoryType']]]]):
         pulumi.set(self, "types", value)
 
 
+class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict(TypedDict):
+    transcript: NotRequired[pulumi.Input[Optional['DataAutomationProjectTranscriptConfigurationArgsDict']]]
+    """
+    This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+    """
+
+@pulumi.input_type
+class DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs:
+    def __init__(__self__, *,
+                 transcript: pulumi.Input[Optional['DataAutomationProjectTranscriptConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DataAutomationProjectTranscriptConfigurationArgs'] transcript: This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        """
+        if transcript is not None:
+            pulumi.set(__self__, "transcript", transcript)
+
+    @_builtins.property
+    @pulumi.getter
+    def transcript(self) -> pulumi.Input[Optional['DataAutomationProjectTranscriptConfigurationArgs']]:
+        """
+        This element allows you to configure different extractions for your transcript data, such as speaker and channel labeling.
+        """
+        return pulumi.get(self, "transcript")
+
+    @transcript.setter
+    def transcript(self, value: pulumi.Input[Optional['DataAutomationProjectTranscriptConfigurationArgs']]):
+        pulumi.set(self, "transcript", value)
+
+
 class DataAutomationProjectAudioLanguageConfigurationArgsDict(TypedDict):
-    generative_output_language: NotRequired[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]
+    generative_output_language: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioGenerativeOutputLanguage']]]
     """
     The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
     """
-    identify_multiple_languages: NotRequired[pulumi.Input[_builtins.bool]]
+    identify_multiple_languages: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The toggle determining if you want to detect multiple languages from your audio.
     """
-    input_languages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]
+    input_languages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]]
     """
     The input language of your audio. This can be set to any of the currently supported languages via the language codes.
     """
@@ -2491,9 +2491,9 @@ class DataAutomationProjectAudioLanguageConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectAudioLanguageConfigurationArgs:
     def __init__(__self__, *,
-                 generative_output_language: Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']] = None,
-                 identify_multiple_languages: Optional[pulumi.Input[_builtins.bool]] = None,
-                 input_languages: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]] = None):
+                 generative_output_language: pulumi.Input[Optional['DataAutomationProjectAudioGenerativeOutputLanguage']] = None,
+                 identify_multiple_languages: pulumi.Input[Optional[_builtins.bool]] = None,
+                 input_languages: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage'] generative_output_language: The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
         :param pulumi.Input[_builtins.bool] identify_multiple_languages: The toggle determining if you want to detect multiple languages from your audio.
@@ -2508,51 +2508,51 @@ class DataAutomationProjectAudioLanguageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="generativeOutputLanguage")
-    def generative_output_language(self) -> Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]:
+    def generative_output_language(self) -> pulumi.Input[Optional['DataAutomationProjectAudioGenerativeOutputLanguage']]:
         """
         The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
         """
         return pulumi.get(self, "generative_output_language")
 
     @generative_output_language.setter
-    def generative_output_language(self, value: Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]):
+    def generative_output_language(self, value: pulumi.Input[Optional['DataAutomationProjectAudioGenerativeOutputLanguage']]):
         pulumi.set(self, "generative_output_language", value)
 
     @_builtins.property
     @pulumi.getter(name="identifyMultipleLanguages")
-    def identify_multiple_languages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def identify_multiple_languages(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The toggle determining if you want to detect multiple languages from your audio.
         """
         return pulumi.get(self, "identify_multiple_languages")
 
     @identify_multiple_languages.setter
-    def identify_multiple_languages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def identify_multiple_languages(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "identify_multiple_languages", value)
 
     @_builtins.property
     @pulumi.getter(name="inputLanguages")
-    def input_languages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]:
+    def input_languages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]:
         """
         The input language of your audio. This can be set to any of the currently supported languages via the language codes.
         """
         return pulumi.get(self, "input_languages")
 
     @input_languages.setter
-    def input_languages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]):
+    def input_languages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]):
         pulumi.set(self, "input_languages", value)
 
 
 class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
-    language_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgsDict']]
+    language_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioLanguageConfigurationArgsDict']]]
     """
     The output and input language configuration for your audio.
     """
-    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    modality_processing: NotRequired[pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgsDict']]]
     """
     Sets modality processing for audio files. All modalities are enabled by default.
     """
-    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    sensitive_data_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgsDict']]]
     """
     Configuration for sensitive data detection and redaction for audio files.
     """
@@ -2560,9 +2560,9 @@ class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectAudioOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 language_configuration: Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']] = None,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
-                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
+                 language_configuration: pulumi.Input[Optional['DataAutomationProjectAudioLanguageConfigurationArgs']] = None,
+                 modality_processing: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs'] language_configuration: The output and input language configuration for your audio.
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for audio files. All modalities are enabled by default.
@@ -2577,38 +2577,38 @@ class DataAutomationProjectAudioOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="languageConfiguration")
-    def language_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']]:
+    def language_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectAudioLanguageConfigurationArgs']]:
         """
         The output and input language configuration for your audio.
         """
         return pulumi.get(self, "language_configuration")
 
     @language_configuration.setter
-    def language_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']]):
+    def language_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectAudioLanguageConfigurationArgs']]):
         pulumi.set(self, "language_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
-    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+    def modality_processing(self) -> pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]:
         """
         Sets modality processing for audio files. All modalities are enabled by default.
         """
         return pulumi.get(self, "modality_processing")
 
     @modality_processing.setter
-    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+    def modality_processing(self, value: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
-    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+    def sensitive_data_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]:
         """
         Configuration for sensitive data detection and redaction for audio files.
         """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
-    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+    def sensitive_data_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]):
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
@@ -2645,7 +2645,7 @@ class DataAutomationProjectAudioStandardGenerativeFieldArgsDict(TypedDict):
     """
     Whether generating descriptions is enabled for audio.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]]
     """
     The types of description to generate.
     """
@@ -2654,7 +2654,7 @@ class DataAutomationProjectAudioStandardGenerativeFieldArgsDict(TypedDict):
 class DataAutomationProjectAudioStandardGenerativeFieldArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating descriptions is enabled for audio.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]] types: The types of description to generate.
@@ -2677,23 +2677,23 @@ class DataAutomationProjectAudioStandardGenerativeFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]:
         """
         The types of description to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectAudioStandardOutputConfigurationArgsDict(TypedDict):
-    extraction: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgsDict']]
+    extraction: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioStandardExtractionArgsDict']]]
     """
     Settings for populating data fields that describe the audio.
     """
-    generative_field: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgsDict']]
+    generative_field: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioStandardGenerativeFieldArgsDict']]]
     """
     Whether to generate descriptions of the data.
     """
@@ -2701,8 +2701,8 @@ class DataAutomationProjectAudioStandardOutputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectAudioStandardOutputConfigurationArgs:
     def __init__(__self__, *,
-                 extraction: Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']] = None,
-                 generative_field: Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']] = None):
+                 extraction: pulumi.Input[Optional['DataAutomationProjectAudioStandardExtractionArgs']] = None,
+                 generative_field: pulumi.Input[Optional['DataAutomationProjectAudioStandardGenerativeFieldArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs'] extraction: Settings for populating data fields that describe the audio.
         :param pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs'] generative_field: Whether to generate descriptions of the data.
@@ -2714,26 +2714,26 @@ class DataAutomationProjectAudioStandardOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['DataAutomationProjectAudioStandardExtractionArgs']]:
         """
         Settings for populating data fields that describe the audio.
         """
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardExtractionArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['DataAutomationProjectAudioStandardExtractionArgs']]):
         pulumi.set(self, "extraction", value)
 
     @_builtins.property
     @pulumi.getter(name="generativeField")
-    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']]:
+    def generative_field(self) -> pulumi.Input[Optional['DataAutomationProjectAudioStandardGenerativeFieldArgs']]:
         """
         Whether to generate descriptions of the data.
         """
         return pulumi.get(self, "generative_field")
 
     @generative_field.setter
-    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardGenerativeFieldArgs']]):
+    def generative_field(self, value: pulumi.Input[Optional['DataAutomationProjectAudioStandardGenerativeFieldArgs']]):
         pulumi.set(self, "generative_field", value)
 
 
@@ -2742,11 +2742,11 @@ class DataAutomationProjectBlueprintItemArgsDict(TypedDict):
     """
     ARN of a Blueprint
     """
-    blueprint_stage: NotRequired[pulumi.Input['DataAutomationProjectBlueprintStage']]
+    blueprint_stage: NotRequired[pulumi.Input[Optional['DataAutomationProjectBlueprintStage']]]
     """
     The blueprint's stage.
     """
-    blueprint_version: NotRequired[pulumi.Input[_builtins.str]]
+    blueprint_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Blueprint Version
     """
@@ -2755,8 +2755,8 @@ class DataAutomationProjectBlueprintItemArgsDict(TypedDict):
 class DataAutomationProjectBlueprintItemArgs:
     def __init__(__self__, *,
                  blueprint_arn: pulumi.Input[_builtins.str],
-                 blueprint_stage: Optional[pulumi.Input['DataAutomationProjectBlueprintStage']] = None,
-                 blueprint_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 blueprint_stage: pulumi.Input[Optional['DataAutomationProjectBlueprintStage']] = None,
+                 blueprint_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] blueprint_arn: ARN of a Blueprint
         :param pulumi.Input['DataAutomationProjectBlueprintStage'] blueprint_stage: The blueprint's stage.
@@ -2782,26 +2782,26 @@ class DataAutomationProjectBlueprintItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="blueprintStage")
-    def blueprint_stage(self) -> Optional[pulumi.Input['DataAutomationProjectBlueprintStage']]:
+    def blueprint_stage(self) -> pulumi.Input[Optional['DataAutomationProjectBlueprintStage']]:
         """
         The blueprint's stage.
         """
         return pulumi.get(self, "blueprint_stage")
 
     @blueprint_stage.setter
-    def blueprint_stage(self, value: Optional[pulumi.Input['DataAutomationProjectBlueprintStage']]):
+    def blueprint_stage(self, value: pulumi.Input[Optional['DataAutomationProjectBlueprintStage']]):
         pulumi.set(self, "blueprint_stage", value)
 
     @_builtins.property
     @pulumi.getter(name="blueprintVersion")
-    def blueprint_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def blueprint_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Blueprint Version
         """
         return pulumi.get(self, "blueprint_version")
 
     @blueprint_version.setter
-    def blueprint_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def blueprint_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "blueprint_version", value)
 
 
@@ -2837,7 +2837,7 @@ class DataAutomationProjectCustomOutputConfigurationArgsDict(TypedDict):
     """
     Custom output configuration
     """
-    blueprints: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgsDict']]]]
+    blueprints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgsDict']]]]]
     """
     A list of blueprints.
     """
@@ -2845,7 +2845,7 @@ class DataAutomationProjectCustomOutputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectCustomOutputConfigurationArgs:
     def __init__(__self__, *,
-                 blueprints: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]] = None):
+                 blueprints: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]] = None):
         """
         Custom output configuration
 
@@ -2856,14 +2856,14 @@ class DataAutomationProjectCustomOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def blueprints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]:
+    def blueprints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]:
         """
         A list of blueprints.
         """
         return pulumi.get(self, "blueprints")
 
     @blueprints.setter
-    def blueprints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]):
+    def blueprints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectBlueprintItemArgs']]]]):
         pulumi.set(self, "blueprints", value)
 
 
@@ -2896,7 +2896,7 @@ class DataAutomationProjectDocumentBoundingBoxArgs:
 
 
 class DataAutomationProjectDocumentExtractionGranularityArgsDict(TypedDict):
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]]
     """
     Granularity settings for documents.
     """
@@ -2904,7 +2904,7 @@ class DataAutomationProjectDocumentExtractionGranularityArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectDocumentExtractionGranularityArgs:
     def __init__(__self__, *,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]] types: Granularity settings for documents.
         """
@@ -2913,14 +2913,14 @@ class DataAutomationProjectDocumentExtractionGranularityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]:
         """
         Granularity settings for documents.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentExtractionGranularityType']]]]):
         pulumi.set(self, "types", value)
 
 
@@ -3000,7 +3000,7 @@ class DataAutomationProjectDocumentOutputFormatArgs:
 
 
 class DataAutomationProjectDocumentOutputTextFormatArgsDict(TypedDict):
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]]
     """
     The types of output text to generate.
     """
@@ -3008,7 +3008,7 @@ class DataAutomationProjectDocumentOutputTextFormatArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectDocumentOutputTextFormatArgs:
     def __init__(__self__, *,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]] types: The types of output text to generate.
         """
@@ -3017,27 +3017,27 @@ class DataAutomationProjectDocumentOutputTextFormatArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]:
         """
         The types of output text to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectDocumentOutputTextFormatType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
-    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    modality_processing: NotRequired[pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgsDict']]]
     """
     Sets modality processing for document files. All modalities are enabled by default.
     """
-    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    sensitive_data_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgsDict']]]
     """
     Configuration for sensitive data detection and redaction for document files.
     """
-    splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
+    splitter: NotRequired[pulumi.Input[Optional['DataAutomationProjectSplitterConfigurationArgsDict']]]
     """
     Whether document splitter is enabled for a project.
     """
@@ -3045,9 +3045,9 @@ class DataAutomationProjectDocumentOverrideConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectDocumentOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
-                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None,
-                 splitter: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']] = None):
+                 modality_processing: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']] = None,
+                 splitter: pulumi.Input[Optional['DataAutomationProjectSplitterConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for document files. All modalities are enabled by default.
         :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for document files.
@@ -3062,38 +3062,38 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
-    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+    def modality_processing(self) -> pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]:
         """
         Sets modality processing for document files. All modalities are enabled by default.
         """
         return pulumi.get(self, "modality_processing")
 
     @modality_processing.setter
-    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+    def modality_processing(self, value: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
-    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+    def sensitive_data_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]:
         """
         Configuration for sensitive data detection and redaction for document files.
         """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
-    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+    def sensitive_data_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]):
         pulumi.set(self, "sensitive_data_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def splitter(self) -> Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']]:
+    def splitter(self) -> pulumi.Input[Optional['DataAutomationProjectSplitterConfigurationArgs']]:
         """
         Whether document splitter is enabled for a project.
         """
         return pulumi.get(self, "splitter")
 
     @splitter.setter
-    def splitter(self, value: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']]):
+    def splitter(self, value: pulumi.Input[Optional['DataAutomationProjectSplitterConfigurationArgs']]):
         pulumi.set(self, "splitter", value)
 
 
@@ -3173,15 +3173,15 @@ class DataAutomationProjectDocumentStandardGenerativeFieldArgs:
 
 
 class DataAutomationProjectDocumentStandardOutputConfigurationArgsDict(TypedDict):
-    extraction: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgsDict']]
+    extraction: NotRequired[pulumi.Input[Optional['DataAutomationProjectDocumentStandardExtractionArgsDict']]]
     """
     Settings for populating data fields that describe the document.
     """
-    generative_field: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgsDict']]
+    generative_field: NotRequired[pulumi.Input[Optional['DataAutomationProjectDocumentStandardGenerativeFieldArgsDict']]]
     """
     Whether to generate descriptions.
     """
-    output_format: NotRequired[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgsDict']]
+    output_format: NotRequired[pulumi.Input[Optional['DataAutomationProjectDocumentOutputFormatArgsDict']]]
     """
     The output format to generate.
     """
@@ -3189,9 +3189,9 @@ class DataAutomationProjectDocumentStandardOutputConfigurationArgsDict(TypedDict
 @pulumi.input_type
 class DataAutomationProjectDocumentStandardOutputConfigurationArgs:
     def __init__(__self__, *,
-                 extraction: Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']] = None,
-                 generative_field: Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']] = None,
-                 output_format: Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']] = None):
+                 extraction: pulumi.Input[Optional['DataAutomationProjectDocumentStandardExtractionArgs']] = None,
+                 generative_field: pulumi.Input[Optional['DataAutomationProjectDocumentStandardGenerativeFieldArgs']] = None,
+                 output_format: pulumi.Input[Optional['DataAutomationProjectDocumentOutputFormatArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs'] extraction: Settings for populating data fields that describe the document.
         :param pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs'] generative_field: Whether to generate descriptions.
@@ -3206,38 +3206,38 @@ class DataAutomationProjectDocumentStandardOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['DataAutomationProjectDocumentStandardExtractionArgs']]:
         """
         Settings for populating data fields that describe the document.
         """
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardExtractionArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['DataAutomationProjectDocumentStandardExtractionArgs']]):
         pulumi.set(self, "extraction", value)
 
     @_builtins.property
     @pulumi.getter(name="generativeField")
-    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]:
+    def generative_field(self) -> pulumi.Input[Optional['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]:
         """
         Whether to generate descriptions.
         """
         return pulumi.get(self, "generative_field")
 
     @generative_field.setter
-    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]):
+    def generative_field(self, value: pulumi.Input[Optional['DataAutomationProjectDocumentStandardGenerativeFieldArgs']]):
         pulumi.set(self, "generative_field", value)
 
     @_builtins.property
     @pulumi.getter(name="outputFormat")
-    def output_format(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']]:
+    def output_format(self) -> pulumi.Input[Optional['DataAutomationProjectDocumentOutputFormatArgs']]:
         """
         The output format to generate.
         """
         return pulumi.get(self, "output_format")
 
     @output_format.setter
-    def output_format(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentOutputFormatArgs']]):
+    def output_format(self, value: pulumi.Input[Optional['DataAutomationProjectDocumentOutputFormatArgs']]):
         pulumi.set(self, "output_format", value)
 
 
@@ -3274,7 +3274,7 @@ class DataAutomationProjectImageExtractionCategoryArgsDict(TypedDict):
     """
     Whether generating categorical data from images is enabled.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]]
     """
     The types of data to generate.
     """
@@ -3283,7 +3283,7 @@ class DataAutomationProjectImageExtractionCategoryArgsDict(TypedDict):
 class DataAutomationProjectImageExtractionCategoryArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating categorical data from images is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]] types: The types of data to generate.
@@ -3306,23 +3306,23 @@ class DataAutomationProjectImageExtractionCategoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]:
         """
         The types of data to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageExtractionCategoryType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectImageOverrideConfigurationArgsDict(TypedDict):
-    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    modality_processing: NotRequired[pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgsDict']]]
     """
     Sets modality processing for image files. All modalities are enabled by default.
     """
-    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    sensitive_data_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgsDict']]]
     """
     Configuration for sensitive data detection and redaction for image files.
     """
@@ -3330,8 +3330,8 @@ class DataAutomationProjectImageOverrideConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectImageOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
-                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
+                 modality_processing: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for image files. All modalities are enabled by default.
         :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for image files.
@@ -3343,26 +3343,26 @@ class DataAutomationProjectImageOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
-    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+    def modality_processing(self) -> pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]:
         """
         Sets modality processing for image files. All modalities are enabled by default.
         """
         return pulumi.get(self, "modality_processing")
 
     @modality_processing.setter
-    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+    def modality_processing(self, value: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
-    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+    def sensitive_data_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]:
         """
         Configuration for sensitive data detection and redaction for image files.
         """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
-    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+    def sensitive_data_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]):
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
@@ -3418,7 +3418,7 @@ class DataAutomationProjectImageStandardGenerativeFieldArgsDict(TypedDict):
     """
     Whether generating descriptions is enabled for images.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]]
     """
     Settings for generating descriptions of images.
     """
@@ -3427,7 +3427,7 @@ class DataAutomationProjectImageStandardGenerativeFieldArgsDict(TypedDict):
 class DataAutomationProjectImageStandardGenerativeFieldArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating descriptions is enabled for images.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]] types: Settings for generating descriptions of images.
@@ -3450,23 +3450,23 @@ class DataAutomationProjectImageStandardGenerativeFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]:
         """
         Settings for generating descriptions of images.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectImageStandardOutputConfigurationArgsDict(TypedDict):
-    extraction: NotRequired[pulumi.Input['DataAutomationProjectImageStandardExtractionArgsDict']]
+    extraction: NotRequired[pulumi.Input[Optional['DataAutomationProjectImageStandardExtractionArgsDict']]]
     """
     Settings for populating data fields that describe the image.
     """
-    generative_field: NotRequired[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgsDict']]
+    generative_field: NotRequired[pulumi.Input[Optional['DataAutomationProjectImageStandardGenerativeFieldArgsDict']]]
     """
     Whether to generate descriptions of the data.
     """
@@ -3474,8 +3474,8 @@ class DataAutomationProjectImageStandardOutputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectImageStandardOutputConfigurationArgs:
     def __init__(__self__, *,
-                 extraction: Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']] = None,
-                 generative_field: Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']] = None):
+                 extraction: pulumi.Input[Optional['DataAutomationProjectImageStandardExtractionArgs']] = None,
+                 generative_field: pulumi.Input[Optional['DataAutomationProjectImageStandardGenerativeFieldArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectImageStandardExtractionArgs'] extraction: Settings for populating data fields that describe the image.
         :param pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs'] generative_field: Whether to generate descriptions of the data.
@@ -3487,31 +3487,31 @@ class DataAutomationProjectImageStandardOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['DataAutomationProjectImageStandardExtractionArgs']]:
         """
         Settings for populating data fields that describe the image.
         """
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardExtractionArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['DataAutomationProjectImageStandardExtractionArgs']]):
         pulumi.set(self, "extraction", value)
 
     @_builtins.property
     @pulumi.getter(name="generativeField")
-    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']]:
+    def generative_field(self) -> pulumi.Input[Optional['DataAutomationProjectImageStandardGenerativeFieldArgs']]:
         """
         Whether to generate descriptions of the data.
         """
         return pulumi.get(self, "generative_field")
 
     @generative_field.setter
-    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardGenerativeFieldArgs']]):
+    def generative_field(self, value: pulumi.Input[Optional['DataAutomationProjectImageStandardGenerativeFieldArgs']]):
         pulumi.set(self, "generative_field", value)
 
 
 class DataAutomationProjectModalityProcessingConfigurationArgsDict(TypedDict):
-    state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+    state: NotRequired[pulumi.Input[Optional['DataAutomationProjectState']]]
     """
     Stores the state of the modality for your project, set to either enabled or disabled
     """
@@ -3519,7 +3519,7 @@ class DataAutomationProjectModalityProcessingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectModalityProcessingConfigurationArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input['DataAutomationProjectState']] = None):
+                 state: pulumi.Input[Optional['DataAutomationProjectState']] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Stores the state of the modality for your project, set to either enabled or disabled
         """
@@ -3528,14 +3528,14 @@ class DataAutomationProjectModalityProcessingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['DataAutomationProjectState']]:
+    def state(self) -> pulumi.Input[Optional['DataAutomationProjectState']]:
         """
         Stores the state of the modality for your project, set to either enabled or disabled
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['DataAutomationProjectState']]):
+    def state(self, value: pulumi.Input[Optional['DataAutomationProjectState']]):
         pulumi.set(self, "state", value)
 
 
@@ -3543,19 +3543,19 @@ class DataAutomationProjectModalityRoutingConfigurationArgsDict(TypedDict):
     """
     Modality routing configuration
     """
-    jpeg: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    jpeg: NotRequired[pulumi.Input[Optional['DataAutomationProjectDesiredModality']]]
     """
     Sets whether JPEG files are routed to document or image processing.
     """
-    mov: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    mov: NotRequired[pulumi.Input[Optional['DataAutomationProjectDesiredModality']]]
     """
     Sets whether MOV files are routed to audio or video processing.
     """
-    mp4: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    mp4: NotRequired[pulumi.Input[Optional['DataAutomationProjectDesiredModality']]]
     """
     Sets whether MP4 files are routed to audio or video processing.
     """
-    png: NotRequired[pulumi.Input['DataAutomationProjectDesiredModality']]
+    png: NotRequired[pulumi.Input[Optional['DataAutomationProjectDesiredModality']]]
     """
     Sets whether PNG files are routed to document or image processing.
     """
@@ -3563,10 +3563,10 @@ class DataAutomationProjectModalityRoutingConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectModalityRoutingConfigurationArgs:
     def __init__(__self__, *,
-                 jpeg: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
-                 mov: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
-                 mp4: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None,
-                 png: Optional[pulumi.Input['DataAutomationProjectDesiredModality']] = None):
+                 jpeg: pulumi.Input[Optional['DataAutomationProjectDesiredModality']] = None,
+                 mov: pulumi.Input[Optional['DataAutomationProjectDesiredModality']] = None,
+                 mp4: pulumi.Input[Optional['DataAutomationProjectDesiredModality']] = None,
+                 png: pulumi.Input[Optional['DataAutomationProjectDesiredModality']] = None):
         """
         Modality routing configuration
 
@@ -3586,50 +3586,50 @@ class DataAutomationProjectModalityRoutingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def jpeg(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+    def jpeg(self) -> pulumi.Input[Optional['DataAutomationProjectDesiredModality']]:
         """
         Sets whether JPEG files are routed to document or image processing.
         """
         return pulumi.get(self, "jpeg")
 
     @jpeg.setter
-    def jpeg(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+    def jpeg(self, value: pulumi.Input[Optional['DataAutomationProjectDesiredModality']]):
         pulumi.set(self, "jpeg", value)
 
     @_builtins.property
     @pulumi.getter
-    def mov(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+    def mov(self) -> pulumi.Input[Optional['DataAutomationProjectDesiredModality']]:
         """
         Sets whether MOV files are routed to audio or video processing.
         """
         return pulumi.get(self, "mov")
 
     @mov.setter
-    def mov(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+    def mov(self, value: pulumi.Input[Optional['DataAutomationProjectDesiredModality']]):
         pulumi.set(self, "mov", value)
 
     @_builtins.property
     @pulumi.getter
-    def mp4(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+    def mp4(self) -> pulumi.Input[Optional['DataAutomationProjectDesiredModality']]:
         """
         Sets whether MP4 files are routed to audio or video processing.
         """
         return pulumi.get(self, "mp4")
 
     @mp4.setter
-    def mp4(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+    def mp4(self, value: pulumi.Input[Optional['DataAutomationProjectDesiredModality']]):
         pulumi.set(self, "mp4", value)
 
     @_builtins.property
     @pulumi.getter
-    def png(self) -> Optional[pulumi.Input['DataAutomationProjectDesiredModality']]:
+    def png(self) -> pulumi.Input[Optional['DataAutomationProjectDesiredModality']]:
         """
         Sets whether PNG files are routed to document or image processing.
         """
         return pulumi.get(self, "png")
 
     @png.setter
-    def png(self, value: Optional[pulumi.Input['DataAutomationProjectDesiredModality']]):
+    def png(self, value: pulumi.Input[Optional['DataAutomationProjectDesiredModality']]):
         pulumi.set(self, "png", value)
 
 
@@ -3637,23 +3637,23 @@ class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
     """
     Override configuration
     """
-    audio: NotRequired[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgsDict']]
+    audio: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioOverrideConfigurationArgsDict']]]
     """
     This element declares whether your project will process audio files.
     """
-    document: NotRequired[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]
+    document: NotRequired[pulumi.Input[Optional['DataAutomationProjectDocumentOverrideConfigurationArgsDict']]]
     """
     Additional settings for a project.
     """
-    image: NotRequired[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgsDict']]
+    image: NotRequired[pulumi.Input[Optional['DataAutomationProjectImageOverrideConfigurationArgsDict']]]
     """
     This element declares whether your project will process image files.
     """
-    modality_routing: NotRequired[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgsDict']]
+    modality_routing: NotRequired[pulumi.Input[Optional['DataAutomationProjectModalityRoutingConfigurationArgsDict']]]
     """
     Lets you set which modalities certain file types are processed as.
     """
-    video: NotRequired[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgsDict']]
+    video: NotRequired[pulumi.Input[Optional['DataAutomationProjectVideoOverrideConfigurationArgsDict']]]
     """
     This element declares whether your project will process video files.
     """
@@ -3661,11 +3661,11 @@ class DataAutomationProjectOverrideConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 audio: Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']] = None,
-                 document: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']] = None,
-                 image: Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']] = None,
-                 modality_routing: Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']] = None,
-                 video: Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']] = None):
+                 audio: pulumi.Input[Optional['DataAutomationProjectAudioOverrideConfigurationArgs']] = None,
+                 document: pulumi.Input[Optional['DataAutomationProjectDocumentOverrideConfigurationArgs']] = None,
+                 image: pulumi.Input[Optional['DataAutomationProjectImageOverrideConfigurationArgs']] = None,
+                 modality_routing: pulumi.Input[Optional['DataAutomationProjectModalityRoutingConfigurationArgs']] = None,
+                 video: pulumi.Input[Optional['DataAutomationProjectVideoOverrideConfigurationArgs']] = None):
         """
         Override configuration
 
@@ -3688,71 +3688,71 @@ class DataAutomationProjectOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audio(self) -> Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']]:
+    def audio(self) -> pulumi.Input[Optional['DataAutomationProjectAudioOverrideConfigurationArgs']]:
         """
         This element declares whether your project will process audio files.
         """
         return pulumi.get(self, "audio")
 
     @audio.setter
-    def audio(self, value: Optional[pulumi.Input['DataAutomationProjectAudioOverrideConfigurationArgs']]):
+    def audio(self, value: pulumi.Input[Optional['DataAutomationProjectAudioOverrideConfigurationArgs']]):
         pulumi.set(self, "audio", value)
 
     @_builtins.property
     @pulumi.getter
-    def document(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']]:
+    def document(self) -> pulumi.Input[Optional['DataAutomationProjectDocumentOverrideConfigurationArgs']]:
         """
         Additional settings for a project.
         """
         return pulumi.get(self, "document")
 
     @document.setter
-    def document(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentOverrideConfigurationArgs']]):
+    def document(self, value: pulumi.Input[Optional['DataAutomationProjectDocumentOverrideConfigurationArgs']]):
         pulumi.set(self, "document", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']]:
+    def image(self) -> pulumi.Input[Optional['DataAutomationProjectImageOverrideConfigurationArgs']]:
         """
         This element declares whether your project will process image files.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['DataAutomationProjectImageOverrideConfigurationArgs']]):
+    def image(self, value: pulumi.Input[Optional['DataAutomationProjectImageOverrideConfigurationArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="modalityRouting")
-    def modality_routing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']]:
+    def modality_routing(self) -> pulumi.Input[Optional['DataAutomationProjectModalityRoutingConfigurationArgs']]:
         """
         Lets you set which modalities certain file types are processed as.
         """
         return pulumi.get(self, "modality_routing")
 
     @modality_routing.setter
-    def modality_routing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityRoutingConfigurationArgs']]):
+    def modality_routing(self, value: pulumi.Input[Optional['DataAutomationProjectModalityRoutingConfigurationArgs']]):
         pulumi.set(self, "modality_routing", value)
 
     @_builtins.property
     @pulumi.getter
-    def video(self) -> Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']]:
+    def video(self) -> pulumi.Input[Optional['DataAutomationProjectVideoOverrideConfigurationArgs']]:
         """
         This element declares whether your project will process video files.
         """
         return pulumi.get(self, "video")
 
     @video.setter
-    def video(self, value: Optional[pulumi.Input['DataAutomationProjectVideoOverrideConfigurationArgs']]):
+    def video(self, value: pulumi.Input[Optional['DataAutomationProjectVideoOverrideConfigurationArgs']]):
         pulumi.set(self, "video", value)
 
 
 class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
-    pii_entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]
+    pii_entity_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]]
     """
     List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
     """
-    redaction_mask_mode: NotRequired[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]
+    redaction_mask_mode: NotRequired[pulumi.Input[Optional['DataAutomationProjectPiiRedactionMaskMode']]]
     """
     Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
     """
@@ -3760,8 +3760,8 @@ class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectPiiEntitiesConfigurationArgs:
     def __init__(__self__, *,
-                 pii_entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]] = None,
-                 redaction_mask_mode: Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']] = None):
+                 pii_entity_types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]] = None,
+                 redaction_mask_mode: pulumi.Input[Optional['DataAutomationProjectPiiRedactionMaskMode']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]] pii_entity_types: List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
         :param pulumi.Input['DataAutomationProjectPiiRedactionMaskMode'] redaction_mask_mode: Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
@@ -3773,39 +3773,39 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="piiEntityTypes")
-    def pii_entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]:
+    def pii_entity_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]:
         """
         List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
         """
         return pulumi.get(self, "pii_entity_types")
 
     @pii_entity_types.setter
-    def pii_entity_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]):
+    def pii_entity_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]):
         pulumi.set(self, "pii_entity_types", value)
 
     @_builtins.property
     @pulumi.getter(name="redactionMaskMode")
-    def redaction_mask_mode(self) -> Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]:
+    def redaction_mask_mode(self) -> pulumi.Input[Optional['DataAutomationProjectPiiRedactionMaskMode']]:
         """
         Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
         """
         return pulumi.get(self, "redaction_mask_mode")
 
     @redaction_mask_mode.setter
-    def redaction_mask_mode(self, value: Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]):
+    def redaction_mask_mode(self, value: pulumi.Input[Optional['DataAutomationProjectPiiRedactionMaskMode']]):
         pulumi.set(self, "redaction_mask_mode", value)
 
 
 class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
-    detection_mode: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]
+    detection_mode: NotRequired[pulumi.Input[Optional['DataAutomationProjectSensitiveDataDetectionMode']]]
     """
     Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
     """
-    detection_scope: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]
+    detection_scope: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]]
     """
     Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
     """
-    pii_entities_configuration: NotRequired[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]
+    pii_entities_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]]
     """
     Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
     """
@@ -3813,9 +3813,9 @@ class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectSensitiveDataConfigurationArgs:
     def __init__(__self__, *,
-                 detection_mode: Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']] = None,
-                 detection_scope: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]] = None,
-                 pii_entities_configuration: Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']] = None):
+                 detection_mode: pulumi.Input[Optional['DataAutomationProjectSensitiveDataDetectionMode']] = None,
+                 detection_scope: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]] = None,
+                 pii_entities_configuration: pulumi.Input[Optional['DataAutomationProjectPiiEntitiesConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode'] detection_mode: Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]] detection_scope: Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
@@ -3830,38 +3830,38 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="detectionMode")
-    def detection_mode(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]:
+    def detection_mode(self) -> pulumi.Input[Optional['DataAutomationProjectSensitiveDataDetectionMode']]:
         """
         Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
         """
         return pulumi.get(self, "detection_mode")
 
     @detection_mode.setter
-    def detection_mode(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]):
+    def detection_mode(self, value: pulumi.Input[Optional['DataAutomationProjectSensitiveDataDetectionMode']]):
         pulumi.set(self, "detection_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="detectionScope")
-    def detection_scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]:
+    def detection_scope(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]:
         """
         Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
         """
         return pulumi.get(self, "detection_scope")
 
     @detection_scope.setter
-    def detection_scope(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]):
+    def detection_scope(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]):
         pulumi.set(self, "detection_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="piiEntitiesConfiguration")
-    def pii_entities_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']]:
+    def pii_entities_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectPiiEntitiesConfigurationArgs']]:
         """
         Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
         """
         return pulumi.get(self, "pii_entities_configuration")
 
     @pii_entities_configuration.setter
-    def pii_entities_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']]):
+    def pii_entities_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectPiiEntitiesConfigurationArgs']]):
         pulumi.set(self, "pii_entities_configuration", value)
 
 
@@ -3894,7 +3894,7 @@ class DataAutomationProjectSpeakerLabelingConfigurationArgs:
 
 
 class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
-    state: NotRequired[pulumi.Input['DataAutomationProjectState']]
+    state: NotRequired[pulumi.Input[Optional['DataAutomationProjectState']]]
     """
     Whether document splitter is enabled for a project.
     """
@@ -3902,7 +3902,7 @@ class DataAutomationProjectSplitterConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectSplitterConfigurationArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input['DataAutomationProjectState']] = None):
+                 state: pulumi.Input[Optional['DataAutomationProjectState']] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether document splitter is enabled for a project.
         """
@@ -3911,14 +3911,14 @@ class DataAutomationProjectSplitterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input['DataAutomationProjectState']]:
+    def state(self) -> pulumi.Input[Optional['DataAutomationProjectState']]:
         """
         Whether document splitter is enabled for a project.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input['DataAutomationProjectState']]):
+    def state(self, value: pulumi.Input[Optional['DataAutomationProjectState']]):
         pulumi.set(self, "state", value)
 
 
@@ -3926,19 +3926,19 @@ class DataAutomationProjectStandardOutputConfigurationArgsDict(TypedDict):
     """
     Standard output configuration
     """
-    audio: NotRequired[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgsDict']]
+    audio: NotRequired[pulumi.Input[Optional['DataAutomationProjectAudioStandardOutputConfigurationArgsDict']]]
     """
     Settings for processing audio.
     """
-    document: NotRequired[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgsDict']]
+    document: NotRequired[pulumi.Input[Optional['DataAutomationProjectDocumentStandardOutputConfigurationArgsDict']]]
     """
     Settings for processing documents.
     """
-    image: NotRequired[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgsDict']]
+    image: NotRequired[pulumi.Input[Optional['DataAutomationProjectImageStandardOutputConfigurationArgsDict']]]
     """
     Settings for processing images.
     """
-    video: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgsDict']]
+    video: NotRequired[pulumi.Input[Optional['DataAutomationProjectVideoStandardOutputConfigurationArgsDict']]]
     """
     Settings for processing video.
     """
@@ -3946,10 +3946,10 @@ class DataAutomationProjectStandardOutputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectStandardOutputConfigurationArgs:
     def __init__(__self__, *,
-                 audio: Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']] = None,
-                 document: Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']] = None,
-                 image: Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']] = None,
-                 video: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']] = None):
+                 audio: pulumi.Input[Optional['DataAutomationProjectAudioStandardOutputConfigurationArgs']] = None,
+                 document: pulumi.Input[Optional['DataAutomationProjectDocumentStandardOutputConfigurationArgs']] = None,
+                 image: pulumi.Input[Optional['DataAutomationProjectImageStandardOutputConfigurationArgs']] = None,
+                 video: pulumi.Input[Optional['DataAutomationProjectVideoStandardOutputConfigurationArgs']] = None):
         """
         Standard output configuration
 
@@ -3969,59 +3969,59 @@ class DataAutomationProjectStandardOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audio(self) -> Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']]:
+    def audio(self) -> pulumi.Input[Optional['DataAutomationProjectAudioStandardOutputConfigurationArgs']]:
         """
         Settings for processing audio.
         """
         return pulumi.get(self, "audio")
 
     @audio.setter
-    def audio(self, value: Optional[pulumi.Input['DataAutomationProjectAudioStandardOutputConfigurationArgs']]):
+    def audio(self, value: pulumi.Input[Optional['DataAutomationProjectAudioStandardOutputConfigurationArgs']]):
         pulumi.set(self, "audio", value)
 
     @_builtins.property
     @pulumi.getter
-    def document(self) -> Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]:
+    def document(self) -> pulumi.Input[Optional['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]:
         """
         Settings for processing documents.
         """
         return pulumi.get(self, "document")
 
     @document.setter
-    def document(self, value: Optional[pulumi.Input['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]):
+    def document(self, value: pulumi.Input[Optional['DataAutomationProjectDocumentStandardOutputConfigurationArgs']]):
         pulumi.set(self, "document", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']]:
+    def image(self) -> pulumi.Input[Optional['DataAutomationProjectImageStandardOutputConfigurationArgs']]:
         """
         Settings for processing images.
         """
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['DataAutomationProjectImageStandardOutputConfigurationArgs']]):
+    def image(self, value: pulumi.Input[Optional['DataAutomationProjectImageStandardOutputConfigurationArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter
-    def video(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']]:
+    def video(self) -> pulumi.Input[Optional['DataAutomationProjectVideoStandardOutputConfigurationArgs']]:
         """
         Settings for processing video.
         """
         return pulumi.get(self, "video")
 
     @video.setter
-    def video(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardOutputConfigurationArgs']]):
+    def video(self, value: pulumi.Input[Optional['DataAutomationProjectVideoStandardOutputConfigurationArgs']]):
         pulumi.set(self, "video", value)
 
 
 class DataAutomationProjectTranscriptConfigurationArgsDict(TypedDict):
-    channel_labeling: NotRequired[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgsDict']]
+    channel_labeling: NotRequired[pulumi.Input[Optional['DataAutomationProjectChannelLabelingConfigurationArgsDict']]]
     """
     Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
     """
-    speaker_labeling: NotRequired[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgsDict']]
+    speaker_labeling: NotRequired[pulumi.Input[Optional['DataAutomationProjectSpeakerLabelingConfigurationArgsDict']]]
     """
     Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
     """
@@ -4029,8 +4029,8 @@ class DataAutomationProjectTranscriptConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectTranscriptConfigurationArgs:
     def __init__(__self__, *,
-                 channel_labeling: Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']] = None,
-                 speaker_labeling: Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']] = None):
+                 channel_labeling: pulumi.Input[Optional['DataAutomationProjectChannelLabelingConfigurationArgs']] = None,
+                 speaker_labeling: pulumi.Input[Optional['DataAutomationProjectSpeakerLabelingConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs'] channel_labeling: Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
         :param pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs'] speaker_labeling: Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
@@ -4042,26 +4042,26 @@ class DataAutomationProjectTranscriptConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="channelLabeling")
-    def channel_labeling(self) -> Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']]:
+    def channel_labeling(self) -> pulumi.Input[Optional['DataAutomationProjectChannelLabelingConfigurationArgs']]:
         """
         Enables channel labeling. Each audio channel will be labeled with a number, and the transcript will indicate which channel is being used.
         """
         return pulumi.get(self, "channel_labeling")
 
     @channel_labeling.setter
-    def channel_labeling(self, value: Optional[pulumi.Input['DataAutomationProjectChannelLabelingConfigurationArgs']]):
+    def channel_labeling(self, value: pulumi.Input[Optional['DataAutomationProjectChannelLabelingConfigurationArgs']]):
         pulumi.set(self, "channel_labeling", value)
 
     @_builtins.property
     @pulumi.getter(name="speakerLabeling")
-    def speaker_labeling(self) -> Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']]:
+    def speaker_labeling(self) -> pulumi.Input[Optional['DataAutomationProjectSpeakerLabelingConfigurationArgs']]:
         """
         Enables speaker labeling. Each speaker within a transcript will recieve a number, and the transcript will note which speaker is talking.
         """
         return pulumi.get(self, "speaker_labeling")
 
     @speaker_labeling.setter
-    def speaker_labeling(self, value: Optional[pulumi.Input['DataAutomationProjectSpeakerLabelingConfigurationArgs']]):
+    def speaker_labeling(self, value: pulumi.Input[Optional['DataAutomationProjectSpeakerLabelingConfigurationArgs']]):
         pulumi.set(self, "speaker_labeling", value)
 
 
@@ -4098,7 +4098,7 @@ class DataAutomationProjectVideoExtractionCategoryArgsDict(TypedDict):
     """
     Whether generating categorical data from video is enabled.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]]
     """
     The types of data to generate.
     """
@@ -4107,7 +4107,7 @@ class DataAutomationProjectVideoExtractionCategoryArgsDict(TypedDict):
 class DataAutomationProjectVideoExtractionCategoryArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating categorical data from video is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]] types: The types of data to generate.
@@ -4130,23 +4130,23 @@ class DataAutomationProjectVideoExtractionCategoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]:
         """
         The types of data to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoExtractionCategoryType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectVideoOverrideConfigurationArgsDict(TypedDict):
-    modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
+    modality_processing: NotRequired[pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgsDict']]]
     """
     Sets modality processing for video files. All modalities are enabled by default.
     """
-    sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+    sensitive_data_configuration: NotRequired[pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgsDict']]]
     """
     Configuration for sensitive data detection and redaction for video files.
     """
@@ -4154,8 +4154,8 @@ class DataAutomationProjectVideoOverrideConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectVideoOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
-                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
+                 modality_processing: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for video files. All modalities are enabled by default.
         :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for video files.
@@ -4167,26 +4167,26 @@ class DataAutomationProjectVideoOverrideConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
-    def modality_processing(self) -> Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]:
+    def modality_processing(self) -> pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]:
         """
         Sets modality processing for video files. All modalities are enabled by default.
         """
         return pulumi.get(self, "modality_processing")
 
     @modality_processing.setter
-    def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
+    def modality_processing(self, value: pulumi.Input[Optional['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
-    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+    def sensitive_data_configuration(self) -> pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]:
         """
         Configuration for sensitive data detection and redaction for video files.
         """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
-    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+    def sensitive_data_configuration(self, value: pulumi.Input[Optional['DataAutomationProjectSensitiveDataConfigurationArgs']]):
         pulumi.set(self, "sensitive_data_configuration", value)
 
 
@@ -4242,7 +4242,7 @@ class DataAutomationProjectVideoStandardGenerativeFieldArgsDict(TypedDict):
     """
     Whether generating descriptions is enabled for video.
     """
-    types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]]
     """
     The types of description to generate.
     """
@@ -4251,7 +4251,7 @@ class DataAutomationProjectVideoStandardGenerativeFieldArgsDict(TypedDict):
 class DataAutomationProjectVideoStandardGenerativeFieldArgs:
     def __init__(__self__, *,
                  state: pulumi.Input['DataAutomationProjectState'],
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]] = None):
+                 types: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]] = None):
         """
         :param pulumi.Input['DataAutomationProjectState'] state: Whether generating descriptions is enabled for video.
         :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]] types: The types of description to generate.
@@ -4274,23 +4274,23 @@ class DataAutomationProjectVideoStandardGenerativeFieldArgs:
 
     @_builtins.property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]:
+    def types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]:
         """
         The types of description to generate.
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]):
+    def types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldType']]]]):
         pulumi.set(self, "types", value)
 
 
 class DataAutomationProjectVideoStandardOutputConfigurationArgsDict(TypedDict):
-    extraction: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgsDict']]
+    extraction: NotRequired[pulumi.Input[Optional['DataAutomationProjectVideoStandardExtractionArgsDict']]]
     """
     Settings for populating data fields that describe the video.
     """
-    generative_field: NotRequired[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgsDict']]
+    generative_field: NotRequired[pulumi.Input[Optional['DataAutomationProjectVideoStandardGenerativeFieldArgsDict']]]
     """
     Whether to generate descriptions of the video.
     """
@@ -4298,8 +4298,8 @@ class DataAutomationProjectVideoStandardOutputConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataAutomationProjectVideoStandardOutputConfigurationArgs:
     def __init__(__self__, *,
-                 extraction: Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']] = None,
-                 generative_field: Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']] = None):
+                 extraction: pulumi.Input[Optional['DataAutomationProjectVideoStandardExtractionArgs']] = None,
+                 generative_field: pulumi.Input[Optional['DataAutomationProjectVideoStandardGenerativeFieldArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs'] extraction: Settings for populating data fields that describe the video.
         :param pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs'] generative_field: Whether to generate descriptions of the video.
@@ -4311,26 +4311,26 @@ class DataAutomationProjectVideoStandardOutputConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def extraction(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']]:
+    def extraction(self) -> pulumi.Input[Optional['DataAutomationProjectVideoStandardExtractionArgs']]:
         """
         Settings for populating data fields that describe the video.
         """
         return pulumi.get(self, "extraction")
 
     @extraction.setter
-    def extraction(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardExtractionArgs']]):
+    def extraction(self, value: pulumi.Input[Optional['DataAutomationProjectVideoStandardExtractionArgs']]):
         pulumi.set(self, "extraction", value)
 
     @_builtins.property
     @pulumi.getter(name="generativeField")
-    def generative_field(self) -> Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']]:
+    def generative_field(self) -> pulumi.Input[Optional['DataAutomationProjectVideoStandardGenerativeFieldArgs']]:
         """
         Whether to generate descriptions of the video.
         """
         return pulumi.get(self, "generative_field")
 
     @generative_field.setter
-    def generative_field(self, value: Optional[pulumi.Input['DataAutomationProjectVideoStandardGenerativeFieldArgs']]):
+    def generative_field(self, value: pulumi.Input[Optional['DataAutomationProjectVideoStandardGenerativeFieldArgs']]):
         pulumi.set(self, "generative_field", value)
 
 
@@ -4363,7 +4363,7 @@ class DataSourceBedrockDataAutomationConfigurationArgsDict(TypedDict):
     """
     Settings for a Bedrock Data Automation used to parse documents for a data source.
     """
-    parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
+    parsing_modality: NotRequired[pulumi.Input[Optional['DataSourceParsingModality']]]
     """
     Specifies whether to enable parsing of multimodal data, including both text and/or images.
     """
@@ -4371,7 +4371,7 @@ class DataSourceBedrockDataAutomationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceBedrockDataAutomationConfigurationArgs:
     def __init__(__self__, *,
-                 parsing_modality: Optional[pulumi.Input['DataSourceParsingModality']] = None):
+                 parsing_modality: pulumi.Input[Optional['DataSourceParsingModality']] = None):
         """
         Settings for a Bedrock Data Automation used to parse documents for a data source.
 
@@ -4382,14 +4382,14 @@ class DataSourceBedrockDataAutomationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="parsingModality")
-    def parsing_modality(self) -> Optional[pulumi.Input['DataSourceParsingModality']]:
+    def parsing_modality(self) -> pulumi.Input[Optional['DataSourceParsingModality']]:
         """
         Specifies whether to enable parsing of multimodal data, including both text and/or images.
         """
         return pulumi.get(self, "parsing_modality")
 
     @parsing_modality.setter
-    def parsing_modality(self, value: Optional[pulumi.Input['DataSourceParsingModality']]):
+    def parsing_modality(self, value: pulumi.Input[Optional['DataSourceParsingModality']]):
         pulumi.set(self, "parsing_modality", value)
 
 
@@ -4401,11 +4401,11 @@ class DataSourceBedrockFoundationModelConfigurationArgsDict(TypedDict):
     """
     The ARN of the foundation model to use for parsing.
     """
-    parsing_modality: NotRequired[pulumi.Input['DataSourceParsingModality']]
+    parsing_modality: NotRequired[pulumi.Input[Optional['DataSourceParsingModality']]]
     """
     Specifies whether to enable parsing of multimodal data, including both text and/or images.
     """
-    parsing_prompt: NotRequired[pulumi.Input['DataSourceParsingPromptArgsDict']]
+    parsing_prompt: NotRequired[pulumi.Input[Optional['DataSourceParsingPromptArgsDict']]]
     """
     Instructions for interpreting the contents of a document.
     """
@@ -4414,8 +4414,8 @@ class DataSourceBedrockFoundationModelConfigurationArgsDict(TypedDict):
 class DataSourceBedrockFoundationModelConfigurationArgs:
     def __init__(__self__, *,
                  model_arn: pulumi.Input[_builtins.str],
-                 parsing_modality: Optional[pulumi.Input['DataSourceParsingModality']] = None,
-                 parsing_prompt: Optional[pulumi.Input['DataSourceParsingPromptArgs']] = None):
+                 parsing_modality: pulumi.Input[Optional['DataSourceParsingModality']] = None,
+                 parsing_prompt: pulumi.Input[Optional['DataSourceParsingPromptArgs']] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
 
@@ -4443,26 +4443,26 @@ class DataSourceBedrockFoundationModelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="parsingModality")
-    def parsing_modality(self) -> Optional[pulumi.Input['DataSourceParsingModality']]:
+    def parsing_modality(self) -> pulumi.Input[Optional['DataSourceParsingModality']]:
         """
         Specifies whether to enable parsing of multimodal data, including both text and/or images.
         """
         return pulumi.get(self, "parsing_modality")
 
     @parsing_modality.setter
-    def parsing_modality(self, value: Optional[pulumi.Input['DataSourceParsingModality']]):
+    def parsing_modality(self, value: pulumi.Input[Optional['DataSourceParsingModality']]):
         pulumi.set(self, "parsing_modality", value)
 
     @_builtins.property
     @pulumi.getter(name="parsingPrompt")
-    def parsing_prompt(self) -> Optional[pulumi.Input['DataSourceParsingPromptArgs']]:
+    def parsing_prompt(self) -> pulumi.Input[Optional['DataSourceParsingPromptArgs']]:
         """
         Instructions for interpreting the contents of a document.
         """
         return pulumi.get(self, "parsing_prompt")
 
     @parsing_prompt.setter
-    def parsing_prompt(self, value: Optional[pulumi.Input['DataSourceParsingPromptArgs']]):
+    def parsing_prompt(self, value: pulumi.Input[Optional['DataSourceParsingPromptArgs']]):
         pulumi.set(self, "parsing_prompt", value)
 
 
@@ -4531,15 +4531,15 @@ class DataSourceChunkingConfigurationArgsDict(TypedDict):
     - `SEMANTIC` – Split documents into chunks based on groups of similar content derived with natural language processing.
     - `NONE` – Amazon Bedrock treats each file as one chunk. If you choose this option, you may want to pre-process your documents by splitting them into separate files.
     """
-    fixed_size_chunking_configuration: NotRequired[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgsDict']]
+    fixed_size_chunking_configuration: NotRequired[pulumi.Input[Optional['DataSourceFixedSizeChunkingConfigurationArgsDict']]]
     """
     Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
     """
-    hierarchical_chunking_configuration: NotRequired[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgsDict']]
+    hierarchical_chunking_configuration: NotRequired[pulumi.Input[Optional['DataSourceHierarchicalChunkingConfigurationArgsDict']]]
     """
     Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
     """
-    semantic_chunking_configuration: NotRequired[pulumi.Input['DataSourceSemanticChunkingConfigurationArgsDict']]
+    semantic_chunking_configuration: NotRequired[pulumi.Input[Optional['DataSourceSemanticChunkingConfigurationArgsDict']]]
     """
     Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
     """
@@ -4548,9 +4548,9 @@ class DataSourceChunkingConfigurationArgsDict(TypedDict):
 class DataSourceChunkingConfigurationArgs:
     def __init__(__self__, *,
                  chunking_strategy: pulumi.Input['DataSourceChunkingStrategy'],
-                 fixed_size_chunking_configuration: Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']] = None,
-                 hierarchical_chunking_configuration: Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']] = None,
-                 semantic_chunking_configuration: Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']] = None):
+                 fixed_size_chunking_configuration: pulumi.Input[Optional['DataSourceFixedSizeChunkingConfigurationArgs']] = None,
+                 hierarchical_chunking_configuration: pulumi.Input[Optional['DataSourceHierarchicalChunkingConfigurationArgs']] = None,
+                 semantic_chunking_configuration: pulumi.Input[Optional['DataSourceSemanticChunkingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 
@@ -4591,38 +4591,38 @@ class DataSourceChunkingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fixedSizeChunkingConfiguration")
-    def fixed_size_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']]:
+    def fixed_size_chunking_configuration(self) -> pulumi.Input[Optional['DataSourceFixedSizeChunkingConfigurationArgs']]:
         """
         Configurations for when you choose fixed-size chunking. If you set the `chunkingStrategy` as `NONE` , exclude this field.
         """
         return pulumi.get(self, "fixed_size_chunking_configuration")
 
     @fixed_size_chunking_configuration.setter
-    def fixed_size_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceFixedSizeChunkingConfigurationArgs']]):
+    def fixed_size_chunking_configuration(self, value: pulumi.Input[Optional['DataSourceFixedSizeChunkingConfigurationArgs']]):
         pulumi.set(self, "fixed_size_chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="hierarchicalChunkingConfiguration")
-    def hierarchical_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']]:
+    def hierarchical_chunking_configuration(self) -> pulumi.Input[Optional['DataSourceHierarchicalChunkingConfigurationArgs']]:
         """
         Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents into layers of chunks where the first layer contains large chunks, and the second layer contains smaller chunks derived from the first layer.
         """
         return pulumi.get(self, "hierarchical_chunking_configuration")
 
     @hierarchical_chunking_configuration.setter
-    def hierarchical_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceHierarchicalChunkingConfigurationArgs']]):
+    def hierarchical_chunking_configuration(self, value: pulumi.Input[Optional['DataSourceHierarchicalChunkingConfigurationArgs']]):
         pulumi.set(self, "hierarchical_chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="semanticChunkingConfiguration")
-    def semantic_chunking_configuration(self) -> Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']]:
+    def semantic_chunking_configuration(self) -> pulumi.Input[Optional['DataSourceSemanticChunkingConfigurationArgs']]:
         """
         Settings for semantic document chunking for a data source. Semantic chunking splits a document into into smaller documents based on groups of similar content derived from the text with natural language processing.
         """
         return pulumi.get(self, "semantic_chunking_configuration")
 
     @semantic_chunking_configuration.setter
-    def semantic_chunking_configuration(self, value: Optional[pulumi.Input['DataSourceSemanticChunkingConfigurationArgs']]):
+    def semantic_chunking_configuration(self, value: pulumi.Input[Optional['DataSourceSemanticChunkingConfigurationArgs']]):
         pulumi.set(self, "semantic_chunking_configuration", value)
 
 
@@ -4634,30 +4634,30 @@ class DataSourceConfigurationArgsDict(TypedDict):
     """
     The type of data source.
     """
-    confluence_configuration: NotRequired[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgsDict']]
+    confluence_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceDataSourceConfigurationArgsDict']]]
     """
     The configuration information to connect to Confluence as your data source.
 
     > Confluence data source connector is in preview release and is subject to change.
     """
-    managed_knowledge_base_connector_configuration: NotRequired[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict']]
-    s3_configuration: NotRequired[pulumi.Input['DataSourceS3DataSourceConfigurationArgsDict']]
+    managed_knowledge_base_connector_configuration: NotRequired[pulumi.Input[Optional['DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgsDict']]]
     """
     The configuration information to connect to Amazon S3 as your data source.
     """
-    salesforce_configuration: NotRequired[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgsDict']]
+    salesforce_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceDataSourceConfigurationArgsDict']]]
     """
     The configuration information to connect to Salesforce as your data source.
 
     > Salesforce data source connector is in preview release and is subject to change.
     """
-    share_point_configuration: NotRequired[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgsDict']]
+    share_point_configuration: NotRequired[pulumi.Input[Optional['DataSourceSharePointDataSourceConfigurationArgsDict']]]
     """
     The configuration information to connect to SharePoint as your data source.
 
     > SharePoint data source connector is in preview release and is subject to change.
     """
-    web_configuration: NotRequired[pulumi.Input['DataSourceWebDataSourceConfigurationArgsDict']]
+    web_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebDataSourceConfigurationArgsDict']]]
     """
     The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
 
@@ -4668,12 +4668,12 @@ class DataSourceConfigurationArgsDict(TypedDict):
 class DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataSourceType'],
-                 confluence_configuration: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']] = None,
-                 managed_knowledge_base_connector_configuration: Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']] = None,
-                 s3_configuration: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']] = None,
-                 salesforce_configuration: Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']] = None,
-                 share_point_configuration: Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']] = None,
-                 web_configuration: Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']] = None):
+                 confluence_configuration: pulumi.Input[Optional['DataSourceConfluenceDataSourceConfigurationArgs']] = None,
+                 managed_knowledge_base_connector_configuration: pulumi.Input[Optional['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']] = None,
+                 s3_configuration: pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']] = None,
+                 salesforce_configuration: pulumi.Input[Optional['DataSourceSalesforceDataSourceConfigurationArgs']] = None,
+                 share_point_configuration: pulumi.Input[Optional['DataSourceSharePointDataSourceConfigurationArgs']] = None,
+                 web_configuration: pulumi.Input[Optional['DataSourceWebDataSourceConfigurationArgs']] = None):
         """
         Specifies a raw data source location to ingest.
 
@@ -4720,7 +4720,7 @@ class DataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="confluenceConfiguration")
-    def confluence_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]:
+    def confluence_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceDataSourceConfigurationArgs']]:
         """
         The configuration information to connect to Confluence as your data source.
 
@@ -4729,33 +4729,33 @@ class DataSourceConfigurationArgs:
         return pulumi.get(self, "confluence_configuration")
 
     @confluence_configuration.setter
-    def confluence_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceDataSourceConfigurationArgs']]):
+    def confluence_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceDataSourceConfigurationArgs']]):
         pulumi.set(self, "confluence_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="managedKnowledgeBaseConnectorConfiguration")
-    def managed_knowledge_base_connector_configuration(self) -> Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]:
+    def managed_knowledge_base_connector_configuration(self) -> pulumi.Input[Optional['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]:
         return pulumi.get(self, "managed_knowledge_base_connector_configuration")
 
     @managed_knowledge_base_connector_configuration.setter
-    def managed_knowledge_base_connector_configuration(self, value: Optional[pulumi.Input['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]):
+    def managed_knowledge_base_connector_configuration(self, value: pulumi.Input[Optional['DataSourceManagedKnowledgeBaseConnectorConfigurationArgs']]):
         pulumi.set(self, "managed_knowledge_base_connector_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]:
+    def s3_configuration(self) -> pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']]:
         """
         The configuration information to connect to Amazon S3 as your data source.
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceS3DataSourceConfigurationArgs']]):
+    def s3_configuration(self, value: pulumi.Input[Optional['DataSourceS3DataSourceConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="salesforceConfiguration")
-    def salesforce_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']]:
+    def salesforce_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceDataSourceConfigurationArgs']]:
         """
         The configuration information to connect to Salesforce as your data source.
 
@@ -4764,12 +4764,12 @@ class DataSourceConfigurationArgs:
         return pulumi.get(self, "salesforce_configuration")
 
     @salesforce_configuration.setter
-    def salesforce_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceDataSourceConfigurationArgs']]):
+    def salesforce_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceDataSourceConfigurationArgs']]):
         pulumi.set(self, "salesforce_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sharePointConfiguration")
-    def share_point_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']]:
+    def share_point_configuration(self) -> pulumi.Input[Optional['DataSourceSharePointDataSourceConfigurationArgs']]:
         """
         The configuration information to connect to SharePoint as your data source.
 
@@ -4778,12 +4778,12 @@ class DataSourceConfigurationArgs:
         return pulumi.get(self, "share_point_configuration")
 
     @share_point_configuration.setter
-    def share_point_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointDataSourceConfigurationArgs']]):
+    def share_point_configuration(self, value: pulumi.Input[Optional['DataSourceSharePointDataSourceConfigurationArgs']]):
         pulumi.set(self, "share_point_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="webConfiguration")
-    def web_configuration(self) -> Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']]:
+    def web_configuration(self) -> pulumi.Input[Optional['DataSourceWebDataSourceConfigurationArgs']]:
         """
         The configuration of web URLs to crawl for your data source. You should be authorized to crawl the URLs.
 
@@ -4792,7 +4792,7 @@ class DataSourceConfigurationArgs:
         return pulumi.get(self, "web_configuration")
 
     @web_configuration.setter
-    def web_configuration(self, value: Optional[pulumi.Input['DataSourceWebDataSourceConfigurationArgs']]):
+    def web_configuration(self, value: pulumi.Input[Optional['DataSourceWebDataSourceConfigurationArgs']]):
         pulumi.set(self, "web_configuration", value)
 
 
@@ -4800,7 +4800,7 @@ class DataSourceConfluenceCrawlerConfigurationArgsDict(TypedDict):
     """
     The configuration of the Confluence content. For example, configuring specific types of Confluence content.
     """
-    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgsDict']]]
     """
     The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
     """
@@ -4808,7 +4808,7 @@ class DataSourceConfluenceCrawlerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceConfluenceCrawlerConfigurationArgs:
     def __init__(__self__, *,
-                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+                 filter_configuration: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the Confluence content. For example, configuring specific types of Confluence content.
 
@@ -4819,14 +4819,14 @@ class DataSourceConfluenceCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]:
         """
         The configuration of filtering the Confluence content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
 
@@ -4838,7 +4838,7 @@ class DataSourceConfluenceDataSourceConfigurationArgsDict(TypedDict):
     """
     The endpoint information to connect to your Confluence data source.
     """
-    crawler_configuration: NotRequired[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgsDict']]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfluenceCrawlerConfigurationArgsDict']]]
     """
     The configuration of the Confluence content. For example, configuring specific types of Confluence content.
     """
@@ -4847,7 +4847,7 @@ class DataSourceConfluenceDataSourceConfigurationArgsDict(TypedDict):
 class DataSourceConfluenceDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  source_configuration: pulumi.Input['DataSourceConfluenceSourceConfigurationArgs'],
-                 crawler_configuration: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']] = None):
+                 crawler_configuration: pulumi.Input[Optional['DataSourceConfluenceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Confluence as your data source.
 
@@ -4872,14 +4872,14 @@ class DataSourceConfluenceDataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']]:
+    def crawler_configuration(self) -> pulumi.Input[Optional['DataSourceConfluenceCrawlerConfigurationArgs']]:
         """
         The configuration of the Confluence content. For example, configuring specific types of Confluence content.
         """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
-    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceConfluenceCrawlerConfigurationArgs']]):
+    def crawler_configuration(self, value: pulumi.Input[Optional['DataSourceConfluenceCrawlerConfigurationArgs']]):
         pulumi.set(self, "crawler_configuration", value)
 
 
@@ -4981,7 +4981,7 @@ class DataSourceContextEnrichmentConfigurationArgsDict(TypedDict):
     """
     The method used for context enrichment. It must be Amazon Bedrock foundation models.
     """
-    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict']]
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input[Optional['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgsDict']]]
     """
     The configuration of the Amazon Bedrock foundation model used for context enrichment.
     """
@@ -4990,7 +4990,7 @@ class DataSourceContextEnrichmentConfigurationArgsDict(TypedDict):
 class DataSourceContextEnrichmentConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataSourceContextEnrichmentType'],
-                 bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']] = None):
+                 bedrock_foundation_model_configuration: pulumi.Input[Optional['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']] = None):
         """
         Additional Enrichment Configuration for example when using GraphRag.
 
@@ -5015,14 +5015,14 @@ class DataSourceContextEnrichmentConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
-    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]:
+    def bedrock_foundation_model_configuration(self) -> pulumi.Input[Optional['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]:
         """
         The configuration of the Amazon Bedrock foundation model used for context enrichment.
         """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
     @bedrock_foundation_model_configuration.setter
-    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]):
+    def bedrock_foundation_model_configuration(self, value: pulumi.Input[Optional['DataSourceBedrockFoundationModelContextEnrichmentConfigurationArgs']]):
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
@@ -5034,7 +5034,7 @@ class DataSourceCrawlFilterConfigurationArgsDict(TypedDict):
     """
     The crawl filter type.
     """
-    pattern_object_filter: NotRequired[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgsDict']]
+    pattern_object_filter: NotRequired[pulumi.Input[Optional['DataSourcePatternObjectFilterConfigurationArgsDict']]]
     """
     The configuration of filtering certain objects or content types of the data source.
     """
@@ -5043,7 +5043,7 @@ class DataSourceCrawlFilterConfigurationArgsDict(TypedDict):
 class DataSourceCrawlFilterConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['DataSourceCrawlFilterConfigurationType'],
-                 pattern_object_filter: Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']] = None):
+                 pattern_object_filter: pulumi.Input[Optional['DataSourcePatternObjectFilterConfigurationArgs']] = None):
         """
         The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
 
@@ -5068,14 +5068,14 @@ class DataSourceCrawlFilterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="patternObjectFilter")
-    def pattern_object_filter(self) -> Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']]:
+    def pattern_object_filter(self) -> pulumi.Input[Optional['DataSourcePatternObjectFilterConfigurationArgs']]:
         """
         The configuration of filtering certain objects or content types of the data source.
         """
         return pulumi.get(self, "pattern_object_filter")
 
     @pattern_object_filter.setter
-    def pattern_object_filter(self, value: Optional[pulumi.Input['DataSourcePatternObjectFilterConfigurationArgs']]):
+    def pattern_object_filter(self, value: pulumi.Input[Optional['DataSourcePatternObjectFilterConfigurationArgs']]):
         pulumi.set(self, "pattern_object_filter", value)
 
 
@@ -5136,7 +5136,7 @@ class DataSourceDeletionProtectionConfigurationArgsDict(TypedDict):
     Configuration for deletion protection.
     """
     deletion_protection_status: pulumi.Input['DataSourceEnabledOrDisabledState']
-    deletion_protection_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    deletion_protection_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Threshold for deletion protection.
     """
@@ -5145,7 +5145,7 @@ class DataSourceDeletionProtectionConfigurationArgsDict(TypedDict):
 class DataSourceDeletionProtectionConfigurationArgs:
     def __init__(__self__, *,
                  deletion_protection_status: pulumi.Input['DataSourceEnabledOrDisabledState'],
-                 deletion_protection_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 deletion_protection_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Configuration for deletion protection.
 
@@ -5166,14 +5166,14 @@ class DataSourceDeletionProtectionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionThreshold")
-    def deletion_protection_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def deletion_protection_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Threshold for deletion protection.
         """
         return pulumi.get(self, "deletion_protection_threshold")
 
     @deletion_protection_threshold.setter
-    def deletion_protection_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def deletion_protection_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "deletion_protection_threshold", value)
 
 
@@ -5413,15 +5413,15 @@ class DataSourceManagedKnowledgeBaseConnectorConfigurationArgsDict(TypedDict):
     """
     Connector-specific parameters.
     """
-    deletion_protection_configuration: NotRequired[pulumi.Input['DataSourceDeletionProtectionConfigurationArgsDict']]
-    media_extraction_configuration: NotRequired[pulumi.Input['DataSourceMediaExtractionConfigurationArgsDict']]
+    deletion_protection_configuration: NotRequired[pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgsDict']]]
+    media_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
     def __init__(__self__, *,
                  connector_parameters: Optional[Any] = None,
-                 deletion_protection_configuration: Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']] = None,
-                 media_extraction_configuration: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']] = None):
+                 deletion_protection_configuration: pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgs']] = None,
+                 media_extraction_configuration: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']] = None):
         """
         Configuration for managed knowledge base connector data sources.
 
@@ -5448,20 +5448,20 @@ class DataSourceManagedKnowledgeBaseConnectorConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="deletionProtectionConfiguration")
-    def deletion_protection_configuration(self) -> Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']]:
+    def deletion_protection_configuration(self) -> pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgs']]:
         return pulumi.get(self, "deletion_protection_configuration")
 
     @deletion_protection_configuration.setter
-    def deletion_protection_configuration(self, value: Optional[pulumi.Input['DataSourceDeletionProtectionConfigurationArgs']]):
+    def deletion_protection_configuration(self, value: pulumi.Input[Optional['DataSourceDeletionProtectionConfigurationArgs']]):
         pulumi.set(self, "deletion_protection_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="mediaExtractionConfiguration")
-    def media_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]:
+    def media_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']]:
         return pulumi.get(self, "media_extraction_configuration")
 
     @media_extraction_configuration.setter
-    def media_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]):
+    def media_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceMediaExtractionConfigurationArgs']]):
         pulumi.set(self, "media_extraction_configuration", value)
 
 
@@ -5469,16 +5469,16 @@ class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
     """
     Configuration for media extraction settings.
     """
-    audio_extraction_configuration: NotRequired[pulumi.Input['DataSourceAudioExtractionConfigurationArgsDict']]
-    image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
-    video_extraction_configuration: NotRequired[pulumi.Input['DataSourceVideoExtractionConfigurationArgsDict']]
+    audio_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgsDict']]]
+    image_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgsDict']]]
+    video_extraction_configuration: NotRequired[pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class DataSourceMediaExtractionConfigurationArgs:
     def __init__(__self__, *,
-                 audio_extraction_configuration: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']] = None,
-                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None,
-                 video_extraction_configuration: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']] = None):
+                 audio_extraction_configuration: pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']] = None,
+                 image_extraction_configuration: pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']] = None,
+                 video_extraction_configuration: pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']] = None):
         """
         Configuration for media extraction settings.
         """
@@ -5491,29 +5491,29 @@ class DataSourceMediaExtractionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="audioExtractionConfiguration")
-    def audio_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]:
+    def audio_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']]:
         return pulumi.get(self, "audio_extraction_configuration")
 
     @audio_extraction_configuration.setter
-    def audio_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceAudioExtractionConfigurationArgs']]):
+    def audio_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceAudioExtractionConfigurationArgs']]):
         pulumi.set(self, "audio_extraction_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageExtractionConfiguration")
-    def image_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]:
+    def image_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']]:
         return pulumi.get(self, "image_extraction_configuration")
 
     @image_extraction_configuration.setter
-    def image_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]):
+    def image_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceImageExtractionConfigurationArgs']]):
         pulumi.set(self, "image_extraction_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="videoExtractionConfiguration")
-    def video_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]:
+    def video_extraction_configuration(self) -> pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]:
         return pulumi.get(self, "video_extraction_configuration")
 
     @video_extraction_configuration.setter
-    def video_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceVideoExtractionConfigurationArgs']]):
+    def video_extraction_configuration(self, value: pulumi.Input[Optional['DataSourceVideoExtractionConfigurationArgs']]):
         pulumi.set(self, "video_extraction_configuration", value)
 
 
@@ -5525,11 +5525,11 @@ class DataSourceParsingConfigurationArgsDict(TypedDict):
     """
     The parsing strategy for the data source.
     """
-    bedrock_data_automation_configuration: NotRequired[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgsDict']]
+    bedrock_data_automation_configuration: NotRequired[pulumi.Input[Optional['DataSourceBedrockDataAutomationConfigurationArgsDict']]]
     """
     If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
     """
-    bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgsDict']]
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input[Optional['DataSourceBedrockFoundationModelConfigurationArgsDict']]]
     """
     If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
     """
@@ -5538,8 +5538,8 @@ class DataSourceParsingConfigurationArgsDict(TypedDict):
 class DataSourceParsingConfigurationArgs:
     def __init__(__self__, *,
                  parsing_strategy: pulumi.Input['DataSourceParsingStrategy'],
-                 bedrock_data_automation_configuration: Optional[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgs']] = None,
-                 bedrock_foundation_model_configuration: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']] = None):
+                 bedrock_data_automation_configuration: pulumi.Input[Optional['DataSourceBedrockDataAutomationConfigurationArgs']] = None,
+                 bedrock_foundation_model_configuration: pulumi.Input[Optional['DataSourceBedrockFoundationModelConfigurationArgs']] = None):
         """
         Settings for parsing document contents
 
@@ -5567,26 +5567,26 @@ class DataSourceParsingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bedrockDataAutomationConfiguration")
-    def bedrock_data_automation_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgs']]:
+    def bedrock_data_automation_configuration(self) -> pulumi.Input[Optional['DataSourceBedrockDataAutomationConfigurationArgs']]:
         """
         If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
         """
         return pulumi.get(self, "bedrock_data_automation_configuration")
 
     @bedrock_data_automation_configuration.setter
-    def bedrock_data_automation_configuration(self, value: Optional[pulumi.Input['DataSourceBedrockDataAutomationConfigurationArgs']]):
+    def bedrock_data_automation_configuration(self, value: pulumi.Input[Optional['DataSourceBedrockDataAutomationConfigurationArgs']]):
         pulumi.set(self, "bedrock_data_automation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
-    def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]:
+    def bedrock_foundation_model_configuration(self) -> pulumi.Input[Optional['DataSourceBedrockFoundationModelConfigurationArgs']]:
         """
         If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
     @bedrock_foundation_model_configuration.setter
-    def bedrock_foundation_model_configuration(self, value: Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]):
+    def bedrock_foundation_model_configuration(self, value: pulumi.Input[Optional['DataSourceBedrockFoundationModelConfigurationArgs']]):
         pulumi.set(self, "bedrock_foundation_model_configuration", value)
 
 
@@ -5623,6 +5623,65 @@ class DataSourceParsingPromptArgs:
         pulumi.set(self, "parsing_prompt_text", value)
 
 
+class DataSourcePatternObjectFilterArgsDict(TypedDict):
+    """
+    The specific filters applied to your data source content. You can filter out or include certain content.
+    """
+    object_type: pulumi.Input[_builtins.str]
+    """
+    The supported object type or content type of the data source.
+    """
+    exclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    inclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class DataSourcePatternObjectFilterArgs:
+    def __init__(__self__, *,
+                 object_type: pulumi.Input[_builtins.str],
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        The specific filters applied to your data source content. You can filter out or include certain content.
+
+        :param pulumi.Input[_builtins.str] object_type: The supported object type or content type of the data source.
+        """
+        pulumi.set(__self__, "object_type", object_type)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The supported object type or content type of the data source.
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "object_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "exclusion_filters")
+
+    @exclusion_filters.setter
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "exclusion_filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "inclusion_filters")
+
+    @inclusion_filters.setter
+    def inclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "inclusion_filters", value)
+
+
 class DataSourcePatternObjectFilterConfigurationArgsDict(TypedDict):
     """
     The configuration of specific filters applied to your data source content. You can filter out or include certain content.
@@ -5656,65 +5715,6 @@ class DataSourcePatternObjectFilterConfigurationArgs:
         pulumi.set(self, "filters", value)
 
 
-class DataSourcePatternObjectFilterArgsDict(TypedDict):
-    """
-    The specific filters applied to your data source content. You can filter out or include certain content.
-    """
-    object_type: pulumi.Input[_builtins.str]
-    """
-    The supported object type or content type of the data source.
-    """
-    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-
-@pulumi.input_type
-class DataSourcePatternObjectFilterArgs:
-    def __init__(__self__, *,
-                 object_type: pulumi.Input[_builtins.str],
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        The specific filters applied to your data source content. You can filter out or include certain content.
-
-        :param pulumi.Input[_builtins.str] object_type: The supported object type or content type of the data source.
-        """
-        pulumi.set(__self__, "object_type", object_type)
-        if exclusion_filters is not None:
-            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
-        if inclusion_filters is not None:
-            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
-
-    @_builtins.property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The supported object type or content type of the data source.
-        """
-        return pulumi.get(self, "object_type")
-
-    @object_type.setter
-    def object_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "object_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "exclusion_filters")
-
-    @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "exclusion_filters", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inclusionFilters")
-    def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "inclusion_filters")
-
-    @inclusion_filters.setter
-    def inclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "inclusion_filters", value)
-
-
 class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
     """
     The configuration information to connect to Amazon S3 as your data source.
@@ -5723,11 +5723,11 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
     """
     The ARN of the bucket that contains the data source.
     """
-    bucket_owner_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    bucket_owner_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account ID for the owner of the S3 bucket.
     """
-    inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of S3 prefixes that define the object containing the data sources.
     """
@@ -5736,8 +5736,8 @@ class DataSourceS3DataSourceConfigurationArgsDict(TypedDict):
 class DataSourceS3DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[_builtins.str],
-                 bucket_owner_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 bucket_owner_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusion_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration information to connect to Amazon S3 as your data source.
 
@@ -5765,26 +5765,26 @@ class DataSourceS3DataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketOwnerAccountId")
-    def bucket_owner_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def bucket_owner_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID for the owner of the S3 bucket.
         """
         return pulumi.get(self, "bucket_owner_account_id")
 
     @bucket_owner_account_id.setter
-    def bucket_owner_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def bucket_owner_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bucket_owner_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionPrefixes")
-    def inclusion_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of S3 prefixes that define the object containing the data sources.
         """
         return pulumi.get(self, "inclusion_prefixes")
 
     @inclusion_prefixes.setter
-    def inclusion_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_prefixes", value)
 
 
@@ -5825,7 +5825,7 @@ class DataSourceSalesforceCrawlerConfigurationArgsDict(TypedDict):
     """
     The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
     """
-    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgsDict']]]
     """
     The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
     """
@@ -5833,7 +5833,7 @@ class DataSourceSalesforceCrawlerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceSalesforceCrawlerConfigurationArgs:
     def __init__(__self__, *,
-                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+                 filter_configuration: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
 
@@ -5844,14 +5844,14 @@ class DataSourceSalesforceCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]:
         """
         The configuration of filtering the Salesforce content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
 
@@ -5863,7 +5863,7 @@ class DataSourceSalesforceDataSourceConfigurationArgsDict(TypedDict):
     """
     The endpoint information to connect to your Salesforce data source.
     """
-    crawler_configuration: NotRequired[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgsDict']]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceSalesforceCrawlerConfigurationArgsDict']]]
     """
     The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
     """
@@ -5872,7 +5872,7 @@ class DataSourceSalesforceDataSourceConfigurationArgsDict(TypedDict):
 class DataSourceSalesforceDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  source_configuration: pulumi.Input['DataSourceSalesforceSourceConfigurationArgs'],
-                 crawler_configuration: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']] = None):
+                 crawler_configuration: pulumi.Input[Optional['DataSourceSalesforceCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to Salesforce as your data source.
 
@@ -5897,14 +5897,14 @@ class DataSourceSalesforceDataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']]:
+    def crawler_configuration(self) -> pulumi.Input[Optional['DataSourceSalesforceCrawlerConfigurationArgs']]:
         """
         The configuration of the Salesforce content. For example, configuring specific types of Salesforce content.
         """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
-    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceSalesforceCrawlerConfigurationArgs']]):
+    def crawler_configuration(self, value: pulumi.Input[Optional['DataSourceSalesforceCrawlerConfigurationArgs']]):
         pulumi.set(self, "crawler_configuration", value)
 
 
@@ -6087,7 +6087,7 @@ class DataSourceServerSideEncryptionConfigurationArgsDict(TypedDict):
     """
     Contains details about the server-side encryption for the data source.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the AWS KMS key used to encrypt the resource.
     """
@@ -6095,7 +6095,7 @@ class DataSourceServerSideEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains details about the server-side encryption for the data source.
 
@@ -6106,14 +6106,14 @@ class DataSourceServerSideEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key used to encrypt the resource.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -6121,7 +6121,7 @@ class DataSourceSharePointCrawlerConfigurationArgsDict(TypedDict):
     """
     The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
     """
-    filter_configuration: NotRequired[pulumi.Input['DataSourceCrawlFilterConfigurationArgsDict']]
+    filter_configuration: NotRequired[pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgsDict']]]
     """
     The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
     """
@@ -6129,7 +6129,7 @@ class DataSourceSharePointCrawlerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceSharePointCrawlerConfigurationArgs:
     def __init__(__self__, *,
-                 filter_configuration: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']] = None):
+                 filter_configuration: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']] = None):
         """
         The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
 
@@ -6140,14 +6140,14 @@ class DataSourceSharePointCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterConfiguration")
-    def filter_configuration(self) -> Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]:
+    def filter_configuration(self) -> pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]:
         """
         The configuration of filtering the SharePoint content. For example, configuring regular expression patterns to include or exclude certain content.
         """
         return pulumi.get(self, "filter_configuration")
 
     @filter_configuration.setter
-    def filter_configuration(self, value: Optional[pulumi.Input['DataSourceCrawlFilterConfigurationArgs']]):
+    def filter_configuration(self, value: pulumi.Input[Optional['DataSourceCrawlFilterConfigurationArgs']]):
         pulumi.set(self, "filter_configuration", value)
 
 
@@ -6159,7 +6159,7 @@ class DataSourceSharePointDataSourceConfigurationArgsDict(TypedDict):
     """
     The endpoint information to connect to your SharePoint data source.
     """
-    crawler_configuration: NotRequired[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgsDict']]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceSharePointCrawlerConfigurationArgsDict']]]
     """
     The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
     """
@@ -6168,7 +6168,7 @@ class DataSourceSharePointDataSourceConfigurationArgsDict(TypedDict):
 class DataSourceSharePointDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  source_configuration: pulumi.Input['DataSourceSharePointSourceConfigurationArgs'],
-                 crawler_configuration: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']] = None):
+                 crawler_configuration: pulumi.Input[Optional['DataSourceSharePointCrawlerConfigurationArgs']] = None):
         """
         The configuration information to connect to SharePoint as your data source.
 
@@ -6193,14 +6193,14 @@ class DataSourceSharePointDataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']]:
+    def crawler_configuration(self) -> pulumi.Input[Optional['DataSourceSharePointCrawlerConfigurationArgs']]:
         """
         The configuration of the SharePoint content. For example, configuring specific types of SharePoint content.
         """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
-    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceSharePointCrawlerConfigurationArgs']]):
+    def crawler_configuration(self, value: pulumi.Input[Optional['DataSourceSharePointCrawlerConfigurationArgs']]):
         pulumi.set(self, "crawler_configuration", value)
 
 
@@ -6228,7 +6228,7 @@ class DataSourceSharePointSourceConfigurationArgsDict(TypedDict):
     """
     A list of one or more SharePoint site URLs.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of your Microsoft 365 tenant.
     """
@@ -6241,7 +6241,7 @@ class DataSourceSharePointSourceConfigurationArgs:
                  domain: pulumi.Input[_builtins.str],
                  host_type: pulumi.Input['DataSourceSharePointSourceConfigurationHostType'],
                  site_urls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The endpoint information to connect to your SharePoint data source.
 
@@ -6322,15 +6322,67 @@ class DataSourceSharePointSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of your Microsoft 365 tenant.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+class DataSourceTransformationArgsDict(TypedDict):
+    """
+    A Lambda function that processes documents.
+    """
+    step_to_apply: pulumi.Input['DataSourceTransformationStepToApply']
+    """
+    When the service applies the transformation.
+    """
+    transformation_function: pulumi.Input['DataSourceTransformationFunctionArgsDict']
+    """
+    A Lambda function that processes documents.
+    """
+
+@pulumi.input_type
+class DataSourceTransformationArgs:
+    def __init__(__self__, *,
+                 step_to_apply: pulumi.Input['DataSourceTransformationStepToApply'],
+                 transformation_function: pulumi.Input['DataSourceTransformationFunctionArgs']):
+        """
+        A Lambda function that processes documents.
+
+        :param pulumi.Input['DataSourceTransformationStepToApply'] step_to_apply: When the service applies the transformation.
+        :param pulumi.Input['DataSourceTransformationFunctionArgs'] transformation_function: A Lambda function that processes documents.
+        """
+        pulumi.set(__self__, "step_to_apply", step_to_apply)
+        pulumi.set(__self__, "transformation_function", transformation_function)
+
+    @_builtins.property
+    @pulumi.getter(name="stepToApply")
+    def step_to_apply(self) -> pulumi.Input['DataSourceTransformationStepToApply']:
+        """
+        When the service applies the transformation.
+        """
+        return pulumi.get(self, "step_to_apply")
+
+    @step_to_apply.setter
+    def step_to_apply(self, value: pulumi.Input['DataSourceTransformationStepToApply']):
+        pulumi.set(self, "step_to_apply", value)
+
+    @_builtins.property
+    @pulumi.getter(name="transformationFunction")
+    def transformation_function(self) -> pulumi.Input['DataSourceTransformationFunctionArgs']:
+        """
+        A Lambda function that processes documents.
+        """
+        return pulumi.get(self, "transformation_function")
+
+    @transformation_function.setter
+    def transformation_function(self, value: pulumi.Input['DataSourceTransformationFunctionArgs']):
+        pulumi.set(self, "transformation_function", value)
 
 
 class DataSourceTransformationFunctionArgsDict(TypedDict):
@@ -6399,58 +6451,6 @@ class DataSourceTransformationLambdaConfigurationArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-class DataSourceTransformationArgsDict(TypedDict):
-    """
-    A Lambda function that processes documents.
-    """
-    step_to_apply: pulumi.Input['DataSourceTransformationStepToApply']
-    """
-    When the service applies the transformation.
-    """
-    transformation_function: pulumi.Input['DataSourceTransformationFunctionArgsDict']
-    """
-    A Lambda function that processes documents.
-    """
-
-@pulumi.input_type
-class DataSourceTransformationArgs:
-    def __init__(__self__, *,
-                 step_to_apply: pulumi.Input['DataSourceTransformationStepToApply'],
-                 transformation_function: pulumi.Input['DataSourceTransformationFunctionArgs']):
-        """
-        A Lambda function that processes documents.
-
-        :param pulumi.Input['DataSourceTransformationStepToApply'] step_to_apply: When the service applies the transformation.
-        :param pulumi.Input['DataSourceTransformationFunctionArgs'] transformation_function: A Lambda function that processes documents.
-        """
-        pulumi.set(__self__, "step_to_apply", step_to_apply)
-        pulumi.set(__self__, "transformation_function", transformation_function)
-
-    @_builtins.property
-    @pulumi.getter(name="stepToApply")
-    def step_to_apply(self) -> pulumi.Input['DataSourceTransformationStepToApply']:
-        """
-        When the service applies the transformation.
-        """
-        return pulumi.get(self, "step_to_apply")
-
-    @step_to_apply.setter
-    def step_to_apply(self, value: pulumi.Input['DataSourceTransformationStepToApply']):
-        pulumi.set(self, "step_to_apply", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transformationFunction")
-    def transformation_function(self) -> pulumi.Input['DataSourceTransformationFunctionArgs']:
-        """
-        A Lambda function that processes documents.
-        """
-        return pulumi.get(self, "transformation_function")
-
-    @transformation_function.setter
-    def transformation_function(self, value: pulumi.Input['DataSourceTransformationFunctionArgs']):
-        pulumi.set(self, "transformation_function", value)
-
-
 class DataSourceUrlConfigurationArgsDict(TypedDict):
     """
     A url configuration.
@@ -6488,19 +6488,19 @@ class DataSourceVectorIngestionConfigurationArgsDict(TypedDict):
     """
     Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
     """
-    chunking_configuration: NotRequired[pulumi.Input['DataSourceChunkingConfigurationArgsDict']]
+    chunking_configuration: NotRequired[pulumi.Input[Optional['DataSourceChunkingConfigurationArgsDict']]]
     """
     Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
     """
-    context_enrichment_configuration: NotRequired[pulumi.Input['DataSourceContextEnrichmentConfigurationArgsDict']]
+    context_enrichment_configuration: NotRequired[pulumi.Input[Optional['DataSourceContextEnrichmentConfigurationArgsDict']]]
     """
     The context enrichment configuration used for ingestion of the data into the vector store.
     """
-    custom_transformation_configuration: NotRequired[pulumi.Input['DataSourceCustomTransformationConfigurationArgsDict']]
+    custom_transformation_configuration: NotRequired[pulumi.Input[Optional['DataSourceCustomTransformationConfigurationArgsDict']]]
     """
     A custom document transformer for parsed data source documents.
     """
-    parsing_configuration: NotRequired[pulumi.Input['DataSourceParsingConfigurationArgsDict']]
+    parsing_configuration: NotRequired[pulumi.Input[Optional['DataSourceParsingConfigurationArgsDict']]]
     """
     Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
     """
@@ -6508,10 +6508,10 @@ class DataSourceVectorIngestionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
-                 chunking_configuration: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']] = None,
-                 context_enrichment_configuration: Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']] = None,
-                 custom_transformation_configuration: Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']] = None,
-                 parsing_configuration: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']] = None):
+                 chunking_configuration: pulumi.Input[Optional['DataSourceChunkingConfigurationArgs']] = None,
+                 context_enrichment_configuration: pulumi.Input[Optional['DataSourceContextEnrichmentConfigurationArgs']] = None,
+                 custom_transformation_configuration: pulumi.Input[Optional['DataSourceCustomTransformationConfigurationArgs']] = None,
+                 parsing_configuration: pulumi.Input[Optional['DataSourceParsingConfigurationArgs']] = None):
         """
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 
@@ -6531,50 +6531,50 @@ class DataSourceVectorIngestionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="chunkingConfiguration")
-    def chunking_configuration(self) -> Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]:
+    def chunking_configuration(self) -> pulumi.Input[Optional['DataSourceChunkingConfigurationArgs']]:
         """
         Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         """
         return pulumi.get(self, "chunking_configuration")
 
     @chunking_configuration.setter
-    def chunking_configuration(self, value: Optional[pulumi.Input['DataSourceChunkingConfigurationArgs']]):
+    def chunking_configuration(self, value: pulumi.Input[Optional['DataSourceChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="contextEnrichmentConfiguration")
-    def context_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']]:
+    def context_enrichment_configuration(self) -> pulumi.Input[Optional['DataSourceContextEnrichmentConfigurationArgs']]:
         """
         The context enrichment configuration used for ingestion of the data into the vector store.
         """
         return pulumi.get(self, "context_enrichment_configuration")
 
     @context_enrichment_configuration.setter
-    def context_enrichment_configuration(self, value: Optional[pulumi.Input['DataSourceContextEnrichmentConfigurationArgs']]):
+    def context_enrichment_configuration(self, value: pulumi.Input[Optional['DataSourceContextEnrichmentConfigurationArgs']]):
         pulumi.set(self, "context_enrichment_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customTransformationConfiguration")
-    def custom_transformation_configuration(self) -> Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']]:
+    def custom_transformation_configuration(self) -> pulumi.Input[Optional['DataSourceCustomTransformationConfigurationArgs']]:
         """
         A custom document transformer for parsed data source documents.
         """
         return pulumi.get(self, "custom_transformation_configuration")
 
     @custom_transformation_configuration.setter
-    def custom_transformation_configuration(self, value: Optional[pulumi.Input['DataSourceCustomTransformationConfigurationArgs']]):
+    def custom_transformation_configuration(self, value: pulumi.Input[Optional['DataSourceCustomTransformationConfigurationArgs']]):
         pulumi.set(self, "custom_transformation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="parsingConfiguration")
-    def parsing_configuration(self) -> Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]:
+    def parsing_configuration(self) -> pulumi.Input[Optional['DataSourceParsingConfigurationArgs']]:
         """
         Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
         return pulumi.get(self, "parsing_configuration")
 
     @parsing_configuration.setter
-    def parsing_configuration(self, value: Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]):
+    def parsing_configuration(self, value: pulumi.Input[Optional['DataSourceParsingConfigurationArgs']]):
         pulumi.set(self, "parsing_configuration", value)
 
 
@@ -6607,29 +6607,29 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
     """
     Configuration for the web crawler.
     """
-    crawler_limits: NotRequired[pulumi.Input['DataSourceWebCrawlerLimitsArgsDict']]
+    crawler_limits: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerLimitsArgsDict']]]
     """
     The configuration of crawl limits for the web URLs.
     """
-    exclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
     """
-    inclusion_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    inclusion_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
     """
-    scope: NotRequired[pulumi.Input['DataSourceWebScopeType']]
+    scope: NotRequired[pulumi.Input[Optional['DataSourceWebScopeType']]]
     """
     The scope of what is crawled for your URLs.
 
     You can choose to crawl only web pages that belong to the same host or primary domain. For example, only web pages that contain the seed URL "https://docs.aws.amazon.com/bedrock/latest/userguide/" and no other domains. You can choose to include sub domains in addition to the host or primary domain. For example, web pages that contain "aws.amazon.com" can also include sub domain "docs.aws.amazon.com".
     """
-    user_agent: NotRequired[pulumi.Input[_builtins.str]]
+    user_agent: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The suffix that will be included in the user agent header.
     """
-    user_agent_header: NotRequired[pulumi.Input[_builtins.str]]
+    user_agent_header: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The full user agent header, including UUID and suffix.
     """
@@ -6637,12 +6637,12 @@ class DataSourceWebCrawlerConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceWebCrawlerConfigurationArgs:
     def __init__(__self__, *,
-                 crawler_limits: Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']] = None,
-                 exclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 inclusion_filters: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scope: Optional[pulumi.Input['DataSourceWebScopeType']] = None,
-                 user_agent: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_agent_header: Optional[pulumi.Input[_builtins.str]] = None):
+                 crawler_limits: pulumi.Input[Optional['DataSourceWebCrawlerLimitsArgs']] = None,
+                 exclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 inclusion_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 scope: pulumi.Input[Optional['DataSourceWebScopeType']] = None,
+                 user_agent: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_agent_header: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for the web crawler.
 
@@ -6670,43 +6670,43 @@ class DataSourceWebCrawlerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerLimits")
-    def crawler_limits(self) -> Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']]:
+    def crawler_limits(self) -> pulumi.Input[Optional['DataSourceWebCrawlerLimitsArgs']]:
         """
         The configuration of crawl limits for the web URLs.
         """
         return pulumi.get(self, "crawler_limits")
 
     @crawler_limits.setter
-    def crawler_limits(self, value: Optional[pulumi.Input['DataSourceWebCrawlerLimitsArgs']]):
+    def crawler_limits(self, value: pulumi.Input[Optional['DataSourceWebCrawlerLimitsArgs']]):
         pulumi.set(self, "crawler_limits", value)
 
     @_builtins.property
     @pulumi.getter(name="exclusionFilters")
-    def exclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more exclusion regular expression patterns to exclude certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
         """
         return pulumi.get(self, "exclusion_filters")
 
     @exclusion_filters.setter
-    def exclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter(name="inclusionFilters")
-    def inclusion_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def inclusion_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of one or more inclusion regular expression patterns to include certain URLs. If you specify an inclusion and exclusion filter/pattern and both match a URL, the exclusion filter takes precedence and the web content of the URL isn’t crawled.
         """
         return pulumi.get(self, "inclusion_filters")
 
     @inclusion_filters.setter
-    def inclusion_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def inclusion_filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "inclusion_filters", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['DataSourceWebScopeType']]:
+    def scope(self) -> pulumi.Input[Optional['DataSourceWebScopeType']]:
         """
         The scope of what is crawled for your URLs.
 
@@ -6715,31 +6715,31 @@ class DataSourceWebCrawlerConfigurationArgs:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['DataSourceWebScopeType']]):
+    def scope(self, value: pulumi.Input[Optional['DataSourceWebScopeType']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgent")
-    def user_agent(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_agent(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The suffix that will be included in the user agent header.
         """
         return pulumi.get(self, "user_agent")
 
     @user_agent.setter
-    def user_agent(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_agent(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_agent", value)
 
     @_builtins.property
     @pulumi.getter(name="userAgentHeader")
-    def user_agent_header(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_agent_header(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The full user agent header, including UUID and suffix.
         """
         return pulumi.get(self, "user_agent_header")
 
     @user_agent_header.setter
-    def user_agent_header(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_agent_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_agent_header", value)
 
 
@@ -6747,11 +6747,11 @@ class DataSourceWebCrawlerLimitsArgsDict(TypedDict):
     """
     Limit settings for the web crawler.
     """
-    max_pages: NotRequired[pulumi.Input[_builtins.int]]
+    max_pages: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of pages the crawler can crawl.
     """
-    rate_limit: NotRequired[pulumi.Input[_builtins.int]]
+    rate_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Rate of web URLs retrieved per minute.
     """
@@ -6759,8 +6759,8 @@ class DataSourceWebCrawlerLimitsArgsDict(TypedDict):
 @pulumi.input_type
 class DataSourceWebCrawlerLimitsArgs:
     def __init__(__self__, *,
-                 max_pages: Optional[pulumi.Input[_builtins.int]] = None,
-                 rate_limit: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_pages: pulumi.Input[Optional[_builtins.int]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Limit settings for the web crawler.
 
@@ -6774,26 +6774,26 @@ class DataSourceWebCrawlerLimitsArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxPages")
-    def max_pages(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_pages(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of pages the crawler can crawl.
         """
         return pulumi.get(self, "max_pages")
 
     @max_pages.setter
-    def max_pages(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_pages(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_pages", value)
 
     @_builtins.property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Rate of web URLs retrieved per minute.
         """
         return pulumi.get(self, "rate_limit")
 
     @rate_limit.setter
-    def rate_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rate_limit", value)
 
 
@@ -6805,7 +6805,7 @@ class DataSourceWebDataSourceConfigurationArgsDict(TypedDict):
     """
     The source configuration details for the web data source.
     """
-    crawler_configuration: NotRequired[pulumi.Input['DataSourceWebCrawlerConfigurationArgsDict']]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgsDict']]]
     """
     The Web Crawler configuration details for the web data source.
     """
@@ -6814,7 +6814,7 @@ class DataSourceWebDataSourceConfigurationArgsDict(TypedDict):
 class DataSourceWebDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  source_configuration: pulumi.Input['DataSourceWebSourceConfigurationArgs'],
-                 crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None):
+                 crawler_configuration: pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']] = None):
         """
         Configures a web data source location.
 
@@ -6839,14 +6839,14 @@ class DataSourceWebDataSourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]:
+    def crawler_configuration(self) -> pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']]:
         """
         The Web Crawler configuration details for the web data source.
         """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
-    def crawler_configuration(self, value: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']]):
+    def crawler_configuration(self, value: pulumi.Input[Optional['DataSourceWebCrawlerConfigurationArgs']]):
         pulumi.set(self, "crawler_configuration", value)
 
 
@@ -6939,11 +6939,11 @@ class EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict(TypedDict):
     """
     Selective content guarding controls for enforced guardrails
     """
-    messages: NotRequired[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]
+    messages: NotRequired[pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]]
     """
     Selective guarding mode for user messages
     """
-    system: NotRequired[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]
+    system: NotRequired[pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]]
     """
     Selective guarding mode for system prompts
     """
@@ -6951,8 +6951,8 @@ class EnforcedGuardrailConfigurationSelectiveContentGuardingArgsDict(TypedDict):
 @pulumi.input_type
 class EnforcedGuardrailConfigurationSelectiveContentGuardingArgs:
     def __init__(__self__, *,
-                 messages: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']] = None,
-                 system: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']] = None):
+                 messages: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']] = None,
+                 system: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']] = None):
         """
         Selective content guarding controls for enforced guardrails
 
@@ -6966,26 +6966,26 @@ class EnforcedGuardrailConfigurationSelectiveContentGuardingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def messages(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]:
+    def messages(self) -> pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]:
         """
         Selective guarding mode for user messages
         """
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]):
+    def messages(self, value: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingMessages']]):
         pulumi.set(self, "messages", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]:
+    def system(self) -> pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]:
         """
         Selective guarding mode for system prompts
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]):
+    def system(self, value: pulumi.Input[Optional['EnforcedGuardrailConfigurationSelectiveContentGuardingSystem']]):
         pulumi.set(self, "system", value)
 
 
@@ -7039,7 +7039,7 @@ class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
     - `Automatic` - Amazon Bedrock determines which nodes can be executed in parallel based on the flow definition and its dependencies.
     - `Manual` - You specify which nodes can be executed in parallel.
     """
-    max_concurrency: NotRequired[pulumi.Input[_builtins.float]]
+    max_concurrency: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Number of nodes executed concurrently at a time
     """
@@ -7048,7 +7048,7 @@ class FlowAliasConcurrencyConfigurationArgsDict(TypedDict):
 class FlowAliasConcurrencyConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['FlowAliasConcurrencyType'],
-                 max_concurrency: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_concurrency: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input['FlowAliasConcurrencyType'] type: The type of concurrency to use for parallel node execution. Specify one of the following options:
                
@@ -7077,14 +7077,14 @@ class FlowAliasConcurrencyConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_concurrency(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number of nodes executed concurrently at a time
         """
         return pulumi.get(self, "max_concurrency")
 
     @max_concurrency.setter
-    def max_concurrency(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_concurrency(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_concurrency", value)
 
 
@@ -7092,7 +7092,7 @@ class FlowAliasRoutingConfigurationListItemArgsDict(TypedDict):
     """
     Details about the routing configuration for a Flow alias.
     """
-    flow_version: NotRequired[pulumi.Input[_builtins.str]]
+    flow_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version.
     """
@@ -7100,7 +7100,7 @@ class FlowAliasRoutingConfigurationListItemArgsDict(TypedDict):
 @pulumi.input_type
 class FlowAliasRoutingConfigurationListItemArgs:
     def __init__(__self__, *,
-                 flow_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 flow_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Details about the routing configuration for a Flow alias.
 
@@ -7111,14 +7111,14 @@ class FlowAliasRoutingConfigurationListItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="flowVersion")
-    def flow_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def flow_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version.
         """
         return pulumi.get(self, "flow_version")
 
     @flow_version.setter
-    def flow_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def flow_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "flow_version", value)
 
 
@@ -7135,6 +7135,59 @@ class FlowCollectorFlowNodeConfigurationArgs:
         Collector flow node configuration
         """
         pass
+
+
+class FlowConditionArgsDict(TypedDict):
+    """
+    Condition branch for a condition node
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a condition in a flow
+    """
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Expression for a condition in a flow
+    """
+
+@pulumi.input_type
+class FlowConditionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 expression: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Condition branch for a condition node
+
+        :param pulumi.Input[_builtins.str] name: Name of a condition in a flow
+        :param pulumi.Input[_builtins.str] expression: Expression for a condition in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of a condition in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Expression for a condition in a flow
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression", value)
 
 
 class FlowConditionFlowNodeConfigurationArgsDict(TypedDict):
@@ -7203,109 +7256,6 @@ class FlowConditionalConnectionConfigurationArgs:
         pulumi.set(self, "condition", value)
 
 
-class FlowConditionArgsDict(TypedDict):
-    """
-    Condition branch for a condition node
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of a condition in a flow
-    """
-    expression: NotRequired[pulumi.Input[_builtins.str]]
-    """
-    Expression for a condition in a flow
-    """
-
-@pulumi.input_type
-class FlowConditionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 expression: Optional[pulumi.Input[_builtins.str]] = None):
-        """
-        Condition branch for a condition node
-
-        :param pulumi.Input[_builtins.str] name: Name of a condition in a flow
-        :param pulumi.Input[_builtins.str] expression: Expression for a condition in a flow
-        """
-        pulumi.set(__self__, "name", name)
-        if expression is not None:
-            pulumi.set(__self__, "expression", expression)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of a condition in a flow
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def expression(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Expression for a condition in a flow
-        """
-        return pulumi.get(self, "expression")
-
-    @expression.setter
-    def expression(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "expression", value)
-
-
-class FlowConnectionConfiguration0PropertiesArgsDict(TypedDict):
-    """
-    Connection configuration
-    """
-    data: pulumi.Input['FlowDataConnectionConfigurationArgsDict']
-
-@pulumi.input_type
-class FlowConnectionConfiguration0PropertiesArgs:
-    def __init__(__self__, *,
-                 data: pulumi.Input['FlowDataConnectionConfigurationArgs']):
-        """
-        Connection configuration
-        """
-        pulumi.set(__self__, "data", data)
-
-    @_builtins.property
-    @pulumi.getter
-    def data(self) -> pulumi.Input['FlowDataConnectionConfigurationArgs']:
-        return pulumi.get(self, "data")
-
-    @data.setter
-    def data(self, value: pulumi.Input['FlowDataConnectionConfigurationArgs']):
-        pulumi.set(self, "data", value)
-
-
-class FlowConnectionConfiguration1PropertiesArgsDict(TypedDict):
-    """
-    Connection configuration
-    """
-    conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgsDict']
-
-@pulumi.input_type
-class FlowConnectionConfiguration1PropertiesArgs:
-    def __init__(__self__, *,
-                 conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
-        """
-        Connection configuration
-        """
-        pulumi.set(__self__, "conditional", conditional)
-
-    @_builtins.property
-    @pulumi.getter
-    def conditional(self) -> pulumi.Input['FlowConditionalConnectionConfigurationArgs']:
-        return pulumi.get(self, "conditional")
-
-    @conditional.setter
-    def conditional(self, value: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
-        pulumi.set(self, "conditional", value)
-
-
 class FlowConnectionArgsDict(TypedDict):
     """
     Flow connection
@@ -7326,7 +7276,7 @@ class FlowConnectionArgsDict(TypedDict):
     """
     Whether the source node that the connection begins from is a condition node ( `Conditional` ) or not ( `Data` ).
     """
-    configuration: NotRequired[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgsDict', 'FlowConnectionConfiguration1PropertiesArgsDict']]]
+    configuration: NotRequired[pulumi.Input[Optional[Union['FlowConnectionConfiguration0PropertiesArgsDict', 'FlowConnectionConfiguration1PropertiesArgsDict']]]]
     """
     The configuration of the connection.
     """
@@ -7338,7 +7288,7 @@ class FlowConnectionArgs:
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
                  type: pulumi.Input['FlowConnectionType'],
-                 configuration: Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]] = None):
+                 configuration: pulumi.Input[Optional[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]] = None):
         """
         Flow connection
 
@@ -7405,15 +7355,65 @@ class FlowConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]:
+    def configuration(self) -> pulumi.Input[Optional[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]:
         """
         The configuration of the connection.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]):
+    def configuration(self, value: pulumi.Input[Optional[Union['FlowConnectionConfiguration0PropertiesArgs', 'FlowConnectionConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
+
+
+class FlowConnectionConfiguration0PropertiesArgsDict(TypedDict):
+    """
+    Connection configuration
+    """
+    data: pulumi.Input['FlowDataConnectionConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowConnectionConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 data: pulumi.Input['FlowDataConnectionConfigurationArgs']):
+        """
+        Connection configuration
+        """
+        pulumi.set(__self__, "data", data)
+
+    @_builtins.property
+    @pulumi.getter
+    def data(self) -> pulumi.Input['FlowDataConnectionConfigurationArgs']:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: pulumi.Input['FlowDataConnectionConfigurationArgs']):
+        pulumi.set(self, "data", value)
+
+
+class FlowConnectionConfiguration1PropertiesArgsDict(TypedDict):
+    """
+    Connection configuration
+    """
+    conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgsDict']
+
+@pulumi.input_type
+class FlowConnectionConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 conditional: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
+        """
+        Connection configuration
+        """
+        pulumi.set(__self__, "conditional", conditional)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditional(self) -> pulumi.Input['FlowConditionalConnectionConfigurationArgs']:
+        return pulumi.get(self, "conditional")
+
+    @conditional.setter
+    def conditional(self, value: pulumi.Input['FlowConditionalConnectionConfigurationArgs']):
+        pulumi.set(self, "conditional", value)
 
 
 class FlowDataConnectionConfigurationArgsDict(TypedDict):
@@ -7472,11 +7472,11 @@ class FlowDefinitionArgsDict(TypedDict):
     """
     Flow definition
     """
-    connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgsDict']]]]
+    connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowConnectionArgsDict']]]]]
     """
     List of connections
     """
-    nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgsDict']]]]
+    nodes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeArgsDict']]]]]
     """
     List of nodes in a flow
     """
@@ -7484,8 +7484,8 @@ class FlowDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class FlowDefinitionArgs:
     def __init__(__self__, *,
-                 connections: Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]] = None):
+                 connections: pulumi.Input[Optional[Sequence[pulumi.Input['FlowConnectionArgs']]]] = None,
+                 nodes: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeArgs']]]] = None):
         """
         Flow definition
 
@@ -7499,26 +7499,26 @@ class FlowDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]]:
+    def connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowConnectionArgs']]]]:
         """
         List of connections
         """
         return pulumi.get(self, "connections")
 
     @connections.setter
-    def connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowConnectionArgs']]]]):
+    def connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowConnectionArgs']]]]):
         pulumi.set(self, "connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]]:
+    def nodes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeArgs']]]]:
         """
         List of nodes in a flow
         """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeArgs']]]]):
+    def nodes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeArgs']]]]):
         pulumi.set(self, "nodes", value)
 
 
@@ -7559,11 +7559,11 @@ class FlowGuardrailConfigurationArgsDict(TypedDict):
     """
     Configuration for a guardrail
     """
-    guardrail_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    guardrail_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier for the guardrail, could be the id or the arn
     """
-    guardrail_version: NotRequired[pulumi.Input[_builtins.str]]
+    guardrail_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Version of the guardrail
     """
@@ -7571,8 +7571,8 @@ class FlowGuardrailConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FlowGuardrailConfigurationArgs:
     def __init__(__self__, *,
-                 guardrail_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 guardrail_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 guardrail_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 guardrail_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration for a guardrail
 
@@ -7586,26 +7586,26 @@ class FlowGuardrailConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="guardrailIdentifier")
-    def guardrail_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the guardrail, could be the id or the arn
         """
         return pulumi.get(self, "guardrail_identifier")
 
     @guardrail_identifier.setter
-    def guardrail_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="guardrailVersion")
-    def guardrail_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def guardrail_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the guardrail
         """
         return pulumi.get(self, "guardrail_version")
 
     @guardrail_version.setter
-    def guardrail_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def guardrail_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "guardrail_version", value)
 
 
@@ -7692,31 +7692,31 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgsDict(TypedDict):
     """
     Identifier of the KnowledgeBase
     """
-    guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
-    inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
-    model_id: NotRequired[pulumi.Input[_builtins.str]]
+    guardrail_configuration: NotRequired[pulumi.Input[Optional['FlowGuardrailConfigurationArgsDict']]]
+    inference_configuration: NotRequired[pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgsDict']]]
+    model_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
     """
-    number_of_results: NotRequired[pulumi.Input[_builtins.float]]
+    number_of_results: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Number Of Results to Retrieve
     """
-    orchestration_configuration: NotRequired[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgsDict']]
-    prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
-    reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchRerankingConfigurationArgsDict']]
+    orchestration_configuration: NotRequired[pulumi.Input[Optional['FlowKnowledgeBaseOrchestrationConfigurationArgsDict']]]
+    prompt_template: NotRequired[pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]]
+    reranking_configuration: NotRequired[pulumi.Input[Optional['FlowVectorSearchRerankingConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FlowKnowledgeBaseFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  knowledge_base_id: pulumi.Input[_builtins.str],
-                 guardrail_configuration: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']] = None,
-                 inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
-                 model_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_results: Optional[pulumi.Input[_builtins.float]] = None,
-                 orchestration_configuration: Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']] = None,
-                 prompt_template: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None,
-                 reranking_configuration: Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']] = None):
+                 guardrail_configuration: pulumi.Input[Optional['FlowGuardrailConfigurationArgs']] = None,
+                 inference_configuration: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
+                 model_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_results: pulumi.Input[Optional[_builtins.float]] = None,
+                 orchestration_configuration: pulumi.Input[Optional['FlowKnowledgeBaseOrchestrationConfigurationArgs']] = None,
+                 prompt_template: pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None,
+                 reranking_configuration: pulumi.Input[Optional['FlowVectorSearchRerankingConfigurationArgs']] = None):
         """
         Knowledge base flow node configuration
 
@@ -7754,87 +7754,87 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="guardrailConfiguration")
-    def guardrail_configuration(self) -> Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]:
+    def guardrail_configuration(self) -> pulumi.Input[Optional['FlowGuardrailConfigurationArgs']]:
         return pulumi.get(self, "guardrail_configuration")
 
     @guardrail_configuration.setter
-    def guardrail_configuration(self, value: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]):
+    def guardrail_configuration(self, value: pulumi.Input[Optional['FlowGuardrailConfigurationArgs']]):
         pulumi.set(self, "guardrail_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
-    def inference_configuration(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+    def inference_configuration(self) -> pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]:
         return pulumi.get(self, "inference_configuration")
 
     @inference_configuration.setter
-    def inference_configuration(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+    def inference_configuration(self, value: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]):
         pulumi.set(self, "inference_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="modelId")
-    def model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
     @model_id.setter
-    def model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_id", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfResults")
-    def number_of_results(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_results(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number Of Results to Retrieve
         """
         return pulumi.get(self, "number_of_results")
 
     @number_of_results.setter
-    def number_of_results(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_results(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_results", value)
 
     @_builtins.property
     @pulumi.getter(name="orchestrationConfiguration")
-    def orchestration_configuration(self) -> Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']]:
+    def orchestration_configuration(self) -> pulumi.Input[Optional['FlowKnowledgeBaseOrchestrationConfigurationArgs']]:
         return pulumi.get(self, "orchestration_configuration")
 
     @orchestration_configuration.setter
-    def orchestration_configuration(self, value: Optional[pulumi.Input['FlowKnowledgeBaseOrchestrationConfigurationArgs']]):
+    def orchestration_configuration(self, value: pulumi.Input[Optional['FlowKnowledgeBaseOrchestrationConfigurationArgs']]):
         pulumi.set(self, "orchestration_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="promptTemplate")
-    def prompt_template(self) -> Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
+    def prompt_template(self) -> pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
         return pulumi.get(self, "prompt_template")
 
     @prompt_template.setter
-    def prompt_template(self, value: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
+    def prompt_template(self, value: pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
         pulumi.set(self, "prompt_template", value)
 
     @_builtins.property
     @pulumi.getter(name="rerankingConfiguration")
-    def reranking_configuration(self) -> Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']]:
+    def reranking_configuration(self) -> pulumi.Input[Optional['FlowVectorSearchRerankingConfigurationArgs']]:
         return pulumi.get(self, "reranking_configuration")
 
     @reranking_configuration.setter
-    def reranking_configuration(self, value: Optional[pulumi.Input['FlowVectorSearchRerankingConfigurationArgs']]):
+    def reranking_configuration(self, value: pulumi.Input[Optional['FlowVectorSearchRerankingConfigurationArgs']]):
         pulumi.set(self, "reranking_configuration", value)
 
 
 class FlowKnowledgeBaseOrchestrationConfigurationArgsDict(TypedDict):
-    additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
-    inference_config: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
-    performance_config: NotRequired[pulumi.Input['FlowPerformanceConfigurationArgsDict']]
-    prompt_template: NotRequired[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]
+    additional_model_request_fields: NotRequired[pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgsDict']]]
+    inference_config: NotRequired[pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgsDict']]]
+    performance_config: NotRequired[pulumi.Input[Optional['FlowPerformanceConfigurationArgsDict']]]
+    prompt_template: NotRequired[pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgsDict']]]
 
 @pulumi.input_type
 class FlowKnowledgeBaseOrchestrationConfigurationArgs:
     def __init__(__self__, *,
-                 additional_model_request_fields: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']] = None,
-                 inference_config: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
-                 performance_config: Optional[pulumi.Input['FlowPerformanceConfigurationArgs']] = None,
-                 prompt_template: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None):
+                 additional_model_request_fields: pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']] = None,
+                 inference_config: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']] = None,
+                 performance_config: pulumi.Input[Optional['FlowPerformanceConfigurationArgs']] = None,
+                 prompt_template: pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']] = None):
         if additional_model_request_fields is not None:
             pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
         if inference_config is not None:
@@ -7846,38 +7846,38 @@ class FlowKnowledgeBaseOrchestrationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
-    def additional_model_request_fields(self) -> Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]:
+    def additional_model_request_fields(self) -> pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']]:
         return pulumi.get(self, "additional_model_request_fields")
 
     @additional_model_request_fields.setter
-    def additional_model_request_fields(self, value: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]):
+    def additional_model_request_fields(self, value: pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']]):
         pulumi.set(self, "additional_model_request_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfig")
-    def inference_config(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+    def inference_config(self) -> pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]:
         return pulumi.get(self, "inference_config")
 
     @inference_config.setter
-    def inference_config(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+    def inference_config(self, value: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]):
         pulumi.set(self, "inference_config", value)
 
     @_builtins.property
     @pulumi.getter(name="performanceConfig")
-    def performance_config(self) -> Optional[pulumi.Input['FlowPerformanceConfigurationArgs']]:
+    def performance_config(self) -> pulumi.Input[Optional['FlowPerformanceConfigurationArgs']]:
         return pulumi.get(self, "performance_config")
 
     @performance_config.setter
-    def performance_config(self, value: Optional[pulumi.Input['FlowPerformanceConfigurationArgs']]):
+    def performance_config(self, value: pulumi.Input[Optional['FlowPerformanceConfigurationArgs']]):
         pulumi.set(self, "performance_config", value)
 
     @_builtins.property
     @pulumi.getter(name="promptTemplate")
-    def prompt_template(self) -> Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
+    def prompt_template(self) -> pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']]:
         return pulumi.get(self, "prompt_template")
 
     @prompt_template.setter
-    def prompt_template(self, value: Optional[pulumi.Input['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
+    def prompt_template(self, value: pulumi.Input[Optional['FlowKnowledgeBasePromptTemplatePropertiesArgs']]):
         pulumi.set(self, "prompt_template", value)
 
 
@@ -7996,7 +7996,7 @@ class FlowLoopControllerFlowNodeConfigurationArgsDict(TypedDict):
     Configuration for the LoopController node, which manages loop execution
     """
     continue_condition: pulumi.Input['FlowConditionArgsDict']
-    max_iterations: NotRequired[pulumi.Input[_builtins.float]]
+    max_iterations: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum number of iterations the loop can perform
     """
@@ -8005,7 +8005,7 @@ class FlowLoopControllerFlowNodeConfigurationArgsDict(TypedDict):
 class FlowLoopControllerFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  continue_condition: pulumi.Input['FlowConditionArgs'],
-                 max_iterations: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_iterations: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Configuration for the LoopController node, which manages loop execution
 
@@ -8026,14 +8026,14 @@ class FlowLoopControllerFlowNodeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxIterations")
-    def max_iterations(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_iterations(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum number of iterations the loop can perform
         """
         return pulumi.get(self, "max_iterations")
 
     @max_iterations.setter
-    def max_iterations(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_iterations(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_iterations", value)
 
 
@@ -8079,13 +8079,13 @@ class FlowLoopInputFlowNodeConfigurationArgs:
 
 class FlowMetadataConfigurationForRerankingArgsDict(TypedDict):
     selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode']
-    selective_mode_configuration: NotRequired[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict']]]
+    selective_mode_configuration: NotRequired[pulumi.Input[Optional[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgsDict', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgsDict']]]]
 
 @pulumi.input_type
 class FlowMetadataConfigurationForRerankingArgs:
     def __init__(__self__, *,
                  selection_mode: pulumi.Input['FlowRerankingMetadataSelectionMode'],
-                 selective_mode_configuration: Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]] = None):
+                 selective_mode_configuration: pulumi.Input[Optional[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]] = None):
         pulumi.set(__self__, "selection_mode", selection_mode)
         if selective_mode_configuration is not None:
             pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
@@ -8101,12 +8101,124 @@ class FlowMetadataConfigurationForRerankingArgs:
 
     @_builtins.property
     @pulumi.getter(name="selectiveModeConfiguration")
-    def selective_mode_configuration(self) -> Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]:
+    def selective_mode_configuration(self) -> pulumi.Input[Optional[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]:
         return pulumi.get(self, "selective_mode_configuration")
 
     @selective_mode_configuration.setter
-    def selective_mode_configuration(self, value: Optional[pulumi.Input[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]):
+    def selective_mode_configuration(self, value: pulumi.Input[Optional[Union['FlowRerankingMetadataSelectiveModeConfiguration0PropertiesArgs', 'FlowRerankingMetadataSelectiveModeConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "selective_mode_configuration", value)
+
+
+class FlowNodeArgsDict(TypedDict):
+    """
+    Internal mixin for flow node
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of a node in a flow
+    """
+    type: pulumi.Input['FlowNodeType']
+    """
+    The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+    """
+    configuration: NotRequired[pulumi.Input[Optional[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict', 'FlowNodeConfiguration13PropertiesArgsDict', 'FlowNodeConfiguration14PropertiesArgsDict', 'FlowNodeConfiguration15PropertiesArgsDict']]]]
+    """
+    Contains configurations for the node.
+    """
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeInputArgsDict']]]]]
+    """
+    List of node inputs in a flow
+    """
+    outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeOutputArgsDict']]]]]
+    """
+    List of node outputs in a flow
+    """
+
+@pulumi.input_type
+class FlowNodeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['FlowNodeType'],
+                 configuration: pulumi.Input[Optional[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]] = None,
+                 inputs: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
+        """
+        Internal mixin for flow node
+
+        :param pulumi.Input[_builtins.str] name: Name of a node in a flow
+        :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']] configuration: Contains configurations for the node.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
+        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of a node in a flow
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['FlowNodeType']:
+        """
+        The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['FlowNodeType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input[Optional[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]:
+        """
+        Contains configurations for the node.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input[Optional[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]):
+        pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def inputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeInputArgs']]]]:
+        """
+        List of node inputs in a flow
+        """
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]:
+        """
+        List of node outputs in a flow
+        """
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]):
+        pulumi.set(self, "outputs", value)
 
 
 class FlowNodeConfiguration0PropertiesArgsDict(TypedDict):
@@ -8525,7 +8637,7 @@ class FlowNodeInputArgsDict(TypedDict):
     """
     Specifies the data type of the input. If the input doesn't match this type at runtime, a validation error will be thrown.
     """
-    category: NotRequired[pulumi.Input['FlowNodeInputCategory']]
+    category: NotRequired[pulumi.Input[Optional['FlowNodeInputCategory']]]
     """
     Specifies how input data flows between iterations in a DoWhile loop.
 
@@ -8540,7 +8652,7 @@ class FlowNodeInputArgs:
                  expression: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['FlowNodeIoDataType'],
-                 category: Optional[pulumi.Input['FlowNodeInputCategory']] = None):
+                 category: pulumi.Input[Optional['FlowNodeInputCategory']] = None):
         """
         Input to a node in a flow
 
@@ -8597,7 +8709,7 @@ class FlowNodeInputArgs:
 
     @_builtins.property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input['FlowNodeInputCategory']]:
+    def category(self) -> pulumi.Input[Optional['FlowNodeInputCategory']]:
         """
         Specifies how input data flows between iterations in a DoWhile loop.
 
@@ -8608,7 +8720,7 @@ class FlowNodeInputArgs:
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input['FlowNodeInputCategory']]):
+    def category(self, value: pulumi.Input[Optional['FlowNodeInputCategory']]):
         pulumi.set(self, "category", value)
 
 
@@ -8664,118 +8776,6 @@ class FlowNodeOutputArgs:
         pulumi.set(self, "type", value)
 
 
-class FlowNodeArgsDict(TypedDict):
-    """
-    Internal mixin for flow node
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    Name of a node in a flow
-    """
-    type: pulumi.Input['FlowNodeType']
-    """
-    The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-    """
-    configuration: NotRequired[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgsDict', 'FlowNodeConfiguration1PropertiesArgsDict', 'FlowNodeConfiguration2PropertiesArgsDict', 'FlowNodeConfiguration3PropertiesArgsDict', 'FlowNodeConfiguration4PropertiesArgsDict', 'FlowNodeConfiguration5PropertiesArgsDict', 'FlowNodeConfiguration6PropertiesArgsDict', 'FlowNodeConfiguration7PropertiesArgsDict', 'FlowNodeConfiguration8PropertiesArgsDict', 'FlowNodeConfiguration9PropertiesArgsDict', 'FlowNodeConfiguration10PropertiesArgsDict', 'FlowNodeConfiguration11PropertiesArgsDict', 'FlowNodeConfiguration12PropertiesArgsDict', 'FlowNodeConfiguration13PropertiesArgsDict', 'FlowNodeConfiguration14PropertiesArgsDict', 'FlowNodeConfiguration15PropertiesArgsDict']]]
-    """
-    Contains configurations for the node.
-    """
-    inputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgsDict']]]]
-    """
-    List of node inputs in a flow
-    """
-    outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgsDict']]]]
-    """
-    List of node outputs in a flow
-    """
-
-@pulumi.input_type
-class FlowNodeArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 type: pulumi.Input['FlowNodeType'],
-                 configuration: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]] = None):
-        """
-        Internal mixin for flow node
-
-        :param pulumi.Input[_builtins.str] name: Name of a node in a flow
-        :param pulumi.Input['FlowNodeType'] type: The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        :param pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']] configuration: Contains configurations for the node.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]] inputs: List of node inputs in a flow
-        :param pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]] outputs: List of node outputs in a flow
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
-        if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
-        if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of a node in a flow
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['FlowNodeType']:
-        """
-        The type of node. This value must match the name of the key that you provide in the configuration you provide in the `FlowNodeConfiguration` field.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['FlowNodeType']):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]:
-        """
-        Contains configurations for the node.
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['FlowNodeConfiguration0PropertiesArgs', 'FlowNodeConfiguration1PropertiesArgs', 'FlowNodeConfiguration2PropertiesArgs', 'FlowNodeConfiguration3PropertiesArgs', 'FlowNodeConfiguration4PropertiesArgs', 'FlowNodeConfiguration5PropertiesArgs', 'FlowNodeConfiguration6PropertiesArgs', 'FlowNodeConfiguration7PropertiesArgs', 'FlowNodeConfiguration8PropertiesArgs', 'FlowNodeConfiguration9PropertiesArgs', 'FlowNodeConfiguration10PropertiesArgs', 'FlowNodeConfiguration11PropertiesArgs', 'FlowNodeConfiguration12PropertiesArgs', 'FlowNodeConfiguration13PropertiesArgs', 'FlowNodeConfiguration14PropertiesArgs', 'FlowNodeConfiguration15PropertiesArgs']]]):
-        pulumi.set(self, "configuration", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]]:
-        """
-        List of node inputs in a flow
-        """
-        return pulumi.get(self, "inputs")
-
-    @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeInputArgs']]]]):
-        pulumi.set(self, "inputs", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]:
-        """
-        List of node outputs in a flow
-        """
-        return pulumi.get(self, "outputs")
-
-    @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowNodeOutputArgs']]]]):
-        pulumi.set(self, "outputs", value)
-
-
 class FlowOutputFlowNodeConfigurationArgsDict(TypedDict):
     """
     Output flow node configuration
@@ -8792,22 +8792,22 @@ class FlowOutputFlowNodeConfigurationArgs:
 
 
 class FlowPerformanceConfigurationArgsDict(TypedDict):
-    latency: NotRequired[pulumi.Input['FlowPerformanceConfigurationLatency']]
+    latency: NotRequired[pulumi.Input[Optional['FlowPerformanceConfigurationLatency']]]
 
 @pulumi.input_type
 class FlowPerformanceConfigurationArgs:
     def __init__(__self__, *,
-                 latency: Optional[pulumi.Input['FlowPerformanceConfigurationLatency']] = None):
+                 latency: pulumi.Input[Optional['FlowPerformanceConfigurationLatency']] = None):
         if latency is not None:
             pulumi.set(__self__, "latency", latency)
 
     @_builtins.property
     @pulumi.getter
-    def latency(self) -> Optional[pulumi.Input['FlowPerformanceConfigurationLatency']]:
+    def latency(self) -> pulumi.Input[Optional['FlowPerformanceConfigurationLatency']]:
         return pulumi.get(self, "latency")
 
     @latency.setter
-    def latency(self, value: Optional[pulumi.Input['FlowPerformanceConfigurationLatency']]):
+    def latency(self, value: pulumi.Input[Optional['FlowPerformanceConfigurationLatency']]):
         pulumi.set(self, "latency", value)
 
 
@@ -8816,13 +8816,13 @@ class FlowPromptFlowNodeConfigurationArgsDict(TypedDict):
     Prompt flow node configuration
     """
     source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict']]
-    guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
+    guardrail_configuration: NotRequired[pulumi.Input[Optional['FlowGuardrailConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FlowPromptFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']],
-                 guardrail_configuration: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']] = None):
+                 guardrail_configuration: pulumi.Input[Optional['FlowGuardrailConfigurationArgs']] = None):
         """
         Prompt flow node configuration
         """
@@ -8841,11 +8841,11 @@ class FlowPromptFlowNodeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="guardrailConfiguration")
-    def guardrail_configuration(self) -> Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]:
+    def guardrail_configuration(self) -> pulumi.Input[Optional['FlowGuardrailConfigurationArgs']]:
         return pulumi.get(self, "guardrail_configuration")
 
     @guardrail_configuration.setter
-    def guardrail_configuration(self, value: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]):
+    def guardrail_configuration(self, value: pulumi.Input[Optional['FlowGuardrailConfigurationArgs']]):
         pulumi.set(self, "guardrail_configuration", value)
 
 
@@ -8859,7 +8859,7 @@ class FlowPromptFlowNodeInlineConfigurationArgsDict(TypedDict):
     """
     template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgsDict']
     template_type: pulumi.Input['FlowPromptTemplateType']
-    inference_configuration: NotRequired[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgsDict']]
+    inference_configuration: NotRequired[pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgsDict']]]
 
 @pulumi.input_type
 class FlowPromptFlowNodeInlineConfigurationArgs:
@@ -8867,7 +8867,7 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
                  model_id: pulumi.Input[_builtins.str],
                  template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgs'],
                  template_type: pulumi.Input['FlowPromptTemplateType'],
-                 inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None):
+                 inference_configuration: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']] = None):
         """
         Inline prompt configuration for prompt node
 
@@ -8911,11 +8911,11 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
-    def inference_configuration(self) -> Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]:
+    def inference_configuration(self) -> pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]:
         return pulumi.get(self, "inference_configuration")
 
     @inference_configuration.setter
-    def inference_configuration(self, value: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']]):
+    def inference_configuration(self, value: pulumi.Input[Optional['FlowPromptInferenceConfigurationPropertiesArgs']]):
         pulumi.set(self, "inference_configuration", value)
 
 
@@ -9031,7 +9031,7 @@ class FlowPromptInputVariableArgsDict(TypedDict):
     """
     Input variable
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name for an input variable
     """
@@ -9039,7 +9039,7 @@ class FlowPromptInputVariableArgsDict(TypedDict):
 @pulumi.input_type
 class FlowPromptInputVariableArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input variable
 
@@ -9050,14 +9050,14 @@ class FlowPromptInputVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for an input variable
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -9065,19 +9065,19 @@ class FlowPromptModelInferenceConfigurationArgsDict(TypedDict):
     """
     Prompt model inference configuration
     """
-    max_tokens: NotRequired[pulumi.Input[_builtins.float]]
+    max_tokens: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum length of output
     """
-    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stop_sequences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stop sequences
     """
-    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Controls randomness, higher values increase diversity
     """
-    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Cumulative probability cutoff for token selection
     """
@@ -9085,10 +9085,10 @@ class FlowPromptModelInferenceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class FlowPromptModelInferenceConfigurationArgs:
     def __init__(__self__, *,
-                 max_tokens: Optional[pulumi.Input[_builtins.float]] = None,
-                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
-                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_tokens: pulumi.Input[Optional[_builtins.float]] = None,
+                 stop_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Prompt model inference configuration
 
@@ -9108,50 +9108,50 @@ class FlowPromptModelInferenceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_tokens(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum length of output
         """
         return pulumi.get(self, "max_tokens")
 
     @max_tokens.setter
-    def max_tokens(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_tokens(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
-    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stop_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stop sequences
         """
         return pulumi.get(self, "stop_sequences")
 
     @stop_sequences.setter
-    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stop_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stop_sequences", value)
 
     @_builtins.property
     @pulumi.getter
-    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
 
     @temperature.setter
-    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "temperature", value)
 
     @_builtins.property
     @pulumi.getter(name="topP")
-    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Cumulative probability cutoff for token selection
         """
         return pulumi.get(self, "top_p")
 
     @top_p.setter
-    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_p", value)
 
 
@@ -9292,12 +9292,12 @@ class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
     """
     Retrieval service configuration for Retrieval node
     """
-    s3: NotRequired[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['FlowRetrievalFlowNodeS3ConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']] = None):
+                 s3: pulumi.Input[Optional['FlowRetrievalFlowNodeS3ConfigurationArgs']] = None):
         """
         Retrieval service configuration for Retrieval node
         """
@@ -9306,11 +9306,11 @@ class FlowRetrievalFlowNodeServiceConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['FlowRetrievalFlowNodeS3ConfigurationArgs']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['FlowRetrievalFlowNodeS3ConfigurationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['FlowRetrievalFlowNodeS3ConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -9326,7 +9326,7 @@ class FlowS3LocationArgsDict(TypedDict):
     """
     A object key in S3
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the the S3 object to use
     """
@@ -9336,7 +9336,7 @@ class FlowS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A bucket, key and optional version pointing to an S3 object containing a UTF-8 encoded JSON string Definition with the same schema as the Definition property of this resource
 
@@ -9375,14 +9375,14 @@ class FlowS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the the S3 object to use
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -9448,12 +9448,12 @@ class FlowStorageFlowNodeServiceConfigurationPropertiesArgsDict(TypedDict):
     """
     storage service configuration for storage node
     """
-    s3: NotRequired[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgsDict']]
+    s3: NotRequired[pulumi.Input[Optional['FlowStorageFlowNodeS3ConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FlowStorageFlowNodeServiceConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']] = None):
+                 s3: pulumi.Input[Optional['FlowStorageFlowNodeS3ConfigurationArgs']] = None):
         """
         storage service configuration for storage node
         """
@@ -9462,11 +9462,11 @@ class FlowStorageFlowNodeServiceConfigurationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']]:
+    def s3(self) -> pulumi.Input[Optional['FlowStorageFlowNodeS3ConfigurationArgs']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['FlowStorageFlowNodeS3ConfigurationArgs']]):
+    def s3(self, value: pulumi.Input[Optional['FlowStorageFlowNodeS3ConfigurationArgs']]):
         pulumi.set(self, "s3", value)
 
 
@@ -9478,7 +9478,7 @@ class FlowTextPromptTemplateConfigurationArgsDict(TypedDict):
     """
     Prompt content for String prompt template
     """
-    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgsDict']]]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FlowPromptInputVariableArgsDict']]]]]
     """
     List of input variables
     """
@@ -9487,7 +9487,7 @@ class FlowTextPromptTemplateConfigurationArgsDict(TypedDict):
 class FlowTextPromptTemplateConfigurationArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[_builtins.str],
-                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]] = None):
+                 input_variables: pulumi.Input[Optional[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]] = None):
         """
         Configuration for text prompt template
 
@@ -9512,21 +9512,21 @@ class FlowTextPromptTemplateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
-    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]:
+    def input_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]:
         """
         List of input variables
         """
         return pulumi.get(self, "input_variables")
 
     @input_variables.setter
-    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]):
+    def input_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FlowPromptInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
 
 
 class FlowVectorSearchBedrockRerankingConfigurationArgsDict(TypedDict):
     model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgsDict']
-    metadata_configuration: NotRequired[pulumi.Input['FlowMetadataConfigurationForRerankingArgsDict']]
-    number_of_reranked_results: NotRequired[pulumi.Input[_builtins.float]]
+    metadata_configuration: NotRequired[pulumi.Input[Optional['FlowMetadataConfigurationForRerankingArgsDict']]]
+    number_of_reranked_results: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Number Of Results For Reranking
     """
@@ -9535,8 +9535,8 @@ class FlowVectorSearchBedrockRerankingConfigurationArgsDict(TypedDict):
 class FlowVectorSearchBedrockRerankingConfigurationArgs:
     def __init__(__self__, *,
                  model_configuration: pulumi.Input['FlowVectorSearchBedrockRerankingModelConfigurationArgs'],
-                 metadata_configuration: Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']] = None,
-                 number_of_reranked_results: Optional[pulumi.Input[_builtins.float]] = None):
+                 metadata_configuration: pulumi.Input[Optional['FlowMetadataConfigurationForRerankingArgs']] = None,
+                 number_of_reranked_results: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] number_of_reranked_results: Number Of Results For Reranking
         """
@@ -9557,35 +9557,35 @@ class FlowVectorSearchBedrockRerankingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="metadataConfiguration")
-    def metadata_configuration(self) -> Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']]:
+    def metadata_configuration(self) -> pulumi.Input[Optional['FlowMetadataConfigurationForRerankingArgs']]:
         return pulumi.get(self, "metadata_configuration")
 
     @metadata_configuration.setter
-    def metadata_configuration(self, value: Optional[pulumi.Input['FlowMetadataConfigurationForRerankingArgs']]):
+    def metadata_configuration(self, value: pulumi.Input[Optional['FlowMetadataConfigurationForRerankingArgs']]):
         pulumi.set(self, "metadata_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfRerankedResults")
-    def number_of_reranked_results(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_reranked_results(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number Of Results For Reranking
         """
         return pulumi.get(self, "number_of_reranked_results")
 
     @number_of_reranked_results.setter
-    def number_of_reranked_results(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_reranked_results(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_reranked_results", value)
 
 
 class FlowVectorSearchBedrockRerankingModelConfigurationArgsDict(TypedDict):
     model_arn: pulumi.Input[_builtins.str]
-    additional_model_request_fields: NotRequired[pulumi.Input['FlowAdditionalModelRequestFieldsArgsDict']]
+    additional_model_request_fields: NotRequired[pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgsDict']]]
 
 @pulumi.input_type
 class FlowVectorSearchBedrockRerankingModelConfigurationArgs:
     def __init__(__self__, *,
                  model_arn: pulumi.Input[_builtins.str],
-                 additional_model_request_fields: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']] = None):
+                 additional_model_request_fields: pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']] = None):
         pulumi.set(__self__, "model_arn", model_arn)
         if additional_model_request_fields is not None:
             pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
@@ -9601,23 +9601,23 @@ class FlowVectorSearchBedrockRerankingModelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
-    def additional_model_request_fields(self) -> Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]:
+    def additional_model_request_fields(self) -> pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']]:
         return pulumi.get(self, "additional_model_request_fields")
 
     @additional_model_request_fields.setter
-    def additional_model_request_fields(self, value: Optional[pulumi.Input['FlowAdditionalModelRequestFieldsArgs']]):
+    def additional_model_request_fields(self, value: pulumi.Input[Optional['FlowAdditionalModelRequestFieldsArgs']]):
         pulumi.set(self, "additional_model_request_fields", value)
 
 
 class FlowVectorSearchRerankingConfigurationArgsDict(TypedDict):
     type: pulumi.Input['FlowVectorSearchRerankingConfigurationType']
-    bedrock_reranking_configuration: NotRequired[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgsDict']]
+    bedrock_reranking_configuration: NotRequired[pulumi.Input[Optional['FlowVectorSearchBedrockRerankingConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FlowVectorSearchRerankingConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['FlowVectorSearchRerankingConfigurationType'],
-                 bedrock_reranking_configuration: Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']] = None):
+                 bedrock_reranking_configuration: pulumi.Input[Optional['FlowVectorSearchBedrockRerankingConfigurationArgs']] = None):
         pulumi.set(__self__, "type", type)
         if bedrock_reranking_configuration is not None:
             pulumi.set(__self__, "bedrock_reranking_configuration", bedrock_reranking_configuration)
@@ -9633,11 +9633,11 @@ class FlowVectorSearchRerankingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bedrockRerankingConfiguration")
-    def bedrock_reranking_configuration(self) -> Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']]:
+    def bedrock_reranking_configuration(self) -> pulumi.Input[Optional['FlowVectorSearchBedrockRerankingConfigurationArgs']]:
         return pulumi.get(self, "bedrock_reranking_configuration")
 
     @bedrock_reranking_configuration.setter
-    def bedrock_reranking_configuration(self, value: Optional[pulumi.Input['FlowVectorSearchBedrockRerankingConfigurationArgs']]):
+    def bedrock_reranking_configuration(self, value: pulumi.Input[Optional['FlowVectorSearchBedrockRerankingConfigurationArgs']]):
         pulumi.set(self, "bedrock_reranking_configuration", value)
 
 
@@ -9649,7 +9649,7 @@ class GuardrailAutomatedReasoningPolicyConfigArgsDict(TypedDict):
     """
     The list of Automated Reasoning policy ARNs to include in the guardrail configuration
     """
-    confidence_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    confidence_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
     """
@@ -9658,7 +9658,7 @@ class GuardrailAutomatedReasoningPolicyConfigArgsDict(TypedDict):
 class GuardrailAutomatedReasoningPolicyConfigArgs:
     def __init__(__self__, *,
                  policies: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 confidence_threshold: Optional[pulumi.Input[_builtins.float]] = None):
+                 confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Optional configuration for integrating Automated Reasoning policies with the guardrail.
 
@@ -9683,14 +9683,14 @@ class GuardrailAutomatedReasoningPolicyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
-    def confidence_threshold(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def confidence_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
         """
         return pulumi.get(self, "confidence_threshold")
 
     @confidence_threshold.setter
-    def confidence_threshold(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def confidence_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "confidence_threshold", value)
 
 
@@ -9710,33 +9710,33 @@ class GuardrailContentFilterConfigArgsDict(TypedDict):
     """
     The harmful category that the content filter is applied to.
     """
-    input_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailContentFilterAction']]]
     """
     Specifies the action to take when harmful content is detected. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    input_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+    input_modalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]]
     """
     List of modalities
     """
-    output_action: NotRequired[pulumi.Input['GuardrailContentFilterAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailContentFilterAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_modalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]
+    output_modalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]]
     """
     List of modalities
     """
@@ -9747,12 +9747,12 @@ class GuardrailContentFilterConfigArgs:
                  input_strength: pulumi.Input['GuardrailFilterStrength'],
                  output_strength: pulumi.Input['GuardrailFilterStrength'],
                  type: pulumi.Input['GuardrailContentFilterType'],
-                 input_action: Optional[pulumi.Input['GuardrailContentFilterAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 input_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailContentFilterAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_modalities: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]] = None):
+                 input_action: pulumi.Input[Optional['GuardrailContentFilterAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 input_modalities: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailContentFilterAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_modalities: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]] = None):
         """
         Content filter config in content policy.
 
@@ -9826,7 +9826,7 @@ class GuardrailContentFilterConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailContentFilterAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailContentFilterAction']]:
         """
         Specifies the action to take when harmful content is detected. Supported values include:
 
@@ -9836,36 +9836,36 @@ class GuardrailContentFilterConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailContentFilterAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailContentFilterAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="inputModalities")
-    def input_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]:
+    def input_modalities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]:
         """
         List of modalities
         """
         return pulumi.get(self, "input_modalities")
 
     @input_modalities.setter
-    def input_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]):
+    def input_modalities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]):
         pulumi.set(self, "input_modalities", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailContentFilterAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailContentFilterAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -9875,32 +9875,85 @@ class GuardrailContentFilterConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailContentFilterAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailContentFilterAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputModalities")
-    def output_modalities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]:
+    def output_modalities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]:
         """
         List of modalities
         """
         return pulumi.get(self, "output_modalities")
 
     @output_modalities.setter
-    def output_modalities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailModality']]]]):
+    def output_modalities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailModality']]]]):
         pulumi.set(self, "output_modalities", value)
+
+
+class GuardrailContentPolicyConfigArgsDict(TypedDict):
+    """
+    Content policy config for a guardrail.
+    """
+    filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgsDict']]]
+    """
+    List of content filter configs in content policy.
+    """
+    content_filters_tier_config: NotRequired[pulumi.Input[Optional['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict']]]
+    """
+    Guardrail tier config for content policy
+    """
+
+@pulumi.input_type
+class GuardrailContentPolicyConfigArgs:
+    def __init__(__self__, *,
+                 filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]],
+                 content_filters_tier_config: pulumi.Input[Optional['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']] = None):
+        """
+        Content policy config for a guardrail.
+
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
+        :param pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs'] content_filters_tier_config: Guardrail tier config for content policy
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+        if content_filters_tier_config is not None:
+            pulumi.set(__self__, "content_filters_tier_config", content_filters_tier_config)
+
+    @_builtins.property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]:
+        """
+        List of content filter configs in content policy.
+        """
+        return pulumi.get(self, "filters_config")
+
+    @filters_config.setter
+    def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]):
+        pulumi.set(self, "filters_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentFiltersTierConfig")
+    def content_filters_tier_config(self) -> pulumi.Input[Optional['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']]:
+        """
+        Guardrail tier config for content policy
+        """
+        return pulumi.get(self, "content_filters_tier_config")
+
+    @content_filters_tier_config.setter
+    def content_filters_tier_config(self, value: pulumi.Input[Optional['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']]):
+        pulumi.set(self, "content_filters_tier_config", value)
 
 
 class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict(TypedDict):
@@ -9928,59 +9981,6 @@ class GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs:
         pulumi.set(self, "tier_name", value)
 
 
-class GuardrailContentPolicyConfigArgsDict(TypedDict):
-    """
-    Content policy config for a guardrail.
-    """
-    filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgsDict']]]
-    """
-    List of content filter configs in content policy.
-    """
-    content_filters_tier_config: NotRequired[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgsDict']]
-    """
-    Guardrail tier config for content policy
-    """
-
-@pulumi.input_type
-class GuardrailContentPolicyConfigArgs:
-    def __init__(__self__, *,
-                 filters_config: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]],
-                 content_filters_tier_config: Optional[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']] = None):
-        """
-        Content policy config for a guardrail.
-
-        :param pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
-        :param pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs'] content_filters_tier_config: Guardrail tier config for content policy
-        """
-        pulumi.set(__self__, "filters_config", filters_config)
-        if content_filters_tier_config is not None:
-            pulumi.set(__self__, "content_filters_tier_config", content_filters_tier_config)
-
-    @_builtins.property
-    @pulumi.getter(name="filtersConfig")
-    def filters_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]:
-        """
-        List of content filter configs in content policy.
-        """
-        return pulumi.get(self, "filters_config")
-
-    @filters_config.setter
-    def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailContentFilterConfigArgs']]]):
-        pulumi.set(self, "filters_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contentFiltersTierConfig")
-    def content_filters_tier_config(self) -> Optional[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']]:
-        """
-        Guardrail tier config for content policy
-        """
-        return pulumi.get(self, "content_filters_tier_config")
-
-    @content_filters_tier_config.setter
-    def content_filters_tier_config(self, value: Optional[pulumi.Input['GuardrailContentPolicyConfigContentFiltersTierConfigPropertiesArgs']]):
-        pulumi.set(self, "content_filters_tier_config", value)
-
-
 class GuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
     """
     A config for grounding filter.
@@ -9993,14 +9993,14 @@ class GuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
     """
     The filter details for the guardrails contextual grounding filter.
     """
-    action: NotRequired[pulumi.Input['GuardrailContextualGroundingAction']]
+    action: NotRequired[pulumi.Input[Optional['GuardrailContextualGroundingAction']]]
     """
     Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -10010,8 +10010,8 @@ class GuardrailContextualGroundingFilterConfigArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[_builtins.float],
                  type: pulumi.Input['GuardrailContextualGroundingFilterType'],
-                 action: Optional[pulumi.Input['GuardrailContextualGroundingAction']] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 action: pulumi.Input[Optional['GuardrailContextualGroundingAction']] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A config for grounding filter.
 
@@ -10056,7 +10056,7 @@ class GuardrailContextualGroundingFilterConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['GuardrailContextualGroundingAction']]:
+    def action(self) -> pulumi.Input[Optional['GuardrailContextualGroundingAction']]:
         """
         Specifies the action to take when content fails the contextual grounding evaluation. Supported values include:
 
@@ -10066,19 +10066,19 @@ class GuardrailContextualGroundingFilterConfigArgs:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['GuardrailContextualGroundingAction']]):
+    def action(self, value: pulumi.Input[Optional['GuardrailContextualGroundingAction']]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable contextual grounding evaluation. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
 
@@ -10156,25 +10156,25 @@ class GuardrailManagedWordsConfigArgsDict(TypedDict):
     """
     The managed word type to configure for the guardrail.
     """
-    input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailWordAction']]]
     """
     Specifies the action to take when harmful content is detected in the input. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailWordAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -10183,10 +10183,10 @@ class GuardrailManagedWordsConfigArgsDict(TypedDict):
 class GuardrailManagedWordsConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['GuardrailManagedWordsType'],
-                 input_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 input_action: pulumi.Input[Optional['GuardrailWordAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailWordAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A managed words config.
 
@@ -10226,7 +10226,7 @@ class GuardrailManagedWordsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailWordAction']]:
         """
         Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -10236,24 +10236,24 @@ class GuardrailManagedWordsConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailWordAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailWordAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -10263,19 +10263,19 @@ class GuardrailManagedWordsConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailWordAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
 
 
@@ -10408,7 +10408,7 @@ class GuardrailPiiEntityConfigArgsDict(TypedDict):
 
     - *Regex filter* - You can use a regular expressions to define patterns for a guardrail to recognize and act upon such as serial number, booking ID etc..
     """
-    input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailSensitiveInformationAction']]]
     """
     Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -10416,11 +10416,11 @@ class GuardrailPiiEntityConfigArgsDict(TypedDict):
     - `ANONYMIZE` – Mask the content and replace it with identifier tags.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailSensitiveInformationAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -10428,7 +10428,7 @@ class GuardrailPiiEntityConfigArgsDict(TypedDict):
     - `ANONYMIZE` – Mask the content and replace it with identifier tags.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -10438,10 +10438,10 @@ class GuardrailPiiEntityConfigArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['GuardrailSensitiveInformationAction'],
                  type: pulumi.Input['GuardrailPiiEntityType'],
-                 input_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 input_action: pulumi.Input[Optional['GuardrailSensitiveInformationAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailSensitiveInformationAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Pii entity configuration.
 
@@ -10731,7 +10731,7 @@ class GuardrailPiiEntityConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationAction']]:
         """
         Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -10742,24 +10742,24 @@ class GuardrailPiiEntityConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -10770,19 +10770,19 @@ class GuardrailPiiEntityConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
 
 
@@ -10802,29 +10802,29 @@ class GuardrailRegexConfigArgsDict(TypedDict):
     """
     The regex pattern.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The regex description.
     """
-    input_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailSensitiveInformationAction']]]
     """
     Specifies the action to take when harmful content is detected in the input. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_action: NotRequired[pulumi.Input['GuardrailSensitiveInformationAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailSensitiveInformationAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -10835,11 +10835,11 @@ class GuardrailRegexConfigArgs:
                  action: pulumi.Input['GuardrailSensitiveInformationAction'],
                  name: pulumi.Input[_builtins.str],
                  pattern: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailSensitiveInformationAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_action: pulumi.Input[Optional['GuardrailSensitiveInformationAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailSensitiveInformationAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A regex configuration.
 
@@ -10910,19 +10910,19 @@ class GuardrailRegexConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The regex description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationAction']]:
         """
         Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -10932,24 +10932,24 @@ class GuardrailRegexConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailSensitiveInformationAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailSensitiveInformationAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -10959,19 +10959,19 @@ class GuardrailRegexConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailSensitiveInformationAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailSensitiveInformationAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
 
 
@@ -10979,11 +10979,11 @@ class GuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
     """
     Sensitive information policy config for a guardrail.
     """
-    pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgsDict']]]]
+    pii_entities_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgsDict']]]]]
     """
     List of entities.
     """
-    regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgsDict']]]]
+    regexes_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailRegexConfigArgsDict']]]]]
     """
     List of regex.
     """
@@ -10991,8 +10991,8 @@ class GuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class GuardrailSensitiveInformationPolicyConfigArgs:
     def __init__(__self__, *,
-                 pii_entities_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]] = None,
-                 regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]] = None):
+                 pii_entities_config: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]] = None,
+                 regexes_config: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]] = None):
         """
         Sensitive information policy config for a guardrail.
 
@@ -11006,26 +11006,26 @@ class GuardrailSensitiveInformationPolicyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="piiEntitiesConfig")
-    def pii_entities_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]:
+    def pii_entities_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]:
         """
         List of entities.
         """
         return pulumi.get(self, "pii_entities_config")
 
     @pii_entities_config.setter
-    def pii_entities_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]):
+    def pii_entities_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailPiiEntityConfigArgs']]]]):
         pulumi.set(self, "pii_entities_config", value)
 
     @_builtins.property
     @pulumi.getter(name="regexesConfig")
-    def regexes_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]:
+    def regexes_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]:
         """
         List of regex.
         """
         return pulumi.get(self, "regexes_config")
 
     @regexes_config.setter
-    def regexes_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]):
+    def regexes_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailRegexConfigArgs']]]]):
         pulumi.set(self, "regexes_config", value)
 
 
@@ -11045,29 +11045,29 @@ class GuardrailTopicConfigArgsDict(TypedDict):
     """
     Specifies to deny the topic.
     """
-    examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of text examples
     """
-    input_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailTopicAction']]]
     """
     Specifies the action to take when harmful content is detected in the input. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_action: NotRequired[pulumi.Input['GuardrailTopicAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailTopicAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -11078,11 +11078,11 @@ class GuardrailTopicConfigArgs:
                  definition: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input['GuardrailTopicType'],
-                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 input_action: Optional[pulumi.Input['GuardrailTopicAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailTopicAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 examples: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 input_action: pulumi.Input[Optional['GuardrailTopicAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailTopicAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Topic config in topic policy.
 
@@ -11153,19 +11153,19 @@ class GuardrailTopicConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def examples(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of text examples
         """
         return pulumi.get(self, "examples")
 
     @examples.setter
-    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def examples(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "examples", value)
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailTopicAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailTopicAction']]:
         """
         Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -11175,24 +11175,24 @@ class GuardrailTopicConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailTopicAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailTopicAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailTopicAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailTopicAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -11202,20 +11202,73 @@ class GuardrailTopicConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailTopicAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailTopicAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
+
+
+class GuardrailTopicPolicyConfigArgsDict(TypedDict):
+    """
+    Topic policy config for a guardrail.
+    """
+    topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgsDict']]]
+    """
+    List of topic configs in topic policy.
+    """
+    topics_tier_config: NotRequired[pulumi.Input[Optional['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict']]]
+    """
+    Guardrail tier config for topic policy
+    """
+
+@pulumi.input_type
+class GuardrailTopicPolicyConfigArgs:
+    def __init__(__self__, *,
+                 topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]],
+                 topics_tier_config: pulumi.Input[Optional['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']] = None):
+        """
+        Topic policy config for a guardrail.
+
+        :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
+        :param pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs'] topics_tier_config: Guardrail tier config for topic policy
+        """
+        pulumi.set(__self__, "topics_config", topics_config)
+        if topics_tier_config is not None:
+            pulumi.set(__self__, "topics_tier_config", topics_tier_config)
+
+    @_builtins.property
+    @pulumi.getter(name="topicsConfig")
+    def topics_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]:
+        """
+        List of topic configs in topic policy.
+        """
+        return pulumi.get(self, "topics_config")
+
+    @topics_config.setter
+    def topics_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]):
+        pulumi.set(self, "topics_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicsTierConfig")
+    def topics_tier_config(self) -> pulumi.Input[Optional['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']]:
+        """
+        Guardrail tier config for topic policy
+        """
+        return pulumi.get(self, "topics_tier_config")
+
+    @topics_tier_config.setter
+    def topics_tier_config(self, value: pulumi.Input[Optional['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']]):
+        pulumi.set(self, "topics_tier_config", value)
 
 
 class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict(TypedDict):
@@ -11243,59 +11296,6 @@ class GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs:
         pulumi.set(self, "tier_name", value)
 
 
-class GuardrailTopicPolicyConfigArgsDict(TypedDict):
-    """
-    Topic policy config for a guardrail.
-    """
-    topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgsDict']]]
-    """
-    List of topic configs in topic policy.
-    """
-    topics_tier_config: NotRequired[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgsDict']]
-    """
-    Guardrail tier config for topic policy
-    """
-
-@pulumi.input_type
-class GuardrailTopicPolicyConfigArgs:
-    def __init__(__self__, *,
-                 topics_config: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]],
-                 topics_tier_config: Optional[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']] = None):
-        """
-        Topic policy config for a guardrail.
-
-        :param pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
-        :param pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs'] topics_tier_config: Guardrail tier config for topic policy
-        """
-        pulumi.set(__self__, "topics_config", topics_config)
-        if topics_tier_config is not None:
-            pulumi.set(__self__, "topics_tier_config", topics_tier_config)
-
-    @_builtins.property
-    @pulumi.getter(name="topicsConfig")
-    def topics_config(self) -> pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]:
-        """
-        List of topic configs in topic policy.
-        """
-        return pulumi.get(self, "topics_config")
-
-    @topics_config.setter
-    def topics_config(self, value: pulumi.Input[Sequence[pulumi.Input['GuardrailTopicConfigArgs']]]):
-        pulumi.set(self, "topics_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="topicsTierConfig")
-    def topics_tier_config(self) -> Optional[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']]:
-        """
-        Guardrail tier config for topic policy
-        """
-        return pulumi.get(self, "topics_tier_config")
-
-    @topics_tier_config.setter
-    def topics_tier_config(self, value: Optional[pulumi.Input['GuardrailTopicPolicyConfigTopicsTierConfigPropertiesArgs']]):
-        pulumi.set(self, "topics_tier_config", value)
-
-
 class GuardrailWordConfigArgsDict(TypedDict):
     """
     A custom word config.
@@ -11304,25 +11304,25 @@ class GuardrailWordConfigArgsDict(TypedDict):
     """
     The custom word text.
     """
-    input_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    input_action: NotRequired[pulumi.Input[Optional['GuardrailWordAction']]]
     """
     Specifies the action to take when harmful content is detected in the input. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    input_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    input_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
-    output_action: NotRequired[pulumi.Input['GuardrailWordAction']]
+    output_action: NotRequired[pulumi.Input[Optional['GuardrailWordAction']]]
     """
     Specifies the action to take when harmful content is detected in the output. Supported values include:
 
     - `BLOCK` – Block the content and replace it with blocked messaging.
     - `NONE` – Take no action but return detection information in the trace response.
     """
-    output_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    output_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
     """
@@ -11331,10 +11331,10 @@ class GuardrailWordConfigArgsDict(TypedDict):
 class GuardrailWordConfigArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[_builtins.str],
-                 input_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
-                 input_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 output_action: Optional[pulumi.Input['GuardrailWordAction']] = None,
-                 output_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 input_action: pulumi.Input[Optional['GuardrailWordAction']] = None,
+                 input_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 output_action: pulumi.Input[Optional['GuardrailWordAction']] = None,
+                 output_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         A custom word config.
 
@@ -11374,7 +11374,7 @@ class GuardrailWordConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputAction")
-    def input_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+    def input_action(self) -> pulumi.Input[Optional['GuardrailWordAction']]:
         """
         Specifies the action to take when harmful content is detected in the input. Supported values include:
 
@@ -11384,24 +11384,24 @@ class GuardrailWordConfigArgs:
         return pulumi.get(self, "input_action")
 
     @input_action.setter
-    def input_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+    def input_action(self, value: pulumi.Input[Optional['GuardrailWordAction']]):
         pulumi.set(self, "input_action", value)
 
     @_builtins.property
     @pulumi.getter(name="inputEnabled")
-    def input_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def input_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the intput. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "input_enabled")
 
     @input_enabled.setter
-    def input_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def input_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "input_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="outputAction")
-    def output_action(self) -> Optional[pulumi.Input['GuardrailWordAction']]:
+    def output_action(self) -> pulumi.Input[Optional['GuardrailWordAction']]:
         """
         Specifies the action to take when harmful content is detected in the output. Supported values include:
 
@@ -11411,19 +11411,19 @@ class GuardrailWordConfigArgs:
         return pulumi.get(self, "output_action")
 
     @output_action.setter
-    def output_action(self, value: Optional[pulumi.Input['GuardrailWordAction']]):
+    def output_action(self, value: pulumi.Input[Optional['GuardrailWordAction']]):
         pulumi.set(self, "output_action", value)
 
     @_builtins.property
     @pulumi.getter(name="outputEnabled")
-    def output_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def output_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether to enable guardrail evaluation on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.
         """
         return pulumi.get(self, "output_enabled")
 
     @output_enabled.setter
-    def output_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def output_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "output_enabled", value)
 
 
@@ -11431,11 +11431,11 @@ class GuardrailWordPolicyConfigArgsDict(TypedDict):
     """
     Word policy config for a guardrail.
     """
-    managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgsDict']]]]
+    managed_word_lists_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgsDict']]]]]
     """
     A config for the list of managed words.
     """
-    words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgsDict']]]]
+    words_config: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordConfigArgsDict']]]]]
     """
     List of custom word configs.
     """
@@ -11443,8 +11443,8 @@ class GuardrailWordPolicyConfigArgsDict(TypedDict):
 @pulumi.input_type
 class GuardrailWordPolicyConfigArgs:
     def __init__(__self__, *,
-                 managed_word_lists_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]] = None,
-                 words_config: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]] = None):
+                 managed_word_lists_config: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]] = None,
+                 words_config: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]] = None):
         """
         Word policy config for a guardrail.
 
@@ -11458,26 +11458,26 @@ class GuardrailWordPolicyConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedWordListsConfig")
-    def managed_word_lists_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]:
+    def managed_word_lists_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]:
         """
         A config for the list of managed words.
         """
         return pulumi.get(self, "managed_word_lists_config")
 
     @managed_word_lists_config.setter
-    def managed_word_lists_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]):
+    def managed_word_lists_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailManagedWordsConfigArgs']]]]):
         pulumi.set(self, "managed_word_lists_config", value)
 
     @_builtins.property
     @pulumi.getter(name="wordsConfig")
-    def words_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]:
+    def words_config(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]:
         """
         List of custom word configs.
         """
         return pulumi.get(self, "words_config")
 
     @words_config.setter
-    def words_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]):
+    def words_config(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordConfigArgs']]]]):
         pulumi.set(self, "words_config", value)
 
 
@@ -11601,19 +11601,19 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
     """
     The vector configuration details for the Bedrock embeddings model.
     """
-    audio: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]
+    audio: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]]
     """
     Configuration settings for processing audio content in multimodal knowledge bases.
     """
-    dimensions: NotRequired[pulumi.Input[_builtins.int]]
+    dimensions: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The dimensions details for the vector configuration used on the Bedrock embeddings model.
     """
-    embedding_data_type: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]
+    embedding_data_type: NotRequired[pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]]
     """
     The data type for the vectors when using a model to convert text into vector embeddings.
     """
-    video: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]
+    video: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]]
     """
     Configuration settings for processing video content in multimodal knowledge bases.
     """
@@ -11621,10 +11621,10 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     def __init__(__self__, *,
-                 audio: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]] = None,
-                 dimensions: Optional[pulumi.Input[_builtins.int]] = None,
-                 embedding_data_type: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None,
-                 video: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
+                 audio: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]] = None,
+                 dimensions: pulumi.Input[Optional[_builtins.int]] = None,
+                 embedding_data_type: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None,
+                 video: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
 
@@ -11644,50 +11644,50 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def audio(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]:
+    def audio(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]:
         """
         Configuration settings for processing audio content in multimodal knowledge bases.
         """
         return pulumi.get(self, "audio")
 
     @audio.setter
-    def audio(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]):
+    def audio(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]):
         pulumi.set(self, "audio", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def dimensions(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The dimensions details for the vector configuration used on the Bedrock embeddings model.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def dimensions(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingDataType")
-    def embedding_data_type(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]:
+    def embedding_data_type(self) -> pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]:
         """
         The data type for the vectors when using a model to convert text into vector embeddings.
         """
         return pulumi.get(self, "embedding_data_type")
 
     @embedding_data_type.setter
-    def embedding_data_type(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]):
+    def embedding_data_type(self, value: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]):
         pulumi.set(self, "embedding_data_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def video(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]:
+    def video(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]:
         """
         Configuration settings for processing video content in multimodal knowledge bases.
         """
         return pulumi.get(self, "video")
 
     @video.setter
-    def video(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]):
+    def video(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]):
         pulumi.set(self, "video", value)
 
 
@@ -11699,16 +11699,16 @@ class KnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     The type of data that the data source is converted into for the knowledge base.
     """
-    kendra_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict']]
+    kendra_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseKendraKnowledgeBaseConfigurationArgsDict']]]
     """
     Settings for an Amazon Kendra knowledge base.
     """
-    managed_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict']]
-    sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
+    managed_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict']]]
+    sql_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]]
     """
     Specifies configurations for a knowledge base connected to an SQL database.
     """
-    vector_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]
+    vector_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]]
     """
     Contains details about the model that's used to convert the data source into vector embeddings.
     """
@@ -11717,10 +11717,10 @@ class KnowledgeBaseConfigurationArgsDict(TypedDict):
 class KnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseType'],
-                 kendra_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']] = None,
-                 managed_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']] = None,
-                 sql_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']] = None,
-                 vector_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']] = None):
+                 kendra_knowledge_base_configuration: pulumi.Input[Optional['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']] = None,
+                 managed_knowledge_base_configuration: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']] = None,
+                 sql_knowledge_base_configuration: pulumi.Input[Optional['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']] = None,
+                 vector_knowledge_base_configuration: pulumi.Input[Optional['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
 
@@ -11753,47 +11753,47 @@ class KnowledgeBaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kendraKnowledgeBaseConfiguration")
-    def kendra_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']]:
+    def kendra_knowledge_base_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']]:
         """
         Settings for an Amazon Kendra knowledge base.
         """
         return pulumi.get(self, "kendra_knowledge_base_configuration")
 
     @kendra_knowledge_base_configuration.setter
-    def kendra_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']]):
+    def kendra_knowledge_base_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "kendra_knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="managedKnowledgeBaseConfiguration")
-    def managed_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]:
+    def managed_knowledge_base_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]:
         return pulumi.get(self, "managed_knowledge_base_configuration")
 
     @managed_knowledge_base_configuration.setter
-    def managed_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]):
+    def managed_knowledge_base_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "managed_knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
-    def sql_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]:
+    def sql_knowledge_base_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]:
         """
         Specifies configurations for a knowledge base connected to an SQL database.
         """
         return pulumi.get(self, "sql_knowledge_base_configuration")
 
     @sql_knowledge_base_configuration.setter
-    def sql_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]):
+    def sql_knowledge_base_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "sql_knowledge_base_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
-    def vector_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]:
+    def vector_knowledge_base_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]:
         """
         Contains details about the model that's used to convert the data source into vector embeddings.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 
     @vector_knowledge_base_configuration.setter
-    def vector_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]):
+    def vector_knowledge_base_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "vector_knowledge_base_configuration", value)
 
 
@@ -11838,7 +11838,7 @@ class KnowledgeBaseEmbeddingModelConfigurationArgsDict(TypedDict):
     """
     The embeddings model configuration details for the vector model used in Knowledge Base.
     """
-    bedrock_embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict']]
+    bedrock_embedding_model_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict']]]
     """
     The vector configuration details on the Bedrock embeddings model.
     """
@@ -11846,7 +11846,7 @@ class KnowledgeBaseEmbeddingModelConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseEmbeddingModelConfigurationArgs:
     def __init__(__self__, *,
-                 bedrock_embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']] = None):
+                 bedrock_embedding_model_configuration: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']] = None):
         """
         The embeddings model configuration details for the vector model used in Knowledge Base.
 
@@ -11857,14 +11857,14 @@ class KnowledgeBaseEmbeddingModelConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="bedrockEmbeddingModelConfiguration")
-    def bedrock_embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]:
+    def bedrock_embedding_model_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]:
         """
         The vector configuration details on the Bedrock embeddings model.
         """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
 
     @bedrock_embedding_model_configuration.setter
-    def bedrock_embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]):
+    def bedrock_embedding_model_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationArgs']]):
         pulumi.set(self, "bedrock_embedding_model_configuration", value)
 
 
@@ -11905,21 +11905,21 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     Contains details about the model used to create vector embeddings for a managed knowledge base.
     """
-    embedding_model_arn: NotRequired[pulumi.Input[_builtins.str]]
+    embedding_model_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the model used to create vector embeddings for the knowledge base.
     """
-    embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]
-    embedding_model_type: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelType']]
-    server_side_encryption_configuration: NotRequired[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict']]
+    embedding_model_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]]
+    embedding_model_type: NotRequired[pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']]]
+    server_side_encryption_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
-                 embedding_model_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
-                 embedding_model_type: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None):
+                 embedding_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 embedding_model_configuration: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
+                 embedding_model_type: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None):
         """
         Contains details about the model used to create vector embeddings for a managed knowledge base.
 
@@ -11936,41 +11936,41 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelArn")
-    def embedding_model_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def embedding_model_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the model used to create vector embeddings for the knowledge base.
         """
         return pulumi.get(self, "embedding_model_arn")
 
     @embedding_model_arn.setter
-    def embedding_model_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def embedding_model_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "embedding_model_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelConfiguration")
-    def embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
+    def embedding_model_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
         return pulumi.get(self, "embedding_model_configuration")
 
     @embedding_model_configuration.setter
-    def embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
+    def embedding_model_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
         pulumi.set(self, "embedding_model_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelType")
-    def embedding_model_type(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']]:
+    def embedding_model_type(self) -> pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']]:
         return pulumi.get(self, "embedding_model_type")
 
     @embedding_model_type.setter
-    def embedding_model_type(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelType']]):
+    def embedding_model_type(self, value: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']]):
         pulumi.set(self, "embedding_model_type", value)
 
     @_builtins.property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
-    def server_side_encryption_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]:
+    def server_side_encryption_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]:
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @server_side_encryption_configuration.setter
-    def server_side_encryption_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]):
+    def server_side_encryption_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
 
 
@@ -11978,7 +11978,7 @@ class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict
     """
     Contains details about the server-side encryption for the managed knowledge base.
     """
-    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the AWS KMS key used to encrypt the managed knowledge base.
     """
@@ -11986,7 +11986,7 @@ class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict
 @pulumi.input_type
 class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains details about the server-side encryption for the managed knowledge base.
 
@@ -11997,14 +11997,14 @@ class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
-    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the AWS KMS key used to encrypt the managed knowledge base.
         """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
-    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_arn", value)
 
 
@@ -12036,11 +12036,11 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgsDict(TypedDict):
     """
     Name of a MongoDB Atlas index.
     """
-    endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    endpoint_service_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     MongoDB Atlas endpoint service name.
     """
-    text_index_name: NotRequired[pulumi.Input[_builtins.str]]
+    text_index_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of a MongoDB Atlas text index.
     """
@@ -12054,8 +12054,8 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
                  endpoint: pulumi.Input[_builtins.str],
                  field_mapping: pulumi.Input['KnowledgeBaseMongoDbAtlasFieldMappingArgs'],
                  vector_index_name: pulumi.Input[_builtins.str],
-                 endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_index_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 endpoint_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 text_index_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
 
@@ -12153,26 +12153,26 @@ class KnowledgeBaseMongoDbAtlasConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointServiceName")
-    def endpoint_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         MongoDB Atlas endpoint service name.
         """
         return pulumi.get(self, "endpoint_service_name")
 
     @endpoint_service_name.setter
-    def endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def endpoint_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="textIndexName")
-    def text_index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text_index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of a MongoDB Atlas text index.
         """
         return pulumi.get(self, "text_index_name")
 
     @text_index_name.setter
-    def text_index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text_index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text_index_name", value)
 
 
@@ -12670,7 +12670,7 @@ class KnowledgeBasePineconeConfigurationArgsDict(TypedDict):
     """
     Contains the names of the fields to which to map information about the vector store.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace to be used to write new data to your database.
     """
@@ -12681,7 +12681,7 @@ class KnowledgeBasePineconeConfigurationArgs:
                  connection_string: pulumi.Input[_builtins.str],
                  credentials_secret_arn: pulumi.Input[_builtins.str],
                  field_mapping: pulumi.Input['KnowledgeBasePineconeFieldMappingArgs'],
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base in Pinecone.
 
@@ -12734,14 +12734,14 @@ class KnowledgeBasePineconeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace to be used to write new data to your database.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -12801,16 +12801,16 @@ class KnowledgeBaseQueryGenerationColumnArgsDict(TypedDict):
     """
     Redshift query generation column
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    inclusion: NotRequired[pulumi.Input[Optional['KnowledgeBaseInclusionType']]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationColumnArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusion: Optional[pulumi.Input['KnowledgeBaseInclusionType']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusion: pulumi.Input[Optional['KnowledgeBaseInclusionType']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Redshift query generation column
         """
@@ -12823,29 +12823,29 @@ class KnowledgeBaseQueryGenerationColumnArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inclusion(self) -> Optional[pulumi.Input['KnowledgeBaseInclusionType']]:
+    def inclusion(self) -> pulumi.Input[Optional['KnowledgeBaseInclusionType']]:
         return pulumi.get(self, "inclusion")
 
     @inclusion.setter
-    def inclusion(self, value: Optional[pulumi.Input['KnowledgeBaseInclusionType']]):
+    def inclusion(self, value: pulumi.Input[Optional['KnowledgeBaseInclusionType']]):
         pulumi.set(self, "inclusion", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -12853,11 +12853,11 @@ class KnowledgeBaseQueryGenerationConfigurationArgsDict(TypedDict):
     """
     Configurations for generating Redshift engine queries
     """
-    execution_timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    execution_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The time after which query generation will time out.
     """
-    generation_context: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationContextArgsDict']]
+    generation_context: NotRequired[pulumi.Input[Optional['KnowledgeBaseQueryGenerationContextArgsDict']]]
     """
     Specifies configurations for context to use during query generation.
     """
@@ -12865,8 +12865,8 @@ class KnowledgeBaseQueryGenerationConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationConfigurationArgs:
     def __init__(__self__, *,
-                 execution_timeout_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 generation_context: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']] = None):
+                 execution_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 generation_context: pulumi.Input[Optional['KnowledgeBaseQueryGenerationContextArgs']] = None):
         """
         Configurations for generating Redshift engine queries
 
@@ -12880,26 +12880,26 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="executionTimeoutSeconds")
-    def execution_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def execution_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time after which query generation will time out.
         """
         return pulumi.get(self, "execution_timeout_seconds")
 
     @execution_timeout_seconds.setter
-    def execution_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def execution_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "execution_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="generationContext")
-    def generation_context(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']]:
+    def generation_context(self) -> pulumi.Input[Optional['KnowledgeBaseQueryGenerationContextArgs']]:
         """
         Specifies configurations for context to use during query generation.
         """
         return pulumi.get(self, "generation_context")
 
     @generation_context.setter
-    def generation_context(self, value: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']]):
+    def generation_context(self, value: pulumi.Input[Optional['KnowledgeBaseQueryGenerationContextArgs']]):
         pulumi.set(self, "generation_context", value)
 
 
@@ -12907,11 +12907,11 @@ class KnowledgeBaseQueryGenerationContextArgsDict(TypedDict):
     """
     Context used to improve query generation
     """
-    curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]
+    curated_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]]
     """
     An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
     """
-    tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]
+    tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]]
     """
     An array of objects, each of which defines information about a table in the database.
     """
@@ -12919,8 +12919,8 @@ class KnowledgeBaseQueryGenerationContextArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationContextArgs:
     def __init__(__self__, *,
-                 curated_queries: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]] = None):
+                 curated_queries: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]] = None):
         """
         Context used to improve query generation
 
@@ -12934,26 +12934,26 @@ class KnowledgeBaseQueryGenerationContextArgs:
 
     @_builtins.property
     @pulumi.getter(name="curatedQueries")
-    def curated_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]:
+    def curated_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]:
         """
         An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
         """
         return pulumi.get(self, "curated_queries")
 
     @curated_queries.setter
-    def curated_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]):
+    def curated_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]):
         pulumi.set(self, "curated_queries", value)
 
     @_builtins.property
     @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]:
+    def tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]:
         """
         An array of objects, each of which defines information about a table in the database.
         """
         return pulumi.get(self, "tables")
 
     @tables.setter
-    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]):
+    def tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]):
         pulumi.set(self, "tables", value)
 
 
@@ -12962,17 +12962,17 @@ class KnowledgeBaseQueryGenerationTableArgsDict(TypedDict):
     Tables used for Redshift query generation context
     """
     name: pulumi.Input[_builtins.str]
-    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgsDict']]]]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgsDict']]]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    inclusion: NotRequired[pulumi.Input[Optional['KnowledgeBaseInclusionType']]]
 
 @pulumi.input_type
 class KnowledgeBaseQueryGenerationTableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 inclusion: Optional[pulumi.Input['KnowledgeBaseInclusionType']] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 inclusion: pulumi.Input[Optional['KnowledgeBaseInclusionType']] = None):
         """
         Tables used for Redshift query generation context
         """
@@ -12995,29 +12995,29 @@ class KnowledgeBaseQueryGenerationTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]:
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def inclusion(self) -> Optional[pulumi.Input['KnowledgeBaseInclusionType']]:
+    def inclusion(self) -> pulumi.Input[Optional['KnowledgeBaseInclusionType']]:
         return pulumi.get(self, "inclusion")
 
     @inclusion.setter
-    def inclusion(self, value: Optional[pulumi.Input['KnowledgeBaseInclusionType']]):
+    def inclusion(self, value: pulumi.Input[Optional['KnowledgeBaseInclusionType']]):
         pulumi.set(self, "inclusion", value)
 
 
@@ -13150,7 +13150,7 @@ class KnowledgeBaseRdsFieldMappingArgsDict(TypedDict):
     """
     The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
     """
-    custom_metadata_field: NotRequired[pulumi.Input[_builtins.str]]
+    custom_metadata_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
     """
@@ -13162,7 +13162,7 @@ class KnowledgeBaseRdsFieldMappingArgs:
                  primary_key_field: pulumi.Input[_builtins.str],
                  text_field: pulumi.Input[_builtins.str],
                  vector_field: pulumi.Input[_builtins.str],
-                 custom_metadata_field: Optional[pulumi.Input[_builtins.str]] = None):
+                 custom_metadata_field: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the names of the fields to which to map information about the vector store.
 
@@ -13229,14 +13229,14 @@ class KnowledgeBaseRdsFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="customMetadataField")
-    def custom_metadata_field(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_metadata_field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
         """
         return pulumi.get(self, "custom_metadata_field")
 
     @custom_metadata_field.setter
-    def custom_metadata_field(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_metadata_field(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_metadata_field", value)
 
 
@@ -13252,7 +13252,7 @@ class KnowledgeBaseRedshiftConfigurationArgsDict(TypedDict):
     """
     Specifies configurations for Amazon Redshift database storage.
     """
-    query_generation_configuration: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgsDict']]
+    query_generation_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseQueryGenerationConfigurationArgsDict']]]
     """
     Specifies configurations for generating queries.
     """
@@ -13262,7 +13262,7 @@ class KnowledgeBaseRedshiftConfigurationArgs:
     def __init__(__self__, *,
                  query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs'],
                  storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]],
-                 query_generation_configuration: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']] = None):
+                 query_generation_configuration: pulumi.Input[Optional['KnowledgeBaseQueryGenerationConfigurationArgs']] = None):
         """
         Configurations for a Redshift knowledge base
 
@@ -13301,14 +13301,14 @@ class KnowledgeBaseRedshiftConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="queryGenerationConfiguration")
-    def query_generation_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']]:
+    def query_generation_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseQueryGenerationConfigurationArgs']]:
         """
         Specifies configurations for generating queries.
         """
         return pulumi.get(self, "query_generation_configuration")
 
     @query_generation_configuration.setter
-    def query_generation_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']]):
+    def query_generation_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseQueryGenerationConfigurationArgs']]):
         pulumi.set(self, "query_generation_configuration", value)
 
 
@@ -13320,11 +13320,11 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict(TypedDict):
     """
     The type of authentication to use.
     """
-    database_user: NotRequired[pulumi.Input[_builtins.str]]
+    database_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Redshift database user
     """
-    username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    username_password_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an Secrets Manager secret for authentication.
     """
@@ -13333,8 +13333,8 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict(TypedDict):
 class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType'],
-                 database_user: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_password_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configurations for Redshift query engine provisioned auth setup
 
@@ -13362,26 +13362,26 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseUser")
-    def database_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Redshift database user
         """
         return pulumi.get(self, "database_user")
 
     @database_user.setter
-    def database_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_user", value)
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordSecretArn")
-    def username_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_password_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an Secrets Manager secret for authentication.
         """
         return pulumi.get(self, "username_password_secret_arn")
 
     @username_password_secret_arn.setter
-    def username_password_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_password_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_password_secret_arn", value)
 
 
@@ -13470,11 +13470,11 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict(TypedDict):
     """
     The type of query engine.
     """
-    provisioned_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]
+    provisioned_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]]
     """
     Specifies configurations for a provisioned Amazon Redshift query engine.
     """
-    serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]
+    serverless_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]]
     """
     Specifies configurations for a serverless Amazon Redshift query engine.
     """
@@ -13483,8 +13483,8 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict(TypedDict):
 class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType'],
-                 provisioned_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']] = None,
-                 serverless_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']] = None):
+                 provisioned_configuration: pulumi.Input[Optional['KnowledgeBaseRedshiftProvisionedConfigurationArgs']] = None,
+                 serverless_configuration: pulumi.Input[Optional['KnowledgeBaseRedshiftServerlessConfigurationArgs']] = None):
         """
         Configurations for Redshift query engine
 
@@ -13512,26 +13512,26 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="provisionedConfiguration")
-    def provisioned_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]:
+    def provisioned_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]:
         """
         Specifies configurations for a provisioned Amazon Redshift query engine.
         """
         return pulumi.get(self, "provisioned_configuration")
 
     @provisioned_configuration.setter
-    def provisioned_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]):
+    def provisioned_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]):
         pulumi.set(self, "provisioned_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="serverlessConfiguration")
-    def serverless_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']]:
+    def serverless_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRedshiftServerlessConfigurationArgs']]:
         """
         Specifies configurations for a serverless Amazon Redshift query engine.
         """
         return pulumi.get(self, "serverless_configuration")
 
     @serverless_configuration.setter
-    def serverless_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']]):
+    def serverless_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRedshiftServerlessConfigurationArgs']]):
         pulumi.set(self, "serverless_configuration", value)
 
 
@@ -13565,15 +13565,15 @@ class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict(TypedDict):
     Configurations for available Redshift query engine storage types
     """
     type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']
-    aws_data_catalog_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict']]
-    redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict']]
+    aws_data_catalog_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict']]]
+    redshift_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict']]]
 
 @pulumi.input_type
 class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType'],
-                 aws_data_catalog_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']] = None,
-                 redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']] = None):
+                 aws_data_catalog_configuration: pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']] = None,
+                 redshift_configuration: pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']] = None):
         """
         Configurations for available Redshift query engine storage types
         """
@@ -13594,20 +13594,20 @@ class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsDataCatalogConfiguration")
-    def aws_data_catalog_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]:
+    def aws_data_catalog_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]:
         return pulumi.get(self, "aws_data_catalog_configuration")
 
     @aws_data_catalog_configuration.setter
-    def aws_data_catalog_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]):
+    def aws_data_catalog_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]):
         pulumi.set(self, "aws_data_catalog_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
-    def redshift_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]:
+    def redshift_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]:
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
-    def redshift_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]):
+    def redshift_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]):
         pulumi.set(self, "redshift_configuration", value)
 
 
@@ -13619,7 +13619,7 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict(TypedDict):
     """
     The type of authentication to use.
     """
-    username_password_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    username_password_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of an Secrets Manager secret for authentication.
     """
@@ -13628,7 +13628,7 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict(TypedDict):
 class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType'],
-                 username_password_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 username_password_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configurations for Redshift query engine serverless auth setup
 
@@ -13653,14 +13653,14 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="usernamePasswordSecretArn")
-    def username_password_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_password_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an Secrets Manager secret for authentication.
         """
         return pulumi.get(self, "username_password_secret_arn")
 
     @username_password_secret_arn.setter
-    def username_password_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_password_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_password_secret_arn", value)
 
 
@@ -13753,15 +13753,15 @@ class KnowledgeBaseS3VectorsConfigurationArgsDict(TypedDict):
     """
     Contains the storage configuration of the knowledge base for S3 vectors.
     """
-    index_arn: NotRequired[pulumi.Input[_builtins.str]]
+    index_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
     """
-    index_name: NotRequired[pulumi.Input[_builtins.str]]
+    index_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
     """
-    vector_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+    vector_bucket_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
     """
@@ -13769,9 +13769,9 @@ class KnowledgeBaseS3VectorsConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class KnowledgeBaseS3VectorsConfigurationArgs:
     def __init__(__self__, *,
-                 index_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 index_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 index_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Contains the storage configuration of the knowledge base for S3 vectors.
 
@@ -13788,38 +13788,38 @@ class KnowledgeBaseS3VectorsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="indexArn")
-    def index_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
         """
         return pulumi.get(self, "index_arn")
 
     @index_arn.setter
-    def index_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="indexName")
-    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def index_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
         """
         return pulumi.get(self, "index_name")
 
     @index_name.setter
-    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def index_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "index_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketArn")
-    def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
         """
         return pulumi.get(self, "vector_bucket_arn")
 
     @vector_bucket_arn.setter
-    def vector_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_arn", value)
 
 
@@ -13831,7 +13831,7 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     The type of SQL database to connect to the knowledge base.
     """
-    redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgsDict']]
+    redshift_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRedshiftConfigurationArgsDict']]]
     """
     Specifies configurations for a knowledge base connected to an Amazon Redshift database.
     """
@@ -13840,7 +13840,7 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
 class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseQueryEngineType'],
-                 redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']] = None):
+                 redshift_configuration: pulumi.Input[Optional['KnowledgeBaseRedshiftConfigurationArgs']] = None):
         """
         Configurations for a SQL knowledge base
 
@@ -13865,14 +13865,14 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="redshiftConfiguration")
-    def redshift_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']]:
+    def redshift_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRedshiftConfigurationArgs']]:
         """
         Specifies configurations for a knowledge base connected to an Amazon Redshift database.
         """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter
-    def redshift_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']]):
+    def redshift_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRedshiftConfigurationArgs']]):
         pulumi.set(self, "redshift_configuration", value)
 
 
@@ -13884,31 +13884,31 @@ class KnowledgeBaseStorageConfigurationArgsDict(TypedDict):
     """
     The vector store service in which the knowledge base is stored.
     """
-    mongo_db_atlas_configuration: NotRequired[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgsDict']]
+    mongo_db_atlas_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseMongoDbAtlasConfigurationArgsDict']]]
     """
     Contains the storage configuration of the knowledge base in MongoDB Atlas.
     """
-    neptune_analytics_configuration: NotRequired[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict']]
+    neptune_analytics_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseNeptuneAnalyticsConfigurationArgsDict']]]
     """
     Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
     """
-    opensearch_managed_cluster_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict']]
+    opensearch_managed_cluster_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseOpenSearchManagedClusterConfigurationArgsDict']]]
     """
     Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
     """
-    opensearch_serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgsDict']]
+    opensearch_serverless_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseOpenSearchServerlessConfigurationArgsDict']]]
     """
     Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
     """
-    pinecone_configuration: NotRequired[pulumi.Input['KnowledgeBasePineconeConfigurationArgsDict']]
+    pinecone_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBasePineconeConfigurationArgsDict']]]
     """
     Contains the storage configuration of the knowledge base in Pinecone.
     """
-    rds_configuration: NotRequired[pulumi.Input['KnowledgeBaseRdsConfigurationArgsDict']]
+    rds_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseRdsConfigurationArgsDict']]]
     """
     Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
     """
-    s3_vectors_configuration: NotRequired[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgsDict']]
+    s3_vectors_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseS3VectorsConfigurationArgsDict']]]
     """
     The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
     """
@@ -13917,13 +13917,13 @@ class KnowledgeBaseStorageConfigurationArgsDict(TypedDict):
 class KnowledgeBaseStorageConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseStorageType'],
-                 mongo_db_atlas_configuration: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']] = None,
-                 neptune_analytics_configuration: Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']] = None,
-                 opensearch_managed_cluster_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']] = None,
-                 opensearch_serverless_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']] = None,
-                 pinecone_configuration: Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']] = None,
-                 rds_configuration: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']] = None,
-                 s3_vectors_configuration: Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']] = None):
+                 mongo_db_atlas_configuration: pulumi.Input[Optional['KnowledgeBaseMongoDbAtlasConfigurationArgs']] = None,
+                 neptune_analytics_configuration: pulumi.Input[Optional['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']] = None,
+                 opensearch_managed_cluster_configuration: pulumi.Input[Optional['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']] = None,
+                 opensearch_serverless_configuration: pulumi.Input[Optional['KnowledgeBaseOpenSearchServerlessConfigurationArgs']] = None,
+                 pinecone_configuration: pulumi.Input[Optional['KnowledgeBasePineconeConfigurationArgs']] = None,
+                 rds_configuration: pulumi.Input[Optional['KnowledgeBaseRdsConfigurationArgs']] = None,
+                 s3_vectors_configuration: pulumi.Input[Optional['KnowledgeBaseS3VectorsConfigurationArgs']] = None):
         """
         The vector store service in which the knowledge base is stored.
 
@@ -13966,86 +13966,86 @@ class KnowledgeBaseStorageConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="mongoDbAtlasConfiguration")
-    def mongo_db_atlas_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']]:
+    def mongo_db_atlas_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseMongoDbAtlasConfigurationArgs']]:
         """
         Contains the storage configuration of the knowledge base in MongoDB Atlas.
         """
         return pulumi.get(self, "mongo_db_atlas_configuration")
 
     @mongo_db_atlas_configuration.setter
-    def mongo_db_atlas_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseMongoDbAtlasConfigurationArgs']]):
+    def mongo_db_atlas_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseMongoDbAtlasConfigurationArgs']]):
         pulumi.set(self, "mongo_db_atlas_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="neptuneAnalyticsConfiguration")
-    def neptune_analytics_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]:
+    def neptune_analytics_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]:
         """
         Contains details about the Neptune Analytics configuration of the knowledge base in Amazon Neptune. For more information, see [Create a vector index in Amazon Neptune Analytics.](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-neptune.html) .
         """
         return pulumi.get(self, "neptune_analytics_configuration")
 
     @neptune_analytics_configuration.setter
-    def neptune_analytics_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]):
+    def neptune_analytics_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseNeptuneAnalyticsConfigurationArgs']]):
         pulumi.set(self, "neptune_analytics_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchManagedClusterConfiguration")
-    def opensearch_managed_cluster_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']]:
+    def opensearch_managed_cluster_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']]:
         """
         Contains details about the storage configuration of the knowledge base in OpenSearch Managed Cluster. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-osm.html) .
         """
         return pulumi.get(self, "opensearch_managed_cluster_configuration")
 
     @opensearch_managed_cluster_configuration.setter
-    def opensearch_managed_cluster_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']]):
+    def opensearch_managed_cluster_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']]):
         pulumi.set(self, "opensearch_managed_cluster_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="opensearchServerlessConfiguration")
-    def opensearch_serverless_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']]:
+    def opensearch_serverless_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseOpenSearchServerlessConfigurationArgs']]:
         """
         Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         """
         return pulumi.get(self, "opensearch_serverless_configuration")
 
     @opensearch_serverless_configuration.setter
-    def opensearch_serverless_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']]):
+    def opensearch_serverless_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseOpenSearchServerlessConfigurationArgs']]):
         pulumi.set(self, "opensearch_serverless_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="pineconeConfiguration")
-    def pinecone_configuration(self) -> Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']]:
+    def pinecone_configuration(self) -> pulumi.Input[Optional['KnowledgeBasePineconeConfigurationArgs']]:
         """
         Contains the storage configuration of the knowledge base in Pinecone.
         """
         return pulumi.get(self, "pinecone_configuration")
 
     @pinecone_configuration.setter
-    def pinecone_configuration(self, value: Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']]):
+    def pinecone_configuration(self, value: pulumi.Input[Optional['KnowledgeBasePineconeConfigurationArgs']]):
         pulumi.set(self, "pinecone_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="rdsConfiguration")
-    def rds_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']]:
+    def rds_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseRdsConfigurationArgs']]:
         """
         Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
         """
         return pulumi.get(self, "rds_configuration")
 
     @rds_configuration.setter
-    def rds_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']]):
+    def rds_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseRdsConfigurationArgs']]):
         pulumi.set(self, "rds_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3VectorsConfiguration")
-    def s3_vectors_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']]:
+    def s3_vectors_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseS3VectorsConfigurationArgs']]:
         """
         The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
         """
         return pulumi.get(self, "s3_vectors_configuration")
 
     @s3_vectors_configuration.setter
-    def s3_vectors_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']]):
+    def s3_vectors_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseS3VectorsConfigurationArgs']]):
         pulumi.set(self, "s3_vectors_configuration", value)
 
 
@@ -14079,13 +14079,13 @@ class KnowledgeBaseSupplementalDataStorageLocationArgsDict(TypedDict):
     Supplemental data storage location.
     """
     supplemental_data_storage_location_type: pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationType']
-    s3_location: NotRequired[pulumi.Input['KnowledgeBaseS3LocationArgsDict']]
+    s3_location: NotRequired[pulumi.Input[Optional['KnowledgeBaseS3LocationArgsDict']]]
 
 @pulumi.input_type
 class KnowledgeBaseSupplementalDataStorageLocationArgs:
     def __init__(__self__, *,
                  supplemental_data_storage_location_type: pulumi.Input['KnowledgeBaseSupplementalDataStorageLocationType'],
-                 s3_location: Optional[pulumi.Input['KnowledgeBaseS3LocationArgs']] = None):
+                 s3_location: pulumi.Input[Optional['KnowledgeBaseS3LocationArgs']] = None):
         """
         Supplemental data storage location.
         """
@@ -14104,11 +14104,11 @@ class KnowledgeBaseSupplementalDataStorageLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="s3Location")
-    def s3_location(self) -> Optional[pulumi.Input['KnowledgeBaseS3LocationArgs']]:
+    def s3_location(self) -> pulumi.Input[Optional['KnowledgeBaseS3LocationArgs']]:
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
-    def s3_location(self, value: Optional[pulumi.Input['KnowledgeBaseS3LocationArgs']]):
+    def s3_location(self, value: pulumi.Input[Optional['KnowledgeBaseS3LocationArgs']]):
         pulumi.set(self, "s3_location", value)
 
 
@@ -14120,11 +14120,11 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     The ARN of the model used to create vector embeddings for the knowledge base.
     """
-    embedding_model_configuration: NotRequired[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]
+    embedding_model_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]]
     """
     The embeddings model configuration details for the vector model used in Knowledge Base.
     """
-    supplemental_data_storage_configuration: NotRequired[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgsDict']]
+    supplemental_data_storage_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgsDict']]]
     """
     If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
     """
@@ -14133,8 +14133,8 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict(TypedDict):
 class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  embedding_model_arn: pulumi.Input[_builtins.str],
-                 embedding_model_configuration: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
-                 supplemental_data_storage_configuration: Optional[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs']] = None):
+                 embedding_model_configuration: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
+                 supplemental_data_storage_configuration: pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
 
@@ -14162,26 +14162,26 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelConfiguration")
-    def embedding_model_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
+    def embedding_model_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']]:
         """
         The embeddings model configuration details for the vector model used in Knowledge Base.
         """
         return pulumi.get(self, "embedding_model_configuration")
 
     @embedding_model_configuration.setter
-    def embedding_model_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
+    def embedding_model_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']]):
         pulumi.set(self, "embedding_model_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="supplementalDataStorageConfiguration")
-    def supplemental_data_storage_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]:
+    def supplemental_data_storage_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]:
         """
         If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
         """
         return pulumi.get(self, "supplemental_data_storage_configuration")
 
     @supplemental_data_storage_configuration.setter
-    def supplemental_data_storage_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]):
+    def supplemental_data_storage_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]):
         pulumi.set(self, "supplemental_data_storage_configuration", value)
 
 
@@ -14346,23 +14346,23 @@ class PromptChatPromptTemplateConfigurationArgsDict(TypedDict):
     """
     List of messages for chat prompt template
     """
-    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]]
     """
     List of input variables
     """
-    system: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgsDict', 'PromptSystemContentBlock1PropertiesArgsDict']]]]]
+    system: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgsDict', 'PromptSystemContentBlock1PropertiesArgsDict']]]]]]
     """
     Configuration for chat prompt template
     """
-    tool_configuration: NotRequired[pulumi.Input['PromptToolConfigurationArgsDict']]
+    tool_configuration: NotRequired[pulumi.Input[Optional['PromptToolConfigurationArgsDict']]]
 
 @pulumi.input_type
 class PromptChatPromptTemplateConfigurationArgs:
     def __init__(__self__, *,
                  messages: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]],
-                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
-                 system: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]] = None,
-                 tool_configuration: Optional[pulumi.Input['PromptToolConfigurationArgs']] = None):
+                 input_variables: pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
+                 system: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]] = None,
+                 tool_configuration: pulumi.Input[Optional['PromptToolConfigurationArgs']] = None):
         """
         Configuration for chat prompt template
 
@@ -14392,35 +14392,35 @@ class PromptChatPromptTemplateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
-    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
+    def input_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
         """
         List of input variables
         """
         return pulumi.get(self, "input_variables")
 
     @input_variables.setter
-    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
+    def input_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]]:
+    def system(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]]:
         """
         Configuration for chat prompt template
         """
         return pulumi.get(self, "system")
 
     @system.setter
-    def system(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]]):
+    def system(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptSystemContentBlock0PropertiesArgs', 'PromptSystemContentBlock1PropertiesArgs']]]]]):
         pulumi.set(self, "system", value)
 
     @_builtins.property
     @pulumi.getter(name="toolConfiguration")
-    def tool_configuration(self) -> Optional[pulumi.Input['PromptToolConfigurationArgs']]:
+    def tool_configuration(self) -> pulumi.Input[Optional['PromptToolConfigurationArgs']]:
         return pulumi.get(self, "tool_configuration")
 
     @tool_configuration.setter
-    def tool_configuration(self, value: Optional[pulumi.Input['PromptToolConfigurationArgs']]):
+    def tool_configuration(self, value: pulumi.Input[Optional['PromptToolConfigurationArgs']]):
         pulumi.set(self, "tool_configuration", value)
 
 
@@ -14536,7 +14536,7 @@ class PromptInputVariableArgsDict(TypedDict):
     """
     Input variable
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name for an input variable
     """
@@ -14544,7 +14544,7 @@ class PromptInputVariableArgsDict(TypedDict):
 @pulumi.input_type
 class PromptInputVariableArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input variable
 
@@ -14555,14 +14555,14 @@ class PromptInputVariableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name for an input variable
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -14652,19 +14652,19 @@ class PromptModelInferenceConfigurationArgsDict(TypedDict):
     """
     Prompt model inference configuration
     """
-    max_tokens: NotRequired[pulumi.Input[_builtins.float]]
+    max_tokens: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum length of output
     """
-    stop_sequences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    stop_sequences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of stop sequences
     """
-    temperature: NotRequired[pulumi.Input[_builtins.float]]
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Controls randomness, higher values increase diversity
     """
-    top_p: NotRequired[pulumi.Input[_builtins.float]]
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Cumulative probability cutoff for token selection
     """
@@ -14672,10 +14672,10 @@ class PromptModelInferenceConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class PromptModelInferenceConfigurationArgs:
     def __init__(__self__, *,
-                 max_tokens: Optional[pulumi.Input[_builtins.float]] = None,
-                 stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 temperature: Optional[pulumi.Input[_builtins.float]] = None,
-                 top_p: Optional[pulumi.Input[_builtins.float]] = None):
+                 max_tokens: pulumi.Input[Optional[_builtins.float]] = None,
+                 stop_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
         """
         Prompt model inference configuration
 
@@ -14695,50 +14695,50 @@ class PromptModelInferenceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxTokens")
-    def max_tokens(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def max_tokens(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum length of output
         """
         return pulumi.get(self, "max_tokens")
 
     @max_tokens.setter
-    def max_tokens(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def max_tokens(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "max_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="stopSequences")
-    def stop_sequences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def stop_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of stop sequences
         """
         return pulumi.get(self, "stop_sequences")
 
     @stop_sequences.setter
-    def stop_sequences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def stop_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "stop_sequences", value)
 
     @_builtins.property
     @pulumi.getter
-    def temperature(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
 
     @temperature.setter
-    def temperature(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "temperature", value)
 
     @_builtins.property
     @pulumi.getter(name="topP")
-    def top_p(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Cumulative probability cutoff for token selection
         """
         return pulumi.get(self, "top_p")
 
     @top_p.setter
-    def top_p(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "top_p", value)
 
 
@@ -14887,24 +14887,24 @@ class PromptTextPromptTemplateConfigurationArgsDict(TypedDict):
     """
     Configuration for text prompt template
     """
-    cache_point: NotRequired[pulumi.Input['PromptCachePointBlockArgsDict']]
-    input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
+    cache_point: NotRequired[pulumi.Input[Optional['PromptCachePointBlockArgsDict']]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]]
     """
     List of input variables
     """
-    text: NotRequired[pulumi.Input[_builtins.str]]
+    text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Prompt content for String prompt template
     """
-    text_s3_location: NotRequired[pulumi.Input['PromptTextS3LocationArgsDict']]
+    text_s3_location: NotRequired[pulumi.Input[Optional['PromptTextS3LocationArgsDict']]]
 
 @pulumi.input_type
 class PromptTextPromptTemplateConfigurationArgs:
     def __init__(__self__, *,
-                 cache_point: Optional[pulumi.Input['PromptCachePointBlockArgs']] = None,
-                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
-                 text: Optional[pulumi.Input[_builtins.str]] = None,
-                 text_s3_location: Optional[pulumi.Input['PromptTextS3LocationArgs']] = None):
+                 cache_point: pulumi.Input[Optional['PromptCachePointBlockArgs']] = None,
+                 input_variables: pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
+                 text: pulumi.Input[Optional[_builtins.str]] = None,
+                 text_s3_location: pulumi.Input[Optional['PromptTextS3LocationArgs']] = None):
         """
         Configuration for text prompt template
 
@@ -14922,44 +14922,44 @@ class PromptTextPromptTemplateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cachePoint")
-    def cache_point(self) -> Optional[pulumi.Input['PromptCachePointBlockArgs']]:
+    def cache_point(self) -> pulumi.Input[Optional['PromptCachePointBlockArgs']]:
         return pulumi.get(self, "cache_point")
 
     @cache_point.setter
-    def cache_point(self, value: Optional[pulumi.Input['PromptCachePointBlockArgs']]):
+    def cache_point(self, value: pulumi.Input[Optional['PromptCachePointBlockArgs']]):
         pulumi.set(self, "cache_point", value)
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
-    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
+    def input_variables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
         """
         List of input variables
         """
         return pulumi.get(self, "input_variables")
 
     @input_variables.setter
-    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
+    def input_variables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
 
     @_builtins.property
     @pulumi.getter
-    def text(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Prompt content for String prompt template
         """
         return pulumi.get(self, "text")
 
     @text.setter
-    def text(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def text(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "text", value)
 
     @_builtins.property
     @pulumi.getter(name="textS3Location")
-    def text_s3_location(self) -> Optional[pulumi.Input['PromptTextS3LocationArgs']]:
+    def text_s3_location(self) -> pulumi.Input[Optional['PromptTextS3LocationArgs']]:
         return pulumi.get(self, "text_s3_location")
 
     @text_s3_location.setter
-    def text_s3_location(self, value: Optional[pulumi.Input['PromptTextS3LocationArgs']]):
+    def text_s3_location(self, value: pulumi.Input[Optional['PromptTextS3LocationArgs']]):
         pulumi.set(self, "text_s3_location", value)
 
 
@@ -14975,7 +14975,7 @@ class PromptTextS3LocationArgsDict(TypedDict):
     """
     A object key in S3
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the the S3 object to use
     """
@@ -14985,7 +14985,7 @@ class PromptTextS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str],
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The identifier for the S3 resource.
 
@@ -15024,14 +15024,14 @@ class PromptTextS3LocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the the S3 object to use
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -15168,13 +15168,13 @@ class PromptToolConfigurationArgsDict(TypedDict):
     """
     List of Tools
     """
-    tool_choice: NotRequired[pulumi.Input[Union['PromptToolChoice0PropertiesArgsDict', 'PromptToolChoice1PropertiesArgsDict', 'PromptToolChoice2PropertiesArgsDict']]]
+    tool_choice: NotRequired[pulumi.Input[Optional[Union['PromptToolChoice0PropertiesArgsDict', 'PromptToolChoice1PropertiesArgsDict', 'PromptToolChoice2PropertiesArgsDict']]]]
 
 @pulumi.input_type
 class PromptToolConfigurationArgs:
     def __init__(__self__, *,
                  tools: pulumi.Input[Sequence[pulumi.Input[Union['PromptTool0PropertiesArgs', 'PromptTool1PropertiesArgs']]]],
-                 tool_choice: Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]] = None):
+                 tool_choice: pulumi.Input[Optional[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]] = None):
         """
         Tool configuration
 
@@ -15198,11 +15198,11 @@ class PromptToolConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="toolChoice")
-    def tool_choice(self) -> Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]:
+    def tool_choice(self) -> pulumi.Input[Optional[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]:
         return pulumi.get(self, "tool_choice")
 
     @tool_choice.setter
-    def tool_choice(self, value: Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]):
+    def tool_choice(self, value: pulumi.Input[Optional[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]):
         pulumi.set(self, "tool_choice", value)
 
 
@@ -15240,14 +15240,14 @@ class PromptToolSpecificationArgsDict(TypedDict):
     """
     Tool name
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PromptToolSpecificationArgs:
     def __init__(__self__, *,
                  input_schema: pulumi.Input['PromptToolInputSchemaPropertiesArgs'],
                  name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Tool specification
 
@@ -15281,11 +15281,11 @@ class PromptToolSpecificationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -15305,23 +15305,23 @@ class PromptVariantArgsDict(TypedDict):
     """
     The type of prompt template to use.
     """
-    additional_model_request_fields: NotRequired[pulumi.Input['PromptAdditionalModelRequestFieldsArgsDict']]
+    additional_model_request_fields: NotRequired[pulumi.Input[Optional['PromptAdditionalModelRequestFieldsArgsDict']]]
     """
     Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
     """
-    gen_ai_resource: NotRequired[pulumi.Input['PromptGenAiResourcePropertiesArgsDict']]
+    gen_ai_resource: NotRequired[pulumi.Input[Optional['PromptGenAiResourcePropertiesArgsDict']]]
     """
     Specifies a generative AI resource with which to use the prompt.
     """
-    inference_configuration: NotRequired[pulumi.Input['PromptInferenceConfigurationPropertiesArgsDict']]
+    inference_configuration: NotRequired[pulumi.Input[Optional['PromptInferenceConfigurationPropertiesArgsDict']]]
     """
     Contains inference configurations for the prompt variant.
     """
-    metadata: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgsDict']]]]
+    metadata: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PromptMetadataEntryArgsDict']]]]]
     """
     An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
     """
-    model_id: NotRequired[pulumi.Input[_builtins.str]]
+    model_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
     """
@@ -15332,11 +15332,11 @@ class PromptVariantArgs:
                  name: pulumi.Input[_builtins.str],
                  template_configuration: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']],
                  template_type: pulumi.Input['PromptTemplateType'],
-                 additional_model_request_fields: Optional[pulumi.Input['PromptAdditionalModelRequestFieldsArgs']] = None,
-                 gen_ai_resource: Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']] = None,
-                 inference_configuration: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']] = None,
-                 metadata: Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]] = None,
-                 model_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 additional_model_request_fields: pulumi.Input[Optional['PromptAdditionalModelRequestFieldsArgs']] = None,
+                 gen_ai_resource: pulumi.Input[Optional['PromptGenAiResourcePropertiesArgs']] = None,
+                 inference_configuration: pulumi.Input[Optional['PromptInferenceConfigurationPropertiesArgs']] = None,
+                 metadata: pulumi.Input[Optional[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]] = None,
+                 model_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Prompt variant
 
@@ -15401,62 +15401,62 @@ class PromptVariantArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalModelRequestFields")
-    def additional_model_request_fields(self) -> Optional[pulumi.Input['PromptAdditionalModelRequestFieldsArgs']]:
+    def additional_model_request_fields(self) -> pulumi.Input[Optional['PromptAdditionalModelRequestFieldsArgs']]:
         """
         Contains model-specific inference configurations that aren't in the `inferenceConfiguration` field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         """
         return pulumi.get(self, "additional_model_request_fields")
 
     @additional_model_request_fields.setter
-    def additional_model_request_fields(self, value: Optional[pulumi.Input['PromptAdditionalModelRequestFieldsArgs']]):
+    def additional_model_request_fields(self, value: pulumi.Input[Optional['PromptAdditionalModelRequestFieldsArgs']]):
         pulumi.set(self, "additional_model_request_fields", value)
 
     @_builtins.property
     @pulumi.getter(name="genAiResource")
-    def gen_ai_resource(self) -> Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']]:
+    def gen_ai_resource(self) -> pulumi.Input[Optional['PromptGenAiResourcePropertiesArgs']]:
         """
         Specifies a generative AI resource with which to use the prompt.
         """
         return pulumi.get(self, "gen_ai_resource")
 
     @gen_ai_resource.setter
-    def gen_ai_resource(self, value: Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']]):
+    def gen_ai_resource(self, value: pulumi.Input[Optional['PromptGenAiResourcePropertiesArgs']]):
         pulumi.set(self, "gen_ai_resource", value)
 
     @_builtins.property
     @pulumi.getter(name="inferenceConfiguration")
-    def inference_configuration(self) -> Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']]:
+    def inference_configuration(self) -> pulumi.Input[Optional['PromptInferenceConfigurationPropertiesArgs']]:
         """
         Contains inference configurations for the prompt variant.
         """
         return pulumi.get(self, "inference_configuration")
 
     @inference_configuration.setter
-    def inference_configuration(self, value: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']]):
+    def inference_configuration(self, value: pulumi.Input[Optional['PromptInferenceConfigurationPropertiesArgs']]):
         pulumi.set(self, "inference_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]:
+    def metadata(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]:
         """
         An array of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]):
+    def metadata(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PromptMetadataEntryArgs']]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="modelId")
-    def model_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
     @model_id.setter
-    def model_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_id", value)
 
 

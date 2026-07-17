@@ -24,7 +24,7 @@ class AccountAuditConfigurationArgs:
                  account_id: pulumi.Input[_builtins.str],
                  audit_check_configurations: pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None):
+                 audit_notification_target_configurations: pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None):
         """
         The set of arguments for constructing a AccountAuditConfiguration resource.
 
@@ -93,14 +93,14 @@ class AccountAuditConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="auditNotificationTargetConfigurations")
-    def audit_notification_target_configurations(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]:
+    def audit_notification_target_configurations(self) -> pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]:
         """
         Information about the targets to which audit notifications are sent.
         """
         return pulumi.get(self, "audit_notification_target_configurations")
 
     @audit_notification_target_configurations.setter
-    def audit_notification_target_configurations(self, value: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]):
+    def audit_notification_target_configurations(self, value: pulumi.Input[Optional['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']]):
         pulumi.set(self, "audit_notification_target_configurations", value)
 
 
@@ -110,14 +110,13 @@ class AccountAuditConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_check_configurations: Optional[pulumi.Input[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
-                 audit_notification_target_configurations: Optional[pulumi.Input[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
+                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +142,6 @@ class AccountAuditConfiguration(pulumi.CustomResource):
         """
         Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 
-
         :param str resource_name: The name of the resource.
         :param AccountAuditConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,10 +157,10 @@ class AccountAuditConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 audit_check_configurations: Optional[pulumi.Input[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
-                 audit_notification_target_configurations: Optional[pulumi.Input[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 audit_check_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditCheckConfigurationsArgs', 'AccountAuditConfigurationAuditCheckConfigurationsArgsDict']]] = None,
+                 audit_notification_target_configurations: pulumi.Input[Optional[Union['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs', 'AccountAuditConfigurationAuditNotificationTargetConfigurationsArgsDict']]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

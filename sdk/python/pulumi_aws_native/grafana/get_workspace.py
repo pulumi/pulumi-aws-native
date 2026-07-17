@@ -333,7 +333,6 @@ def get_workspace(id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Grafana::Workspace Resource Type
 
-
     :param _builtins.str id: The id that uniquely identifies a Grafana workspace.
     """
     __args__ = dict()
@@ -365,11 +364,10 @@ def get_workspace(id: Optional[_builtins.str] = None,
         stack_set_name=pulumi.get(__ret__, 'stack_set_name'),
         status=pulumi.get(__ret__, 'status'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
-def get_workspace_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_workspace_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Definition of AWS::Grafana::Workspace Resource Type
-
 
     :param _builtins.str id: The id that uniquely identifies a Grafana workspace.
     """

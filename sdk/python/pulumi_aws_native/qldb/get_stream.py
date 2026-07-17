@@ -77,7 +77,6 @@ def get_stream(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::QLDB::Stream.
 
-
     :param _builtins.str id: The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
     :param _builtins.str ledger_name: The name of the ledger.
     """
@@ -91,12 +90,11 @@ def get_stream(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_stream_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                      ledger_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stream_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                      ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource schema for AWS::QLDB::Stream.
-
 
     :param _builtins.str id: The unique ID that QLDB assigns to each QLDB journal stream. For example: `IiPT4brpZCqCq3f4MTHbYy` .
     :param _builtins.str ledger_name: The name of the ledger.

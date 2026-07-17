@@ -35,7 +35,7 @@ export class VpcGatewayAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
      */
     declare public /*out*/ readonly attachmentType: pulumi.Output<string>;
     /**
@@ -89,7 +89,7 @@ export interface VpcGatewayAttachmentArgs {
     /**
      * The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
      */
-    internetGatewayId?: pulumi.Input<string>;
+    internetGatewayId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the VPC.
      */
@@ -97,5 +97,5 @@ export interface VpcGatewayAttachmentArgs {
     /**
      * The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string | undefined>;
 }

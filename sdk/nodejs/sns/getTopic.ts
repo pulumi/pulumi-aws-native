@@ -35,9 +35,9 @@ export interface GetTopicResult {
     readonly archivePolicy?: any;
     /**
      * Enables content-based deduplication for FIFO topics.
-     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action. 
+     *   +  By default, ``ContentBasedDeduplication`` is set to ``false``. If you create a FIFO topic and this attribute is ``false``, you must specify a value for the ``MessageDeduplicationId`` parameter for the [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) action.
      *   +  When you set ``ContentBasedDeduplication`` to ``true``, SNS uses a SHA-256 hash to generate the ``MessageDeduplicationId`` using the body of the message (but not the attributes of the message).
-     *  (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
+     *       (Optional) To override the generated value, you can specify a value for the the ``MessageDeduplicationId`` parameter for the ``Publish`` action.
      */
     readonly contentBasedDeduplication?: boolean;
     /**
@@ -51,12 +51,12 @@ export interface GetTopicResult {
     readonly dataProtectionPolicy?: any;
     /**
      * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
-     *   +  HTTP 
+     *   +  HTTP
      *   +  Amazon Kinesis Data Firehose
      *   +   AWS Lambda
      *   +  Platform application endpoint
      *   +  Amazon Simple Queue Service
-     *   
+     *
      *  Once configured, log entries are sent to Amazon CloudWatch Logs.
      */
     readonly deliveryStatusLogging?: outputs.sns.TopicLoggingConfig[];

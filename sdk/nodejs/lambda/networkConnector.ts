@@ -87,10 +87,10 @@ export class NetworkConnector extends pulumi.CustomResource {
  */
 export interface NetworkConnectorArgs {
     configuration: pulumi.Input<inputs.lambda.NetworkConnectorConfigArgs>;
-    name?: pulumi.Input<string>;
-    operatorRole?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
+    operatorRole?: pulumi.Input<string | undefined>;
     /**
      * A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -45,7 +45,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly policyHash: pulumi.Output<string>;
     /**
-     * An unique identifier within the policies of a resource. 
+     * An unique identifier within the policies of a resource.
      */
     declare public /*out*/ readonly policyId: pulumi.Output<string>;
     /**

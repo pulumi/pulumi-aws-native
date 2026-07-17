@@ -84,7 +84,6 @@ def get_document_classifier(arn: Optional[_builtins.str] = None,
     """
     Document Classifier enables training document classifier models.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the document classifier.
     """
     __args__ = dict()
@@ -96,11 +95,10 @@ def get_document_classifier(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         model_policy=pulumi.get(__ret__, 'model_policy'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_document_classifier_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_document_classifier_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentClassifierResult]:
     """
     Document Classifier enables training document classifier models.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the document classifier.
     """

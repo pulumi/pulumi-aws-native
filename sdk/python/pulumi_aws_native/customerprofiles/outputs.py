@@ -614,7 +614,7 @@ class DomainAutoMerging(dict):
 @pulumi.output_type
 class DomainConflictResolution(dict):
     """
-    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+    How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
     """
     @staticmethod
     def __key_warning(key: str):
@@ -639,7 +639,7 @@ class DomainConflictResolution(dict):
                  conflict_resolving_model: 'DomainConflictResolutionConflictResolvingModel',
                  source_name: Optional[_builtins.str] = None):
         """
-        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used? 
+        How the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same FirstName and LastName (and that is the matching criteria), which EmailAddress should be used?
 
         :param 'DomainConflictResolutionConflictResolvingModel' conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
         :param _builtins.str source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
@@ -2646,7 +2646,7 @@ class ObjectTypeKey(dict):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
 
-        :param Sequence[_builtins.str] field_names: The reference for the key name of the fields map. 
+        :param Sequence[_builtins.str] field_names: The reference for the key name of the fields map.
         :param Sequence['ObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
@@ -2658,7 +2658,7 @@ class ObjectTypeKey(dict):
     @pulumi.getter(name="fieldNames")
     def field_names(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The reference for the key name of the fields map. 
+        The reference for the key name of the fields map.
         """
         return pulumi.get(self, "field_names")
 

@@ -28,11 +28,11 @@ class CloudWatchAlarmTemplateArgs:
                  target_resource_type: pulumi.Input['CloudWatchAlarmTemplateTargetResourceType'],
                  threshold: pulumi.Input[_builtins.float],
                  treat_missing_data: pulumi.Input['CloudWatchAlarmTemplateTreatMissingData'],
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.float]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudWatchAlarmTemplate resource.
 
@@ -166,59 +166,59 @@ class CloudWatchAlarmTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="datapointsToAlarm")
-    def datapoints_to_alarm(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def datapoints_to_alarm(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The number of datapoints within the evaluation period that must be breaching to trigger the alarm.
         """
         return pulumi.get(self, "datapoints_to_alarm")
 
     @datapoints_to_alarm.setter
-    def datapoints_to_alarm(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def datapoints_to_alarm(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "datapoints_to_alarm", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's optional description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="groupIdentifier")
-    def group_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A cloudwatch alarm template group's identifier. Can be either be its id or current name.
         """
         return pulumi.get(self, "group_identifier")
 
     @group_identifier.setter
-    def group_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A resource's name. Names must be unique within the scope of a resource type in a specific region.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -228,23 +228,22 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comparison_operator: Optional[pulumi.Input['CloudWatchAlarmTemplateComparisonOperator']] = None,
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.float]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_periods: Optional[pulumi.Input[_builtins.float]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.float]] = None,
-                 statistic: Optional[pulumi.Input['CloudWatchAlarmTemplateStatistic']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_type: Optional[pulumi.Input['CloudWatchAlarmTemplateTargetResourceType']] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input['CloudWatchAlarmTemplateTreatMissingData']] = None,
+                 comparison_operator: pulumi.Input[Optional['CloudWatchAlarmTemplateComparisonOperator']] = None,
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_periods: pulumi.Input[Optional[_builtins.float]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.float]] = None,
+                 statistic: pulumi.Input[Optional['CloudWatchAlarmTemplateStatistic']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_type: pulumi.Input[Optional['CloudWatchAlarmTemplateTargetResourceType']] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional['CloudWatchAlarmTemplateTreatMissingData']] = None,
                  __props__=None):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,7 +269,6 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
         """
         Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param CloudWatchAlarmTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,19 +284,19 @@ class CloudWatchAlarmTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comparison_operator: Optional[pulumi.Input['CloudWatchAlarmTemplateComparisonOperator']] = None,
-                 datapoints_to_alarm: Optional[pulumi.Input[_builtins.float]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 evaluation_periods: Optional[pulumi.Input[_builtins.float]] = None,
-                 group_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 period: Optional[pulumi.Input[_builtins.float]] = None,
-                 statistic: Optional[pulumi.Input['CloudWatchAlarmTemplateStatistic']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_resource_type: Optional[pulumi.Input['CloudWatchAlarmTemplateTargetResourceType']] = None,
-                 threshold: Optional[pulumi.Input[_builtins.float]] = None,
-                 treat_missing_data: Optional[pulumi.Input['CloudWatchAlarmTemplateTreatMissingData']] = None,
+                 comparison_operator: pulumi.Input[Optional['CloudWatchAlarmTemplateComparisonOperator']] = None,
+                 datapoints_to_alarm: pulumi.Input[Optional[_builtins.float]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 evaluation_periods: pulumi.Input[Optional[_builtins.float]] = None,
+                 group_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 period: pulumi.Input[Optional[_builtins.float]] = None,
+                 statistic: pulumi.Input[Optional['CloudWatchAlarmTemplateStatistic']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_resource_type: pulumi.Input[Optional['CloudWatchAlarmTemplateTargetResourceType']] = None,
+                 threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 treat_missing_data: pulumi.Input[Optional['CloudWatchAlarmTemplateTreatMissingData']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

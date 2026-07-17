@@ -102,7 +102,6 @@ def get_protect_configuration(protect_configuration_id: Optional[_builtins.str] 
     """
     Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
 
-
     :param _builtins.str protect_configuration_id: The unique identifier for the protect configuration.
     """
     __args__ = dict()
@@ -116,11 +115,10 @@ def get_protect_configuration(protect_configuration_id: Optional[_builtins.str] 
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         protect_configuration_id=pulumi.get(__ret__, 'protect_configuration_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_protect_configuration_output(protect_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_protect_configuration_output(protect_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectConfigurationResult]:
     """
     Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
-
 
     :param _builtins.str protect_configuration_id: The unique identifier for the protect configuration.
     """

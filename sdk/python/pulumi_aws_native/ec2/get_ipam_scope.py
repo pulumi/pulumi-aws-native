@@ -152,7 +152,6 @@ def get_ipam_scope(ipam_scope_id: Optional[_builtins.str] = None,
     """
     Resource Schema of AWS::EC2::IPAMScope Type
 
-
     :param _builtins.str ipam_scope_id: Id of the IPAM scope.
     """
     __args__ = dict()
@@ -170,11 +169,10 @@ def get_ipam_scope(ipam_scope_id: Optional[_builtins.str] = None,
         is_default=pulumi.get(__ret__, 'is_default'),
         pool_count=pulumi.get(__ret__, 'pool_count'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_scope_output(ipam_scope_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_scope_output(ipam_scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamScopeResult]:
     """
     Resource Schema of AWS::EC2::IPAMScope Type
-
 
     :param _builtins.str ipam_scope_id: Id of the IPAM scope.
     """

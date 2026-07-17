@@ -23,12 +23,12 @@ __all__ = ['DatastoreArgs', 'Datastore']
 @pulumi.input_type
 class DatastoreArgs:
     def __init__(__self__, *,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_partitions: Optional[pulumi.Input['DatastorePartitionsArgs']] = None,
-                 datastore_storage: Optional[pulumi.Input['DatastoreStorageArgs']] = None,
-                 file_format_configuration: Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']] = None,
-                 retention_period: Optional[pulumi.Input['DatastoreRetentionPeriodArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_partitions: pulumi.Input[Optional['DatastorePartitionsArgs']] = None,
+                 datastore_storage: pulumi.Input[Optional['DatastoreStorageArgs']] = None,
+                 file_format_configuration: pulumi.Input[Optional['DatastoreFileFormatConfigurationArgs']] = None,
+                 retention_period: pulumi.Input[Optional['DatastoreRetentionPeriodArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Datastore resource.
 
@@ -60,43 +60,43 @@ class DatastoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def datastore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data store.
         """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
-    def datastore_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def datastore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="datastorePartitions")
-    def datastore_partitions(self) -> Optional[pulumi.Input['DatastorePartitionsArgs']]:
+    def datastore_partitions(self) -> pulumi.Input[Optional['DatastorePartitionsArgs']]:
         """
         Information about the partition dimensions in a data store.
         """
         return pulumi.get(self, "datastore_partitions")
 
     @datastore_partitions.setter
-    def datastore_partitions(self, value: Optional[pulumi.Input['DatastorePartitionsArgs']]):
+    def datastore_partitions(self, value: pulumi.Input[Optional['DatastorePartitionsArgs']]):
         pulumi.set(self, "datastore_partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="datastoreStorage")
-    def datastore_storage(self) -> Optional[pulumi.Input['DatastoreStorageArgs']]:
+    def datastore_storage(self) -> pulumi.Input[Optional['DatastoreStorageArgs']]:
         """
         Where data store data is stored.
         """
         return pulumi.get(self, "datastore_storage")
 
     @datastore_storage.setter
-    def datastore_storage(self, value: Optional[pulumi.Input['DatastoreStorageArgs']]):
+    def datastore_storage(self, value: pulumi.Input[Optional['DatastoreStorageArgs']]):
         pulumi.set(self, "datastore_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormatConfiguration")
-    def file_format_configuration(self) -> Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']]:
+    def file_format_configuration(self) -> pulumi.Input[Optional['DatastoreFileFormatConfigurationArgs']]:
         """
         Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 
@@ -107,24 +107,24 @@ class DatastoreArgs:
         return pulumi.get(self, "file_format_configuration")
 
     @file_format_configuration.setter
-    def file_format_configuration(self, value: Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']]):
+    def file_format_configuration(self, value: pulumi.Input[Optional['DatastoreFileFormatConfigurationArgs']]):
         pulumi.set(self, "file_format_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input['DatastoreRetentionPeriodArgs']]:
+    def retention_period(self) -> pulumi.Input[Optional['DatastoreRetentionPeriodArgs']]:
         """
         How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input['DatastoreRetentionPeriodArgs']]):
+    def retention_period(self, value: pulumi.Input[Optional['DatastoreRetentionPeriodArgs']]):
         pulumi.set(self, "retention_period", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Metadata which can be used to manage the data store.
 
@@ -133,7 +133,7 @@ class DatastoreArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,12 +143,12 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
-                 datastore_storage: Optional[pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
-                 file_format_configuration: Optional[pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
-                 retention_period: Optional[pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
+                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
+                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Datastore
@@ -330,12 +330,12 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 datastore_partitions: Optional[pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
-                 datastore_storage: Optional[pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
-                 file_format_configuration: Optional[pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
-                 retention_period: Optional[pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
+                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
+                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

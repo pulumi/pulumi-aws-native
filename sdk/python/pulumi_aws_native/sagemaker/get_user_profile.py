@@ -66,7 +66,6 @@ def get_user_profile(domain_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::UserProfile
 
-
     :param _builtins.str domain_id: The ID of the associated Domain.
     :param _builtins.str user_profile_name: A name for the UserProfile.
     """
@@ -79,12 +78,11 @@ def get_user_profile(domain_id: Optional[_builtins.str] = None,
     return AwaitableGetUserProfileResult(
         user_profile_arn=pulumi.get(__ret__, 'user_profile_arn'),
         user_settings=pulumi.get(__ret__, 'user_settings'))
-def get_user_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            user_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_profile_output(domain_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            user_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserProfileResult]:
     """
     Resource Type definition for AWS::SageMaker::UserProfile
-
 
     :param _builtins.str domain_id: The ID of the associated Domain.
     :param _builtins.str user_profile_name: A name for the UserProfile.

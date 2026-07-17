@@ -112,9 +112,9 @@ export interface ContactFlowModuleAliasArgs {
     /**
      * The description of the alias.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the alias.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

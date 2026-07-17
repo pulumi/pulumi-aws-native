@@ -85,9 +85,9 @@ class GetSecretResult:
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
-          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
          Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
          If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2).
          For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json). If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
          The following restrictions apply to tags:
@@ -133,7 +133,6 @@ def get_secret(id: Optional[_builtins.str] = None,
      For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
      For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
 
-
     :param _builtins.str id: The ARN of the secret.
     """
     __args__ = dict()
@@ -148,7 +147,7 @@ def get_secret(id: Optional[_builtins.str] = None,
         replica_regions=pulumi.get(__ret__, 'replica_regions'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_secret_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_secret_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
@@ -157,7 +156,6 @@ def get_secret_output(id: Optional[pulumi.Input[_builtins.str]] = None,
      To retrieve a secret in a CFNshort template, use a *dynamic reference*. For more information, see [Retrieve a secret in an resource](https://docs.aws.amazon.com/secretsmanager/latest/userguide/cfn-example_reference-secret.html).
      For information about creating a secret in the console, see [Create a secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html). For information about creating a secret using the CLI or SDK, see [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html).
      For information about retrieving a secret in code, see [Retrieve secrets from Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html).
-
 
     :param _builtins.str id: The ARN of the secret.
     """

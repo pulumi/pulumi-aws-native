@@ -189,23 +189,23 @@ export interface SiteToSiteVpnAttachmentArgs {
     /**
      * The name of the network function group attachment.
      */
-    networkFunctionGroupName?: pulumi.Input<string>;
+    networkFunctionGroupName?: pulumi.Input<string | undefined>;
     /**
      * The attachment to move from one network function group to another.
      */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs>;
+    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
     /**
      * The attachment to move from one segment to another.
      */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>;
+    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
-    routingPolicyLabel?: pulumi.Input<string>;
+    routingPolicyLabel?: pulumi.Input<string | undefined>;
     /**
      * Tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The ARN of the site-to-site VPN attachment.
      */

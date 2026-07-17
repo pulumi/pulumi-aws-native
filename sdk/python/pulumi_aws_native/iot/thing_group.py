@@ -23,11 +23,11 @@ __all__ = ['ThingGroupArgs', 'ThingGroup']
 @pulumi.input_type
 class ThingGroupArgs:
     def __init__(__self__, *,
-                 parent_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None):
+                 parent_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_properties: pulumi.Input[Optional['ThingGroupPropertiesPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
 
@@ -54,7 +54,7 @@ class ThingGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="parentGroupName")
-    def parent_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parent thing group name.
 
@@ -63,12 +63,12 @@ class ThingGroupArgs:
         return pulumi.get(self, "parent_group_name")
 
     @parent_group_name.setter
-    def parent_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryString")
-    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The dynamic thing group search query string.
 
@@ -77,43 +77,43 @@ class ThingGroupArgs:
         return pulumi.get(self, "query_string")
 
     @query_string.setter
-    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupName")
-    def thing_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def thing_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The thing group name.
         """
         return pulumi.get(self, "thing_group_name")
 
     @thing_group_name.setter
-    def thing_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def thing_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "thing_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thingGroupProperties")
-    def thing_group_properties(self) -> Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']]:
+    def thing_group_properties(self) -> pulumi.Input[Optional['ThingGroupPropertiesPropertiesArgs']]:
         """
         Thing group properties.
         """
         return pulumi.get(self, "thing_group_properties")
 
     @thing_group_properties.setter
-    def thing_group_properties(self, value: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']]):
+    def thing_group_properties(self, value: pulumi.Input[Optional['ThingGroupPropertiesPropertiesArgs']]):
         pulumi.set(self, "thing_group_properties", value)
 
 
@@ -123,15 +123,14 @@ class ThingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_properties: Optional[pulumi.Input[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
+                 parent_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_properties: pulumi.Input[Optional[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoT::ThingGroup
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +153,6 @@ class ThingGroup(pulumi.CustomResource):
         """
         Resource Type definition for AWS::IoT::ThingGroup
 
-
         :param str resource_name: The name of the resource.
         :param ThingGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,11 +168,11 @@ class ThingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parent_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 thing_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 thing_group_properties: Optional[pulumi.Input[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
+                 parent_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 thing_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 thing_group_properties: pulumi.Input[Optional[Union['ThingGroupPropertiesPropertiesArgs', 'ThingGroupPropertiesPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

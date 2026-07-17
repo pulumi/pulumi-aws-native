@@ -92,14 +92,14 @@ export class ConfiguredModelAlgorithm extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfiguredModelAlgorithm resource.
  */
 export interface ConfiguredModelAlgorithmArgs {
-    description?: pulumi.Input<string>;
-    inferenceContainerConfig?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmInferenceContainerConfigArgs>;
-    kmsKeyArn?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
+    inferenceContainerConfig?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmInferenceContainerConfigArgs | undefined>;
+    kmsKeyArn?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
     roleArn: pulumi.Input<string>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    trainingContainerConfig?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmContainerConfigArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    trainingContainerConfig?: pulumi.Input<inputs.cleanroomsml.ConfiguredModelAlgorithmContainerConfigArgs | undefined>;
 }

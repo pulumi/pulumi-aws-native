@@ -27,14 +27,14 @@ class OAuthClientApplicationArgs:
                  o_auth_client_application_id: pulumi.Input[_builtins.str],
                  o_auth_client_authentication_type: pulumi.Input['OAuthClientApplicationOAuthClientAuthenticationType'],
                  o_auth_token_endpoint_url: pulumi.Input[_builtins.str],
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_type: Optional[pulumi.Input['OAuthClientApplicationDataSourceType']] = None,
-                 identity_provider_vpc_connection_properties: Optional[pulumi.Input['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_authorization_endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_type: pulumi.Input[Optional['OAuthClientApplicationDataSourceType']] = None,
+                 identity_provider_vpc_connection_properties: pulumi.Input[Optional['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_authorization_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OAuthClientApplication resource.
         """
@@ -87,74 +87,74 @@ class OAuthClientApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="clientSecret")
-    def client_secret(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
-    def client_secret(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_secret", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
-    def data_source_type(self) -> Optional[pulumi.Input['OAuthClientApplicationDataSourceType']]:
+    def data_source_type(self) -> pulumi.Input[Optional['OAuthClientApplicationDataSourceType']]:
         return pulumi.get(self, "data_source_type")
 
     @data_source_type.setter
-    def data_source_type(self, value: Optional[pulumi.Input['OAuthClientApplicationDataSourceType']]):
+    def data_source_type(self, value: pulumi.Input[Optional['OAuthClientApplicationDataSourceType']]):
         pulumi.set(self, "data_source_type", value)
 
     @_builtins.property
     @pulumi.getter(name="identityProviderVpcConnectionProperties")
-    def identity_provider_vpc_connection_properties(self) -> Optional[pulumi.Input['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']]:
+    def identity_provider_vpc_connection_properties(self) -> pulumi.Input[Optional['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']]:
         return pulumi.get(self, "identity_provider_vpc_connection_properties")
 
     @identity_provider_vpc_connection_properties.setter
-    def identity_provider_vpc_connection_properties(self, value: Optional[pulumi.Input['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']]):
+    def identity_provider_vpc_connection_properties(self, value: pulumi.Input[Optional['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs']]):
         pulumi.set(self, "identity_provider_vpc_connection_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthAuthorizationEndpointUrl")
-    def o_auth_authorization_endpoint_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def o_auth_authorization_endpoint_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "o_auth_authorization_endpoint_url")
 
     @o_auth_authorization_endpoint_url.setter
-    def o_auth_authorization_endpoint_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def o_auth_authorization_endpoint_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "o_auth_authorization_endpoint_url", value)
 
     @_builtins.property
     @pulumi.getter(name="oAuthScopes")
-    def o_auth_scopes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def o_auth_scopes(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "o_auth_scopes")
 
     @o_auth_scopes.setter
-    def o_auth_scopes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def o_auth_scopes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "o_auth_scopes", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -164,21 +164,20 @@ class OAuthClientApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_type: Optional[pulumi.Input['OAuthClientApplicationDataSourceType']] = None,
-                 identity_provider_vpc_connection_properties: Optional[pulumi.Input[Union['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs', 'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_authorization_endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_client_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_client_authentication_type: Optional[pulumi.Input['OAuthClientApplicationOAuthClientAuthenticationType']] = None,
-                 o_auth_scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_token_endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_type: pulumi.Input[Optional['OAuthClientApplicationDataSourceType']] = None,
+                 identity_provider_vpc_connection_properties: pulumi.Input[Optional[Union['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs', 'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_authorization_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_client_authentication_type: pulumi.Input[Optional['OAuthClientApplicationOAuthClientAuthenticationType']] = None,
+                 o_auth_scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_token_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QuickSight::OAuthClientApplication Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,7 +190,6 @@ class OAuthClientApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::QuickSight::OAuthClientApplication Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param OAuthClientApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -208,17 +206,17 @@ class OAuthClientApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 client_secret: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_source_type: Optional[pulumi.Input['OAuthClientApplicationDataSourceType']] = None,
-                 identity_provider_vpc_connection_properties: Optional[pulumi.Input[Union['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs', 'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_authorization_endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_client_application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_client_authentication_type: Optional[pulumi.Input['OAuthClientApplicationOAuthClientAuthenticationType']] = None,
-                 o_auth_scopes: Optional[pulumi.Input[_builtins.str]] = None,
-                 o_auth_token_endpoint_url: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_source_type: pulumi.Input[Optional['OAuthClientApplicationDataSourceType']] = None,
+                 identity_provider_vpc_connection_properties: pulumi.Input[Optional[Union['OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs', 'OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_authorization_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_client_authentication_type: pulumi.Input[Optional['OAuthClientApplicationOAuthClientAuthenticationType']] = None,
+                 o_auth_scopes: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth_token_endpoint_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

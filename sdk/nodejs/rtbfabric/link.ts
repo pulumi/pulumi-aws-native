@@ -136,16 +136,16 @@ export interface LinkArgs {
     /**
      * Boolean to specify if an HTTP responder is allowed.
      */
-    httpResponderAllowed?: pulumi.Input<boolean>;
+    httpResponderAllowed?: pulumi.Input<boolean | undefined>;
     /**
      * Attributes of the link.
      */
-    linkAttributes?: pulumi.Input<inputs.rtbfabric.LinkAttributesArgs>;
+    linkAttributes?: pulumi.Input<inputs.rtbfabric.LinkAttributesArgs | undefined>;
     /**
      * Settings for the application logs.
      */
     linkLogSettings: pulumi.Input<inputs.rtbfabric.LinkLogSettingsArgs>;
-    moduleConfigurationList?: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkModuleConfigurationArgs>[]>;
+    moduleConfigurationList?: pulumi.Input<pulumi.Input<inputs.rtbfabric.LinkModuleConfigurationArgs>[] | undefined>;
     /**
      * The unique identifier of the peer gateway.
      */
@@ -153,5 +153,5 @@ export interface LinkArgs {
     /**
      * A map of the key-value pairs of the tag or tags to assign to the resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -216,7 +216,6 @@ def get_transformer(transformer_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::B2BI::Transformer Resource Type
 
-
     :param _builtins.str transformer_id: The system-assigned unique identifier for the transformer.
     """
     __args__ = dict()
@@ -240,11 +239,10 @@ def get_transformer(transformer_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transformer_arn=pulumi.get(__ret__, 'transformer_arn'),
         transformer_id=pulumi.get(__ret__, 'transformer_id'))
-def get_transformer_output(transformer_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transformer_output(transformer_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransformerResult]:
     """
     Definition of AWS::B2BI::Transformer Resource Type
-
 
     :param _builtins.str transformer_id: The system-assigned unique identifier for the transformer.
     """

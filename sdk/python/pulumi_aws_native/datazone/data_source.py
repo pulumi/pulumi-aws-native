@@ -25,16 +25,16 @@ class DataSourceArgs:
                  domain_identifier: pulumi.Input[_builtins.str],
                  project_identifier: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]]] = None,
-                 configuration: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]] = None,
-                 connection_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_on_import: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recommendation: Optional[pulumi.Input['DataSourceRecommendationConfigurationArgs']] = None,
-                 schedule: Optional[pulumi.Input['DataSourceScheduleConfigurationArgs']] = None):
+                 asset_forms_input: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFormInputArgs']]]] = None,
+                 configuration: pulumi.Input[Optional[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]] = None,
+                 connection_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_setting: pulumi.Input[Optional['DataSourceEnableSetting']] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_on_import: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recommendation: pulumi.Input[Optional['DataSourceRecommendationConfigurationArgs']] = None,
+                 schedule: pulumi.Input[Optional['DataSourceScheduleConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
@@ -114,122 +114,122 @@ class DataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="assetFormsInput")
-    def asset_forms_input(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]]]:
+    def asset_forms_input(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFormInputArgs']]]]:
         """
         The metadata forms that are to be attached to the assets that this data source works with.
         """
         return pulumi.get(self, "asset_forms_input")
 
     @asset_forms_input.setter
-    def asset_forms_input(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]]]):
+    def asset_forms_input(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceFormInputArgs']]]]):
         pulumi.set(self, "asset_forms_input", value)
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]:
+    def configuration(self) -> pulumi.Input[Optional[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]:
         """
         Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]):
+    def configuration(self, value: pulumi.Input[Optional[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionIdentifier")
-    def connection_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def connection_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
         """
         return pulumi.get(self, "connection_identifier")
 
     @connection_identifier.setter
-    def connection_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def connection_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the data source.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSetting")
-    def enable_setting(self) -> Optional[pulumi.Input['DataSourceEnableSetting']]:
+    def enable_setting(self) -> pulumi.Input[Optional['DataSourceEnableSetting']]:
         """
         Specifies whether the data source is enabled.
         """
         return pulumi.get(self, "enable_setting")
 
     @enable_setting.setter
-    def enable_setting(self, value: Optional[pulumi.Input['DataSourceEnableSetting']]):
+    def enable_setting(self, value: pulumi.Input[Optional['DataSourceEnableSetting']]):
         pulumi.set(self, "enable_setting", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def environment_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         """
         return pulumi.get(self, "environment_identifier")
 
     @environment_identifier.setter
-    def environment_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def environment_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "environment_identifier", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the data source.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="publishOnImport")
-    def publish_on_import(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publish_on_import(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
         """
         return pulumi.get(self, "publish_on_import")
 
     @publish_on_import.setter
-    def publish_on_import(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publish_on_import(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish_on_import", value)
 
     @_builtins.property
     @pulumi.getter
-    def recommendation(self) -> Optional[pulumi.Input['DataSourceRecommendationConfigurationArgs']]:
+    def recommendation(self) -> pulumi.Input[Optional['DataSourceRecommendationConfigurationArgs']]:
         """
         Specifies whether the business name generation is to be enabled for this data source.
         """
         return pulumi.get(self, "recommendation")
 
     @recommendation.setter
-    def recommendation(self, value: Optional[pulumi.Input['DataSourceRecommendationConfigurationArgs']]):
+    def recommendation(self, value: pulumi.Input[Optional['DataSourceRecommendationConfigurationArgs']]):
         pulumi.set(self, "recommendation", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['DataSourceScheduleConfigurationArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['DataSourceScheduleConfigurationArgs']]:
         """
         The schedule of the data source runs.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['DataSourceScheduleConfigurationArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['DataSourceScheduleConfigurationArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -239,23 +239,22 @@ class DataSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
-                 connection_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_on_import: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recommendation: Optional[pulumi.Input[Union['DataSourceRecommendationConfigurationArgs', 'DataSourceRecommendationConfigurationArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['DataSourceScheduleConfigurationArgs', 'DataSourceScheduleConfigurationArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 asset_forms_input: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
+                 connection_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_setting: pulumi.Input[Optional['DataSourceEnableSetting']] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_on_import: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recommendation: pulumi.Input[Optional[Union['DataSourceRecommendationConfigurationArgs', 'DataSourceRecommendationConfigurationArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['DataSourceScheduleConfigurationArgs', 'DataSourceScheduleConfigurationArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,7 +281,6 @@ class DataSource(pulumi.CustomResource):
         """
         A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
 
-
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,19 +296,19 @@ class DataSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
-                 connection_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
-                 environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 publish_on_import: Optional[pulumi.Input[_builtins.bool]] = None,
-                 recommendation: Optional[pulumi.Input[Union['DataSourceRecommendationConfigurationArgs', 'DataSourceRecommendationConfigurationArgsDict']]] = None,
-                 schedule: Optional[pulumi.Input[Union['DataSourceScheduleConfigurationArgs', 'DataSourceScheduleConfigurationArgsDict']]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 asset_forms_input: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
+                 connection_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_setting: pulumi.Input[Optional['DataSourceEnableSetting']] = None,
+                 environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 publish_on_import: pulumi.Input[Optional[_builtins.bool]] = None,
+                 recommendation: pulumi.Input[Optional[Union['DataSourceRecommendationConfigurationArgs', 'DataSourceRecommendationConfigurationArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['DataSourceScheduleConfigurationArgs', 'DataSourceScheduleConfigurationArgsDict']]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

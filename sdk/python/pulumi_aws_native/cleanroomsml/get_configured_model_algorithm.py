@@ -69,7 +69,7 @@ def get_configured_model_algorithm(configured_model_algorithm_arn: Optional[_bui
     return AwaitableGetConfiguredModelAlgorithmResult(
         configured_model_algorithm_arn=pulumi.get(__ret__, 'configured_model_algorithm_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configured_model_algorithm_output(configured_model_algorithm_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configured_model_algorithm_output(configured_model_algorithm_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredModelAlgorithmResult]:
     """
     Definition of AWS::CleanRoomsML::ConfiguredModelAlgorithm Resource Type

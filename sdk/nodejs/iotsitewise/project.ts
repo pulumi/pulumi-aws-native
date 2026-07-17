@@ -110,7 +110,7 @@ export interface ProjectArgs {
     /**
      * The IDs of the assets to be associated to the project.
      */
-    assetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    assetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The ID of the portal in which to create the project.
      */
@@ -118,13 +118,13 @@ export interface ProjectArgs {
     /**
      * A description for the project.
      */
-    projectDescription?: pulumi.Input<string>;
+    projectDescription?: pulumi.Input<string | undefined>;
     /**
      * A friendly name for the project.
      */
-    projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the project.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

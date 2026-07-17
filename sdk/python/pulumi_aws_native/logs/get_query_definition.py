@@ -113,7 +113,6 @@ def get_query_definition(query_definition_id: Optional[_builtins.str] = None,
     """
     The resource schema for AWSLogs QueryDefinition
 
-
     :param _builtins.str query_definition_id: Unique identifier of a query definition
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_query_definition(query_definition_id: Optional[_builtins.str] = None,
         query_definition_id=pulumi.get(__ret__, 'query_definition_id'),
         query_language=pulumi.get(__ret__, 'query_language'),
         query_string=pulumi.get(__ret__, 'query_string'))
-def get_query_definition_output(query_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_query_definition_output(query_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryDefinitionResult]:
     """
     The resource schema for AWSLogs QueryDefinition
-
 
     :param _builtins.str query_definition_id: Unique identifier of a query definition
     """

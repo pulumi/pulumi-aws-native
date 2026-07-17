@@ -96,13 +96,13 @@ export interface BridgeSourceArgs {
     /**
      * The source of the flow.
      */
-    flowSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeFlowSourceArgs>;
+    flowSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeFlowSourceArgs | undefined>;
     /**
      * The name of the source.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The source of the network.
      */
-    networkSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeNetworkSourceArgs>;
+    networkSource?: pulumi.Input<inputs.mediaconnect.BridgeSourceBridgeNetworkSourceArgs | undefined>;
 }

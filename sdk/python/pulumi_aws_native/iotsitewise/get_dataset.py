@@ -114,7 +114,6 @@ def get_dataset(dataset_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTSiteWise::Dataset.
 
-
     :param _builtins.str dataset_id: The ID of the dataset.
     """
     __args__ = dict()
@@ -129,11 +128,10 @@ def get_dataset(dataset_id: Optional[_builtins.str] = None,
         dataset_name=pulumi.get(__ret__, 'dataset_name'),
         dataset_source=pulumi.get(__ret__, 'dataset_source'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_dataset_output(dataset_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_dataset_output(dataset_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::IoTSiteWise::Dataset.
-
 
     :param _builtins.str dataset_id: The ID of the dataset.
     """

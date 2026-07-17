@@ -151,7 +151,6 @@ def get_landing_zone(landing_zone_identifier: Optional[_builtins.str] = None,
     """
     Definition of AWS::ControlTower::LandingZone Resource Type
 
-
     :param _builtins.str landing_zone_identifier: The unique identifier of the landing zone.
     """
     __args__ = dict()
@@ -169,11 +168,10 @@ def get_landing_zone(landing_zone_identifier: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_landing_zone_output(landing_zone_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneResult]:
     """
     Definition of AWS::ControlTower::LandingZone Resource Type
-
 
     :param _builtins.str landing_zone_identifier: The unique identifier of the landing zone.
     """

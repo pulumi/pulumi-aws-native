@@ -69,11 +69,10 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[_bu
       If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
      If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
-
     :param _builtins.str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
             Constraints:
              +  Must not match the name of an existing DB cluster parameter group.
-             
+           
              This value is stored as a lowercase string.
     """
     __args__ = dict()
@@ -84,7 +83,7 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[_bu
     return AwaitableGetDbClusterParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
@@ -92,11 +91,10 @@ def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optio
       If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
      If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
 
-
     :param _builtins.str db_cluster_parameter_group_name: The name of the DB cluster parameter group.
             Constraints:
              +  Must not match the name of an existing DB cluster parameter group.
-             
+           
              This value is stored as a lowercase string.
     """
     __args__ = dict()

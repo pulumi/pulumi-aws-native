@@ -47,7 +47,7 @@ class GetConfigurationTemplateResult:
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> Optional[Sequence['outputs.ConfigurationTemplateConfigurationOptionSetting']]:
         """
-        Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide. 
+        Option values for the Elastic Beanstalk configuration, such as the instance type. If specified, these values override the values obtained from the solution stack or the source configuration template. For a complete list of Elastic Beanstalk configuration options, see [Option Values](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html) in the AWS Elastic Beanstalk Developer Guide.
         """
         return pulumi.get(self, "option_settings")
 
@@ -77,8 +77,7 @@ def get_configuration_template(application_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
 
-
-    :param _builtins.str application_name: The name of the Elastic Beanstalk application to associate with this configuration template. 
+    :param _builtins.str application_name: The name of the Elastic Beanstalk application to associate with this configuration template.
     :param _builtins.str template_name: The name of the configuration template
     """
     __args__ = dict()
@@ -91,14 +90,13 @@ def get_configuration_template(application_name: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         option_settings=pulumi.get(__ret__, 'option_settings'),
         template_name=pulumi.get(__ret__, 'template_name'))
-def get_configuration_template_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      template_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_template_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      template_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationTemplateResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
 
-
-    :param _builtins.str application_name: The name of the Elastic Beanstalk application to associate with this configuration template. 
+    :param _builtins.str application_name: The name of the Elastic Beanstalk application to associate with this configuration template.
     :param _builtins.str template_name: The name of the configuration template
     """
     __args__ = dict()

@@ -26,13 +26,13 @@ class ApplicationArgs:
     def __init__(__self__, *,
                  runtime_environment: pulumi.Input[_builtins.str],
                  service_execution_role: pulumi.Input[_builtins.str],
-                 application_configuration: Optional[pulumi.Input['ApplicationConfigurationArgs']] = None,
-                 application_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_maintenance_configuration: Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']] = None,
-                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_configuration: Optional[pulumi.Input['ApplicationRunConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 application_configuration: pulumi.Input[Optional['ApplicationConfigurationArgs']] = None,
+                 application_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_maintenance_configuration: pulumi.Input[Optional['ApplicationMaintenanceConfigurationArgs']] = None,
+                 application_mode: pulumi.Input[Optional['ApplicationMode']] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_configuration: pulumi.Input[Optional['ApplicationRunConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -89,86 +89,86 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
-    def application_configuration(self) -> Optional[pulumi.Input['ApplicationConfigurationArgs']]:
+    def application_configuration(self) -> pulumi.Input[Optional['ApplicationConfigurationArgs']]:
         """
         Use this parameter to configure the application.
         """
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
-    def application_configuration(self, value: Optional[pulumi.Input['ApplicationConfigurationArgs']]):
+    def application_configuration(self, value: pulumi.Input[Optional['ApplicationConfigurationArgs']]):
         pulumi.set(self, "application_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationDescription")
-    def application_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the application.
         """
         return pulumi.get(self, "application_description")
 
     @application_description.setter
-    def application_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_description", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationMaintenanceConfiguration")
-    def application_maintenance_configuration(self) -> Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']]:
+    def application_maintenance_configuration(self) -> pulumi.Input[Optional['ApplicationMaintenanceConfigurationArgs']]:
         """
         Used to configure start of maintenance window.
         """
         return pulumi.get(self, "application_maintenance_configuration")
 
     @application_maintenance_configuration.setter
-    def application_maintenance_configuration(self, value: Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']]):
+    def application_maintenance_configuration(self, value: pulumi.Input[Optional['ApplicationMaintenanceConfigurationArgs']]):
         pulumi.set(self, "application_maintenance_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationMode")
-    def application_mode(self) -> Optional[pulumi.Input['ApplicationMode']]:
+    def application_mode(self) -> pulumi.Input[Optional['ApplicationMode']]:
         """
         To create a Kinesis Data Analytics Studio notebook, you must set the mode to `INTERACTIVE`. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.
         """
         return pulumi.get(self, "application_mode")
 
     @application_mode.setter
-    def application_mode(self, value: Optional[pulumi.Input['ApplicationMode']]):
+    def application_mode(self, value: pulumi.Input[Optional['ApplicationMode']]):
         pulumi.set(self, "application_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
-    def application_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application.
         """
         return pulumi.get(self, "application_name")
 
     @application_name.setter
-    def application_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="runConfiguration")
-    def run_configuration(self) -> Optional[pulumi.Input['ApplicationRunConfigurationArgs']]:
+    def run_configuration(self) -> pulumi.Input[Optional['ApplicationRunConfigurationArgs']]:
         """
         Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
         """
         return pulumi.get(self, "run_configuration")
 
     @run_configuration.setter
-    def run_configuration(self, value: Optional[pulumi.Input['ApplicationRunConfigurationArgs']]):
+    def run_configuration(self, value: pulumi.Input[Optional['ApplicationRunConfigurationArgs']]):
         pulumi.set(self, "run_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -178,19 +178,18 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
-                 application_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_maintenance_configuration: Optional[pulumi.Input[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
-                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_configuration: Optional[pulumi.Input[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
-                 runtime_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
+                 application_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_maintenance_configuration: pulumi.Input[Optional[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
+                 application_mode: pulumi.Input[Optional['ApplicationMode']] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_configuration: pulumi.Input[Optional[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
+                 runtime_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +212,6 @@ class Application(pulumi.CustomResource):
         """
         Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,15 +227,15 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_configuration: Optional[pulumi.Input[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
-                 application_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_maintenance_configuration: Optional[pulumi.Input[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
-                 application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
-                 application_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_configuration: Optional[pulumi.Input[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
-                 runtime_environment: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_configuration: pulumi.Input[Optional[Union['ApplicationConfigurationArgs', 'ApplicationConfigurationArgsDict']]] = None,
+                 application_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_maintenance_configuration: pulumi.Input[Optional[Union['ApplicationMaintenanceConfigurationArgs', 'ApplicationMaintenanceConfigurationArgsDict']]] = None,
+                 application_mode: pulumi.Input[Optional['ApplicationMode']] = None,
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_configuration: pulumi.Input[Optional[Union['ApplicationRunConfigurationArgs', 'ApplicationRunConfigurationArgsDict']]] = None,
+                 runtime_environment: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

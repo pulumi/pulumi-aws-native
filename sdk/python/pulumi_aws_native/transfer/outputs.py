@@ -487,7 +487,6 @@ class ServerEndpointDetails(dict):
                This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
                
                > This property can only be set as follows:
-               > 
                > - `EndpointType` must be set to `VPC`
                > - The Transfer Family server must be offline.
                > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
@@ -534,7 +533,6 @@ class ServerEndpointDetails(dict):
         This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
 
         > This property can only be set as follows:
-        > 
         > - `EndpointType` must be set to `VPC`
         > - The Transfer Family server must be offline.
         > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
@@ -728,7 +726,7 @@ class ServerProtocolDetails(dict):
                
                > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
                > 
-               > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) . 
+               > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) .
                
                *Special values*
                
@@ -777,7 +775,7 @@ class ServerProtocolDetails(dict):
 
         > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
         > 
-        > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) . 
+        > Additionally, avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Transfer Family servers. This configuration increases costs and can cause performance issues. When NLBs or NATs are in the communication path, Transfer Family cannot accurately recognize client IP addresses, which impacts connection sharding and limits FTPS servers to only 300 simultaneous connections instead of 10,000. If you must use an NLB, use port 21 for health checks and enable TLS session resumption by setting `TlsSessionResumptionMode = ENFORCED` . For optimal performance, migrate to VPC endpoints with Elastic IP addresses instead of using NLBs. For more details, see [Avoid placing NLBs and NATs in front of AWS Transfer Family](https://docs.aws.amazon.com/transfer/latest/userguide/infrastructure-security.html#nlb-considerations) .
 
         *Special values*
 

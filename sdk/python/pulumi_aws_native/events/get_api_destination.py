@@ -124,7 +124,6 @@ def get_api_destination(name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Events::ApiDestination.
 
-
     :param _builtins.str name: Name of the apiDestination.
     """
     __args__ = dict()
@@ -140,11 +139,10 @@ def get_api_destination(name: Optional[_builtins.str] = None,
         http_method=pulumi.get(__ret__, 'http_method'),
         invocation_endpoint=pulumi.get(__ret__, 'invocation_endpoint'),
         invocation_rate_limit_per_second=pulumi.get(__ret__, 'invocation_rate_limit_per_second'))
-def get_api_destination_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_destination_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiDestinationResult]:
     """
     Resource Type definition for AWS::Events::ApiDestination.
-
 
     :param _builtins.str name: Name of the apiDestination.
     """

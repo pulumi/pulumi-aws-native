@@ -119,33 +119,33 @@ export interface SecurityProfileArgs {
     /**
      * A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
      */
-    additionalMetricsToRetainV2?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileMetricToRetainArgs>[]>;
+    additionalMetricsToRetainV2?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileMetricToRetainArgs>[] | undefined>;
     /**
      * Specifies the destinations to which alerts are sent.
      */
-    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iot.SecurityProfileAlertTargetArgs>}>;
+    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iot.SecurityProfileAlertTargetArgs>} | undefined>;
     /**
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
-    behaviors?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileBehaviorArgs>[]>;
+    behaviors?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileBehaviorArgs>[] | undefined>;
     /**
      * A structure containing the mqtt topic for metrics export.
      */
-    metricsExportConfig?: pulumi.Input<inputs.iot.MetricsExportConfigPropertiesArgs>;
+    metricsExportConfig?: pulumi.Input<inputs.iot.MetricsExportConfigPropertiesArgs | undefined>;
     /**
      * A description of the security profile.
      */
-    securityProfileDescription?: pulumi.Input<string>;
+    securityProfileDescription?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for the security profile.
      */
-    securityProfileName?: pulumi.Input<string>;
+    securityProfileName?: pulumi.Input<string | undefined>;
     /**
      * Metadata that can be used to manage the security profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A set of target ARNs that the security profile is attached to.
      */
-    targetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    targetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

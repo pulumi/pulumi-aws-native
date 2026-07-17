@@ -67,8 +67,8 @@ def get_autoshift_observer_notification_status(account_id: Optional[_builtins.st
     return AwaitableGetAutoshiftObserverNotificationStatusResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         region=pulumi.get(__ret__, 'region'))
-def get_autoshift_observer_notification_status_output(account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      region: Optional[pulumi.Input[_builtins.str]] = None,
+def get_autoshift_observer_notification_status_output(account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      region: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoshiftObserverNotificationStatusResult]:
     """
     Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type

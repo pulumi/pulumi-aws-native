@@ -50,7 +50,7 @@ export class IpamResourceDiscovery extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ipamResourceDiscoveryId: pulumi.Output<string>;
     /**
-     * The region the resource discovery is setup in. 
+     * The region the resource discovery is setup in.
      */
     declare public /*out*/ readonly ipamResourceDiscoveryRegion: pulumi.Output<string>;
     /**
@@ -123,17 +123,17 @@ export interface IpamResourceDiscoveryArgs {
     /**
      * The resource discovery description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring
      */
-    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryIpamOperatingRegionArgs>[]>;
+    operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryIpamOperatingRegionArgs>[] | undefined>;
     /**
      * A set of organizational unit (OU) exclusions for this resource.
      */
-    organizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusionArgs>[]>;
+    organizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.IpamResourceDiscoveryOrganizationalUnitExclusionArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -23,14 +23,14 @@ __all__ = ['ConformancePackArgs', 'ConformancePack']
 @pulumi.input_type
 class ConformancePackArgs:
     def __init__(__self__, *,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
-                 conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_ssm_document_details: Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']] = None):
+                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
+                 conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_ssm_document_details: pulumi.Input[Optional['TemplateSsmDocumentDetailsPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConformancePack resource.
 
@@ -62,98 +62,98 @@ class ConformancePackArgs:
 
     @_builtins.property
     @pulumi.getter(name="conformancePackInputParameters")
-    def conformance_pack_input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
+    def conformance_pack_input_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]:
         """
         A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
     @conformance_pack_input_parameters.setter
-    def conformance_pack_input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]):
+    def conformance_pack_input_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]]):
         pulumi.set(self, "conformance_pack_input_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="conformancePackName")
-    def conformance_pack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def conformance_pack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the conformance pack which will be assigned as the unique identifier.
         """
         return pulumi.get(self, "conformance_pack_name")
 
     @conformance_pack_name.setter
-    def conformance_pack_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def conformance_pack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "conformance_pack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryS3Bucket")
-    def delivery_s3_bucket(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_s3_bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS Config stores intermediate files while processing conformance pack template.
         """
         return pulumi.get(self, "delivery_s3_bucket")
 
     @delivery_s3_bucket.setter
-    def delivery_s3_bucket(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_s3_bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_s3_bucket", value)
 
     @_builtins.property
     @pulumi.getter(name="deliveryS3KeyPrefix")
-    def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delivery_s3_key_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The prefix for delivery S3 bucket.
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
     @delivery_s3_key_prefix.setter
-    def delivery_s3_key_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delivery_s3_key_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_s3_key_prefix", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags for the conformance pack.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="templateBody")
-    def template_body(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_body(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
-    def template_body(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_body(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_body", value)
 
     @_builtins.property
     @pulumi.getter(name="templateS3Uri")
-    def template_s3_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def template_s3_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         """
         return pulumi.get(self, "template_s3_uri")
 
     @template_s3_uri.setter
-    def template_s3_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def template_s3_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "template_s3_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="templateSsmDocumentDetails")
-    def template_ssm_document_details(self) -> Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']]:
+    def template_ssm_document_details(self) -> pulumi.Input[Optional['TemplateSsmDocumentDetailsPropertiesArgs']]:
         """
         The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
         return pulumi.get(self, "template_ssm_document_details")
 
     @template_ssm_document_details.setter
-    def template_ssm_document_details(self, value: Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']]):
+    def template_ssm_document_details(self, value: pulumi.Input[Optional['TemplateSsmDocumentDetailsPropertiesArgs']]):
         pulumi.set(self, "template_ssm_document_details", value)
 
 
@@ -163,14 +163,14 @@ class ConformancePack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
-                 conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_ssm_document_details: Optional[pulumi.Input[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
+                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
+                 conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -264,14 +264,14 @@ class ConformancePack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
-                 conformance_pack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_bucket: Optional[pulumi.Input[_builtins.str]] = None,
-                 delivery_s3_key_prefix: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 template_body: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 template_ssm_document_details: Optional[pulumi.Input[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
+                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
+                 conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 template_body: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

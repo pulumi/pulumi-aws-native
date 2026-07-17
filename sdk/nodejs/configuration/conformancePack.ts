@@ -147,33 +147,33 @@ export interface ConformancePackArgs {
     /**
      * A list of ConformancePackInputParameter objects.
      */
-    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.ConformancePackInputParameterArgs>[]>;
+    conformancePackInputParameters?: pulumi.Input<pulumi.Input<inputs.configuration.ConformancePackInputParameterArgs>[] | undefined>;
     /**
      * Name of the conformance pack which will be assigned as the unique identifier.
      */
-    conformancePackName?: pulumi.Input<string>;
+    conformancePackName?: pulumi.Input<string | undefined>;
     /**
      * AWS Config stores intermediate files while processing conformance pack template.
      */
-    deliveryS3Bucket?: pulumi.Input<string>;
+    deliveryS3Bucket?: pulumi.Input<string | undefined>;
     /**
      * The prefix for delivery S3 bucket.
      */
-    deliveryS3KeyPrefix?: pulumi.Input<string>;
+    deliveryS3KeyPrefix?: pulumi.Input<string | undefined>;
     /**
      * The tags for the conformance pack.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
      */
-    templateBody?: pulumi.Input<string>;
+    templateBody?: pulumi.Input<string | undefined>;
     /**
      * Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
      */
-    templateS3Uri?: pulumi.Input<string>;
+    templateS3Uri?: pulumi.Input<string | undefined>;
     /**
      * The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
      */
-    templateSsmDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSsmDocumentDetailsPropertiesArgs>;
+    templateSsmDocumentDetails?: pulumi.Input<inputs.configuration.TemplateSsmDocumentDetailsPropertiesArgs | undefined>;
 }

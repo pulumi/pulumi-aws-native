@@ -50,11 +50,11 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public readonly healthCheckPath: pulumi.Output<string | undefined>;
     /**
-     * The port the load balancer uses when performing health checks on targets. 
+     * The port the load balancer uses when performing health checks on targets.
      */
     declare public readonly healthCheckPort: pulumi.Output<string | undefined>;
     /**
-     * The protocol the load balancer uses when performing health checks on targets. 
+     * The protocol the load balancer uses when performing health checks on targets.
      */
     declare public readonly healthCheckProtocol: pulumi.Output<string | undefined>;
     /**
@@ -62,11 +62,11 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public readonly healthCheckTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
-     * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+     * The number of consecutive health checks successes required before considering an unhealthy target healthy.
      */
     declare public readonly healthyThresholdCount: pulumi.Output<number | undefined>;
     /**
-     * The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+     * The type of IP address used for this target group. The possible values are ipv4 and ipv6.
      */
     declare public readonly ipAddressType: pulumi.Output<string | undefined>;
     /**
@@ -209,81 +209,81 @@ export interface TargetGroupArgs {
     /**
      * Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.
      */
-    healthCheckEnabled?: pulumi.Input<boolean>;
+    healthCheckEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The approximate amount of time, in seconds, between health checks of an individual target.
      */
-    healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * [HTTP/HTTPS health checks] The destination for health checks on the targets. [HTTP1 or HTTP2 protocol version] The ping path. The default is /. [GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.
      */
-    healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string | undefined>;
     /**
-     * The port the load balancer uses when performing health checks on targets. 
+     * The port the load balancer uses when performing health checks on targets.
      */
-    healthCheckPort?: pulumi.Input<string>;
+    healthCheckPort?: pulumi.Input<string | undefined>;
     /**
-     * The protocol the load balancer uses when performing health checks on targets. 
+     * The protocol the load balancer uses when performing health checks on targets.
      */
-    healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string | undefined>;
     /**
      * The amount of time, in seconds, during which no response from a target means a failed health check.
      */
-    healthCheckTimeoutSeconds?: pulumi.Input<number>;
+    healthCheckTimeoutSeconds?: pulumi.Input<number | undefined>;
     /**
-     * The number of consecutive health checks successes required before considering an unhealthy target healthy. 
+     * The number of consecutive health checks successes required before considering an unhealthy target healthy.
      */
-    healthyThresholdCount?: pulumi.Input<number>;
+    healthyThresholdCount?: pulumi.Input<number | undefined>;
     /**
-     * The type of IP address used for this target group. The possible values are ipv4 and ipv6. 
+     * The type of IP address used for this target group. The possible values are ipv4 and ipv6.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * [HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.
      */
-    matcher?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupMatcherArgs>;
+    matcher?: pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupMatcherArgs | undefined>;
     /**
      * The name of the target group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.
      */
-    port?: pulumi.Input<number>;
+    port?: pulumi.Input<number | undefined>;
     /**
      * The protocol to use for routing traffic to the targets.
      */
-    protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string | undefined>;
     /**
      * [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
      */
-    protocolVersion?: pulumi.Input<string>;
+    protocolVersion?: pulumi.Input<string | undefined>;
     /**
      * The tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
      */
-    targetControlPort?: pulumi.Input<number>;
+    targetControlPort?: pulumi.Input<number | undefined>;
     /**
      * The attributes.
      */
-    targetGroupAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupAttributeArgs>[]>;
+    targetGroupAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupAttributeArgs>[] | undefined>;
     /**
      * The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
      */
-    targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string | undefined>;
     /**
      * The targets.
      */
-    targets?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetDescriptionArgs>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.TargetGroupTargetDescriptionArgs>[] | undefined>;
     /**
      * The number of consecutive health check failures required before considering a target unhealthy.
      */
-    unhealthyThresholdCount?: pulumi.Input<number>;
+    unhealthyThresholdCount?: pulumi.Input<number | undefined>;
     /**
      * The identifier of the virtual private cloud (VPC). If the target is a Lambda function, this parameter does not apply.
      */
-    vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string | undefined>;
 }

@@ -328,7 +328,7 @@ class ConfigurationTemplateConfigurationOptionSetting(dict):
         """
         :param _builtins.str namespace: A unique namespace that identifies the option's associated AWS resource.
         :param _builtins.str option_name: The name of the configuration option.
-        :param _builtins.str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        :param _builtins.str resource_name: A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         :param _builtins.str value: The current value for the configuration option.
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -358,7 +358,7 @@ class ConfigurationTemplateConfigurationOptionSetting(dict):
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[_builtins.str]:
         """
-        A unique resource name for the option setting. Use it for a time–based scaling configuration option. 
+        A unique resource name for the option setting. Use it for a time–based scaling configuration option.
         """
         return pulumi.get(self, "resource_name")
 

@@ -118,7 +118,7 @@ class GetFileSystemResult:
           +  When to move files in the file system from primary storage to IA storage.
           +  When to move files in the file system from primary storage or IA storage to Archive storage.
           +  When to move files that are in IA or Archive storage to primary storage.
-          
+
           EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
         """
         return pulumi.get(self, "lifecycle_policies")
@@ -143,7 +143,7 @@ class GetFileSystemResult:
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> Optional[_builtins.str]:
         """
-        Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*. 
+        Specifies the throughput mode for the file system. The mode can be ``bursting``, ``provisioned``, or ``elastic``. If you set ``ThroughputMode`` to ``provisioned``, you must also set a value for ``ProvisionedThroughputInMibps``. After you create the file system, you can decrease your file system's Provisioned throughput or change between the throughput modes, with certain time restrictions. For more information, see [Specifying throughput with provisioned mode](https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput) in the *Amazon EFS User Guide*.
          Default is ``bursting``.
         """
         return pulumi.get(self, "throughput_mode")
@@ -172,7 +172,6 @@ def get_file_system(file_system_id: Optional[_builtins.str] = None,
     """
     The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
 
-
     :param _builtins.str file_system_id: The ID of the EFS file system. For example: `fs-abcdef0123456789a`
     """
     __args__ = dict()
@@ -191,11 +190,10 @@ def get_file_system(file_system_id: Optional[_builtins.str] = None,
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
         replication_configuration=pulumi.get(__ret__, 'replication_configuration'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
-def get_file_system_output(file_system_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_file_system_output(file_system_id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
     The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
-
 
     :param _builtins.str file_system_id: The ID of the EFS file system. For example: `fs-abcdef0123456789a`
     """

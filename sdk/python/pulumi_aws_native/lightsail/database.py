@@ -28,16 +28,16 @@ class DatabaseArgs:
                  relational_database_blueprint_id: pulumi.Input[_builtins.str],
                  relational_database_bundle_id: pulumi.Input[_builtins.str],
                  relational_database_name: pulumi.Input[_builtins.str],
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_certificate_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 relational_database_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]] = None,
-                 rotate_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 relational_database_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]] = None,
+                 rotate_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Database resource.
 
@@ -145,122 +145,122 @@ class DatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
-    def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Availability Zone in which to create your new database. Use the us-east-2a case-sensitive format.
         """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
-    def availability_zone(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="backupRetention")
-    def backup_retention(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def backup_retention(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, enables automated backup retention for your database. Updates are applied during the next maintenance window because this can result in an outage.
         """
         return pulumi.get(self, "backup_retention")
 
     @backup_retention.setter
-    def backup_retention(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def backup_retention(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "backup_retention", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertificateIdentifier")
-    def ca_certificate_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ca_certificate_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Indicates the certificate that needs to be associated with the database.
         """
         return pulumi.get(self, "ca_certificate_identifier")
 
     @ca_certificate_identifier.setter
-    def ca_certificate_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ca_certificate_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ca_certificate_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def master_user_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The password for the master user. The password can include any printable ASCII character except "/", \"\"\", or "@". It cannot contain spaces.
         """
         return pulumi.get(self, "master_user_password")
 
     @master_user_password.setter
-    def master_user_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def master_user_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "master_user_password", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
-    def preferred_backup_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_backup_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The daily time range during which automated backups are created for your new database if automated backups are enabled.
         """
         return pulumi.get(self, "preferred_backup_window")
 
     @preferred_backup_window.setter
-    def preferred_backup_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_backup_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_backup_window", value)
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
-    def preferred_maintenance_window(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def preferred_maintenance_window(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The weekly time range during which system maintenance can occur on your new database.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @preferred_maintenance_window.setter
-    def preferred_maintenance_window(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def preferred_maintenance_window(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @_builtins.property
     @pulumi.getter(name="publiclyAccessible")
-    def publicly_accessible(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def publicly_accessible(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies the accessibility options for your new database. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
-    def publicly_accessible(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def publicly_accessible(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
 
     @_builtins.property
     @pulumi.getter(name="relationalDatabaseParameters")
-    def relational_database_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]]:
+    def relational_database_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]]:
         """
         Update one or more parameters of the relational database.
         """
         return pulumi.get(self, "relational_database_parameters")
 
     @relational_database_parameters.setter
-    def relational_database_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]]):
+    def relational_database_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]]):
         pulumi.set(self, "relational_database_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="rotateMasterUserPassword")
-    def rotate_master_user_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rotate_master_user_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         When true, the master user password is changed to a new strong password generated by Lightsail. Use the get relational database master user password operation to get the new password.
         """
         return pulumi.get(self, "rotate_master_user_password")
 
     @rotate_master_user_password.setter
-    def rotate_master_user_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rotate_master_user_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rotate_master_user_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -270,25 +270,24 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_certificate_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 relational_database_blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRelationalDatabaseParameterArgs', 'DatabaseRelationalDatabaseParameterArgsDict']]]]] = None,
-                 rotate_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 relational_database_blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseRelationalDatabaseParameterArgs', 'DatabaseRelationalDatabaseParameterArgsDict']]]]] = None,
+                 rotate_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Database
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,7 +316,6 @@ class Database(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Lightsail::Database
 
-
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -333,21 +331,21 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
-                 backup_retention: Optional[pulumi.Input[_builtins.bool]] = None,
-                 ca_certificate_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_user_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 master_username: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_backup_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 preferred_maintenance_window: Optional[pulumi.Input[_builtins.str]] = None,
-                 publicly_accessible: Optional[pulumi.Input[_builtins.bool]] = None,
-                 relational_database_blueprint_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_bundle_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 relational_database_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRelationalDatabaseParameterArgs', 'DatabaseRelationalDatabaseParameterArgsDict']]]]] = None,
-                 rotate_master_user_password: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_retention: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ca_certificate_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 master_username: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
+                 publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
+                 relational_database_blueprint_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 relational_database_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseRelationalDatabaseParameterArgs', 'DatabaseRelationalDatabaseParameterArgsDict']]]]] = None,
+                 rotate_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

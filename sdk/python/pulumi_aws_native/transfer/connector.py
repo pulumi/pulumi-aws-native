@@ -25,15 +25,15 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  access_role: pulumi.Input[_builtins.str],
-                 as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
-                 egress_config: Optional[pulumi.Input['ConnectorEgressConfigArgs']] = None,
-                 egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 as2_config: pulumi.Input[Optional['As2ConfigPropertiesArgs']] = None,
+                 egress_config: pulumi.Input[Optional['ConnectorEgressConfigArgs']] = None,
+                 egress_type: pulumi.Input[Optional['ConnectorEgressType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ConnectorIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sftp_config: pulumi.Input[Optional['SftpConfigPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -81,107 +81,107 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="as2Config")
-    def as2_config(self) -> Optional[pulumi.Input['As2ConfigPropertiesArgs']]:
+    def as2_config(self) -> pulumi.Input[Optional['As2ConfigPropertiesArgs']]:
         """
         Configuration for an AS2 connector.
         """
         return pulumi.get(self, "as2_config")
 
     @as2_config.setter
-    def as2_config(self, value: Optional[pulumi.Input['As2ConfigPropertiesArgs']]):
+    def as2_config(self, value: pulumi.Input[Optional['As2ConfigPropertiesArgs']]):
         pulumi.set(self, "as2_config", value)
 
     @_builtins.property
     @pulumi.getter(name="egressConfig")
-    def egress_config(self) -> Optional[pulumi.Input['ConnectorEgressConfigArgs']]:
+    def egress_config(self) -> pulumi.Input[Optional['ConnectorEgressConfigArgs']]:
         """
         Egress configuration for the connector.
         """
         return pulumi.get(self, "egress_config")
 
     @egress_config.setter
-    def egress_config(self, value: Optional[pulumi.Input['ConnectorEgressConfigArgs']]):
+    def egress_config(self, value: pulumi.Input[Optional['ConnectorEgressConfigArgs']]):
         pulumi.set(self, "egress_config", value)
 
     @_builtins.property
     @pulumi.getter(name="egressType")
-    def egress_type(self) -> Optional[pulumi.Input['ConnectorEgressType']]:
+    def egress_type(self) -> pulumi.Input[Optional['ConnectorEgressType']]:
         """
         Specifies the egress type for the connector.
         """
         return pulumi.get(self, "egress_type")
 
     @egress_type.setter
-    def egress_type(self, value: Optional[pulumi.Input['ConnectorEgressType']]):
+    def egress_type(self, value: pulumi.Input[Optional['ConnectorEgressType']]):
         pulumi.set(self, "egress_type", value)
 
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[pulumi.Input['ConnectorIpAddressType']]:
+    def ip_address_type(self) -> pulumi.Input[Optional['ConnectorIpAddressType']]:
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
-    def ip_address_type(self, value: Optional[pulumi.Input['ConnectorIpAddressType']]):
+    def ip_address_type(self, value: pulumi.Input[Optional['ConnectorIpAddressType']]):
         pulumi.set(self, "ip_address_type", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")
-    def logging_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def logging_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the logging role for the connector.
         """
         return pulumi.get(self, "logging_role")
 
     @logging_role.setter
-    def logging_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def logging_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "logging_role", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Security policy for SFTP Connector
         """
         return pulumi.get(self, "security_policy_name")
 
     @security_policy_name.setter
-    def security_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sftpConfig")
-    def sftp_config(self) -> Optional[pulumi.Input['SftpConfigPropertiesArgs']]:
+    def sftp_config(self) -> pulumi.Input[Optional['SftpConfigPropertiesArgs']]:
         """
         Configuration for an SFTP connector.
         """
         return pulumi.get(self, "sftp_config")
 
     @sftp_config.setter
-    def sftp_config(self, value: Optional[pulumi.Input['SftpConfigPropertiesArgs']]):
+    def sftp_config(self, value: pulumi.Input[Optional['SftpConfigPropertiesArgs']]):
         pulumi.set(self, "sftp_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Key-value pairs that can be used to group and search for connectors. Tags are metadata attached to connectors for any purpose.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL for Connector
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -191,20 +191,19 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
-                 egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
-                 egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
+                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
+                 egress_type: pulumi.Input[Optional['ConnectorEgressType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ConnectorIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Connector
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +226,6 @@ class Connector(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Transfer::Connector
 
-
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,16 +241,16 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 as2_config: Optional[pulumi.Input[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
-                 egress_config: Optional[pulumi.Input[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
-                 egress_type: Optional[pulumi.Input['ConnectorEgressType']] = None,
-                 ip_address_type: Optional[pulumi.Input['ConnectorIpAddressType']] = None,
-                 logging_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sftp_config: Optional[pulumi.Input[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 access_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 as2_config: pulumi.Input[Optional[Union['As2ConfigPropertiesArgs', 'As2ConfigPropertiesArgsDict']]] = None,
+                 egress_config: pulumi.Input[Optional[Union['ConnectorEgressConfigArgs', 'ConnectorEgressConfigArgsDict']]] = None,
+                 egress_type: pulumi.Input[Optional['ConnectorEgressType']] = None,
+                 ip_address_type: pulumi.Input[Optional['ConnectorIpAddressType']] = None,
+                 logging_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sftp_config: pulumi.Input[Optional[Union['SftpConfigPropertiesArgs', 'SftpConfigPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -126,7 +126,6 @@ def get_rotation(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SSMContacts::Rotation.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_rotation(arn: Optional[_builtins.str] = None,
         start_time=pulumi.get(__ret__, 'start_time'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'))
-def get_rotation_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rotation_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRotationResult]:
     """
     Resource Type definition for AWS::SSMContacts::Rotation.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
     """

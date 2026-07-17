@@ -151,7 +151,7 @@ export interface DataAccessorArgs {
     /**
      * The authentication configuration details for the data accessor. This specifies how the ISV authenticates when accessing data through this data accessor.
      */
-    authenticationDetail?: pulumi.Input<inputs.qbusiness.DataAccessorAuthenticationDetailArgs>;
+    authenticationDetail?: pulumi.Input<inputs.qbusiness.DataAccessorAuthenticationDetailArgs | undefined>;
     /**
      * The friendly name of the data accessor.
      */
@@ -163,5 +163,5 @@ export interface DataAccessorArgs {
     /**
      * The tags to associate with the data accessor.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

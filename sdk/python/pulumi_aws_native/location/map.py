@@ -25,10 +25,10 @@ __all__ = ['MapArgs', 'Map']
 class MapArgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input['MapConfigurationArgs'],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['MapPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Map resource.
 
@@ -70,19 +70,19 @@ class MapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An optional description for the map resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="mapName")
-    def map_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name for the map resource.
 
@@ -95,12 +95,12 @@ class MapArgs:
         return pulumi.get(self, "map_name")
 
     @map_name.setter
-    def map_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "map_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> Optional[pulumi.Input['MapPricingPlan']]:
+    def pricing_plan(self) -> pulumi.Input[Optional['MapPricingPlan']]:
         """
         No longer used. If included, the only allowed value is `RequestBasedUsage` .
 
@@ -109,19 +109,19 @@ class MapArgs:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: Optional[pulumi.Input['MapPricingPlan']]):
+    def pricing_plan(self, value: pulumi.Input[Optional['MapPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -131,15 +131,14 @@ class Map(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['MapPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::Map Resource Type
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,7 +165,6 @@ class Map(pulumi.CustomResource):
         """
         Definition of AWS::Location::Map Resource Type
 
-
         :param str resource_name: The name of the resource.
         :param MapArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,11 +180,11 @@ class Map(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 map_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pricing_plan: pulumi.Input[Optional['MapPricingPlan']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

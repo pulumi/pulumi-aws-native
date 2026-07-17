@@ -174,7 +174,6 @@ def get_command(command_id: Optional[_builtins.str] = None,
     """
     Represents the resource definition of AWS IoT Command.
 
-
     :param _builtins.str command_id: The unique identifier for the command.
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_command(command_id: Optional[_builtins.str] = None,
         pending_deletion=pulumi.get(__ret__, 'pending_deletion'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_command_output(command_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_command_output(command_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommandResult]:
     """
     Represents the resource definition of AWS IoT Command.
-
 
     :param _builtins.str command_id: The unique identifier for the command.
     """

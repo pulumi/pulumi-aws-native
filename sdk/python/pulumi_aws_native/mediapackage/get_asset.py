@@ -124,7 +124,6 @@ def get_asset(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaPackage::Asset
 
-
     :param _builtins.str id: The unique identifier for the Asset.
     """
     __args__ = dict()
@@ -140,11 +139,10 @@ def get_asset(id: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_role_arn=pulumi.get(__ret__, 'source_role_arn'))
-def get_asset_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_asset_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Resource schema for AWS::MediaPackage::Asset
-
 
     :param _builtins.str id: The unique identifier for the Asset.
     """

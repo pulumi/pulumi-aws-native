@@ -77,7 +77,6 @@ def get_s3_table_integration(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
 
-
     :param _builtins.str arn: The ARN of the S3 Table Integration
     """
     __args__ = dict()
@@ -89,11 +88,10 @@ def get_s3_table_integration(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         log_sources=pulumi.get(__ret__, 'log_sources'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_s3_table_integration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_s3_table_integration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3TableIntegrationResult]:
     """
     Resource Type definition for a CloudWatch Observability Admin S3 Table Integration.
-
 
     :param _builtins.str arn: The ARN of the S3 Table Integration
     """

@@ -147,7 +147,6 @@ def get_storage_system(storage_system_arn: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::DataSync::StorageSystem.
 
-
     :param _builtins.str storage_system_arn: The ARN of the on-premises storage system added to DataSync Discovery.
     """
     __args__ = dict()
@@ -165,11 +164,10 @@ def get_storage_system(storage_system_arn: Optional[_builtins.str] = None,
         storage_system_arn=pulumi.get(__ret__, 'storage_system_arn'),
         system_type=pulumi.get(__ret__, 'system_type'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_system_output(storage_system_arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSystemResult]:
     """
     Resource schema for AWS::DataSync::StorageSystem.
-
 
     :param _builtins.str storage_system_arn: The ARN of the on-premises storage system added to DataSync Discovery.
     """

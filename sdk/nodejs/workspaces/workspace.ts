@@ -139,11 +139,11 @@ export interface WorkspaceArgs {
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
-    rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    rootVolumeEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The tags for the WorkSpace.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.
      */
@@ -151,13 +151,13 @@ export interface WorkspaceArgs {
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      */
-    userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    userVolumeEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.
      */
-    volumeEncryptionKey?: pulumi.Input<string>;
+    volumeEncryptionKey?: pulumi.Input<string | undefined>;
     /**
      * The WorkSpace properties.
      */
-    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspacePropertiesArgs>;
+    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspacePropertiesArgs | undefined>;
 }

@@ -93,7 +93,7 @@ export interface StateMachineVersionArgs {
     /**
      * An optional description of the state machine version.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the state machine.
      */
@@ -105,5 +105,5 @@ export interface StateMachineVersionArgs {
      *
      * To specify the initial state machine revision, set the value as `INITIAL` .
      */
-    stateMachineRevisionId?: pulumi.Input<string>;
+    stateMachineRevisionId?: pulumi.Input<string | undefined>;
 }

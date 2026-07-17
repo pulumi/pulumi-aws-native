@@ -199,7 +199,6 @@ def get_location_smb(location_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::DataSync::LocationSMB.
 
-
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the SMB location that is created.
     """
     __args__ = dict()
@@ -221,11 +220,10 @@ def get_location_smb(location_arn: Optional[_builtins.str] = None,
         mount_options=pulumi.get(__ret__, 'mount_options'),
         tags=pulumi.get(__ret__, 'tags'),
         user=pulumi.get(__ret__, 'user'))
-def get_location_smb_output(location_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_location_smb_output(location_arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationSmbResult]:
     """
     Resource Type definition for AWS::DataSync::LocationSMB.
-
 
     :param _builtins.str location_arn: The Amazon Resource Name (ARN) of the SMB location that is created.
     """

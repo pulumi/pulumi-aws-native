@@ -51,7 +51,6 @@ def get_state_machine_version(arn: Optional[_builtins.str] = None,
     """
     Resource schema for StateMachineVersion
 
-
     :param _builtins.str arn: Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
     """
     __args__ = dict()
@@ -61,11 +60,10 @@ def get_state_machine_version(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetStateMachineVersionResult(
         arn=pulumi.get(__ret__, 'arn'))
-def get_state_machine_version_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_state_machine_version_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionResult]:
     """
     Resource schema for StateMachineVersion
-
 
     :param _builtins.str arn: Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
     """

@@ -44,7 +44,7 @@ class ComponentPlatform(_builtins.str, Enum):
 @pulumi.type_token("aws-native:imagebuilder:ComponentType")
 class ComponentType(_builtins.str, Enum):
     """
-    The type of the component denotes whether the component is used to build the image or only to test it. 
+    The type of the component denotes whether the component is used to build the image or only to test it.
     """
     BUILD = "BUILD"
     TEST = "TEST"
@@ -159,7 +159,7 @@ class ImageWorkflowConfigurationOnFailure(_builtins.str, Enum):
 @pulumi.type_token("aws-native:imagebuilder:InfrastructureConfigurationInstanceMetadataOptionsHttpTokens")
 class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(_builtins.str, Enum):
     """
-    Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
+    Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:
     """
     REQUIRED = "required"
     OPTIONAL = "optional"

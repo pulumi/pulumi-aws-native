@@ -113,7 +113,6 @@ def get_instance(instance_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for Identity Center (SSO) Instance
 
-
     :param _builtins.str instance_arn: The SSO Instance ARN that is returned upon creation of the Identity Center (SSO) Instance
     """
     __args__ = dict()
@@ -128,11 +127,10 @@ def get_instance(instance_arn: Optional[_builtins.str] = None,
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_instance_output(instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_instance_output(instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for Identity Center (SSO) Instance
-
 
     :param _builtins.str instance_arn: The SSO Instance ARN that is returned upon creation of the Identity Center (SSO) Instance
     """

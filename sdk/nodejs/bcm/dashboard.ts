@@ -87,8 +87,8 @@ export class Dashboard extends pulumi.CustomResource {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
-    description?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    description?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     widgets: pulumi.Input<pulumi.Input<inputs.bcm.DashboardWidgetArgs>[]>;
 }

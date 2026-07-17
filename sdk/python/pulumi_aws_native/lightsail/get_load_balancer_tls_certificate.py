@@ -88,7 +88,6 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[_builtins.str] 
     """
     Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
 
-
     :param _builtins.str certificate_name: The SSL/TLS certificate name.
     :param _builtins.str load_balancer_name: The name of your load balancer.
     """
@@ -103,12 +102,11 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[_builtins.str] 
         is_attached=pulumi.get(__ret__, 'is_attached'),
         load_balancer_tls_certificate_arn=pulumi.get(__ret__, 'load_balancer_tls_certificate_arn'),
         status=pulumi.get(__ret__, 'status'))
-def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_load_balancer_tls_certificate_output(certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerTlsCertificateResult]:
     """
     Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
-
 
     :param _builtins.str certificate_name: The SSL/TLS certificate name.
     :param _builtins.str load_balancer_name: The name of your load balancer.

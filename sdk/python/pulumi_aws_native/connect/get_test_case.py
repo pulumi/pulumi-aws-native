@@ -174,7 +174,6 @@ def get_test_case(test_case_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::TestCase
 
-
     :param _builtins.str test_case_arn: The identifier of the test case.
     """
     __args__ = dict()
@@ -194,11 +193,10 @@ def get_test_case(test_case_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         test_case_arn=pulumi.get(__ret__, 'test_case_arn'))
-def get_test_case_output(test_case_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_test_case_output(test_case_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestCaseResult]:
     """
     Resource Type definition for AWS::Connect::TestCase
-
 
     :param _builtins.str test_case_arn: The identifier of the test case.
     """

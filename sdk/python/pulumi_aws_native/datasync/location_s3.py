@@ -25,10 +25,10 @@ __all__ = ['LocationS3Args', 'LocationS3']
 class LocationS3Args:
     def __init__(__self__, *,
                  s3_config: pulumi.Input['LocationS3s3ConfigArgs'],
-                 s3_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_storage_class: pulumi.Input[Optional['LocationS3S3StorageClass']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationS3 resource.
 
@@ -66,50 +66,50 @@ class LocationS3Args:
 
     @_builtins.property
     @pulumi.getter(name="s3BucketArn")
-    def s3_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def s3_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
     @s3_bucket_arn.setter
-    def s3_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def s3_bucket_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_bucket_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="s3StorageClass")
-    def s3_storage_class(self) -> Optional[pulumi.Input['LocationS3S3StorageClass']]:
+    def s3_storage_class(self) -> pulumi.Input[Optional['LocationS3S3StorageClass']]:
         """
         The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         """
         return pulumi.get(self, "s3_storage_class")
 
     @s3_storage_class.setter
-    def s3_storage_class(self, value: Optional[pulumi.Input['LocationS3S3StorageClass']]):
+    def s3_storage_class(self, value: pulumi.Input[Optional['LocationS3S3StorageClass']]):
         pulumi.set(self, "s3_storage_class", value)
 
     @_builtins.property
     @pulumi.getter
-    def subdirectory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         """
         return pulumi.get(self, "subdirectory")
 
     @subdirectory.setter
-    def subdirectory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subdirectory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdirectory", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -119,11 +119,11 @@ class LocationS3(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 s3_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_config: Optional[pulumi.Input[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
-                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
+                 s3_storage_class: pulumi.Input[Optional['LocationS3S3StorageClass']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataSync::LocationS3
@@ -228,11 +228,11 @@ class LocationS3(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 s3_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 s3_config: Optional[pulumi.Input[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
-                 s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
-                 subdirectory: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 s3_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_config: pulumi.Input[Optional[Union['LocationS3s3ConfigArgs', 'LocationS3s3ConfigArgsDict']]] = None,
+                 s3_storage_class: pulumi.Input[Optional['LocationS3S3StorageClass']] = None,
+                 subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

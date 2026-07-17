@@ -114,7 +114,6 @@ def get_schema_mapping(schema_name: Optional[_builtins.str] = None,
     """
     SchemaMapping defined in AWS Entity Resolution service
 
-
     :param _builtins.str schema_name: The name of the SchemaMapping
     """
     __args__ = dict()
@@ -130,11 +129,10 @@ def get_schema_mapping(schema_name: Optional[_builtins.str] = None,
         schema_arn=pulumi.get(__ret__, 'schema_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_schema_mapping_output(schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_schema_mapping_output(schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaMappingResult]:
     """
     SchemaMapping defined in AWS Entity Resolution service
-
 
     :param _builtins.str schema_name: The name of the SchemaMapping
     """

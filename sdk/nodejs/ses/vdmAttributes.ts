@@ -81,9 +81,9 @@ export interface VdmAttributesArgs {
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
-    dashboardAttributes?: pulumi.Input<inputs.ses.VdmAttributesDashboardAttributesArgs>;
+    dashboardAttributes?: pulumi.Input<inputs.ses.VdmAttributesDashboardAttributesArgs | undefined>;
     /**
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
-    guardianAttributes?: pulumi.Input<inputs.ses.VdmAttributesGuardianAttributesArgs>;
+    guardianAttributes?: pulumi.Input<inputs.ses.VdmAttributesGuardianAttributesArgs | undefined>;
 }

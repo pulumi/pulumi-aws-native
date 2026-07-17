@@ -171,35 +171,35 @@ export interface ComponentTypeArgs {
     /**
      * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
      */
-    compositeComponentTypes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeCompositeComponentTypeArgs>}>;
+    compositeComponentTypes?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeCompositeComponentTypeArgs>} | undefined>;
     /**
      * The description of the component type.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Specifies the parent component type to extend.
      */
-    extendsFrom?: pulumi.Input<pulumi.Input<string>[]>;
+    extendsFrom?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * a Map of functions in the component type. Each function's key must be unique to this map.
      */
-    functions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeFunctionArgs>}>;
+    functions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypeFunctionArgs>} | undefined>;
     /**
      * A Boolean value that specifies whether an entity can have more than one component of this type.
      */
-    isSingleton?: pulumi.Input<boolean>;
+    isSingleton?: pulumi.Input<boolean | undefined>;
     /**
      * An map of the property definitions in the component type. Each property definition's key must be unique to this map.
      */
-    propertyDefinitions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyDefinitionArgs>}>;
+    propertyDefinitions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyDefinitionArgs>} | undefined>;
     /**
      * An map of the property groups in the component type. Each property group's key must be unique to this map.
      */
-    propertyGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyGroupArgs>}>;
+    propertyGroups?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iottwinmaker.ComponentTypePropertyGroupArgs>} | undefined>;
     /**
      * A map of key-value pairs to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the workspace that contains the component type.
      */

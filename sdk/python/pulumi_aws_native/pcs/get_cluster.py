@@ -137,7 +137,6 @@ def get_cluster(arn: Optional[_builtins.str] = None,
     """
     AWS::PCS::Cluster resource creates an AWS PCS cluster.
 
-
     :param _builtins.str arn: The unique Amazon Resource Name (ARN) of the cluster.
     """
     __args__ = dict()
@@ -154,11 +153,10 @@ def get_cluster(arn: Optional[_builtins.str] = None,
         slurm_configuration=pulumi.get(__ret__, 'slurm_configuration'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_cluster_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cluster_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     AWS::PCS::Cluster resource creates an AWS PCS cluster.
-
 
     :param _builtins.str arn: The unique Amazon Resource Name (ARN) of the cluster.
     """

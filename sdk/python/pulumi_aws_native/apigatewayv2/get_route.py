@@ -162,7 +162,6 @@ def get_route(api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str route_id: The route ID.
     """
@@ -183,12 +182,11 @@ def get_route(api_id: Optional[_builtins.str] = None,
         route_key=pulumi.get(__ret__, 'route_key'),
         route_response_selection_expression=pulumi.get(__ret__, 'route_response_selection_expression'),
         target=pulumi.get(__ret__, 'target'))
-def get_route_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     route_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     route_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str route_id: The route ID.

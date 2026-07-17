@@ -23,12 +23,12 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[_builtins.str],
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_policies: Optional[pulumi.Input['DeploymentPoliciesArgs']] = None,
-                 iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
-                 parent_target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_policies: pulumi.Input[Optional['DeploymentPoliciesArgs']] = None,
+                 iot_job_configuration: pulumi.Input[Optional['DeploymentIoTJobConfigurationArgs']] = None,
+                 parent_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
@@ -75,67 +75,67 @@ class DeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]:
+    def components(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]:
         """
         The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]):
+    def components(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]]]):
         pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the deployment.
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentPolicies")
-    def deployment_policies(self) -> Optional[pulumi.Input['DeploymentPoliciesArgs']]:
+    def deployment_policies(self) -> pulumi.Input[Optional['DeploymentPoliciesArgs']]:
         """
         The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
         """
         return pulumi.get(self, "deployment_policies")
 
     @deployment_policies.setter
-    def deployment_policies(self, value: Optional[pulumi.Input['DeploymentPoliciesArgs']]):
+    def deployment_policies(self, value: pulumi.Input[Optional['DeploymentPoliciesArgs']]):
         pulumi.set(self, "deployment_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="iotJobConfiguration")
-    def iot_job_configuration(self) -> Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']]:
+    def iot_job_configuration(self) -> pulumi.Input[Optional['DeploymentIoTJobConfigurationArgs']]:
         """
         The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         """
         return pulumi.get(self, "iot_job_configuration")
 
     @iot_job_configuration.setter
-    def iot_job_configuration(self, value: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']]):
+    def iot_job_configuration(self, value: pulumi.Input[Optional['DeploymentIoTJobConfigurationArgs']]):
         pulumi.set(self, "iot_job_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="parentTargetArn")
-    def parent_target_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_target_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
         """
         return pulumi.get(self, "parent_target_arn")
 
     @parent_target_arn.setter
-    def parent_target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_target_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_target_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
 
@@ -149,7 +149,7 @@ class DeploymentArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -159,17 +159,16 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_policies: Optional[pulumi.Input[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
-                 iot_job_configuration: Optional[pulumi.Input[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
-                 parent_target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
+                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
+                 parent_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for Greengrass V2 deployment.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -197,7 +196,6 @@ class Deployment(pulumi.CustomResource):
         """
         Resource for Greengrass V2 deployment.
 
-
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,13 +211,13 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
-                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 deployment_policies: Optional[pulumi.Input[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
-                 iot_job_configuration: Optional[pulumi.Input[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
-                 parent_target_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
+                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
+                 parent_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

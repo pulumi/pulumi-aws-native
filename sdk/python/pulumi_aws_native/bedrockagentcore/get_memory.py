@@ -198,7 +198,7 @@ def get_memory(memory_arn: Optional[_builtins.str] = None,
         stream_delivery_resources=pulumi.get(__ret__, 'stream_delivery_resources'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_memory_output(memory_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_memory_output(memory_arn: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMemoryResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::Memory

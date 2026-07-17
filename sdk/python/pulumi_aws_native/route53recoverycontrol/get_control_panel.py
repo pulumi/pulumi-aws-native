@@ -100,7 +100,6 @@ def get_control_panel(control_panel_arn: Optional[_builtins.str] = None,
     """
     AWS Route53 Recovery Control Control Panel resource schema .
 
-
     :param _builtins.str control_panel_arn: The Amazon Resource Name (ARN) of the cluster.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_control_panel(control_panel_arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         routing_control_count=pulumi.get(__ret__, 'routing_control_count'),
         status=pulumi.get(__ret__, 'status'))
-def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_control_panel_output(control_panel_arn: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlPanelResult]:
     """
     AWS Route53 Recovery Control Control Panel resource schema .
-
 
     :param _builtins.str control_panel_arn: The Amazon Resource Name (ARN) of the cluster.
     """

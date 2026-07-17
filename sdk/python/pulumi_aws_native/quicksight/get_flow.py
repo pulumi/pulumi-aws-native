@@ -140,7 +140,7 @@ def get_flow(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         publish_state=pulumi.get(__ret__, 'publish_state'),
         step_aliases=pulumi.get(__ret__, 'step_aliases'))
-def get_flow_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Definition of AWS::QuickSight::Flow Resource Type

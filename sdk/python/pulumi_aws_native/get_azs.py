@@ -55,7 +55,7 @@ def get_azs(region: Optional[_builtins.str] = None,
 
     return AwaitableGetAzsResult(
         azs=pulumi.get(__ret__, 'azs'))
-def get_azs_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_azs_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzsResult]:
     """
     Use this data source to access information about an existing resource.

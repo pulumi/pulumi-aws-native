@@ -104,11 +104,11 @@ export interface WorkerConfigurationArgs {
     /**
      * A summary description of the worker configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the worker configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Base64 encoded contents of connect-distributed.properties file.
      */
@@ -116,5 +116,5 @@ export interface WorkerConfigurationArgs {
     /**
      * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

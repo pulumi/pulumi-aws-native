@@ -98,11 +98,11 @@ export interface MultiRegionAccessPointArgs {
     /**
      * The name you want to assign to this Multi Region Access Point.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
-    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.MultiRegionAccessPointPublicAccessBlockConfigurationArgs>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.MultiRegionAccessPointPublicAccessBlockConfigurationArgs | undefined>;
     /**
      * The list of buckets that you want to associate this Multi Region Access Point with.
      */

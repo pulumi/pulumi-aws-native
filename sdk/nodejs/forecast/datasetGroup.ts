@@ -98,11 +98,11 @@ export interface DatasetGroupArgs {
     /**
      * An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the dataset group.
      */
-    datasetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    datasetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A name for the dataset group.
      */
-    datasetGroupName?: pulumi.Input<string>;
+    datasetGroupName?: pulumi.Input<string | undefined>;
     /**
      * The domain associated with the dataset group. When you add a dataset to a dataset group, this value and the value specified for the Domain parameter of the CreateDataset operation must match.
      */
@@ -110,5 +110,5 @@ export interface DatasetGroupArgs {
     /**
      * The tags of Application Insights application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

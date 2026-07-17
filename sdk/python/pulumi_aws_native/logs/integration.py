@@ -24,7 +24,7 @@ class IntegrationArgs:
     def __init__(__self__, *,
                  integration_type: pulumi.Input['IntegrationType'],
                  resource_config: pulumi.Input['ResourceConfigPropertiesArgs'],
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Integration resource.
 
@@ -63,14 +63,14 @@ class IntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="integrationName")
-    def integration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def integration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User provided identifier for integration, unique to the user account.
         """
         return pulumi.get(self, "integration_name")
 
     @integration_name.setter
-    def integration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def integration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_name", value)
 
 
@@ -80,13 +80,12 @@ class Integration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input['IntegrationType']] = None,
-                 resource_config: Optional[pulumi.Input[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional['IntegrationType']] = None,
+                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Resource Schema for Logs Integration Resource
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,7 +102,6 @@ class Integration(pulumi.CustomResource):
         """
         Resource Schema for Logs Integration Resource
 
-
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,9 @@ class Integration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 integration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 integration_type: Optional[pulumi.Input['IntegrationType']] = None,
-                 resource_config: Optional[pulumi.Input[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
+                 integration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 integration_type: pulumi.Input[Optional['IntegrationType']] = None,
+                 resource_config: pulumi.Input[Optional[Union['ResourceConfigPropertiesArgs', 'ResourceConfigPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

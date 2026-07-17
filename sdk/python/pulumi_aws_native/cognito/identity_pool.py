@@ -24,16 +24,16 @@ __all__ = ['IdentityPoolArgs', 'IdentityPool']
 class IdentityPoolArgs:
     def __init__(__self__, *,
                  allow_unauthenticated_identities: pulumi.Input[_builtins.bool],
-                 allow_classic_flow: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
                  cognito_events: Optional[Any] = None,
-                 cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
-                 cognito_streams: Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']] = None,
-                 developer_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
-                 saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
+                 cognito_streams: pulumi.Input[Optional['IdentityPoolCognitoStreamsArgs']] = None,
+                 developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 open_id_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 push_sync: pulumi.Input[Optional['IdentityPoolPushSyncArgs']] = None,
+                 saml_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  supported_login_providers: Optional[Any] = None):
         """
         The set of arguments for constructing a IdentityPool resource.
@@ -103,14 +103,14 @@ class IdentityPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowClassicFlow")
-    def allow_classic_flow(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def allow_classic_flow(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables the Basic (Classic) authentication flow.
         """
         return pulumi.get(self, "allow_classic_flow")
 
     @allow_classic_flow.setter
-    def allow_classic_flow(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def allow_classic_flow(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_classic_flow", value)
 
     @_builtins.property
@@ -129,31 +129,31 @@ class IdentityPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="cognitoIdentityProviders")
-    def cognito_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]]:
+    def cognito_identity_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]]:
         """
         The Amazon Cognito user pools and their client IDs.
         """
         return pulumi.get(self, "cognito_identity_providers")
 
     @cognito_identity_providers.setter
-    def cognito_identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]]):
+    def cognito_identity_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]]):
         pulumi.set(self, "cognito_identity_providers", value)
 
     @_builtins.property
     @pulumi.getter(name="cognitoStreams")
-    def cognito_streams(self) -> Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']]:
+    def cognito_streams(self) -> pulumi.Input[Optional['IdentityPoolCognitoStreamsArgs']]:
         """
         Configuration options for configuring Amazon Cognito streams.
         """
         return pulumi.get(self, "cognito_streams")
 
     @cognito_streams.setter
-    def cognito_streams(self, value: Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']]):
+    def cognito_streams(self, value: pulumi.Input[Optional['IdentityPoolCognitoStreamsArgs']]):
         pulumi.set(self, "cognito_streams", value)
 
     @_builtins.property
     @pulumi.getter(name="developerProviderName")
-    def developer_provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def developer_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
 
@@ -164,12 +164,12 @@ class IdentityPoolArgs:
         return pulumi.get(self, "developer_provider_name")
 
     @developer_provider_name.setter
-    def developer_provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def developer_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "developer_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityPoolName")
-    def identity_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of your Amazon Cognito identity pool.
 
@@ -182,55 +182,55 @@ class IdentityPoolArgs:
         return pulumi.get(self, "identity_pool_name")
 
     @identity_pool_name.setter
-    def identity_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="identityPoolTags")
-    def identity_pool_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def identity_pool_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "identity_pool_tags")
 
     @identity_pool_tags.setter
-    def identity_pool_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def identity_pool_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "identity_pool_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="openIdConnectProviderArns")
-    def open_id_connect_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def open_id_connect_provider_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the OpenID connect providers.
         """
         return pulumi.get(self, "open_id_connect_provider_arns")
 
     @open_id_connect_provider_arns.setter
-    def open_id_connect_provider_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def open_id_connect_provider_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "open_id_connect_provider_arns", value)
 
     @_builtins.property
     @pulumi.getter(name="pushSync")
-    def push_sync(self) -> Optional[pulumi.Input['IdentityPoolPushSyncArgs']]:
+    def push_sync(self) -> pulumi.Input[Optional['IdentityPoolPushSyncArgs']]:
         """
         The configuration options to be applied to the identity pool.
         """
         return pulumi.get(self, "push_sync")
 
     @push_sync.setter
-    def push_sync(self, value: Optional[pulumi.Input['IdentityPoolPushSyncArgs']]):
+    def push_sync(self, value: pulumi.Input[Optional['IdentityPoolPushSyncArgs']]):
         pulumi.set(self, "push_sync", value)
 
     @_builtins.property
     @pulumi.getter(name="samlProviderArns")
-    def saml_provider_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def saml_provider_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
         """
         return pulumi.get(self, "saml_provider_arns")
 
     @saml_provider_arns.setter
-    def saml_provider_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def saml_provider_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "saml_provider_arns", value)
 
     @_builtins.property
@@ -254,22 +254,21 @@ class IdentityPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_classic_flow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_unauthenticated_identities: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
                  cognito_events: Optional[Any] = None,
-                 cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
-                 cognito_streams: Optional[pulumi.Input[Union['IdentityPoolCognitoStreamsArgs', 'IdentityPoolCognitoStreamsArgsDict']]] = None,
-                 developer_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 push_sync: Optional[pulumi.Input[Union['IdentityPoolPushSyncArgs', 'IdentityPoolPushSyncArgsDict']]] = None,
-                 saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
+                 cognito_streams: pulumi.Input[Optional[Union['IdentityPoolCognitoStreamsArgs', 'IdentityPoolCognitoStreamsArgsDict']]] = None,
+                 developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 open_id_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 push_sync: pulumi.Input[Optional[Union['IdentityPoolPushSyncArgs', 'IdentityPoolPushSyncArgsDict']]] = None,
+                 saml_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  supported_login_providers: Optional[Any] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::IdentityPool
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -309,7 +308,6 @@ class IdentityPool(pulumi.CustomResource):
         """
         Resource Type definition for AWS::Cognito::IdentityPool
 
-
         :param str resource_name: The name of the resource.
         :param IdentityPoolArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,17 +323,17 @@ class IdentityPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_classic_flow: Optional[pulumi.Input[_builtins.bool]] = None,
-                 allow_unauthenticated_identities: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_classic_flow: pulumi.Input[Optional[_builtins.bool]] = None,
+                 allow_unauthenticated_identities: pulumi.Input[Optional[_builtins.bool]] = None,
                  cognito_events: Optional[Any] = None,
-                 cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
-                 cognito_streams: Optional[pulumi.Input[Union['IdentityPoolCognitoStreamsArgs', 'IdentityPoolCognitoStreamsArgsDict']]] = None,
-                 developer_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_pool_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 open_id_connect_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 push_sync: Optional[pulumi.Input[Union['IdentityPoolPushSyncArgs', 'IdentityPoolPushSyncArgsDict']]] = None,
-                 saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cognito_identity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IdentityPoolCognitoIdentityProviderArgs', 'IdentityPoolCognitoIdentityProviderArgsDict']]]]] = None,
+                 cognito_streams: pulumi.Input[Optional[Union['IdentityPoolCognitoStreamsArgs', 'IdentityPoolCognitoStreamsArgsDict']]] = None,
+                 developer_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_pool_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 open_id_connect_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 push_sync: pulumi.Input[Optional[Union['IdentityPoolPushSyncArgs', 'IdentityPoolPushSyncArgsDict']]] = None,
+                 saml_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  supported_login_providers: Optional[Any] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

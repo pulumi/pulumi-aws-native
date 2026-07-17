@@ -158,11 +158,11 @@ export interface InfrastructureConfigurationArgs {
     /**
      * The description of the infrastructure configuration.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The instance metadata option settings for the infrastructure configuration.
      */
-    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptionsArgs>;
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptionsArgs | undefined>;
     /**
      * The instance profile of the infrastructure configuration.
      */
@@ -170,45 +170,45 @@ export interface InfrastructureConfigurationArgs {
     /**
      * The instance types of the infrastructure configuration.
      */
-    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The EC2 key pair of the infrastructure configuration..
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * The logging configuration of the infrastructure configuration.
      */
-    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLoggingArgs>;
+    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLoggingArgs | undefined>;
     /**
      * The name of the infrastructure configuration.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The placement option settings for the infrastructure configuration.
      */
-    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacementArgs>;
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacementArgs | undefined>;
     /**
      * The tags attached to the resource created by Image Builder.
      */
-    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The security group IDs of the infrastructure configuration.
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * The subnet ID of the infrastructure configuration.
      */
-    subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string | undefined>;
     /**
      * The tags associated with the component.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The terminate instance on failure configuration of the infrastructure configuration.
      */
-    terminateInstanceOnFailure?: pulumi.Input<boolean>;
+    terminateInstanceOnFailure?: pulumi.Input<boolean | undefined>;
 }

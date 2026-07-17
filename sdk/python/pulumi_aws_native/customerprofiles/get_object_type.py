@@ -211,7 +211,6 @@ def get_object_type(domain_name: Optional[_builtins.str] = None,
     """
     An ObjectType resource of Amazon Connect Customer Profiles
 
-
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str object_type_name: The name of the profile object type.
     """
@@ -236,12 +235,11 @@ def get_object_type(domain_name: Optional[_builtins.str] = None,
         source_priority=pulumi.get(__ret__, 'source_priority'),
         tags=pulumi.get(__ret__, 'tags'),
         template_id=pulumi.get(__ret__, 'template_id'))
-def get_object_type_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           object_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_object_type_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectTypeResult]:
     """
     An ObjectType resource of Amazon Connect Customer Profiles
-
 
     :param _builtins.str domain_name: The unique name of the domain.
     :param _builtins.str object_type_name: The name of the profile object type.

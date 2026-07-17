@@ -24,9 +24,9 @@ class RouteResponseArgs:
                  api_id: pulumi.Input[_builtins.str],
                  route_id: pulumi.Input[_builtins.str],
                  route_response_key: pulumi.Input[_builtins.str],
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]] = None):
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]] = None):
         """
         The set of arguments for constructing a RouteResponse resource.
 
@@ -87,14 +87,14 @@ class RouteResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="modelSelectionExpression")
-    def model_selection_expression(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_selection_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The model selection expression for the route response. Supported only for WebSocket APIs.
         """
         return pulumi.get(self, "model_selection_expression")
 
     @model_selection_expression.setter
-    def model_selection_expression(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_selection_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_selection_expression", value)
 
     @_builtins.property
@@ -113,14 +113,14 @@ class RouteResponseArgs:
 
     @_builtins.property
     @pulumi.getter(name="responseParameters")
-    def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]:
+    def response_parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]:
         """
         The route response parameters.
         """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
-    def response_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]):
+    def response_parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['RouteResponseParameterConstraintsArgs']]]]):
         pulumi.set(self, "response_parameters", value)
 
 
@@ -130,16 +130,15 @@ class RouteResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
-                 route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
+                 route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -161,7 +160,6 @@ class RouteResponse(pulumi.CustomResource):
         """
         The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 
-
         :param str resource_name: The name of the resource.
         :param RouteResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -177,12 +175,12 @@ class RouteResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_selection_expression: Optional[pulumi.Input[_builtins.str]] = None,
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_selection_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  response_models: Optional[Any] = None,
-                 response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
-                 route_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 route_response_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 response_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RouteResponseParameterConstraintsArgs', 'RouteResponseParameterConstraintsArgsDict']]]]] = None,
+                 route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_response_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

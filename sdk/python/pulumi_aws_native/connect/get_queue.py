@@ -198,7 +198,6 @@ def get_queue(queue_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::Queue
 
-
     :param _builtins.str queue_arn: The Amazon Resource Name (ARN) for the queue.
     """
     __args__ = dict()
@@ -220,11 +219,10 @@ def get_queue(queue_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_queue_output(queue_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_queue_output(queue_arn: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Resource Type definition for AWS::Connect::Queue
-
 
     :param _builtins.str queue_arn: The Amazon Resource Name (ARN) for the queue.
     """

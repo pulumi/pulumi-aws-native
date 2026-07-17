@@ -88,7 +88,6 @@ def get_signing_profile(arn: Optional[_builtins.str] = None,
     """
     A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the specified signing profile.
     """
     __args__ = dict()
@@ -101,11 +100,10 @@ def get_signing_profile(arn: Optional[_builtins.str] = None,
         profile_version=pulumi.get(__ret__, 'profile_version'),
         profile_version_arn=pulumi.get(__ret__, 'profile_version_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_signing_profile_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_signing_profile_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
     A signing profile is a signing template that can be used to carry out a pre-defined signing job.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the specified signing profile.
     """

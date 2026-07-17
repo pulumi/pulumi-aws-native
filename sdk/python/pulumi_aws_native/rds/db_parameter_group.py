@@ -23,40 +23,40 @@ class DbParameterGroupArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  family: pulumi.Input[_builtins.str],
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DbParameterGroup resource.
 
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[_builtins.str] family: The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
                 To list all of the available parameter group families for a DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
                 For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
                  The output contains duplicates.
                  The following are the valid DB engine values:
-                 +   ``aurora-mysql`` 
-                 +   ``aurora-postgresql`` 
-                 +   ``db2-ae`` 
-                 +   ``db2-se`` 
-                 +   ``mysql`` 
-                 +   ``oracle-ee`` 
-                 +   ``oracle-ee-cdb`` 
-                 +   ``oracle-se2`` 
-                 +   ``oracle-se2-cdb`` 
-                 +   ``postgres`` 
-                 +   ``sqlserver-ee`` 
-                 +   ``sqlserver-se`` 
-                 +   ``sqlserver-ex`` 
+                 +   ``aurora-mysql``
+                 +   ``aurora-postgresql``
+                 +   ``db2-ae``
+                 +   ``db2-se``
+                 +   ``mysql``
+                 +   ``oracle-ee``
+                 +   ``oracle-ee-cdb``
+                 +   ``oracle-se2``
+                 +   ``oracle-se2-cdb``
+                 +   ``postgres``
+                 +   ``sqlserver-ee``
+                 +   ``sqlserver-se``
+                 +   ``sqlserver-ex``
                  +   ``sqlserver-web``
         :param pulumi.Input[_builtins.str] db_parameter_group_name: The name of the DB parameter group.
                 Constraints:
                  +  Must be 1 to 255 letters, numbers, or hyphens.
                  +  First character must be a letter
                  +  Can't end with a hyphen or contain two consecutive hyphens
-                 
+               
                 If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
                  This value is stored as a lowercase string.
         :param Any parameters: A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
@@ -93,24 +93,24 @@ class DbParameterGroupArgs:
         """
         The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
          To list all of the available parameter group families for a DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
          For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
           The output contains duplicates.
           The following are the valid DB engine values:
-          +   ``aurora-mysql`` 
-          +   ``aurora-postgresql`` 
-          +   ``db2-ae`` 
-          +   ``db2-se`` 
-          +   ``mysql`` 
-          +   ``oracle-ee`` 
-          +   ``oracle-ee-cdb`` 
-          +   ``oracle-se2`` 
-          +   ``oracle-se2-cdb`` 
-          +   ``postgres`` 
-          +   ``sqlserver-ee`` 
-          +   ``sqlserver-se`` 
-          +   ``sqlserver-ex`` 
+          +   ``aurora-mysql``
+          +   ``aurora-postgresql``
+          +   ``db2-ae``
+          +   ``db2-se``
+          +   ``mysql``
+          +   ``oracle-ee``
+          +   ``oracle-ee-cdb``
+          +   ``oracle-se2``
+          +   ``oracle-se2-cdb``
+          +   ``postgres``
+          +   ``sqlserver-ee``
+          +   ``sqlserver-se``
+          +   ``sqlserver-ex``
           +   ``sqlserver-web``
         """
         return pulumi.get(self, "family")
@@ -121,21 +121,21 @@ class DbParameterGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbParameterGroupName")
-    def db_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the DB parameter group.
          Constraints:
           +  Must be 1 to 255 letters, numbers, or hyphens.
           +  First character must be a letter
           +  Can't end with a hyphen or contain two consecutive hyphens
-          
+
          If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
           This value is stored as a lowercase string.
         """
         return pulumi.get(self, "db_parameter_group_name")
 
     @db_parameter_group_name.setter
-    def db_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_parameter_group_name", value)
 
     @_builtins.property
@@ -156,14 +156,14 @@ class DbParameterGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to assign to the DB parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -173,11 +173,11 @@ class DbParameterGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::RDS::DBParameterGroup`` resource creates a custom parameter group for an RDS database family.
@@ -186,7 +186,6 @@ class DbParameterGroup(pulumi.CustomResource):
          For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
           Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: The name of the DB parameter group.
@@ -194,30 +193,30 @@ class DbParameterGroup(pulumi.CustomResource):
                  +  Must be 1 to 255 letters, numbers, or hyphens.
                  +  First character must be a letter
                  +  Can't end with a hyphen or contain two consecutive hyphens
-                 
+               
                 If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
                  This value is stored as a lowercase string.
         :param pulumi.Input[_builtins.str] description: Provides the customer-specified description for this DB parameter group.
         :param pulumi.Input[_builtins.str] family: The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
                 To list all of the available parameter group families for a DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
                 For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+                 ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
                  The output contains duplicates.
                  The following are the valid DB engine values:
-                 +   ``aurora-mysql`` 
-                 +   ``aurora-postgresql`` 
-                 +   ``db2-ae`` 
-                 +   ``db2-se`` 
-                 +   ``mysql`` 
-                 +   ``oracle-ee`` 
-                 +   ``oracle-ee-cdb`` 
-                 +   ``oracle-se2`` 
-                 +   ``oracle-se2-cdb`` 
-                 +   ``postgres`` 
-                 +   ``sqlserver-ee`` 
-                 +   ``sqlserver-se`` 
-                 +   ``sqlserver-ex`` 
+                 +   ``aurora-mysql``
+                 +   ``aurora-postgresql``
+                 +   ``db2-ae``
+                 +   ``db2-se``
+                 +   ``mysql``
+                 +   ``oracle-ee``
+                 +   ``oracle-ee-cdb``
+                 +   ``oracle-se2``
+                 +   ``oracle-se2-cdb``
+                 +   ``postgres``
+                 +   ``sqlserver-ee``
+                 +   ``sqlserver-se``
+                 +   ``sqlserver-ex``
                  +   ``sqlserver-web``
         :param Any parameters: A mapping of parameter names and values for the parameter update. You must specify at least one parameter name and value.
                 For more information about parameter groups, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html) in the *Amazon RDS User Guide*, or [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
@@ -239,7 +238,6 @@ class DbParameterGroup(pulumi.CustomResource):
          For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
           Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
 
-
         :param str resource_name: The name of the resource.
         :param DbParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,11 +253,11 @@ class DbParameterGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
+                 db_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: Optional[Any] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,7 +316,7 @@ class DbParameterGroup(pulumi.CustomResource):
           +  Must be 1 to 255 letters, numbers, or hyphens.
           +  First character must be a letter
           +  Can't end with a hyphen or contain two consecutive hyphens
-          
+
          If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
           This value is stored as a lowercase string.
         """
@@ -338,24 +336,24 @@ class DbParameterGroup(pulumi.CustomResource):
         """
         The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
          To list all of the available parameter group families for a DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
          For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+          ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
           The output contains duplicates.
           The following are the valid DB engine values:
-          +   ``aurora-mysql`` 
-          +   ``aurora-postgresql`` 
-          +   ``db2-ae`` 
-          +   ``db2-se`` 
-          +   ``mysql`` 
-          +   ``oracle-ee`` 
-          +   ``oracle-ee-cdb`` 
-          +   ``oracle-se2`` 
-          +   ``oracle-se2-cdb`` 
-          +   ``postgres`` 
-          +   ``sqlserver-ee`` 
-          +   ``sqlserver-se`` 
-          +   ``sqlserver-ex`` 
+          +   ``aurora-mysql``
+          +   ``aurora-postgresql``
+          +   ``db2-ae``
+          +   ``db2-se``
+          +   ``mysql``
+          +   ``oracle-ee``
+          +   ``oracle-ee-cdb``
+          +   ``oracle-se2``
+          +   ``oracle-se2-cdb``
+          +   ``postgres``
+          +   ``sqlserver-ee``
+          +   ``sqlserver-se``
+          +   ``sqlserver-ex``
           +   ``sqlserver-web``
         """
         return pulumi.get(self, "family")

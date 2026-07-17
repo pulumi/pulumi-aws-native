@@ -90,5 +90,5 @@ export interface SpotFleetArgs {
     /**
      * The tags to specify in SpotFleetRequestConfigData
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

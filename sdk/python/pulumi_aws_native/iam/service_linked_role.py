@@ -19,9 +19,9 @@ __all__ = ['ServiceLinkedRoleArgs', 'ServiceLinkedRole']
 @pulumi.input_type
 class ServiceLinkedRoleArgs:
     def __init__(__self__, *,
-                 aws_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceLinkedRole resource.
 
@@ -38,38 +38,38 @@ class ServiceLinkedRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsServiceName")
-    def aws_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service principal for the AWS service to which this role is attached.
         """
         return pulumi.get(self, "aws_service_name")
 
     @aws_service_name.setter
-    def aws_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customSuffix")
-    def custom_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A string that you provide, which is combined with the service-provided prefix to form the complete role name.
         """
         return pulumi.get(self, "custom_suffix")
 
     @custom_suffix.setter
-    def custom_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_suffix", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the role.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -79,9 +79,9 @@ class ServiceLinkedRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IAM::ServiceLinkedRole
@@ -174,9 +174,9 @@ class ServiceLinkedRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 custom_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

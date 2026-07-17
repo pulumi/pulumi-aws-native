@@ -42,7 +42,7 @@ export interface GetComponentResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the component denotes whether the component is used to build the image or only to test it. 
+     * The type of the component denotes whether the component is used to build the image or only to test it.
      */
     readonly type?: enums.imagebuilder.ComponentType;
 }

@@ -66,7 +66,6 @@ def get_activity(arn: Optional[_builtins.str] = None,
     """
     Resource schema for Activity
 
-
     :param _builtins.str arn: Returns the ARN of the resource.
     """
     __args__ = dict()
@@ -77,11 +76,10 @@ def get_activity(arn: Optional[_builtins.str] = None,
     return AwaitableGetActivityResult(
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_activity_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_activity_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityResult]:
     """
     Resource schema for Activity
-
 
     :param _builtins.str arn: Returns the ARN of the resource.
     """

@@ -85,7 +85,7 @@ class GetIpamResourceDiscoveryResult:
     @pulumi.getter(name="ipamResourceDiscoveryRegion")
     def ipam_resource_discovery_region(self) -> Optional[_builtins.str]:
         """
-        The region the resource discovery is setup in. 
+        The region the resource discovery is setup in.
         """
         return pulumi.get(self, "ipam_resource_discovery_region")
 
@@ -161,7 +161,6 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[_builtins.s
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
 
-
     :param _builtins.str ipam_resource_discovery_id: Id of the IPAM Pool.
     """
     __args__ = dict()
@@ -180,11 +179,10 @@ def get_ipam_resource_discovery(ipam_resource_discovery_id: Optional[_builtins.s
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_resource_discovery_output(ipam_resource_discovery_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_resource_discovery_output(ipam_resource_discovery_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamResourceDiscoveryResult]:
     """
     Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
-
 
     :param _builtins.str ipam_resource_discovery_id: Id of the IPAM Pool.
     """

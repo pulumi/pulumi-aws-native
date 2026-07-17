@@ -125,21 +125,21 @@ export interface ApiKeyCredentialProviderArgs {
     /**
      * The API key to use for authentication
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Configuration for a customer-provided secret containing the API key
      */
-    apiKeySecretConfig?: pulumi.Input<inputs.bedrockagentcore.ApiKeyCredentialProviderSecretReferenceArgs>;
+    apiKeySecretConfig?: pulumi.Input<inputs.bedrockagentcore.ApiKeyCredentialProviderSecretReferenceArgs | undefined>;
     /**
      * The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
      */
-    apiKeySecretSource?: pulumi.Input<enums.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretSource>;
+    apiKeySecretSource?: pulumi.Input<enums.bedrockagentcore.ApiKeyCredentialProviderApiKeySecretSource | undefined>;
     /**
      * The name of the API key credential provider
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the API key credential provider
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

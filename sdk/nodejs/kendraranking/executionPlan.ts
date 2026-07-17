@@ -99,17 +99,17 @@ export interface ExecutionPlanArgs {
     /**
      * Capacity units
      */
-    capacityUnits?: pulumi.Input<inputs.kendraranking.ExecutionPlanCapacityUnitsConfigurationArgs>;
+    capacityUnits?: pulumi.Input<inputs.kendraranking.ExecutionPlanCapacityUnitsConfigurationArgs | undefined>;
     /**
      * A description for the execution plan
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A name for the rescore execution plan.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Tags for labeling the execution plan
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

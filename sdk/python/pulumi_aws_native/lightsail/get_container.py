@@ -161,7 +161,6 @@ def get_container(service_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Lightsail::Container
 
-
     :param _builtins.str service_name: The name for the container service.
     """
     __args__ = dict()
@@ -180,11 +179,10 @@ def get_container(service_name: Optional[_builtins.str] = None,
         scale=pulumi.get(__ret__, 'scale'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_container_output(service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_container_output(service_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerResult]:
     """
     Resource Type definition for AWS::Lightsail::Container
-
 
     :param _builtins.str service_name: The name for the container service.
     """

@@ -125,7 +125,6 @@ def get_endpoint(arn: Optional[_builtins.str] = None,
     """
     Resource Type Definition for AWS::S3Outposts::Endpoint
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the endpoint.
     """
     __args__ = dict()
@@ -141,11 +140,10 @@ def get_endpoint(arn: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         status=pulumi.get(__ret__, 'status'))
-def get_endpoint_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_endpoint_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type Definition for AWS::S3Outposts::Endpoint
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the endpoint.
     """

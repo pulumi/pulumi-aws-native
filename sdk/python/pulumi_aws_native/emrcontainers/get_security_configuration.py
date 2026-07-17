@@ -76,7 +76,6 @@ def get_security_configuration(arn: Optional[_builtins.str] = None,
     """
     Resource Schema of AWS::EMRContainers::SecurityConfiguration Type
 
-
     :param _builtins.str arn: The ARN of the security configuration.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_security_configuration(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_security_configuration_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConfigurationResult]:
     """
     Resource Schema of AWS::EMRContainers::SecurityConfiguration Type
-
 
     :param _builtins.str arn: The ARN of the security configuration.
     """

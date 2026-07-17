@@ -25,16 +25,16 @@ class PipeArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
                  target: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
-                 enrichment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['PipeRequestedPipeState']] = None,
+                 enrichment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enrichment_parameters: pulumi.Input[Optional['PipeEnrichmentParametersArgs']] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional['PipeLogConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_parameters: pulumi.Input[Optional['PipeSourceParametersArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_parameters: pulumi.Input[Optional['PipeTargetParametersArgs']] = None):
         """
         The set of arguments for constructing a Pipe resource.
 
@@ -122,55 +122,55 @@ class PipeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description of the pipe.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredState")
-    def desired_state(self) -> Optional[pulumi.Input['PipeRequestedPipeState']]:
+    def desired_state(self) -> pulumi.Input[Optional['PipeRequestedPipeState']]:
         """
         The state the pipe should be in.
         """
         return pulumi.get(self, "desired_state")
 
     @desired_state.setter
-    def desired_state(self, value: Optional[pulumi.Input['PipeRequestedPipeState']]):
+    def desired_state(self, value: pulumi.Input[Optional['PipeRequestedPipeState']]):
         pulumi.set(self, "desired_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def enrichment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enrichment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the enrichment resource.
         """
         return pulumi.get(self, "enrichment")
 
     @enrichment.setter
-    def enrichment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enrichment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enrichment", value)
 
     @_builtins.property
     @pulumi.getter(name="enrichmentParameters")
-    def enrichment_parameters(self) -> Optional[pulumi.Input['PipeEnrichmentParametersArgs']]:
+    def enrichment_parameters(self) -> pulumi.Input[Optional['PipeEnrichmentParametersArgs']]:
         """
         The parameters required to set up enrichment on your pipe.
         """
         return pulumi.get(self, "enrichment_parameters")
 
     @enrichment_parameters.setter
-    def enrichment_parameters(self, value: Optional[pulumi.Input['PipeEnrichmentParametersArgs']]):
+    def enrichment_parameters(self, value: pulumi.Input[Optional['PipeEnrichmentParametersArgs']]):
         pulumi.set(self, "enrichment_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
-    def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 
@@ -183,60 +183,60 @@ class PipeArgs:
         return pulumi.get(self, "kms_key_identifier")
 
     @kms_key_identifier.setter
-    def kms_key_identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_identifier", value)
 
     @_builtins.property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
+    def log_configuration(self) -> pulumi.Input[Optional['PipeLogConfigurationArgs']]:
         """
         The logging configuration settings for the pipe.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['PipeLogConfigurationArgs']]):
+    def log_configuration(self, value: pulumi.Input[Optional['PipeLogConfigurationArgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the pipe.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceParameters")
-    def source_parameters(self) -> Optional[pulumi.Input['PipeSourceParametersArgs']]:
+    def source_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersArgs']]:
         """
         The parameters required to set up a source for your pipe.
         """
         return pulumi.get(self, "source_parameters")
 
     @source_parameters.setter
-    def source_parameters(self, value: Optional[pulumi.Input['PipeSourceParametersArgs']]):
+    def source_parameters(self, value: pulumi.Input[Optional['PipeSourceParametersArgs']]):
         pulumi.set(self, "source_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The list of key-value pairs to associate with the pipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetParameters")
-    def target_parameters(self) -> Optional[pulumi.Input['PipeTargetParametersArgs']]:
+    def target_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersArgs']]:
         """
         The parameters required to set up a target for your pipe.
 
@@ -245,7 +245,7 @@ class PipeArgs:
         return pulumi.get(self, "target_parameters")
 
     @target_parameters.setter
-    def target_parameters(self, value: Optional[pulumi.Input['PipeTargetParametersArgs']]):
+    def target_parameters(self, value: pulumi.Input[Optional['PipeTargetParametersArgs']]):
         pulumi.set(self, "target_parameters", value)
 
 
@@ -255,19 +255,19 @@ class Pipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
-                 enrichment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enrichment_parameters: Optional[pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_parameters: Optional[pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_parameters: Optional[pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['PipeRequestedPipeState']] = None,
+                 enrichment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::Pipes::Pipe Resource Type
@@ -382,19 +382,19 @@ class Pipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
-                 enrichment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enrichment_parameters: Optional[pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
-                 kms_key_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_configuration: Optional[pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 source: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_parameters: Optional[pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_parameters: Optional[pulumi.Input[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 desired_state: pulumi.Input[Optional['PipeRequestedPipeState']] = None,
+                 enrichment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enrichment_parameters: pulumi.Input[Optional[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']]] = None,
+                 kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 source: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_parameters: pulumi.Input[Optional[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_parameters: pulumi.Input[Optional[Union['PipeTargetParametersArgs', 'PipeTargetParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

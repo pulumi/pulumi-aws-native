@@ -111,7 +111,7 @@ export interface InsightRuleArgs {
     /**
      * Determines whether the rules is evaluated on transformed versions of logs. Valid values are `TRUE` and `FALSE` .
      */
-    applyOnTransformedLogs?: pulumi.Input<boolean>;
+    applyOnTransformedLogs?: pulumi.Input<boolean | undefined>;
     /**
      * The definition of the rule, as a JSON object. For details about the syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html) in the *Amazon CloudWatch User Guide* .
      */
@@ -119,7 +119,7 @@ export interface InsightRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * The current state of the rule. Valid values are `ENABLED` and `DISABLED` .
      */
@@ -131,5 +131,5 @@ export interface InsightRuleArgs {
      *
      * To be able to associate tags with a rule, you must have the `cloudwatch:TagResource` permission in addition to the `cloudwatch:PutInsightRule` permission.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

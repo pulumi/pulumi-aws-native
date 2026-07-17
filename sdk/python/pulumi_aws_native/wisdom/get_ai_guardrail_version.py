@@ -89,7 +89,6 @@ def get_ai_guardrail_version(ai_guardrail_id: Optional[_builtins.str] = None,
     """
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
 
-
     :param _builtins.str ai_guardrail_id: The ID of the AI guardrail version.
     :param _builtins.str assistant_id: The ID of the AI guardrail version assistant.
     :param _builtins.float version_number: The version number for this AI Guardrail version.
@@ -106,13 +105,12 @@ def get_ai_guardrail_version(ai_guardrail_id: Optional[_builtins.str] = None,
         ai_guardrail_version_id=pulumi.get(__ret__, 'ai_guardrail_version_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         version_number=pulumi.get(__ret__, 'version_number'))
-def get_ai_guardrail_version_output(ai_guardrail_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    assistant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    version_number: Optional[pulumi.Input[_builtins.float]] = None,
+def get_ai_guardrail_version_output(ai_guardrail_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    version_number: pulumi.Input[Optional[_builtins.float]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiGuardrailVersionResult]:
     """
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
-
 
     :param _builtins.str ai_guardrail_id: The ID of the AI guardrail version.
     :param _builtins.str assistant_id: The ID of the AI guardrail version assistant.

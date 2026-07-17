@@ -34,27 +34,27 @@ class WorkspaceAssertionAttributesArgsDict(TypedDict):
     """
     Maps Grafana friendly names to the IdPs SAML attributes.
     """
-    email: NotRequired[pulumi.Input[_builtins.str]]
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users email in Grafana.
     """
-    groups: NotRequired[pulumi.Input[_builtins.str]]
+    groups: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users groups in Grafana.
     """
-    login: NotRequired[pulumi.Input[_builtins.str]]
+    login: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users login handle in Grafana.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users name in Grafana.
     """
-    org: NotRequired[pulumi.Input[_builtins.str]]
+    org: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users organizations in Grafana.
     """
-    role: NotRequired[pulumi.Input[_builtins.str]]
+    role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the attribute within the SAML assert to use as the users roles in Grafana.
     """
@@ -62,12 +62,12 @@ class WorkspaceAssertionAttributesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceAssertionAttributesArgs:
     def __init__(__self__, *,
-                 email: Optional[pulumi.Input[_builtins.str]] = None,
-                 groups: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 org: Optional[pulumi.Input[_builtins.str]] = None,
-                 role: Optional[pulumi.Input[_builtins.str]] = None):
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 groups: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 org: pulumi.Input[Optional[_builtins.str]] = None,
+                 role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Maps Grafana friendly names to the IdPs SAML attributes.
 
@@ -93,74 +93,74 @@ class WorkspaceAssertionAttributesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users email in Grafana.
         """
         return pulumi.get(self, "email")
 
     @email.setter
-    def email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email", value)
 
     @_builtins.property
     @pulumi.getter
-    def groups(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def groups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users groups in Grafana.
         """
         return pulumi.get(self, "groups")
 
     @groups.setter
-    def groups(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def groups(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users login handle in Grafana.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users name in Grafana.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def org(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def org(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users organizations in Grafana.
         """
         return pulumi.get(self, "org")
 
     @org.setter
-    def org(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def org(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org", value)
 
     @_builtins.property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the attribute within the SAML assert to use as the users roles in Grafana.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role", value)
 
 
@@ -168,11 +168,11 @@ class WorkspaceIdpMetadataArgsDict(TypedDict):
     """
     IdP Metadata used to configure SAML authentication in Grafana.
     """
-    url: NotRequired[pulumi.Input[_builtins.str]]
+    url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL that vends the IdPs metadata.
     """
-    xml: NotRequired[pulumi.Input[_builtins.str]]
+    xml: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     XML blob of the IdPs metadata.
     """
@@ -180,8 +180,8 @@ class WorkspaceIdpMetadataArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceIdpMetadataArgs:
     def __init__(__self__, *,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 xml: Optional[pulumi.Input[_builtins.str]] = None):
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 xml: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IdP Metadata used to configure SAML authentication in Grafana.
 
@@ -195,26 +195,26 @@ class WorkspaceIdpMetadataArgs:
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL that vends the IdPs metadata.
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter
-    def xml(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def xml(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         XML blob of the IdPs metadata.
         """
         return pulumi.get(self, "xml")
 
     @xml.setter
-    def xml(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def xml(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "xml", value)
 
 
@@ -222,11 +222,11 @@ class WorkspaceNetworkAccessControlArgsDict(TypedDict):
     """
     The configuration settings for Network Access Control.
     """
-    prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    prefix_list_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
     """
-    vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    vpce_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
     """
@@ -234,8 +234,8 @@ class WorkspaceNetworkAccessControlArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceNetworkAccessControlArgs:
     def __init__(__self__, *,
-                 prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 prefix_list_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpce_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The configuration settings for Network Access Control.
 
@@ -249,26 +249,26 @@ class WorkspaceNetworkAccessControlArgs:
 
     @_builtins.property
     @pulumi.getter(name="prefixListIds")
-    def prefix_list_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def prefix_list_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
         """
         return pulumi.get(self, "prefix_list_ids")
 
     @prefix_list_ids.setter
-    def prefix_list_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def prefix_list_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "prefix_list_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="vpceIds")
-    def vpce_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpce_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
         """
         return pulumi.get(self, "vpce_ids")
 
     @vpce_ids.setter
-    def vpce_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpce_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpce_ids", value)
 
 
@@ -276,11 +276,11 @@ class WorkspaceRoleValuesArgsDict(TypedDict):
     """
     Maps SAML roles to the Grafana Editor and Admin roles.
     """
-    admin: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    admin: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of SAML roles which will be mapped into the Grafana Admin role.
     """
-    editor: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    editor: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of SAML roles which will be mapped into the Grafana Editor role.
     """
@@ -288,8 +288,8 @@ class WorkspaceRoleValuesArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceRoleValuesArgs:
     def __init__(__self__, *,
-                 admin: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 editor: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 admin: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 editor: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Maps SAML roles to the Grafana Editor and Admin roles.
 
@@ -303,26 +303,26 @@ class WorkspaceRoleValuesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def admin(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def admin(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of SAML roles which will be mapped into the Grafana Admin role.
         """
         return pulumi.get(self, "admin")
 
     @admin.setter
-    def admin(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def admin(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "admin", value)
 
     @_builtins.property
     @pulumi.getter
-    def editor(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def editor(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of SAML roles which will be mapped into the Grafana Editor role.
         """
         return pulumi.get(self, "editor")
 
     @editor.setter
-    def editor(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def editor(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "editor", value)
 
 
@@ -334,19 +334,19 @@ class WorkspaceSamlConfigurationArgsDict(TypedDict):
     """
     A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.
     """
-    allowed_organizations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    allowed_organizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of SAML organizations allowed to access Grafana.
     """
-    assertion_attributes: NotRequired[pulumi.Input['WorkspaceAssertionAttributesArgsDict']]
+    assertion_attributes: NotRequired[pulumi.Input[Optional['WorkspaceAssertionAttributesArgsDict']]]
     """
     A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
     """
-    login_validity_duration: NotRequired[pulumi.Input[_builtins.float]]
+    login_validity_duration: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
     """
-    role_values: NotRequired[pulumi.Input['WorkspaceRoleValuesArgsDict']]
+    role_values: NotRequired[pulumi.Input[Optional['WorkspaceRoleValuesArgsDict']]]
     """
     A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
     """
@@ -355,10 +355,10 @@ class WorkspaceSamlConfigurationArgsDict(TypedDict):
 class WorkspaceSamlConfigurationArgs:
     def __init__(__self__, *,
                  idp_metadata: pulumi.Input['WorkspaceIdpMetadataArgs'],
-                 allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 assertion_attributes: Optional[pulumi.Input['WorkspaceAssertionAttributesArgs']] = None,
-                 login_validity_duration: Optional[pulumi.Input[_builtins.float]] = None,
-                 role_values: Optional[pulumi.Input['WorkspaceRoleValuesArgs']] = None):
+                 allowed_organizations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 assertion_attributes: pulumi.Input[Optional['WorkspaceAssertionAttributesArgs']] = None,
+                 login_validity_duration: pulumi.Input[Optional[_builtins.float]] = None,
+                 role_values: pulumi.Input[Optional['WorkspaceRoleValuesArgs']] = None):
         """
         SAML configuration data associated with an AMG workspace.
 
@@ -392,50 +392,50 @@ class WorkspaceSamlConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedOrganizations")
-    def allowed_organizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def allowed_organizations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of SAML organizations allowed to access Grafana.
         """
         return pulumi.get(self, "allowed_organizations")
 
     @allowed_organizations.setter
-    def allowed_organizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def allowed_organizations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_organizations", value)
 
     @_builtins.property
     @pulumi.getter(name="assertionAttributes")
-    def assertion_attributes(self) -> Optional[pulumi.Input['WorkspaceAssertionAttributesArgs']]:
+    def assertion_attributes(self) -> pulumi.Input[Optional['WorkspaceAssertionAttributesArgs']]:
         """
         A structure that defines which attributes in the SAML assertion are to be used to define information about the users authenticated by that IdP to use the workspace.
         """
         return pulumi.get(self, "assertion_attributes")
 
     @assertion_attributes.setter
-    def assertion_attributes(self, value: Optional[pulumi.Input['WorkspaceAssertionAttributesArgs']]):
+    def assertion_attributes(self, value: pulumi.Input[Optional['WorkspaceAssertionAttributesArgs']]):
         pulumi.set(self, "assertion_attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="loginValidityDuration")
-    def login_validity_duration(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def login_validity_duration(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
         """
         return pulumi.get(self, "login_validity_duration")
 
     @login_validity_duration.setter
-    def login_validity_duration(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def login_validity_duration(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "login_validity_duration", value)
 
     @_builtins.property
     @pulumi.getter(name="roleValues")
-    def role_values(self) -> Optional[pulumi.Input['WorkspaceRoleValuesArgs']]:
+    def role_values(self) -> pulumi.Input[Optional['WorkspaceRoleValuesArgs']]:
         """
         A structure containing arrays that map group names in the SAML assertion to the Grafana `Admin` and `Editor` roles in the workspace.
         """
         return pulumi.get(self, "role_values")
 
     @role_values.setter
-    def role_values(self, value: Optional[pulumi.Input['WorkspaceRoleValuesArgs']]):
+    def role_values(self, value: pulumi.Input[Optional['WorkspaceRoleValuesArgs']]):
         pulumi.set(self, "role_values", value)
 
 

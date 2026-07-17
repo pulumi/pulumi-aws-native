@@ -45,7 +45,7 @@ class AnomalyMonitorMonitorType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:ce:AnomalySubscriptionFrequency")
 class AnomalySubscriptionFrequency(_builtins.str, Enum):
     """
-    The frequency at which anomaly reports are sent over email. 
+    The frequency at which anomaly reports are sent over email.
     """
     DAILY = "DAILY"
     IMMEDIATE = "IMMEDIATE"

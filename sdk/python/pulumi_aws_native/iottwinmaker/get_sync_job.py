@@ -88,7 +88,6 @@ def get_sync_job(sync_source: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::IoTTwinMaker::SyncJob
 
-
     :param _builtins.str sync_source: The source of the SyncJob.
     :param _builtins.str workspace_id: The ID of the workspace.
     """
@@ -103,12 +102,11 @@ def get_sync_job(sync_source: Optional[_builtins.str] = None,
         creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
         state=pulumi.get(__ret__, 'state'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
-def get_sync_job_output(sync_source: Optional[pulumi.Input[_builtins.str]] = None,
-                        workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sync_job_output(sync_source: pulumi.Input[Optional[_builtins.str]] = None,
+                        workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncJobResult]:
     """
     Resource schema for AWS::IoTTwinMaker::SyncJob
-
 
     :param _builtins.str sync_source: The source of the SyncJob.
     :param _builtins.str workspace_id: The ID of the workspace.

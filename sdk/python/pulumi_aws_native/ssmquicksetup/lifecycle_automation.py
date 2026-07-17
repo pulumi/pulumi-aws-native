@@ -22,7 +22,7 @@ class LifecycleAutomationArgs:
                  automation_document: pulumi.Input[_builtins.str],
                  automation_parameters: pulumi.Input[Mapping[str, Any]],
                  resource_key: pulumi.Input[_builtins.str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LifecycleAutomation resource.
 
@@ -75,14 +75,14 @@ class LifecycleAutomationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags applied to the underlying SSM Association created by this resource. Tags help identify and organize automation executions.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,14 +92,13 @@ class LifecycleAutomation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 resource_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_parameters: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 resource_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SSMQuickSetup::LifecycleAutomation that executes SSM Automation documents in response to CloudFormation lifecycle events.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +116,6 @@ class LifecycleAutomation(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SSMQuickSetup::LifecycleAutomation that executes SSM Automation documents in response to CloudFormation lifecycle events.
 
-
         :param str resource_name: The name of the resource.
         :param LifecycleAutomationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,10 +131,10 @@ class LifecycleAutomation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_document: Optional[pulumi.Input[_builtins.str]] = None,
-                 automation_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 resource_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_document: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_parameters: pulumi.Input[Optional[Mapping[str, Any]]] = None,
+                 resource_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

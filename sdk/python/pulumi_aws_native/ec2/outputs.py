@@ -266,7 +266,7 @@ class BlockPublicAccessStatesProperties(dict):
     def __init__(__self__, *,
                  internet_gateway_block_mode: Optional[_builtins.str] = None):
         """
-        :param _builtins.str internet_gateway_block_mode: The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress 
+        :param _builtins.str internet_gateway_block_mode: The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
         """
         if internet_gateway_block_mode is not None:
             pulumi.set(__self__, "internet_gateway_block_mode", internet_gateway_block_mode)
@@ -275,7 +275,7 @@ class BlockPublicAccessStatesProperties(dict):
     @pulumi.getter(name="internetGatewayBlockMode")
     def internet_gateway_block_mode(self) -> Optional[_builtins.str]:
         """
-        The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress 
+        The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
         """
         return pulumi.get(self, "internet_gateway_block_mode")
 
@@ -1950,7 +1950,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
                
-               > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+               > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
                
                Default: All instance types
         :param 'Ec2FleetInstanceRequirementsRequestBareMetal' bare_metal: Indicates whether bare metal instance types must be included, excluded, or required.
@@ -1978,7 +1978,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                - For instance types with AWS CPUs, specify `amazon-web-services` .
                - For instance types with Apple CPUs, specify `apple` .
                
-               > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+               > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
                
                Default: Any manufacturer
         :param Sequence[_builtins.str] excluded_instance_types: The instance types to exclude.
@@ -1987,7 +1987,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
                
-               > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+               > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
                
                Default: No excluded instance types
         :param Sequence['Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem'] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -2035,7 +2035,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
                
-               > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+               > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
                
                Default: `20`
         :param _builtins.bool require_encryption_in_transit: Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
@@ -2054,7 +2054,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
                
-               > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+               > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
                
                Default: `100`
         :param 'Ec2FleetTotalLocalStorageGbRequest' total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
@@ -2208,7 +2208,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
 
         Default: All instance types
         """
@@ -2271,7 +2271,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
         - For instance types with AWS CPUs, specify `amazon-web-services` .
         - For instance types with Apple CPUs, specify `apple` .
 
-        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 
         Default: Any manufacturer
         """
@@ -2287,7 +2287,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
 
         Default: No excluded instance types
         """
@@ -2398,7 +2398,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 
         Default: `20`
         """
@@ -2438,7 +2438,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
 
         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 
         Default: `100`
         """
@@ -2975,7 +2975,7 @@ class Ec2FleetPerformanceFactorReferenceRequest(dict):
         """
         :param _builtins.str instance_family: The instance family to use as a baseline reference.
                
-               > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+               > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* .
                
                The following instance families are *not supported* for performance protection:
                
@@ -3001,7 +3001,7 @@ class Ec2FleetPerformanceFactorReferenceRequest(dict):
         """
         The instance family to use as a baseline reference.
 
-        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* .
 
         The following instance families are *not supported* for performance protection:
 
@@ -6187,11 +6187,11 @@ class LaunchTemplateData(dict):
         :param 'LaunchTemplateIamInstanceProfile' iam_instance_profile: The name or Amazon Resource Name (ARN) of an IAM instance profile.
         :param _builtins.str image_id: The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
                 Valid formats:
-                 +   ``ami-0ac394d6a3example`` 
-                 +   ``resolve:ssm:parameter-name`` 
-                 +   ``resolve:ssm:parameter-name:version-number`` 
-                 +   ``resolve:ssm:parameter-name:label`` 
-                 
+                 +   ``ami-0ac394d6a3example``
+                 +   ``resolve:ssm:parameter-name``
+                 +   ``resolve:ssm:parameter-name:version-number``
+                 +   ``resolve:ssm:parameter-name:label``
+               
                 For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
         :param _builtins.str instance_initiated_shutdown_behavior: Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the operating system command for system shutdown).
                 Default: ``stop``
@@ -6202,7 +6202,7 @@ class LaunchTemplateData(dict):
                 To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
                  +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
                  +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-                 
+               
                  If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
                 Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
                  For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
@@ -6379,11 +6379,11 @@ class LaunchTemplateData(dict):
         """
         The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
          Valid formats:
-          +   ``ami-0ac394d6a3example`` 
-          +   ``resolve:ssm:parameter-name`` 
-          +   ``resolve:ssm:parameter-name:version-number`` 
-          +   ``resolve:ssm:parameter-name:label`` 
-          
+          +   ``ami-0ac394d6a3example``
+          +   ``resolve:ssm:parameter-name``
+          +   ``resolve:ssm:parameter-name:version-number``
+          +   ``resolve:ssm:parameter-name:label``
+
          For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.
         """
         return pulumi.get(self, "image_id")
@@ -6415,7 +6415,7 @@ class LaunchTemplateData(dict):
          To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
           +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
           +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-          
+
           If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
          Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
           For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
@@ -6616,7 +6616,7 @@ class LaunchTemplateEbs(dict):
                  +  ``gp3``: 3,000 - 80,000 IOPS
                  +  ``io1``: 100 - 64,000 IOPS
                  +  ``io2``: 100 - 256,000 IOPS
-                 
+               
                 For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
                 This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         :param _builtins.str kms_key_id: Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
@@ -6626,9 +6626,9 @@ class LaunchTemplateEbs(dict):
         :param _builtins.int volume_initialization_rate: Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
                 This parameter is supported only for volumes created from snapshots. Omit this parameter if:
                  +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
-                 If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+                      If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
                   +  You want to create a volume that is initialized at the default rate.
-                 
+               
                 For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
                 Valid range: 100 - 300 MiB/s
         :param _builtins.int volume_size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
@@ -6691,7 +6691,7 @@ class LaunchTemplateEbs(dict):
           +  ``gp3``: 3,000 - 80,000 IOPS
           +  ``io1``: 100 - 64,000 IOPS
           +  ``io2``: 100 - 256,000 IOPS
-          
+
          For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
          This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
         """
@@ -6729,9 +6729,9 @@ class LaunchTemplateEbs(dict):
         Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.
          This parameter is supported only for volumes created from snapshots. Omit this parameter if:
           +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.
-          If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
+               If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.
            +  You want to create a volume that is initialized at the default rate.
-          
+
          For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.
          Valid range: 100 - 300 MiB/s
         """
@@ -7016,7 +7016,7 @@ class LaunchTemplateInstanceRequirements(dict):
      To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
       +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
       +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-      
+
       If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
      Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
       For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
@@ -7119,7 +7119,7 @@ class LaunchTemplateInstanceRequirements(dict):
          To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
           +  ``AllowedInstanceTypes`` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
           +  ``ExcludedInstanceTypes`` - The instance types to exclude from the list, even if they match your specified attributes.
-          
+
           If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
          Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
           For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
@@ -7133,7 +7133,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with Habana devices, specify ``habana``.
                  +  For instance types with NVIDIA devices, specify ``nvidia``.
                  +  For instance types with Xilinx devices, specify ``xilinx``.
-                 
+               
                 Default: Any manufacturer
         :param Sequence[_builtins.str] accelerator_names: The accelerators that must be on the instance type.
                  +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.
@@ -7155,7 +7155,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with Xilinx U30 cards, specify ``u30``.
                  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
                  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
-                 
+               
                 Default: Any accelerator
         :param 'LaunchTemplateAcceleratorTotalMemoryMiB' accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
                 Default: No minimum or maximum limits
@@ -7164,7 +7164,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  For instance types with GPU accelerators, specify ``gpu``.
                  +  For instance types with Inference accelerators, specify ``inference``.
                  +  For instance types with Media accelerators, specify ``media``.
-                 
+               
                 Default: Any accelerator type
         :param Sequence[_builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
                 You can use strings with one or more wild cards, represented by an asterisk (``*``), to allow an instance type, size, or generation. The following are examples: ``m5.8xlarge``, ``c5*.*``, ``m5a.*``, ``r*``, ``*3*``.
@@ -7175,7 +7175,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  To include bare metal instance types, specify ``included``.
                  +  To require only bare metal instance types, specify ``required``.
                  +  To exclude bare metal instance types, specify ``excluded``.
-                 
+               
                 Default: ``excluded``
         :param 'LaunchTemplateBaselineEbsBandwidthMbps' baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
                 Default: No minimum or maximum limits
@@ -7184,14 +7184,14 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  To include burstable performance instance types, specify ``included``.
                  +  To require only burstable performance instance types, specify ``required``.
                  +  To exclude burstable performance instance types, specify ``excluded``.
-                 
+               
                 Default: ``excluded``
         :param Sequence[_builtins.str] cpu_manufacturers: The CPU manufacturers to include.
                  +  For instance types with Intel CPUs, specify ``intel``.
                  +  For instance types with AMD CPUs, specify ``amd``.
                  +  For instance types with AWS CPUs, specify ``amazon-web-services``.
                  +  For instance types with Apple CPUs, specify ``apple``.
-                 
+               
                  Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
                  Default: Any manufacturer
         :param Sequence[_builtins.str] excluded_instance_types: The instance types to exclude.
@@ -7207,12 +7207,12 @@ class LaunchTemplateInstanceRequirements(dict):
                  +  To include instance types with instance store volumes, specify ``included``.
                  +  To require only instance types with instance store volumes, specify ``required``.
                  +  To exclude instance types with instance store volumes, specify ``excluded``.
-                 
+               
                 Default: ``included``
         :param Sequence[_builtins.str] local_storage_types: The type of local storage that is required.
                  +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
                  +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
-                 
+               
                 Default: ``hdd`` and ``ssd``
         :param _builtins.int max_spot_price_as_percentage_of_optimal_on_demand_price: [Price protection] The price protection threshold for Spot Instances, as a percentage of an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                 The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
@@ -7315,7 +7315,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with Habana devices, specify ``habana``.
           +  For instance types with NVIDIA devices, specify ``nvidia``.
           +  For instance types with Xilinx devices, specify ``xilinx``.
-          
+
          Default: Any manufacturer
         """
         return pulumi.get(self, "accelerator_manufacturers")
@@ -7344,7 +7344,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with Xilinx U30 cards, specify ``u30``.
           +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.
           +  For instance types with NVIDIA V100 GPUs, specify ``v100``.
-          
+
          Default: Any accelerator
         """
         return pulumi.get(self, "accelerator_names")
@@ -7367,7 +7367,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with GPU accelerators, specify ``gpu``.
           +  For instance types with Inference accelerators, specify ``inference``.
           +  For instance types with Media accelerators, specify ``media``.
-          
+
          Default: Any accelerator type
         """
         return pulumi.get(self, "accelerator_types")
@@ -7392,7 +7392,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  To include bare metal instance types, specify ``included``.
           +  To require only bare metal instance types, specify ``required``.
           +  To exclude bare metal instance types, specify ``excluded``.
-          
+
          Default: ``excluded``
         """
         return pulumi.get(self, "bare_metal")
@@ -7422,7 +7422,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  To include burstable performance instance types, specify ``included``.
           +  To require only burstable performance instance types, specify ``required``.
           +  To exclude burstable performance instance types, specify ``excluded``.
-          
+
          Default: ``excluded``
         """
         return pulumi.get(self, "burstable_performance")
@@ -7436,7 +7436,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  For instance types with AMD CPUs, specify ``amd``.
           +  For instance types with AWS CPUs, specify ``amazon-web-services``.
           +  For instance types with Apple CPUs, specify ``apple``.
-          
+
           Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
           Default: Any manufacturer
         """
@@ -7473,7 +7473,7 @@ class LaunchTemplateInstanceRequirements(dict):
           +  To include instance types with instance store volumes, specify ``included``.
           +  To require only instance types with instance store volumes, specify ``required``.
           +  To exclude instance types with instance store volumes, specify ``excluded``.
-          
+
          Default: ``included``
         """
         return pulumi.get(self, "local_storage")
@@ -7485,7 +7485,7 @@ class LaunchTemplateInstanceRequirements(dict):
         The type of local storage that is required.
           +  For instance types with hard disk drive (HDD) storage, specify ``hdd``.
           +  For instance types with solid state drive (SSD) storage, specify ``ssd``.
-          
+
          Default: ``hdd`` and ``ssd``
         """
         return pulumi.get(self, "local_storage_types")
@@ -7926,7 +7926,7 @@ class LaunchTemplateMetadataOptions(dict):
         :param _builtins.str http_tokens: Indicates whether IMDSv2 is required.
                  +  ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
                  +  ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
-                 
+               
                 Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
         :param _builtins.str instance_metadata_tags: Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
                 Default: ``disabled``
@@ -7977,7 +7977,7 @@ class LaunchTemplateMetadataOptions(dict):
         Indicates whether IMDSv2 is required.
           +  ``optional`` - IMDSv2 is optional. You can choose whether to send a session token in your instance metadata retrieval requests. If you retrieve IAM role credentials without a session token, you receive the IMDSv1 role credentials. If you retrieve IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.
           +  ``required`` - IMDSv2 is required. You must send a session token in your instance metadata retrieval requests. With this option, retrieving the IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.
-          
+
          Default: If the value of ``ImdsSupport`` for the Amazon Machine Image (AMI) for your instance is ``v2.0``, the default is ``required``.
         """
         return pulumi.get(self, "http_tokens")
@@ -8801,15 +8801,15 @@ class LaunchTemplateReference(dict):
         :param _builtins.str instance_family: The instance family to use as a baseline reference.
                  Ensure that you specify the correct value for the instance family. The instance family is everything before the period (``.``) in the instance type name. For example, in the instance type ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
                  The following instance families are *not supported* for performance protection:
-                 +   ``c1`` 
+                 +   ``c1``
                  +  ``g3`` | ``g3s``
-                 +   ``hpc7g`` 
+                 +   ``hpc7g``
                  +  ``m1`` | ``m2``
                  +  ``mac1`` | ``mac2`` | ``mac2-m1ultra`` | ``mac2-m2`` | ``mac2-m2pro``
                  +  ``p3dn`` | ``p4d`` | ``p5``
-                 +   ``t1`` 
+                 +   ``t1``
                  +  ``u-12tb1`` | ``u-18tb1`` | ``u-24tb1`` | ``u-3tb1`` | ``u-6tb1`` | ``u-9tb1`` | ``u7i-12tb`` | ``u7in-16tb`` | ``u7in-24tb`` | ``u7in-32tb``
-                 
+               
                 If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
         """
         if instance_family is not None:
@@ -8822,15 +8822,15 @@ class LaunchTemplateReference(dict):
         The instance family to use as a baseline reference.
           Ensure that you specify the correct value for the instance family. The instance family is everything before the period (``.``) in the instance type name. For example, in the instance type ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
           The following instance families are *not supported* for performance protection:
-          +   ``c1`` 
+          +   ``c1``
           +  ``g3`` | ``g3s``
-          +   ``hpc7g`` 
+          +   ``hpc7g``
           +  ``m1`` | ``m2``
           +  ``mac1`` | ``mac2`` | ``mac2-m1ultra`` | ``mac2-m2`` | ``mac2-m2pro``
           +  ``p3dn`` | ``p4d`` | ``p5``
-          +   ``t1`` 
+          +   ``t1``
           +  ``u-12tb1`` | ``u-18tb1`` | ``u-24tb1`` | ``u-3tb1`` | ``u-6tb1`` | ``u-9tb1`` | ``u7i-12tb`` | ``u7in-16tb`` | ``u7in-24tb`` | ``u7in-32tb``
-          
+
          If you enable performance protection by specifying a supported instance family, the returned instance types will exclude the above unsupported instance families.
         """
         return pulumi.get(self, "instance_family")
@@ -8886,7 +8886,7 @@ class LaunchTemplateSpotOptions(dict):
         :param _builtins.str valid_until: The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
                  +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
                  +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
-                 
+               
                 Default: 7 days from the current date
         """
         if block_duration_minutes is not None:
@@ -8941,7 +8941,7 @@ class LaunchTemplateSpotOptions(dict):
         The end date of the request, in UTC format (*YYYY-MM-DD*T*HH:MM:SS*Z). Supported only for persistent requests.
           +  For a persistent request, the request remains active until the ``ValidUntil`` date and time is reached. Otherwise, the request remains active until you cancel it.
           +  For a one-time request, ``ValidUntil`` is not supported. The request remains active until all instances launch or you cancel the request.
-          
+
          Default: 7 days from the current date
         """
         return pulumi.get(self, "valid_until")
@@ -9113,7 +9113,7 @@ class LaunchTemplateVCpuCount(dict):
 @pulumi.output_type
 class NatGatewayAvailabilityZoneAddress(dict):
     """
-    For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. 
+    For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
      A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
      For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
     """
@@ -9143,14 +9143,14 @@ class NatGatewayAvailabilityZoneAddress(dict):
                  availability_zone: Optional[_builtins.str] = None,
                  availability_zone_id: Optional[_builtins.str] = None):
         """
-        For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone. 
+        For regional NAT gateways only: The configuration specifying which Elastic IP address (EIP) to use for handling outbound NAT traffic from a specific Availability Zone.
          A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
          For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide*.
 
         :param Sequence[_builtins.str] allocation_ids: The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
-        :param _builtins.str availability_zone: For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. 
+        :param _builtins.str availability_zone: For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
                 A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
-        :param _builtins.str availability_zone_id: For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions. 
+        :param _builtins.str availability_zone_id: For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
                 A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
         """
         pulumi.set(__self__, "allocation_ids", allocation_ids)
@@ -9171,7 +9171,7 @@ class NatGatewayAvailabilityZoneAddress(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
         """
-        For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. 
+        For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
          A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
         """
         return pulumi.get(self, "availability_zone")
@@ -9180,7 +9180,7 @@ class NatGatewayAvailabilityZoneAddress(dict):
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[_builtins.str]:
         """
-        For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions. 
+        For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
          A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
         """
         return pulumi.get(self, "availability_zone_id")
@@ -13443,7 +13443,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
                
-               > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+               > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
                
                Default: All instance types
         :param 'SpotFleetInstanceRequirementsRequestBareMetal' bare_metal: Indicates whether bare metal instance types must be included, excluded, or required.
@@ -13471,7 +13471,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                - For instance types with AWS CPUs, specify `amazon-web-services` .
                - For instance types with Apple CPUs, specify `apple` .
                
-               > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+               > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
                
                Default: Any manufacturer
         :param Sequence[_builtins.str] excluded_instance_types: The instance types to exclude.
@@ -13480,7 +13480,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
                
-               > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+               > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
                
                Default: No excluded instance types
         :param Sequence['SpotFleetInstanceRequirementsRequestInstanceGenerationsItem'] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Current generation instance types are typically the latest two to three generations in each instance family. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
@@ -13528,7 +13528,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
                
-               > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+               > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
                
                Default: `20`
         :param _builtins.bool require_encryption_in_transit: Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
@@ -13547,7 +13547,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
                
-               > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+               > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
                
                Default: `100`
         :param 'SpotFleetTotalLocalStorageGbRequest' total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
@@ -13701,7 +13701,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         For example, if you specify `c5*` ,Amazon EC2 will allow the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will allow all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` . 
+        > If you specify `AllowedInstanceTypes` , you can't specify `ExcludedInstanceTypes` .
 
         Default: All instance types
         """
@@ -13764,7 +13764,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
         - For instance types with AWS CPUs, specify `amazon-web-services` .
         - For instance types with Apple CPUs, specify `apple` .
 
-        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
+        > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 
         Default: Any manufacturer
         """
@@ -13780,7 +13780,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         For example, if you specify `c5*` ,Amazon EC2 will exclude the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*` , Amazon EC2 will exclude all the M5a instance types, but not the M5n instance types.
 
-        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` . 
+        > If you specify `ExcludedInstanceTypes` , you can't specify `AllowedInstanceTypes` .
 
         Default: No excluded instance types
         """
@@ -13891,7 +13891,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
+        > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
 
         Default: `20`
         """
@@ -13931,7 +13931,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
 
         This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html) .
 
-        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` . 
+        > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
 
         Default: `100`
         """
@@ -14690,7 +14690,7 @@ class SpotFleetPerformanceFactorReferenceRequest(dict):
         """
         :param _builtins.str instance_family: The instance family to use as a baseline reference.
                
-               > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+               > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* .
                
                The following instance families are *not supported* for performance protection:
                
@@ -14716,7 +14716,7 @@ class SpotFleetPerformanceFactorReferenceRequest(dict):
         """
         The instance family to use as a baseline reference.
 
-        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* . 
+        > Ensure that you specify the correct value for the instance family. The instance family is everything before the period ( `.` ) in the instance type name. For example, in the instance type `c6i.large` , the instance family is `c6i` , not `c6` . For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types* .
 
         The following instance families are *not supported* for performance protection:
 
@@ -14874,7 +14874,7 @@ class SpotFleetRequestConfigData(dict):
                - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
                - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
                - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
-               - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances. 
+               - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances.
                
                Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
                
@@ -14984,7 +14984,7 @@ class SpotFleetRequestConfigData(dict):
         - **priceCapacityOptimized (recommended)** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.
         - **capacityOptimized** - Spot Fleet identifies the pools with the highest capacity availability for the number of instances that are launching. This means that we will request Spot Instances from the pools that we believe have the lowest chance of interruption in the near term. To give certain instance types a higher chance of launching first, use `capacityOptimizedPrioritized` . Set a priority for each instance type by using the `Priority` parameter for `LaunchTemplateOverrides` . You can assign the same priority to different `LaunchTemplateOverrides` . EC2 implements the priorities on a best-effort basis, but optimizes for capacity first. `capacityOptimizedPrioritized` is supported only if your Spot Fleet uses a launch template. Note that if the `OnDemandAllocationStrategy` is set to `prioritized` , the same priority is applied when fulfilling On-Demand capacity.
         - **diversified** - Spot Fleet requests instances from all of the Spot Instance pools that you specify.
-        - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances. 
+        - **lowestPrice (not recommended)** - > We don't recommend the `lowestPrice` allocation strategy because it has the highest risk of interruption for your Spot Instances.
 
         Spot Fleet requests instances from the lowest priced Spot Instance pool that has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances come from the next lowest priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your request by drawing from the next lowest priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
 
@@ -17885,14 +17885,14 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
         :param 'VpnConnectionVpnTunnelOptionsSpecificationStartupAction' startup_action: The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
                 Valid Values: ``add`` | ``start``
                 Default: ``add``
-        :param _builtins.str tunnel_inside_cidr: The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
+        :param _builtins.str tunnel_inside_cidr: The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
                 Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
-                 +   ``169.254.0.0/30`` 
-                 +   ``169.254.1.0/30`` 
-                 +   ``169.254.2.0/30`` 
-                 +   ``169.254.3.0/30`` 
-                 +   ``169.254.4.0/30`` 
-                 +   ``169.254.5.0/30`` 
+                 +   ``169.254.0.0/30``
+                 +   ``169.254.1.0/30``
+                 +   ``169.254.2.0/30``
+                 +   ``169.254.3.0/30``
+                 +   ``169.254.4.0/30``
+                 +   ``169.254.5.0/30``
                  +   ``169.254.169.252/30``
         :param _builtins.str tunnel_inside_ipv6_cidr: The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
                 Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
@@ -18110,14 +18110,14 @@ class VpnConnectionVpnTunnelOptionsSpecification(dict):
     @pulumi.getter(name="tunnelInsideCidr")
     def tunnel_inside_cidr(self) -> Optional[_builtins.str]:
         """
-        The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
+        The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
          Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
-          +   ``169.254.0.0/30`` 
-          +   ``169.254.1.0/30`` 
-          +   ``169.254.2.0/30`` 
-          +   ``169.254.3.0/30`` 
-          +   ``169.254.4.0/30`` 
-          +   ``169.254.5.0/30`` 
+          +   ``169.254.0.0/30``
+          +   ``169.254.1.0/30``
+          +   ``169.254.2.0/30``
+          +   ``169.254.3.0/30``
+          +   ``169.254.4.0/30``
+          +   ``169.254.5.0/30``
           +   ``169.254.169.252/30``
         """
         return pulumi.get(self, "tunnel_inside_cidr")

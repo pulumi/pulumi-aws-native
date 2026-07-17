@@ -24,9 +24,9 @@ __all__ = ['VectorBucketArgs', 'VectorBucket']
 @pulumi.input_type
 class VectorBucketArgs:
     def __init__(__self__, *,
-                 encryption_configuration: Optional[pulumi.Input['VectorBucketEncryptionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_configuration: pulumi.Input[Optional['VectorBucketEncryptionConfigurationArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VectorBucket resource.
 
@@ -47,31 +47,31 @@ class VectorBucketArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['VectorBucketEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['VectorBucketEncryptionConfigurationArgs']]:
         """
         The encryption configuration for the vector bucket.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['VectorBucketEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['VectorBucketEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         User tags (key-value pairs) to associate with the vector bucket.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="vectorBucketName")
-    def vector_bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def vector_bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the vector bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). The bucket name must be unique in the same AWS account for each AWS Region. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name.
 
@@ -82,7 +82,7 @@ class VectorBucketArgs:
         return pulumi.get(self, "vector_bucket_name")
 
     @vector_bucket_name.setter
-    def vector_bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def vector_bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vector_bucket_name", value)
 
 
@@ -92,13 +92,12 @@ class VectorBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucket
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +118,6 @@ class VectorBucket(pulumi.CustomResource):
         """
         Resource Type definition for AWS::S3Vectors::VectorBucket
 
-
         :param str resource_name: The name of the resource.
         :param VectorBucketArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,9 @@ class VectorBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configuration: Optional[pulumi.Input[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['VectorBucketEncryptionConfigurationArgs', 'VectorBucketEncryptionConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 vector_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

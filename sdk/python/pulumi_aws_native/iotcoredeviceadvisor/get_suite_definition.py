@@ -101,7 +101,6 @@ def get_suite_definition(suite_definition_id: Optional[_builtins.str] = None,
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
-
     :param _builtins.str suite_definition_id: The unique identifier for the suite definition.
     """
     __args__ = dict()
@@ -115,11 +114,10 @@ def get_suite_definition(suite_definition_id: Optional[_builtins.str] = None,
         suite_definition_id=pulumi.get(__ret__, 'suite_definition_id'),
         suite_definition_version=pulumi.get(__ret__, 'suite_definition_version'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_suite_definition_output(suite_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_suite_definition_output(suite_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuiteDefinitionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
-
 
     :param _builtins.str suite_definition_id: The unique identifier for the suite definition.
     """

@@ -102,13 +102,13 @@ export interface IntegrationResourcePropertyArgs {
     /**
      * The resource properties associated with the integration source.
      */
-    sourceProcessingProperties?: pulumi.Input<inputs.glue.SourceProcessingPropertiesPropertiesArgs>;
+    sourceProcessingProperties?: pulumi.Input<inputs.glue.SourceProcessingPropertiesPropertiesArgs | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The resource properties associated with the integration target.
      */
-    targetProcessingProperties?: pulumi.Input<inputs.glue.TargetProcessingPropertiesPropertiesArgs>;
+    targetProcessingProperties?: pulumi.Input<inputs.glue.TargetProcessingPropertiesPropertiesArgs | undefined>;
 }

@@ -160,7 +160,6 @@ def get_id_namespace_association(id_namespace_association_identifier: Optional[_
     """
     Represents an association between an ID namespace and a collaboration
 
-
     :param _builtins.str id_namespace_association_identifier: The unique identifier of the ID namespace association that you want to retrieve.
     :param _builtins.str membership_identifier: The unique identifier of the membership that contains the ID namespace association.
     """
@@ -181,12 +180,11 @@ def get_id_namespace_association(id_namespace_association_identifier: Optional[_
         membership_arn=pulumi.get(__ret__, 'membership_arn'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_id_namespace_association_output(id_namespace_association_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                        membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_id_namespace_association_output(id_namespace_association_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                        membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdNamespaceAssociationResult]:
     """
     Represents an association between an ID namespace and a collaboration
-
 
     :param _builtins.str id_namespace_association_identifier: The unique identifier of the ID namespace association that you want to retrieve.
     :param _builtins.str membership_identifier: The unique identifier of the membership that contains the ID namespace association.

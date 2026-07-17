@@ -18,12 +18,12 @@ from ._enums import *
 __all__ = [
     'ProactiveEngagementEmergencyContactArgs',
     'ProactiveEngagementEmergencyContactArgsDict',
+    'ProtectionApplicationLayerAutomaticResponseConfigurationArgs',
+    'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict',
     'ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs',
     'ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgsDict',
     'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs',
     'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgsDict',
-    'ProtectionApplicationLayerAutomaticResponseConfigurationArgs',
-    'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict',
 ]
 
 class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
@@ -34,11 +34,11 @@ class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
     """
     The email address for the contact.
     """
-    contact_notes: NotRequired[pulumi.Input[_builtins.str]]
+    contact_notes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Additional notes regarding the contact.
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The phone number for the contact
     """
@@ -47,8 +47,8 @@ class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
 class ProactiveEngagementEmergencyContactArgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[_builtins.str],
-                 contact_notes: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 contact_notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
 
@@ -76,27 +76,79 @@ class ProactiveEngagementEmergencyContactArgs:
 
     @_builtins.property
     @pulumi.getter(name="contactNotes")
-    def contact_notes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def contact_notes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Additional notes regarding the contact.
         """
         return pulumi.get(self, "contact_notes")
 
     @contact_notes.setter
-    def contact_notes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def contact_notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "contact_notes", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The phone number for the contact
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
+
+
+class ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict(TypedDict):
+    """
+    The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+    """
+    action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgsDict', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgsDict']]
+    """
+    Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+    """
+    status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']
+    """
+    Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
+    """
+
+@pulumi.input_type
+class ProtectionApplicationLayerAutomaticResponseConfigurationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']],
+                 status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']):
+        """
+        The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+
+        :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']] action: Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+        :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'] status: Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']]:
+        """
+        Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']]):
+        pulumi.set(self, "action", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']:
+        """
+        Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']):
+        pulumi.set(self, "status", value)
 
 
 class ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgsDict(TypedDict):
@@ -171,57 +223,5 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesA
     @block.setter
     def block(self, value: Optional[Any]):
         pulumi.set(self, "block", value)
-
-
-class ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict(TypedDict):
-    """
-    The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
-    """
-    action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgsDict', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgsDict']]
-    """
-    Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
-    """
-    status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']
-    """
-    Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
-    """
-
-@pulumi.input_type
-class ProtectionApplicationLayerAutomaticResponseConfigurationArgs:
-    def __init__(__self__, *,
-                 action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']],
-                 status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']):
-        """
-        The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
-
-        :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']] action: Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
-        :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'] status: Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
-        """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def action(self) -> pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']]:
-        """
-        Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']]):
-        pulumi.set(self, "action", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def status(self) -> pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']:
-        """
-        Indicates whether automatic application layer DDoS mitigation is enabled for the protection.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']):
-        pulumi.set(self, "status", value)
 
 

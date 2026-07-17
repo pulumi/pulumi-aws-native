@@ -126,7 +126,6 @@ def get_allow_list(id: Optional[_builtins.str] = None,
     """
     Macie AllowList resource schema
 
-
     :param _builtins.str id: AllowList ID.
     """
     __args__ = dict()
@@ -142,11 +141,10 @@ def get_allow_list(id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_allow_list_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_allow_list_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAllowListResult]:
     """
     Macie AllowList resource schema
-
 
     :param _builtins.str id: AllowList ID.
     """

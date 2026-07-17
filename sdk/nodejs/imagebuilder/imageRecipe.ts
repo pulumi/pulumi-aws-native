@@ -149,31 +149,31 @@ export interface ImageRecipeArgs {
     /**
      * Specify additional settings and launch scripts for your build instances.
      */
-    additionalInstanceConfiguration?: pulumi.Input<inputs.imagebuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
+    additionalInstanceConfiguration?: pulumi.Input<inputs.imagebuilder.ImageRecipeAdditionalInstanceConfigurationArgs | undefined>;
     /**
      * The tags to apply to the AMI created by this image recipe.
      */
-    amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    amiTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The AMI watermark names to attach to the output AMI from this recipe. AMI watermarks are lineage markers that automatically propagate to derivative AMIs when the source AMI is copied or distributed.
      */
-    amiWatermarks?: pulumi.Input<pulumi.Input<string>[]>;
+    amiWatermarks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The block device mappings to apply when creating images from this recipe.
      */
-    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[] | undefined>;
     /**
      * The components of the image recipe.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[] | undefined>;
     /**
      * The description of the image recipe.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the image recipe.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The parent image of the image recipe.
      */
@@ -181,7 +181,7 @@ export interface ImageRecipeArgs {
     /**
      * The tags of the image recipe.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The version of the image recipe.
      */
@@ -189,5 +189,5 @@ export interface ImageRecipeArgs {
     /**
      * The working directory to be used during build and test workflows.
      */
-    workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string | undefined>;
 }

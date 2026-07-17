@@ -89,13 +89,13 @@ export interface EncoderConfigurationArgs {
     /**
      * Encoder configuration name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
      */
-    video?: pulumi.Input<inputs.ivs.VideoPropertiesArgs>;
+    video?: pulumi.Input<inputs.ivs.VideoPropertiesArgs | undefined>;
 }

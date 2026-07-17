@@ -76,5 +76,5 @@ export class UserPoolReplica extends pulumi.CustomResource {
 export interface UserPoolReplicaArgs {
     regionName: pulumi.Input<string>;
     userPoolId: pulumi.Input<string>;
-    userPoolTagsAtCreate?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    userPoolTagsAtCreate?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

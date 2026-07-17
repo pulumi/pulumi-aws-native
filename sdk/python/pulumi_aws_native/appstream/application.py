@@ -26,13 +26,13 @@ class ApplicationArgs:
                  instance_families: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  launch_path: pulumi.Input[_builtins.str],
                  platforms: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None):
+                 attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Application resource.
 
@@ -141,55 +141,55 @@ class ApplicationArgs:
 
     @_builtins.property
     @pulumi.getter(name="attributesToDelete")
-    def attributes_to_delete(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def attributes_to_delete(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of attributes to delete from an application.
         """
         return pulumi.get(self, "attributes_to_delete")
 
     @attributes_to_delete.setter
-    def attributes_to_delete(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def attributes_to_delete(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes_to_delete", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the application.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the application. This name is visible to users in the application catalog.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="launchParameters")
-    def launch_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def launch_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The launch parameters of the application.
         """
         return pulumi.get(self, "launch_parameters")
 
     @launch_parameters.setter
-    def launch_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def launch_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "launch_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
 
@@ -198,31 +198,31 @@ class ApplicationArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]:
         """
         The tags of the application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workingDirectory")
-    def working_directory(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def working_directory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The working directory of the application.
         """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
-    def working_directory(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def working_directory(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "working_directory", value)
 
 
@@ -232,22 +232,21 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_block_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_s3_location: Optional[pulumi.Input[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
-                 instance_families: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 launch_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platforms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_block_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
+                 instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 launch_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppStream::Application
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,7 +278,6 @@ class Application(pulumi.CustomResource):
         """
         Resource Type definition for AWS::AppStream::Application
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -295,18 +293,18 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_block_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 icon_s3_location: Optional[pulumi.Input[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
-                 instance_families: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 launch_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 launch_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 platforms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
-                 working_directory: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_block_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 attributes_to_delete: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 icon_s3_location: pulumi.Input[Optional[Union['ApplicationS3LocationArgs', 'ApplicationS3LocationArgsDict']]] = None,
+                 instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 launch_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 launch_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 platforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag0PropertiesArgsDict'], Union['ApplicationTag1PropertiesArgs', 'ApplicationTag1PropertiesArgsDict']]]]]] = None,
+                 working_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

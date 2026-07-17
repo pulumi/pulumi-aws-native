@@ -52,7 +52,6 @@ def get_security_key(association_id: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::Connect::SecurityKey
 
-
     :param _builtins.str association_id: An `AssociationId` is automatically generated when a storage config is associated with an instance.
     :param _builtins.str instance_id: The Amazon Resource Name (ARN) of the instance.
            
@@ -68,12 +67,11 @@ def get_security_key(association_id: Optional[_builtins.str] = None,
 
     return AwaitableGetSecurityKeyResult(
         association_id=pulumi.get(__ret__, 'association_id'))
-def get_security_key_output(association_id: Optional[pulumi.Input[_builtins.str]] = None,
-                            instance_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_security_key_output(association_id: pulumi.Input[Optional[_builtins.str]] = None,
+                            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityKeyResult]:
     """
     Resource Type definition for AWS::Connect::SecurityKey
-
 
     :param _builtins.str association_id: An `AssociationId` is automatically generated when a storage config is associated with an instance.
     :param _builtins.str instance_id: The Amazon Resource Name (ARN) of the instance.

@@ -23,17 +23,17 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]] = None,
-                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectResourceTagArgs']]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -88,134 +88,134 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the Amazon DataZone project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="domainUnitId")
-    def domain_unit_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def domain_unit_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the domain unit.
         """
         return pulumi.get(self, "domain_unit_id")
 
     @domain_unit_id.setter
-    def domain_unit_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def domain_unit_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain_unit_id", value)
 
     @_builtins.property
     @pulumi.getter(name="glossaryTerms")
-    def glossary_terms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def glossary_terms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The glossary terms that can be used in this Amazon DataZone project.
         """
         return pulumi.get(self, "glossary_terms")
 
     @glossary_terms.setter
-    def glossary_terms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def glossary_terms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "glossary_terms", value)
 
     @_builtins.property
     @pulumi.getter(name="membershipAssignments")
-    def membership_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]:
+    def membership_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]:
         """
         The project membership assignments.
         """
         return pulumi.get(self, "membership_assignments")
 
     @membership_assignments.setter
-    def membership_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]):
+    def membership_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectMembershipAssignmentArgs']]]]):
         pulumi.set(self, "membership_assignments", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Amazon DataZone project.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectCategory")
-    def project_category(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_category(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project category.
         """
         return pulumi.get(self, "project_category")
 
     @project_category.setter
-    def project_category(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_category(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_category", value)
 
     @_builtins.property
     @pulumi.getter(name="projectExecutionRole")
-    def project_execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project execution role ARN.
         """
         return pulumi.get(self, "project_execution_role")
 
     @project_execution_role.setter
-    def project_execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_execution_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="projectProfileId")
-    def project_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project profile ID.
         """
         return pulumi.get(self, "project_profile_id")
 
     @project_profile_id.setter
-    def project_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_profile_id", value)
 
     @_builtins.property
     @pulumi.getter(name="projectProfileVersion")
-    def project_profile_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def project_profile_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
         """
         return pulumi.get(self, "project_profile_version")
 
     @project_profile_version.setter
-    def project_profile_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def project_profile_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "project_profile_version", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]:
         """
         The resource tags of the project.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectResourceTagArgs']]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userParameters")
-    def user_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]:
+    def user_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]:
         """
         The user parameters of the project.
         """
         return pulumi.get(self, "user_parameters")
 
     @user_parameters.setter
-    def user_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]):
+    def user_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentConfigurationUserParameterArgs']]]]):
         pulumi.set(self, "user_parameters", value)
 
 
@@ -225,22 +225,21 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
-                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,7 +265,6 @@ class Project(pulumi.CustomResource):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
 
-
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,18 +280,18 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_unit_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 membership_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_category: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 project_profile_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
-                 user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_category: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_profile_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -129,11 +129,11 @@ export interface ServiceFunctionArgs {
     /**
      * The description of the service function.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the service function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the parent service.
      */

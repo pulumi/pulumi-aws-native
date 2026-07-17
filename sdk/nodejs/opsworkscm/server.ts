@@ -305,15 +305,15 @@ export interface ServerArgs {
     /**
      * Associate a public IP address with a server that you are launching. Valid values are `true` or `false` . The default value is `true` .
      */
-    associatePublicIpAddress?: pulumi.Input<boolean>;
+    associatePublicIpAddress?: pulumi.Input<boolean | undefined>;
     /**
      * If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
      */
-    backupId?: pulumi.Input<string>;
+    backupId?: pulumi.Input<string | undefined>;
     /**
      * The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default value is `1` .
      */
-    backupRetentionCount?: pulumi.Input<number>;
+    backupRetentionCount?: pulumi.Input<number | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a custom certificate, you must also specify values for `CustomDomain` and `CustomPrivateKey` . The following are requirements for the `CustomCertificate` value:
      *
@@ -323,23 +323,23 @@ export interface ServerArgs {
      * - The certificate’s common name or subject alternative names (SANs), if present, must match the value of `CustomDomain` .
      * - The certificate must match the value of `CustomPrivateKey` .
      */
-    customCertificate?: pulumi.Input<string>;
+    customCertificate?: pulumi.Input<string | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. An optional public endpoint of a server, such as `https://aws.my-company.com` . To access the server, create a CNAME DNS record in your preferred DNS service that points the custom domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the generated `Endpoint` value if the server is using a custom domain. If you specify a custom domain, you must also specify values for `CustomCertificate` and `CustomPrivateKey` .
      */
-    customDomain?: pulumi.Input<string>;
+    customDomain?: pulumi.Input<string | undefined>;
     /**
      * Supported on servers running Chef Automate 2.0 only. A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase. If you specify a custom private key, you must also specify values for `CustomDomain` and `CustomCertificate` .
      */
-    customPrivateKey?: pulumi.Input<string>;
+    customPrivateKey?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable scheduled backups. Valid values are `true` or `false` . The default value is `true` .
      */
-    disableAutomatedBackup?: pulumi.Input<boolean>;
+    disableAutomatedBackup?: pulumi.Input<boolean | undefined>;
     /**
      * The configuration management engine to use. Valid values include `ChefAutomate` and `Puppet` .
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string | undefined>;
     /**
      * Optional engine attributes on a specified server.
      *
@@ -350,15 +350,15 @@ export interface ServerArgs {
      * - `PUPPET_R10K_REMOTE` : The r10k remote is the URL of your control repository (for example, ssh://git@your.git-repo.com:user/control-repo.git). Specifying an r10k remote opens TCP port 8170.
      * - `PUPPET_R10K_PRIVATE_KEY` : If you are using a private Git repository, add PUPPET_R10K_PRIVATE_KEY to specify a PEM-encoded private SSH key.
      */
-    engineAttributes?: pulumi.Input<pulumi.Input<inputs.opsworkscm.ServerEngineAttributeArgs>[]>;
+    engineAttributes?: pulumi.Input<pulumi.Input<inputs.opsworkscm.ServerEngineAttributeArgs>[] | undefined>;
     /**
      * The engine model of the server. Valid values in this release include `Monolithic` for Puppet and `Single` for Chef.
      */
-    engineModel?: pulumi.Input<string>;
+    engineModel?: pulumi.Input<string | undefined>;
     /**
      * The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently `2` . For a Puppet server, valid values are `2019` or `2017` .
      */
-    engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the instance profile that your Amazon EC2 instances use.
      */
@@ -370,7 +370,7 @@ export interface ServerArgs {
     /**
      * The Amazon EC2 key pair to set for the instance. This parameter is optional; if desired, you may specify this parameter to connect to your instances by using SSH.
      */
-    keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string | undefined>;
     /**
      * The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server if automated backups are enabled. Valid values must be specified in one of the following formats:
      *
@@ -383,23 +383,23 @@ export interface ServerArgs {
      *
      * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
      */
-    preferredBackupWindow?: pulumi.Input<string>;
+    preferredBackupWindow?: pulumi.Input<string | undefined>;
     /**
      * The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance. Valid values must be specified in the following format: `DDD:HH:MM` . `MM` must be specified as `00` . The specified time is in coordinated universal time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See `TimeWindowDefinition` for more information.
      *
      * *Example:* `Mon:08:00` , which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
      */
-    preferredMaintenanceWindow?: pulumi.Input<string>;
+    preferredMaintenanceWindow?: pulumi.Input<string | undefined>;
     /**
      * A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups must be within the VPC that is specified by `SubnetIds` .
      *
      * If you do not specify this parameter, AWS OpsWorks CM creates one new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone).
      */
-    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the server. The server name must be unique within your AWS account, within each region. Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
      */
-    serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string | undefined>;
     /**
      * The service role that the AWS OpsWorks CM service backend uses to work with your account.
      */
@@ -413,7 +413,7 @@ export interface ServerArgs {
      *
      * For more information about supported Amazon EC2 platforms, see [Supported Platforms](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html) .
      */
-    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef Automate or OpsWorks for Puppet Enterprise server.
      *
@@ -423,5 +423,5 @@ export interface ServerArgs {
      * - Leading and trailing spaces are trimmed from both the key and value.
      * - A maximum of 50 user-applied tags is allowed for any AWS OpsWorks CM server.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

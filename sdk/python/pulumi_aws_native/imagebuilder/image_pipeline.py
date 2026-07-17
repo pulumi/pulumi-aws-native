@@ -22,22 +22,22 @@ __all__ = ['ImagePipelineArgs', 'ImagePipeline']
 @pulumi.input_type
 class ImagePipelineArgs:
     def __init__(__self__, *,
-                 container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']] = None,
-                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 image_tests_configuration: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']] = None,
-                 infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
-                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]] = None):
+                 container_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional['ImagePipelineImageScanningConfigurationArgs']] = None,
+                 image_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 image_tests_configuration: pulumi.Input[Optional['ImagePipelineImageTestsConfigurationArgs']] = None,
+                 infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional['ImagePipelinePipelineLoggingConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional['ImagePipelineScheduleArgs']] = None,
+                 status: pulumi.Input[Optional['ImagePipelineStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a ImagePipeline resource.
 
@@ -93,194 +93,194 @@ class ImagePipelineArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerRecipeArn")
-    def container_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def container_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         """
         return pulumi.get(self, "container_recipe_arn")
 
     @container_recipe_arn.setter
-    def container_recipe_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def container_recipe_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "container_recipe_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the image pipeline.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="distributionConfigurationArn")
-    def distribution_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def distribution_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
         """
         return pulumi.get(self, "distribution_configuration_arn")
 
     @distribution_configuration_arn.setter
-    def distribution_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def distribution_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "distribution_configuration_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedImageMetadataEnabled")
-    def enhanced_image_metadata_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enhanced_image_metadata_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Collects additional information about the image being created, including the operating system (OS) version and package list.
         """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
 
     @enhanced_image_metadata_enabled.setter
-    def enhanced_image_metadata_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enhanced_image_metadata_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enhanced_image_metadata_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRole")
-    def execution_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The execution role name/ARN for the image build, if provided
         """
         return pulumi.get(self, "execution_role")
 
     @execution_role.setter
-    def execution_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execution_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execution_role", value)
 
     @_builtins.property
     @pulumi.getter(name="imageRecipeArn")
-    def image_recipe_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def image_recipe_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         """
         return pulumi.get(self, "image_recipe_arn")
 
     @image_recipe_arn.setter
-    def image_recipe_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def image_recipe_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_recipe_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']]:
+    def image_scanning_configuration(self) -> pulumi.Input[Optional['ImagePipelineImageScanningConfigurationArgs']]:
         """
         Contains settings for vulnerability scans.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationArgs']]):
+    def image_scanning_configuration(self, value: pulumi.Input[Optional['ImagePipelineImageScanningConfigurationArgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTags")
-    def image_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def image_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags to be applied to images created by this pipeline.
         """
         return pulumi.get(self, "image_tags")
 
     @image_tags.setter
-    def image_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def image_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "image_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]:
+    def image_tests_configuration(self) -> pulumi.Input[Optional['ImagePipelineImageTestsConfigurationArgs']]:
         """
         The image tests configuration of the image pipeline.
         """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
-    def image_tests_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageTestsConfigurationArgs']]):
+    def image_tests_configuration(self, value: pulumi.Input[Optional['ImagePipelineImageTestsConfigurationArgs']]):
         pulumi.set(self, "image_tests_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfigurationArn")
-    def infrastructure_configuration_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def infrastructure_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         """
         return pulumi.get(self, "infrastructure_configuration_arn")
 
     @infrastructure_configuration_arn.setter
-    def infrastructure_configuration_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def infrastructure_configuration_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "infrastructure_configuration_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> pulumi.Input[Optional['ImagePipelinePipelineLoggingConfigurationArgs']]:
         """
         The logging configuration settings for the image pipeline.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['ImagePipelinePipelineLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: pulumi.Input[Optional['ImagePipelinePipelineLoggingConfigurationArgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the image pipeline.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['ImagePipelineScheduleArgs']]:
+    def schedule(self) -> pulumi.Input[Optional['ImagePipelineScheduleArgs']]:
         """
         The schedule of the image pipeline.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['ImagePipelineScheduleArgs']]):
+    def schedule(self, value: pulumi.Input[Optional['ImagePipelineScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['ImagePipelineStatus']]:
+    def status(self) -> pulumi.Input[Optional['ImagePipelineStatus']]:
         """
         The status of the image pipeline.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input['ImagePipelineStatus']]):
+    def status(self, value: pulumi.Input[Optional['ImagePipelineStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of this image pipeline.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]]:
+    def workflows(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]]:
         """
         Workflows to define the image build process
         """
         return pulumi.get(self, "workflows")
 
     @workflows.setter
-    def workflows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]]):
+    def workflows(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowConfigurationArgs']]]]):
         pulumi.set(self, "workflows", value)
 
 
@@ -290,26 +290,25 @@ class ImagePipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
-                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
-                 infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
-                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowConfigurationArgs', 'ImagePipelineWorkflowConfigurationArgsDict']]]]] = None,
+                 container_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
+                 infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
+                 status: pulumi.Input[Optional['ImagePipelineStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowConfigurationArgs', 'ImagePipelineWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::ImageBuilder::ImagePipeline
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -339,7 +338,6 @@ class ImagePipeline(pulumi.CustomResource):
         """
         Resource schema for AWS::ImageBuilder::ImagePipeline
 
-
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,22 +353,22 @@ class ImagePipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 distribution_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 enhanced_image_metadata_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execution_role: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_recipe_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
-                 image_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
-                 infrastructure_configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 logging_configuration: Optional[pulumi.Input[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
-                 status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImagePipelineWorkflowConfigurationArgs', 'ImagePipelineWorkflowConfigurationArgsDict']]]]] = None,
+                 container_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 distribution_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 enhanced_image_metadata_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execution_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_recipe_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_scanning_configuration: pulumi.Input[Optional[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 image_tests_configuration: pulumi.Input[Optional[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
+                 infrastructure_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['ImagePipelinePipelineLoggingConfigurationArgs', 'ImagePipelinePipelineLoggingConfigurationArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
+                 status: pulumi.Input[Optional['ImagePipelineStatus']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowConfigurationArgs', 'ImagePipelineWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

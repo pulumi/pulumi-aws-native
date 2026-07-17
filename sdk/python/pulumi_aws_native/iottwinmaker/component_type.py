@@ -24,14 +24,14 @@ class ComponentTypeArgs:
     def __init__(__self__, *,
                  component_type_id: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]] = None,
-                 is_singleton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]] = None,
-                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 composite_component_types: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 extends_from: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]] = None,
+                 is_singleton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 property_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]] = None,
+                 property_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ComponentType resource.
 
@@ -91,98 +91,98 @@ class ComponentTypeArgs:
 
     @_builtins.property
     @pulumi.getter(name="compositeComponentTypes")
-    def composite_component_types(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]:
+    def composite_component_types(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]:
         """
         An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         """
         return pulumi.get(self, "composite_component_types")
 
     @composite_component_types.setter
-    def composite_component_types(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]):
+    def composite_component_types(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeCompositeComponentTypeArgs']]]]):
         pulumi.set(self, "composite_component_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the component type.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="extendsFrom")
-    def extends_from(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extends_from(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the parent component type to extend.
         """
         return pulumi.get(self, "extends_from")
 
     @extends_from.setter
-    def extends_from(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extends_from(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extends_from", value)
 
     @_builtins.property
     @pulumi.getter
-    def functions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]:
+    def functions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]:
         """
         a Map of functions in the component type. Each function's key must be unique to this map.
         """
         return pulumi.get(self, "functions")
 
     @functions.setter
-    def functions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]):
+    def functions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypeFunctionArgs']]]]):
         pulumi.set(self, "functions", value)
 
     @_builtins.property
     @pulumi.getter(name="isSingleton")
-    def is_singleton(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_singleton(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         A Boolean value that specifies whether an entity can have more than one component of this type.
         """
         return pulumi.get(self, "is_singleton")
 
     @is_singleton.setter
-    def is_singleton(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_singleton(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_singleton", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyDefinitions")
-    def property_definitions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]:
+    def property_definitions(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]:
         """
         An map of the property definitions in the component type. Each property definition's key must be unique to this map.
         """
         return pulumi.get(self, "property_definitions")
 
     @property_definitions.setter
-    def property_definitions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]):
+    def property_definitions(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyDefinitionArgs']]]]):
         pulumi.set(self, "property_definitions", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyGroups")
-    def property_groups(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]:
+    def property_groups(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]:
         """
         An map of the property groups in the component type. Each property group's key must be unique to this map.
         """
         return pulumi.get(self, "property_groups")
 
     @property_groups.setter
-    def property_groups(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]):
+    def property_groups(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ComponentTypePropertyGroupArgs']]]]):
         pulumi.set(self, "property_groups", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -192,20 +192,19 @@ class ComponentType(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypeCompositeComponentTypeArgs', 'ComponentTypeCompositeComponentTypeArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypeFunctionArgs', 'ComponentTypeFunctionArgsDict']]]]] = None,
-                 is_singleton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypePropertyDefinitionArgs', 'ComponentTypePropertyDefinitionArgsDict']]]]] = None,
-                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypePropertyGroupArgs', 'ComponentTypePropertyGroupArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 composite_component_types: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypeCompositeComponentTypeArgs', 'ComponentTypeCompositeComponentTypeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 extends_from: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypeFunctionArgs', 'ComponentTypeFunctionArgsDict']]]]] = None,
+                 is_singleton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 property_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypePropertyDefinitionArgs', 'ComponentTypePropertyDefinitionArgsDict']]]]] = None,
+                 property_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypePropertyGroupArgs', 'ComponentTypePropertyGroupArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTTwinMaker::ComponentType
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +228,6 @@ class ComponentType(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTTwinMaker::ComponentType
 
-
         :param str resource_name: The name of the resource.
         :param ComponentTypeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,16 +243,16 @@ class ComponentType(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_type_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 composite_component_types: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypeCompositeComponentTypeArgs', 'ComponentTypeCompositeComponentTypeArgsDict']]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 functions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypeFunctionArgs', 'ComponentTypeFunctionArgsDict']]]]] = None,
-                 is_singleton: Optional[pulumi.Input[_builtins.bool]] = None,
-                 property_definitions: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypePropertyDefinitionArgs', 'ComponentTypePropertyDefinitionArgsDict']]]]] = None,
-                 property_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ComponentTypePropertyGroupArgs', 'ComponentTypePropertyGroupArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 component_type_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 composite_component_types: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypeCompositeComponentTypeArgs', 'ComponentTypeCompositeComponentTypeArgsDict']]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 extends_from: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 functions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypeFunctionArgs', 'ComponentTypeFunctionArgsDict']]]]] = None,
+                 is_singleton: pulumi.Input[Optional[_builtins.bool]] = None,
+                 property_definitions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypePropertyDefinitionArgs', 'ComponentTypePropertyDefinitionArgsDict']]]]] = None,
+                 property_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ComponentTypePropertyGroupArgs', 'ComponentTypePropertyGroupArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -146,7 +146,7 @@ export interface LocationS3Args {
     /**
      * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
-    s3BucketArn?: pulumi.Input<string>;
+    s3BucketArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
      *
@@ -156,13 +156,13 @@ export interface LocationS3Args {
     /**
      * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
-    s3StorageClass?: pulumi.Input<enums.datasync.LocationS3S3StorageClass>;
+    s3StorageClass?: pulumi.Input<enums.datasync.LocationS3S3StorageClass | undefined>;
     /**
      * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

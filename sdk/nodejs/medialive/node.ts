@@ -135,18 +135,18 @@ export interface NodeArgs {
     /**
      * The user-specified name of the Node.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * An array of interface mappings for the Node.
      */
-    nodeInterfaceMappings?: pulumi.Input<pulumi.Input<inputs.medialive.NodeInterfaceMappingArgs>[]>;
-    role?: pulumi.Input<enums.medialive.NodeRole>;
+    nodeInterfaceMappings?: pulumi.Input<pulumi.Input<inputs.medialive.NodeInterfaceMappingArgs>[] | undefined>;
+    role?: pulumi.Input<enums.medialive.NodeRole | undefined>;
     /**
      * An array of SDI source mappings.
      */
-    sdiSourceMappings?: pulumi.Input<pulumi.Input<inputs.medialive.NodeSdiSourceMappingArgs>[]>;
+    sdiSourceMappings?: pulumi.Input<pulumi.Input<inputs.medialive.NodeSdiSourceMappingArgs>[] | undefined>;
     /**
      * A collection of key-value pairs.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -198,11 +198,11 @@ export interface FunctionConfigurationArgs {
     /**
      * The resolver code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
      */
-    code?: pulumi.Input<string>;
+    code?: pulumi.Input<string | undefined>;
     /**
      * The Amazon S3 endpoint (where the code is located??).
      */
-    codeS3Location?: pulumi.Input<string>;
+    codeS3Location?: pulumi.Input<string | undefined>;
     /**
      * The name of data source this function will attach.
      */
@@ -210,41 +210,41 @@ export interface FunctionConfigurationArgs {
     /**
      * The function description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The version of the request mapping template. Currently, only the 2018-05-29 version of the template is supported.
      */
-    functionVersion?: pulumi.Input<string>;
+    functionVersion?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
      */
-    maxBatchSize?: pulumi.Input<number>;
+    maxBatchSize?: pulumi.Input<number | undefined>;
     /**
      * The name of the function.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
-    requestMappingTemplate?: pulumi.Input<string>;
+    requestMappingTemplate?: pulumi.Input<string | undefined>;
     /**
      * Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
      */
-    requestMappingTemplateS3Location?: pulumi.Input<string>;
+    requestMappingTemplateS3Location?: pulumi.Input<string | undefined>;
     /**
      * The Function response mapping template.
      */
-    responseMappingTemplate?: pulumi.Input<string>;
+    responseMappingTemplate?: pulumi.Input<string | undefined>;
     /**
      * The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
      */
-    responseMappingTemplateS3Location?: pulumi.Input<string>;
+    responseMappingTemplateS3Location?: pulumi.Input<string | undefined>;
     /**
      * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
      */
-    runtime?: pulumi.Input<inputs.appsync.FunctionConfigurationAppSyncRuntimeArgs>;
+    runtime?: pulumi.Input<inputs.appsync.FunctionConfigurationAppSyncRuntimeArgs | undefined>;
     /**
      * Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
      */
-    syncConfig?: pulumi.Input<inputs.appsync.FunctionConfigurationSyncConfigArgs>;
+    syncConfig?: pulumi.Input<inputs.appsync.FunctionConfigurationSyncConfigArgs | undefined>;
 }

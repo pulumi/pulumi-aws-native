@@ -25,13 +25,13 @@ __all__ = ['SoftwarePackageVersionArgs', 'SoftwarePackageVersion']
 class SoftwarePackageVersionArgs:
     def __init__(__self__, *,
                  package_name: pulumi.Input[_builtins.str],
-                 artifact: Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 sbom: Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 artifact: pulumi.Input[Optional['SoftwarePackageVersionPackageVersionArtifactArgs']] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 sbom: pulumi.Input[Optional['SoftwarePackageVersionSbomArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SoftwarePackageVersion resource.
 
@@ -74,16 +74,16 @@ class SoftwarePackageVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def artifact(self) -> Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']]:
+    def artifact(self) -> pulumi.Input[Optional['SoftwarePackageVersionPackageVersionArtifactArgs']]:
         return pulumi.get(self, "artifact")
 
     @artifact.setter
-    def artifact(self, value: Optional[pulumi.Input['SoftwarePackageVersionPackageVersionArtifactArgs']]):
+    def artifact(self, value: pulumi.Input[Optional['SoftwarePackageVersionPackageVersionArtifactArgs']]):
         pulumi.set(self, "artifact", value)
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def attributes(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
 
@@ -92,64 +92,64 @@ class SoftwarePackageVersionArgs:
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def attributes(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A summary of the package version being created. This can be used to outline the package's contents or purpose.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def recipe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recipe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The inline json job document associated with a software package version
         """
         return pulumi.get(self, "recipe")
 
     @recipe.setter
-    def recipe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recipe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recipe", value)
 
     @_builtins.property
     @pulumi.getter
-    def sbom(self) -> Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']]:
+    def sbom(self) -> pulumi.Input[Optional['SoftwarePackageVersionSbomArgs']]:
         return pulumi.get(self, "sbom")
 
     @sbom.setter
-    def sbom(self, value: Optional[pulumi.Input['SoftwarePackageVersionSbomArgs']]):
+    def sbom(self, value: pulumi.Input[Optional['SoftwarePackageVersionSbomArgs']]):
         pulumi.set(self, "sbom", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the new package version.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
 
@@ -159,18 +159,17 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact: Optional[pulumi.Input[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 sbom: Optional[pulumi.Input[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         resource definition
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,7 +191,6 @@ class SoftwarePackageVersion(pulumi.CustomResource):
         """
         resource definition
 
-
         :param str resource_name: The name of the resource.
         :param SoftwarePackageVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,14 +206,14 @@ class SoftwarePackageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact: Optional[pulumi.Input[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recipe: Optional[pulumi.Input[_builtins.str]] = None,
-                 sbom: Optional[pulumi.Input[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 artifact: pulumi.Input[Optional[Union['SoftwarePackageVersionPackageVersionArtifactArgs', 'SoftwarePackageVersionPackageVersionArtifactArgsDict']]] = None,
+                 attributes: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 recipe: pulumi.Input[Optional[_builtins.str]] = None,
+                 sbom: pulumi.Input[Optional[Union['SoftwarePackageVersionSbomArgs', 'SoftwarePackageVersionSbomArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

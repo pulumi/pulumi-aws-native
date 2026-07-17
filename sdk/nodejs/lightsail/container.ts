@@ -140,11 +140,11 @@ export interface ContainerArgs {
     /**
      * Describes a container deployment configuration of an Amazon Lightsail container service.
      */
-    containerServiceDeployment?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentArgs>;
+    containerServiceDeployment?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentArgs | undefined>;
     /**
      * A Boolean value to indicate whether the container service is disabled.
      */
-    isDisabled?: pulumi.Input<boolean>;
+    isDisabled?: pulumi.Input<boolean | undefined>;
     /**
      * The power specification for the container service.
      */
@@ -152,11 +152,11 @@ export interface ContainerArgs {
     /**
      * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
      */
-    privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerPrivateRegistryAccessArgs>;
+    privateRegistryAccess?: pulumi.Input<inputs.lightsail.ContainerPrivateRegistryAccessArgs | undefined>;
     /**
      * The public domain names to use with the container service, such as example.com and www.example.com.
      */
-    publicDomainNames?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerPublicDomainNameArgs>[]>;
+    publicDomainNames?: pulumi.Input<pulumi.Input<inputs.lightsail.ContainerPublicDomainNameArgs>[] | undefined>;
     /**
      * The scale specification for the container service.
      */
@@ -168,5 +168,5 @@ export interface ContainerArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

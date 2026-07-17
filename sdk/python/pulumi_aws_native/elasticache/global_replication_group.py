@@ -23,15 +23,15 @@ __all__ = ['GlobalReplicationGroupArgs', 'GlobalReplicationGroup']
 class GlobalReplicationGroupArgs:
     def __init__(__self__, *,
                  members: pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupMemberArgs']]],
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_node_group_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None):
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
 
@@ -43,8 +43,8 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] engine_version: The engine version of the Global Datastore.
         :param pulumi.Input[_builtins.int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
         :param pulumi.Input[_builtins.str] global_replication_group_description: The optional description of the Global Datastore
-        :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
+        :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
         """
         pulumi.set(__self__, "members", members)
         if automatic_failover_enabled is not None:
@@ -80,110 +80,110 @@ class GlobalReplicationGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticFailoverEnabled")
-    def automatic_failover_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_failover_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         AutomaticFailoverEnabled
         """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @automatic_failover_enabled.setter
-    def automatic_failover_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_failover_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_failover_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheNodeType")
-    def cache_node_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The cache node type of the Global Datastore
         """
         return pulumi.get(self, "cache_node_type")
 
     @cache_node_type.setter
-    def cache_node_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_node_type", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheParameterGroupName")
-    def cache_parameter_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
         """
         return pulumi.get(self, "cache_parameter_group_name")
 
     @cache_parameter_group_name.setter
-    def cache_parameter_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_parameter_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_parameter_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The engine of the Global Datastore.
         """
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine", value)
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
-    def engine_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The engine version of the Global Datastore.
         """
         return pulumi.get(self, "engine_version")
 
     @engine_version.setter
-    def engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def engine_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "engine_version", value)
 
     @_builtins.property
     @pulumi.getter(name="globalNodeGroupCount")
-    def global_node_group_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def global_node_group_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Indicates the number of node groups in the Global Datastore.
         """
         return pulumi.get(self, "global_node_group_count")
 
     @global_node_group_count.setter
-    def global_node_group_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def global_node_group_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "global_node_group_count", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupDescription")
-    def global_replication_group_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional description of the Global Datastore
         """
         return pulumi.get(self, "global_replication_group_description")
 
     @global_replication_group_description.setter
-    def global_replication_group_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_description", value)
 
     @_builtins.property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
-    def global_replication_group_id_suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def global_replication_group_id_suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
+        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
 
     @global_replication_group_id_suffix.setter
-    def global_replication_group_id_suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def global_replication_group_id_suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_replication_group_id_suffix", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalConfigurations")
-    def regional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]:
+    def regional_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]:
         """
-        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
+        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
         """
         return pulumi.get(self, "regional_configurations")
 
     @regional_configurations.setter
-    def regional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]):
+    def regional_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]):
         pulumi.set(self, "regional_configurations", value)
 
 
@@ -193,20 +193,19 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_node_group_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
-                 regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,9 +216,9 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] engine_version: The engine version of the Global Datastore.
         :param pulumi.Input[_builtins.int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
         :param pulumi.Input[_builtins.str] global_replication_group_description: The optional description of the Global Datastore
-        :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
+        :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]] members: The replication groups that comprise the Global Datastore.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
         """
         ...
     @overload
@@ -229,7 +228,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
-
 
         :param str resource_name: The name of the resource.
         :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -246,16 +244,16 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_failover_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 cache_node_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 cache_parameter_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine: Optional[pulumi.Input[_builtins.str]] = None,
-                 engine_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_node_group_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 global_replication_group_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_replication_group_id_suffix: Optional[pulumi.Input[_builtins.str]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
-                 regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
+                 automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 cache_node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_parameter_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine: pulumi.Input[Optional[_builtins.str]] = None,
+                 engine_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_node_group_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 global_replication_group_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_replication_group_id_suffix: pulumi.Input[Optional[_builtins.str]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupMemberArgs', 'GlobalReplicationGroupMemberArgsDict']]]]] = None,
+                 regional_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GlobalReplicationGroupRegionalConfigurationArgs', 'GlobalReplicationGroupRegionalConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -383,7 +381,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
     def global_replication_group_id_suffix(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
+        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix.
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
 
@@ -399,7 +397,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="regionalConfigurations")
     def regional_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalReplicationGroupRegionalConfiguration']]]:
         """
-        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
+        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore
         """
         return pulumi.get(self, "regional_configurations")
 

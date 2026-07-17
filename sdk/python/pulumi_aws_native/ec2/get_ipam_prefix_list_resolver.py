@@ -111,7 +111,6 @@ def get_ipam_prefix_list_resolver(ipam_prefix_list_resolver_id: Optional[_builti
     """
     Resource Type definition for AWS::EC2::IPAMPrefixListResolver
 
-
     :param _builtins.str ipam_prefix_list_resolver_id: Id of the IPAM Prefix List Resolver.
     """
     __args__ = dict()
@@ -126,11 +125,10 @@ def get_ipam_prefix_list_resolver(ipam_prefix_list_resolver_id: Optional[_builti
         ipam_prefix_list_resolver_id=pulumi.get(__ret__, 'ipam_prefix_list_resolver_id'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ipam_prefix_list_resolver_output(ipam_prefix_list_resolver_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_ipam_prefix_list_resolver_output(ipam_prefix_list_resolver_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPrefixListResolverResult]:
     """
     Resource Type definition for AWS::EC2::IPAMPrefixListResolver
-
 
     :param _builtins.str ipam_prefix_list_resolver_id: Id of the IPAM Prefix List Resolver.
     """

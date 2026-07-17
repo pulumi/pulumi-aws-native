@@ -103,7 +103,6 @@ def get_permission(arn: Optional[_builtins.str] = None,
     """
     Resource type definition for AWS::RAM::Permission
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the new permission.
     """
     __args__ = dict()
@@ -117,11 +116,10 @@ def get_permission(arn: Optional[_builtins.str] = None,
         permission_type=pulumi.get(__ret__, 'permission_type'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
-def get_permission_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_permission_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionResult]:
     """
     Resource type definition for AWS::RAM::Permission
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the new permission.
     """

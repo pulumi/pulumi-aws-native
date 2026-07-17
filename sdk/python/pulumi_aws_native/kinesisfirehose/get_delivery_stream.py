@@ -144,7 +144,6 @@ def get_delivery_stream(delivery_stream_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 
-
     :param _builtins.str delivery_stream_name: The name of the Firehose stream.
     """
     __args__ = dict()
@@ -160,11 +159,10 @@ def get_delivery_stream(delivery_stream_name: Optional[_builtins.str] = None,
         redshift_destination_configuration=pulumi.get(__ret__, 'redshift_destination_configuration'),
         splunk_destination_configuration=pulumi.get(__ret__, 'splunk_destination_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_delivery_stream_output(delivery_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
-
 
     :param _builtins.str delivery_stream_name: The name of the Firehose stream.
     """

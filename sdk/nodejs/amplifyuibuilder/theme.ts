@@ -119,25 +119,25 @@ export interface ThemeArgs {
     /**
      * The unique ID for the Amplify app associated with the theme.
      */
-    appId?: pulumi.Input<string>;
+    appId?: pulumi.Input<string | undefined>;
     /**
      * The name of the backend environment that is a part of the Amplify app.
      */
-    environmentName?: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the theme.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Describes the properties that can be overriden to customize a theme.
      */
-    overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
+    overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[] | undefined>;
     /**
      * One or more key-value pairs to use when tagging the theme.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A list of key-value pairs that defines the properties of the theme.
      */
-    values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
+    values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[] | undefined>;
 }

@@ -107,23 +107,23 @@ export interface TableBucketArgs {
     /**
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
-    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
-    metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs>;
-    replicationConfiguration?: pulumi.Input<inputs.s3tables.TableBucketReplicationConfigurationArgs>;
+    encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs | undefined>;
+    metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs | undefined>;
+    replicationConfiguration?: pulumi.Input<inputs.s3tables.TableBucketReplicationConfigurationArgs | undefined>;
     /**
      * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
      */
-    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableBucketStorageClassConfigurationArgs>;
+    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableBucketStorageClassConfigurationArgs | undefined>;
     /**
      * The name for the table bucket.
      */
-    tableBucketName?: pulumi.Input<string>;
+    tableBucketName?: pulumi.Input<string | undefined>;
     /**
      * User tags (key-value pairs) to associate with the table bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
      */
-    unreferencedFileRemoval?: pulumi.Input<inputs.s3tables.TableBucketUnreferencedFileRemovalArgs>;
+    unreferencedFileRemoval?: pulumi.Input<inputs.s3tables.TableBucketUnreferencedFileRemovalArgs | undefined>;
 }

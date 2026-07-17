@@ -36,7 +36,6 @@ class OTelEnrichment(pulumi.CustomResource):
         """
         AWS::CloudWatch::OTelEnrichment enables OTel metric enrichment in CloudWatch, allowing CloudWatch vended metrics to be available for PromQL querying enriched with AWS resource tags and metadata.
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -48,7 +47,6 @@ class OTelEnrichment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AWS::CloudWatch::OTelEnrichment enables OTel metric enrichment in CloudWatch, allowing CloudWatch vended metrics to be available for PromQL querying enriched with AWS resource tags and metadata.
-
 
         :param str resource_name: The name of the resource.
         :param OTelEnrichmentArgs args: The arguments to use to populate this resource's properties.

@@ -26,14 +26,14 @@ class PortalArgs:
     def __init__(__self__, *,
                  portal_contact_email: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
-                 alarms: Optional[pulumi.Input['AlarmsPropertiesArgs']] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_type: Optional[pulumi.Input['PortalType']] = None,
-                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 alarms: pulumi.Input[Optional['AlarmsPropertiesArgs']] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_type: pulumi.Input[Optional['PortalType']] = None,
+                 portal_type_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
 
@@ -92,95 +92,95 @@ class PortalArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input['AlarmsPropertiesArgs']]:
+    def alarms(self) -> pulumi.Input[Optional['AlarmsPropertiesArgs']]:
         """
         Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input['AlarmsPropertiesArgs']]):
+    def alarms(self, value: pulumi.Input[Optional['AlarmsPropertiesArgs']]):
         pulumi.set(self, "alarms", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationSenderEmail")
-    def notification_sender_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_sender_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address that sends alarm notifications.
         """
         return pulumi.get(self, "notification_sender_email")
 
     @notification_sender_email.setter
-    def notification_sender_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_sender_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_sender_email", value)
 
     @_builtins.property
     @pulumi.getter(name="portalAuthMode")
-    def portal_auth_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_auth_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         """
         return pulumi.get(self, "portal_auth_mode")
 
     @portal_auth_mode.setter
-    def portal_auth_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_auth_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_auth_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="portalDescription")
-    def portal_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the portal.
         """
         return pulumi.get(self, "portal_description")
 
     @portal_description.setter
-    def portal_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_description", value)
 
     @_builtins.property
     @pulumi.getter(name="portalName")
-    def portal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def portal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A friendly name for the portal.
         """
         return pulumi.get(self, "portal_name")
 
     @portal_name.setter
-    def portal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def portal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "portal_name", value)
 
     @_builtins.property
     @pulumi.getter(name="portalType")
-    def portal_type(self) -> Optional[pulumi.Input['PortalType']]:
+    def portal_type(self) -> pulumi.Input[Optional['PortalType']]:
         """
         The type of portal
         """
         return pulumi.get(self, "portal_type")
 
     @portal_type.setter
-    def portal_type(self, value: Optional[pulumi.Input['PortalType']]):
+    def portal_type(self, value: pulumi.Input[Optional['PortalType']]):
         pulumi.set(self, "portal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="portalTypeConfiguration")
-    def portal_type_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]:
+    def portal_type_configuration(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]:
         return pulumi.get(self, "portal_type_configuration")
 
     @portal_type_configuration.setter
-    def portal_type_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]):
+    def portal_type_configuration(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]):
         pulumi.set(self, "portal_type_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the portal.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -190,20 +190,19 @@ class Portal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[Union['AlarmsPropertiesArgs', 'AlarmsPropertiesArgsDict']]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_contact_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_type: Optional[pulumi.Input['PortalType']] = None,
-                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 alarms: pulumi.Input[Optional[Union['AlarmsPropertiesArgs', 'AlarmsPropertiesArgsDict']]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_type: pulumi.Input[Optional['PortalType']] = None,
+                 portal_type_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::IoTSiteWise::Portal
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,7 +225,6 @@ class Portal(pulumi.CustomResource):
         """
         Resource schema for AWS::IoTSiteWise::Portal
 
-
         :param str resource_name: The name of the resource.
         :param PortalArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,16 +240,16 @@ class Portal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[Union['AlarmsPropertiesArgs', 'AlarmsPropertiesArgsDict']]] = None,
-                 notification_sender_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_contact_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 portal_type: Optional[pulumi.Input['PortalType']] = None,
-                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
-                 role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 alarms: pulumi.Input[Optional[Union['AlarmsPropertiesArgs', 'AlarmsPropertiesArgsDict']]] = None,
+                 notification_sender_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_auth_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_contact_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 portal_type: pulumi.Input[Optional['PortalType']] = None,
+                 portal_type_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

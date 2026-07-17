@@ -26,15 +26,15 @@ class QuickResponseArgs:
     def __init__(__self__, *,
                  content: pulumi.Input['QuickResponseContentProviderArgs'],
                  knowledge_base_arn: pulumi.Input[_builtins.str],
-                 channels: Optional[pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input['QuickResponseGroupingConfigurationArgs']] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortcut_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 channels: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional['QuickResponseGroupingConfigurationArgs']] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortcut_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a QuickResponse resource.
 
@@ -99,19 +99,19 @@ class QuickResponseArgs:
 
     @_builtins.property
     @pulumi.getter
-    def channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]]]:
+    def channels(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]]:
         """
         The Amazon Connect contact channels this quick response applies to.
         """
         return pulumi.get(self, "channels")
 
     @channels.setter
-    def channels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]]]):
+    def channels(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]]):
         pulumi.set(self, "channels", value)
 
     @_builtins.property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def content_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The media type of the quick response content.
         - Use application/x.quickresponse;format=plain for quick response written in plain text.
@@ -120,91 +120,91 @@ class QuickResponseArgs:
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def content_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "content_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the quick response.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="groupingConfiguration")
-    def grouping_configuration(self) -> Optional[pulumi.Input['QuickResponseGroupingConfigurationArgs']]:
+    def grouping_configuration(self) -> pulumi.Input[Optional['QuickResponseGroupingConfigurationArgs']]:
         """
         The configuration information of the user groups that the quick response is accessible to.
         """
         return pulumi.get(self, "grouping_configuration")
 
     @grouping_configuration.setter
-    def grouping_configuration(self, value: Optional[pulumi.Input['QuickResponseGroupingConfigurationArgs']]):
+    def grouping_configuration(self, value: pulumi.Input[Optional['QuickResponseGroupingConfigurationArgs']]):
         pulumi.set(self, "grouping_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_active(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the quick response is active.
         """
         return pulumi.get(self, "is_active")
 
     @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_active(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_active", value)
 
     @_builtins.property
     @pulumi.getter
-    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language code value for the language in which the quick response is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         """
         return pulumi.get(self, "language")
 
     @language.setter
-    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "language", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the quick response.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="shortcutKey")
-    def shortcut_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def shortcut_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The shortcut key of the quick response. The value should be unique across the knowledge base.
         """
         return pulumi.get(self, "shortcut_key")
 
     @shortcut_key.setter
-    def shortcut_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def shortcut_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "shortcut_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -214,21 +214,20 @@ class QuickResponse(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channels: Optional[pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
-                 content: Optional[pulumi.Input[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 knowledge_base_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortcut_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channels: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
+                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortcut_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::QuickResponse Resource Type.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +254,6 @@ class QuickResponse(pulumi.CustomResource):
         """
         Definition of AWS::Wisdom::QuickResponse Resource Type.
 
-
         :param str resource_name: The name of the resource.
         :param QuickResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,17 +269,17 @@ class QuickResponse(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 channels: Optional[pulumi.Input[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
-                 content: Optional[pulumi.Input[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
-                 content_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 grouping_configuration: Optional[pulumi.Input[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
-                 is_active: Optional[pulumi.Input[_builtins.bool]] = None,
-                 knowledge_base_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 language: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 shortcut_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 channels: pulumi.Input[Optional[Sequence[pulumi.Input['QuickResponseChannelType']]]] = None,
+                 content: pulumi.Input[Optional[Union['QuickResponseContentProviderArgs', 'QuickResponseContentProviderArgsDict']]] = None,
+                 content_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 grouping_configuration: pulumi.Input[Optional[Union['QuickResponseGroupingConfigurationArgs', 'QuickResponseGroupingConfigurationArgsDict']]] = None,
+                 is_active: pulumi.Input[Optional[_builtins.bool]] = None,
+                 knowledge_base_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 language: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 shortcut_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

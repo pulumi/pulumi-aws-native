@@ -24,9 +24,9 @@ class StudioArgs:
                  admin_role_arn: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  user_role_arn: pulumi.Input[_builtins.str],
-                 studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
-                 studio_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 studio_encryption_configuration: pulumi.Input[Optional['StudioEncryptionConfigurationArgs']] = None,
+                 studio_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Studio resource.
         """
@@ -69,29 +69,29 @@ class StudioArgs:
 
     @_builtins.property
     @pulumi.getter(name="studioEncryptionConfiguration")
-    def studio_encryption_configuration(self) -> Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]:
+    def studio_encryption_configuration(self) -> pulumi.Input[Optional['StudioEncryptionConfigurationArgs']]:
         return pulumi.get(self, "studio_encryption_configuration")
 
     @studio_encryption_configuration.setter
-    def studio_encryption_configuration(self, value: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']]):
+    def studio_encryption_configuration(self, value: pulumi.Input[Optional['StudioEncryptionConfigurationArgs']]):
         pulumi.set(self, "studio_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="studioName")
-    def studio_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def studio_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "studio_name")
 
     @studio_name.setter
-    def studio_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def studio_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "studio_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -101,16 +101,15 @@ class Studio(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
-                 studio_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
+                 studio_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::NimbleStudio::Studio
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +122,6 @@ class Studio(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::NimbleStudio::Studio
-
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.
@@ -140,12 +138,12 @@ class Studio(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 studio_encryption_configuration: Optional[pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
-                 studio_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 admin_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 studio_encryption_configuration: pulumi.Input[Optional[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']]] = None,
+                 studio_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

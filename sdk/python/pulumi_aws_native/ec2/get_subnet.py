@@ -168,7 +168,6 @@ def get_subnet(subnet_id: Optional[_builtins.str] = None,
      For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
      For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
 
-
     :param _builtins.str subnet_id: The ID of the subnet.
     """
     __args__ = dict()
@@ -187,13 +186,12 @@ def get_subnet(subnet_id: Optional[_builtins.str] = None,
         private_dns_name_options_on_launch=pulumi.get(__ret__, 'private_dns_name_options_on_launch'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_subnet_output(subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_output(subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Specifies a subnet for the specified VPC.
      For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
      For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
-
 
     :param _builtins.str subnet_id: The ID of the subnet.
     """

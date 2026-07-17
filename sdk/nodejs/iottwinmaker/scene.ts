@@ -137,7 +137,7 @@ export interface SceneArgs {
     /**
      * A list of capabilities that the scene uses to render.
      */
-    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The relative path that specifies the location of the content definition file.
      */
@@ -145,7 +145,7 @@ export interface SceneArgs {
     /**
      * The description of the scene.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The ID of the scene.
      */
@@ -153,11 +153,11 @@ export interface SceneArgs {
     /**
      * A key-value pair of scene metadata for the scene.
      */
-    sceneMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sceneMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A key-value pair to associate with a resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The ID of the scene.
      */

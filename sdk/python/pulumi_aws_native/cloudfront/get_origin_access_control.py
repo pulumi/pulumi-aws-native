@@ -66,7 +66,6 @@ def get_origin_access_control(id: Optional[_builtins.str] = None,
      This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
      For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
 
-
     :param _builtins.str id: The unique identifier of the origin access control.
     """
     __args__ = dict()
@@ -77,13 +76,12 @@ def get_origin_access_control(id: Optional[_builtins.str] = None,
     return AwaitableGetOriginAccessControlResult(
         id=pulumi.get(__ret__, 'id'),
         origin_access_control_config=pulumi.get(__ret__, 'origin_access_control_config'))
-def get_origin_access_control_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_access_control_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
     Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
      This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
      For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
-
 
     :param _builtins.str id: The unique identifier of the origin access control.
     """

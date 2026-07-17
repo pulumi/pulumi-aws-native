@@ -186,7 +186,6 @@ def get_stage(rest_api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
-
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
     :param _builtins.str stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
     """
@@ -209,12 +208,11 @@ def get_stage(rest_api_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tracing_enabled=pulumi.get(__ret__, 'tracing_enabled'),
         variables=pulumi.get(__ret__, 'variables'))
-def get_stage_output(rest_api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                     stage_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_stage_output(rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                     stage_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStageResult]:
     """
     The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
-
 
     :param _builtins.str rest_api_id: The string identifier of the associated RestApi.
     :param _builtins.str stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.

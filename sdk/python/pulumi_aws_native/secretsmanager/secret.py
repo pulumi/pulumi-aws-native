@@ -23,14 +23,14 @@ __all__ = ['SecretArgs', 'Secret']
 @pulumi.input_type
 class SecretArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 generate_secret_string: Optional[pulumi.Input['SecretGenerateSecretStringArgs']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
-                 secret_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generate_secret_string: pulumi.Input[Optional['SecretGenerateSecretStringArgs']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
+                 secret_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Secret resource.
 
@@ -47,9 +47,9 @@ class SecretArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]] replica_regions: A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
         :param pulumi.Input[_builtins.str] secret_string: The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use ``GenerateSecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
-                 ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+                 ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
                 Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-                Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+                Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
                 If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2).
                 For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json). If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
                 The following restrictions apply to tags:
@@ -80,19 +80,19 @@ class SecretArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the secret.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="generateSecretString")
-    def generate_secret_string(self) -> Optional[pulumi.Input['SecretGenerateSecretStringArgs']]:
+    def generate_secret_string(self) -> pulumi.Input[Optional['SecretGenerateSecretStringArgs']]:
         """
         A structure that specifies how to generate a password to encrypt and store in the secret. To include a specific string in the secret, use ``SecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
          We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
@@ -100,12 +100,12 @@ class SecretArgs:
         return pulumi.get(self, "generate_secret_string")
 
     @generate_secret_string.setter
-    def generate_secret_string(self, value: Optional[pulumi.Input['SecretGenerateSecretStringArgs']]):
+    def generate_secret_string(self, value: pulumi.Input[Optional['SecretGenerateSecretStringArgs']]):
         pulumi.set(self, "generate_secret_string", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN, key ID, or alias of the KMS key that Secrets Manager uses to encrypt the secret value in the secret. An alias is always prefixed by ``alias/``, for example ``alias/aws/secretsmanager``. For more information, see [About aliases](https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html).
          To use a KMS key in a different account, use the key ARN or the alias ARN.
@@ -115,12 +115,12 @@ class SecretArgs:
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the new secret.
          The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-
@@ -129,41 +129,41 @@ class SecretArgs:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaRegions")
-    def replica_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]]:
+    def replica_regions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]]:
         """
         A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
         """
         return pulumi.get(self, "replica_regions")
 
     @replica_regions.setter
-    def replica_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]]):
+    def replica_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]]):
         pulumi.set(self, "replica_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="secretString")
-    def secret_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_string(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use ``GenerateSecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
         """
         return pulumi.get(self, "secret_string")
 
     @secret_string.setter
-    def secret_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_string", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
-          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
          Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
          If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2).
          For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json). If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
          The following restrictions apply to tags:
@@ -177,19 +177,19 @@ class SecretArgs:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -199,14 +199,14 @@ class Secret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 generate_secret_string: Optional[pulumi.Input[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
-                 secret_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
+                 secret_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
@@ -286,9 +286,9 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]] replica_regions: A custom type that specifies a ``Region`` and the ``KmsKeyId`` for a replica secret.
         :param pulumi.Input[_builtins.str] secret_string: The text to encrypt and store in the secret. We recommend you use a JSON structure of key/value pairs for your secret value. To generate a random password, use ``GenerateSecretString`` instead. If you omit both ``GenerateSecretString`` and ``SecretString``, you create an empty secret. When you make a change to this property, a new secret version is created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
-                 ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+                 ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
                 Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-                Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+                Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
                 If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2).
                 For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json). If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
                 The following restrictions apply to tags:
@@ -384,14 +384,14 @@ class Secret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 generate_secret_string: Optional[pulumi.Input[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
-                 secret_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generate_secret_string: pulumi.Input[Optional[Union['SecretGenerateSecretStringArgs', 'SecretGenerateSecretStringArgsDict']]] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
+                 secret_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -512,9 +512,9 @@ class Secret(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string, for example:
-          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]`` 
+          ``[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]``
          Secrets Manager tag key names are case sensitive. A tag with the key "ABC" is a different tag from one with key "abc".
-         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret. 
+         Stack-level tags, tags you apply to the CloudFormation stack, are also attached to the secret.
          If you check tags in permissions policies as part of your security strategy, then adding or removing a tag can change permissions. If the completion of this operation would result in you losing your permissions for this secret, then Secrets Manager blocks the operation and returns an ``Access Denied`` error. For more information, see [Control access to secrets using tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#tag-secrets-abac) and [Limit access to identities with tags that match secrets' tags](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_examples.html#auth-and-access_tags2).
          For information about how to format a JSON parameter for the various command line tool environments, see [Using JSON for Parameters](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json). If your command-line tool or SDK requires quotation marks around the parameter, you should use single quotes to avoid confusion with the double quotes required in the JSON text.
          The following restrictions apply to tags:

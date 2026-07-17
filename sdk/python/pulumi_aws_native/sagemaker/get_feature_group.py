@@ -103,7 +103,6 @@ def get_feature_group(feature_group_name: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::FeatureGroup
 
-
     :param _builtins.str feature_group_name: The Name of the FeatureGroup.
     """
     __args__ = dict()
@@ -117,11 +116,10 @@ def get_feature_group(feature_group_name: Optional[_builtins.str] = None,
         feature_group_status=pulumi.get(__ret__, 'feature_group_status'),
         online_store_config=pulumi.get(__ret__, 'online_store_config'),
         throughput_config=pulumi.get(__ret__, 'throughput_config'))
-def get_feature_group_output(feature_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_feature_group_output(feature_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeatureGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::FeatureGroup
-
 
     :param _builtins.str feature_group_name: The Name of the FeatureGroup.
     """

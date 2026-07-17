@@ -50,29 +50,29 @@ __all__ = [
     'DashboardTableDisplayConfigStructArgsDict',
     'DashboardTagValuesArgs',
     'DashboardTagValuesArgsDict',
-    'DashboardWidgetConfigArgs',
-    'DashboardWidgetConfigArgsDict',
     'DashboardWidgetArgs',
     'DashboardWidgetArgsDict',
+    'DashboardWidgetConfigArgs',
+    'DashboardWidgetConfigArgsDict',
 ]
 
 class DashboardCostAndUsageExpressionArgsDict(TypedDict):
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]]]
-    cost_categories: NotRequired[pulumi.Input['DashboardCostCategoryValuesArgsDict']]
-    dimensions: NotRequired[pulumi.Input['DashboardDimensionValuesArgsDict']]
-    not_: NotRequired[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]
-    or_: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]]]
-    tags: NotRequired[pulumi.Input['DashboardTagValuesArgsDict']]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]]]]
+    cost_categories: NotRequired[pulumi.Input[Optional['DashboardCostCategoryValuesArgsDict']]]
+    dimensions: NotRequired[pulumi.Input[Optional['DashboardDimensionValuesArgsDict']]]
+    not_: NotRequired[pulumi.Input[Optional['DashboardCostAndUsageExpressionArgsDict']]]
+    or_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]]]]
+    tags: NotRequired[pulumi.Input[Optional['DashboardTagValuesArgsDict']]]
 
 @pulumi.input_type
 class DashboardCostAndUsageExpressionArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['DashboardCostCategoryValuesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['DashboardDimensionValuesArgs']] = None,
-                 not_: Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']] = None,
-                 or_: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]] = None,
-                 tags: Optional[pulumi.Input['DashboardTagValuesArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['DashboardCostCategoryValuesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['DashboardDimensionValuesArgs']] = None,
+                 not_: pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']] = None,
+                 or_: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]] = None,
+                 tags: pulumi.Input[Optional['DashboardTagValuesArgs']] = None):
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if cost_categories is not None:
@@ -88,56 +88,56 @@ class DashboardCostAndUsageExpressionArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]:
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['DashboardCostCategoryValuesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['DashboardCostCategoryValuesArgs']]:
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['DashboardCostCategoryValuesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['DashboardCostCategoryValuesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['DashboardDimensionValuesArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['DashboardDimensionValuesArgs']]:
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['DashboardDimensionValuesArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['DashboardDimensionValuesArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']]:
+    def not_(self) -> pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']]):
+    def not_(self, value: pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter(name="or")
-    def or_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]:
+    def or_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]:
         return pulumi.get(self, "or_")
 
     @or_.setter
-    def or_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]):
+    def or_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardCostAndUsageExpressionArgs']]]]):
         pulumi.set(self, "or_", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['DashboardTagValuesArgs']]:
+    def tags(self) -> pulumi.Input[Optional['DashboardTagValuesArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['DashboardTagValuesArgs']]):
+    def tags(self, value: pulumi.Input[Optional['DashboardTagValuesArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -145,8 +145,8 @@ class DashboardCostAndUsageQueryArgsDict(TypedDict):
     granularity: pulumi.Input['DashboardGranularity']
     metrics: pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]
     time_range: pulumi.Input['DashboardDateTimeRangeArgsDict']
-    filter: NotRequired[pulumi.Input['DashboardCostAndUsageExpressionArgsDict']]
-    group_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]
+    filter: NotRequired[pulumi.Input[Optional['DashboardCostAndUsageExpressionArgsDict']]]
+    group_by: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]]
 
 @pulumi.input_type
 class DashboardCostAndUsageQueryArgs:
@@ -154,8 +154,8 @@ class DashboardCostAndUsageQueryArgs:
                  granularity: pulumi.Input['DashboardGranularity'],
                  metrics: pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]],
                  time_range: pulumi.Input['DashboardDateTimeRangeArgs'],
-                 filter: Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None):
+                 filter: pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None):
         pulumi.set(__self__, "granularity", granularity)
         pulumi.set(__self__, "metrics", metrics)
         pulumi.set(__self__, "time_range", time_range)
@@ -193,34 +193,34 @@ class DashboardCostAndUsageQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DashboardCostAndUsageExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DashboardCostAndUsageExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
+    def group_by(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
         return pulumi.get(self, "group_by")
 
     @group_by.setter
-    def group_by(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
+    def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
         pulumi.set(self, "group_by", value)
 
 
 class DashboardCostCategoryValuesArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]]
 
 @pulumi.input_type
 class DashboardCostCategoryValuesArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
         if match_options is not None:
@@ -246,11 +246,11 @@ class DashboardCostCategoryValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]:
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]):
         pulumi.set(self, "match_options", value)
 
 
@@ -319,14 +319,14 @@ class DashboardDateTimeValueArgs:
 class DashboardDimensionValuesArgsDict(TypedDict):
     key: pulumi.Input['DashboardDimension']
     values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]]
 
 @pulumi.input_type
 class DashboardDimensionValuesArgs:
     def __init__(__self__, *,
                  key: pulumi.Input['DashboardDimension'],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
         if match_options is not None:
@@ -352,23 +352,23 @@ class DashboardDimensionValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]:
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]):
         pulumi.set(self, "match_options", value)
 
 
 class DashboardDisplayConfigArgsDict(TypedDict):
-    graph: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgsDict']]]]
-    table: NotRequired[pulumi.Input['DashboardTableDisplayConfigStructArgsDict']]
+    graph: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgsDict']]]]]
+    table: NotRequired[pulumi.Input[Optional['DashboardTableDisplayConfigStructArgsDict']]]
 
 @pulumi.input_type
 class DashboardDisplayConfigArgs:
     def __init__(__self__, *,
-                 graph: Optional[pulumi.Input[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]] = None,
-                 table: Optional[pulumi.Input['DashboardTableDisplayConfigStructArgs']] = None):
+                 graph: pulumi.Input[Optional[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]] = None,
+                 table: pulumi.Input[Optional['DashboardTableDisplayConfigStructArgs']] = None):
         if graph is not None:
             pulumi.set(__self__, "graph", graph)
         if table is not None:
@@ -376,38 +376,38 @@ class DashboardDisplayConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def graph(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]]:
+    def graph(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]]:
         return pulumi.get(self, "graph")
 
     @graph.setter
-    def graph(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]]):
+    def graph(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['DashboardGraphDisplayConfigArgs']]]]):
         pulumi.set(self, "graph", value)
 
     @_builtins.property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input['DashboardTableDisplayConfigStructArgs']]:
+    def table(self) -> pulumi.Input[Optional['DashboardTableDisplayConfigStructArgs']]:
         return pulumi.get(self, "table")
 
     @table.setter
-    def table(self, value: Optional[pulumi.Input['DashboardTableDisplayConfigStructArgs']]):
+    def table(self, value: pulumi.Input[Optional['DashboardTableDisplayConfigStructArgs']]):
         pulumi.set(self, "table", value)
 
 
 class DashboardExpressionArgsDict(TypedDict):
-    and_: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardExpressionArgsDict']]]]
-    cost_categories: NotRequired[pulumi.Input['DashboardCostCategoryValuesArgsDict']]
-    dimensions: NotRequired[pulumi.Input['DashboardDimensionValuesArgsDict']]
-    not_: NotRequired[pulumi.Input['DashboardExpressionArgsDict']]
-    tags: NotRequired[pulumi.Input['DashboardTagValuesArgsDict']]
+    and_: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardExpressionArgsDict']]]]]
+    cost_categories: NotRequired[pulumi.Input[Optional['DashboardCostCategoryValuesArgsDict']]]
+    dimensions: NotRequired[pulumi.Input[Optional['DashboardDimensionValuesArgsDict']]]
+    not_: NotRequired[pulumi.Input[Optional['DashboardExpressionArgsDict']]]
+    tags: NotRequired[pulumi.Input[Optional['DashboardTagValuesArgsDict']]]
 
 @pulumi.input_type
 class DashboardExpressionArgs:
     def __init__(__self__, *,
-                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardExpressionArgs']]]] = None,
-                 cost_categories: Optional[pulumi.Input['DashboardCostCategoryValuesArgs']] = None,
-                 dimensions: Optional[pulumi.Input['DashboardDimensionValuesArgs']] = None,
-                 not_: Optional[pulumi.Input['DashboardExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['DashboardTagValuesArgs']] = None):
+                 and_: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardExpressionArgs']]]] = None,
+                 cost_categories: pulumi.Input[Optional['DashboardCostCategoryValuesArgs']] = None,
+                 dimensions: pulumi.Input[Optional['DashboardDimensionValuesArgs']] = None,
+                 not_: pulumi.Input[Optional['DashboardExpressionArgs']] = None,
+                 tags: pulumi.Input[Optional['DashboardTagValuesArgs']] = None):
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
         if cost_categories is not None:
@@ -421,47 +421,47 @@ class DashboardExpressionArgs:
 
     @_builtins.property
     @pulumi.getter(name="and")
-    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardExpressionArgs']]]]:
+    def and_(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardExpressionArgs']]]]:
         return pulumi.get(self, "and_")
 
     @and_.setter
-    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardExpressionArgs']]]]):
+    def and_(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardExpressionArgs']]]]):
         pulumi.set(self, "and_", value)
 
     @_builtins.property
     @pulumi.getter(name="costCategories")
-    def cost_categories(self) -> Optional[pulumi.Input['DashboardCostCategoryValuesArgs']]:
+    def cost_categories(self) -> pulumi.Input[Optional['DashboardCostCategoryValuesArgs']]:
         return pulumi.get(self, "cost_categories")
 
     @cost_categories.setter
-    def cost_categories(self, value: Optional[pulumi.Input['DashboardCostCategoryValuesArgs']]):
+    def cost_categories(self, value: pulumi.Input[Optional['DashboardCostCategoryValuesArgs']]):
         pulumi.set(self, "cost_categories", value)
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['DashboardDimensionValuesArgs']]:
+    def dimensions(self) -> pulumi.Input[Optional['DashboardDimensionValuesArgs']]:
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['DashboardDimensionValuesArgs']]):
+    def dimensions(self, value: pulumi.Input[Optional['DashboardDimensionValuesArgs']]):
         pulumi.set(self, "dimensions", value)
 
     @_builtins.property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['DashboardExpressionArgs']]:
+    def not_(self) -> pulumi.Input[Optional['DashboardExpressionArgs']]:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['DashboardExpressionArgs']]):
+    def not_(self, value: pulumi.Input[Optional['DashboardExpressionArgs']]):
         pulumi.set(self, "not_", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['DashboardTagValuesArgs']]:
+    def tags(self) -> pulumi.Input[Optional['DashboardTagValuesArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['DashboardTagValuesArgs']]):
+    def tags(self, value: pulumi.Input[Optional['DashboardTagValuesArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -486,13 +486,13 @@ class DashboardGraphDisplayConfigArgs:
 
 class DashboardGroupDefinitionArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
-    type: NotRequired[pulumi.Input['DashboardGroupDefinitionType']]
+    type: NotRequired[pulumi.Input[Optional['DashboardGroupDefinitionType']]]
 
 @pulumi.input_type
 class DashboardGroupDefinitionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
-                 type: Optional[pulumi.Input['DashboardGroupDefinitionType']] = None):
+                 type: pulumi.Input[Optional['DashboardGroupDefinitionType']] = None):
         pulumi.set(__self__, "key", key)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -508,29 +508,29 @@ class DashboardGroupDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['DashboardGroupDefinitionType']]:
+    def type(self) -> pulumi.Input[Optional['DashboardGroupDefinitionType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['DashboardGroupDefinitionType']]):
+    def type(self, value: pulumi.Input[Optional['DashboardGroupDefinitionType']]):
         pulumi.set(self, "type", value)
 
 
 class DashboardQueryParametersArgsDict(TypedDict):
-    cost_and_usage: NotRequired[pulumi.Input['DashboardCostAndUsageQueryArgsDict']]
-    reservation_coverage: NotRequired[pulumi.Input['DashboardReservationCoverageQueryArgsDict']]
-    reservation_utilization: NotRequired[pulumi.Input['DashboardReservationUtilizationQueryArgsDict']]
-    savings_plans_coverage: NotRequired[pulumi.Input['DashboardSavingsPlansCoverageQueryArgsDict']]
-    savings_plans_utilization: NotRequired[pulumi.Input['DashboardSavingsPlansUtilizationQueryArgsDict']]
+    cost_and_usage: NotRequired[pulumi.Input[Optional['DashboardCostAndUsageQueryArgsDict']]]
+    reservation_coverage: NotRequired[pulumi.Input[Optional['DashboardReservationCoverageQueryArgsDict']]]
+    reservation_utilization: NotRequired[pulumi.Input[Optional['DashboardReservationUtilizationQueryArgsDict']]]
+    savings_plans_coverage: NotRequired[pulumi.Input[Optional['DashboardSavingsPlansCoverageQueryArgsDict']]]
+    savings_plans_utilization: NotRequired[pulumi.Input[Optional['DashboardSavingsPlansUtilizationQueryArgsDict']]]
 
 @pulumi.input_type
 class DashboardQueryParametersArgs:
     def __init__(__self__, *,
-                 cost_and_usage: Optional[pulumi.Input['DashboardCostAndUsageQueryArgs']] = None,
-                 reservation_coverage: Optional[pulumi.Input['DashboardReservationCoverageQueryArgs']] = None,
-                 reservation_utilization: Optional[pulumi.Input['DashboardReservationUtilizationQueryArgs']] = None,
-                 savings_plans_coverage: Optional[pulumi.Input['DashboardSavingsPlansCoverageQueryArgs']] = None,
-                 savings_plans_utilization: Optional[pulumi.Input['DashboardSavingsPlansUtilizationQueryArgs']] = None):
+                 cost_and_usage: pulumi.Input[Optional['DashboardCostAndUsageQueryArgs']] = None,
+                 reservation_coverage: pulumi.Input[Optional['DashboardReservationCoverageQueryArgs']] = None,
+                 reservation_utilization: pulumi.Input[Optional['DashboardReservationUtilizationQueryArgs']] = None,
+                 savings_plans_coverage: pulumi.Input[Optional['DashboardSavingsPlansCoverageQueryArgs']] = None,
+                 savings_plans_utilization: pulumi.Input[Optional['DashboardSavingsPlansUtilizationQueryArgs']] = None):
         if cost_and_usage is not None:
             pulumi.set(__self__, "cost_and_usage", cost_and_usage)
         if reservation_coverage is not None:
@@ -544,65 +544,65 @@ class DashboardQueryParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="costAndUsage")
-    def cost_and_usage(self) -> Optional[pulumi.Input['DashboardCostAndUsageQueryArgs']]:
+    def cost_and_usage(self) -> pulumi.Input[Optional['DashboardCostAndUsageQueryArgs']]:
         return pulumi.get(self, "cost_and_usage")
 
     @cost_and_usage.setter
-    def cost_and_usage(self, value: Optional[pulumi.Input['DashboardCostAndUsageQueryArgs']]):
+    def cost_and_usage(self, value: pulumi.Input[Optional['DashboardCostAndUsageQueryArgs']]):
         pulumi.set(self, "cost_and_usage", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationCoverage")
-    def reservation_coverage(self) -> Optional[pulumi.Input['DashboardReservationCoverageQueryArgs']]:
+    def reservation_coverage(self) -> pulumi.Input[Optional['DashboardReservationCoverageQueryArgs']]:
         return pulumi.get(self, "reservation_coverage")
 
     @reservation_coverage.setter
-    def reservation_coverage(self, value: Optional[pulumi.Input['DashboardReservationCoverageQueryArgs']]):
+    def reservation_coverage(self, value: pulumi.Input[Optional['DashboardReservationCoverageQueryArgs']]):
         pulumi.set(self, "reservation_coverage", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationUtilization")
-    def reservation_utilization(self) -> Optional[pulumi.Input['DashboardReservationUtilizationQueryArgs']]:
+    def reservation_utilization(self) -> pulumi.Input[Optional['DashboardReservationUtilizationQueryArgs']]:
         return pulumi.get(self, "reservation_utilization")
 
     @reservation_utilization.setter
-    def reservation_utilization(self, value: Optional[pulumi.Input['DashboardReservationUtilizationQueryArgs']]):
+    def reservation_utilization(self, value: pulumi.Input[Optional['DashboardReservationUtilizationQueryArgs']]):
         pulumi.set(self, "reservation_utilization", value)
 
     @_builtins.property
     @pulumi.getter(name="savingsPlansCoverage")
-    def savings_plans_coverage(self) -> Optional[pulumi.Input['DashboardSavingsPlansCoverageQueryArgs']]:
+    def savings_plans_coverage(self) -> pulumi.Input[Optional['DashboardSavingsPlansCoverageQueryArgs']]:
         return pulumi.get(self, "savings_plans_coverage")
 
     @savings_plans_coverage.setter
-    def savings_plans_coverage(self, value: Optional[pulumi.Input['DashboardSavingsPlansCoverageQueryArgs']]):
+    def savings_plans_coverage(self, value: pulumi.Input[Optional['DashboardSavingsPlansCoverageQueryArgs']]):
         pulumi.set(self, "savings_plans_coverage", value)
 
     @_builtins.property
     @pulumi.getter(name="savingsPlansUtilization")
-    def savings_plans_utilization(self) -> Optional[pulumi.Input['DashboardSavingsPlansUtilizationQueryArgs']]:
+    def savings_plans_utilization(self) -> pulumi.Input[Optional['DashboardSavingsPlansUtilizationQueryArgs']]:
         return pulumi.get(self, "savings_plans_utilization")
 
     @savings_plans_utilization.setter
-    def savings_plans_utilization(self, value: Optional[pulumi.Input['DashboardSavingsPlansUtilizationQueryArgs']]):
+    def savings_plans_utilization(self, value: pulumi.Input[Optional['DashboardSavingsPlansUtilizationQueryArgs']]):
         pulumi.set(self, "savings_plans_utilization", value)
 
 
 class DashboardReservationCoverageQueryArgsDict(TypedDict):
     time_range: pulumi.Input['DashboardDateTimeRangeArgsDict']
-    filter: NotRequired[pulumi.Input['DashboardExpressionArgsDict']]
-    granularity: NotRequired[pulumi.Input['DashboardGranularity']]
-    group_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]
-    metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]
+    filter: NotRequired[pulumi.Input[Optional['DashboardExpressionArgsDict']]]
+    granularity: NotRequired[pulumi.Input[Optional['DashboardGranularity']]]
+    group_by: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]]
 
 @pulumi.input_type
 class DashboardReservationCoverageQueryArgs:
     def __init__(__self__, *,
                  time_range: pulumi.Input['DashboardDateTimeRangeArgs'],
-                 filter: Optional[pulumi.Input['DashboardExpressionArgs']] = None,
-                 granularity: Optional[pulumi.Input['DashboardGranularity']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]] = None):
+                 filter: pulumi.Input[Optional['DashboardExpressionArgs']] = None,
+                 granularity: pulumi.Input[Optional['DashboardGranularity']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]] = None):
         pulumi.set(__self__, "time_range", time_range)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -624,54 +624,54 @@ class DashboardReservationCoverageQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DashboardExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DashboardExpressionArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DashboardExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DashboardExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input['DashboardGranularity']]:
+    def granularity(self) -> pulumi.Input[Optional['DashboardGranularity']]:
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input['DashboardGranularity']]):
+    def granularity(self, value: pulumi.Input[Optional['DashboardGranularity']]):
         pulumi.set(self, "granularity", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
+    def group_by(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
         return pulumi.get(self, "group_by")
 
     @group_by.setter
-    def group_by(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
+    def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
         pulumi.set(self, "group_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]:
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]):
         pulumi.set(self, "metrics", value)
 
 
 class DashboardReservationUtilizationQueryArgsDict(TypedDict):
     time_range: pulumi.Input['DashboardDateTimeRangeArgsDict']
-    filter: NotRequired[pulumi.Input['DashboardExpressionArgsDict']]
-    granularity: NotRequired[pulumi.Input['DashboardGranularity']]
-    group_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]
+    filter: NotRequired[pulumi.Input[Optional['DashboardExpressionArgsDict']]]
+    granularity: NotRequired[pulumi.Input[Optional['DashboardGranularity']]]
+    group_by: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]]
 
 @pulumi.input_type
 class DashboardReservationUtilizationQueryArgs:
     def __init__(__self__, *,
                  time_range: pulumi.Input['DashboardDateTimeRangeArgs'],
-                 filter: Optional[pulumi.Input['DashboardExpressionArgs']] = None,
-                 granularity: Optional[pulumi.Input['DashboardGranularity']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None):
+                 filter: pulumi.Input[Optional['DashboardExpressionArgs']] = None,
+                 granularity: pulumi.Input[Optional['DashboardGranularity']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None):
         pulumi.set(__self__, "time_range", time_range)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -691,47 +691,47 @@ class DashboardReservationUtilizationQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DashboardExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DashboardExpressionArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DashboardExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DashboardExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input['DashboardGranularity']]:
+    def granularity(self) -> pulumi.Input[Optional['DashboardGranularity']]:
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input['DashboardGranularity']]):
+    def granularity(self, value: pulumi.Input[Optional['DashboardGranularity']]):
         pulumi.set(self, "granularity", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
+    def group_by(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
         return pulumi.get(self, "group_by")
 
     @group_by.setter
-    def group_by(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
+    def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
         pulumi.set(self, "group_by", value)
 
 
 class DashboardSavingsPlansCoverageQueryArgsDict(TypedDict):
     time_range: pulumi.Input['DashboardDateTimeRangeArgsDict']
-    filter: NotRequired[pulumi.Input['DashboardExpressionArgsDict']]
-    granularity: NotRequired[pulumi.Input['DashboardGranularity']]
-    group_by: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]
-    metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]
+    filter: NotRequired[pulumi.Input[Optional['DashboardExpressionArgsDict']]]
+    granularity: NotRequired[pulumi.Input[Optional['DashboardGranularity']]]
+    group_by: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgsDict']]]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]]
 
 @pulumi.input_type
 class DashboardSavingsPlansCoverageQueryArgs:
     def __init__(__self__, *,
                  time_range: pulumi.Input['DashboardDateTimeRangeArgs'],
-                 filter: Optional[pulumi.Input['DashboardExpressionArgs']] = None,
-                 granularity: Optional[pulumi.Input['DashboardGranularity']] = None,
-                 group_by: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]] = None):
+                 filter: pulumi.Input[Optional['DashboardExpressionArgs']] = None,
+                 granularity: pulumi.Input[Optional['DashboardGranularity']] = None,
+                 group_by: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]] = None):
         pulumi.set(__self__, "time_range", time_range)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -753,52 +753,52 @@ class DashboardSavingsPlansCoverageQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DashboardExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DashboardExpressionArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DashboardExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DashboardExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input['DashboardGranularity']]:
+    def granularity(self) -> pulumi.Input[Optional['DashboardGranularity']]:
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input['DashboardGranularity']]):
+    def granularity(self, value: pulumi.Input[Optional['DashboardGranularity']]):
         pulumi.set(self, "granularity", value)
 
     @_builtins.property
     @pulumi.getter(name="groupBy")
-    def group_by(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
+    def group_by(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]:
         return pulumi.get(self, "group_by")
 
     @group_by.setter
-    def group_by(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
+    def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardGroupDefinitionArgs']]]]):
         pulumi.set(self, "group_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]:
+    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]:
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMetricName']]]]):
+    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMetricName']]]]):
         pulumi.set(self, "metrics", value)
 
 
 class DashboardSavingsPlansUtilizationQueryArgsDict(TypedDict):
     time_range: pulumi.Input['DashboardDateTimeRangeArgsDict']
-    filter: NotRequired[pulumi.Input['DashboardExpressionArgsDict']]
-    granularity: NotRequired[pulumi.Input['DashboardGranularity']]
+    filter: NotRequired[pulumi.Input[Optional['DashboardExpressionArgsDict']]]
+    granularity: NotRequired[pulumi.Input[Optional['DashboardGranularity']]]
 
 @pulumi.input_type
 class DashboardSavingsPlansUtilizationQueryArgs:
     def __init__(__self__, *,
                  time_range: pulumi.Input['DashboardDateTimeRangeArgs'],
-                 filter: Optional[pulumi.Input['DashboardExpressionArgs']] = None,
-                 granularity: Optional[pulumi.Input['DashboardGranularity']] = None):
+                 filter: pulumi.Input[Optional['DashboardExpressionArgs']] = None,
+                 granularity: pulumi.Input[Optional['DashboardGranularity']] = None):
         pulumi.set(__self__, "time_range", time_range)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
@@ -816,20 +816,20 @@ class DashboardSavingsPlansUtilizationQueryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input['DashboardExpressionArgs']]:
+    def filter(self) -> pulumi.Input[Optional['DashboardExpressionArgs']]:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input['DashboardExpressionArgs']]):
+    def filter(self, value: pulumi.Input[Optional['DashboardExpressionArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input['DashboardGranularity']]:
+    def granularity(self) -> pulumi.Input[Optional['DashboardGranularity']]:
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input['DashboardGranularity']]):
+    def granularity(self, value: pulumi.Input[Optional['DashboardGranularity']]):
         pulumi.set(self, "granularity", value)
 
 
@@ -845,14 +845,14 @@ class DashboardTableDisplayConfigStructArgs:
 class DashboardTagValuesArgsDict(TypedDict):
     key: pulumi.Input[_builtins.str]
     values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-    match_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]
+    match_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]]
 
 @pulumi.input_type
 class DashboardTagValuesArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 match_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
+                 match_options: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]] = None):
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
         if match_options is not None:
@@ -878,62 +878,31 @@ class DashboardTagValuesArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchOptions")
-    def match_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]:
+    def match_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]:
         return pulumi.get(self, "match_options")
 
     @match_options.setter
-    def match_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardMatchOption']]]]):
+    def match_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardMatchOption']]]]):
         pulumi.set(self, "match_options", value)
-
-
-class DashboardWidgetConfigArgsDict(TypedDict):
-    display_config: pulumi.Input['DashboardDisplayConfigArgsDict']
-    query_parameters: pulumi.Input['DashboardQueryParametersArgsDict']
-
-@pulumi.input_type
-class DashboardWidgetConfigArgs:
-    def __init__(__self__, *,
-                 display_config: pulumi.Input['DashboardDisplayConfigArgs'],
-                 query_parameters: pulumi.Input['DashboardQueryParametersArgs']):
-        pulumi.set(__self__, "display_config", display_config)
-        pulumi.set(__self__, "query_parameters", query_parameters)
-
-    @_builtins.property
-    @pulumi.getter(name="displayConfig")
-    def display_config(self) -> pulumi.Input['DashboardDisplayConfigArgs']:
-        return pulumi.get(self, "display_config")
-
-    @display_config.setter
-    def display_config(self, value: pulumi.Input['DashboardDisplayConfigArgs']):
-        pulumi.set(self, "display_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="queryParameters")
-    def query_parameters(self) -> pulumi.Input['DashboardQueryParametersArgs']:
-        return pulumi.get(self, "query_parameters")
-
-    @query_parameters.setter
-    def query_parameters(self, value: pulumi.Input['DashboardQueryParametersArgs']):
-        pulumi.set(self, "query_parameters", value)
 
 
 class DashboardWidgetArgsDict(TypedDict):
     configs: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetConfigArgsDict']]]
     title: pulumi.Input[_builtins.str]
-    description: NotRequired[pulumi.Input[_builtins.str]]
-    height: NotRequired[pulumi.Input[_builtins.int]]
-    horizontal_offset: NotRequired[pulumi.Input[_builtins.int]]
-    width: NotRequired[pulumi.Input[_builtins.int]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    height: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    horizontal_offset: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    width: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
 @pulumi.input_type
 class DashboardWidgetArgs:
     def __init__(__self__, *,
                  configs: pulumi.Input[Sequence[pulumi.Input['DashboardWidgetConfigArgs']]],
                  title: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 height: Optional[pulumi.Input[_builtins.int]] = None,
-                 horizontal_offset: Optional[pulumi.Input[_builtins.int]] = None,
-                 width: Optional[pulumi.Input[_builtins.int]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 height: pulumi.Input[Optional[_builtins.int]] = None,
+                 horizontal_offset: pulumi.Input[Optional[_builtins.int]] = None,
+                 width: pulumi.Input[Optional[_builtins.int]] = None):
         pulumi.set(__self__, "configs", configs)
         pulumi.set(__self__, "title", title)
         if description is not None:
@@ -965,38 +934,69 @@ class DashboardWidgetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def height(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def height(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "height")
 
     @height.setter
-    def height(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def height(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "height", value)
 
     @_builtins.property
     @pulumi.getter(name="horizontalOffset")
-    def horizontal_offset(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def horizontal_offset(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "horizontal_offset")
 
     @horizontal_offset.setter
-    def horizontal_offset(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def horizontal_offset(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "horizontal_offset", value)
 
     @_builtins.property
     @pulumi.getter
-    def width(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def width(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "width")
 
     @width.setter
-    def width(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def width(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "width", value)
+
+
+class DashboardWidgetConfigArgsDict(TypedDict):
+    display_config: pulumi.Input['DashboardDisplayConfigArgsDict']
+    query_parameters: pulumi.Input['DashboardQueryParametersArgsDict']
+
+@pulumi.input_type
+class DashboardWidgetConfigArgs:
+    def __init__(__self__, *,
+                 display_config: pulumi.Input['DashboardDisplayConfigArgs'],
+                 query_parameters: pulumi.Input['DashboardQueryParametersArgs']):
+        pulumi.set(__self__, "display_config", display_config)
+        pulumi.set(__self__, "query_parameters", query_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="displayConfig")
+    def display_config(self) -> pulumi.Input['DashboardDisplayConfigArgs']:
+        return pulumi.get(self, "display_config")
+
+    @display_config.setter
+    def display_config(self, value: pulumi.Input['DashboardDisplayConfigArgs']):
+        pulumi.set(self, "display_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> pulumi.Input['DashboardQueryParametersArgs']:
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: pulumi.Input['DashboardQueryParametersArgs']):
+        pulumi.set(self, "query_parameters", value)
 
 

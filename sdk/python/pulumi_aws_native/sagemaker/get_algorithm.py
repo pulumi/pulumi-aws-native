@@ -76,7 +76,6 @@ def get_algorithm(algorithm_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::SageMaker::Algorithm
 
-
     :param _builtins.str algorithm_arn: The Amazon Resource Name (ARN) of the algorithm.
     """
     __args__ = dict()
@@ -88,11 +87,10 @@ def get_algorithm(algorithm_arn: Optional[_builtins.str] = None,
         algorithm_arn=pulumi.get(__ret__, 'algorithm_arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_algorithm_output(algorithm_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_algorithm_output(algorithm_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlgorithmResult]:
     """
     Resource Type definition for AWS::SageMaker::Algorithm
-
 
     :param _builtins.str algorithm_arn: The Amazon Resource Name (ARN) of the algorithm.
     """

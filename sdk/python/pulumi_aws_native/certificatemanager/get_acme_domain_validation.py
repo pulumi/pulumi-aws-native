@@ -74,7 +74,6 @@ def get_acme_domain_validation(arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::CertificateManager::AcmeDomainValidation
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain validation.
     """
     __args__ = dict()
@@ -86,11 +85,10 @@ def get_acme_domain_validation(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         prevalidation_options=pulumi.get(__ret__, 'prevalidation_options'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_acme_domain_validation_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_acme_domain_validation_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcmeDomainValidationResult]:
     """
     Resource Type definition for AWS::CertificateManager::AcmeDomainValidation
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the domain validation.
     """

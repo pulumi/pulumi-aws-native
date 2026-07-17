@@ -352,7 +352,6 @@ def get_policy(id: Optional[_builtins.str] = None,
     """
     Creates an AWS Firewall Manager policy.
 
-
     :param _builtins.str id: The ID of the policy.
     """
     __args__ = dict()
@@ -377,11 +376,10 @@ def get_policy(id: Optional[_builtins.str] = None,
         resources_clean_up=pulumi.get(__ret__, 'resources_clean_up'),
         security_service_policy_data=pulumi.get(__ret__, 'security_service_policy_data'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Creates an AWS Firewall Manager policy.
-
 
     :param _builtins.str id: The ID of the policy.
     """

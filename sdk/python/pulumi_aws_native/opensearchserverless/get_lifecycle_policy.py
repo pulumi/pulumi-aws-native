@@ -65,7 +65,6 @@ def get_lifecycle_policy(name: Optional[_builtins.str] = None,
     """
     Amazon OpenSearchServerless lifecycle policy resource
 
-
     :param _builtins.str name: The name of the policy
     :param 'LifecyclePolicyType' type: The type of lifecycle policy.
     """
@@ -78,12 +77,11 @@ def get_lifecycle_policy(name: Optional[_builtins.str] = None,
     return AwaitableGetLifecyclePolicyResult(
         description=pulumi.get(__ret__, 'description'),
         policy=pulumi.get(__ret__, 'policy'))
-def get_lifecycle_policy_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                type: Optional[pulumi.Input['LifecyclePolicyType']] = None,
+def get_lifecycle_policy_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                type: pulumi.Input[Optional['LifecyclePolicyType']] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecyclePolicyResult]:
     """
     Amazon OpenSearchServerless lifecycle policy resource
-
 
     :param _builtins.str name: The name of the policy
     :param 'LifecyclePolicyType' type: The type of lifecycle policy.

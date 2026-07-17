@@ -153,20 +153,20 @@ export interface MethodArgs {
     /**
      * A boolean flag specifying whether a valid ApiKey is required to invoke this method.
      */
-    apiKeyRequired?: pulumi.Input<boolean>;
+    apiKeyRequired?: pulumi.Input<boolean | undefined>;
     /**
      * A list of authorization scopes configured on the method. The scopes are used with a `COGNITO_USER_POOLS` authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.
      */
-    authorizationScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    authorizationScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.
      *   If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.
      */
-    authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string | undefined>;
     /**
      * The identifier of an authorizer to use on this method. The method's authorization type must be `CUSTOM` or `COGNITO_USER_POOLS` .
      */
-    authorizerId?: pulumi.Input<string>;
+    authorizerId?: pulumi.Input<string | undefined>;
     /**
      * The method's HTTP verb.
      */
@@ -174,27 +174,27 @@ export interface MethodArgs {
     /**
      * Represents an `HTTP` , `HTTP_PROXY` , `AWS` , `AWS_PROXY` , or Mock integration.
      */
-    integration?: pulumi.Input<inputs.apigateway.MethodIntegrationArgs>;
+    integration?: pulumi.Input<inputs.apigateway.MethodIntegrationArgs | undefined>;
     /**
      * Gets a method response associated with a given HTTP status code.
      */
-    methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodResponseArgs>[]>;
+    methodResponses?: pulumi.Input<pulumi.Input<inputs.apigateway.MethodResponseArgs>[] | undefined>;
     /**
      * A human-friendly operation identifier for the method. For example, you can assign the `operationName` of `ListPets` for the `GET /pets` method in the `PetStore` example.
      */
-    operationName?: pulumi.Input<string>;
+    operationName?: pulumi.Input<string | undefined>;
     /**
      * A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).
      */
-    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required ( `true` ) or optional ( `false` ). The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.
      */
-    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean | string>}>;
+    requestParameters?: pulumi.Input<{[key: string]: pulumi.Input<boolean | string>} | undefined>;
     /**
      * The identifier of a RequestValidator for request validation.
      */
-    requestValidatorId?: pulumi.Input<string>;
+    requestValidatorId?: pulumi.Input<string | undefined>;
     /**
      * The Resource identifier for the MethodResponse resource.
      */

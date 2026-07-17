@@ -20,7 +20,7 @@ __all__ = ['BatchScramSecretArgs', 'BatchScramSecret']
 class BatchScramSecretArgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[_builtins.str],
-                 secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 secret_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BatchScramSecret resource.
 
@@ -45,14 +45,14 @@ class BatchScramSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretArnList")
-    def secret_arn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def secret_arn_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of Amazon Resource Name (ARN)s of Secrets Manager secrets.
         """
         return pulumi.get(self, "secret_arn_list")
 
     @secret_arn_list.setter
-    def secret_arn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def secret_arn_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "secret_arn_list", value)
 
 
@@ -62,12 +62,11 @@ class BatchScramSecret(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::BatchScramSecret
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -82,7 +81,6 @@ class BatchScramSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::MSK::BatchScramSecret
-
 
         :param str resource_name: The name of the resource.
         :param BatchScramSecretArgs args: The arguments to use to populate this resource's properties.
@@ -99,8 +97,8 @@ class BatchScramSecret(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -22,18 +22,18 @@ class FirewallRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['FirewallRuleAction'],
                  dns_view_id: pulumi.Input[_builtins.str],
-                 block_override_dns_type: Optional[pulumi.Input['FirewallRuleBlockOverrideDnsQueryType']] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input['FirewallRuleFirewallBlockResponse']] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input['FirewallRuleConfidenceThreshold']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_advanced_protection: Optional[pulumi.Input['FirewallRuleDnsAdvancedProtection']] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 block_override_dns_type: pulumi.Input[Optional['FirewallRuleBlockOverrideDnsQueryType']] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional['FirewallRuleFirewallBlockResponse']] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional['FirewallRuleConfidenceThreshold']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_advanced_protection: pulumi.Input[Optional['FirewallRuleDnsAdvancedProtection']] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
         """
@@ -84,110 +84,110 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDnsType")
-    def block_override_dns_type(self) -> Optional[pulumi.Input['FirewallRuleBlockOverrideDnsQueryType']]:
+    def block_override_dns_type(self) -> pulumi.Input[Optional['FirewallRuleBlockOverrideDnsQueryType']]:
         return pulumi.get(self, "block_override_dns_type")
 
     @block_override_dns_type.setter
-    def block_override_dns_type(self, value: Optional[pulumi.Input['FirewallRuleBlockOverrideDnsQueryType']]):
+    def block_override_dns_type(self, value: pulumi.Input[Optional['FirewallRuleBlockOverrideDnsQueryType']]):
         pulumi.set(self, "block_override_dns_type", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideDomain")
-    def block_override_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def block_override_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "block_override_domain")
 
     @block_override_domain.setter
-    def block_override_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def block_override_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "block_override_domain", value)
 
     @_builtins.property
     @pulumi.getter(name="blockOverrideTtl")
-    def block_override_ttl(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def block_override_ttl(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "block_override_ttl")
 
     @block_override_ttl.setter
-    def block_override_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def block_override_ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "block_override_ttl", value)
 
     @_builtins.property
     @pulumi.getter(name="blockResponse")
-    def block_response(self) -> Optional[pulumi.Input['FirewallRuleFirewallBlockResponse']]:
+    def block_response(self) -> pulumi.Input[Optional['FirewallRuleFirewallBlockResponse']]:
         return pulumi.get(self, "block_response")
 
     @block_response.setter
-    def block_response(self, value: Optional[pulumi.Input['FirewallRuleFirewallBlockResponse']]):
+    def block_response(self, value: pulumi.Input[Optional['FirewallRuleFirewallBlockResponse']]):
         pulumi.set(self, "block_response", value)
 
     @_builtins.property
     @pulumi.getter(name="clientToken")
-    def client_token(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "client_token")
 
     @client_token.setter
-    def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_token", value)
 
     @_builtins.property
     @pulumi.getter(name="confidenceThreshold")
-    def confidence_threshold(self) -> Optional[pulumi.Input['FirewallRuleConfidenceThreshold']]:
+    def confidence_threshold(self) -> pulumi.Input[Optional['FirewallRuleConfidenceThreshold']]:
         return pulumi.get(self, "confidence_threshold")
 
     @confidence_threshold.setter
-    def confidence_threshold(self, value: Optional[pulumi.Input['FirewallRuleConfidenceThreshold']]):
+    def confidence_threshold(self, value: pulumi.Input[Optional['FirewallRuleConfidenceThreshold']]):
         pulumi.set(self, "confidence_threshold", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsAdvancedProtection")
-    def dns_advanced_protection(self) -> Optional[pulumi.Input['FirewallRuleDnsAdvancedProtection']]:
+    def dns_advanced_protection(self) -> pulumi.Input[Optional['FirewallRuleDnsAdvancedProtection']]:
         return pulumi.get(self, "dns_advanced_protection")
 
     @dns_advanced_protection.setter
-    def dns_advanced_protection(self, value: Optional[pulumi.Input['FirewallRuleDnsAdvancedProtection']]):
+    def dns_advanced_protection(self, value: pulumi.Input[Optional['FirewallRuleDnsAdvancedProtection']]):
         pulumi.set(self, "dns_advanced_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def firewall_domain_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "firewall_domain_list_id")
 
     @firewall_domain_list_id.setter
-    def firewall_domain_list_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def firewall_domain_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "firewall_domain_list_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="qType")
-    def q_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def q_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "q_type")
 
     @q_type.setter
-    def q_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def q_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "q_type", value)
 
 
@@ -197,24 +197,23 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['FirewallRuleAction']] = None,
-                 block_override_dns_type: Optional[pulumi.Input['FirewallRuleBlockOverrideDnsQueryType']] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input['FirewallRuleFirewallBlockResponse']] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input['FirewallRuleConfidenceThreshold']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_advanced_protection: Optional[pulumi.Input['FirewallRuleDnsAdvancedProtection']] = None,
-                 dns_view_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional['FirewallRuleAction']] = None,
+                 block_override_dns_type: pulumi.Input[Optional['FirewallRuleBlockOverrideDnsQueryType']] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional['FirewallRuleFirewallBlockResponse']] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional['FirewallRuleConfidenceThreshold']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_advanced_protection: pulumi.Input[Optional['FirewallRuleDnsAdvancedProtection']] = None,
+                 dns_view_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53GlobalResolver::FirewallRule
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,7 +226,6 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource schema for AWS::Route53GlobalResolver::FirewallRule
-
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -244,20 +242,20 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input['FirewallRuleAction']] = None,
-                 block_override_dns_type: Optional[pulumi.Input['FirewallRuleBlockOverrideDnsQueryType']] = None,
-                 block_override_domain: Optional[pulumi.Input[_builtins.str]] = None,
-                 block_override_ttl: Optional[pulumi.Input[_builtins.int]] = None,
-                 block_response: Optional[pulumi.Input['FirewallRuleFirewallBlockResponse']] = None,
-                 client_token: Optional[pulumi.Input[_builtins.str]] = None,
-                 confidence_threshold: Optional[pulumi.Input['FirewallRuleConfidenceThreshold']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 dns_advanced_protection: Optional[pulumi.Input['FirewallRuleDnsAdvancedProtection']] = None,
-                 dns_view_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 firewall_domain_list_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 action: pulumi.Input[Optional['FirewallRuleAction']] = None,
+                 block_override_dns_type: pulumi.Input[Optional['FirewallRuleBlockOverrideDnsQueryType']] = None,
+                 block_override_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 block_override_ttl: pulumi.Input[Optional[_builtins.int]] = None,
+                 block_response: pulumi.Input[Optional['FirewallRuleFirewallBlockResponse']] = None,
+                 client_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 confidence_threshold: pulumi.Input[Optional['FirewallRuleConfidenceThreshold']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_advanced_protection: pulumi.Input[Optional['FirewallRuleDnsAdvancedProtection']] = None,
+                 dns_view_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_domain_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 q_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

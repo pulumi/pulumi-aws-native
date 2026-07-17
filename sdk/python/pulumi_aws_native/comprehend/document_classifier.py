@@ -27,15 +27,15 @@ class DocumentClassifierArgs:
                  data_access_role_arn: pulumi.Input[_builtins.str],
                  input_data_config: pulumi.Input['DocumentClassifierInputDataConfigArgs'],
                  language_code: pulumi.Input['DocumentClassifierLanguageCode'],
-                 document_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mode: Optional[pulumi.Input['DocumentClassifierMode']] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
+                 document_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional['DocumentClassifierMode']] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional['DocumentClassifierOutputDataConfigArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional['DocumentClassifierVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a DocumentClassifier resource.
 
@@ -126,31 +126,31 @@ class DocumentClassifierArgs:
 
     @_builtins.property
     @pulumi.getter(name="documentClassifierName")
-    def document_classifier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def document_classifier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the document classifier.
         """
         return pulumi.get(self, "document_classifier_name")
 
     @document_classifier_name.setter
-    def document_classifier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def document_classifier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "document_classifier_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['DocumentClassifierMode']]:
+    def mode(self) -> pulumi.Input[Optional['DocumentClassifierMode']]:
         """
         Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['DocumentClassifierMode']]):
+    def mode(self, value: pulumi.Input[Optional['DocumentClassifierMode']]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter(name="modelKmsKeyId")
-    def model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
@@ -160,12 +160,12 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "model_kms_key_id")
 
     @model_kms_key_id.setter
-    def model_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="modelPolicy")
-    def model_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def model_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource-based policy to attach to your custom document classifier model. You can use this policy to allow another AWS account to import your custom model.
 
@@ -180,48 +180,48 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "model_policy")
 
     @model_policy.setter
-    def model_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def model_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "model_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+    def output_data_config(self) -> pulumi.Input[Optional['DocumentClassifierOutputDataConfigArgs']]:
         """
         Provides output results configuration parameters for custom classifier jobs.
         """
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]):
+    def output_data_config(self, value: pulumi.Input[Optional['DocumentClassifierOutputDataConfigArgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeKmsKeyId")
-    def volume_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def volume_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 
@@ -231,19 +231,19 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "volume_kms_key_id")
 
     @volume_kms_key_id.setter
-    def volume_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def volume_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "volume_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+    def vpc_config(self) -> pulumi.Input[Optional['DocumentClassifierVpcConfigArgs']]:
         """
         Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]):
+    def vpc_config(self, value: pulumi.Input[Optional['DocumentClassifierVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
@@ -253,22 +253,21 @@ class DocumentClassifier(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_data_config: Optional[pulumi.Input[Union['DocumentClassifierInputDataConfigArgs', 'DocumentClassifierInputDataConfigArgsDict']]] = None,
-                 language_code: Optional[pulumi.Input['DocumentClassifierLanguageCode']] = None,
-                 mode: Optional[pulumi.Input['DocumentClassifierMode']] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['DocumentClassifierVpcConfigArgs', 'DocumentClassifierVpcConfigArgsDict']]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['DocumentClassifierInputDataConfigArgs', 'DocumentClassifierInputDataConfigArgsDict']]] = None,
+                 language_code: pulumi.Input[Optional['DocumentClassifierLanguageCode']] = None,
+                 mode: pulumi.Input[Optional['DocumentClassifierMode']] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['DocumentClassifierVpcConfigArgs', 'DocumentClassifierVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Document Classifier enables training document classifier models.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -308,7 +307,6 @@ class DocumentClassifier(pulumi.CustomResource):
         """
         Document Classifier enables training document classifier models.
 
-
         :param str resource_name: The name of the resource.
         :param DocumentClassifierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -324,18 +322,18 @@ class DocumentClassifier(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_access_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 document_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 input_data_config: Optional[pulumi.Input[Union['DocumentClassifierInputDataConfigArgs', 'DocumentClassifierInputDataConfigArgsDict']]] = None,
-                 language_code: Optional[pulumi.Input['DocumentClassifierLanguageCode']] = None,
-                 mode: Optional[pulumi.Input['DocumentClassifierMode']] = None,
-                 model_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 model_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 output_data_config: Optional[pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 volume_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 vpc_config: Optional[pulumi.Input[Union['DocumentClassifierVpcConfigArgs', 'DocumentClassifierVpcConfigArgsDict']]] = None,
+                 data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 document_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 input_data_config: pulumi.Input[Optional[Union['DocumentClassifierInputDataConfigArgs', 'DocumentClassifierInputDataConfigArgsDict']]] = None,
+                 language_code: pulumi.Input[Optional['DocumentClassifierLanguageCode']] = None,
+                 mode: pulumi.Input[Optional['DocumentClassifierMode']] = None,
+                 model_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 model_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 output_data_config: pulumi.Input[Optional[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['DocumentClassifierVpcConfigArgs', 'DocumentClassifierVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

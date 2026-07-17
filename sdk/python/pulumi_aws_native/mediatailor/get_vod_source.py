@@ -79,7 +79,6 @@ def get_vod_source(source_location_name: Optional[_builtins.str] = None,
     """
     Definition of AWS::MediaTailor::VodSource Resource Type
 
-
     :param _builtins.str source_location_name: The name of the source location that the VOD source is associated with.
     :param _builtins.str vod_source_name: The name of the VOD source.
     """
@@ -93,12 +92,11 @@ def get_vod_source(source_location_name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         http_package_configurations=pulumi.get(__ret__, 'http_package_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_vod_source_output(source_location_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          vod_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vod_source_output(source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          vod_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVodSourceResult]:
     """
     Definition of AWS::MediaTailor::VodSource Resource Type
-
 
     :param _builtins.str source_location_name: The name of the source location that the VOD source is associated with.
     :param _builtins.str vod_source_name: The name of the VOD source.

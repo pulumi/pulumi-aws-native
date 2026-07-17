@@ -222,15 +222,15 @@ export interface ContainerFleetArgs {
     /**
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
-    billingType?: pulumi.Input<enums.gamelift.ContainerFleetBillingType>;
+    billingType?: pulumi.Input<enums.gamelift.ContainerFleetBillingType | undefined>;
     /**
      * Set of rules for processing a deployment for a container fleet update.
      */
-    deploymentConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetDeploymentConfigurationArgs>;
+    deploymentConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetDeploymentConfigurationArgs | undefined>;
     /**
      * A human-readable description of a fleet.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
      */
@@ -238,28 +238,28 @@ export interface ContainerFleetArgs {
     /**
      * The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
      */
-    gameServerContainerGroupDefinitionName?: pulumi.Input<string>;
+    gameServerContainerGroupDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The number of desired game server container groups per instance, a number between 1-5000.
      */
-    gameServerContainerGroupsPerInstance?: pulumi.Input<number>;
+    gameServerContainerGroupsPerInstance?: pulumi.Input<number | undefined>;
     /**
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
-    gameSessionCreationLimitPolicy?: pulumi.Input<inputs.gamelift.ContainerFleetGameSessionCreationLimitPolicyArgs>;
+    gameSessionCreationLimitPolicy?: pulumi.Input<inputs.gamelift.ContainerFleetGameSessionCreationLimitPolicyArgs | undefined>;
     /**
      * The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
      */
-    instanceConnectionPortRange?: pulumi.Input<inputs.gamelift.ContainerFleetConnectionPortRangeArgs>;
+    instanceConnectionPortRange?: pulumi.Input<inputs.gamelift.ContainerFleetConnectionPortRangeArgs | undefined>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
-    instanceInboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetIpPermissionArgs>[]>;
+    instanceInboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetIpPermissionArgs>[] | undefined>;
     /**
      * The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
      */
-    instanceType?: pulumi.Input<string>;
-    locations?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetLocationConfigurationArgs>[]>;
+    instanceType?: pulumi.Input<string | undefined>;
+    locations?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetLocationConfigurationArgs>[] | undefined>;
     /**
      * The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
      *
@@ -267,29 +267,29 @@ export interface ContainerFleetArgs {
      * - `S3` -- Store logs in an Amazon S3 bucket that you define.
      * - `NONE` -- Don't collect container logs.
      */
-    logConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetLogConfigurationArgs>;
+    logConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetLogConfigurationArgs | undefined>;
     /**
      * The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
      */
-    metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    metricGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
      */
-    newGameSessionProtectionPolicy?: pulumi.Input<enums.gamelift.ContainerFleetNewGameSessionProtectionPolicy>;
+    newGameSessionProtectionPolicy?: pulumi.Input<enums.gamelift.ContainerFleetNewGameSessionProtectionPolicy | undefined>;
     /**
      * The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
      */
-    perInstanceContainerGroupDefinitionName?: pulumi.Input<string>;
+    perInstanceContainerGroupDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The player gateway mode for the container fleet.
      */
-    playerGatewayMode?: pulumi.Input<enums.gamelift.ContainerFleetPlayerGatewayMode>;
+    playerGatewayMode?: pulumi.Input<enums.gamelift.ContainerFleetPlayerGatewayMode | undefined>;
     /**
      * A list of rules that control how a fleet is scaled.
      */
-    scalingPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetScalingPolicyArgs>[]>;
+    scalingPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetScalingPolicyArgs>[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

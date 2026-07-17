@@ -89,7 +89,6 @@ def get_hook_type_config(configuration_arn: Optional[_builtins.str] = None,
     """
     Specifies the configuration data for a registered hook in CloudFormation Registry.
 
-
     :param _builtins.str configuration_arn: The Amazon Resource Name (ARN) for the configuration data, in this account and region.
     """
     __args__ = dict()
@@ -102,11 +101,10 @@ def get_hook_type_config(configuration_arn: Optional[_builtins.str] = None,
         configuration_arn=pulumi.get(__ret__, 'configuration_arn'),
         type_arn=pulumi.get(__ret__, 'type_arn'),
         type_name=pulumi.get(__ret__, 'type_name'))
-def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hook_type_config_output(configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHookTypeConfigResult]:
     """
     Specifies the configuration data for a registered hook in CloudFormation Registry.
-
 
     :param _builtins.str configuration_arn: The Amazon Resource Name (ARN) for the configuration data, in this account and region.
     """

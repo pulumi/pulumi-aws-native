@@ -90,7 +90,6 @@ def get_multiplexprogram(multiplex_id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaLive::Multiplexprogram
 
-
     :param _builtins.str multiplex_id: The ID of the multiplex that the program belongs to.
     :param _builtins.str program_name: The name of the multiplex program.
     """
@@ -105,12 +104,11 @@ def get_multiplexprogram(multiplex_id: Optional[_builtins.str] = None,
         multiplex_program_settings=pulumi.get(__ret__, 'multiplex_program_settings'),
         packet_identifiers_map=pulumi.get(__ret__, 'packet_identifiers_map'),
         pipeline_details=pulumi.get(__ret__, 'pipeline_details'))
-def get_multiplexprogram_output(multiplex_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                program_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multiplexprogram_output(multiplex_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                program_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiplexprogramResult]:
     """
     Resource schema for AWS::MediaLive::Multiplexprogram
-
 
     :param _builtins.str multiplex_id: The ID of the multiplex that the program belongs to.
     :param _builtins.str program_name: The name of the multiplex program.

@@ -47,7 +47,7 @@ export class DbParameterGroup extends pulumi.CustomResource {
      *   +  Must be 1 to 255 letters, numbers, or hyphens.
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */
@@ -59,24 +59,24 @@ export class DbParameterGroup extends pulumi.CustomResource {
     /**
      * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
      *  To list all of the available parameter group families for a DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
      *  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
      *   The output contains duplicates.
      *   The following are the valid DB engine values:
-     *   +   ``aurora-mysql`` 
-     *   +   ``aurora-postgresql`` 
-     *   +   ``db2-ae`` 
-     *   +   ``db2-se`` 
-     *   +   ``mysql`` 
-     *   +   ``oracle-ee`` 
-     *   +   ``oracle-ee-cdb`` 
-     *   +   ``oracle-se2`` 
-     *   +   ``oracle-se2-cdb`` 
-     *   +   ``postgres`` 
-     *   +   ``sqlserver-ee`` 
-     *   +   ``sqlserver-se`` 
-     *   +   ``sqlserver-ex`` 
+     *   +   ``aurora-mysql``
+     *   +   ``aurora-postgresql``
+     *   +   ``db2-ae``
+     *   +   ``db2-se``
+     *   +   ``mysql``
+     *   +   ``oracle-ee``
+     *   +   ``oracle-ee-cdb``
+     *   +   ``oracle-se2``
+     *   +   ``oracle-se2-cdb``
+     *   +   ``postgres``
+     *   +   ``sqlserver-ee``
+     *   +   ``sqlserver-se``
+     *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
      */
     declare public readonly family: pulumi.Output<string>;
@@ -139,11 +139,11 @@ export interface DbParameterGroupArgs {
      *   +  Must be 1 to 255 letters, numbers, or hyphens.
      *   +  First character must be a letter
      *   +  Can't end with a hyphen or contain two consecutive hyphens
-     *   
+     *
      *  If you don't specify a value for ``DBParameterGroupName`` property, a name is automatically created for the DB parameter group.
      *   This value is stored as a lowercase string.
      */
-    dbParameterGroupName?: pulumi.Input<string>;
+    dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
      * Provides the customer-specified description for this DB parameter group.
      */
@@ -151,24 +151,24 @@ export interface DbParameterGroupArgs {
     /**
      * The DB parameter group family name. A DB parameter group can be associated with one and only one DB parameter group family, and can be applied only to a DB instance running a database engine and engine version compatible with that DB parameter group family.
      *  To list all of the available parameter group families for a DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine <engine>``
      *  For example, to list all of the available parameter group families for the MySQL DB engine, use the following command:
-     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql`` 
+     *   ``aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily" --engine mysql``
      *   The output contains duplicates.
      *   The following are the valid DB engine values:
-     *   +   ``aurora-mysql`` 
-     *   +   ``aurora-postgresql`` 
-     *   +   ``db2-ae`` 
-     *   +   ``db2-se`` 
-     *   +   ``mysql`` 
-     *   +   ``oracle-ee`` 
-     *   +   ``oracle-ee-cdb`` 
-     *   +   ``oracle-se2`` 
-     *   +   ``oracle-se2-cdb`` 
-     *   +   ``postgres`` 
-     *   +   ``sqlserver-ee`` 
-     *   +   ``sqlserver-se`` 
-     *   +   ``sqlserver-ex`` 
+     *   +   ``aurora-mysql``
+     *   +   ``aurora-postgresql``
+     *   +   ``db2-ae``
+     *   +   ``db2-se``
+     *   +   ``mysql``
+     *   +   ``oracle-ee``
+     *   +   ``oracle-ee-cdb``
+     *   +   ``oracle-se2``
+     *   +   ``oracle-se2-cdb``
+     *   +   ``postgres``
+     *   +   ``sqlserver-ee``
+     *   +   ``sqlserver-se``
+     *   +   ``sqlserver-ex``
      *   +   ``sqlserver-web``
      */
     family: pulumi.Input<string>;
@@ -179,9 +179,9 @@ export interface DbParameterGroupArgs {
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::RDS::DBParameterGroup` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: any | undefined;
     /**
      * Tags to assign to the DB parameter group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

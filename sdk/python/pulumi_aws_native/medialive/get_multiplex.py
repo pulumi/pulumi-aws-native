@@ -150,7 +150,6 @@ def get_multiplex(id: Optional[_builtins.str] = None,
     """
     Resource schema for AWS::MediaLive::Multiplex
 
-
     :param _builtins.str id: The unique id of the multiplex.
     """
     __args__ = dict()
@@ -168,11 +167,10 @@ def get_multiplex(id: Optional[_builtins.str] = None,
         program_count=pulumi.get(__ret__, 'program_count'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_multiplex_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_multiplex_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiplexResult]:
     """
     Resource schema for AWS::MediaLive::Multiplex
-
 
     :param _builtins.str id: The unique id of the multiplex.
     """

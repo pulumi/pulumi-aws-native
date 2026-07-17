@@ -156,7 +156,7 @@ export interface ProjectArgs {
     /**
      * Project name
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Recipe name
      */
@@ -168,9 +168,9 @@ export interface ProjectArgs {
     /**
      * Sample
      */
-    sample?: pulumi.Input<inputs.databrew.ProjectSampleArgs>;
+    sample?: pulumi.Input<inputs.databrew.ProjectSampleArgs | undefined>;
     /**
      * Metadata tags that have been applied to the project.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

@@ -120,15 +120,15 @@ export interface MulticastGroupArgs {
     /**
      * Wireless device to associate. Only for update request.
      */
-    associateWirelessDevice?: pulumi.Input<string>;
+    associateWirelessDevice?: pulumi.Input<string | undefined>;
     /**
      * Multicast group description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Wireless device to disassociate. Only for update request.
      */
-    disassociateWirelessDevice?: pulumi.Input<string>;
+    disassociateWirelessDevice?: pulumi.Input<string | undefined>;
     /**
      * Multicast group LoRaWAN
      */
@@ -136,9 +136,9 @@ export interface MulticastGroupArgs {
     /**
      * Name of Multicast group
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of key-value pairs that contain metadata for the Multicast group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

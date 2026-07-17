@@ -117,7 +117,6 @@ def get_ip_set(id: Optional[_builtins.str] = None,
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 
-
     :param _builtins.str id: The ID of the IP set.
     :param _builtins.str name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.
     :param 'IpSetScope' scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
@@ -138,13 +137,12 @@ def get_ip_set(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ip_address_version=pulumi.get(__ret__, 'ip_address_version'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_ip_set_output(id: Optional[pulumi.Input[_builtins.str]] = None,
-                      name: Optional[pulumi.Input[_builtins.str]] = None,
-                      scope: Optional[pulumi.Input['IpSetScope']] = None,
+def get_ip_set_output(id: pulumi.Input[Optional[_builtins.str]] = None,
+                      name: pulumi.Input[Optional[_builtins.str]] = None,
+                      scope: pulumi.Input[Optional['IpSetScope']] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
-
 
     :param _builtins.str id: The ID of the IP set.
     :param _builtins.str name: The name of the IP set. You cannot change the name of an `IPSet` after you create it.

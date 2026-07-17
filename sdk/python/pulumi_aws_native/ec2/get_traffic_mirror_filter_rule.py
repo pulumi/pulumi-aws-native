@@ -173,7 +173,6 @@ def get_traffic_mirror_filter_rule(traffic_mirror_filter_rule_id: Optional[_buil
     """
     Resource Type definition for for AWS::EC2::TrafficMirrorFilterRule
 
-
     :param _builtins.str traffic_mirror_filter_rule_id: The ID of the Traffic Mirror Filter rule.
     """
     __args__ = dict()
@@ -193,11 +192,10 @@ def get_traffic_mirror_filter_rule(traffic_mirror_filter_rule_id: Optional[_buil
         tags=pulumi.get(__ret__, 'tags'),
         traffic_direction=pulumi.get(__ret__, 'traffic_direction'),
         traffic_mirror_filter_rule_id=pulumi.get(__ret__, 'traffic_mirror_filter_rule_id'))
-def get_traffic_mirror_filter_rule_output(traffic_mirror_filter_rule_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_traffic_mirror_filter_rule_output(traffic_mirror_filter_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficMirrorFilterRuleResult]:
     """
     Resource Type definition for for AWS::EC2::TrafficMirrorFilterRule
-
 
     :param _builtins.str traffic_mirror_filter_rule_id: The ID of the Traffic Mirror Filter rule.
     """

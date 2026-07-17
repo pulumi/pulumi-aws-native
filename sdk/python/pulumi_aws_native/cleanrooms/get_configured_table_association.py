@@ -119,7 +119,6 @@ def get_configured_table_association(configured_table_association_identifier: Op
     """
     Represents a table that can be queried within a collaboration
 
-
     :param _builtins.str configured_table_association_identifier: Returns the unique identifier of the specified configured table association.
            
            Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE33333`
@@ -138,12 +137,11 @@ def get_configured_table_association(configured_table_association_identifier: Op
         description=pulumi.get(__ret__, 'description'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_configured_table_association_output(configured_table_association_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                                            membership_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configured_table_association_output(configured_table_association_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                                            membership_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableAssociationResult]:
     """
     Represents a table that can be queried within a collaboration
-
 
     :param _builtins.str configured_table_association_identifier: Returns the unique identifier of the specified configured table association.
            

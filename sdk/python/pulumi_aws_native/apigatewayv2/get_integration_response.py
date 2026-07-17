@@ -120,7 +120,6 @@ def get_integration_response(api_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str integration_id: The integration ID.
     :param _builtins.str integration_response_id: The integration response ID.
@@ -139,13 +138,12 @@ def get_integration_response(api_id: Optional[_builtins.str] = None,
         response_parameters=pulumi.get(__ret__, 'response_parameters'),
         response_templates=pulumi.get(__ret__, 'response_templates'),
         template_selection_expression=pulumi.get(__ret__, 'template_selection_expression'))
-def get_integration_response_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    integration_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                    integration_response_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_integration_response_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    integration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                    integration_response_id: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResponseResult]:
     """
     The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str api_id: The API identifier.
     :param _builtins.str integration_id: The integration ID.

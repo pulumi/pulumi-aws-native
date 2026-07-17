@@ -65,13 +65,12 @@ def get_option_group(option_group_name: Optional[_builtins.str] = None,
     """
     The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
-
     :param _builtins.str option_group_name: The name of the option group to be created.
             Constraints:
              +  Must be 1 to 255 letters, numbers, or hyphens
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
-             
+           
             Example: ``myoptiongroup``
             If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
              This value is stored as a lowercase string.
@@ -84,18 +83,17 @@ def get_option_group(option_group_name: Optional[_builtins.str] = None,
     return AwaitableGetOptionGroupResult(
         option_configurations=pulumi.get(__ret__, 'option_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_option_group_output(option_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_option_group_output(option_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOptionGroupResult]:
     """
     The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
-
 
     :param _builtins.str option_group_name: The name of the option group to be created.
             Constraints:
              +  Must be 1 to 255 letters, numbers, or hyphens
              +  First character must be a letter
              +  Can't end with a hyphen or contain two consecutive hyphens
-             
+           
             Example: ``myoptiongroup``
             If you don't specify a value for ``OptionGroupName`` property, a name is automatically created for the option group.
              This value is stored as a lowercase string.

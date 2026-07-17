@@ -122,7 +122,7 @@ export interface LocationEfsArgs {
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
      */
-    accessPointArn?: pulumi.Input<string>;
+    accessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subnet and security groups DataSync uses to connect to one of your Amazon EFS file system's [mount targets](https://docs.aws.amazon.com/efs/latest/ug/accessing-fs.html) .
      */
@@ -130,21 +130,21 @@ export interface LocationEfsArgs {
     /**
      * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
-    efsFilesystemArn?: pulumi.Input<string>;
+    efsFilesystemArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
      */
-    fileSystemAccessRoleArn?: pulumi.Input<string>;
+    fileSystemAccessRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Protocol that is used for encrypting the traffic exchanged between the DataSync Agent and the EFS file system.
      */
-    inTransitEncryption?: pulumi.Input<enums.datasync.LocationEfsInTransitEncryption>;
+    inTransitEncryption?: pulumi.Input<enums.datasync.LocationEfsInTransitEncryption | undefined>;
     /**
      * A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
      */
-    subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

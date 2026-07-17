@@ -49,11 +49,11 @@ export class AttributeGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
-     * The description of the attribute group. 
+     * The description of the attribute group.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The name of the attribute group. 
+     * The name of the attribute group.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -105,15 +105,15 @@ export interface AttributeGroupArgs {
      */
     attributes: any;
     /**
-     * The description of the attribute group. 
+     * The description of the attribute group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
-     * The name of the attribute group. 
+     * The name of the attribute group.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Key-value pairs you can use to associate with the attribute group.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

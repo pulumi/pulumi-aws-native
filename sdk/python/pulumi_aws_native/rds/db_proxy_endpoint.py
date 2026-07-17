@@ -24,11 +24,11 @@ class DbProxyEndpointArgs:
     def __init__(__self__, *,
                  db_proxy_name: pulumi.Input[_builtins.str],
                  vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 db_proxy_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 db_proxy_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_network_type: pulumi.Input[Optional['DbProxyEndpointEndpointNetworkType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_role: pulumi.Input[Optional['DbProxyEndpointTargetRole']] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DbProxyEndpoint resource.
 
@@ -79,62 +79,62 @@ class DbProxyEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="dbProxyEndpointName")
-    def db_proxy_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def db_proxy_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "db_proxy_endpoint_name")
 
     @db_proxy_endpoint_name.setter
-    def db_proxy_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def db_proxy_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "db_proxy_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointNetworkType")
-    def endpoint_network_type(self) -> Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']]:
+    def endpoint_network_type(self) -> pulumi.Input[Optional['DbProxyEndpointEndpointNetworkType']]:
         """
         The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
         """
         return pulumi.get(self, "endpoint_network_type")
 
     @endpoint_network_type.setter
-    def endpoint_network_type(self, value: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']]):
+    def endpoint_network_type(self, value: pulumi.Input[Optional['DbProxyEndpointEndpointNetworkType']]):
         pulumi.set(self, "endpoint_network_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRole")
-    def target_role(self) -> Optional[pulumi.Input['DbProxyEndpointTargetRole']]:
+    def target_role(self) -> pulumi.Input[Optional['DbProxyEndpointTargetRole']]:
         """
         A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         """
         return pulumi.get(self, "target_role")
 
     @target_role.setter
-    def target_role(self, value: Optional[pulumi.Input['DbProxyEndpointTargetRole']]):
+    def target_role(self, value: pulumi.Input[Optional['DbProxyEndpointTargetRole']]):
         pulumi.set(self, "target_role", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
-    def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         VPC security group IDs to associate with the new DB proxy endpoint.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @vpc_security_group_ids.setter
-    def vpc_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def vpc_security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
@@ -144,17 +144,16 @@ class DbProxyEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_proxy_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_proxy_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_network_type: pulumi.Input[Optional['DbProxyEndpointEndpointNetworkType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_role: pulumi.Input[Optional['DbProxyEndpointTargetRole']] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::RDS::DBProxyEndpoint.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +174,6 @@ class DbProxyEndpoint(pulumi.CustomResource):
         """
         Resource schema for AWS::RDS::DBProxyEndpoint.
 
-
         :param str resource_name: The name of the resource.
         :param DbProxyEndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,13 +189,13 @@ class DbProxyEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 db_proxy_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 db_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 endpoint_network_type: Optional[pulumi.Input['DbProxyEndpointEndpointNetworkType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
-                 vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 db_proxy_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 db_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_network_type: pulumi.Input[Optional['DbProxyEndpointEndpointNetworkType']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_role: pulumi.Input[Optional['DbProxyEndpointTargetRole']] = None,
+                 vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -26,12 +26,12 @@ class ApplicationInstanceArgs:
     def __init__(__self__, *,
                  default_runtime_context_device: pulumi.Input[_builtins.str],
                  manifest_payload: pulumi.Input['ApplicationInstanceManifestPayloadArgs'],
-                 application_instance_id_to_replace: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_overrides_payload: Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 application_instance_id_to_replace: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_overrides_payload: pulumi.Input[Optional['ApplicationInstanceManifestOverridesPayloadArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationInstance resource.
 
@@ -85,74 +85,74 @@ class ApplicationInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationInstanceIdToReplace")
-    def application_instance_id_to_replace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_instance_id_to_replace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an application instance to replace with the new instance.
         """
         return pulumi.get(self, "application_instance_id_to_replace")
 
     @application_instance_id_to_replace.setter
-    def application_instance_id_to_replace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_instance_id_to_replace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_instance_id_to_replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the application instance.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="manifestOverridesPayload")
-    def manifest_overrides_payload(self) -> Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']]:
+    def manifest_overrides_payload(self) -> pulumi.Input[Optional['ApplicationInstanceManifestOverridesPayloadArgs']]:
         """
         Setting overrides for the application manifest.
         """
         return pulumi.get(self, "manifest_overrides_payload")
 
     @manifest_overrides_payload.setter
-    def manifest_overrides_payload(self, value: Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']]):
+    def manifest_overrides_payload(self, value: pulumi.Input[Optional['ApplicationInstanceManifestOverridesPayloadArgs']]):
         pulumi.set(self, "manifest_overrides_payload", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the application instance.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeRoleArn")
-    def runtime_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of a runtime role for the application instance.
         """
         return pulumi.get(self, "runtime_role_arn")
 
     @runtime_role_arn.setter
-    def runtime_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         Tags for the application instance.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -162,18 +162,17 @@ class ApplicationInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_instance_id_to_replace: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_runtime_context_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_overrides_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
-                 manifest_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_instance_id_to_replace: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_runtime_context_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_overrides_payload: pulumi.Input[Optional[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
+                 manifest_payload: pulumi.Input[Optional[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Creates an application instance and deploys it to a device.
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +194,6 @@ class ApplicationInstance(pulumi.CustomResource):
         """
         Creates an application instance and deploys it to a device.
 
-
         :param str resource_name: The name of the resource.
         :param ApplicationInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,14 +209,14 @@ class ApplicationInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_instance_id_to_replace: Optional[pulumi.Input[_builtins.str]] = None,
-                 default_runtime_context_device: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 manifest_overrides_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
-                 manifest_payload: Optional[pulumi.Input[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 application_instance_id_to_replace: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_runtime_context_device: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 manifest_overrides_payload: pulumi.Input[Optional[Union['ApplicationInstanceManifestOverridesPayloadArgs', 'ApplicationInstanceManifestOverridesPayloadArgsDict']]] = None,
+                 manifest_payload: pulumi.Input[Optional[Union['ApplicationInstanceManifestPayloadArgs', 'ApplicationInstanceManifestPayloadArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

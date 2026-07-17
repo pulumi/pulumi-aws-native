@@ -70,13 +70,13 @@ __all__ = [
 
 class EndpointCloudWatchMonitoringConfigurationArgsDict(TypedDict):
     log_group_name: pulumi.Input[_builtins.str]
-    log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    log_stream_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class EndpointCloudWatchMonitoringConfigurationArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[_builtins.str],
-                 log_stream_name_prefix: Optional[pulumi.Input[_builtins.str]] = None):
+                 log_stream_name_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         pulumi.set(__self__, "log_group_name", log_group_name)
         if log_stream_name_prefix is not None:
             pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
@@ -92,23 +92,23 @@ class EndpointCloudWatchMonitoringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="logStreamNamePrefix")
-    def log_stream_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_stream_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "log_stream_name_prefix")
 
     @log_stream_name_prefix.setter
-    def log_stream_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_stream_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_stream_name_prefix", value)
 
 
 class EndpointConfigurationOverridesArgsDict(TypedDict):
-    application_configuration: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
-    monitoring_configuration: NotRequired[pulumi.Input['EndpointMonitoringConfigurationArgsDict']]
+    application_configuration: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]]
+    monitoring_configuration: NotRequired[pulumi.Input[Optional['EndpointMonitoringConfigurationArgsDict']]]
 
 @pulumi.input_type
 class EndpointConfigurationOverridesArgs:
     def __init__(__self__, *,
-                 application_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]] = None,
-                 monitoring_configuration: Optional[pulumi.Input['EndpointMonitoringConfigurationArgs']] = None):
+                 application_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]] = None,
+                 monitoring_configuration: pulumi.Input[Optional['EndpointMonitoringConfigurationArgs']] = None):
         if application_configuration is not None:
             pulumi.set(__self__, "application_configuration", application_configuration)
         if monitoring_configuration is not None:
@@ -116,20 +116,20 @@ class EndpointConfigurationOverridesArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationConfiguration")
-    def application_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]:
+    def application_configuration(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]:
         return pulumi.get(self, "application_configuration")
 
     @application_configuration.setter
-    def application_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]):
+    def application_configuration(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]):
         pulumi.set(self, "application_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> Optional[pulumi.Input['EndpointMonitoringConfigurationArgs']]:
+    def monitoring_configuration(self) -> pulumi.Input[Optional['EndpointMonitoringConfigurationArgs']]:
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
-    def monitoring_configuration(self, value: Optional[pulumi.Input['EndpointMonitoringConfigurationArgs']]):
+    def monitoring_configuration(self, value: pulumi.Input[Optional['EndpointMonitoringConfigurationArgs']]):
         pulumi.set(self, "monitoring_configuration", value)
 
 
@@ -166,15 +166,15 @@ class EndpointContainerLogRotationConfigurationArgs:
 
 class EndpointEmreksConfigurationArgsDict(TypedDict):
     classification: pulumi.Input[_builtins.str]
-    configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]
-    properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgsDict']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class EndpointEmreksConfigurationArgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[_builtins.str],
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]] = None,
+                 properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "classification", classification)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
@@ -192,36 +192,36 @@ class EndpointEmreksConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]:
+    def configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]:
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]):
+    def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointEmreksConfigurationArgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "properties", value)
 
 
 class EndpointMonitoringConfigurationArgsDict(TypedDict):
-    cloud_watch_monitoring_configuration: NotRequired[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgsDict']]
-    container_log_rotation_configuration: NotRequired[pulumi.Input['EndpointContainerLogRotationConfigurationArgsDict']]
-    persistent_app_ui: NotRequired[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']]
-    s3_monitoring_configuration: NotRequired[pulumi.Input['EndpointS3MonitoringConfigurationArgsDict']]
+    cloud_watch_monitoring_configuration: NotRequired[pulumi.Input[Optional['EndpointCloudWatchMonitoringConfigurationArgsDict']]]
+    container_log_rotation_configuration: NotRequired[pulumi.Input[Optional['EndpointContainerLogRotationConfigurationArgsDict']]]
+    persistent_app_ui: NotRequired[pulumi.Input[Optional['EndpointMonitoringConfigurationPersistentAppUi']]]
+    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['EndpointS3MonitoringConfigurationArgsDict']]]
 
 @pulumi.input_type
 class EndpointMonitoringConfigurationArgs:
     def __init__(__self__, *,
-                 cloud_watch_monitoring_configuration: Optional[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgs']] = None,
-                 container_log_rotation_configuration: Optional[pulumi.Input['EndpointContainerLogRotationConfigurationArgs']] = None,
-                 persistent_app_ui: Optional[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']] = None,
-                 s3_monitoring_configuration: Optional[pulumi.Input['EndpointS3MonitoringConfigurationArgs']] = None):
+                 cloud_watch_monitoring_configuration: pulumi.Input[Optional['EndpointCloudWatchMonitoringConfigurationArgs']] = None,
+                 container_log_rotation_configuration: pulumi.Input[Optional['EndpointContainerLogRotationConfigurationArgs']] = None,
+                 persistent_app_ui: pulumi.Input[Optional['EndpointMonitoringConfigurationPersistentAppUi']] = None,
+                 s3_monitoring_configuration: pulumi.Input[Optional['EndpointS3MonitoringConfigurationArgs']] = None):
         if cloud_watch_monitoring_configuration is not None:
             pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
         if container_log_rotation_configuration is not None:
@@ -233,38 +233,38 @@ class EndpointMonitoringConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchMonitoringConfiguration")
-    def cloud_watch_monitoring_configuration(self) -> Optional[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgs']]:
+    def cloud_watch_monitoring_configuration(self) -> pulumi.Input[Optional['EndpointCloudWatchMonitoringConfigurationArgs']]:
         return pulumi.get(self, "cloud_watch_monitoring_configuration")
 
     @cloud_watch_monitoring_configuration.setter
-    def cloud_watch_monitoring_configuration(self, value: Optional[pulumi.Input['EndpointCloudWatchMonitoringConfigurationArgs']]):
+    def cloud_watch_monitoring_configuration(self, value: pulumi.Input[Optional['EndpointCloudWatchMonitoringConfigurationArgs']]):
         pulumi.set(self, "cloud_watch_monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogRotationConfiguration")
-    def container_log_rotation_configuration(self) -> Optional[pulumi.Input['EndpointContainerLogRotationConfigurationArgs']]:
+    def container_log_rotation_configuration(self) -> pulumi.Input[Optional['EndpointContainerLogRotationConfigurationArgs']]:
         return pulumi.get(self, "container_log_rotation_configuration")
 
     @container_log_rotation_configuration.setter
-    def container_log_rotation_configuration(self, value: Optional[pulumi.Input['EndpointContainerLogRotationConfigurationArgs']]):
+    def container_log_rotation_configuration(self, value: pulumi.Input[Optional['EndpointContainerLogRotationConfigurationArgs']]):
         pulumi.set(self, "container_log_rotation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="persistentAppUi")
-    def persistent_app_ui(self) -> Optional[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']]:
+    def persistent_app_ui(self) -> pulumi.Input[Optional['EndpointMonitoringConfigurationPersistentAppUi']]:
         return pulumi.get(self, "persistent_app_ui")
 
     @persistent_app_ui.setter
-    def persistent_app_ui(self, value: Optional[pulumi.Input['EndpointMonitoringConfigurationPersistentAppUi']]):
+    def persistent_app_ui(self, value: pulumi.Input[Optional['EndpointMonitoringConfigurationPersistentAppUi']]):
         pulumi.set(self, "persistent_app_ui", value)
 
     @_builtins.property
     @pulumi.getter(name="s3MonitoringConfiguration")
-    def s3_monitoring_configuration(self) -> Optional[pulumi.Input['EndpointS3MonitoringConfigurationArgs']]:
+    def s3_monitoring_configuration(self) -> pulumi.Input[Optional['EndpointS3MonitoringConfigurationArgs']]:
         return pulumi.get(self, "s3_monitoring_configuration")
 
     @s3_monitoring_configuration.setter
-    def s3_monitoring_configuration(self, value: Optional[pulumi.Input['EndpointS3MonitoringConfigurationArgs']]):
+    def s3_monitoring_configuration(self, value: pulumi.Input[Optional['EndpointS3MonitoringConfigurationArgs']]):
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
@@ -291,14 +291,14 @@ class SecurityConfigurationAtRestEncryptionConfigurationArgsDict(TypedDict):
     """
     At-rest encryption configuration.
     """
-    local_disk_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict']]
-    s3_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgsDict']]
+    local_disk_encryption_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict']]]
+    s3_encryption_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationAtRestEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 local_disk_encryption_configuration: Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']] = None,
-                 s3_encryption_configuration: Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgs']] = None):
+                 local_disk_encryption_configuration: pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']] = None,
+                 s3_encryption_configuration: pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationArgs']] = None):
         """
         At-rest encryption configuration.
         """
@@ -309,20 +309,20 @@ class SecurityConfigurationAtRestEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="localDiskEncryptionConfiguration")
-    def local_disk_encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']]:
+    def local_disk_encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']]:
         return pulumi.get(self, "local_disk_encryption_configuration")
 
     @local_disk_encryption_configuration.setter
-    def local_disk_encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']]):
+    def local_disk_encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationArgs']]):
         pulumi.set(self, "local_disk_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3EncryptionConfiguration")
-    def s3_encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgs']]:
+    def s3_encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationArgs']]:
         return pulumi.get(self, "s3_encryption_configuration")
 
     @s3_encryption_configuration.setter
-    def s3_encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationArgs']]):
+    def s3_encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationArgs']]):
         pulumi.set(self, "s3_encryption_configuration", value)
 
 
@@ -330,14 +330,14 @@ class SecurityConfigurationAuthenticationConfigurationArgsDict(TypedDict):
     """
     Authentication configuration for the security configuration.
     """
-    iam_configuration: NotRequired[pulumi.Input['SecurityConfigurationIamConfigurationArgsDict']]
-    identity_center_configuration: NotRequired[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgsDict']]
+    iam_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationIamConfigurationArgsDict']]]
+    identity_center_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationIdentityCenterConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationAuthenticationConfigurationArgs:
     def __init__(__self__, *,
-                 iam_configuration: Optional[pulumi.Input['SecurityConfigurationIamConfigurationArgs']] = None,
-                 identity_center_configuration: Optional[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgs']] = None):
+                 iam_configuration: pulumi.Input[Optional['SecurityConfigurationIamConfigurationArgs']] = None,
+                 identity_center_configuration: pulumi.Input[Optional['SecurityConfigurationIdentityCenterConfigurationArgs']] = None):
         """
         Authentication configuration for the security configuration.
         """
@@ -348,20 +348,20 @@ class SecurityConfigurationAuthenticationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="iamConfiguration")
-    def iam_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationIamConfigurationArgs']]:
+    def iam_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationIamConfigurationArgs']]:
         return pulumi.get(self, "iam_configuration")
 
     @iam_configuration.setter
-    def iam_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationIamConfigurationArgs']]):
+    def iam_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationIamConfigurationArgs']]):
         pulumi.set(self, "iam_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterConfiguration")
-    def identity_center_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgs']]:
+    def identity_center_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationIdentityCenterConfigurationArgs']]:
         return pulumi.get(self, "identity_center_configuration")
 
     @identity_center_configuration.setter
-    def identity_center_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationIdentityCenterConfigurationArgs']]):
+    def identity_center_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationIdentityCenterConfigurationArgs']]):
         pulumi.set(self, "identity_center_configuration", value)
 
 
@@ -369,12 +369,12 @@ class SecurityConfigurationAuthorizationConfigurationArgsDict(TypedDict):
     """
     Authorization configuration for the security configuration.
     """
-    lake_formation_configuration: NotRequired[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgsDict']]
+    lake_formation_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationLakeFormationConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationAuthorizationConfigurationArgs:
     def __init__(__self__, *,
-                 lake_formation_configuration: Optional[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgs']] = None):
+                 lake_formation_configuration: pulumi.Input[Optional['SecurityConfigurationLakeFormationConfigurationArgs']] = None):
         """
         Authorization configuration for the security configuration.
         """
@@ -383,11 +383,11 @@ class SecurityConfigurationAuthorizationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="lakeFormationConfiguration")
-    def lake_formation_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgs']]:
+    def lake_formation_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationLakeFormationConfigurationArgs']]:
         return pulumi.get(self, "lake_formation_configuration")
 
     @lake_formation_configuration.setter
-    def lake_formation_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationLakeFormationConfigurationArgs']]):
+    def lake_formation_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationLakeFormationConfigurationArgs']]):
         pulumi.set(self, "lake_formation_configuration", value)
 
 
@@ -395,12 +395,12 @@ class SecurityConfigurationContainerInfoArgsDict(TypedDict):
     """
     Container information.
     """
-    eks_info: NotRequired[pulumi.Input['SecurityConfigurationEksInfoArgsDict']]
+    eks_info: NotRequired[pulumi.Input[Optional['SecurityConfigurationEksInfoArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationContainerInfoArgs:
     def __init__(__self__, *,
-                 eks_info: Optional[pulumi.Input['SecurityConfigurationEksInfoArgs']] = None):
+                 eks_info: pulumi.Input[Optional['SecurityConfigurationEksInfoArgs']] = None):
         """
         Container information.
         """
@@ -409,11 +409,11 @@ class SecurityConfigurationContainerInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="eksInfo")
-    def eks_info(self) -> Optional[pulumi.Input['SecurityConfigurationEksInfoArgs']]:
+    def eks_info(self) -> pulumi.Input[Optional['SecurityConfigurationEksInfoArgs']]:
         return pulumi.get(self, "eks_info")
 
     @eks_info.setter
-    def eks_info(self, value: Optional[pulumi.Input['SecurityConfigurationEksInfoArgs']]):
+    def eks_info(self, value: pulumi.Input[Optional['SecurityConfigurationEksInfoArgs']]):
         pulumi.set(self, "eks_info", value)
 
 
@@ -429,14 +429,14 @@ class SecurityConfigurationContainerProviderArgsDict(TypedDict):
     """
     The container provider type.
     """
-    info: NotRequired[pulumi.Input['SecurityConfigurationContainerInfoArgsDict']]
+    info: NotRequired[pulumi.Input[Optional['SecurityConfigurationContainerInfoArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationContainerProviderArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  type: pulumi.Input['SecurityConfigurationContainerProviderType'],
-                 info: Optional[pulumi.Input['SecurityConfigurationContainerInfoArgs']] = None):
+                 info: pulumi.Input[Optional['SecurityConfigurationContainerInfoArgs']] = None):
         """
         Container provider information.
 
@@ -474,11 +474,11 @@ class SecurityConfigurationContainerProviderArgs:
 
     @_builtins.property
     @pulumi.getter
-    def info(self) -> Optional[pulumi.Input['SecurityConfigurationContainerInfoArgs']]:
+    def info(self) -> pulumi.Input[Optional['SecurityConfigurationContainerInfoArgs']]:
         return pulumi.get(self, "info")
 
     @info.setter
-    def info(self, value: Optional[pulumi.Input['SecurityConfigurationContainerInfoArgs']]):
+    def info(self, value: pulumi.Input[Optional['SecurityConfigurationContainerInfoArgs']]):
         pulumi.set(self, "info", value)
 
 
@@ -486,16 +486,16 @@ class SecurityConfigurationDataArgsDict(TypedDict):
     """
     Security configuration data containing encryption and authorization settings.
     """
-    authentication_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgsDict']]
-    authorization_configuration: NotRequired[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgsDict']]
-    encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgsDict']]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationAuthenticationConfigurationArgsDict']]]
+    authorization_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationAuthorizationConfigurationArgsDict']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationDataArgs:
     def __init__(__self__, *,
-                 authentication_configuration: Optional[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgs']] = None,
-                 authorization_configuration: Optional[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgs']] = None,
-                 encryption_configuration: Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']] = None):
+                 authentication_configuration: pulumi.Input[Optional['SecurityConfigurationAuthenticationConfigurationArgs']] = None,
+                 authorization_configuration: pulumi.Input[Optional['SecurityConfigurationAuthorizationConfigurationArgs']] = None,
+                 encryption_configuration: pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']] = None):
         """
         Security configuration data containing encryption and authorization settings.
         """
@@ -508,29 +508,29 @@ class SecurityConfigurationDataArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationAuthenticationConfigurationArgs']]:
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationAuthenticationConfigurationArgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationConfiguration")
-    def authorization_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgs']]:
+    def authorization_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationAuthorizationConfigurationArgs']]:
         return pulumi.get(self, "authorization_configuration")
 
     @authorization_configuration.setter
-    def authorization_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationAuthorizationConfigurationArgs']]):
+    def authorization_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationAuthorizationConfigurationArgs']]):
         pulumi.set(self, "authorization_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']]:
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationEncryptionConfigurationArgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
 
@@ -538,7 +538,7 @@ class SecurityConfigurationEksInfoArgsDict(TypedDict):
     """
     EKS information.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The EKS namespace.
     """
@@ -546,7 +546,7 @@ class SecurityConfigurationEksInfoArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationEksInfoArgs:
     def __init__(__self__, *,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         EKS information.
 
@@ -557,14 +557,14 @@ class SecurityConfigurationEksInfoArgs:
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The EKS namespace.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -572,14 +572,14 @@ class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
     """
     Encryption configuration for the security configuration.
     """
-    at_rest_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgsDict']]
-    in_transit_encryption_configuration: NotRequired[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgsDict']]
+    at_rest_encryption_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationAtRestEncryptionConfigurationArgsDict']]]
+    in_transit_encryption_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationInTransitEncryptionConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 at_rest_encryption_configuration: Optional[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgs']] = None,
-                 in_transit_encryption_configuration: Optional[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgs']] = None):
+                 at_rest_encryption_configuration: pulumi.Input[Optional['SecurityConfigurationAtRestEncryptionConfigurationArgs']] = None,
+                 in_transit_encryption_configuration: pulumi.Input[Optional['SecurityConfigurationInTransitEncryptionConfigurationArgs']] = None):
         """
         Encryption configuration for the security configuration.
         """
@@ -590,20 +590,20 @@ class SecurityConfigurationEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="atRestEncryptionConfiguration")
-    def at_rest_encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgs']]:
+    def at_rest_encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationAtRestEncryptionConfigurationArgs']]:
         return pulumi.get(self, "at_rest_encryption_configuration")
 
     @at_rest_encryption_configuration.setter
-    def at_rest_encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationAtRestEncryptionConfigurationArgs']]):
+    def at_rest_encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationAtRestEncryptionConfigurationArgs']]):
         pulumi.set(self, "at_rest_encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="inTransitEncryptionConfiguration")
-    def in_transit_encryption_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgs']]:
+    def in_transit_encryption_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationInTransitEncryptionConfigurationArgs']]:
         return pulumi.get(self, "in_transit_encryption_configuration")
 
     @in_transit_encryption_configuration.setter
-    def in_transit_encryption_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationInTransitEncryptionConfigurationArgs']]):
+    def in_transit_encryption_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationInTransitEncryptionConfigurationArgs']]):
         pulumi.set(self, "in_transit_encryption_configuration", value)
 
 
@@ -611,7 +611,7 @@ class SecurityConfigurationIamConfigurationArgsDict(TypedDict):
     """
     IAM configuration.
     """
-    system_role: NotRequired[pulumi.Input[_builtins.str]]
+    system_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The system role ARN.
     """
@@ -619,7 +619,7 @@ class SecurityConfigurationIamConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationIamConfigurationArgs:
     def __init__(__self__, *,
-                 system_role: Optional[pulumi.Input[_builtins.str]] = None):
+                 system_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
         IAM configuration.
 
@@ -630,14 +630,14 @@ class SecurityConfigurationIamConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="systemRole")
-    def system_role(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def system_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The system role ARN.
         """
         return pulumi.get(self, "system_role")
 
     @system_role.setter
-    def system_role(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def system_role(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_role", value)
 
 
@@ -645,15 +645,15 @@ class SecurityConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
     """
     Identity Center configuration.
     """
-    enable_identity_center: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_identity_center: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to enable Identity Center integration.
     """
-    identity_center_application_assignment_required: NotRequired[pulumi.Input[_builtins.bool]]
+    identity_center_application_assignment_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether Identity Center application assignment is required.
     """
-    identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    identity_center_instance_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the Identity Center instance.
     """
@@ -661,9 +661,9 @@ class SecurityConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationIdentityCenterConfigurationArgs:
     def __init__(__self__, *,
-                 enable_identity_center: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_center_application_assignment_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 identity_center_instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 enable_identity_center: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_center_application_assignment_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 identity_center_instance_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Identity Center configuration.
 
@@ -680,38 +680,38 @@ class SecurityConfigurationIdentityCenterConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableIdentityCenter")
-    def enable_identity_center(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_identity_center(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable Identity Center integration.
         """
         return pulumi.get(self, "enable_identity_center")
 
     @enable_identity_center.setter
-    def enable_identity_center(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_identity_center(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_identity_center", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterApplicationAssignmentRequired")
-    def identity_center_application_assignment_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def identity_center_application_assignment_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether Identity Center application assignment is required.
         """
         return pulumi.get(self, "identity_center_application_assignment_required")
 
     @identity_center_application_assignment_required.setter
-    def identity_center_application_assignment_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def identity_center_application_assignment_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "identity_center_application_assignment_required", value)
 
     @_builtins.property
     @pulumi.getter(name="identityCenterInstanceArn")
-    def identity_center_instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def identity_center_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Identity Center instance.
         """
         return pulumi.get(self, "identity_center_instance_arn")
 
     @identity_center_instance_arn.setter
-    def identity_center_instance_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def identity_center_instance_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "identity_center_instance_arn", value)
 
 
@@ -719,12 +719,12 @@ class SecurityConfigurationInTransitEncryptionConfigurationArgsDict(TypedDict):
     """
     In-transit encryption configuration.
     """
-    tls_certificate_configuration: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgsDict']]
+    tls_certificate_configuration: NotRequired[pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationInTransitEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 tls_certificate_configuration: Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgs']] = None):
+                 tls_certificate_configuration: pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationArgs']] = None):
         """
         In-transit encryption configuration.
         """
@@ -733,11 +733,11 @@ class SecurityConfigurationInTransitEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="tlsCertificateConfiguration")
-    def tls_certificate_configuration(self) -> Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgs']]:
+    def tls_certificate_configuration(self) -> pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationArgs']]:
         return pulumi.get(self, "tls_certificate_configuration")
 
     @tls_certificate_configuration.setter
-    def tls_certificate_configuration(self, value: Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationArgs']]):
+    def tls_certificate_configuration(self, value: pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationArgs']]):
         pulumi.set(self, "tls_certificate_configuration", value)
 
 
@@ -745,27 +745,27 @@ class SecurityConfigurationLakeFormationConfigurationArgsDict(TypedDict):
     """
     Lake Formation configuration.
     """
-    authorized_session_tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    authorized_session_tag_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The session tag to authorize Lake Formation access.
     """
-    query_access_control_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    query_access_control_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether query access control is enabled.
     """
-    query_engine_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    query_engine_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the query engine role.
     """
-    secure_namespace_info: NotRequired[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgsDict']]
+    secure_namespace_info: NotRequired[pulumi.Input[Optional['SecurityConfigurationSecureNamespaceInfoArgsDict']]]
 
 @pulumi.input_type
 class SecurityConfigurationLakeFormationConfigurationArgs:
     def __init__(__self__, *,
-                 authorized_session_tag_value: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_access_control_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query_engine_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 secure_namespace_info: Optional[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgs']] = None):
+                 authorized_session_tag_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_access_control_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query_engine_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secure_namespace_info: pulumi.Input[Optional['SecurityConfigurationSecureNamespaceInfoArgs']] = None):
         """
         Lake Formation configuration.
 
@@ -784,47 +784,47 @@ class SecurityConfigurationLakeFormationConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authorizedSessionTagValue")
-    def authorized_session_tag_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authorized_session_tag_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The session tag to authorize Lake Formation access.
         """
         return pulumi.get(self, "authorized_session_tag_value")
 
     @authorized_session_tag_value.setter
-    def authorized_session_tag_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authorized_session_tag_value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorized_session_tag_value", value)
 
     @_builtins.property
     @pulumi.getter(name="queryAccessControlEnabled")
-    def query_access_control_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def query_access_control_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether query access control is enabled.
         """
         return pulumi.get(self, "query_access_control_enabled")
 
     @query_access_control_enabled.setter
-    def query_access_control_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def query_access_control_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "query_access_control_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="queryEngineRoleArn")
-    def query_engine_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query_engine_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the query engine role.
         """
         return pulumi.get(self, "query_engine_role_arn")
 
     @query_engine_role_arn.setter
-    def query_engine_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query_engine_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_engine_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secureNamespaceInfo")
-    def secure_namespace_info(self) -> Optional[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgs']]:
+    def secure_namespace_info(self) -> pulumi.Input[Optional['SecurityConfigurationSecureNamespaceInfoArgs']]:
         return pulumi.get(self, "secure_namespace_info")
 
     @secure_namespace_info.setter
-    def secure_namespace_info(self, value: Optional[pulumi.Input['SecurityConfigurationSecureNamespaceInfoArgs']]):
+    def secure_namespace_info(self, value: pulumi.Input[Optional['SecurityConfigurationSecureNamespaceInfoArgs']]):
         pulumi.set(self, "secure_namespace_info", value)
 
 
@@ -832,11 +832,11 @@ class SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict(TypedDict):
     """
     Local disk encryption configuration.
     """
-    aws_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    aws_kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The AWS KMS key ID.
     """
-    encryption_key_provider_type: NotRequired[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]
+    encryption_key_provider_type: NotRequired[pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]]
     """
     The encryption key provider type.
     """
@@ -844,8 +844,8 @@ class SecurityConfigurationLocalDiskEncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationLocalDiskEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 aws_kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 encryption_key_provider_type: Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']] = None):
+                 aws_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_key_provider_type: pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']] = None):
         """
         Local disk encryption configuration.
 
@@ -859,26 +859,26 @@ class SecurityConfigurationLocalDiskEncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsKmsKeyId")
-    def aws_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The AWS KMS key ID.
         """
         return pulumi.get(self, "aws_kms_key_id")
 
     @aws_kms_key_id.setter
-    def aws_kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_kms_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyProviderType")
-    def encryption_key_provider_type(self) -> Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]:
+    def encryption_key_provider_type(self) -> pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]:
         """
         The encryption key provider type.
         """
         return pulumi.get(self, "encryption_key_provider_type")
 
     @encryption_key_provider_type.setter
-    def encryption_key_provider_type(self, value: Optional[pulumi.Input['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]):
+    def encryption_key_provider_type(self, value: pulumi.Input[Optional['SecurityConfigurationLocalDiskEncryptionConfigurationEncryptionKeyProviderType']]):
         pulumi.set(self, "encryption_key_provider_type", value)
 
 
@@ -886,11 +886,11 @@ class SecurityConfigurationS3EncryptionConfigurationArgsDict(TypedDict):
     """
     S3 encryption configuration.
     """
-    encryption_option: NotRequired[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]
+    encryption_option: NotRequired[pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]]
     """
     The S3 encryption option.
     """
-    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The KMS key ID for encryption.
     """
@@ -898,8 +898,8 @@ class SecurityConfigurationS3EncryptionConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationS3EncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 encryption_option: Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']] = None,
-                 kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 encryption_option: pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']] = None,
+                 kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         S3 encryption configuration.
 
@@ -913,26 +913,26 @@ class SecurityConfigurationS3EncryptionConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptionOption")
-    def encryption_option(self) -> Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]:
+    def encryption_option(self) -> pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]:
         """
         The S3 encryption option.
         """
         return pulumi.get(self, "encryption_option")
 
     @encryption_option.setter
-    def encryption_option(self, value: Optional[pulumi.Input['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]):
+    def encryption_option(self, value: pulumi.Input[Optional['SecurityConfigurationS3EncryptionConfigurationEncryptionOption']]):
         pulumi.set(self, "encryption_option", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
-    def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The KMS key ID for encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
-    def kms_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
 
 
@@ -940,11 +940,11 @@ class SecurityConfigurationSecureNamespaceInfoArgsDict(TypedDict):
     """
     Secure namespace information for Lake Formation.
     """
-    cluster_id: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the cluster.
     """
-    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The namespace.
     """
@@ -952,8 +952,8 @@ class SecurityConfigurationSecureNamespaceInfoArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationSecureNamespaceInfoArgs:
     def __init__(__self__, *,
-                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Secure namespace information for Lake Formation.
 
@@ -967,26 +967,26 @@ class SecurityConfigurationSecureNamespaceInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the cluster.
         """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
-    def cluster_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The namespace.
         """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "namespace", value)
 
 
@@ -994,15 +994,15 @@ class SecurityConfigurationTlsCertificateConfigurationArgsDict(TypedDict):
     """
     TLS certificate configuration for in-transit encryption.
     """
-    certificate_provider_type: NotRequired[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]
+    certificate_provider_type: NotRequired[pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]]
     """
     The certificate provider type.
     """
-    private_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    private_key_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the secret containing the private key.
     """
-    public_key_secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    public_key_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ARN of the secret containing the public key.
     """
@@ -1010,9 +1010,9 @@ class SecurityConfigurationTlsCertificateConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityConfigurationTlsCertificateConfigurationArgs:
     def __init__(__self__, *,
-                 certificate_provider_type: Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']] = None,
-                 private_key_secret_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_key_secret_arn: Optional[pulumi.Input[_builtins.str]] = None):
+                 certificate_provider_type: pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']] = None,
+                 private_key_secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_key_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         TLS certificate configuration for in-transit encryption.
 
@@ -1029,38 +1029,38 @@ class SecurityConfigurationTlsCertificateConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateProviderType")
-    def certificate_provider_type(self) -> Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]:
+    def certificate_provider_type(self) -> pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]:
         """
         The certificate provider type.
         """
         return pulumi.get(self, "certificate_provider_type")
 
     @certificate_provider_type.setter
-    def certificate_provider_type(self, value: Optional[pulumi.Input['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]):
+    def certificate_provider_type(self, value: pulumi.Input[Optional['SecurityConfigurationTlsCertificateConfigurationCertificateProviderType']]):
         pulumi.set(self, "certificate_provider_type", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKeySecretArn")
-    def private_key_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_key_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the secret containing the private key.
         """
         return pulumi.get(self, "private_key_secret_arn")
 
     @private_key_secret_arn.setter
-    def private_key_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_key_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_key_secret_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKeySecretArn")
-    def public_key_secret_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_key_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the secret containing the public key.
         """
         return pulumi.get(self, "public_key_secret_arn")
 
     @public_key_secret_arn.setter
-    def public_key_secret_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_key_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_secret_arn", value)
 
 

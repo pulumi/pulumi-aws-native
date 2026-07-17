@@ -105,7 +105,7 @@ export interface S3TableIntegrationArgs {
     /**
      * The CloudWatch Logs data sources to associate with the S3 Table Integration
      */
-    logSources?: pulumi.Input<pulumi.Input<inputs.observabilityadmin.S3TableIntegrationLogSourceArgs>[]>;
+    logSources?: pulumi.Input<pulumi.Input<inputs.observabilityadmin.S3TableIntegrationLogSourceArgs>[] | undefined>;
     /**
      * The ARN of the role used to access the S3 Table Integration
      */
@@ -113,5 +113,5 @@ export interface S3TableIntegrationArgs {
     /**
      * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

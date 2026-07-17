@@ -107,25 +107,25 @@ export interface MultiplexprogramArgs {
     /**
      * The ID of the multiplex that the program belongs to.
      */
-    multiplexId?: pulumi.Input<string>;
+    multiplexId?: pulumi.Input<string | undefined>;
     /**
      * The settings for this multiplex program.
      */
-    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramSettingsArgs>;
+    multiplexProgramSettings?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramSettingsArgs | undefined>;
     /**
      * The packet identifier map for this multiplex program.
      */
-    packetIdentifiersMap?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs>;
+    packetIdentifiersMap?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs | undefined>;
     /**
      * Contains information about the current sources for the specified program in the specified multiplex. Keep in mind that each multiplex pipeline connects to both pipelines in a given source channel (the channel identified by the program). But only one of those channel pipelines is ever active at one time.
      */
-    pipelineDetails?: pulumi.Input<pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramPipelineDetailArgs>[]>;
+    pipelineDetails?: pulumi.Input<pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramPipelineDetailArgs>[] | undefined>;
     /**
      * The settings for this multiplex program.
      */
-    preferredChannelPipeline?: pulumi.Input<enums.medialive.MultiplexprogramPreferredChannelPipeline>;
+    preferredChannelPipeline?: pulumi.Input<enums.medialive.MultiplexprogramPreferredChannelPipeline | undefined>;
     /**
      * The name of the multiplex program.
      */
-    programName?: pulumi.Input<string>;
+    programName?: pulumi.Input<string | undefined>;
 }

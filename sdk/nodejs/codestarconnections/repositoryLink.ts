@@ -126,7 +126,7 @@ export interface RepositoryLinkArgs {
     /**
      * The ARN of the KMS key that the customer can optionally specify to use to encrypt RepositoryLink properties. If not specified, a default key will be used.
      */
-    encryptionKeyArn?: pulumi.Input<string>;
+    encryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
      * the ID of the entity that owns the repository.
      */
@@ -138,5 +138,5 @@ export interface RepositoryLinkArgs {
     /**
      * Specifies the tags applied to a RepositoryLink.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

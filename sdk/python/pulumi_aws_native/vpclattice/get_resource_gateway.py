@@ -100,7 +100,6 @@ def get_resource_gateway(arn: Optional[_builtins.str] = None,
     """
     Creates a resource gateway for a service.
 
-
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource gateway.
     """
     __args__ = dict()
@@ -114,11 +113,10 @@ def get_resource_gateway(arn: Optional[_builtins.str] = None,
         ipv4_addresses_per_eni=pulumi.get(__ret__, 'ipv4_addresses_per_eni'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_resource_gateway_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_gateway_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGatewayResult]:
     """
     Creates a resource gateway for a service.
-
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the resource gateway.
     """

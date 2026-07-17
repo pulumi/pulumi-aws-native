@@ -82,7 +82,6 @@ def get_origin_request_policy(id: Optional[_builtins.str] = None,
 
      CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
 
-
     :param _builtins.str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """
     __args__ = dict()
@@ -94,7 +93,7 @@ def get_origin_request_policy(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         origin_request_policy_config=pulumi.get(__ret__, 'origin_request_policy_config'))
-def get_origin_request_policy_output(id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_request_policy_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
     An origin request policy.
@@ -104,7 +103,6 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[_builtins.str]] =
       +  All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
 
      CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
-
 
     :param _builtins.str id: The unique identifier for the origin request policy. For example: `befd7079-9bbc-4ebf-8ade-498a3694176c` .
     """

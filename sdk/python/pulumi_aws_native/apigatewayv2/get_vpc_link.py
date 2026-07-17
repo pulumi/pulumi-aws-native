@@ -75,7 +75,6 @@ def get_vpc_link(vpc_link_id: Optional[_builtins.str] = None,
     """
     The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. This VPC link can be used with both REST and HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 
-
     :param _builtins.str vpc_link_id: The VPC link ID.
     """
     __args__ = dict()
@@ -87,11 +86,10 @@ def get_vpc_link(vpc_link_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
-def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpc_link_output(vpc_link_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. This VPC link can be used with both REST and HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
-
 
     :param _builtins.str vpc_link_id: The VPC link ID.
     """

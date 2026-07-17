@@ -162,7 +162,6 @@ def get_evaluator(evaluator_arn: Optional[_builtins.str] = None,
     """
     Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
 
-
     :param _builtins.str evaluator_arn: The Amazon Resource Name (ARN) of the evaluator.
     """
     __args__ = dict()
@@ -181,11 +180,10 @@ def get_evaluator(evaluator_arn: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
-def get_evaluator_output(evaluator_arn: Optional[pulumi.Input[_builtins.str]] = None,
+def get_evaluator_output(evaluator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvaluatorResult]:
     """
     Resource Type definition for AWS::BedrockAgentCore::Evaluator - Creates a custom evaluator for agent quality assessment using LLM-as-a-Judge configurations.
-
 
     :param _builtins.str evaluator_arn: The Amazon Resource Name (ARN) of the evaluator.
     """

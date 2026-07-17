@@ -111,7 +111,7 @@ export interface ResiliencyPolicyArgs {
     /**
      * Data Location Constraint of the Policy.
      */
-    dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint>;
+    dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
     /**
      * The resiliency policy.
      */
@@ -119,15 +119,15 @@ export interface ResiliencyPolicyArgs {
     /**
      * Description of Resiliency Policy.
      */
-    policyDescription?: pulumi.Input<string>;
+    policyDescription?: pulumi.Input<string | undefined>;
     /**
      * Name of Resiliency Policy.
      */
-    policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Resiliency Policy Tier.
      */

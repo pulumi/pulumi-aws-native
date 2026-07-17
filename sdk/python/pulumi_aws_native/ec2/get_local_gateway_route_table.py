@@ -112,7 +112,6 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[_builti
     """
     Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
 
-
     :param _builtins.str local_gateway_route_table_id: The ID of the local gateway route table.
     """
     __args__ = dict()
@@ -127,11 +126,10 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[_builti
         owner_id=pulumi.get(__ret__, 'owner_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_gateway_route_table_output(local_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
     Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
-
 
     :param _builtins.str local_gateway_route_table_id: The ID of the local gateway route table.
     """

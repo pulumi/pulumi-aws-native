@@ -113,7 +113,6 @@ def get_slack_channel_configuration(channel_id: Optional[_builtins.str] = None,
     """
     An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
 
-
     :param _builtins.str channel_id: The channel ID in Slack, which identifies a channel within a workspace.
     :param _builtins.str team_id: The team ID in Slack, which uniquely identifies a workspace.
     """
@@ -130,12 +129,11 @@ def get_slack_channel_configuration(channel_id: Optional[_builtins.str] = None,
         notify_on_case_severity=pulumi.get(__ret__, 'notify_on_case_severity'),
         notify_on_create_or_reopen_case=pulumi.get(__ret__, 'notify_on_create_or_reopen_case'),
         notify_on_resolve_case=pulumi.get(__ret__, 'notify_on_resolve_case'))
-def get_slack_channel_configuration_output(channel_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                           team_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_slack_channel_configuration_output(channel_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                           team_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
     """
     An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
-
 
     :param _builtins.str channel_id: The channel ID in Slack, which identifies a channel within a workspace.
     :param _builtins.str team_id: The team ID in Slack, which uniquely identifies a workspace.

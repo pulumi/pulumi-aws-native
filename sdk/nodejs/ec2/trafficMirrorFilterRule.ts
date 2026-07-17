@@ -155,7 +155,7 @@ export interface TrafficMirrorFilterRuleArgs {
     /**
      * The description of the Traffic Mirror Filter rule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The destination CIDR block to assign to the Traffic Mirror rule.
      */
@@ -163,11 +163,11 @@ export interface TrafficMirrorFilterRuleArgs {
     /**
      * The destination port range.
      */
-    destinationPortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs>;
+    destinationPortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs | undefined>;
     /**
      * The number of protocol, for example 17 (UDP), to assign to the Traffic Mirror rule.
      */
-    protocol?: pulumi.Input<number>;
+    protocol?: pulumi.Input<number | undefined>;
     /**
      * The action to take on the filtered traffic (accept/reject).
      */
@@ -183,11 +183,11 @@ export interface TrafficMirrorFilterRuleArgs {
     /**
      * The source port range.
      */
-    sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs>;
+    sourcePortRange?: pulumi.Input<inputs.ec2.TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs | undefined>;
     /**
      * Any tags assigned to the Traffic Mirror Filter rule.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The direction of traffic (ingress/egress).
      */

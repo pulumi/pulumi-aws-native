@@ -21,22 +21,22 @@ __all__ = ['QueueArgs', 'Queue']
 @pulumi.input_type
 class QueueArgs:
     def __init__(__self__, *,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_message_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_message_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 visibility_timeout: Optional[pulumi.Input[_builtins.int]] = None):
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 visibility_timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Queue resource.
 
@@ -57,7 +57,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.int] maximum_message_size: The limit of how many bytes that a message can contain before SQS rejects it. You can specify an integer from 1,024 bytes (1 KiB) to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).
         :param pulumi.Input[_builtins.int] message_retention_period: The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
         :param pulumi.Input[_builtins.str] queue_name: A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
-                If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. 
+                If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*.
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[_builtins.int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:
@@ -65,19 +65,19 @@ class QueueArgs:
                  +  ``allowAll``: (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
                  +  ``denyAll``: No source queues can specify this queue as the dead-letter queue.
                  +  ``byQueue``: Only queues specified by the ``sourceQueueArns`` parameter can specify this queue as the dead-letter queue.
-                 
+               
                  +  ``sourceQueueArns``: The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the ``redrivePermission`` parameter is set to ``byQueue``. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the ``redrivePermission`` parameter to ``allowAll``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param Any redrive_policy: The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
                  +  ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
                  +  ``maxReceiveCount``: The number of times a message is received by a consumer of the source queue before being moved to the dead-letter queue. When the ``ReceiveCount`` for a message exceeds the ``maxReceiveCount`` for a queue, SQS moves the message to the dead-letter-queue.
-                 
+               
                  The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
-                  *JSON* 
-                 ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }`` 
-                 *YAML* 
-                 ``deadLetterTargetArn : String`` 
+                  *JSON*
+                 ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }``
+                 *YAML*
+                 ``deadLetterTargetArn : String``
                  ``maxReceiveCount : Integer``
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -122,19 +122,19 @@ class QueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="contentBasedDeduplication")
-    def content_based_deduplication(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def content_based_deduplication(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         For first-in-first-out (FIFO) queues, specifies whether to enable content-based deduplication. During the deduplication interval, SQS treats messages that are sent with identical content as duplicates and delivers only one copy of the message. For more information, see the ``ContentBasedDeduplication`` attribute for the ``CreateQueue`` action in the *API Reference*.
         """
         return pulumi.get(self, "content_based_deduplication")
 
     @content_based_deduplication.setter
-    def content_based_deduplication(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def content_based_deduplication(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "content_based_deduplication", value)
 
     @_builtins.property
     @pulumi.getter(name="deduplicationScope")
-    def deduplication_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def deduplication_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level. Valid values are ``messageGroup`` and ``queue``.
          To enable high throughput for a FIFO queue, set this attribute to ``messageGroup``*and* set the ``FifoThroughputLimit`` attribute to ``perMessageGroupId``. If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Developer Guide*.
@@ -142,36 +142,36 @@ class QueueArgs:
         return pulumi.get(self, "deduplication_scope")
 
     @deduplication_scope.setter
-    def deduplication_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def deduplication_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deduplication_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="delaySeconds")
-    def delay_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def delay_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The time in seconds for which the delivery of all messages in the queue is delayed. You can specify an integer value of ``0`` to ``900`` (15 minutes). The default value is ``0``.
         """
         return pulumi.get(self, "delay_seconds")
 
     @delay_seconds.setter
-    def delay_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def delay_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "delay_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoQueue")
-    def fifo_queue(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def fifo_queue(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If set to true, creates a FIFO queue. If you don't specify this property, SQS creates a standard queue. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
         """
         return pulumi.get(self, "fifo_queue")
 
     @fifo_queue.setter
-    def fifo_queue(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def fifo_queue(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "fifo_queue", value)
 
     @_builtins.property
     @pulumi.getter(name="fifoThroughputLimit")
-    def fifo_throughput_limit(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fifo_throughput_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are ``perQueue`` and ``perMessageGroupId``.
          To enable high throughput for a FIFO queue, set this attribute to ``perMessageGroupId``*and* set the ``DeduplicationScope`` attribute to ``messageGroup``. If you set these attributes to anything other than these values, normal throughput is in effect and deduplication occurs as specified. For more information, see [High throughput for FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html) and [Quotas related to messages](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html) in the *Developer Guide*.
@@ -179,12 +179,12 @@ class QueueArgs:
         return pulumi.get(self, "fifo_throughput_limit")
 
     @fifo_throughput_limit.setter
-    def fifo_throughput_limit(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fifo_throughput_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fifo_throughput_limit", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
-    def kms_data_key_reuse_period_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def kms_data_key_reuse_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of time in seconds for which SQS can reuse a data key to encrypt or decrypt messages before calling KMS again. The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
           A shorter time period provides better security, but results in more calls to KMS, which might incur charges after Free Tier. For more information, see [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-how-does-the-data-key-reuse-period-work) in the *Developer Guide*.
@@ -192,12 +192,12 @@ class QueueArgs:
         return pulumi.get(self, "kms_data_key_reuse_period_seconds")
 
     @kms_data_key_reuse_period_seconds.setter
-    def kms_data_key_reuse_period_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def kms_data_key_reuse_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "kms_data_key_reuse_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsMasterKeyId")
-    def kms_master_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kms_master_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (for example ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:
           +  [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide*
@@ -208,57 +208,57 @@ class QueueArgs:
         return pulumi.get(self, "kms_master_key_id")
 
     @kms_master_key_id.setter
-    def kms_master_key_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kms_master_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="maximumMessageSize")
-    def maximum_message_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def maximum_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The limit of how many bytes that a message can contain before SQS rejects it. You can specify an integer from 1,024 bytes (1 KiB) to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).
         """
         return pulumi.get(self, "maximum_message_size")
 
     @maximum_message_size.setter
-    def maximum_message_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def maximum_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_message_size", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetentionPeriod")
-    def message_retention_period(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def message_retention_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
         """
         return pulumi.get(self, "message_retention_period")
 
     @message_retention_period.setter
-    def message_retention_period(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def message_retention_period(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "message_retention_period", value)
 
     @_builtins.property
     @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def queue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
-         If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. 
+         If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*.
           If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "queue_name")
 
     @queue_name.setter
-    def queue_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def queue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "queue_name", value)
 
     @_builtins.property
     @pulumi.getter(name="receiveMessageWaitTimeSeconds")
-    def receive_message_wait_time_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def receive_message_wait_time_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
         """
         return pulumi.get(self, "receive_message_wait_time_seconds")
 
     @receive_message_wait_time_seconds.setter
-    def receive_message_wait_time_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def receive_message_wait_time_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "receive_message_wait_time_seconds", value)
 
     @_builtins.property
@@ -270,7 +270,7 @@ class QueueArgs:
           +  ``allowAll``: (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
           +  ``denyAll``: No source queues can specify this queue as the dead-letter queue.
           +  ``byQueue``: Only queues specified by the ``sourceQueueArns`` parameter can specify this queue as the dead-letter queue.
-          
+
           +  ``sourceQueueArns``: The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the ``redrivePermission`` parameter is set to ``byQueue``. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the ``redrivePermission`` parameter to ``allowAll``.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -288,12 +288,12 @@ class QueueArgs:
         The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
           +  ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
           +  ``maxReceiveCount``: The number of times a message is received by a consumer of the source queue before being moved to the dead-letter queue. When the ``ReceiveCount`` for a message exceeds the ``maxReceiveCount`` for a queue, SQS moves the message to the dead-letter-queue.
-          
+
           The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
-           *JSON* 
-          ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }`` 
-          *YAML* 
-          ``deadLetterTargetArn : String`` 
+           *JSON*
+          ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }``
+          *YAML*
+          ``deadLetterTargetArn : String``
           ``maxReceiveCount : Integer``
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -306,31 +306,31 @@ class QueueArgs:
 
     @_builtins.property
     @pulumi.getter(name="sqsManagedSseEnabled")
-    def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def sqs_managed_sse_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html) or [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html)). When ``SqsManagedSseEnabled`` is not defined, ``SSE-SQS`` encryption is enabled by default.
         """
         return pulumi.get(self, "sqs_managed_sse_enabled")
 
     @sqs_managed_sse_enabled.setter
-    def sqs_managed_sse_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def sqs_managed_sse_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "sqs_managed_sse_enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         The tags that you attach to this queue. For more information, see [Resource tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *User Guide*.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="visibilityTimeout")
-    def visibility_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def visibility_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The length of time during which a message will be unavailable after a message is delivered from the queue. This blocks other components from receiving the same message and gives the initial component time to process and delete the message from the queue.
          Values must be from 0 to 43,200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
@@ -339,7 +339,7 @@ class QueueArgs:
         return pulumi.get(self, "visibility_timeout")
 
     @visibility_timeout.setter
-    def visibility_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def visibility_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "visibility_timeout", value)
 
 
@@ -349,22 +349,22 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_message_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_message_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visibility_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         The ``AWS::SQS::Queue`` resource creates an SQS standard or FIFO queue.
@@ -503,7 +503,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] maximum_message_size: The limit of how many bytes that a message can contain before SQS rejects it. You can specify an integer from 1,024 bytes (1 KiB) to 1,048,576 bytes (1 MiB). Default: 1,048,576 bytes (1 MiB).
         :param pulumi.Input[_builtins.int] message_retention_period: The number of seconds that SQS retains a message. You can specify an integer value from ``60`` seconds (1 minute) to ``1,209,600`` seconds (14 days). The default value is ``345,600`` seconds (4 days).
         :param pulumi.Input[_builtins.str] queue_name: A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
-                If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. 
+                If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*.
                  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[_builtins.int] receive_message_wait_time_seconds: Specifies the duration, in seconds, that the ReceiveMessage action call waits until a message is in the queue in order to include it in the response, rather than returning an empty response if a message isn't yet available. You can specify an integer from 1 to 20. Short polling is used as the default or when you specify 0 for this property. For more information, see [Consuming messages using long polling](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.html#sqs-long-polling) in the *Developer Guide*.
         :param Any redrive_allow_policy: The string that includes the parameters for the permissions for the dead-letter queue redrive permission and which source queues can specify dead-letter queues as a JSON object. The parameters are as follows:
@@ -511,19 +511,19 @@ class Queue(pulumi.CustomResource):
                  +  ``allowAll``: (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
                  +  ``denyAll``: No source queues can specify this queue as the dead-letter queue.
                  +  ``byQueue``: Only queues specified by the ``sourceQueueArns`` parameter can specify this queue as the dead-letter queue.
-                 
+               
                  +  ``sourceQueueArns``: The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the ``redrivePermission`` parameter is set to ``byQueue``. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the ``redrivePermission`` parameter to ``allowAll``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
         :param Any redrive_policy: The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
                  +  ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
                  +  ``maxReceiveCount``: The number of times a message is received by a consumer of the source queue before being moved to the dead-letter queue. When the ``ReceiveCount`` for a message exceeds the ``maxReceiveCount`` for a queue, SQS moves the message to the dead-letter-queue.
-                 
+               
                  The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
-                  *JSON* 
-                 ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }`` 
-                 *YAML* 
-                 ``deadLetterTargetArn : String`` 
+                  *JSON*
+                 ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }``
+                 *YAML*
+                 ``deadLetterTargetArn : String``
                  ``maxReceiveCount : Integer``
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -672,22 +672,22 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_based_deduplication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 deduplication_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 delay_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 fifo_queue: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fifo_throughput_limit: Optional[pulumi.Input[_builtins.str]] = None,
-                 kms_data_key_reuse_period_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 kms_master_key_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 maximum_message_size: Optional[pulumi.Input[_builtins.int]] = None,
-                 message_retention_period: Optional[pulumi.Input[_builtins.int]] = None,
-                 queue_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 receive_message_wait_time_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 content_based_deduplication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 deduplication_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 delay_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 fifo_queue: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fifo_throughput_limit: pulumi.Input[Optional[_builtins.str]] = None,
+                 kms_data_key_reuse_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 message_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 queue_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 receive_message_wait_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  redrive_allow_policy: Optional[Any] = None,
                  redrive_policy: Optional[Any] = None,
-                 sqs_managed_sse_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 sqs_managed_sse_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 visibility_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -851,7 +851,7 @@ class Queue(pulumi.CustomResource):
     def queue_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.
-         If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. 
+         If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*.
           If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "queue_name")
@@ -881,7 +881,7 @@ class Queue(pulumi.CustomResource):
           +  ``allowAll``: (Default) Any source queues in this AWS account in the same Region can specify this queue as the dead-letter queue.
           +  ``denyAll``: No source queues can specify this queue as the dead-letter queue.
           +  ``byQueue``: Only queues specified by the ``sourceQueueArns`` parameter can specify this queue as the dead-letter queue.
-          
+
           +  ``sourceQueueArns``: The Amazon Resource Names (ARN)s of the source queues that can specify this queue as the dead-letter queue and redrive messages. You can specify this parameter only when the ``redrivePermission`` parameter is set to ``byQueue``. You can specify up to 10 source queue ARNs. To allow more than 10 source queues to specify dead-letter queues, set the ``redrivePermission`` parameter to ``allowAll``.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
@@ -895,12 +895,12 @@ class Queue(pulumi.CustomResource):
         The string that includes the parameters for the dead-letter queue functionality of the source queue as a JSON object. The parameters are as follows:
           +  ``deadLetterTargetArn``: The Amazon Resource Name (ARN) of the dead-letter queue to which SQS moves messages after the value of ``maxReceiveCount`` is exceeded.
           +  ``maxReceiveCount``: The number of times a message is received by a consumer of the source queue before being moved to the dead-letter queue. When the ``ReceiveCount`` for a message exceeds the ``maxReceiveCount`` for a queue, SQS moves the message to the dead-letter-queue.
-          
+
           The dead-letter queue of a FIFO queue must also be a FIFO queue. Similarly, the dead-letter queue of a standard queue must also be a standard queue.
-           *JSON* 
-          ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }`` 
-          *YAML* 
-          ``deadLetterTargetArn : String`` 
+           *JSON*
+          ``{ "deadLetterTargetArn" : String, "maxReceiveCount" : Integer }``
+          *YAML*
+          ``deadLetterTargetArn : String``
           ``maxReceiveCount : Integer``
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SQS::Queue` for more information about the expected schema for this property.
