@@ -37,11 +37,15 @@ type CloudAPIResource struct {
 	//   ]
 	//
 	// NOTE: The values in this property will have been converted from CFN casing to pulumi sdk casing
-	ReadOnly          []string               `json:"readOnly,omitempty"`
-	WriteOnly         []string               `json:"writeOnly,omitempty"`
-	IrreversibleNames map[string]string      `json:"irreversibleNames,omitempty"`
-	TagsProperty      string                 `json:"tagsProperty,omitempty"`
-	TagsStyle         default_tags.TagsStyle `json:"tagsStyle,omitempty"`
+	ReadOnly  []string `json:"readOnly,omitempty"`
+	WriteOnly []string `json:"writeOnly,omitempty"`
+	// UnorderedCollections contains SDK-name slash paths for arrays whose
+	// CloudFormation schema declares insertionOrder: false. Array element
+	// traversal uses "*" path segments.
+	UnorderedCollections []string               `json:"unorderedCollections,omitempty"`
+	IrreversibleNames    map[string]string      `json:"irreversibleNames,omitempty"`
+	TagsProperty         string                 `json:"tagsProperty,omitempty"`
+	TagsStyle            default_tags.TagsStyle `json:"tagsStyle,omitempty"`
 
 	// Describes the behavior of the CF Ref intrinsic for this resource.
 	CfRef *CfRefBehavior `json:"cfRef,omitempty"`
