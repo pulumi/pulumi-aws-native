@@ -3050,6 +3050,21 @@ func TestDelete(t *testing.T) {
 		assert.Error(t, err)
 	})
 
+	t.Run("CustomResource/MalformedState", func(t *testing.T) {
+		malformedState, err := structpb.NewStruct(map[string]interface{}{
+			"secret": map[string]interface{}{string(resource.SigKey): resource.SecretSig},
+		})
+		require.NoError(t, err)
+
+		_, err = provider.Delete(ctx, &pulumirpc.DeleteRequest{
+			Urn:        string(urn),
+			Id:         "resource-id",
+			Properties: malformedState,
+		})
+		require.ErrorContains(t, err, "failed to parse state for delete")
+		require.ErrorContains(t, err, "malformed RPC secret")
+	})
+
 	t.Run("StandardResource", func(t *testing.T) {
 		provider.resourceMap.Resources[classicAWSBucketToken] = metadata.CloudAPIResource{
 			CfType: "AWS::S3::Bucket",

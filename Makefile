@@ -115,15 +115,7 @@ test_provider:: $(LOCAL_ARTIFACTS)
 test_provider_fast:: $(TEST_RUNTIME_ARTIFACTS) # Runs short-mode provider unit tests
 	(cd provider && go test -short ./pkg/...)
 
-lint:: # lint the provider code
-	@set -e; \
-	embed_files="$$(git grep -l 'go:embed' -- provider)"; \
-	restore_embeds() { \
-		cd "$(WORKING_DIR)"; \
-		for file in $$embed_files; do perl -i -pe 's/ goembed/go:embed/g' "$$file"; done; \
-	}; \
-	trap restore_embeds EXIT INT TERM; \
-	for file in $$embed_files; do perl -i -pe 's/go:embed/ goembed/g' "$$file"; done; \
+lint:: $(PROVIDER_EMBED_ARTIFACTS) $(CF2PULUMI_EMBED_ARTIFACTS) # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 .pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
