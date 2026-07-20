@@ -1,3 +1,74 @@
 name: aws-native-unordered-collections
-runtime: nodejs
+runtime: yaml
 description: Verifies refresh semantics for CloudFormation unordered collections
+
+config:
+  # Selects which authored ordering to use for the nested ECS environment
+  # array. The live test flips this to 1 after refresh to exercise the nested
+  # unordered Diff against AWS state and expects a no-change preview.
+  environmentOrderIndex:
+    type: integer
+    default: 0
+
+variables:
+  forwardEnvironment:
+    - name: Z_VAR
+      value: z
+    - name: A_VAR
+      value: a
+  reverseEnvironment:
+    - name: A_VAR
+      value: a
+    - name: Z_VAR
+      value: z
+  environment:
+    fn::select:
+      - ${environmentOrderIndex}
+      - - ${forwardEnvironment}
+        - ${reverseEnvironment}
+
+resources:
+  unordered-policies:
+    type: aws-native:iam:Role
+    properties:
+      assumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      # IAM returns inline policy names alphabetically. Deliberately author them
+      # in reverse order so refresh observes an order-only CloudControl change.
+      policies:
+        - policyName: z-policy
+          policyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: logs:DescribeLogGroups
+                Resource: "*"
+        - policyName: a-policy
+          policyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: logs:DescribeLogStreams
+                Resource: "*"
+
+  nested-unordered-environment:
+    type: aws-native:ecs:TaskDefinition
+    properties:
+      containerDefinitions:
+        - name: app
+          image: public.ecr.aws/docker/library/busybox:latest
+          memory: 128
+          essential: true
+          # Exercise the nested unordered path
+          # containerDefinitions/*/environment. The live test changes only this
+          # ordering after refresh and expects a no-change preview.
+          environment: ${environment}
+
+outputs:
+  roleName: ${unordered-policies.roleName}
+  taskDefinitionArn: ${nested-unordered-environment.taskDefinitionArn}
