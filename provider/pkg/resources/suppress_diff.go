@@ -23,11 +23,12 @@ import (
 // SuppressAWSManagedDiffs modifies a diff to remove changes that are AWS-managed
 // and should not be reflected in the user's inputs during refresh.
 //
-// This handles four categories of suppressions:
+// This handles five categories of suppressions:
 // 1. Generic: AWS-managed tags (aws:* prefix) that AWS adds automatically
-// 2. Generic: IAM policy documents that AWS returns in normalized JSON form
-// 3. Resource-specific: State transitions that AWS manages (e.g., EFS replication)
-// 4. PropertyTransform: CloudFormation propertyTransform normalization (e.g., case, numeric mappings)
+// 2. Generic: arrays that CloudFormation explicitly declares unordered
+// 3. Generic: IAM policy documents that AWS returns in normalized JSON form
+// 4. Resource-specific: State transitions that AWS manages (e.g., EFS replication)
+// 5. PropertyTransform: CloudFormation propertyTransform normalization (e.g., case, numeric mappings)
 //
 // The transformCache parameter holds compiled JSONata expressions for propertyTransform
 // evaluation. Pass the provider's cache instance for production use.
@@ -70,38 +71,56 @@ func SuppressAWSManagedDiffsWithContext(
 		return nil
 	}
 
-	// 1. Generic: Suppress aws:* prefixed tag additions
+	unorderedPaths := newPathSet(spec.UnorderedCollections)
+
+	// 1. Generic: Suppress aws:* prefixed tag additions and preserve established
+	// wrapper-insensitive equality for key/value tag arrays. Other unordered tag
+	// comparisons continue to the generic unordered comparator.
 	if spec.TagsProperty != "" {
-		diff = suppressAWSManagedTagAdditions(spec.TagsProperty, spec.TagsStyle, diff, originalInputs)
+		diff = suppressAWSManagedTagAdditions(
+			spec.TagsProperty, spec.TagsStyle, diff, originalInputs,
+			unorderedPaths.matches(spec.TagsProperty),
+		)
 	}
 
-	// 2. Generic: Suppress semantically equivalent IAM policy document diffs
-	diff = suppressIAMPolicyDocumentDiffs(resourceToken, diff)
+	// 2. Generic: Suppress proven order-only changes for arrays that the
+	// CloudFormation schema declares unordered. This stage exclusively owns
+	// those roots so positional suppressors cannot override a comparison that
+	// could not prove equivalence or a write-only guard.
+	diff = suppressUnorderedCollectionDiffs(resourceToken, spec, diff)
+	if diff == nil {
+		return nil
+	}
 
-	// 3. Resource-specific suppressions
+	// 3. Generic: Suppress semantically equivalent IAM policy document diffs
+	diff = suppressIAMPolicyDocumentDiffs(resourceToken, diff, unorderedPaths)
+
+	// 4. Resource-specific suppressions
 	diff = suppressResourceSpecificChanges(resourceToken, diff)
 
-	// 4. PropertyTransform-based suppressions
+	// 5. PropertyTransform-based suppressions
 	if len(spec.PropertyTransforms) > 0 {
 		// The contexts correspond to the old and new sides of diff. During
 		// refresh suppression those are old desired inputs and the live-output
 		// baseline; during update patching they are the live-output baseline
 		// and new desired inputs.
 		diff = suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff,
-			oldSideContext, newSideContext, transformCache)
+			oldSideContext, newSideContext, transformCache, unorderedPaths)
 	}
 
 	return diff
 }
 
-// suppressAWSManagedTagAdditions filters out aws:* prefixed tags from additions
-// to the tags property. AWS adds these automatically (e.g., aws:elasticfilesystem:default-backup,
-// aws:servicecatalog:applicationName) and users cannot manage them.
+// suppressAWSManagedTagAdditions filters out aws:* prefixed tags that AWS adds
+// automatically. It preserves the established wrapper-insensitive comparison
+// for known tag values before metadata-backed unordered arrays are passed to the
+// generic matcher.
 func suppressAWSManagedTagAdditions(
 	tagsProperty string,
 	tagsStyle default_tags.TagsStyle,
 	diff *resource.ObjectDiff,
 	originalInputs resource.PropertyMap,
+	unordered bool,
 ) *resource.ObjectDiff {
 	tagsKey := resource.PropertyKey(tagsProperty)
 
@@ -121,8 +140,13 @@ func suppressAWSManagedTagAdditions(
 		filteredNew := filterAWSPrefixedTags(updatedTags.New, originalInputs[tagsKey])
 		compareOld := normalizeKeyValueArrayTagOrder(filteredOld, tagsStyle)
 		compareNew := normalizeKeyValueArrayTagOrder(filteredNew, tagsStyle)
-		if propertyValuesEqualIgnoringSecrets(compareNew, compareOld) {
-			// After filtering, old and new are the same - no real change
+		// Unknowns at unordered roots remain the generic matcher's responsibility:
+		// two unrelated Pulumi placeholders can compare deeply equal. Secret
+		// wrappers are safe to ignore here because key/value tag arrays have already
+		// been aligned by their declared tag keys, preserving the legacy behavior.
+		knownEnough := !unordered || (!containsUnknowns(compareOld) && !containsUnknowns(compareNew))
+		if knownEnough && propertyValuesEqualIgnoringSecrets(compareNew, compareOld) {
+			// After filtering, old and new are the same - no real change.
 			delete(diff.Updates, tagsKey)
 		} else {
 			diff.Updates[tagsKey] = resource.ValueDiff{
@@ -189,12 +213,16 @@ const (
 // `{"Version":"2012-10-17","Statement":[...]}` string and a live
 // `{Version:"2012-10-17", Statement:[...]}` object should not rewrite
 // checkpointed inputs or generate an update patch.
-func suppressIAMPolicyDocumentDiffs(resourceToken string, diff *resource.ObjectDiff) *resource.ObjectDiff {
+func suppressIAMPolicyDocumentDiffs(
+	resourceToken string,
+	diff *resource.ObjectDiff,
+	skipPaths pathSet,
+) *resource.ObjectDiff {
 	if resourceToken != awsNativeIAMRoleToken && resourceToken != awsIAMRoleToken {
 		return diff
 	}
 	for key, valueDiff := range diff.Updates {
-		if shouldSuppressIAMPolicyDocumentDiff(string(key), valueDiff) {
+		if shouldSuppressIAMPolicyDocumentDiff(string(key), valueDiff, skipPaths) {
 			delete(diff.Updates, key)
 		}
 	}
@@ -210,7 +238,10 @@ func suppressIAMPolicyDocumentDiffs(resourceToken string, diff *resource.ObjectD
 // `policies/<index>/policyDocument` and those policy documents canonicalize to
 // the same JSON value. Structural changes, such as adding a new policy element,
 // are preserved as real diffs.
-func shouldSuppressIAMPolicyDocumentDiff(path string, diff resource.ValueDiff) bool {
+func shouldSuppressIAMPolicyDocumentDiff(path string, diff resource.ValueDiff, skipPaths pathSet) bool {
+	if skipPaths.matches(path) {
+		return false
+	}
 	if isIAMRolePolicyDocumentPath(path) {
 		return policyDocumentsSemanticallyEqual(diff.Old, diff.New)
 	}
@@ -220,7 +251,7 @@ func shouldSuppressIAMPolicyDocumentDiff(path string, diff resource.ValueDiff) b
 			return false
 		}
 		for key, childDiff := range diff.Object.Updates {
-			if !shouldSuppressIAMPolicyDocumentDiff(joinPath(path, string(key)), childDiff) {
+			if !shouldSuppressIAMPolicyDocumentDiff(joinPath(path, string(key)), childDiff, skipPaths) {
 				return false
 			}
 		}
@@ -232,7 +263,9 @@ func shouldSuppressIAMPolicyDocumentDiff(path string, diff resource.ValueDiff) b
 			return false
 		}
 		for index, childDiff := range diff.Array.Updates {
-			if !shouldSuppressIAMPolicyDocumentDiff(joinPath(path, fmt.Sprintf("%d", index)), childDiff) {
+			if !shouldSuppressIAMPolicyDocumentDiff(
+				joinPath(path, fmt.Sprintf("%d", index)), childDiff, skipPaths,
+			) {
 				return false
 			}
 		}
@@ -416,7 +449,10 @@ func suppressPropertyTransformDiffs(
 	originalInputs resource.PropertyMap,
 	cache *TransformCache,
 ) *resource.ObjectDiff {
-	return suppressPropertyTransformDiffsWithContext(resourceToken, spec, diff, originalInputs, originalInputs, cache)
+	return suppressPropertyTransformDiffsWithContext(
+		resourceToken, spec, diff, originalInputs, originalInputs, cache,
+		newPathSet(spec.UnorderedCollections),
+	)
 }
 
 func suppressPropertyTransformDiffsWithContext(
@@ -426,6 +462,7 @@ func suppressPropertyTransformDiffsWithContext(
 	actualInputs resource.PropertyMap,
 	desiredInputs resource.PropertyMap,
 	cache *TransformCache,
+	skipPaths pathSet,
 ) *resource.ObjectDiff {
 	if cache == nil {
 		cache = GlobalTransformCache
@@ -449,6 +486,7 @@ func suppressPropertyTransformDiffsWithContext(
 			actualInputsMap,
 			desiredInputsMap,
 			spec.IrreversibleNames,
+			skipPaths,
 		) {
 			glog.V(7).Infof("Suppressing diff for %s.%s via propertyTransform", resourceToken, path)
 			delete(diff.Updates, key)
@@ -473,7 +511,11 @@ func shouldSuppressValueDiff(
 	actualInputsMap map[string]interface{},
 	desiredInputsMap map[string]interface{},
 	irreversibleNames map[string]string,
+	skipPaths pathSet,
 ) bool {
+	if skipPaths.matches(path) {
+		return false
+	}
 	// Handle nested object diffs
 	if diff.Object != nil {
 		// Structural changes (new/deleted properties) are real diffs
@@ -490,6 +532,7 @@ func shouldSuppressValueDiff(
 				actualInputsMap,
 				desiredInputsMap,
 				irreversibleNames,
+				skipPaths,
 			) {
 				return false
 			}
@@ -513,6 +556,7 @@ func shouldSuppressValueDiff(
 				actualInputsMap,
 				desiredInputsMap,
 				irreversibleNames,
+				skipPaths,
 			) {
 				return false
 			}
@@ -541,8 +585,8 @@ func evaluateAndCompare(
 	path string,
 	irreversibleNames map[string]string,
 ) bool {
-	// Build the context for JSONata evaluation
-	// The context should include sibling properties for expressions that reference them
+	// Build the context for JSONata evaluation. The context should include
+	// sibling properties for expressions that reference them.
 	oldContextMap := ExtractPropertyContext(actualInputsMap, path)
 	if oldContextMap == nil {
 		oldContextMap = actualInputsMap
@@ -552,26 +596,19 @@ func evaluateAndCompare(
 		newContextMap = desiredInputsMap
 	}
 
-	// Also add the property values themselves, using CloudFormation naming
-	// JSONata expressions reference properties by their CFN names (e.g., "IpProtocol")
 	oldContext := buildCfnContext(oldContextMap, path, oldVal, irreversibleNames)
 	newContext := buildCfnContext(newContextMap, path, newVal, irreversibleNames)
 
-	// Evaluate transform on old value
 	transformedOld, err := EvaluateTransform(*transform, oldVal, oldContext)
 	if err != nil {
 		glog.V(9).Infof("Transform evaluation failed for old value at %s: %v", path, err)
 		return false
 	}
-
-	// Evaluate transform on new value
 	transformedNew, err := EvaluateTransform(*transform, newVal, newContext)
 	if err != nil {
 		glog.V(9).Infof("Transform evaluation failed for new value at %s: %v", path, err)
 		return false
 	}
-
-	// Compare transformed values
 	return ValuesEquivalent(transformedOld, transformedNew)
 }
 
