@@ -37,19 +37,19 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 
 	// Cache to speed up code generation.
 	hcl2Cache := pcl.Cache(pcl.NewPackageCache())
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.ValidationOptions{AllowDanglingReferences: true})
+	pkg, err := schema.ImportSpec(*pkgSpec, nil, nil, schema.ValidationOptions{AllowDanglingReferences: true})
 	if err != nil {
 		return err
 	}
-	loaderOption := pcl.Loader(pschema.InMemoryPackageLoader(map[string]*schema.Package{
+	loader := pschema.InMemoryPackageLoader(map[string]*schema.Package{
 		"aws-native": pkg,
-	}))
+	})
 
 	// Render examples to SDK languages.
 	total := 0
 	examplesRenderData := map[string][]exampleRenderData{}
 	for _, yaml := range examples {
-		example, err := generateExample(yaml, metadata, languages, hcl2Cache, loaderOption)
+		example, err := generateExample(yaml, metadata, languages, loader, hcl2Cache)
 		if err != nil {
 			// Skip all snippets that don't produce valid examples.
 			continue
@@ -80,7 +80,7 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 	return nil
 }
 
-func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages []string, bindOpts ...pcl.BindOption) (*resourceExample, error) {
+func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages []string, loader schema.Loader, bindOpts ...pcl.BindOption) (*resourceExample, error) {
 	body, diagnostics, err := cf2pulumi.RenderText(yaml, metadata)
 	if err != nil {
 		return nil, errors.Wrapf(err, "rendering YAML")
@@ -109,7 +109,7 @@ func generateExample(yaml string, metadata *metadata.CloudAPIMetadata, languages
 	perLanguage := languageToExampleProgram{}
 	for _, target := range languages {
 
-		program, diags, err := pcl.BindProgram(parser.Files, bindOpts...)
+		program, diags, err := pcl.BindProgram(parser.Files, loader, bindOpts...)
 		if err != nil {
 			return nil, errors.Wrapf(err, "binding program")
 		}
