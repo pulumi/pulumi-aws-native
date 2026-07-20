@@ -44,7 +44,12 @@ func generateExamples(pkgSpec *schema.PackageSpec, metadata *metadata.CloudAPIMe
 	// does not need to resolve any external packages. Previously ImportSpec accepted a nil loader
 	// and internally constructed a plugin loader on demand; as of pulumi/pkg v3.253.0 the loader is
 	// a required, must-be-non-nil argument, so pass a null loader that resolves nothing.
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{AllowDanglingReferences: true})
+	pkg, err := schema.ImportSpec(
+		*pkgSpec,
+		nil,
+		schema.NewNullLoader(),
+		schema.ValidationOptions{AllowDanglingReferences: true},
+	)
 	if err != nil {
 		return err
 	}

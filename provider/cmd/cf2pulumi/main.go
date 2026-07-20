@@ -81,7 +81,12 @@ func main() {
 	// The aws-native schema is self-contained, so binding it does not need to resolve any external
 	// packages. As of pulumi/pkg v3.253.0 ImportSpec requires a non-nil loader argument (it
 	// previously constructed a plugin loader when passed nil), so pass a null loader here.
-	pkg, err := schema.ImportSpec(*pkgSpec, nil, schema.NewNullLoader(), schema.ValidationOptions{AllowDanglingReferences: true})
+	pkg, err := schema.ImportSpec(
+		*pkgSpec,
+		nil,
+		schema.NewNullLoader(),
+		schema.ValidationOptions{AllowDanglingReferences: true},
+	)
 	if err != nil {
 		log.Fatalf("failed to parse import the spec: %v", err)
 	}

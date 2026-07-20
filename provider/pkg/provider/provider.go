@@ -56,11 +56,11 @@ import (
 	"google.golang.org/protobuf/types/known/structpb"
 
 	"github.com/pulumi/pulumi-go-provider/resourcex"
-	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	sdkprovider "github.com/pulumi/pulumi/sdk/v3/go/pulumi/provider"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
@@ -92,7 +92,7 @@ func makeCancellationContext() *cancellationContext {
 type cfnProvider struct {
 	pulumirpc.UnimplementedResourceProviderServer
 
-	host     *provider.HostClient
+	host     *sdkprovider.HostClient
 	name     string
 	canceler *cancellationContext
 
@@ -126,7 +126,7 @@ type cfnProvider struct {
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
 
-func NewAwsNativeProvider(host *provider.HostClient, name, version string,
+func NewAwsNativeProvider(host *sdkprovider.HostClient, name, version string,
 	pulumiSchema, cloudAPIResourcesBytes []byte) (pulumirpc.ResourceProviderServer, error) {
 	resourceMap, err := LoadMetadata(cloudAPIResourcesBytes)
 	if err != nil {
@@ -163,7 +163,7 @@ func LoadMetadata(metadataBytes []byte) (*metadata.CloudAPIMetadata, error) {
 }
 
 func (p *cfnProvider) Attach(_ context.Context, req *pulumirpc.PluginAttach) (*emptypb.Empty, error) {
-	host, err := provider.NewHostClient(req.GetAddress())
+	host, err := sdkprovider.NewHostClient(req.GetAddress())
 	if err != nil {
 		return nil, err
 	}
