@@ -17,17 +17,17 @@ type VpcEncryptionControl struct {
 	pulumi.CustomResourceState
 
 	// Used to enable or disable EIGW exclusion
-	EgressOnlyInternetGatewayExclusionInput VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput `pulumi:"egressOnlyInternetGatewayExclusionInput"`
+	EgressOnlyInternetGatewayExclusionInput VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrOutput `pulumi:"egressOnlyInternetGatewayExclusionInput"`
 	// Used to enable or disable EFS exclusion
-	ElasticFileSystemExclusionInput VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput `pulumi:"elasticFileSystemExclusionInput"`
+	ElasticFileSystemExclusionInput VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrOutput `pulumi:"elasticFileSystemExclusionInput"`
 	// Used to enable or disable IGW exclusion
-	InternetGatewayExclusionInput VpcEncryptionControlInternetGatewayExclusionInputPtrOutput `pulumi:"internetGatewayExclusionInput"`
+	InternetGatewayExclusionInput VpcEncryptionControlInternetGatewayExclusionInputEnumPtrOutput `pulumi:"internetGatewayExclusionInput"`
 	// Used to enable or disable Lambda exclusion
-	LambdaExclusionInput VpcEncryptionControlLambdaExclusionInputPtrOutput `pulumi:"lambdaExclusionInput"`
+	LambdaExclusionInput VpcEncryptionControlLambdaExclusionInputEnumPtrOutput `pulumi:"lambdaExclusionInput"`
 	// The VPC encryption control mode, either monitor or enforce.
 	Mode VpcEncryptionControlModePtrOutput `pulumi:"mode"`
 	// Used to enable or disable Nat gateway exclusion
-	NatGatewayExclusionInput VpcEncryptionControlNatGatewayExclusionInputPtrOutput `pulumi:"natGatewayExclusionInput"`
+	NatGatewayExclusionInput VpcEncryptionControlNatGatewayExclusionInputEnumPtrOutput `pulumi:"natGatewayExclusionInput"`
 	// Enumerates the states of all the VPC encryption control resource exclusions
 	ResourceExclusions VpcEncryptionControlResourceExclusionsOutput `pulumi:"resourceExclusions"`
 	// The current state of the VPC encryption control.
@@ -37,15 +37,15 @@ type VpcEncryptionControl struct {
 	// The tags to assign to the VPC encryption control.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Used to enable or disable VGW exclusion
-	VirtualPrivateGatewayExclusionInput VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput `pulumi:"virtualPrivateGatewayExclusionInput"`
+	VirtualPrivateGatewayExclusionInput VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrOutput `pulumi:"virtualPrivateGatewayExclusionInput"`
 	// The VPC encryption control resource id.
 	VpcEncryptionControlId pulumi.StringOutput `pulumi:"vpcEncryptionControlId"`
 	// The VPC on which this VPC encryption control is applied.
 	VpcId pulumi.StringPtrOutput `pulumi:"vpcId"`
 	// Used to enable or disable Vpc Lattice exclusion
-	VpcLatticeExclusionInput VpcEncryptionControlVpcLatticeExclusionInputPtrOutput `pulumi:"vpcLatticeExclusionInput"`
+	VpcLatticeExclusionInput VpcEncryptionControlVpcLatticeExclusionInputEnumPtrOutput `pulumi:"vpcLatticeExclusionInput"`
 	// Used to enable or disable VPC peering exclusion
-	VpcPeeringExclusionInput VpcEncryptionControlVpcPeeringExclusionInputPtrOutput `pulumi:"vpcPeeringExclusionInput"`
+	VpcPeeringExclusionInput VpcEncryptionControlVpcPeeringExclusionInputEnumPtrOutput `pulumi:"vpcPeeringExclusionInput"`
 }
 
 // NewVpcEncryptionControl registers a new resource with the given unique name, arguments, and options.
@@ -93,53 +93,53 @@ func (VpcEncryptionControlState) ElementType() reflect.Type {
 
 type vpcEncryptionControlArgs struct {
 	// Used to enable or disable EIGW exclusion
-	EgressOnlyInternetGatewayExclusionInput *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput `pulumi:"egressOnlyInternetGatewayExclusionInput"`
+	EgressOnlyInternetGatewayExclusionInput *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnum `pulumi:"egressOnlyInternetGatewayExclusionInput"`
 	// Used to enable or disable EFS exclusion
-	ElasticFileSystemExclusionInput *VpcEncryptionControlElasticFileSystemExclusionInput `pulumi:"elasticFileSystemExclusionInput"`
+	ElasticFileSystemExclusionInput *VpcEncryptionControlElasticFileSystemExclusionInputEnum `pulumi:"elasticFileSystemExclusionInput"`
 	// Used to enable or disable IGW exclusion
-	InternetGatewayExclusionInput *VpcEncryptionControlInternetGatewayExclusionInput `pulumi:"internetGatewayExclusionInput"`
+	InternetGatewayExclusionInput *VpcEncryptionControlInternetGatewayExclusionInputEnum `pulumi:"internetGatewayExclusionInput"`
 	// Used to enable or disable Lambda exclusion
-	LambdaExclusionInput *VpcEncryptionControlLambdaExclusionInput `pulumi:"lambdaExclusionInput"`
+	LambdaExclusionInput *VpcEncryptionControlLambdaExclusionInputEnum `pulumi:"lambdaExclusionInput"`
 	// The VPC encryption control mode, either monitor or enforce.
 	Mode *VpcEncryptionControlMode `pulumi:"mode"`
 	// Used to enable or disable Nat gateway exclusion
-	NatGatewayExclusionInput *VpcEncryptionControlNatGatewayExclusionInput `pulumi:"natGatewayExclusionInput"`
+	NatGatewayExclusionInput *VpcEncryptionControlNatGatewayExclusionInputEnum `pulumi:"natGatewayExclusionInput"`
 	// The tags to assign to the VPC encryption control.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Used to enable or disable VGW exclusion
-	VirtualPrivateGatewayExclusionInput *VpcEncryptionControlVirtualPrivateGatewayExclusionInput `pulumi:"virtualPrivateGatewayExclusionInput"`
+	VirtualPrivateGatewayExclusionInput *VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnum `pulumi:"virtualPrivateGatewayExclusionInput"`
 	// The VPC on which this VPC encryption control is applied.
 	VpcId *string `pulumi:"vpcId"`
 	// Used to enable or disable Vpc Lattice exclusion
-	VpcLatticeExclusionInput *VpcEncryptionControlVpcLatticeExclusionInput `pulumi:"vpcLatticeExclusionInput"`
+	VpcLatticeExclusionInput *VpcEncryptionControlVpcLatticeExclusionInputEnum `pulumi:"vpcLatticeExclusionInput"`
 	// Used to enable or disable VPC peering exclusion
-	VpcPeeringExclusionInput *VpcEncryptionControlVpcPeeringExclusionInput `pulumi:"vpcPeeringExclusionInput"`
+	VpcPeeringExclusionInput *VpcEncryptionControlVpcPeeringExclusionInputEnum `pulumi:"vpcPeeringExclusionInput"`
 }
 
 // The set of arguments for constructing a VpcEncryptionControl resource.
 type VpcEncryptionControlArgs struct {
 	// Used to enable or disable EIGW exclusion
-	EgressOnlyInternetGatewayExclusionInput VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrInput
+	EgressOnlyInternetGatewayExclusionInput VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrInput
 	// Used to enable or disable EFS exclusion
-	ElasticFileSystemExclusionInput VpcEncryptionControlElasticFileSystemExclusionInputPtrInput
+	ElasticFileSystemExclusionInput VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrInput
 	// Used to enable or disable IGW exclusion
-	InternetGatewayExclusionInput VpcEncryptionControlInternetGatewayExclusionInputPtrInput
+	InternetGatewayExclusionInput VpcEncryptionControlInternetGatewayExclusionInputEnumPtrInput
 	// Used to enable or disable Lambda exclusion
-	LambdaExclusionInput VpcEncryptionControlLambdaExclusionInputPtrInput
+	LambdaExclusionInput VpcEncryptionControlLambdaExclusionInputEnumPtrInput
 	// The VPC encryption control mode, either monitor or enforce.
 	Mode VpcEncryptionControlModePtrInput
 	// Used to enable or disable Nat gateway exclusion
-	NatGatewayExclusionInput VpcEncryptionControlNatGatewayExclusionInputPtrInput
+	NatGatewayExclusionInput VpcEncryptionControlNatGatewayExclusionInputEnumPtrInput
 	// The tags to assign to the VPC encryption control.
 	Tags aws.TagArrayInput
 	// Used to enable or disable VGW exclusion
-	VirtualPrivateGatewayExclusionInput VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrInput
+	VirtualPrivateGatewayExclusionInput VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrInput
 	// The VPC on which this VPC encryption control is applied.
 	VpcId pulumi.StringPtrInput
 	// Used to enable or disable Vpc Lattice exclusion
-	VpcLatticeExclusionInput VpcEncryptionControlVpcLatticeExclusionInputPtrInput
+	VpcLatticeExclusionInput VpcEncryptionControlVpcLatticeExclusionInputEnumPtrInput
 	// Used to enable or disable VPC peering exclusion
-	VpcPeeringExclusionInput VpcEncryptionControlVpcPeeringExclusionInputPtrInput
+	VpcPeeringExclusionInput VpcEncryptionControlVpcPeeringExclusionInputEnumPtrInput
 }
 
 func (VpcEncryptionControlArgs) ElementType() reflect.Type {
@@ -180,31 +180,31 @@ func (o VpcEncryptionControlOutput) ToVpcEncryptionControlOutputWithContext(ctx 
 }
 
 // Used to enable or disable EIGW exclusion
-func (o VpcEncryptionControlOutput) EgressOnlyInternetGatewayExclusionInput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) EgressOnlyInternetGatewayExclusionInput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrOutput {
 		return v.EgressOnlyInternetGatewayExclusionInput
-	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput)
+	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnumPtrOutput)
 }
 
 // Used to enable or disable EFS exclusion
-func (o VpcEncryptionControlOutput) ElasticFileSystemExclusionInput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) ElasticFileSystemExclusionInput() VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrOutput {
 		return v.ElasticFileSystemExclusionInput
-	}).(VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput)
+	}).(VpcEncryptionControlElasticFileSystemExclusionInputEnumPtrOutput)
 }
 
 // Used to enable or disable IGW exclusion
-func (o VpcEncryptionControlOutput) InternetGatewayExclusionInput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) InternetGatewayExclusionInput() VpcEncryptionControlInternetGatewayExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlInternetGatewayExclusionInputEnumPtrOutput {
 		return v.InternetGatewayExclusionInput
-	}).(VpcEncryptionControlInternetGatewayExclusionInputPtrOutput)
+	}).(VpcEncryptionControlInternetGatewayExclusionInputEnumPtrOutput)
 }
 
 // Used to enable or disable Lambda exclusion
-func (o VpcEncryptionControlOutput) LambdaExclusionInput() VpcEncryptionControlLambdaExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlLambdaExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) LambdaExclusionInput() VpcEncryptionControlLambdaExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlLambdaExclusionInputEnumPtrOutput {
 		return v.LambdaExclusionInput
-	}).(VpcEncryptionControlLambdaExclusionInputPtrOutput)
+	}).(VpcEncryptionControlLambdaExclusionInputEnumPtrOutput)
 }
 
 // The VPC encryption control mode, either monitor or enforce.
@@ -213,10 +213,10 @@ func (o VpcEncryptionControlOutput) Mode() VpcEncryptionControlModePtrOutput {
 }
 
 // Used to enable or disable Nat gateway exclusion
-func (o VpcEncryptionControlOutput) NatGatewayExclusionInput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) NatGatewayExclusionInput() VpcEncryptionControlNatGatewayExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlNatGatewayExclusionInputEnumPtrOutput {
 		return v.NatGatewayExclusionInput
-	}).(VpcEncryptionControlNatGatewayExclusionInputPtrOutput)
+	}).(VpcEncryptionControlNatGatewayExclusionInputEnumPtrOutput)
 }
 
 // Enumerates the states of all the VPC encryption control resource exclusions
@@ -242,10 +242,10 @@ func (o VpcEncryptionControlOutput) Tags() aws.TagArrayOutput {
 }
 
 // Used to enable or disable VGW exclusion
-func (o VpcEncryptionControlOutput) VirtualPrivateGatewayExclusionInput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) VirtualPrivateGatewayExclusionInput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrOutput {
 		return v.VirtualPrivateGatewayExclusionInput
-	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput)
+	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnumPtrOutput)
 }
 
 // The VPC encryption control resource id.
@@ -259,17 +259,17 @@ func (o VpcEncryptionControlOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 // Used to enable or disable Vpc Lattice exclusion
-func (o VpcEncryptionControlOutput) VpcLatticeExclusionInput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) VpcLatticeExclusionInput() VpcEncryptionControlVpcLatticeExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVpcLatticeExclusionInputEnumPtrOutput {
 		return v.VpcLatticeExclusionInput
-	}).(VpcEncryptionControlVpcLatticeExclusionInputPtrOutput)
+	}).(VpcEncryptionControlVpcLatticeExclusionInputEnumPtrOutput)
 }
 
 // Used to enable or disable VPC peering exclusion
-func (o VpcEncryptionControlOutput) VpcPeeringExclusionInput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
-	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+func (o VpcEncryptionControlOutput) VpcPeeringExclusionInput() VpcEncryptionControlVpcPeeringExclusionInputEnumPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControl) VpcEncryptionControlVpcPeeringExclusionInputEnumPtrOutput {
 		return v.VpcPeeringExclusionInput
-	}).(VpcEncryptionControlVpcPeeringExclusionInputPtrOutput)
+	}).(VpcEncryptionControlVpcPeeringExclusionInputEnumPtrOutput)
 }
 
 func init() {

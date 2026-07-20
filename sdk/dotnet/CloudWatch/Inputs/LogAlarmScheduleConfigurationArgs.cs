@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
     public sealed class LogAlarmScheduleConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of seconds into the past to end the query window.
+        /// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
         /// </summary>
         [Input("endTimeOffset")]
         public Input<int>? EndTimeOffset { get; set; }
@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         public Input<string> ScheduleExpression { get; set; } = null!;
 
         /// <summary>
-        /// The number of seconds into the past to start the query window.
+        /// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
         /// </summary>
-        [Input("startTimeOffset")]
-        public Input<int>? StartTimeOffset { get; set; }
+        [Input("startTimeOffset", required: true)]
+        public Input<int> StartTimeOffset { get; set; } = null!;
 
         public LogAlarmScheduleConfigurationArgs()
         {

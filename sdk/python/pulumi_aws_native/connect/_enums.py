@@ -563,9 +563,6 @@ class RuleAssignSlaActionCaseSlaConfigurationPropertiesType(_builtins.str, Enum)
 
 @pulumi.type_token("aws-native:connect:RuleAssignSlaActionSlaAssignmentType")
 class RuleAssignSlaActionSlaAssignmentType(_builtins.str, Enum):
-    """
-    The type of SLA assignment.
-    """
     CASES = "CASES"
 
 

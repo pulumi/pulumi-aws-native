@@ -308,7 +308,7 @@ class ImagePipeline(pulumi.CustomResource):
                  workflows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImagePipelineWorkflowConfigurationArgs', 'ImagePipelineWorkflowConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::ImagePipeline
+        Resource Type definition for AWS::ImageBuilder::ImagePipeline
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,7 +336,7 @@ class ImagePipeline(pulumi.CustomResource):
                  args: Optional[ImagePipelineArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::ImagePipeline
+        Resource Type definition for AWS::ImageBuilder::ImagePipeline
 
         :param str resource_name: The name of the resource.
         :param ImagePipelineArgs args: The arguments to use to populate this resource's properties.

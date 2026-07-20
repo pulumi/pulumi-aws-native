@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -40,6 +41,7 @@ type Listener struct {
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
 	//  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
 	SslPolicy pulumi.StringPtrOutput `pulumi:"sslPolicy"`
+	Tags      aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -113,7 +115,8 @@ type listenerArgs struct {
 	Protocol *string `pulumi:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
 	//  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
-	SslPolicy *string `pulumi:"sslPolicy"`
+	SslPolicy *string   `pulumi:"sslPolicy"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Listener resource.
@@ -140,6 +143,7 @@ type ListenerArgs struct {
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.
 	//  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
 	SslPolicy pulumi.StringPtrInput
+	Tags      aws.TagArrayInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {
@@ -234,6 +238,10 @@ func (o ListenerOutput) Protocol() pulumi.StringPtrOutput {
 //	[HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
 func (o ListenerOutput) SslPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.SslPolicy }).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Listener) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

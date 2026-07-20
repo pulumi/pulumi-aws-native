@@ -44,7 +44,7 @@ export class DataTableAttribute extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the data table that contains this attribute.
      */
-    declare public readonly dataTableArn: pulumi.Output<string | undefined>;
+    declare public readonly dataTableArn: pulumi.Output<string>;
     /**
      * An optional description explaining the purpose and usage of this attribute.
      */
@@ -52,7 +52,7 @@ export class DataTableAttribute extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    declare public readonly instanceArn: pulumi.Output<string | undefined>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     /**
      * The AWS Region where this attribute was last modified, used for region replication.
      */
@@ -65,7 +65,7 @@ export class DataTableAttribute extends pulumi.CustomResource {
     /**
      * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
      */
-    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
      */
@@ -77,7 +77,7 @@ export class DataTableAttribute extends pulumi.CustomResource {
     /**
      * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
      */
-    declare public readonly valueType: pulumi.Output<enums.connect.DataTableAttributeValueType | undefined>;
+    declare public readonly valueType: pulumi.Output<enums.connect.DataTableAttributeValueType>;
 
     /**
      * Create a DataTableAttribute resource with the given unique name, arguments, and options.
@@ -86,10 +86,19 @@ export class DataTableAttribute extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataTableAttributeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataTableAttributeArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataTableArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataTableArn'");
+            }
+            if (args?.instanceArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceArn'");
+            }
+            if (args?.valueType === undefined && !opts.urn) {
+                throw new Error("Missing required property 'valueType'");
+            }
             resourceInputs["dataTableArn"] = args?.dataTableArn;
             resourceInputs["description"] = args?.description;
             resourceInputs["instanceArn"] = args?.instanceArn;
@@ -128,7 +137,7 @@ export interface DataTableAttributeArgs {
     /**
      * The Amazon Resource Name (ARN) of the data table that contains this attribute.
      */
-    dataTableArn?: pulumi.Input<string | undefined>;
+    dataTableArn: pulumi.Input<string>;
     /**
      * An optional description explaining the purpose and usage of this attribute.
      */
@@ -136,7 +145,7 @@ export interface DataTableAttributeArgs {
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    instanceArn?: pulumi.Input<string | undefined>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
      */
@@ -152,5 +161,5 @@ export interface DataTableAttributeArgs {
     /**
      * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
      */
-    valueType?: pulumi.Input<enums.connect.DataTableAttributeValueType | undefined>;
+    valueType: pulumi.Input<enums.connect.DataTableAttributeValueType>;
 }

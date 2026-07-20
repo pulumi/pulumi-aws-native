@@ -144,6 +144,7 @@
   },
   "createOnlyProperties" : [ "/properties/InstanceArn", "/properties/Status" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/LockVersion", "/properties/CreatedTime", "/properties/LastModifiedRegion", "/properties/LastModifiedTime" ],
+  "required" : [ "InstanceArn", "Name", "TimeZone", "ValueLockLevel", "Status" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/InstanceArn", "/properties/Arn" ]
 }

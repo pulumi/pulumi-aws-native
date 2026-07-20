@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ImageBuilder::ImagePipeline
+ * Resource Type definition for AWS::ImageBuilder::ImagePipeline
  */
 export class ImagePipeline extends pulumi.CustomResource {
     /**

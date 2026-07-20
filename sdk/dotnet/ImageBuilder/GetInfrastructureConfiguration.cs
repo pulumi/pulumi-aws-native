@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ImageBuilder
     public static class GetInfrastructureConfiguration
     {
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        /// Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
         public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        /// Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        /// Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
         /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());

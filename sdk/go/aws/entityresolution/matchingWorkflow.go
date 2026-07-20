@@ -60,6 +60,7 @@ func NewMatchingWorkflow(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resolutionTechniques.enableRealTimeMatching",
 		"workflowName",
 	})
 	opts = append(opts, replaceOnChanges)

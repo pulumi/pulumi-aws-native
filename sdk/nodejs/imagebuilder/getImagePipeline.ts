@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::ImageBuilder::ImagePipeline
+ * Resource Type definition for AWS::ImageBuilder::ImagePipeline
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,7 +95,7 @@ export interface GetImagePipelineResult {
     readonly workflows?: outputs.imagebuilder.ImagePipelineWorkflowConfiguration[];
 }
 /**
- * Resource schema for AWS::ImageBuilder::ImagePipeline
+ * Resource Type definition for AWS::ImageBuilder::ImagePipeline
  */
 export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImagePipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

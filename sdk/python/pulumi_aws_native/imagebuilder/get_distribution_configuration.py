@@ -87,7 +87,7 @@ class AwaitableGetDistributionConfigurationResult(GetDistributionConfigurationRe
 def get_distribution_configuration(arn: Optional[_builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationResult:
     """
-    Resource schema for AWS::ImageBuilder::DistributionConfiguration
+    Resource Type definition for AWS::ImageBuilder::DistributionConfiguration
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the distribution configuration.
     """
@@ -104,7 +104,7 @@ def get_distribution_configuration(arn: Optional[_builtins.str] = None,
 def get_distribution_configuration_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
-    Resource schema for AWS::ImageBuilder::DistributionConfiguration
+    Resource Type definition for AWS::ImageBuilder::DistributionConfiguration
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the distribution configuration.
     """

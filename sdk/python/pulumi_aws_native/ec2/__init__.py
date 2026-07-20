@@ -96,6 +96,8 @@ from .get_transit_gateway_multicast_domain_association import *
 from .get_transit_gateway_multicast_group_member import *
 from .get_transit_gateway_multicast_group_source import *
 from .get_transit_gateway_peering_attachment import *
+from .get_transit_gateway_policy_table import *
+from .get_transit_gateway_policy_table_association import *
 from .get_transit_gateway_route_table import *
 from .get_transit_gateway_vpc_attachment import *
 from .get_verified_access_endpoint import *
@@ -183,6 +185,8 @@ from .transit_gateway_multicast_domain_association import *
 from .transit_gateway_multicast_group_member import *
 from .transit_gateway_multicast_group_source import *
 from .transit_gateway_peering_attachment import *
+from .transit_gateway_policy_table import *
+from .transit_gateway_policy_table_association import *
 from .transit_gateway_route import *
 from .transit_gateway_route_table import *
 from .transit_gateway_route_table_association import *

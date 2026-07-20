@@ -4372,6 +4372,430 @@ func (o IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type IntermediateTableAdditionalAnalyses string
+
+const (
+	IntermediateTableAdditionalAnalysesAllowed    = IntermediateTableAdditionalAnalyses("ALLOWED")
+	IntermediateTableAdditionalAnalysesRequired   = IntermediateTableAdditionalAnalyses("REQUIRED")
+	IntermediateTableAdditionalAnalysesNotAllowed = IntermediateTableAdditionalAnalyses("NOT_ALLOWED")
+)
+
+func (IntermediateTableAdditionalAnalyses) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToIntermediateTableAdditionalAnalysesOutput() IntermediateTableAdditionalAnalysesOutput {
+	return pulumi.ToOutput(e).(IntermediateTableAdditionalAnalysesOutput)
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToIntermediateTableAdditionalAnalysesOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntermediateTableAdditionalAnalysesOutput)
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToIntermediateTableAdditionalAnalysesPtrOutput() IntermediateTableAdditionalAnalysesPtrOutput {
+	return e.ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesPtrOutput {
+	return IntermediateTableAdditionalAnalyses(e).ToIntermediateTableAdditionalAnalysesOutputWithContext(ctx).ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(ctx)
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAdditionalAnalyses) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntermediateTableAdditionalAnalysesOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAdditionalAnalysesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToIntermediateTableAdditionalAnalysesOutput() IntermediateTableAdditionalAnalysesOutput {
+	return o
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToIntermediateTableAdditionalAnalysesOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesOutput {
+	return o
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToIntermediateTableAdditionalAnalysesPtrOutput() IntermediateTableAdditionalAnalysesPtrOutput {
+	return o.ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableAdditionalAnalyses) *IntermediateTableAdditionalAnalyses {
+		return &v
+	}).(IntermediateTableAdditionalAnalysesPtrOutput)
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAdditionalAnalyses) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAdditionalAnalysesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAdditionalAnalyses) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableAdditionalAnalysesPtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAdditionalAnalysesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableAdditionalAnalyses)(nil)).Elem()
+}
+
+func (o IntermediateTableAdditionalAnalysesPtrOutput) ToIntermediateTableAdditionalAnalysesPtrOutput() IntermediateTableAdditionalAnalysesPtrOutput {
+	return o
+}
+
+func (o IntermediateTableAdditionalAnalysesPtrOutput) ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesPtrOutput {
+	return o
+}
+
+func (o IntermediateTableAdditionalAnalysesPtrOutput) Elem() IntermediateTableAdditionalAnalysesOutput {
+	return o.ApplyT(func(v *IntermediateTableAdditionalAnalyses) IntermediateTableAdditionalAnalyses {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableAdditionalAnalyses
+		return ret
+	}).(IntermediateTableAdditionalAnalysesOutput)
+}
+
+func (o IntermediateTableAdditionalAnalysesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAdditionalAnalysesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntermediateTableAdditionalAnalyses) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntermediateTableAdditionalAnalysesInput is an input type that accepts values of the IntermediateTableAdditionalAnalyses enum
+// A concrete instance of `IntermediateTableAdditionalAnalysesInput` can be one of the following:
+//
+//	IntermediateTableAdditionalAnalysesAllowed
+//	IntermediateTableAdditionalAnalysesRequired
+//	IntermediateTableAdditionalAnalysesNotAllowed
+type IntermediateTableAdditionalAnalysesInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAdditionalAnalysesOutput() IntermediateTableAdditionalAnalysesOutput
+	ToIntermediateTableAdditionalAnalysesOutputWithContext(context.Context) IntermediateTableAdditionalAnalysesOutput
+}
+
+var intermediateTableAdditionalAnalysesPtrType = reflect.TypeOf((**IntermediateTableAdditionalAnalyses)(nil)).Elem()
+
+type IntermediateTableAdditionalAnalysesPtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAdditionalAnalysesPtrOutput() IntermediateTableAdditionalAnalysesPtrOutput
+	ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(context.Context) IntermediateTableAdditionalAnalysesPtrOutput
+}
+
+type intermediateTableAdditionalAnalysesPtr string
+
+func IntermediateTableAdditionalAnalysesPtr(v string) IntermediateTableAdditionalAnalysesPtrInput {
+	return (*intermediateTableAdditionalAnalysesPtr)(&v)
+}
+
+func (*intermediateTableAdditionalAnalysesPtr) ElementType() reflect.Type {
+	return intermediateTableAdditionalAnalysesPtrType
+}
+
+func (in *intermediateTableAdditionalAnalysesPtr) ToIntermediateTableAdditionalAnalysesPtrOutput() IntermediateTableAdditionalAnalysesPtrOutput {
+	return pulumi.ToOutput(in).(IntermediateTableAdditionalAnalysesPtrOutput)
+}
+
+func (in *intermediateTableAdditionalAnalysesPtr) ToIntermediateTableAdditionalAnalysesPtrOutputWithContext(ctx context.Context) IntermediateTableAdditionalAnalysesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntermediateTableAdditionalAnalysesPtrOutput)
+}
+
+type IntermediateTableAnalysisRuleType string
+
+const (
+	IntermediateTableAnalysisRuleTypeCustom = IntermediateTableAnalysisRuleType("CUSTOM")
+)
+
+func (IntermediateTableAnalysisRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRuleType)(nil)).Elem()
+}
+
+func (e IntermediateTableAnalysisRuleType) ToIntermediateTableAnalysisRuleTypeOutput() IntermediateTableAnalysisRuleTypeOutput {
+	return pulumi.ToOutput(e).(IntermediateTableAnalysisRuleTypeOutput)
+}
+
+func (e IntermediateTableAnalysisRuleType) ToIntermediateTableAnalysisRuleTypeOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntermediateTableAnalysisRuleTypeOutput)
+}
+
+func (e IntermediateTableAnalysisRuleType) ToIntermediateTableAnalysisRuleTypePtrOutput() IntermediateTableAnalysisRuleTypePtrOutput {
+	return e.ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAnalysisRuleType) ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypePtrOutput {
+	return IntermediateTableAnalysisRuleType(e).ToIntermediateTableAnalysisRuleTypeOutputWithContext(ctx).ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e IntermediateTableAnalysisRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAnalysisRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAnalysisRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAnalysisRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntermediateTableAnalysisRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRuleType)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToIntermediateTableAnalysisRuleTypeOutput() IntermediateTableAnalysisRuleTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToIntermediateTableAnalysisRuleTypeOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToIntermediateTableAnalysisRuleTypePtrOutput() IntermediateTableAnalysisRuleTypePtrOutput {
+	return o.ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableAnalysisRuleType) *IntermediateTableAnalysisRuleType {
+		return &v
+	}).(IntermediateTableAnalysisRuleTypePtrOutput)
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAnalysisRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAnalysisRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAnalysisRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableAnalysisRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableAnalysisRuleType)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRuleTypePtrOutput) ToIntermediateTableAnalysisRuleTypePtrOutput() IntermediateTableAnalysisRuleTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleTypePtrOutput) ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleTypePtrOutput) Elem() IntermediateTableAnalysisRuleTypeOutput {
+	return o.ApplyT(func(v *IntermediateTableAnalysisRuleType) IntermediateTableAnalysisRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableAnalysisRuleType
+		return ret
+	}).(IntermediateTableAnalysisRuleTypeOutput)
+}
+
+func (o IntermediateTableAnalysisRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAnalysisRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntermediateTableAnalysisRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntermediateTableAnalysisRuleTypeInput is an input type that accepts values of the IntermediateTableAnalysisRuleType enum
+// A concrete instance of `IntermediateTableAnalysisRuleTypeInput` can be one of the following:
+//
+//	IntermediateTableAnalysisRuleTypeCustom
+type IntermediateTableAnalysisRuleTypeInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRuleTypeOutput() IntermediateTableAnalysisRuleTypeOutput
+	ToIntermediateTableAnalysisRuleTypeOutputWithContext(context.Context) IntermediateTableAnalysisRuleTypeOutput
+}
+
+var intermediateTableAnalysisRuleTypePtrType = reflect.TypeOf((**IntermediateTableAnalysisRuleType)(nil)).Elem()
+
+type IntermediateTableAnalysisRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRuleTypePtrOutput() IntermediateTableAnalysisRuleTypePtrOutput
+	ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(context.Context) IntermediateTableAnalysisRuleTypePtrOutput
+}
+
+type intermediateTableAnalysisRuleTypePtr string
+
+func IntermediateTableAnalysisRuleTypePtr(v string) IntermediateTableAnalysisRuleTypePtrInput {
+	return (*intermediateTableAnalysisRuleTypePtr)(&v)
+}
+
+func (*intermediateTableAnalysisRuleTypePtr) ElementType() reflect.Type {
+	return intermediateTableAnalysisRuleTypePtrType
+}
+
+func (in *intermediateTableAnalysisRuleTypePtr) ToIntermediateTableAnalysisRuleTypePtrOutput() IntermediateTableAnalysisRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(IntermediateTableAnalysisRuleTypePtrOutput)
+}
+
+func (in *intermediateTableAnalysisRuleTypePtr) ToIntermediateTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntermediateTableAnalysisRuleTypePtrOutput)
+}
+
+type IntermediateTableStatus string
+
+const (
+	IntermediateTableStatusCreated                  = IntermediateTableStatus("CREATED")
+	IntermediateTableStatusPopulateStarted          = IntermediateTableStatus("POPULATE_STARTED")
+	IntermediateTableStatusPopulateSuccess          = IntermediateTableStatus("POPULATE_SUCCESS")
+	IntermediateTableStatusPopulateFailed           = IntermediateTableStatus("POPULATE_FAILED")
+	IntermediateTableStatusDisallowedByDataProvider = IntermediateTableStatus("DISALLOWED_BY_DATA_PROVIDER")
+	IntermediateTableStatusBaseTableRemoved         = IntermediateTableStatus("BASE_TABLE_REMOVED")
+)
+
+type IntermediateTableStatusOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableStatus)(nil)).Elem()
+}
+
+func (o IntermediateTableStatusOutput) ToIntermediateTableStatusOutput() IntermediateTableStatusOutput {
+	return o
+}
+
+func (o IntermediateTableStatusOutput) ToIntermediateTableStatusOutputWithContext(ctx context.Context) IntermediateTableStatusOutput {
+	return o
+}
+
+func (o IntermediateTableStatusOutput) ToIntermediateTableStatusPtrOutput() IntermediateTableStatusPtrOutput {
+	return o.ToIntermediateTableStatusPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableStatusOutput) ToIntermediateTableStatusPtrOutputWithContext(ctx context.Context) IntermediateTableStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableStatus) *IntermediateTableStatus {
+		return &v
+	}).(IntermediateTableStatusPtrOutput)
+}
+
+func (o IntermediateTableStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntermediateTableStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableStatus)(nil)).Elem()
+}
+
+func (o IntermediateTableStatusPtrOutput) ToIntermediateTableStatusPtrOutput() IntermediateTableStatusPtrOutput {
+	return o
+}
+
+func (o IntermediateTableStatusPtrOutput) ToIntermediateTableStatusPtrOutputWithContext(ctx context.Context) IntermediateTableStatusPtrOutput {
+	return o
+}
+
+func (o IntermediateTableStatusPtrOutput) Elem() IntermediateTableStatusOutput {
+	return o.ApplyT(func(v *IntermediateTableStatus) IntermediateTableStatus {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableStatus
+		return ret
+	}).(IntermediateTableStatusOutput)
+}
+
+func (o IntermediateTableStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntermediateTableStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type MembershipJobLogStatus string
 
 const (
@@ -5589,6 +6013,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodPtrInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodArrayInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethodArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAdditionalAnalysesInput)(nil)).Elem(), IntermediateTableAdditionalAnalyses("ALLOWED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAdditionalAnalysesPtrInput)(nil)).Elem(), IntermediateTableAdditionalAnalyses("ALLOWED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleTypeInput)(nil)).Elem(), IntermediateTableAnalysisRuleType("CUSTOM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleTypePtrInput)(nil)).Elem(), IntermediateTableAnalysisRuleType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobLogStatusInput)(nil)).Elem(), MembershipJobLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobLogStatusPtrInput)(nil)).Elem(), MembershipJobLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryLogStatusInput)(nil)).Elem(), MembershipQueryLogStatus("ENABLED"))
@@ -5658,6 +6086,12 @@ func init() {
 	pulumi.RegisterOutputType(IdMappingTableInputSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypeOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAdditionalAnalysesOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAdditionalAnalysesPtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleTypeOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableStatusOutput{})
+	pulumi.RegisterOutputType(IntermediateTableStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipJobLogStatusOutput{})
 	pulumi.RegisterOutputType(MembershipJobLogStatusPtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryLogStatusOutput{})

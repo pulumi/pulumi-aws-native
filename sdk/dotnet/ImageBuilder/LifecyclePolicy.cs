@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// Resource schema for AWS::ImageBuilder::LifecyclePolicy
+    /// Resource Type definition for AWS::ImageBuilder::LifecyclePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource

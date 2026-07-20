@@ -537,9 +537,6 @@ export const RuleAssignSlaActionSlaAssignmentType = {
     Cases: "CASES",
 } as const;
 
-/**
- * The type of SLA assignment.
- */
 export type RuleAssignSlaActionSlaAssignmentType = (typeof RuleAssignSlaActionSlaAssignmentType)[keyof typeof RuleAssignSlaActionSlaAssignmentType];
 
 export const RulePublishStatus = {

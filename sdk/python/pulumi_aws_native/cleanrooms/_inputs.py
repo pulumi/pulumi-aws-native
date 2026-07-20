@@ -128,6 +128,22 @@ __all__ = [
     'IdNamespaceAssociationIdMappingConfigArgsDict',
     'IdNamespaceAssociationInputReferenceConfigArgs',
     'IdNamespaceAssociationInputReferenceConfigArgsDict',
+    'IntermediateTableAnalysisRuleArgs',
+    'IntermediateTableAnalysisRuleArgsDict',
+    'IntermediateTableAnalysisRuleCustomArgs',
+    'IntermediateTableAnalysisRuleCustomArgsDict',
+    'IntermediateTableAnalysisRulePolicyArgs',
+    'IntermediateTableAnalysisRulePolicyArgsDict',
+    'IntermediateTableAnalysisRulePolicyV1PropertiesArgs',
+    'IntermediateTableAnalysisRulePolicyV1PropertiesArgsDict',
+    'IntermediateTableDifferentialPrivacyArgs',
+    'IntermediateTableDifferentialPrivacyArgsDict',
+    'IntermediateTableDifferentialPrivacyColumnArgs',
+    'IntermediateTableDifferentialPrivacyColumnArgsDict',
+    'IntermediateTablePopulationAnalysisConfigurationArgs',
+    'IntermediateTablePopulationAnalysisConfigurationArgsDict',
+    'IntermediateTablePopulationAnalysisSqlParametersArgs',
+    'IntermediateTablePopulationAnalysisSqlParametersArgsDict',
     'MembershipJobComputePaymentConfigArgs',
     'MembershipJobComputePaymentConfigArgsDict',
     'MembershipMlPaymentConfigArgs',
@@ -2332,6 +2348,250 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
     @manage_resource_policies.setter
     def manage_resource_policies(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "manage_resource_policies", value)
+
+
+class IntermediateTableAnalysisRuleArgsDict(TypedDict):
+    policy: pulumi.Input['IntermediateTableAnalysisRulePolicyArgsDict']
+    type: pulumi.Input['IntermediateTableAnalysisRuleType']
+
+@pulumi.input_type
+class IntermediateTableAnalysisRuleArgs:
+    def __init__(__self__, *,
+                 policy: pulumi.Input['IntermediateTableAnalysisRulePolicyArgs'],
+                 type: pulumi.Input['IntermediateTableAnalysisRuleType']):
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input['IntermediateTableAnalysisRulePolicyArgs']:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input['IntermediateTableAnalysisRulePolicyArgs']):
+        pulumi.set(self, "policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IntermediateTableAnalysisRuleType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IntermediateTableAnalysisRuleType']):
+        pulumi.set(self, "type", value)
+
+
+class IntermediateTableAnalysisRuleCustomArgsDict(TypedDict):
+    allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    additional_analyses: NotRequired[pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']]]
+    allowed_analysis_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_result_receivers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    differential_privacy: NotRequired[pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgsDict']]]
+    disallowed_output_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class IntermediateTableAnalysisRuleCustomArgs:
+    def __init__(__self__, *,
+                 allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 additional_analyses: pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']] = None,
+                 allowed_analysis_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_result_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 differential_privacy: pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgs']] = None,
+                 disallowed_output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "allowed_analyses", allowed_analyses)
+        if additional_analyses is not None:
+            pulumi.set(__self__, "additional_analyses", additional_analyses)
+        if allowed_analysis_providers is not None:
+            pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+        if allowed_result_receivers is not None:
+            pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+        if differential_privacy is not None:
+            pulumi.set(__self__, "differential_privacy", differential_privacy)
+        if disallowed_output_columns is not None:
+            pulumi.set(__self__, "disallowed_output_columns", disallowed_output_columns)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAnalyses")
+    def allowed_analyses(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_analyses")
+
+    @allowed_analyses.setter
+    def allowed_analyses(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_analyses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalAnalyses")
+    def additional_analyses(self) -> pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']]:
+        return pulumi.get(self, "additional_analyses")
+
+    @additional_analyses.setter
+    def additional_analyses(self, value: pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']]):
+        pulumi.set(self, "additional_analyses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAnalysisProviders")
+    def allowed_analysis_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_analysis_providers")
+
+    @allowed_analysis_providers.setter
+    def allowed_analysis_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_analysis_providers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResultReceivers")
+    def allowed_result_receivers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_result_receivers")
+
+    @allowed_result_receivers.setter
+    def allowed_result_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_result_receivers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="differentialPrivacy")
+    def differential_privacy(self) -> pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgs']]:
+        return pulumi.get(self, "differential_privacy")
+
+    @differential_privacy.setter
+    def differential_privacy(self, value: pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgs']]):
+        pulumi.set(self, "differential_privacy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedOutputColumns")
+    def disallowed_output_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "disallowed_output_columns")
+
+    @disallowed_output_columns.setter
+    def disallowed_output_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "disallowed_output_columns", value)
+
+
+class IntermediateTableAnalysisRulePolicyArgsDict(TypedDict):
+    v1: pulumi.Input['IntermediateTableAnalysisRulePolicyV1PropertiesArgsDict']
+
+@pulumi.input_type
+class IntermediateTableAnalysisRulePolicyArgs:
+    def __init__(__self__, *,
+                 v1: pulumi.Input['IntermediateTableAnalysisRulePolicyV1PropertiesArgs']):
+        pulumi.set(__self__, "v1", v1)
+
+    @_builtins.property
+    @pulumi.getter
+    def v1(self) -> pulumi.Input['IntermediateTableAnalysisRulePolicyV1PropertiesArgs']:
+        return pulumi.get(self, "v1")
+
+    @v1.setter
+    def v1(self, value: pulumi.Input['IntermediateTableAnalysisRulePolicyV1PropertiesArgs']):
+        pulumi.set(self, "v1", value)
+
+
+class IntermediateTableAnalysisRulePolicyV1PropertiesArgsDict(TypedDict):
+    custom: pulumi.Input['IntermediateTableAnalysisRuleCustomArgsDict']
+
+@pulumi.input_type
+class IntermediateTableAnalysisRulePolicyV1PropertiesArgs:
+    def __init__(__self__, *,
+                 custom: pulumi.Input['IntermediateTableAnalysisRuleCustomArgs']):
+        pulumi.set(__self__, "custom", custom)
+
+    @_builtins.property
+    @pulumi.getter
+    def custom(self) -> pulumi.Input['IntermediateTableAnalysisRuleCustomArgs']:
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: pulumi.Input['IntermediateTableAnalysisRuleCustomArgs']):
+        pulumi.set(self, "custom", value)
+
+
+class IntermediateTableDifferentialPrivacyArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input['IntermediateTableDifferentialPrivacyColumnArgsDict']]]
+
+@pulumi.input_type
+class IntermediateTableDifferentialPrivacyArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input['IntermediateTableDifferentialPrivacyColumnArgs']]]):
+        pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['IntermediateTableDifferentialPrivacyColumnArgs']]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['IntermediateTableDifferentialPrivacyColumnArgs']]]):
+        pulumi.set(self, "columns", value)
+
+
+class IntermediateTableDifferentialPrivacyColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class IntermediateTableDifferentialPrivacyColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+class IntermediateTablePopulationAnalysisConfigurationArgsDict(TypedDict):
+    sql_parameters: NotRequired[pulumi.Input[Optional['IntermediateTablePopulationAnalysisSqlParametersArgsDict']]]
+
+@pulumi.input_type
+class IntermediateTablePopulationAnalysisConfigurationArgs:
+    def __init__(__self__, *,
+                 sql_parameters: pulumi.Input[Optional['IntermediateTablePopulationAnalysisSqlParametersArgs']] = None):
+        if sql_parameters is not None:
+            pulumi.set(__self__, "sql_parameters", sql_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlParameters")
+    def sql_parameters(self) -> pulumi.Input[Optional['IntermediateTablePopulationAnalysisSqlParametersArgs']]:
+        return pulumi.get(self, "sql_parameters")
+
+    @sql_parameters.setter
+    def sql_parameters(self, value: pulumi.Input[Optional['IntermediateTablePopulationAnalysisSqlParametersArgs']]):
+        pulumi.set(self, "sql_parameters", value)
+
+
+class IntermediateTablePopulationAnalysisSqlParametersArgsDict(TypedDict):
+    analysis_template_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class IntermediateTablePopulationAnalysisSqlParametersArgs:
+    def __init__(__self__, *,
+                 analysis_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None):
+        if analysis_template_arn is not None:
+            pulumi.set(__self__, "analysis_template_arn", analysis_template_arn)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+
+    @_builtins.property
+    @pulumi.getter(name="analysisTemplateArn")
+    def analysis_template_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "analysis_template_arn")
+
+    @analysis_template_arn.setter
+    def analysis_template_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "analysis_template_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query_string", value)
 
 
 class MembershipJobComputePaymentConfigArgsDict(TypedDict):

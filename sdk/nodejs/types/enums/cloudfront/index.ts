@@ -163,3 +163,10 @@ export const TrustStoreStatus = {
  * The trust store's status.
  */
 export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
+
+export const VpcOriginEndpointConfigIpAddressType = {
+    Ipv4: "ipv4",
+    Dualstack: "dualstack",
+} as const;
+
+export type VpcOriginEndpointConfigIpAddressType = (typeof VpcOriginEndpointConfigIpAddressType)[keyof typeof VpcOriginEndpointConfigIpAddressType];

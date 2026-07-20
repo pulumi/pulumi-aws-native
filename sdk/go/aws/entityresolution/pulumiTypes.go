@@ -3021,6 +3021,8 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulumi
 }
 
 type MatchingWorkflowResolutionTechniques struct {
+	// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+	EnableRealTimeMatching *bool `pulumi:"enableRealTimeMatching"`
 	// The properties of the provider service.
 	ProviderProperties *MatchingWorkflowProviderProperties `pulumi:"providerProperties"`
 	// The type of matching workflow to create. Specify one of the following types:
@@ -3047,6 +3049,8 @@ type MatchingWorkflowResolutionTechniquesInput interface {
 }
 
 type MatchingWorkflowResolutionTechniquesArgs struct {
+	// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+	EnableRealTimeMatching pulumi.BoolPtrInput `pulumi:"enableRealTimeMatching"`
 	// The properties of the provider service.
 	ProviderProperties MatchingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 	// The type of matching workflow to create. Specify one of the following types:
@@ -3085,6 +3089,11 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolution
 
 func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolutionTechniquesOutputWithContext(ctx context.Context) MatchingWorkflowResolutionTechniquesOutput {
 	return o
+}
+
+// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+func (o MatchingWorkflowResolutionTechniquesOutput) EnableRealTimeMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *bool { return v.EnableRealTimeMatching }).(pulumi.BoolPtrOutput)
 }
 
 // The properties of the provider service.
@@ -3139,6 +3148,16 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) Elem() MatchingWorkflowRe
 		var ret MatchingWorkflowResolutionTechniques
 		return ret
 	}).(MatchingWorkflowResolutionTechniquesOutput)
+}
+
+// Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+func (o MatchingWorkflowResolutionTechniquesPtrOutput) EnableRealTimeMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableRealTimeMatching
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The properties of the provider service.

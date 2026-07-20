@@ -45,7 +45,8 @@ type Alarm struct {
 	EvaluationInterval pulumi.IntPtrOutput `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
+	EvaluationPeriods pulumi.IntPtrOutput            `pulumi:"evaluationPeriods"`
+	EvaluationWindow  AlarmEvaluationWindowPtrOutput `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -153,7 +154,8 @@ type alarmArgs struct {
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	EvaluationPeriods *int                   `pulumi:"evaluationPeriods"`
+	EvaluationWindow  *AlarmEvaluationWindow `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -220,6 +222,7 @@ type AlarmArgs struct {
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	EvaluationPeriods pulumi.IntPtrInput
+	EvaluationWindow  AlarmEvaluationWindowPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -360,6 +363,10 @@ func (o AlarmOutput) EvaluationInterval() pulumi.IntPtrOutput {
 //	For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 func (o AlarmOutput) EvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+func (o AlarmOutput) EvaluationWindow() AlarmEvaluationWindowPtrOutput {
+	return o.ApplyT(func(v *Alarm) AlarmEvaluationWindowPtrOutput { return v.EvaluationWindow }).(AlarmEvaluationWindowPtrOutput)
 }
 
 // The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

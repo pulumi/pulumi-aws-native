@@ -5326,32 +5326,19 @@ class RuleAssignContactCategoryActionArgs:
 
 class RuleAssignSlaActionArgsDict(TypedDict):
     case_sla_configuration: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgsDict']
-    """
-    The SLA configuration for cases.
-    """
     sla_assignment_type: pulumi.Input['RuleAssignSlaActionSlaAssignmentType']
-    """
-    The type of SLA assignment.
-    """
 
 @pulumi.input_type
 class RuleAssignSlaActionArgs:
     def __init__(__self__, *,
                  case_sla_configuration: pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs'],
                  sla_assignment_type: pulumi.Input['RuleAssignSlaActionSlaAssignmentType']):
-        """
-        :param pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs'] case_sla_configuration: The SLA configuration for cases.
-        :param pulumi.Input['RuleAssignSlaActionSlaAssignmentType'] sla_assignment_type: The type of SLA assignment.
-        """
         pulumi.set(__self__, "case_sla_configuration", case_sla_configuration)
         pulumi.set(__self__, "sla_assignment_type", sla_assignment_type)
 
     @_builtins.property
     @pulumi.getter(name="caseSlaConfiguration")
     def case_sla_configuration(self) -> pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs']:
-        """
-        The SLA configuration for cases.
-        """
         return pulumi.get(self, "case_sla_configuration")
 
     @case_sla_configuration.setter
@@ -5361,9 +5348,6 @@ class RuleAssignSlaActionArgs:
     @_builtins.property
     @pulumi.getter(name="slaAssignmentType")
     def sla_assignment_type(self) -> pulumi.Input['RuleAssignSlaActionSlaAssignmentType']:
-        """
-        The type of SLA assignment.
-        """
         return pulumi.get(self, "sla_assignment_type")
 
     @sla_assignment_type.setter
@@ -5372,9 +5356,6 @@ class RuleAssignSlaActionArgs:
 
 
 class RuleAssignSlaActionCaseSlaConfigurationPropertiesArgsDict(TypedDict):
-    """
-    The SLA configuration for cases.
-    """
     name: pulumi.Input[_builtins.str]
     """
     The name of the SLA.
@@ -5405,8 +5386,6 @@ class RuleAssignSlaActionCaseSlaConfigurationPropertiesArgs:
                  field_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_field_values: pulumi.Input[Optional[Sequence[pulumi.Input['RuleSlaTargetFieldValueArgs']]]] = None):
         """
-        The SLA configuration for cases.
-
         :param pulumi.Input[_builtins.str] name: The name of the SLA.
         :param pulumi.Input[_builtins.float] target_sla_minutes: The target SLA time in minutes.
         :param pulumi.Input['RuleAssignSlaActionCaseSlaConfigurationPropertiesType'] type: The type of SLA.

@@ -78,6 +78,8 @@ type LookupBrokerResult struct {
 	//
 	// `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 	StompEndpoints []string `pulumi:"stompEndpoints"`
+	// The broker's storage size in GB.
+	StorageSize *int `pulumi:"storageSize"`
 	// Create tags when creating the broker.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The WSS endpoints of each broker instance as a list of strings.
@@ -222,6 +224,11 @@ func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 // `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
 func (o LookupBrokerResultOutput) StompEndpoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.StompEndpoints }).(pulumi.StringArrayOutput)
+}
+
+// The broker's storage size in GB.
+func (o LookupBrokerResultOutput) StorageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupBrokerResult) *int { return v.StorageSize }).(pulumi.IntPtrOutput)
 }
 
 // Create tags when creating the broker.

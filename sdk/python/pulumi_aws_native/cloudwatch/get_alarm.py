@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAlarmResult:
-    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
+    def __init__(__self__, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, datapoints_to_alarm=None, dimensions=None, evaluate_low_sample_count_percentile=None, evaluation_criteria=None, evaluation_interval=None, evaluation_periods=None, evaluation_window=None, extended_statistic=None, insufficient_data_actions=None, metric_name=None, metrics=None, namespace=None, ok_actions=None, period=None, statistic=None, tags=None, threshold=None, threshold_metric_id=None, treat_missing_data=None, unit=None):
         if actions_enabled and not isinstance(actions_enabled, bool):
             raise TypeError("Expected argument 'actions_enabled' to be a bool")
         pulumi.set(__self__, "actions_enabled", actions_enabled)
@@ -59,6 +59,9 @@ class GetAlarmResult:
         if evaluation_periods and not isinstance(evaluation_periods, int):
             raise TypeError("Expected argument 'evaluation_periods' to be a int")
         pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if evaluation_window and not isinstance(evaluation_window, dict):
+            raise TypeError("Expected argument 'evaluation_window' to be a dict")
+        pulumi.set(__self__, "evaluation_window", evaluation_window)
         if extended_statistic and not isinstance(extended_statistic, str):
             raise TypeError("Expected argument 'extended_statistic' to be a str")
         pulumi.set(__self__, "extended_statistic", extended_statistic)
@@ -188,6 +191,11 @@ class GetAlarmResult:
          For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
         """
         return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter(name="evaluationWindow")
+    def evaluation_window(self) -> Optional['outputs.AlarmEvaluationWindow']:
+        return pulumi.get(self, "evaluation_window")
 
     @_builtins.property
     @pulumi.getter(name="extendedStatistic")
@@ -322,6 +330,7 @@ class AwaitableGetAlarmResult(GetAlarmResult):
             evaluation_criteria=self.evaluation_criteria,
             evaluation_interval=self.evaluation_interval,
             evaluation_periods=self.evaluation_periods,
+            evaluation_window=self.evaluation_window,
             extended_statistic=self.extended_statistic,
             insufficient_data_actions=self.insufficient_data_actions,
             metric_name=self.metric_name,
@@ -364,6 +373,7 @@ def get_alarm(alarm_name: Optional[_builtins.str] = None,
         evaluation_criteria=pulumi.get(__ret__, 'evaluation_criteria'),
         evaluation_interval=pulumi.get(__ret__, 'evaluation_interval'),
         evaluation_periods=pulumi.get(__ret__, 'evaluation_periods'),
+        evaluation_window=pulumi.get(__ret__, 'evaluation_window'),
         extended_statistic=pulumi.get(__ret__, 'extended_statistic'),
         insufficient_data_actions=pulumi.get(__ret__, 'insufficient_data_actions'),
         metric_name=pulumi.get(__ret__, 'metric_name'),
@@ -403,6 +413,7 @@ def get_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
         evaluation_criteria=pulumi.get(__response__, 'evaluation_criteria'),
         evaluation_interval=pulumi.get(__response__, 'evaluation_interval'),
         evaluation_periods=pulumi.get(__response__, 'evaluation_periods'),
+        evaluation_window=pulumi.get(__response__, 'evaluation_window'),
         extended_statistic=pulumi.get(__response__, 'extended_statistic'),
         insufficient_data_actions=pulumi.get(__response__, 'insufficient_data_actions'),
         metric_name=pulumi.get(__response__, 'metric_name'),

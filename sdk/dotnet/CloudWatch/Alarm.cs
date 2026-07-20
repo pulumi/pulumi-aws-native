@@ -92,6 +92,9 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("evaluationPeriods")]
         public Output<int?> EvaluationPeriods { get; private set; } = null!;
 
+        [Output("evaluationWindow")]
+        public Output<Outputs.AlarmEvaluationWindow?> EvaluationWindow { get; private set; } = null!;
+
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         ///  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
@@ -310,6 +313,9 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("evaluationPeriods")]
         public Input<int>? EvaluationPeriods { get; set; }
+
+        [Input("evaluationWindow")]
+        public Input<Inputs.AlarmEvaluationWindowArgs>? EvaluationWindow { get; set; }
 
         /// <summary>
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.

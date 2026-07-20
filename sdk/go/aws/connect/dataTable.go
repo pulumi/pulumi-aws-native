@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -23,7 +24,7 @@ type DataTable struct {
 	// The description of the Data Table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier of the Amazon Connect instance.
-	InstanceArn pulumi.StringPtrOutput `pulumi:"instanceArn"`
+	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// Last modified region.
 	LastModifiedRegion pulumi.StringOutput `pulumi:"lastModifiedRegion"`
 	// Last modified time.
@@ -31,24 +32,36 @@ type DataTable struct {
 	// The lock version of the Data Table
 	LockVersion LockVersionPropertiesOutput `pulumi:"lockVersion"`
 	// The name of the Data Table
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the Data Table
-	Status DataTableStatusPtrOutput `pulumi:"status"`
+	Status DataTableStatusOutput `pulumi:"status"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The time zone of the Data Table
-	TimeZone pulumi.StringPtrOutput `pulumi:"timeZone"`
+	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 	// The value lock level of the Data Table
-	ValueLockLevel DataTableValueLockLevelPtrOutput `pulumi:"valueLockLevel"`
+	ValueLockLevel DataTableValueLockLevelOutput `pulumi:"valueLockLevel"`
 }
 
 // NewDataTable registers a new resource with the given unique name, arguments, and options.
 func NewDataTable(ctx *pulumi.Context,
 	name string, args *DataTableArgs, opts ...pulumi.ResourceOption) (*DataTable, error) {
 	if args == nil {
-		args = &DataTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.InstanceArn == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceArn'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
+	}
+	if args.TimeZone == nil {
+		return nil, errors.New("invalid value for required argument 'TimeZone'")
+	}
+	if args.ValueLockLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ValueLockLevel'")
+	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"instanceArn",
 		"status",
@@ -90,17 +103,17 @@ type dataTableArgs struct {
 	// The description of the Data Table.
 	Description *string `pulumi:"description"`
 	// The identifier of the Amazon Connect instance.
-	InstanceArn *string `pulumi:"instanceArn"`
+	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the Data Table
 	Name *string `pulumi:"name"`
 	// The status of the Data Table
-	Status *DataTableStatus `pulumi:"status"`
+	Status DataTableStatus `pulumi:"status"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The time zone of the Data Table
-	TimeZone *string `pulumi:"timeZone"`
+	TimeZone string `pulumi:"timeZone"`
 	// The value lock level of the Data Table
-	ValueLockLevel *DataTableValueLockLevel `pulumi:"valueLockLevel"`
+	ValueLockLevel DataTableValueLockLevel `pulumi:"valueLockLevel"`
 }
 
 // The set of arguments for constructing a DataTable resource.
@@ -108,17 +121,17 @@ type DataTableArgs struct {
 	// The description of the Data Table.
 	Description pulumi.StringPtrInput
 	// The identifier of the Amazon Connect instance.
-	InstanceArn pulumi.StringPtrInput
+	InstanceArn pulumi.StringInput
 	// The name of the Data Table
 	Name pulumi.StringPtrInput
 	// The status of the Data Table
-	Status DataTableStatusPtrInput
+	Status DataTableStatusInput
 	// One or more tags.
 	Tags aws.TagArrayInput
 	// The time zone of the Data Table
-	TimeZone pulumi.StringPtrInput
+	TimeZone pulumi.StringInput
 	// The value lock level of the Data Table
-	ValueLockLevel DataTableValueLockLevelPtrInput
+	ValueLockLevel DataTableValueLockLevelInput
 }
 
 func (DataTableArgs) ElementType() reflect.Type {
@@ -174,8 +187,8 @@ func (o DataTableOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The identifier of the Amazon Connect instance.
-func (o DataTableOutput) InstanceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataTable) pulumi.StringPtrOutput { return v.InstanceArn }).(pulumi.StringPtrOutput)
+func (o DataTableOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataTable) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
 // Last modified region.
@@ -194,13 +207,13 @@ func (o DataTableOutput) LockVersion() LockVersionPropertiesOutput {
 }
 
 // The name of the Data Table
-func (o DataTableOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataTable) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o DataTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // The status of the Data Table
-func (o DataTableOutput) Status() DataTableStatusPtrOutput {
-	return o.ApplyT(func(v *DataTable) DataTableStatusPtrOutput { return v.Status }).(DataTableStatusPtrOutput)
+func (o DataTableOutput) Status() DataTableStatusOutput {
+	return o.ApplyT(func(v *DataTable) DataTableStatusOutput { return v.Status }).(DataTableStatusOutput)
 }
 
 // One or more tags.
@@ -209,13 +222,13 @@ func (o DataTableOutput) Tags() aws.TagArrayOutput {
 }
 
 // The time zone of the Data Table
-func (o DataTableOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataTable) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+func (o DataTableOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataTable) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
 }
 
 // The value lock level of the Data Table
-func (o DataTableOutput) ValueLockLevel() DataTableValueLockLevelPtrOutput {
-	return o.ApplyT(func(v *DataTable) DataTableValueLockLevelPtrOutput { return v.ValueLockLevel }).(DataTableValueLockLevelPtrOutput)
+func (o DataTableOutput) ValueLockLevel() DataTableValueLockLevelOutput {
+	return o.ApplyT(func(v *DataTable) DataTableValueLockLevelOutput { return v.ValueLockLevel }).(DataTableValueLockLevelOutput)
 }
 
 func init() {

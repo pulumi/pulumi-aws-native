@@ -393,6 +393,7 @@ type CapacityProviderPredefinedMetricType string
 
 const (
 	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageCpuUtilization = CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization")
+	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageGpuUtilization = CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageGPUUtilization")
 )
 
 func (CapacityProviderPredefinedMetricType) ElementType() reflect.Type {
@@ -518,6 +519,7 @@ func (o CapacityProviderPredefinedMetricTypePtrOutput) ToStringPtrOutputWithCont
 // A concrete instance of `CapacityProviderPredefinedMetricTypeInput` can be one of the following:
 //
 //	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageCpuUtilization
+//	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageGpuUtilization
 type CapacityProviderPredefinedMetricTypeInput interface {
 	pulumi.Input
 

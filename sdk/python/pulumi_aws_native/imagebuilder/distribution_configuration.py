@@ -103,7 +103,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::DistributionConfiguration
+        Resource Type definition for AWS::ImageBuilder::DistributionConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  args: DistributionConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::DistributionConfiguration
+        Resource Type definition for AWS::ImageBuilder::DistributionConfiguration
 
         :param str resource_name: The name of the resource.
         :param DistributionConfigurationArgs args: The arguments to use to populate this resource's properties.

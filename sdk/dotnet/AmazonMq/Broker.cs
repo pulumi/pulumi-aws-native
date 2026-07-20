@@ -437,6 +437,12 @@ namespace Pulumi.AwsNative.AmazonMq
         public Output<ImmutableArray<string>> StompEndpoints { get; private set; } = null!;
 
         /// <summary>
+        /// The broker's storage size in GB.
+        /// </summary>
+        [Output("storageSize")]
+        public Output<int?> StorageSize { get; private set; } = null!;
+
+        /// <summary>
         /// The broker's storage type.
         /// </summary>
         [Output("storageType")]
@@ -649,6 +655,12 @@ namespace Pulumi.AwsNative.AmazonMq
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
+
+        /// <summary>
+        /// The broker's storage size in GB.
+        /// </summary>
+        [Input("storageSize")]
+        public Input<int>? StorageSize { get; set; }
 
         /// <summary>
         /// The broker's storage type.

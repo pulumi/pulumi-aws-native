@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
 export { DataMigrationArgs } from "./dataMigration";
 export type DataMigration = import("./dataMigration").DataMigration;
 export const DataMigration: typeof import("./dataMigration").DataMigration = null as any;
@@ -14,6 +19,11 @@ export { DataProviderArgs } from "./dataProvider";
 export type DataProvider = import("./dataProvider").DataProvider;
 export const DataProvider: typeof import("./dataProvider").DataProvider = null as any;
 utilities.lazyLoad(exports, ["DataProvider"], () => require("./dataProvider"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetDataMigrationArgs, GetDataMigrationResult, GetDataMigrationOutputArgs } from "./getDataMigration";
 export const getDataMigration: typeof import("./getDataMigration").getDataMigration = null as any;
@@ -63,6 +73,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:dms:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
             case "aws-native:dms:DataMigration":
                 return new DataMigration(name, <any>undefined, { urn })
             case "aws-native:dms:DataProvider":

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
     public sealed class LogAlarmScheduleConfiguration
     {
         /// <summary>
-        /// The number of seconds into the past to end the query window.
+        /// The number of seconds into the past to end the query window. Must be a non-negative value and cannot exceed 2592000 seconds (30 days).
         /// </summary>
         public readonly int? EndTimeOffset;
         /// <summary>
@@ -25,9 +25,9 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         /// </summary>
         public readonly string ScheduleExpression;
         /// <summary>
-        /// The number of seconds into the past to start the query window.
+        /// The number of seconds into the past to start the query window. Must be a positive value and cannot exceed 2592000 seconds (30 days).
         /// </summary>
-        public readonly int? StartTimeOffset;
+        public readonly int StartTimeOffset;
 
         [OutputConstructor]
         private LogAlarmScheduleConfiguration(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
 
             string scheduleExpression,
 
-            int? startTimeOffset)
+            int startTimeOffset)
         {
             EndTimeOffset = endTimeOffset;
             ScheduleExpression = scheduleExpression;

@@ -1208,7 +1208,9 @@ class MatchingWorkflowResolutionTechniques(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "providerProperties":
+        if key == "enableRealTimeMatching":
+            suggest = "enable_real_time_matching"
+        elif key == "providerProperties":
             suggest = "provider_properties"
         elif key == "resolutionType":
             suggest = "resolution_type"
@@ -1229,11 +1231,13 @@ class MatchingWorkflowResolutionTechniques(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 enable_real_time_matching: Optional[_builtins.bool] = None,
                  provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
                  resolution_type: Optional['MatchingWorkflowResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None,
                  rule_condition_properties: Optional['outputs.MatchingWorkflowRuleConditionProperties'] = None):
         """
+        :param _builtins.bool enable_real_time_matching: Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
         :param 'MatchingWorkflowProviderProperties' provider_properties: The properties of the provider service.
         :param 'MatchingWorkflowResolutionType' resolution_type: The type of matching workflow to create. Specify one of the following types:
                
@@ -1243,6 +1247,8 @@ class MatchingWorkflowResolutionTechniques(dict):
         :param 'MatchingWorkflowRuleBasedProperties' rule_based_properties: An object which defines the list of matching rules to run and has a field `rules` , which is a list of rule objects.
         :param 'MatchingWorkflowRuleConditionProperties' rule_condition_properties: An object containing the `rules` for a matching workflow.
         """
+        if enable_real_time_matching is not None:
+            pulumi.set(__self__, "enable_real_time_matching", enable_real_time_matching)
         if provider_properties is not None:
             pulumi.set(__self__, "provider_properties", provider_properties)
         if resolution_type is not None:
@@ -1251,6 +1257,14 @@ class MatchingWorkflowResolutionTechniques(dict):
             pulumi.set(__self__, "rule_based_properties", rule_based_properties)
         if rule_condition_properties is not None:
             pulumi.set(__self__, "rule_condition_properties", rule_condition_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="enableRealTimeMatching")
+    def enable_real_time_matching(self) -> Optional[_builtins.bool]:
+        """
+        Enables the workflow to use real-time matching. Can only be set on creation for RULE_MATCHING workflows that define RuleConditionProperties.
+        """
+        return pulumi.get(self, "enable_real_time_matching")
 
     @_builtins.property
     @pulumi.getter(name="providerProperties")

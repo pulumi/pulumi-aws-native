@@ -99,15 +99,23 @@ __all__ = [
     'TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType',
     'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
     'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
+    'VpcEncryptionControlEgressOnlyInternetGatewayExclusion',
     'VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput',
+    'VpcEncryptionControlElasticFileSystemExclusion',
     'VpcEncryptionControlElasticFileSystemExclusionInput',
+    'VpcEncryptionControlInternetGatewayExclusion',
     'VpcEncryptionControlInternetGatewayExclusionInput',
+    'VpcEncryptionControlLambdaExclusion',
     'VpcEncryptionControlLambdaExclusionInput',
     'VpcEncryptionControlMode',
+    'VpcEncryptionControlNatGatewayExclusion',
     'VpcEncryptionControlNatGatewayExclusionInput',
     'VpcEncryptionControlState',
+    'VpcEncryptionControlVirtualPrivateGatewayExclusion',
     'VpcEncryptionControlVirtualPrivateGatewayExclusionInput',
+    'VpcEncryptionControlVpcLatticeExclusion',
     'VpcEncryptionControlVpcLatticeExclusionInput',
+    'VpcEncryptionControlVpcPeeringExclusion',
     'VpcEncryptionControlVpcPeeringExclusionInput',
     'VpcEndpointDnsOptionsSpecificationDnsRecordIpType',
     'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint',
@@ -1184,10 +1192,28 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(_builtins.str, Enum):
     BLOCK_INGRESS = "block-ingress"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlEgressOnlyInternetGatewayExclusion")
+class VpcEncryptionControlEgressOnlyInternetGatewayExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for Egress-Only Internet Gateways.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput")
 class VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput(_builtins.str, Enum):
     """
     Used to enable or disable EIGW exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlElasticFileSystemExclusion")
+class VpcEncryptionControlElasticFileSystemExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for Elastic File System.
     """
     ENABLE = "enable"
     DISABLE = "disable"
@@ -1202,10 +1228,28 @@ class VpcEncryptionControlElasticFileSystemExclusionInput(_builtins.str, Enum):
     DISABLE = "disable"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlInternetGatewayExclusion")
+class VpcEncryptionControlInternetGatewayExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for Internet Gateways.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlInternetGatewayExclusionInput")
 class VpcEncryptionControlInternetGatewayExclusionInput(_builtins.str, Enum):
     """
     Used to enable or disable IGW exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlLambdaExclusion")
+class VpcEncryptionControlLambdaExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for Lambda.
     """
     ENABLE = "enable"
     DISABLE = "disable"
@@ -1227,6 +1271,15 @@ class VpcEncryptionControlMode(_builtins.str, Enum):
     """
     MONITOR = "monitor"
     ENFORCE = "enforce"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlNatGatewayExclusion")
+class VpcEncryptionControlNatGatewayExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for NAT Gateways.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
 
 
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlNatGatewayExclusionInput")
@@ -1254,6 +1307,15 @@ class VpcEncryptionControlState(_builtins.str, Enum):
     DELETE_FAILED = "delete-failed"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVirtualPrivateGatewayExclusion")
+class VpcEncryptionControlVirtualPrivateGatewayExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for Virtual Private Gateways.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlVirtualPrivateGatewayExclusionInput")
 class VpcEncryptionControlVirtualPrivateGatewayExclusionInput(_builtins.str, Enum):
     """
@@ -1263,10 +1325,28 @@ class VpcEncryptionControlVirtualPrivateGatewayExclusionInput(_builtins.str, Enu
     DISABLE = "disable"
 
 
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcLatticeExclusion")
+class VpcEncryptionControlVpcLatticeExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for VPC Lattice.
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
 @pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcLatticeExclusionInput")
 class VpcEncryptionControlVpcLatticeExclusionInput(_builtins.str, Enum):
     """
     Used to enable or disable Vpc Lattice exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcPeeringExclusion")
+class VpcEncryptionControlVpcPeeringExclusion(_builtins.str, Enum):
+    """
+    The desired exclusion mode for VPC Peering.
     """
     ENABLE = "enable"
     DISABLE = "disable"

@@ -189,6 +189,7 @@
   "tagging" : {
     "taggable" : false
   },
+  "required" : [ "InstanceArn", "DataTableArn", "Name", "ValueType" ],
   "primaryIdentifier" : [ "/properties/InstanceArn", "/properties/DataTableArn", "/properties/AttributeId" ],
   "additionalIdentifiers" : [ [ "/properties/InstanceArn", "/properties/DataTableArn", "/properties/Name" ] ],
   "additionalProperties" : false

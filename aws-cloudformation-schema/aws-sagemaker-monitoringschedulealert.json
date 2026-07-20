@@ -1,0 +1,110 @@
+{
+  "typeName" : "AWS::SageMaker::MonitoringScheduleAlert",
+  "description" : "Resource type definition for AWS::SageMaker::MonitoringScheduleAlert. A monitoring alert associated with a SageMaker monitoring schedule.",
+  "definitions" : {
+    "ModelDashboardIndicatorAction" : {
+      "type" : "object",
+      "description" : "An alert action taken to light up an icon on the Amazon SageMaker Model Dashboard when an alert goes into InAlert status.",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean",
+          "description" : "Indicates whether the alert action is turned on."
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MonitoringAlertActions" : {
+      "type" : "object",
+      "description" : "A list of alert actions taken in response to an alert going into InAlert status.",
+      "properties" : {
+        "ModelDashboardIndicator" : {
+          "$ref" : "#/definitions/ModelDashboardIndicatorAction"
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "Arn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the monitoring schedule alert.",
+      "maxLength" : 256
+    },
+    "MonitoringScheduleName" : {
+      "type" : "string",
+      "description" : "The name of the monitoring schedule.",
+      "minLength" : 1,
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "MonitoringAlertName" : {
+      "type" : "string",
+      "description" : "The name of the monitoring alert.",
+      "minLength" : 1,
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "DatapointsToAlert" : {
+      "type" : "integer",
+      "description" : "Within EvaluationPeriod, how many execution failures will raise an alert.",
+      "minimum" : 1,
+      "maximum" : 100
+    },
+    "EvaluationPeriod" : {
+      "type" : "integer",
+      "description" : "The number of most recent monitoring executions to consider when evaluating alert status.",
+      "minimum" : 1,
+      "maximum" : 100
+    },
+    "AlertStatus" : {
+      "type" : "string",
+      "description" : "The current status of the alert.",
+      "enum" : [ "InAlert", "OK" ]
+    },
+    "CreationTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "A timestamp that indicates when the alert was created."
+    },
+    "LastModifiedTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "A timestamp that indicates when the alert was last updated."
+    },
+    "Actions" : {
+      "$ref" : "#/definitions/MonitoringAlertActions",
+      "description" : "A list of alert actions taken in response to an alert going into InAlert status."
+    }
+  },
+  "required" : [ "MonitoringScheduleName", "MonitoringAlertName", "DatapointsToAlert", "EvaluationPeriod" ],
+  "createOnlyProperties" : [ "/properties/DatapointsToAlert", "/properties/EvaluationPeriod", "/properties/MonitoringAlertName", "/properties/MonitoringScheduleName" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/AlertStatus", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/Actions" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "additionalIdentifiers" : [ [ "/properties/MonitoringScheduleName", "/properties/MonitoringAlertName" ] ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "sagemaker:ListMonitoringAlerts" ]
+    },
+    "list" : {
+      "permissions" : [ "sagemaker:ListMonitoringAlerts" ],
+      "handlerSchema" : {
+        "properties" : {
+          "MonitoringScheduleName" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 63,
+            "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+          }
+        },
+        "required" : [ "MonitoringScheduleName" ]
+      }
+    }
+  },
+  "additionalProperties" : false
+}

@@ -25,7 +25,7 @@
     "CapacityProviderPredefinedMetricType" : {
       "description" : "The predefined metric for target tracking.",
       "type" : "string",
-      "enum" : [ "LambdaCapacityProviderAverageCPUUtilization" ]
+      "enum" : [ "LambdaCapacityProviderAverageCPUUtilization", "LambdaCapacityProviderAverageGPUUtilization" ]
     },
     "CapacityProviderScalingConfig" : {
       "description" : "Configuration that defines how the capacity provider scales compute instances based on demand and policies.",

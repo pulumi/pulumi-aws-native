@@ -142,6 +142,10 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public readonly ImmutableArray<string> StompEndpoints;
         /// <summary>
+        /// The broker's storage size in GB.
+        /// </summary>
+        public readonly int? StorageSize;
+        /// <summary>
         /// Create tags when creating the broker.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -192,6 +196,8 @@ namespace Pulumi.AwsNative.AmazonMq
 
             ImmutableArray<string> stompEndpoints,
 
+            int? storageSize,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableArray<string> wssEndpoints)
@@ -215,6 +221,7 @@ namespace Pulumi.AwsNative.AmazonMq
             ResourceShareArns = resourceShareArns;
             SecurityGroups = securityGroups;
             StompEndpoints = stompEndpoints;
+            StorageSize = storageSize;
             Tags = tags;
             WssEndpoints = wssEndpoints;
         }

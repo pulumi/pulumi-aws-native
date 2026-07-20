@@ -10,6 +10,180 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The status of the action.
+type ActionStatus string
+
+const (
+	ActionStatusUnknown    = ActionStatus("Unknown")
+	ActionStatusInProgress = ActionStatus("InProgress")
+	ActionStatusCompleted  = ActionStatus("Completed")
+	ActionStatusFailed     = ActionStatus("Failed")
+	ActionStatusStopping   = ActionStatus("Stopping")
+	ActionStatusStopped    = ActionStatus("Stopped")
+)
+
+func (ActionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionStatus)(nil)).Elem()
+}
+
+func (e ActionStatus) ToActionStatusOutput() ActionStatusOutput {
+	return pulumi.ToOutput(e).(ActionStatusOutput)
+}
+
+func (e ActionStatus) ToActionStatusOutputWithContext(ctx context.Context) ActionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionStatusOutput)
+}
+
+func (e ActionStatus) ToActionStatusPtrOutput() ActionStatusPtrOutput {
+	return e.ToActionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ActionStatus) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
+	return ActionStatus(e).ToActionStatusOutputWithContext(ctx).ToActionStatusPtrOutputWithContext(ctx)
+}
+
+func (e ActionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ActionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionStatusOutput struct{ *pulumi.OutputState }
+
+func (ActionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionStatus)(nil)).Elem()
+}
+
+func (o ActionStatusOutput) ToActionStatusOutput() ActionStatusOutput {
+	return o
+}
+
+func (o ActionStatusOutput) ToActionStatusOutputWithContext(ctx context.Context) ActionStatusOutput {
+	return o
+}
+
+func (o ActionStatusOutput) ToActionStatusPtrOutput() ActionStatusPtrOutput {
+	return o.ToActionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ActionStatusOutput) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionStatus) *ActionStatus {
+		return &v
+	}).(ActionStatusPtrOutput)
+}
+
+func (o ActionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionStatus)(nil)).Elem()
+}
+
+func (o ActionStatusPtrOutput) ToActionStatusPtrOutput() ActionStatusPtrOutput {
+	return o
+}
+
+func (o ActionStatusPtrOutput) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
+	return o
+}
+
+func (o ActionStatusPtrOutput) Elem() ActionStatusOutput {
+	return o.ApplyT(func(v *ActionStatus) ActionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ActionStatus
+		return ret
+	}).(ActionStatusOutput)
+}
+
+func (o ActionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionStatusInput is an input type that accepts values of the ActionStatus enum
+// A concrete instance of `ActionStatusInput` can be one of the following:
+//
+//	ActionStatusUnknown
+//	ActionStatusInProgress
+//	ActionStatusCompleted
+//	ActionStatusFailed
+//	ActionStatusStopping
+//	ActionStatusStopped
+type ActionStatusInput interface {
+	pulumi.Input
+
+	ToActionStatusOutput() ActionStatusOutput
+	ToActionStatusOutputWithContext(context.Context) ActionStatusOutput
+}
+
+var actionStatusPtrType = reflect.TypeOf((**ActionStatus)(nil)).Elem()
+
+type ActionStatusPtrInput interface {
+	pulumi.Input
+
+	ToActionStatusPtrOutput() ActionStatusPtrOutput
+	ToActionStatusPtrOutputWithContext(context.Context) ActionStatusPtrOutput
+}
+
+type actionStatusPtr string
+
+func ActionStatusPtr(v string) ActionStatusPtrInput {
+	return (*actionStatusPtr)(&v)
+}
+
+func (*actionStatusPtr) ElementType() reflect.Type {
+	return actionStatusPtrType
+}
+
+func (in *actionStatusPtr) ToActionStatusPtrOutput() ActionStatusPtrOutput {
+	return pulumi.ToOutput(in).(ActionStatusPtrOutput)
+}
+
+func (in *actionStatusPtr) ToActionStatusPtrOutputWithContext(ctx context.Context) ActionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionStatusPtrOutput)
+}
+
 type AlgorithmChannelSpecificationSupportedCompressionTypesItem string
 
 const (
@@ -7731,6 +7905,178 @@ func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPor
 
 func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+// The status of the trial component.
+type ExperimentTrialComponentStatusPropertiesPrimaryStatus string
+
+const (
+	ExperimentTrialComponentStatusPropertiesPrimaryStatusInProgress = ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress")
+	ExperimentTrialComponentStatusPropertiesPrimaryStatusCompleted  = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Completed")
+	ExperimentTrialComponentStatusPropertiesPrimaryStatusFailed     = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Failed")
+	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopping   = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopping")
+	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopped    = ExperimentTrialComponentStatusPropertiesPrimaryStatus("Stopped")
+)
+
+func (ExperimentTrialComponentStatusPropertiesPrimaryStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
+	return pulumi.ToOutput(e).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return e.ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return ExperimentTrialComponentStatusPropertiesPrimaryStatus(e).ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx).ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx)
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ExperimentTrialComponentStatusPropertiesPrimaryStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
+	return o
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
+	return o
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return o.ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTrialComponentStatusPropertiesPrimaryStatus) *ExperimentTrialComponentStatusPropertiesPrimaryStatus {
+		return &v
+	}).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentTrialComponentStatusPropertiesPrimaryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentTrialComponentStatusPropertiesPrimaryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) Elem() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput {
+	return o.ApplyT(func(v *ExperimentTrialComponentStatusPropertiesPrimaryStatus) ExperimentTrialComponentStatusPropertiesPrimaryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTrialComponentStatusPropertiesPrimaryStatus
+		return ret
+	}).(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput)
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExperimentTrialComponentStatusPropertiesPrimaryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ExperimentTrialComponentStatusPropertiesPrimaryStatusInput is an input type that accepts values of the ExperimentTrialComponentStatusPropertiesPrimaryStatus enum
+// A concrete instance of `ExperimentTrialComponentStatusPropertiesPrimaryStatusInput` can be one of the following:
+//
+//	ExperimentTrialComponentStatusPropertiesPrimaryStatusInProgress
+//	ExperimentTrialComponentStatusPropertiesPrimaryStatusCompleted
+//	ExperimentTrialComponentStatusPropertiesPrimaryStatusFailed
+//	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopping
+//	ExperimentTrialComponentStatusPropertiesPrimaryStatusStopped
+type ExperimentTrialComponentStatusPropertiesPrimaryStatusInput interface {
+	pulumi.Input
+
+	ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput
+	ToExperimentTrialComponentStatusPropertiesPrimaryStatusOutputWithContext(context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput
+}
+
+var experimentTrialComponentStatusPropertiesPrimaryStatusPtrType = reflect.TypeOf((**ExperimentTrialComponentStatusPropertiesPrimaryStatus)(nil)).Elem()
+
+type ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput
+	ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput
+}
+
+type experimentTrialComponentStatusPropertiesPrimaryStatusPtr string
+
+func ExperimentTrialComponentStatusPropertiesPrimaryStatusPtr(v string) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput {
+	return (*experimentTrialComponentStatusPropertiesPrimaryStatusPtr)(&v)
+}
+
+func (*experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ElementType() reflect.Type {
+	return experimentTrialComponentStatusPropertiesPrimaryStatusPtrType
+}
+
+func (in *experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput() ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return pulumi.ToOutput(in).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
+}
+
+func (in *experimentTrialComponentStatusPropertiesPrimaryStatusPtr) ToExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutputWithContext(ctx context.Context) ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput)
 }
 
 // The value type of a feature. Valid values are Integral, Fractional, or String.
@@ -23279,6 +23625,178 @@ func (in *studioLifecycleConfigAppTypePtr) ToStudioLifecycleConfigAppTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(StudioLifecycleConfigAppTypePtrOutput)
 }
 
+// The status of the trial component.
+type TrialComponentStatusPrimaryStatus string
+
+const (
+	TrialComponentStatusPrimaryStatusInProgress = TrialComponentStatusPrimaryStatus("InProgress")
+	TrialComponentStatusPrimaryStatusCompleted  = TrialComponentStatusPrimaryStatus("Completed")
+	TrialComponentStatusPrimaryStatusFailed     = TrialComponentStatusPrimaryStatus("Failed")
+	TrialComponentStatusPrimaryStatusStopping   = TrialComponentStatusPrimaryStatus("Stopping")
+	TrialComponentStatusPrimaryStatusStopped    = TrialComponentStatusPrimaryStatus("Stopped")
+)
+
+func (TrialComponentStatusPrimaryStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrialComponentStatusPrimaryStatus)(nil)).Elem()
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToTrialComponentStatusPrimaryStatusOutput() TrialComponentStatusPrimaryStatusOutput {
+	return pulumi.ToOutput(e).(TrialComponentStatusPrimaryStatusOutput)
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToTrialComponentStatusPrimaryStatusOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrialComponentStatusPrimaryStatusOutput)
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToTrialComponentStatusPrimaryStatusPtrOutput() TrialComponentStatusPrimaryStatusPtrOutput {
+	return e.ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusPtrOutput {
+	return TrialComponentStatusPrimaryStatus(e).ToTrialComponentStatusPrimaryStatusOutputWithContext(ctx).ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(ctx)
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrialComponentStatusPrimaryStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrialComponentStatusPrimaryStatusOutput struct{ *pulumi.OutputState }
+
+func (TrialComponentStatusPrimaryStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrialComponentStatusPrimaryStatus)(nil)).Elem()
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToTrialComponentStatusPrimaryStatusOutput() TrialComponentStatusPrimaryStatusOutput {
+	return o
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToTrialComponentStatusPrimaryStatusOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusOutput {
+	return o
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToTrialComponentStatusPrimaryStatusPtrOutput() TrialComponentStatusPrimaryStatusPtrOutput {
+	return o.ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrialComponentStatusPrimaryStatus) *TrialComponentStatusPrimaryStatus {
+		return &v
+	}).(TrialComponentStatusPrimaryStatusPtrOutput)
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrialComponentStatusPrimaryStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrialComponentStatusPrimaryStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrialComponentStatusPrimaryStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrialComponentStatusPrimaryStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TrialComponentStatusPrimaryStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrialComponentStatusPrimaryStatus)(nil)).Elem()
+}
+
+func (o TrialComponentStatusPrimaryStatusPtrOutput) ToTrialComponentStatusPrimaryStatusPtrOutput() TrialComponentStatusPrimaryStatusPtrOutput {
+	return o
+}
+
+func (o TrialComponentStatusPrimaryStatusPtrOutput) ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusPtrOutput {
+	return o
+}
+
+func (o TrialComponentStatusPrimaryStatusPtrOutput) Elem() TrialComponentStatusPrimaryStatusOutput {
+	return o.ApplyT(func(v *TrialComponentStatusPrimaryStatus) TrialComponentStatusPrimaryStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TrialComponentStatusPrimaryStatus
+		return ret
+	}).(TrialComponentStatusPrimaryStatusOutput)
+}
+
+func (o TrialComponentStatusPrimaryStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrialComponentStatusPrimaryStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrialComponentStatusPrimaryStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrialComponentStatusPrimaryStatusInput is an input type that accepts values of the TrialComponentStatusPrimaryStatus enum
+// A concrete instance of `TrialComponentStatusPrimaryStatusInput` can be one of the following:
+//
+//	TrialComponentStatusPrimaryStatusInProgress
+//	TrialComponentStatusPrimaryStatusCompleted
+//	TrialComponentStatusPrimaryStatusFailed
+//	TrialComponentStatusPrimaryStatusStopping
+//	TrialComponentStatusPrimaryStatusStopped
+type TrialComponentStatusPrimaryStatusInput interface {
+	pulumi.Input
+
+	ToTrialComponentStatusPrimaryStatusOutput() TrialComponentStatusPrimaryStatusOutput
+	ToTrialComponentStatusPrimaryStatusOutputWithContext(context.Context) TrialComponentStatusPrimaryStatusOutput
+}
+
+var trialComponentStatusPrimaryStatusPtrType = reflect.TypeOf((**TrialComponentStatusPrimaryStatus)(nil)).Elem()
+
+type TrialComponentStatusPrimaryStatusPtrInput interface {
+	pulumi.Input
+
+	ToTrialComponentStatusPrimaryStatusPtrOutput() TrialComponentStatusPrimaryStatusPtrOutput
+	ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(context.Context) TrialComponentStatusPrimaryStatusPtrOutput
+}
+
+type trialComponentStatusPrimaryStatusPtr string
+
+func TrialComponentStatusPrimaryStatusPtr(v string) TrialComponentStatusPrimaryStatusPtrInput {
+	return (*trialComponentStatusPrimaryStatusPtr)(&v)
+}
+
+func (*trialComponentStatusPrimaryStatusPtr) ElementType() reflect.Type {
+	return trialComponentStatusPrimaryStatusPtrType
+}
+
+func (in *trialComponentStatusPrimaryStatusPtr) ToTrialComponentStatusPrimaryStatusPtrOutput() TrialComponentStatusPrimaryStatusPtrOutput {
+	return pulumi.ToOutput(in).(TrialComponentStatusPrimaryStatusPtrOutput)
+}
+
+func (in *trialComponentStatusPrimaryStatusPtr) ToTrialComponentStatusPrimaryStatusPtrOutputWithContext(ctx context.Context) TrialComponentStatusPrimaryStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrialComponentStatusPrimaryStatusPtrOutput)
+}
+
 // The instance type that the image version runs on.
 type UserProfileAppInstanceType string
 
@@ -25441,6 +25959,8 @@ func (in *userProfileUserSettingsStudioWebPortalPtr) ToUserProfileUserSettingsSt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionStatusInput)(nil)).Elem(), ActionStatus("Unknown"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionStatusPtrInput)(nil)).Elem(), ActionStatus("Unknown"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItem("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItem("None"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayInput)(nil)).Elem(), AlgorithmChannelSpecificationSupportedCompressionTypesItemArray{})
@@ -25527,6 +26047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), DomainUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatusInput)(nil)).Elem(), ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrInput)(nil)).Elem(), ExperimentTrialComponentStatusPropertiesPrimaryStatus("InProgress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupStorageTypeInput)(nil)).Elem(), FeatureGroupStorageType("Standard"))
@@ -25695,6 +26217,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceSharingSettingsSharingTypePtrInput)(nil)).Elem(), SpaceSharingSettingsSharingType("Private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypeInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigAppTypePtrInput)(nil)).Elem(), StudioLifecycleConfigAppType("JupyterServer"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrialComponentStatusPrimaryStatusInput)(nil)).Elem(), TrialComponentStatusPrimaryStatus("InProgress"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrialComponentStatusPrimaryStatusPtrInput)(nil)).Elem(), TrialComponentStatusPrimaryStatus("InProgress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypeInput)(nil)).Elem(), UserProfileAppInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypePtrInput)(nil)).Elem(), UserProfileAppInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileAppInstanceTypeArrayInput)(nil)).Elem(), UserProfileAppInstanceTypeArray{})
@@ -25718,6 +26242,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsAutoMountHomeEfsPtrInput)(nil)).Elem(), UserProfileUserSettingsAutoMountHomeEfs("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterOutputType(ActionStatusOutput{})
+	pulumi.RegisterOutputType(ActionStatusPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemOutput{})
 	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmChannelSpecificationSupportedCompressionTypesItemArrayOutput{})
@@ -25806,6 +26332,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainUserSettingsAutoMountHomeEfsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTrialComponentStatusPropertiesPrimaryStatusOutput{})
+	pulumi.RegisterOutputType(ExperimentTrialComponentStatusPropertiesPrimaryStatusPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupStorageTypeOutput{})
@@ -25994,6 +26522,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceSharingSettingsSharingTypePtrOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypeOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigAppTypePtrOutput{})
+	pulumi.RegisterOutputType(TrialComponentStatusPrimaryStatusOutput{})
+	pulumi.RegisterOutputType(TrialComponentStatusPrimaryStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppInstanceTypeOutput{})
 	pulumi.RegisterOutputType(UserProfileAppInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileAppInstanceTypeArrayOutput{})

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
         /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
         /// </summary>
         [Output("dataTableArn")]
-        public Output<string?> DataTableArn { get; private set; } = null!;
+        public Output<string> DataTableArn { get; private set; } = null!;
 
         /// <summary>
         /// An optional description explaining the purpose and usage of this attribute.
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Connect
         /// The Amazon Resource Name (ARN) of the instance.
         /// </summary>
         [Output("instanceArn")]
-        public Output<string?> InstanceArn { get; private set; } = null!;
+        public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region where this attribute was last modified, used for region replication.
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Connect
         /// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Connect
         /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
         /// </summary>
         [Output("valueType")]
-        public Output<Pulumi.AwsNative.Connect.DataTableAttributeValueType?> ValueType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.DataTableAttributeValueType> ValueType { get; private set; } = null!;
 
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Connect
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataTableAttribute(string name, DataTableAttributeArgs? args = null, CustomResourceOptions? options = null)
+        public DataTableAttribute(string name, DataTableAttributeArgs args, CustomResourceOptions? options = null)
             : base("aws-native:connect:DataTableAttribute", name, args ?? new DataTableAttributeArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -131,8 +131,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
         /// </summary>
-        [Input("dataTableArn")]
-        public Input<string>? DataTableArn { get; set; }
+        [Input("dataTableArn", required: true)]
+        public Input<string> DataTableArn { get; set; } = null!;
 
         /// <summary>
         /// An optional description explaining the purpose and usage of this attribute.
@@ -143,8 +143,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance.
         /// </summary>
-        [Input("instanceArn")]
-        public Input<string>? InstanceArn { get; set; }
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
         /// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
@@ -167,8 +167,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
         /// </summary>
-        [Input("valueType")]
-        public Input<Pulumi.AwsNative.Connect.DataTableAttributeValueType>? ValueType { get; set; }
+        [Input("valueType", required: true)]
+        public Input<Pulumi.AwsNative.Connect.DataTableAttributeValueType> ValueType { get; set; } = null!;
 
         public DataTableAttributeArgs()
         {

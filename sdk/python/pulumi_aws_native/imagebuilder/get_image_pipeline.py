@@ -243,7 +243,7 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
 def get_image_pipeline(arn: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelineResult:
     """
-    Resource schema for AWS::ImageBuilder::ImagePipeline
+    Resource Type definition for AWS::ImageBuilder::ImagePipeline
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the image pipeline.
     """
@@ -273,7 +273,7 @@ def get_image_pipeline(arn: Optional[_builtins.str] = None,
 def get_image_pipeline_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
-    Resource schema for AWS::ImageBuilder::ImagePipeline
+    Resource Type definition for AWS::ImageBuilder::ImagePipeline
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the image pipeline.
     """

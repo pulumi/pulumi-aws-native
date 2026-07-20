@@ -2959,6 +2959,23 @@
       }
     }
   },
+  "aws-native:connect:DataLakeAssociation": {
+    "cfTypeName": "AWS::Connect::DataLakeAssociation",
+    "properties": {
+      "dataSetId": {
+        "type": "string",
+        "description": "The identifier of the analytics data set."
+      },
+      "instanceId": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance"
+      },
+      "targetAccountId": {
+        "type": "string",
+        "description": "The identifier of the target account"
+      }
+    }
+  },
   "aws-native:connect:DataTableRecord": {
     "cfTypeName": "AWS::Connect::DataTableRecord",
     "properties": {
@@ -4635,6 +4652,23 @@
       }
     }
   },
+  "aws-native:dms:Certificate": {
+    "cfTypeName": "AWS::DMS::Certificate",
+    "properties": {
+      "certificateIdentifier": {
+        "type": "string",
+        "description": "The certificate Identifier"
+      },
+      "certificatePem": {
+        "type": "string",
+        "description": "The certificate Pem"
+      },
+      "certificateWallet": {
+        "type": "string",
+        "description": "The certificate Wallet"
+      }
+    }
+  },
   "aws-native:dms:ReplicationConfig": {
     "cfTypeName": "AWS::DMS::ReplicationConfig",
     "properties": {
@@ -5082,7 +5116,7 @@
       },
       "ipamPoolId": {
         "type": "string",
-        "description": "The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* ."
+        "description": "The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide*."
       },
       "networkBorderGroup": {
         "type": "string",
@@ -7269,6 +7303,34 @@
       }
     }
   },
+  "aws-native:ec2:TransitGatewayPolicyTable": {
+    "cfTypeName": "AWS::EC2::TransitGatewayPolicyTable",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      },
+      "transitGatewayId": {
+        "type": "string",
+        "description": "The Id of transit gateway"
+      }
+    }
+  },
+  "aws-native:ec2:TransitGatewayPolicyTableAssociation": {
+    "cfTypeName": "AWS::EC2::TransitGatewayPolicyTableAssociation",
+    "properties": {
+      "transitGatewayAttachmentId": {
+        "type": "string",
+        "description": "The ID of transit gateway attachment."
+      },
+      "transitGatewayPolicyTableId": {
+        "type": "string",
+        "description": "The ID of transit gateway policy table."
+      }
+    }
+  },
   "aws-native:ec2:TransitGatewayRoute": {
     "cfTypeName": "AWS::EC2::TransitGatewayRoute",
     "properties": {
@@ -7696,6 +7758,9 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the VPC."
+      },
+      "vpcEncryptionControl": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControl"
       }
     }
   },
@@ -9227,6 +9292,12 @@
       "sslPolicy": {
         "type": "string",
         "description": "[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html) in the *Network Load Balancers Guide*.\n [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -14757,7 +14828,7 @@
       },
       "nodeType": {
         "type": "string",
-        "description": "The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge"
+        "description": "The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge | rg.xlarge | rg.4xlarge"
       },
       "numberOfNodes": {
         "type": "integer",

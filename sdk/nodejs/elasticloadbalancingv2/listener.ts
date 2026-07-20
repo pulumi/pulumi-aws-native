@@ -81,6 +81,7 @@ export class Listener extends pulumi.CustomResource {
      *  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
      */
     declare public readonly sslPolicy: pulumi.Output<string | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Listener resource with the given unique name, arguments, and options.
@@ -108,6 +109,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["port"] = args?.port;
             resourceInputs["protocol"] = args?.protocol;
             resourceInputs["sslPolicy"] = args?.sslPolicy;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["listenerArn"] = undefined /*out*/;
         } else {
             resourceInputs["alpnPolicy"] = undefined /*out*/;
@@ -120,6 +122,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["sslPolicy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["loadBalancerArn"] };
@@ -172,4 +175,5 @@ export interface ListenerArgs {
      *  [HTTPS listeners] Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic. To decrease the possibility of an interruption if your load balancer is handling a high volume of traffic, create an additional load balancer or request an LCU reservation.
      */
     sslPolicy?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

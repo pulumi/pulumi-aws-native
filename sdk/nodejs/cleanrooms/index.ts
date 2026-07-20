@@ -55,6 +55,11 @@ export const getIdNamespaceAssociation: typeof import("./getIdNamespaceAssociati
 export const getIdNamespaceAssociationOutput: typeof import("./getIdNamespaceAssociation").getIdNamespaceAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getIdNamespaceAssociation","getIdNamespaceAssociationOutput"], () => require("./getIdNamespaceAssociation"));
 
+export { GetIntermediateTableArgs, GetIntermediateTableResult, GetIntermediateTableOutputArgs } from "./getIntermediateTable";
+export const getIntermediateTable: typeof import("./getIntermediateTable").getIntermediateTable = null as any;
+export const getIntermediateTableOutput: typeof import("./getIntermediateTable").getIntermediateTableOutput = null as any;
+utilities.lazyLoad(exports, ["getIntermediateTable","getIntermediateTableOutput"], () => require("./getIntermediateTable"));
+
 export { GetMembershipArgs, GetMembershipResult, GetMembershipOutputArgs } from "./getMembership";
 export const getMembership: typeof import("./getMembership").getMembership = null as any;
 export const getMembershipOutput: typeof import("./getMembership").getMembershipOutput = null as any;
@@ -74,6 +79,11 @@ export { IdNamespaceAssociationArgs } from "./idNamespaceAssociation";
 export type IdNamespaceAssociation = import("./idNamespaceAssociation").IdNamespaceAssociation;
 export const IdNamespaceAssociation: typeof import("./idNamespaceAssociation").IdNamespaceAssociation = null as any;
 utilities.lazyLoad(exports, ["IdNamespaceAssociation"], () => require("./idNamespaceAssociation"));
+
+export { IntermediateTableArgs } from "./intermediateTable";
+export type IntermediateTable = import("./intermediateTable").IntermediateTable;
+export const IntermediateTable: typeof import("./intermediateTable").IntermediateTable = null as any;
+utilities.lazyLoad(exports, ["IntermediateTable"], () => require("./intermediateTable"));
 
 export { MembershipArgs } from "./membership";
 export type Membership = import("./membership").Membership;
@@ -105,6 +115,8 @@ const _module = {
                 return new IdMappingTable(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:IdNamespaceAssociation":
                 return new IdNamespaceAssociation(name, <any>undefined, { urn })
+            case "aws-native:cleanrooms:IntermediateTable":
+                return new IntermediateTable(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:Membership":
                 return new Membership(name, <any>undefined, { urn })
             case "aws-native:cleanrooms:PrivacyBudgetTemplate":

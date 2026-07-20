@@ -41,6 +41,7 @@ class BrokerArgs:
                  maintenance_window_start_time: pulumi.Input[Optional['BrokerMaintenanceWindowArgs']] = None,
                  resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_size: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -72,6 +73,7 @@ class BrokerArgs:
         :param pulumi.Input['BrokerMaintenanceWindowArgs'] maintenance_window_start_time: The parameters that determine the WeeklyStartTime.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_share_arns: The ARNs of the resource shares to be associated with the broker.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+        :param pulumi.Input[_builtins.int] storage_size: The broker's storage size in GB.
         :param pulumi.Input[Union['BrokerStorageType', _builtins.str]] storage_type: The broker's storage type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
                
@@ -112,6 +114,8 @@ class BrokerArgs:
             pulumi.set(__self__, "resource_share_arns", resource_share_arns)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
+        if storage_size is not None:
+            pulumi.set(__self__, "storage_size", storage_size)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if subnet_ids is not None:
@@ -333,6 +337,18 @@ class BrokerArgs:
         pulumi.set(self, "security_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageSize")
+    def storage_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The broker's storage size in GB.
+        """
+        return pulumi.get(self, "storage_size")
+
+    @storage_size.setter
+    def storage_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_size", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]]:
         """
@@ -409,6 +425,7 @@ class Broker(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_size: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -590,6 +607,7 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] publicly_accessible: Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_share_arns: The ARNs of the resource shares to be associated with the broker.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
+        :param pulumi.Input[_builtins.int] storage_size: The broker's storage size in GB.
         :param pulumi.Input[Union['BrokerStorageType', _builtins.str]] storage_type: The broker's storage type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
                
@@ -788,6 +806,7 @@ class Broker(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 storage_size: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -826,6 +845,7 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["resource_share_arns"] = resource_share_arns
             __props__.__dict__["security_groups"] = security_groups
+            __props__.__dict__["storage_size"] = storage_size
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
@@ -894,6 +914,7 @@ class Broker(pulumi.CustomResource):
         __props__.__dict__["resource_share_arns"] = None
         __props__.__dict__["security_groups"] = None
         __props__.__dict__["stomp_endpoints"] = None
+        __props__.__dict__["storage_size"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -1137,6 +1158,14 @@ class Broker(pulumi.CustomResource):
         `stomp+ssl://b-4aada85d-a80c-4be0-9d30-e344a01b921e-1.mq.eu-central-amazonaws.com:61614`
         """
         return pulumi.get(self, "stomp_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSize")
+    def storage_size(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The broker's storage size in GB.
+        """
+        return pulumi.get(self, "storage_size")
 
     @_builtins.property
     @pulumi.getter(name="storageType")

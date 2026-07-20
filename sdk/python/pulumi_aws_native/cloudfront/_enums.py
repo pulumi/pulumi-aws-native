@@ -23,6 +23,7 @@ __all__ = [
     'DistributionViewerMtlsMode',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
     'TrustStoreStatus',
+    'VpcOriginEndpointConfigIpAddressType',
 ]
 
 
@@ -170,3 +171,9 @@ class TrustStoreStatus(_builtins.str, Enum):
     PENDING = "PENDING"
     ACTIVE = "ACTIVE"
     FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:cloudfront:VpcOriginEndpointConfigIpAddressType")
+class VpcOriginEndpointConfigIpAddressType(_builtins.str, Enum):
+    IPV4 = "ipv4"
+    DUALSTACK = "dualstack"

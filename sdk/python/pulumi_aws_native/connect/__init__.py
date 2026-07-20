@@ -14,6 +14,7 @@ from .contact_flow_module import *
 from .contact_flow_module_alias import *
 from .contact_flow_module_version import *
 from .contact_flow_version import *
+from .data_lake_association import *
 from .data_table import *
 from .data_table_attribute import *
 from .data_table_record import *
@@ -25,6 +26,7 @@ from .get_contact_flow_module import *
 from .get_contact_flow_module_alias import *
 from .get_contact_flow_module_version import *
 from .get_contact_flow_version import *
+from .get_data_lake_association import *
 from .get_data_table import *
 from .get_data_table_attribute import *
 from .get_data_table_record import *

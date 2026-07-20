@@ -6202,6 +6202,728 @@ type IdNamespaceAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IntermediateTableAnalysisRule struct {
+	Policy IntermediateTableAnalysisRulePolicy `pulumi:"policy"`
+	Type   IntermediateTableAnalysisRuleType   `pulumi:"type"`
+}
+
+// IntermediateTableAnalysisRuleInput is an input type that accepts IntermediateTableAnalysisRuleArgs and IntermediateTableAnalysisRuleOutput values.
+// You can construct a concrete instance of `IntermediateTableAnalysisRuleInput` via:
+//
+//	IntermediateTableAnalysisRuleArgs{...}
+type IntermediateTableAnalysisRuleInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRuleOutput() IntermediateTableAnalysisRuleOutput
+	ToIntermediateTableAnalysisRuleOutputWithContext(context.Context) IntermediateTableAnalysisRuleOutput
+}
+
+type IntermediateTableAnalysisRuleArgs struct {
+	Policy IntermediateTableAnalysisRulePolicyInput `pulumi:"policy"`
+	Type   IntermediateTableAnalysisRuleTypeInput   `pulumi:"type"`
+}
+
+func (IntermediateTableAnalysisRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRule)(nil)).Elem()
+}
+
+func (i IntermediateTableAnalysisRuleArgs) ToIntermediateTableAnalysisRuleOutput() IntermediateTableAnalysisRuleOutput {
+	return i.ToIntermediateTableAnalysisRuleOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAnalysisRuleArgs) ToIntermediateTableAnalysisRuleOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAnalysisRuleOutput)
+}
+
+// IntermediateTableAnalysisRuleArrayInput is an input type that accepts IntermediateTableAnalysisRuleArray and IntermediateTableAnalysisRuleArrayOutput values.
+// You can construct a concrete instance of `IntermediateTableAnalysisRuleArrayInput` via:
+//
+//	IntermediateTableAnalysisRuleArray{ IntermediateTableAnalysisRuleArgs{...} }
+type IntermediateTableAnalysisRuleArrayInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRuleArrayOutput() IntermediateTableAnalysisRuleArrayOutput
+	ToIntermediateTableAnalysisRuleArrayOutputWithContext(context.Context) IntermediateTableAnalysisRuleArrayOutput
+}
+
+type IntermediateTableAnalysisRuleArray []IntermediateTableAnalysisRuleInput
+
+func (IntermediateTableAnalysisRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableAnalysisRule)(nil)).Elem()
+}
+
+func (i IntermediateTableAnalysisRuleArray) ToIntermediateTableAnalysisRuleArrayOutput() IntermediateTableAnalysisRuleArrayOutput {
+	return i.ToIntermediateTableAnalysisRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAnalysisRuleArray) ToIntermediateTableAnalysisRuleArrayOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAnalysisRuleArrayOutput)
+}
+
+type IntermediateTableAnalysisRuleOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRule)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRuleOutput) ToIntermediateTableAnalysisRuleOutput() IntermediateTableAnalysisRuleOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleOutput) ToIntermediateTableAnalysisRuleOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleOutput) Policy() IntermediateTableAnalysisRulePolicyOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRule) IntermediateTableAnalysisRulePolicy { return v.Policy }).(IntermediateTableAnalysisRulePolicyOutput)
+}
+
+func (o IntermediateTableAnalysisRuleOutput) Type() IntermediateTableAnalysisRuleTypeOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRule) IntermediateTableAnalysisRuleType { return v.Type }).(IntermediateTableAnalysisRuleTypeOutput)
+}
+
+type IntermediateTableAnalysisRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableAnalysisRule)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRuleArrayOutput) ToIntermediateTableAnalysisRuleArrayOutput() IntermediateTableAnalysisRuleArrayOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleArrayOutput) ToIntermediateTableAnalysisRuleArrayOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleArrayOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) IntermediateTableAnalysisRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntermediateTableAnalysisRule {
+		return vs[0].([]IntermediateTableAnalysisRule)[vs[1].(int)]
+	}).(IntermediateTableAnalysisRuleOutput)
+}
+
+type IntermediateTableAnalysisRuleCustom struct {
+	AdditionalAnalyses       *IntermediateTableAdditionalAnalyses  `pulumi:"additionalAnalyses"`
+	AllowedAnalyses          []string                              `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders []string                              `pulumi:"allowedAnalysisProviders"`
+	AllowedResultReceivers   []string                              `pulumi:"allowedResultReceivers"`
+	DifferentialPrivacy      *IntermediateTableDifferentialPrivacy `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  []string                              `pulumi:"disallowedOutputColumns"`
+}
+
+// IntermediateTableAnalysisRuleCustomInput is an input type that accepts IntermediateTableAnalysisRuleCustomArgs and IntermediateTableAnalysisRuleCustomOutput values.
+// You can construct a concrete instance of `IntermediateTableAnalysisRuleCustomInput` via:
+//
+//	IntermediateTableAnalysisRuleCustomArgs{...}
+type IntermediateTableAnalysisRuleCustomInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRuleCustomOutput() IntermediateTableAnalysisRuleCustomOutput
+	ToIntermediateTableAnalysisRuleCustomOutputWithContext(context.Context) IntermediateTableAnalysisRuleCustomOutput
+}
+
+type IntermediateTableAnalysisRuleCustomArgs struct {
+	AdditionalAnalyses       IntermediateTableAdditionalAnalysesPtrInput  `pulumi:"additionalAnalyses"`
+	AllowedAnalyses          pulumi.StringArrayInput                      `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders pulumi.StringArrayInput                      `pulumi:"allowedAnalysisProviders"`
+	AllowedResultReceivers   pulumi.StringArrayInput                      `pulumi:"allowedResultReceivers"`
+	DifferentialPrivacy      IntermediateTableDifferentialPrivacyPtrInput `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  pulumi.StringArrayInput                      `pulumi:"disallowedOutputColumns"`
+}
+
+func (IntermediateTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (i IntermediateTableAnalysisRuleCustomArgs) ToIntermediateTableAnalysisRuleCustomOutput() IntermediateTableAnalysisRuleCustomOutput {
+	return i.ToIntermediateTableAnalysisRuleCustomOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAnalysisRuleCustomArgs) ToIntermediateTableAnalysisRuleCustomOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAnalysisRuleCustomOutput)
+}
+
+type IntermediateTableAnalysisRuleCustomOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRuleCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) ToIntermediateTableAnalysisRuleCustomOutput() IntermediateTableAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) ToIntermediateTableAnalysisRuleCustomOutputWithContext(ctx context.Context) IntermediateTableAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) AdditionalAnalyses() IntermediateTableAdditionalAnalysesPtrOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) *IntermediateTableAdditionalAnalyses {
+		return v.AdditionalAnalyses
+	}).(IntermediateTableAdditionalAnalysesPtrOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.AllowedAnalyses }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) AllowedAnalysisProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.AllowedAnalysisProviders }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) AllowedResultReceivers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.AllowedResultReceivers }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) DifferentialPrivacy() IntermediateTableDifferentialPrivacyPtrOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) *IntermediateTableDifferentialPrivacy {
+		return v.DifferentialPrivacy
+	}).(IntermediateTableDifferentialPrivacyPtrOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) DisallowedOutputColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.DisallowedOutputColumns }).(pulumi.StringArrayOutput)
+}
+
+type IntermediateTableAnalysisRulePolicy struct {
+	V1 IntermediateTableAnalysisRulePolicyV1Properties `pulumi:"v1"`
+}
+
+// IntermediateTableAnalysisRulePolicyInput is an input type that accepts IntermediateTableAnalysisRulePolicyArgs and IntermediateTableAnalysisRulePolicyOutput values.
+// You can construct a concrete instance of `IntermediateTableAnalysisRulePolicyInput` via:
+//
+//	IntermediateTableAnalysisRulePolicyArgs{...}
+type IntermediateTableAnalysisRulePolicyInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRulePolicyOutput() IntermediateTableAnalysisRulePolicyOutput
+	ToIntermediateTableAnalysisRulePolicyOutputWithContext(context.Context) IntermediateTableAnalysisRulePolicyOutput
+}
+
+type IntermediateTableAnalysisRulePolicyArgs struct {
+	V1 IntermediateTableAnalysisRulePolicyV1PropertiesInput `pulumi:"v1"`
+}
+
+func (IntermediateTableAnalysisRulePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRulePolicy)(nil)).Elem()
+}
+
+func (i IntermediateTableAnalysisRulePolicyArgs) ToIntermediateTableAnalysisRulePolicyOutput() IntermediateTableAnalysisRulePolicyOutput {
+	return i.ToIntermediateTableAnalysisRulePolicyOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAnalysisRulePolicyArgs) ToIntermediateTableAnalysisRulePolicyOutputWithContext(ctx context.Context) IntermediateTableAnalysisRulePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAnalysisRulePolicyOutput)
+}
+
+type IntermediateTableAnalysisRulePolicyOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRulePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRulePolicy)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRulePolicyOutput) ToIntermediateTableAnalysisRulePolicyOutput() IntermediateTableAnalysisRulePolicyOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRulePolicyOutput) ToIntermediateTableAnalysisRulePolicyOutputWithContext(ctx context.Context) IntermediateTableAnalysisRulePolicyOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRulePolicyOutput) V1() IntermediateTableAnalysisRulePolicyV1PropertiesOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRulePolicy) IntermediateTableAnalysisRulePolicyV1Properties {
+		return v.V1
+	}).(IntermediateTableAnalysisRulePolicyV1PropertiesOutput)
+}
+
+type IntermediateTableAnalysisRulePolicyV10Properties struct {
+	Custom IntermediateTableAnalysisRuleCustom `pulumi:"custom"`
+}
+
+type IntermediateTableAnalysisRulePolicyV1Properties struct {
+	Custom IntermediateTableAnalysisRuleCustom `pulumi:"custom"`
+}
+
+// IntermediateTableAnalysisRulePolicyV1PropertiesInput is an input type that accepts IntermediateTableAnalysisRulePolicyV1PropertiesArgs and IntermediateTableAnalysisRulePolicyV1PropertiesOutput values.
+// You can construct a concrete instance of `IntermediateTableAnalysisRulePolicyV1PropertiesInput` via:
+//
+//	IntermediateTableAnalysisRulePolicyV1PropertiesArgs{...}
+type IntermediateTableAnalysisRulePolicyV1PropertiesInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAnalysisRulePolicyV1PropertiesOutput() IntermediateTableAnalysisRulePolicyV1PropertiesOutput
+	ToIntermediateTableAnalysisRulePolicyV1PropertiesOutputWithContext(context.Context) IntermediateTableAnalysisRulePolicyV1PropertiesOutput
+}
+
+type IntermediateTableAnalysisRulePolicyV1PropertiesArgs struct {
+	Custom IntermediateTableAnalysisRuleCustomInput `pulumi:"custom"`
+}
+
+func (IntermediateTableAnalysisRulePolicyV1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRulePolicyV1Properties)(nil)).Elem()
+}
+
+func (i IntermediateTableAnalysisRulePolicyV1PropertiesArgs) ToIntermediateTableAnalysisRulePolicyV1PropertiesOutput() IntermediateTableAnalysisRulePolicyV1PropertiesOutput {
+	return i.ToIntermediateTableAnalysisRulePolicyV1PropertiesOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAnalysisRulePolicyV1PropertiesArgs) ToIntermediateTableAnalysisRulePolicyV1PropertiesOutputWithContext(ctx context.Context) IntermediateTableAnalysisRulePolicyV1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAnalysisRulePolicyV1PropertiesOutput)
+}
+
+type IntermediateTableAnalysisRulePolicyV1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAnalysisRulePolicyV1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAnalysisRulePolicyV1Properties)(nil)).Elem()
+}
+
+func (o IntermediateTableAnalysisRulePolicyV1PropertiesOutput) ToIntermediateTableAnalysisRulePolicyV1PropertiesOutput() IntermediateTableAnalysisRulePolicyV1PropertiesOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRulePolicyV1PropertiesOutput) ToIntermediateTableAnalysisRulePolicyV1PropertiesOutputWithContext(ctx context.Context) IntermediateTableAnalysisRulePolicyV1PropertiesOutput {
+	return o
+}
+
+func (o IntermediateTableAnalysisRulePolicyV1PropertiesOutput) Custom() IntermediateTableAnalysisRuleCustomOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRulePolicyV1Properties) IntermediateTableAnalysisRuleCustom {
+		return v.Custom
+	}).(IntermediateTableAnalysisRuleCustomOutput)
+}
+
+type IntermediateTableDifferentialPrivacy struct {
+	Columns []IntermediateTableDifferentialPrivacyColumn `pulumi:"columns"`
+}
+
+// IntermediateTableDifferentialPrivacyInput is an input type that accepts IntermediateTableDifferentialPrivacyArgs and IntermediateTableDifferentialPrivacyOutput values.
+// You can construct a concrete instance of `IntermediateTableDifferentialPrivacyInput` via:
+//
+//	IntermediateTableDifferentialPrivacyArgs{...}
+type IntermediateTableDifferentialPrivacyInput interface {
+	pulumi.Input
+
+	ToIntermediateTableDifferentialPrivacyOutput() IntermediateTableDifferentialPrivacyOutput
+	ToIntermediateTableDifferentialPrivacyOutputWithContext(context.Context) IntermediateTableDifferentialPrivacyOutput
+}
+
+type IntermediateTableDifferentialPrivacyArgs struct {
+	Columns IntermediateTableDifferentialPrivacyColumnArrayInput `pulumi:"columns"`
+}
+
+func (IntermediateTableDifferentialPrivacyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (i IntermediateTableDifferentialPrivacyArgs) ToIntermediateTableDifferentialPrivacyOutput() IntermediateTableDifferentialPrivacyOutput {
+	return i.ToIntermediateTableDifferentialPrivacyOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableDifferentialPrivacyArgs) ToIntermediateTableDifferentialPrivacyOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableDifferentialPrivacyOutput)
+}
+
+func (i IntermediateTableDifferentialPrivacyArgs) ToIntermediateTableDifferentialPrivacyPtrOutput() IntermediateTableDifferentialPrivacyPtrOutput {
+	return i.ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableDifferentialPrivacyArgs) ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableDifferentialPrivacyOutput).ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(ctx)
+}
+
+// IntermediateTableDifferentialPrivacyPtrInput is an input type that accepts IntermediateTableDifferentialPrivacyArgs, IntermediateTableDifferentialPrivacyPtr and IntermediateTableDifferentialPrivacyPtrOutput values.
+// You can construct a concrete instance of `IntermediateTableDifferentialPrivacyPtrInput` via:
+//
+//	        IntermediateTableDifferentialPrivacyArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntermediateTableDifferentialPrivacyPtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableDifferentialPrivacyPtrOutput() IntermediateTableDifferentialPrivacyPtrOutput
+	ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(context.Context) IntermediateTableDifferentialPrivacyPtrOutput
+}
+
+type intermediateTableDifferentialPrivacyPtrType IntermediateTableDifferentialPrivacyArgs
+
+func IntermediateTableDifferentialPrivacyPtr(v *IntermediateTableDifferentialPrivacyArgs) IntermediateTableDifferentialPrivacyPtrInput {
+	return (*intermediateTableDifferentialPrivacyPtrType)(v)
+}
+
+func (*intermediateTableDifferentialPrivacyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (i *intermediateTableDifferentialPrivacyPtrType) ToIntermediateTableDifferentialPrivacyPtrOutput() IntermediateTableDifferentialPrivacyPtrOutput {
+	return i.ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (i *intermediateTableDifferentialPrivacyPtrType) ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableDifferentialPrivacyPtrOutput)
+}
+
+type IntermediateTableDifferentialPrivacyOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableDifferentialPrivacyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (o IntermediateTableDifferentialPrivacyOutput) ToIntermediateTableDifferentialPrivacyOutput() IntermediateTableDifferentialPrivacyOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyOutput) ToIntermediateTableDifferentialPrivacyOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyOutput) ToIntermediateTableDifferentialPrivacyPtrOutput() IntermediateTableDifferentialPrivacyPtrOutput {
+	return o.ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableDifferentialPrivacyOutput) ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableDifferentialPrivacy) *IntermediateTableDifferentialPrivacy {
+		return &v
+	}).(IntermediateTableDifferentialPrivacyPtrOutput)
+}
+
+func (o IntermediateTableDifferentialPrivacyOutput) Columns() IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return o.ApplyT(func(v IntermediateTableDifferentialPrivacy) []IntermediateTableDifferentialPrivacyColumn {
+		return v.Columns
+	}).(IntermediateTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type IntermediateTableDifferentialPrivacyPtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableDifferentialPrivacyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableDifferentialPrivacy)(nil)).Elem()
+}
+
+func (o IntermediateTableDifferentialPrivacyPtrOutput) ToIntermediateTableDifferentialPrivacyPtrOutput() IntermediateTableDifferentialPrivacyPtrOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyPtrOutput) ToIntermediateTableDifferentialPrivacyPtrOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyPtrOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyPtrOutput) Elem() IntermediateTableDifferentialPrivacyOutput {
+	return o.ApplyT(func(v *IntermediateTableDifferentialPrivacy) IntermediateTableDifferentialPrivacy {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableDifferentialPrivacy
+		return ret
+	}).(IntermediateTableDifferentialPrivacyOutput)
+}
+
+func (o IntermediateTableDifferentialPrivacyPtrOutput) Columns() IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return o.ApplyT(func(v *IntermediateTableDifferentialPrivacy) []IntermediateTableDifferentialPrivacyColumn {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(IntermediateTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type IntermediateTableDifferentialPrivacyColumn struct {
+	Name string `pulumi:"name"`
+}
+
+// IntermediateTableDifferentialPrivacyColumnInput is an input type that accepts IntermediateTableDifferentialPrivacyColumnArgs and IntermediateTableDifferentialPrivacyColumnOutput values.
+// You can construct a concrete instance of `IntermediateTableDifferentialPrivacyColumnInput` via:
+//
+//	IntermediateTableDifferentialPrivacyColumnArgs{...}
+type IntermediateTableDifferentialPrivacyColumnInput interface {
+	pulumi.Input
+
+	ToIntermediateTableDifferentialPrivacyColumnOutput() IntermediateTableDifferentialPrivacyColumnOutput
+	ToIntermediateTableDifferentialPrivacyColumnOutputWithContext(context.Context) IntermediateTableDifferentialPrivacyColumnOutput
+}
+
+type IntermediateTableDifferentialPrivacyColumnArgs struct {
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (IntermediateTableDifferentialPrivacyColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (i IntermediateTableDifferentialPrivacyColumnArgs) ToIntermediateTableDifferentialPrivacyColumnOutput() IntermediateTableDifferentialPrivacyColumnOutput {
+	return i.ToIntermediateTableDifferentialPrivacyColumnOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableDifferentialPrivacyColumnArgs) ToIntermediateTableDifferentialPrivacyColumnOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableDifferentialPrivacyColumnOutput)
+}
+
+// IntermediateTableDifferentialPrivacyColumnArrayInput is an input type that accepts IntermediateTableDifferentialPrivacyColumnArray and IntermediateTableDifferentialPrivacyColumnArrayOutput values.
+// You can construct a concrete instance of `IntermediateTableDifferentialPrivacyColumnArrayInput` via:
+//
+//	IntermediateTableDifferentialPrivacyColumnArray{ IntermediateTableDifferentialPrivacyColumnArgs{...} }
+type IntermediateTableDifferentialPrivacyColumnArrayInput interface {
+	pulumi.Input
+
+	ToIntermediateTableDifferentialPrivacyColumnArrayOutput() IntermediateTableDifferentialPrivacyColumnArrayOutput
+	ToIntermediateTableDifferentialPrivacyColumnArrayOutputWithContext(context.Context) IntermediateTableDifferentialPrivacyColumnArrayOutput
+}
+
+type IntermediateTableDifferentialPrivacyColumnArray []IntermediateTableDifferentialPrivacyColumnInput
+
+func (IntermediateTableDifferentialPrivacyColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (i IntermediateTableDifferentialPrivacyColumnArray) ToIntermediateTableDifferentialPrivacyColumnArrayOutput() IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return i.ToIntermediateTableDifferentialPrivacyColumnArrayOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableDifferentialPrivacyColumnArray) ToIntermediateTableDifferentialPrivacyColumnArrayOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableDifferentialPrivacyColumnArrayOutput)
+}
+
+type IntermediateTableDifferentialPrivacyColumnOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableDifferentialPrivacyColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnOutput) ToIntermediateTableDifferentialPrivacyColumnOutput() IntermediateTableDifferentialPrivacyColumnOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnOutput) ToIntermediateTableDifferentialPrivacyColumnOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyColumnOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v IntermediateTableDifferentialPrivacyColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type IntermediateTableDifferentialPrivacyColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableDifferentialPrivacyColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableDifferentialPrivacyColumn)(nil)).Elem()
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnArrayOutput) ToIntermediateTableDifferentialPrivacyColumnArrayOutput() IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnArrayOutput) ToIntermediateTableDifferentialPrivacyColumnArrayOutputWithContext(ctx context.Context) IntermediateTableDifferentialPrivacyColumnArrayOutput {
+	return o
+}
+
+func (o IntermediateTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.IntInput) IntermediateTableDifferentialPrivacyColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntermediateTableDifferentialPrivacyColumn {
+		return vs[0].([]IntermediateTableDifferentialPrivacyColumn)[vs[1].(int)]
+	}).(IntermediateTableDifferentialPrivacyColumnOutput)
+}
+
+type IntermediateTablePopulationAnalysisConfiguration struct {
+	SqlParameters *IntermediateTablePopulationAnalysisSqlParameters `pulumi:"sqlParameters"`
+}
+
+// IntermediateTablePopulationAnalysisConfigurationInput is an input type that accepts IntermediateTablePopulationAnalysisConfigurationArgs and IntermediateTablePopulationAnalysisConfigurationOutput values.
+// You can construct a concrete instance of `IntermediateTablePopulationAnalysisConfigurationInput` via:
+//
+//	IntermediateTablePopulationAnalysisConfigurationArgs{...}
+type IntermediateTablePopulationAnalysisConfigurationInput interface {
+	pulumi.Input
+
+	ToIntermediateTablePopulationAnalysisConfigurationOutput() IntermediateTablePopulationAnalysisConfigurationOutput
+	ToIntermediateTablePopulationAnalysisConfigurationOutputWithContext(context.Context) IntermediateTablePopulationAnalysisConfigurationOutput
+}
+
+type IntermediateTablePopulationAnalysisConfigurationArgs struct {
+	SqlParameters IntermediateTablePopulationAnalysisSqlParametersPtrInput `pulumi:"sqlParameters"`
+}
+
+func (IntermediateTablePopulationAnalysisConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTablePopulationAnalysisConfiguration)(nil)).Elem()
+}
+
+func (i IntermediateTablePopulationAnalysisConfigurationArgs) ToIntermediateTablePopulationAnalysisConfigurationOutput() IntermediateTablePopulationAnalysisConfigurationOutput {
+	return i.ToIntermediateTablePopulationAnalysisConfigurationOutputWithContext(context.Background())
+}
+
+func (i IntermediateTablePopulationAnalysisConfigurationArgs) ToIntermediateTablePopulationAnalysisConfigurationOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTablePopulationAnalysisConfigurationOutput)
+}
+
+type IntermediateTablePopulationAnalysisConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTablePopulationAnalysisConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTablePopulationAnalysisConfiguration)(nil)).Elem()
+}
+
+func (o IntermediateTablePopulationAnalysisConfigurationOutput) ToIntermediateTablePopulationAnalysisConfigurationOutput() IntermediateTablePopulationAnalysisConfigurationOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisConfigurationOutput) ToIntermediateTablePopulationAnalysisConfigurationOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisConfigurationOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisConfigurationOutput) SqlParameters() IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return o.ApplyT(func(v IntermediateTablePopulationAnalysisConfiguration) *IntermediateTablePopulationAnalysisSqlParameters {
+		return v.SqlParameters
+	}).(IntermediateTablePopulationAnalysisSqlParametersPtrOutput)
+}
+
+type IntermediateTablePopulationAnalysisSqlParameters struct {
+	AnalysisTemplateArn *string `pulumi:"analysisTemplateArn"`
+	QueryString         *string `pulumi:"queryString"`
+}
+
+// IntermediateTablePopulationAnalysisSqlParametersInput is an input type that accepts IntermediateTablePopulationAnalysisSqlParametersArgs and IntermediateTablePopulationAnalysisSqlParametersOutput values.
+// You can construct a concrete instance of `IntermediateTablePopulationAnalysisSqlParametersInput` via:
+//
+//	IntermediateTablePopulationAnalysisSqlParametersArgs{...}
+type IntermediateTablePopulationAnalysisSqlParametersInput interface {
+	pulumi.Input
+
+	ToIntermediateTablePopulationAnalysisSqlParametersOutput() IntermediateTablePopulationAnalysisSqlParametersOutput
+	ToIntermediateTablePopulationAnalysisSqlParametersOutputWithContext(context.Context) IntermediateTablePopulationAnalysisSqlParametersOutput
+}
+
+type IntermediateTablePopulationAnalysisSqlParametersArgs struct {
+	AnalysisTemplateArn pulumi.StringPtrInput `pulumi:"analysisTemplateArn"`
+	QueryString         pulumi.StringPtrInput `pulumi:"queryString"`
+}
+
+func (IntermediateTablePopulationAnalysisSqlParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParameters)(nil)).Elem()
+}
+
+func (i IntermediateTablePopulationAnalysisSqlParametersArgs) ToIntermediateTablePopulationAnalysisSqlParametersOutput() IntermediateTablePopulationAnalysisSqlParametersOutput {
+	return i.ToIntermediateTablePopulationAnalysisSqlParametersOutputWithContext(context.Background())
+}
+
+func (i IntermediateTablePopulationAnalysisSqlParametersArgs) ToIntermediateTablePopulationAnalysisSqlParametersOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTablePopulationAnalysisSqlParametersOutput)
+}
+
+func (i IntermediateTablePopulationAnalysisSqlParametersArgs) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutput() IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return i.ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(context.Background())
+}
+
+func (i IntermediateTablePopulationAnalysisSqlParametersArgs) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTablePopulationAnalysisSqlParametersOutput).ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(ctx)
+}
+
+// IntermediateTablePopulationAnalysisSqlParametersPtrInput is an input type that accepts IntermediateTablePopulationAnalysisSqlParametersArgs, IntermediateTablePopulationAnalysisSqlParametersPtr and IntermediateTablePopulationAnalysisSqlParametersPtrOutput values.
+// You can construct a concrete instance of `IntermediateTablePopulationAnalysisSqlParametersPtrInput` via:
+//
+//	        IntermediateTablePopulationAnalysisSqlParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntermediateTablePopulationAnalysisSqlParametersPtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTablePopulationAnalysisSqlParametersPtrOutput() IntermediateTablePopulationAnalysisSqlParametersPtrOutput
+	ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(context.Context) IntermediateTablePopulationAnalysisSqlParametersPtrOutput
+}
+
+type intermediateTablePopulationAnalysisSqlParametersPtrType IntermediateTablePopulationAnalysisSqlParametersArgs
+
+func IntermediateTablePopulationAnalysisSqlParametersPtr(v *IntermediateTablePopulationAnalysisSqlParametersArgs) IntermediateTablePopulationAnalysisSqlParametersPtrInput {
+	return (*intermediateTablePopulationAnalysisSqlParametersPtrType)(v)
+}
+
+func (*intermediateTablePopulationAnalysisSqlParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTablePopulationAnalysisSqlParameters)(nil)).Elem()
+}
+
+func (i *intermediateTablePopulationAnalysisSqlParametersPtrType) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutput() IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return i.ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *intermediateTablePopulationAnalysisSqlParametersPtrType) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTablePopulationAnalysisSqlParametersPtrOutput)
+}
+
+type IntermediateTablePopulationAnalysisSqlParametersOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTablePopulationAnalysisSqlParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParameters)(nil)).Elem()
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) ToIntermediateTablePopulationAnalysisSqlParametersOutput() IntermediateTablePopulationAnalysisSqlParametersOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) ToIntermediateTablePopulationAnalysisSqlParametersOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutput() IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return o.ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTablePopulationAnalysisSqlParameters) *IntermediateTablePopulationAnalysisSqlParameters {
+		return &v
+	}).(IntermediateTablePopulationAnalysisSqlParametersPtrOutput)
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) AnalysisTemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntermediateTablePopulationAnalysisSqlParameters) *string { return v.AnalysisTemplateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntermediateTablePopulationAnalysisSqlParameters) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTablePopulationAnalysisSqlParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTablePopulationAnalysisSqlParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTablePopulationAnalysisSqlParameters)(nil)).Elem()
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersPtrOutput) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutput() IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersPtrOutput) ToIntermediateTablePopulationAnalysisSqlParametersPtrOutputWithContext(ctx context.Context) IntermediateTablePopulationAnalysisSqlParametersPtrOutput {
+	return o
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersPtrOutput) Elem() IntermediateTablePopulationAnalysisSqlParametersOutput {
+	return o.ApplyT(func(v *IntermediateTablePopulationAnalysisSqlParameters) IntermediateTablePopulationAnalysisSqlParameters {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTablePopulationAnalysisSqlParameters
+		return ret
+	}).(IntermediateTablePopulationAnalysisSqlParametersOutput)
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersPtrOutput) AnalysisTemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntermediateTablePopulationAnalysisSqlParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnalysisTemplateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IntermediateTablePopulationAnalysisSqlParametersPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntermediateTablePopulationAnalysisSqlParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type MembershipJobComputePaymentConfig struct {
 	// Indicates whether the collaboration member has accepted to pay for job compute costs ( `TRUE` ) or has not accepted to pay for query and job compute costs ( `FALSE` ).
 	//
@@ -8655,6 +9377,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfigInput)(nil)).Elem(), IdNamespaceAssociationInputReferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleInput)(nil)).Elem(), IntermediateTableAnalysisRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleArrayInput)(nil)).Elem(), IntermediateTableAnalysisRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleCustomInput)(nil)).Elem(), IntermediateTableAnalysisRuleCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRulePolicyInput)(nil)).Elem(), IntermediateTableAnalysisRulePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRulePolicyV1PropertiesInput)(nil)).Elem(), IntermediateTableAnalysisRulePolicyV1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyPtrInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumnInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisConfigurationInput)(nil)).Elem(), IntermediateTablePopulationAnalysisConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParametersInput)(nil)).Elem(), IntermediateTablePopulationAnalysisSqlParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParametersPtrInput)(nil)).Elem(), IntermediateTablePopulationAnalysisSqlParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobComputePaymentConfigInput)(nil)).Elem(), MembershipJobComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobComputePaymentConfigPtrInput)(nil)).Elem(), MembershipJobComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipMlPaymentConfigInput)(nil)).Elem(), MembershipMlPaymentConfigArgs{})
@@ -8785,6 +9519,18 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleArrayOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleCustomOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRulePolicyOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAnalysisRulePolicyV1PropertiesOutput{})
+	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyOutput{})
+	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyPtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyColumnOutput{})
+	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyColumnArrayOutput{})
+	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisConfigurationOutput{})
+	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisSqlParametersOutput{})
+	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisSqlParametersPtrOutput{})
 	pulumi.RegisterOutputType(MembershipJobComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(MembershipJobComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipMlPaymentConfigOutput{})

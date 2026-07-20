@@ -25,11 +25,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedClients;
         public readonly ImmutableArray<string> AllowedScopes;
+        public readonly Outputs.RuntimeAllowedWorkloadConfiguration? AllowedWorkloadConfiguration;
         public readonly ImmutableArray<Outputs.RuntimeCustomClaimValidationType> CustomClaims;
         /// <summary>
         /// The configuration authorization.
         /// </summary>
         public readonly string DiscoveryUrl;
+        public readonly Outputs.RuntimePrivateEndpoint? PrivateEndpoint;
+        public readonly ImmutableArray<Outputs.RuntimePrivateEndpointOverride> PrivateEndpointOverrides;
 
         [OutputConstructor]
         private RuntimeCustomJwtAuthorizerConfiguration(
@@ -39,15 +42,24 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             ImmutableArray<string> allowedScopes,
 
+            Outputs.RuntimeAllowedWorkloadConfiguration? allowedWorkloadConfiguration,
+
             ImmutableArray<Outputs.RuntimeCustomClaimValidationType> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            Outputs.RuntimePrivateEndpoint? privateEndpoint,
+
+            ImmutableArray<Outputs.RuntimePrivateEndpointOverride> privateEndpointOverrides)
         {
             AllowedAudience = allowedAudience;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
+            AllowedWorkloadConfiguration = allowedWorkloadConfiguration;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointOverrides = privateEndpointOverrides;
         }
     }
 }

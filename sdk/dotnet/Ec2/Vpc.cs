@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("vpcEncryptionControl")]
+        public Output<Outputs.VpcEncryptionControl?> VpcEncryptionControl { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the VPC.
         /// </summary>
@@ -124,6 +127,7 @@ namespace Pulumi.AwsNative.Ec2
                     "cidrBlock",
                     "ipv4IpamPoolId",
                     "ipv4NetmaskLength",
+                    "vpcEncryptionControl",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -201,6 +205,9 @@ namespace Pulumi.AwsNative.Ec2
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("vpcEncryptionControl")]
+        public Input<Inputs.VpcEncryptionControlArgs>? VpcEncryptionControl { get; set; }
 
         public VpcArgs()
         {

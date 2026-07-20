@@ -273,7 +273,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  terminate_instance_on_failure: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -299,7 +299,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  args: InfrastructureConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        Resource Type definition for AWS::ImageBuilder::InfrastructureConfiguration
 
         :param str resource_name: The name of the resource.
         :param InfrastructureConfigurationArgs args: The arguments to use to populate this resource's properties.

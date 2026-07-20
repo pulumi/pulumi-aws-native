@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     public sealed class FunctionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A comment to describe the function.
+        /// A comment to describe the function. The comment cannot be longer than 128 characters.
         /// </summary>
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;

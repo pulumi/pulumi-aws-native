@@ -90,6 +90,7 @@ export class Alarm extends pulumi.CustomResource {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     declare public readonly evaluationPeriods: pulumi.Output<number | undefined>;
+    declare public readonly evaluationWindow: pulumi.Output<outputs.cloudwatch.AlarmEvaluationWindow | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
@@ -176,6 +177,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["evaluationCriteria"] = args?.evaluationCriteria;
             resourceInputs["evaluationInterval"] = args?.evaluationInterval;
             resourceInputs["evaluationPeriods"] = args?.evaluationPeriods;
+            resourceInputs["evaluationWindow"] = args?.evaluationWindow;
             resourceInputs["extendedStatistic"] = args?.extendedStatistic;
             resourceInputs["insufficientDataActions"] = args?.insufficientDataActions;
             resourceInputs["metricName"] = args?.metricName;
@@ -203,6 +205,7 @@ export class Alarm extends pulumi.CustomResource {
             resourceInputs["evaluationCriteria"] = undefined /*out*/;
             resourceInputs["evaluationInterval"] = undefined /*out*/;
             resourceInputs["evaluationPeriods"] = undefined /*out*/;
+            resourceInputs["evaluationWindow"] = undefined /*out*/;
             resourceInputs["extendedStatistic"] = undefined /*out*/;
             resourceInputs["insufficientDataActions"] = undefined /*out*/;
             resourceInputs["metricName"] = undefined /*out*/;
@@ -275,6 +278,7 @@ export interface AlarmArgs {
      *  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
     evaluationPeriods?: pulumi.Input<number | undefined>;
+    evaluationWindow?: pulumi.Input<inputs.cloudwatch.AlarmEvaluationWindowArgs | undefined>;
     /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      *  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.

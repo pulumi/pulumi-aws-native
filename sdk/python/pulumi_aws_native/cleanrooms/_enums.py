@@ -31,6 +31,9 @@ __all__ = [
     'ConfiguredTableSelectedAnalysisMethod',
     'IdMappingTableInputSourceType',
     'IdNamespaceAssociationInputReferencePropertiesIdNamespaceType',
+    'IntermediateTableAdditionalAnalyses',
+    'IntermediateTableAnalysisRuleType',
+    'IntermediateTableStatus',
     'MembershipJobLogStatus',
     'MembershipQueryLogStatus',
     'MembershipResultFormat',
@@ -315,6 +318,28 @@ class IdNamespaceAssociationInputReferencePropertiesIdNamespaceType(_builtins.st
     """
     SOURCE = "SOURCE"
     TARGET = "TARGET"
+
+
+@pulumi.type_token("aws-native:cleanrooms:IntermediateTableAdditionalAnalyses")
+class IntermediateTableAdditionalAnalyses(_builtins.str, Enum):
+    ALLOWED = "ALLOWED"
+    REQUIRED = "REQUIRED"
+    NOT_ALLOWED = "NOT_ALLOWED"
+
+
+@pulumi.type_token("aws-native:cleanrooms:IntermediateTableAnalysisRuleType")
+class IntermediateTableAnalysisRuleType(_builtins.str, Enum):
+    CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:cleanrooms:IntermediateTableStatus")
+class IntermediateTableStatus(_builtins.str, Enum):
+    CREATED = "CREATED"
+    POPULATE_STARTED = "POPULATE_STARTED"
+    POPULATE_SUCCESS = "POPULATE_SUCCESS"
+    POPULATE_FAILED = "POPULATE_FAILED"
+    DISALLOWED_BY_DATA_PROVIDER = "DISALLOWED_BY_DATA_PROVIDER"
+    BASE_TABLE_REMOVED = "BASE_TABLE_REMOVED"
 
 
 @pulumi.type_token("aws-native:cleanrooms:MembershipJobLogStatus")

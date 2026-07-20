@@ -77,6 +77,14 @@ __all__ = [
     'IdNamespaceAssociationIdMappingConfig',
     'IdNamespaceAssociationInputReferenceConfig',
     'IdNamespaceAssociationInputReferenceProperties',
+    'IntermediateTableAnalysisRule',
+    'IntermediateTableAnalysisRuleCustom',
+    'IntermediateTableAnalysisRulePolicy',
+    'IntermediateTableAnalysisRulePolicyV1Properties',
+    'IntermediateTableDifferentialPrivacy',
+    'IntermediateTableDifferentialPrivacyColumn',
+    'IntermediateTablePopulationAnalysisConfiguration',
+    'IntermediateTablePopulationAnalysisSqlParameters',
     'MembershipJobComputePaymentConfig',
     'MembershipMlPaymentConfig',
     'MembershipModelInferencePaymentConfig',
@@ -2237,6 +2245,222 @@ class IdNamespaceAssociationInputReferenceProperties(dict):
         The ID namespace type for this ID namespace association.
         """
         return pulumi.get(self, "id_namespace_type")
+
+
+@pulumi.output_type
+class IntermediateTableAnalysisRule(dict):
+    def __init__(__self__, *,
+                 policy: 'outputs.IntermediateTableAnalysisRulePolicy',
+                 type: 'IntermediateTableAnalysisRuleType'):
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> 'outputs.IntermediateTableAnalysisRulePolicy':
+        return pulumi.get(self, "policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'IntermediateTableAnalysisRuleType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IntermediateTableAnalysisRuleCustom(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAnalyses":
+            suggest = "allowed_analyses"
+        elif key == "additionalAnalyses":
+            suggest = "additional_analyses"
+        elif key == "allowedAnalysisProviders":
+            suggest = "allowed_analysis_providers"
+        elif key == "allowedResultReceivers":
+            suggest = "allowed_result_receivers"
+        elif key == "differentialPrivacy":
+            suggest = "differential_privacy"
+        elif key == "disallowedOutputColumns":
+            suggest = "disallowed_output_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntermediateTableAnalysisRuleCustom. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntermediateTableAnalysisRuleCustom.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntermediateTableAnalysisRuleCustom.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_analyses: Sequence[_builtins.str],
+                 additional_analyses: Optional['IntermediateTableAdditionalAnalyses'] = None,
+                 allowed_analysis_providers: Optional[Sequence[_builtins.str]] = None,
+                 allowed_result_receivers: Optional[Sequence[_builtins.str]] = None,
+                 differential_privacy: Optional['outputs.IntermediateTableDifferentialPrivacy'] = None,
+                 disallowed_output_columns: Optional[Sequence[_builtins.str]] = None):
+        pulumi.set(__self__, "allowed_analyses", allowed_analyses)
+        if additional_analyses is not None:
+            pulumi.set(__self__, "additional_analyses", additional_analyses)
+        if allowed_analysis_providers is not None:
+            pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+        if allowed_result_receivers is not None:
+            pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+        if differential_privacy is not None:
+            pulumi.set(__self__, "differential_privacy", differential_privacy)
+        if disallowed_output_columns is not None:
+            pulumi.set(__self__, "disallowed_output_columns", disallowed_output_columns)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAnalyses")
+    def allowed_analyses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_analyses")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalAnalyses")
+    def additional_analyses(self) -> Optional['IntermediateTableAdditionalAnalyses']:
+        return pulumi.get(self, "additional_analyses")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAnalysisProviders")
+    def allowed_analysis_providers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_analysis_providers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResultReceivers")
+    def allowed_result_receivers(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_result_receivers")
+
+    @_builtins.property
+    @pulumi.getter(name="differentialPrivacy")
+    def differential_privacy(self) -> Optional['outputs.IntermediateTableDifferentialPrivacy']:
+        return pulumi.get(self, "differential_privacy")
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedOutputColumns")
+    def disallowed_output_columns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "disallowed_output_columns")
+
+
+@pulumi.output_type
+class IntermediateTableAnalysisRulePolicy(dict):
+    def __init__(__self__, *,
+                 v1: 'outputs.IntermediateTableAnalysisRulePolicyV1Properties'):
+        pulumi.set(__self__, "v1", v1)
+
+    @_builtins.property
+    @pulumi.getter
+    def v1(self) -> 'outputs.IntermediateTableAnalysisRulePolicyV1Properties':
+        return pulumi.get(self, "v1")
+
+
+@pulumi.output_type
+class IntermediateTableAnalysisRulePolicyV1Properties(dict):
+    def __init__(__self__, *,
+                 custom: 'outputs.IntermediateTableAnalysisRuleCustom'):
+        pulumi.set(__self__, "custom", custom)
+
+    @_builtins.property
+    @pulumi.getter
+    def custom(self) -> 'outputs.IntermediateTableAnalysisRuleCustom':
+        return pulumi.get(self, "custom")
+
+
+@pulumi.output_type
+class IntermediateTableDifferentialPrivacy(dict):
+    def __init__(__self__, *,
+                 columns: Sequence['outputs.IntermediateTableDifferentialPrivacyColumn']):
+        pulumi.set(__self__, "columns", columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence['outputs.IntermediateTableDifferentialPrivacyColumn']:
+        return pulumi.get(self, "columns")
+
+
+@pulumi.output_type
+class IntermediateTableDifferentialPrivacyColumn(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IntermediateTablePopulationAnalysisConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlParameters":
+            suggest = "sql_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntermediateTablePopulationAnalysisConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntermediateTablePopulationAnalysisConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntermediateTablePopulationAnalysisConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sql_parameters: Optional['outputs.IntermediateTablePopulationAnalysisSqlParameters'] = None):
+        if sql_parameters is not None:
+            pulumi.set(__self__, "sql_parameters", sql_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlParameters")
+    def sql_parameters(self) -> Optional['outputs.IntermediateTablePopulationAnalysisSqlParameters']:
+        return pulumi.get(self, "sql_parameters")
+
+
+@pulumi.output_type
+class IntermediateTablePopulationAnalysisSqlParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "analysisTemplateArn":
+            suggest = "analysis_template_arn"
+        elif key == "queryString":
+            suggest = "query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntermediateTablePopulationAnalysisSqlParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntermediateTablePopulationAnalysisSqlParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntermediateTablePopulationAnalysisSqlParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analysis_template_arn: Optional[_builtins.str] = None,
+                 query_string: Optional[_builtins.str] = None):
+        if analysis_template_arn is not None:
+            pulumi.set(__self__, "analysis_template_arn", analysis_template_arn)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+
+    @_builtins.property
+    @pulumi.getter(name="analysisTemplateArn")
+    def analysis_template_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "analysis_template_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "query_string")
 
 
 @pulumi.output_type

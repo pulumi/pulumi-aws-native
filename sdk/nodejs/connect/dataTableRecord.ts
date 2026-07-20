@@ -40,12 +40,12 @@ export class DataTableRecord extends pulumi.CustomResource {
     /**
      * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
      */
-    declare public readonly dataTableArn: pulumi.Output<string | undefined>;
-    declare public readonly dataTableRecord: pulumi.Output<outputs.connect.DataTableRecordProperties | undefined>;
+    declare public readonly dataTableArn: pulumi.Output<string>;
+    declare public readonly dataTableRecord: pulumi.Output<outputs.connect.DataTableRecordProperties>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    declare public readonly instanceArn: pulumi.Output<string | undefined>;
+    declare public readonly instanceArn: pulumi.Output<string>;
     declare public /*out*/ readonly recordId: pulumi.Output<string>;
 
     /**
@@ -55,10 +55,19 @@ export class DataTableRecord extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataTableRecordArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataTableRecordArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataTableArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataTableArn'");
+            }
+            if (args?.dataTableRecord === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataTableRecord'");
+            }
+            if (args?.instanceArn === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceArn'");
+            }
             resourceInputs["dataTableArn"] = args?.dataTableArn;
             resourceInputs["dataTableRecord"] = args?.dataTableRecord;
             resourceInputs["instanceArn"] = args?.instanceArn;
@@ -83,10 +92,10 @@ export interface DataTableRecordArgs {
     /**
      * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
      */
-    dataTableArn?: pulumi.Input<string | undefined>;
-    dataTableRecord?: pulumi.Input<inputs.connect.DataTableRecordPropertiesArgs | undefined>;
+    dataTableArn: pulumi.Input<string>;
+    dataTableRecord: pulumi.Input<inputs.connect.DataTableRecordPropertiesArgs>;
     /**
      * The Amazon Resource Name (ARN) of the instance.
      */
-    instanceArn?: pulumi.Input<string | undefined>;
+    instanceArn: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ActionStatus',
     'AlgorithmChannelSpecificationSupportedCompressionTypesItem',
     'AlgorithmChannelSpecificationSupportedInputModesItem',
     'AlgorithmHyperParameterSpecificationType',
@@ -48,6 +49,7 @@ __all__ = [
     'DomainUnifiedStudioSettingsStudioWebPortalAccess',
     'DomainUserSettingsAutoMountHomeEfs',
     'DomainUserSettingsStudioWebPortal',
+    'ExperimentTrialComponentStatusPropertiesPrimaryStatus',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
@@ -142,6 +144,7 @@ __all__ = [
     'SpaceResourceSpecInstanceType',
     'SpaceSharingSettingsSharingType',
     'StudioLifecycleConfigAppType',
+    'TrialComponentStatusPrimaryStatus',
     'UserProfileAppInstanceType',
     'UserProfileAppType',
     'UserProfileHiddenSageMakerImageSageMakerImageName',
@@ -153,6 +156,19 @@ __all__ = [
     'UserProfileUserSettingsAutoMountHomeEfs',
     'UserProfileUserSettingsStudioWebPortal',
 ]
+
+
+@pulumi.type_token("aws-native:sagemaker:ActionStatus")
+class ActionStatus(_builtins.str, Enum):
+    """
+    The status of the action.
+    """
+    UNKNOWN = "Unknown"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    STOPPING = "Stopping"
+    STOPPED = "Stopped"
 
 
 @pulumi.type_token("aws-native:sagemaker:AlgorithmChannelSpecificationSupportedCompressionTypesItem")
@@ -873,6 +889,18 @@ class DomainUserSettingsStudioWebPortal(_builtins.str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:sagemaker:ExperimentTrialComponentStatusPropertiesPrimaryStatus")
+class ExperimentTrialComponentStatusPropertiesPrimaryStatus(_builtins.str, Enum):
+    """
+    The status of the trial component.
+    """
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    STOPPING = "Stopping"
+    STOPPED = "Stopped"
 
 
 @pulumi.type_token("aws-native:sagemaker:FeatureGroupFeatureDefinitionFeatureType")
@@ -2066,6 +2094,18 @@ class StudioLifecycleConfigAppType(_builtins.str, Enum):
     KERNEL_GATEWAY = "KernelGateway"
     CODE_EDITOR = "CodeEditor"
     JUPYTER_LAB = "JupyterLab"
+
+
+@pulumi.type_token("aws-native:sagemaker:TrialComponentStatusPrimaryStatus")
+class TrialComponentStatusPrimaryStatus(_builtins.str, Enum):
+    """
+    The status of the trial component.
+    """
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    STOPPING = "Stopping"
+    STOPPED = "Stopped"
 
 
 @pulumi.type_token("aws-native:sagemaker:UserProfileAppInstanceType")

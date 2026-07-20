@@ -1,0 +1,315 @@
+{
+  "typeName" : "AWS::SageMaker::TransformJob",
+  "description" : "Resource type definition for AWS::SageMaker::TransformJob. A transform job uses a trained model to get inferences on a dataset and saves these results to an Amazon S3 location that you specify.",
+  "properties" : {
+    "TransformJobArn" : {
+      "type" : "string",
+      "description" : "The Amazon Resource Name (ARN) of the transform job.",
+      "minLength" : 0,
+      "maxLength" : 256,
+      "pattern" : "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:transform-job/"
+    },
+    "TransformJobName" : {
+      "type" : "string",
+      "description" : "The name of the transform job. The name must be unique within an AWS Region in an AWS account.",
+      "minLength" : 1,
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$"
+    },
+    "TransformJobStatus" : {
+      "type" : "string",
+      "description" : "The status of the transform job.",
+      "enum" : [ "InProgress", "Completed", "Failed", "Stopping", "Stopped" ]
+    },
+    "ModelName" : {
+      "type" : "string",
+      "description" : "The name of the model that you want to use for the transform job.",
+      "maxLength" : 63,
+      "pattern" : "^[a-zA-Z0-9]([\\-a-zA-Z0-9]*[a-zA-Z0-9])?$"
+    },
+    "MaxConcurrentTransforms" : {
+      "type" : "integer",
+      "description" : "The maximum number of parallel requests that can be sent to each instance in a transform job.",
+      "minimum" : 0
+    },
+    "ModelClientConfig" : {
+      "type" : "object",
+      "description" : "Configures the timeout and maximum number of retries for processing a transform job invocation.",
+      "properties" : {
+        "InvocationsTimeoutInSeconds" : {
+          "type" : "integer",
+          "description" : "The timeout value in seconds for an invocation request.",
+          "minimum" : 1,
+          "maximum" : 3600
+        },
+        "InvocationsMaxRetries" : {
+          "type" : "integer",
+          "description" : "The maximum number of retries when invocation requests are failing.",
+          "minimum" : 0,
+          "maximum" : 3
+        }
+      },
+      "additionalProperties" : false
+    },
+    "MaxPayloadInMB" : {
+      "type" : "integer",
+      "description" : "The maximum allowed size of the payload, in MB.",
+      "minimum" : 0
+    },
+    "BatchStrategy" : {
+      "type" : "string",
+      "description" : "Specifies the number of records to include in a mini-batch for an HTTP inference request.",
+      "enum" : [ "MultiRecord", "SingleRecord" ]
+    },
+    "Environment" : {
+      "type" : "object",
+      "description" : "The environment variables to set in the Docker container.",
+      "maxProperties" : 16,
+      "patternProperties" : {
+        "[a-zA-Z_][a-zA-Z0-9_]*" : {
+          "type" : "string",
+          "maxLength" : 10240
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TransformInput" : {
+      "type" : "object",
+      "description" : "Describes the input source and the way the transform job consumes it.",
+      "properties" : {
+        "DataSource" : {
+          "type" : "object",
+          "description" : "Describes the location of the channel data.",
+          "properties" : {
+            "S3DataSource" : {
+              "type" : "object",
+              "description" : "The S3 location of the data source.",
+              "properties" : {
+                "S3DataType" : {
+                  "type" : "string",
+                  "description" : "The data type.",
+                  "enum" : [ "ManifestFile", "S3Prefix", "AugmentedManifestFile", "Converse" ]
+                },
+                "S3Uri" : {
+                  "type" : "string",
+                  "description" : "The S3 URI.",
+                  "maxLength" : 1024,
+                  "pattern" : "^(https|s3)://([^/]+)/?(.*)$"
+                }
+              },
+              "required" : [ "S3DataType", "S3Uri" ],
+              "additionalProperties" : false
+            }
+          },
+          "required" : [ "S3DataSource" ],
+          "additionalProperties" : false
+        },
+        "ContentType" : {
+          "type" : "string",
+          "description" : "The multipurpose internet mail extension (MIME) type of the data.",
+          "maxLength" : 256
+        },
+        "CompressionType" : {
+          "type" : "string",
+          "description" : "If your transform data is compressed, specify the compression type.",
+          "enum" : [ "None", "Gzip" ]
+        },
+        "SplitType" : {
+          "type" : "string",
+          "description" : "The method to use to split the transform job's data files into smaller batches.",
+          "enum" : [ "None", "Line", "RecordIO", "TFRecord" ]
+        }
+      },
+      "required" : [ "DataSource" ],
+      "additionalProperties" : false
+    },
+    "TransformOutput" : {
+      "type" : "object",
+      "description" : "Describes the results of the transform job.",
+      "properties" : {
+        "S3OutputPath" : {
+          "type" : "string",
+          "description" : "The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job.",
+          "maxLength" : 1024,
+          "pattern" : "^(https|s3)://([^/]+)/?(.*)$"
+        },
+        "Accept" : {
+          "type" : "string",
+          "description" : "The MIME type used to specify the output data.",
+          "maxLength" : 256
+        },
+        "AssembleWith" : {
+          "type" : "string",
+          "description" : "Defines how to assemble the results of the transform job as a single S3 object.",
+          "enum" : [ "None", "Line" ]
+        },
+        "KmsKeyId" : {
+          "type" : "string",
+          "description" : "The AWS KMS key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.",
+          "maxLength" : 2048,
+          "pattern" : "^[a-zA-Z0-9:/_-]*$"
+        }
+      },
+      "required" : [ "S3OutputPath" ],
+      "additionalProperties" : false
+    },
+    "DataCaptureConfig" : {
+      "type" : "object",
+      "description" : "Configuration to control how SageMaker captures inference data.",
+      "properties" : {
+        "DestinationS3Uri" : {
+          "type" : "string",
+          "description" : "The Amazon S3 location being used to capture the data.",
+          "maxLength" : 1024,
+          "pattern" : "^(https|s3)://([^/]+)/?(.*)$"
+        },
+        "KmsKeyId" : {
+          "type" : "string",
+          "description" : "The ARN of a KMS key that SageMaker uses to encrypt data on the storage volume.",
+          "maxLength" : 2048,
+          "pattern" : "^[a-zA-Z0-9:/_-]*$"
+        },
+        "GenerateInferenceId" : {
+          "type" : "boolean",
+          "description" : "Flag that indicates whether to append inference id to the output."
+        }
+      },
+      "required" : [ "DestinationS3Uri" ],
+      "additionalProperties" : false
+    },
+    "TransformResources" : {
+      "type" : "object",
+      "description" : "Describes the resources, including ML instance types and ML instance count, to use for the transform job.",
+      "properties" : {
+        "InstanceType" : {
+          "type" : "string",
+          "description" : "The ML compute instance type for the transform job."
+        },
+        "InstanceCount" : {
+          "type" : "integer",
+          "description" : "The number of ML compute instances to use in the transform job.",
+          "minimum" : 1
+        },
+        "VolumeKmsKeyId" : {
+          "type" : "string",
+          "description" : "The AWS KMS key that Amazon SageMaker uses to encrypt model data on the storage volume.",
+          "maxLength" : 2048,
+          "pattern" : "^[a-zA-Z0-9:/_-]*$"
+        }
+      },
+      "required" : [ "InstanceType", "InstanceCount" ],
+      "additionalProperties" : false
+    },
+    "DataProcessing" : {
+      "type" : "object",
+      "description" : "The data structure used to specify the data to be used for inference in a batch transform job.",
+      "properties" : {
+        "InputFilter" : {
+          "type" : "string",
+          "description" : "A JSONPath expression used to select a portion of the input data to pass to the algorithm.",
+          "maxLength" : 63
+        },
+        "OutputFilter" : {
+          "type" : "string",
+          "description" : "A JSONPath expression used to select a portion of the joined dataset to save in the output file.",
+          "maxLength" : 63
+        },
+        "JoinSource" : {
+          "type" : "string",
+          "description" : "Specifies the source of the data to join with the transformed data.",
+          "enum" : [ "Input", "None" ]
+        }
+      },
+      "additionalProperties" : false
+    },
+    "ExperimentConfig" : {
+      "type" : "object",
+      "description" : "Associates a SageMaker job as a trial component with an experiment and trial.",
+      "properties" : {
+        "ExperimentName" : {
+          "type" : "string",
+          "description" : "The name of an existing experiment to associate with the trial component.",
+          "minLength" : 1,
+          "maxLength" : 120,
+          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}$"
+        },
+        "TrialName" : {
+          "type" : "string",
+          "description" : "The name of an existing trial to associate the trial component with.",
+          "minLength" : 1,
+          "maxLength" : 120,
+          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}$"
+        },
+        "TrialComponentDisplayName" : {
+          "type" : "string",
+          "description" : "The display name for the trial component.",
+          "minLength" : 1,
+          "maxLength" : 120,
+          "pattern" : "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}$"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tags" : {
+      "type" : "array",
+      "description" : "An array of key-value pairs.",
+      "maxItems" : 50,
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "Key" : {
+            "type" : "string",
+            "description" : "The tag key.",
+            "minLength" : 1,
+            "maxLength" : 128
+          },
+          "Value" : {
+            "type" : "string",
+            "description" : "The tag value.",
+            "maxLength" : 256
+          }
+        },
+        "required" : [ "Key", "Value" ],
+        "additionalProperties" : false
+      },
+      "insertionOrder" : false
+    },
+    "CreationTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "A timestamp that shows when the transform job was created."
+    },
+    "TransformStartTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Indicates when the transform job starts on ML instances."
+    },
+    "TransformEndTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Indicates when the transform job has been completed, or has stopped or failed."
+    }
+  },
+  "required" : [ "TransformJobName", "ModelName", "TransformInput", "TransformOutput", "TransformResources" ],
+  "additionalProperties" : false,
+  "createOnlyProperties" : [ "/properties/BatchStrategy", "/properties/DataCaptureConfig", "/properties/DataProcessing", "/properties/Environment", "/properties/ExperimentConfig", "/properties/MaxConcurrentTransforms", "/properties/MaxPayloadInMB", "/properties/ModelClientConfig", "/properties/ModelName", "/properties/Tags", "/properties/TransformInput", "/properties/TransformOutput", "/properties/TransformResources" ],
+  "readOnlyProperties" : [ "/properties/TransformJobArn", "/properties/TransformJobName", "/properties/TransformJobStatus", "/properties/CreationTime", "/properties/TransformStartTime", "/properties/TransformEndTime" ],
+  "primaryIdentifier" : [ "/properties/TransformJobArn" ],
+  "additionalIdentifiers" : [ [ "/properties/TransformJobName" ] ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sagemaker:ListTags" ]
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "sagemaker:DescribeTransformJob", "sagemaker:ListTags" ]
+    },
+    "list" : {
+      "permissions" : [ "sagemaker:ListTransformJobs" ]
+    }
+  }
+}

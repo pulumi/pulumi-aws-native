@@ -36,6 +36,10 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
         /// The ARN of the IAM role that grants permissions to execute the scheduled query.
         /// </summary>
         public readonly string ScheduledQueryRoleArn;
+        /// <summary>
+        /// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LogAlarmTag> Tags;
 
         [OutputConstructor]
         private LogAlarmScheduledQueryConfiguration(
@@ -47,13 +51,16 @@ namespace Pulumi.AwsNative.CloudWatch.Outputs
 
             Outputs.LogAlarmScheduleConfiguration scheduleConfiguration,
 
-            string scheduledQueryRoleArn)
+            string scheduledQueryRoleArn,
+
+            ImmutableArray<Outputs.LogAlarmTag> tags)
         {
             AggregationExpression = aggregationExpression;
             LogGroupIdentifiers = logGroupIdentifiers;
             QueryString = queryString;
             ScheduleConfiguration = scheduleConfiguration;
             ScheduledQueryRoleArn = scheduledQueryRoleArn;
+            Tags = tags;
         }
     }
 }

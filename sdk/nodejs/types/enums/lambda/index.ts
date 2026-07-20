@@ -22,6 +22,7 @@ export type CapacityProviderLoggingConfigSystemLogLevel = (typeof CapacityProvid
 
 export const CapacityProviderPredefinedMetricType = {
     LambdaCapacityProviderAverageCpuUtilization: "LambdaCapacityProviderAverageCPUUtilization",
+    LambdaCapacityProviderAverageGpuUtilization: "LambdaCapacityProviderAverageGPUUtilization",
 } as const;
 
 /**

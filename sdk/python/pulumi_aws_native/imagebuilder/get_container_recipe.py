@@ -74,7 +74,7 @@ class AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
 def get_container_recipe(arn: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipeResult:
     """
-    Resource schema for AWS::ImageBuilder::ContainerRecipe
+    Resource Type definition for AWS::ImageBuilder::ContainerRecipe
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the container recipe.
     """
@@ -90,7 +90,7 @@ def get_container_recipe(arn: Optional[_builtins.str] = None,
 def get_container_recipe_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipeResult]:
     """
-    Resource schema for AWS::ImageBuilder::ContainerRecipe
+    Resource Type definition for AWS::ImageBuilder::ContainerRecipe
 
     :param _builtins.str arn: The Amazon Resource Name (ARN) of the container recipe.
     """

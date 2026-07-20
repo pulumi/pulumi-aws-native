@@ -1920,19 +1920,25 @@ class ImagePipelineScheduleArgsDict(TypedDict):
     """
     The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
     """
+    timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+    """
 
 @pulumi.input_type
 class ImagePipelineScheduleArgs:
     def __init__(__self__, *,
                  auto_disable_policy: pulumi.Input[Optional['ImagePipelineAutoDisablePolicyArgs']] = None,
                  pipeline_execution_start_condition: pulumi.Input[Optional['ImagePipelineSchedulePipelineExecutionStartCondition']] = None,
-                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None):
+                 schedule_expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The schedule of the image pipeline.
 
         :param pulumi.Input['ImagePipelineAutoDisablePolicyArgs'] auto_disable_policy: The auto-disable policy for the image pipeline.
         :param pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition'] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param pulumi.Input[_builtins.str] schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
+        :param pulumi.Input[_builtins.str] timezone: The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
         """
         if auto_disable_policy is not None:
             pulumi.set(__self__, "auto_disable_policy", auto_disable_policy)
@@ -1940,6 +1946,8 @@ class ImagePipelineScheduleArgs:
             pulumi.set(__self__, "pipeline_execution_start_condition", pipeline_execution_start_condition)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
 
     @_builtins.property
     @pulumi.getter(name="autoDisablePolicy")
@@ -1976,6 +1984,18 @@ class ImagePipelineScheduleArgs:
     @schedule_expression.setter
     def schedule_expression(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schedule_expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The timezone that applies to the scheduling expression, for example "Etc/UTC" or "America/Los_Angeles" in IANA timezone format. If not specified, this defaults to UTC.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "timezone", value)
 
 
 class ImagePipelineWorkflowConfigurationArgsDict(TypedDict):

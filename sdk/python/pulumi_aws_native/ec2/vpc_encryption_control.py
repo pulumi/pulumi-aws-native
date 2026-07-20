@@ -18,10 +18,10 @@ from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
-__all__ = ['VpcEncryptionControlArgs', 'VpcEncryptionControl']
+__all__ = ['VpcEncryptionControlInitArgs', 'VpcEncryptionControl']
 
 @pulumi.input_type
-class VpcEncryptionControlArgs:
+class VpcEncryptionControlInitArgs:
     def __init__(__self__, *,
                  egress_only_internet_gateway_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput']] = None,
                  elastic_file_system_exclusion_input: pulumi.Input[Optional['VpcEncryptionControlElasticFileSystemExclusionInput']] = None,
@@ -244,18 +244,18 @@ class VpcEncryptionControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpcEncryptionControlArgs] = None,
+                 args: Optional[VpcEncryptionControlInitArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::EC2::VPCEncryptionControl
 
         :param str resource_name: The name of the resource.
-        :param VpcEncryptionControlArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEncryptionControlInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcEncryptionControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEncryptionControlInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -282,7 +282,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcEncryptionControlArgs.__new__(VpcEncryptionControlArgs)
+            __props__ = VpcEncryptionControlInitArgs.__new__(VpcEncryptionControlInitArgs)
 
             __props__.__dict__["egress_only_internet_gateway_exclusion_input"] = egress_only_internet_gateway_exclusion_input
             __props__.__dict__["elastic_file_system_exclusion_input"] = elastic_file_system_exclusion_input
@@ -321,7 +321,7 @@ class VpcEncryptionControl(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VpcEncryptionControlArgs.__new__(VpcEncryptionControlArgs)
+        __props__ = VpcEncryptionControlInitArgs.__new__(VpcEncryptionControlInitArgs)
 
         __props__.__dict__["egress_only_internet_gateway_exclusion_input"] = None
         __props__.__dict__["elastic_file_system_exclusion_input"] = None

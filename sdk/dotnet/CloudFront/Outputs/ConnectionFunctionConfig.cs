@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class ConnectionFunctionConfig
     {
         /// <summary>
-        /// A comment to describe the function.
+        /// A comment to describe the function. The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string Comment;
         /// <summary>

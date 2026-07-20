@@ -81,6 +81,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         public static CapacityProviderPredefinedMetricType LambdaCapacityProviderAverageCpuUtilization { get; } = new CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization");
+        public static CapacityProviderPredefinedMetricType LambdaCapacityProviderAverageGpuUtilization { get; } = new CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageGPUUtilization");
 
         public static bool operator ==(CapacityProviderPredefinedMetricType left, CapacityProviderPredefinedMetricType right) => left.Equals(right);
         public static bool operator !=(CapacityProviderPredefinedMetricType left, CapacityProviderPredefinedMetricType right) => !left.Equals(right);

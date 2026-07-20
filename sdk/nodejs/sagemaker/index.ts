@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ActionArgs } from "./action";
+export type Action = import("./action").Action;
+export const Action: typeof import("./action").Action = null as any;
+utilities.lazyLoad(exports, ["Action"], () => require("./action"));
+
 export { AlgorithmArgs } from "./algorithm";
 export type Algorithm = import("./algorithm").Algorithm;
 export const Algorithm: typeof import("./algorithm").Algorithm = null as any;
@@ -24,6 +29,11 @@ export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { ContextArgs } from "./context";
+export type Context = import("./context").Context;
+export const Context: typeof import("./context").Context = null as any;
+utilities.lazyLoad(exports, ["Context"], () => require("./context"));
 
 export { DataQualityJobDefinitionArgs } from "./dataQualityJobDefinition";
 export type DataQualityJobDefinition = import("./dataQualityJobDefinition").DataQualityJobDefinition;
@@ -50,10 +60,25 @@ export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
 utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
+export { ExperimentArgs } from "./experiment";
+export type Experiment = import("./experiment").Experiment;
+export const Experiment: typeof import("./experiment").Experiment = null as any;
+utilities.lazyLoad(exports, ["Experiment"], () => require("./experiment"));
+
+export { ExperimentTrialComponentArgs } from "./experimentTrialComponent";
+export type ExperimentTrialComponent = import("./experimentTrialComponent").ExperimentTrialComponent;
+export const ExperimentTrialComponent: typeof import("./experimentTrialComponent").ExperimentTrialComponent = null as any;
+utilities.lazyLoad(exports, ["ExperimentTrialComponent"], () => require("./experimentTrialComponent"));
+
 export { FeatureGroupArgs } from "./featureGroup";
 export type FeatureGroup = import("./featureGroup").FeatureGroup;
 export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
 utilities.lazyLoad(exports, ["FeatureGroup"], () => require("./featureGroup"));
+
+export { GetActionArgs, GetActionResult, GetActionOutputArgs } from "./getAction";
+export const getAction: typeof import("./getAction").getAction = null as any;
+export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
+utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
 export { GetAlgorithmArgs, GetAlgorithmResult, GetAlgorithmOutputArgs } from "./getAlgorithm";
 export const getAlgorithm: typeof import("./getAlgorithm").getAlgorithm = null as any;
@@ -75,6 +100,11 @@ export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetContextArgs, GetContextResult, GetContextOutputArgs } from "./getContext";
+export const getContext: typeof import("./getContext").getContext = null as any;
+export const getContextOutput: typeof import("./getContext").getContextOutput = null as any;
+utilities.lazyLoad(exports, ["getContext","getContextOutput"], () => require("./getContext"));
+
 export { GetDataQualityJobDefinitionArgs, GetDataQualityJobDefinitionResult, GetDataQualityJobDefinitionOutputArgs } from "./getDataQualityJobDefinition";
 export const getDataQualityJobDefinition: typeof import("./getDataQualityJobDefinition").getDataQualityJobDefinition = null as any;
 export const getDataQualityJobDefinitionOutput: typeof import("./getDataQualityJobDefinition").getDataQualityJobDefinitionOutput = null as any;
@@ -94,6 +124,16 @@ export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./get
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
+export { GetExperimentArgs, GetExperimentResult, GetExperimentOutputArgs } from "./getExperiment";
+export const getExperiment: typeof import("./getExperiment").getExperiment = null as any;
+export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
+utilities.lazyLoad(exports, ["getExperiment","getExperimentOutput"], () => require("./getExperiment"));
+
+export { GetExperimentTrialComponentArgs, GetExperimentTrialComponentResult, GetExperimentTrialComponentOutputArgs } from "./getExperimentTrialComponent";
+export const getExperimentTrialComponent: typeof import("./getExperimentTrialComponent").getExperimentTrialComponent = null as any;
+export const getExperimentTrialComponentOutput: typeof import("./getExperimentTrialComponent").getExperimentTrialComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getExperimentTrialComponent","getExperimentTrialComponentOutput"], () => require("./getExperimentTrialComponent"));
 
 export { GetFeatureGroupArgs, GetFeatureGroupResult, GetFeatureGroupOutputArgs } from "./getFeatureGroup";
 export const getFeatureGroup: typeof import("./getFeatureGroup").getFeatureGroup = null as any;
@@ -205,6 +245,11 @@ export const getStudioLifecycleConfig: typeof import("./getStudioLifecycleConfig
 export const getStudioLifecycleConfigOutput: typeof import("./getStudioLifecycleConfig").getStudioLifecycleConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getStudioLifecycleConfig","getStudioLifecycleConfigOutput"], () => require("./getStudioLifecycleConfig"));
 
+export { GetTrialComponentArgs, GetTrialComponentResult, GetTrialComponentOutputArgs } from "./getTrialComponent";
+export const getTrialComponent: typeof import("./getTrialComponent").getTrialComponent = null as any;
+export const getTrialComponentOutput: typeof import("./getTrialComponent").getTrialComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getTrialComponent","getTrialComponentOutput"], () => require("./getTrialComponent"));
+
 export { GetUserProfileArgs, GetUserProfileResult, GetUserProfileOutputArgs } from "./getUserProfile";
 export const getUserProfile: typeof import("./getUserProfile").getUserProfile = null as any;
 export const getUserProfileOutput: typeof import("./getUserProfile").getUserProfileOutput = null as any;
@@ -315,6 +360,11 @@ export type StudioLifecycleConfig = import("./studioLifecycleConfig").StudioLife
 export const StudioLifecycleConfig: typeof import("./studioLifecycleConfig").StudioLifecycleConfig = null as any;
 utilities.lazyLoad(exports, ["StudioLifecycleConfig"], () => require("./studioLifecycleConfig"));
 
+export { TrialComponentArgs } from "./trialComponent";
+export type TrialComponent = import("./trialComponent").TrialComponent;
+export const TrialComponent: typeof import("./trialComponent").TrialComponent = null as any;
+utilities.lazyLoad(exports, ["TrialComponent"], () => require("./trialComponent"));
+
 export { UserProfileArgs } from "./userProfile";
 export type UserProfile = import("./userProfile").UserProfile;
 export const UserProfile: typeof import("./userProfile").UserProfile = null as any;
@@ -328,6 +378,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:sagemaker:Action":
+                return new Action(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Algorithm":
                 return new Algorithm(name, <any>undefined, { urn })
             case "aws-native:sagemaker:App":
@@ -336,6 +388,8 @@ const _module = {
                 return new AppImageConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Context":
+                return new Context(name, <any>undefined, { urn })
             case "aws-native:sagemaker:DataQualityJobDefinition":
                 return new DataQualityJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Device":
@@ -346,6 +400,10 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Experiment":
+                return new Experiment(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:ExperimentTrialComponent":
+                return new ExperimentTrialComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Hub":
@@ -390,6 +448,8 @@ const _module = {
                 return new Space(name, <any>undefined, { urn })
             case "aws-native:sagemaker:StudioLifecycleConfig":
                 return new StudioLifecycleConfig(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:TrialComponent":
+                return new TrialComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             default:

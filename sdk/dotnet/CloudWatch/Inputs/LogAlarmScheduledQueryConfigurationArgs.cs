@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         [Input("aggregationExpression", required: true)]
         public Input<string> AggregationExpression { get; set; } = null!;
 
-        [Input("logGroupIdentifiers", required: true)]
+        [Input("logGroupIdentifiers")]
         private InputList<string>? _logGroupIdentifiers;
 
         /// <summary>
@@ -50,6 +50,18 @@ namespace Pulumi.AwsNative.CloudWatch.Inputs
         /// </summary>
         [Input("scheduledQueryRoleArn", required: true)]
         public Input<string> ScheduledQueryRoleArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.LogAlarmTagArgs>? _tags;
+
+        /// <summary>
+        /// A list of key-value pairs to associate with the scheduled query that backs the log alarm.
+        /// </summary>
+        public InputList<Inputs.LogAlarmTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.LogAlarmTagArgs>());
+            set => _tags = value;
+        }
 
         public LogAlarmScheduledQueryConfigurationArgs()
         {

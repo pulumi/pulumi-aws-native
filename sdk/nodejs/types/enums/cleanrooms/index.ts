@@ -302,6 +302,31 @@ export const IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = {
  */
 export type IdNamespaceAssociationInputReferencePropertiesIdNamespaceType = (typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType)[keyof typeof IdNamespaceAssociationInputReferencePropertiesIdNamespaceType];
 
+export const IntermediateTableAdditionalAnalyses = {
+    Allowed: "ALLOWED",
+    Required: "REQUIRED",
+    NotAllowed: "NOT_ALLOWED",
+} as const;
+
+export type IntermediateTableAdditionalAnalyses = (typeof IntermediateTableAdditionalAnalyses)[keyof typeof IntermediateTableAdditionalAnalyses];
+
+export const IntermediateTableAnalysisRuleType = {
+    Custom: "CUSTOM",
+} as const;
+
+export type IntermediateTableAnalysisRuleType = (typeof IntermediateTableAnalysisRuleType)[keyof typeof IntermediateTableAnalysisRuleType];
+
+export const IntermediateTableStatus = {
+    Created: "CREATED",
+    PopulateStarted: "POPULATE_STARTED",
+    PopulateSuccess: "POPULATE_SUCCESS",
+    PopulateFailed: "POPULATE_FAILED",
+    DisallowedByDataProvider: "DISALLOWED_BY_DATA_PROVIDER",
+    BaseTableRemoved: "BASE_TABLE_REMOVED",
+} as const;
+
+export type IntermediateTableStatus = (typeof IntermediateTableStatus)[keyof typeof IntermediateTableStatus];
+
 export const MembershipJobLogStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerRuleSourceIpConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
         [Input("values")]
         private InputList<string>? _values;
 

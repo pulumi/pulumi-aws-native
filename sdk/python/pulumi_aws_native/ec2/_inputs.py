@@ -398,6 +398,12 @@ __all__ = [
     'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict',
     'VerifiedAccessTrustProviderOidcOptionsArgs',
     'VerifiedAccessTrustProviderOidcOptionsArgsDict',
+    'VpcEncryptionControlArgs',
+    'VpcEncryptionControlArgsDict',
+    'VpcEncryptionControlExclusionArgs',
+    'VpcEncryptionControlExclusionArgsDict',
+    'VpcEncryptionControlExclusionsArgs',
+    'VpcEncryptionControlExclusionsArgsDict',
     'VpcEndpointDnsOptionsSpecificationArgs',
     'VpcEndpointDnsOptionsSpecificationArgsDict',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgs',
@@ -18680,6 +18686,448 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
     @user_info_endpoint.setter
     def user_info_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_info_endpoint", value)
+
+
+class VpcEncryptionControlArgsDict(TypedDict):
+    egress_only_internet_gateway_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusion']]]
+    """
+    The desired exclusion mode for Egress-Only Internet Gateways.
+    """
+    elastic_file_system_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlElasticFileSystemExclusion']]]
+    """
+    The desired exclusion mode for Elastic File System.
+    """
+    internet_gateway_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlInternetGatewayExclusion']]]
+    """
+    The desired exclusion mode for Internet Gateways.
+    """
+    lambda_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlLambdaExclusion']]]
+    """
+    The desired exclusion mode for Lambda.
+    """
+    mode: NotRequired[pulumi.Input[Optional['VpcEncryptionControlMode']]]
+    """
+    The mode of the VPC encryption control.
+    """
+    nat_gateway_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusion']]]
+    """
+    The desired exclusion mode for NAT Gateways.
+    """
+    resource_exclusions: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionsArgsDict']]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The state of the VPC encryption control.
+    """
+    state_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A message describing the state of the VPC encryption control.
+    """
+    virtual_private_gateway_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusion']]]
+    """
+    The desired exclusion mode for Virtual Private Gateways.
+    """
+    vpc_encryption_control_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the VPC encryption control.
+    """
+    vpc_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the VPC.
+    """
+    vpc_lattice_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusion']]]
+    """
+    The desired exclusion mode for VPC Lattice.
+    """
+    vpc_peering_exclusion: NotRequired[pulumi.Input[Optional['VpcEncryptionControlVpcPeeringExclusion']]]
+    """
+    The desired exclusion mode for VPC Peering.
+    """
+
+@pulumi.input_type
+class VpcEncryptionControlArgs:
+    def __init__(__self__, *,
+                 egress_only_internet_gateway_exclusion: pulumi.Input[Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusion']] = None,
+                 elastic_file_system_exclusion: pulumi.Input[Optional['VpcEncryptionControlElasticFileSystemExclusion']] = None,
+                 internet_gateway_exclusion: pulumi.Input[Optional['VpcEncryptionControlInternetGatewayExclusion']] = None,
+                 lambda_exclusion: pulumi.Input[Optional['VpcEncryptionControlLambdaExclusion']] = None,
+                 mode: pulumi.Input[Optional['VpcEncryptionControlMode']] = None,
+                 nat_gateway_exclusion: pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusion']] = None,
+                 resource_exclusions: pulumi.Input[Optional['VpcEncryptionControlExclusionsArgs']] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_private_gateway_exclusion: pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusion']] = None,
+                 vpc_encryption_control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vpc_lattice_exclusion: pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusion']] = None,
+                 vpc_peering_exclusion: pulumi.Input[Optional['VpcEncryptionControlVpcPeeringExclusion']] = None):
+        """
+        :param pulumi.Input['VpcEncryptionControlEgressOnlyInternetGatewayExclusion'] egress_only_internet_gateway_exclusion: The desired exclusion mode for Egress-Only Internet Gateways.
+        :param pulumi.Input['VpcEncryptionControlElasticFileSystemExclusion'] elastic_file_system_exclusion: The desired exclusion mode for Elastic File System.
+        :param pulumi.Input['VpcEncryptionControlInternetGatewayExclusion'] internet_gateway_exclusion: The desired exclusion mode for Internet Gateways.
+        :param pulumi.Input['VpcEncryptionControlLambdaExclusion'] lambda_exclusion: The desired exclusion mode for Lambda.
+        :param pulumi.Input['VpcEncryptionControlMode'] mode: The mode of the VPC encryption control.
+        :param pulumi.Input['VpcEncryptionControlNatGatewayExclusion'] nat_gateway_exclusion: The desired exclusion mode for NAT Gateways.
+        :param pulumi.Input[_builtins.str] state: The state of the VPC encryption control.
+        :param pulumi.Input[_builtins.str] state_message: A message describing the state of the VPC encryption control.
+        :param pulumi.Input['VpcEncryptionControlVirtualPrivateGatewayExclusion'] virtual_private_gateway_exclusion: The desired exclusion mode for Virtual Private Gateways.
+        :param pulumi.Input[_builtins.str] vpc_encryption_control_id: The ID of the VPC encryption control.
+        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
+        :param pulumi.Input['VpcEncryptionControlVpcLatticeExclusion'] vpc_lattice_exclusion: The desired exclusion mode for VPC Lattice.
+        :param pulumi.Input['VpcEncryptionControlVpcPeeringExclusion'] vpc_peering_exclusion: The desired exclusion mode for VPC Peering.
+        """
+        if egress_only_internet_gateway_exclusion is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway_exclusion", egress_only_internet_gateway_exclusion)
+        if elastic_file_system_exclusion is not None:
+            pulumi.set(__self__, "elastic_file_system_exclusion", elastic_file_system_exclusion)
+        if internet_gateway_exclusion is not None:
+            pulumi.set(__self__, "internet_gateway_exclusion", internet_gateway_exclusion)
+        if lambda_exclusion is not None:
+            pulumi.set(__self__, "lambda_exclusion", lambda_exclusion)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if nat_gateway_exclusion is not None:
+            pulumi.set(__self__, "nat_gateway_exclusion", nat_gateway_exclusion)
+        if resource_exclusions is not None:
+            pulumi.set(__self__, "resource_exclusions", resource_exclusions)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if state_message is not None:
+            pulumi.set(__self__, "state_message", state_message)
+        if virtual_private_gateway_exclusion is not None:
+            pulumi.set(__self__, "virtual_private_gateway_exclusion", virtual_private_gateway_exclusion)
+        if vpc_encryption_control_id is not None:
+            pulumi.set(__self__, "vpc_encryption_control_id", vpc_encryption_control_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if vpc_lattice_exclusion is not None:
+            pulumi.set(__self__, "vpc_lattice_exclusion", vpc_lattice_exclusion)
+        if vpc_peering_exclusion is not None:
+            pulumi.set(__self__, "vpc_peering_exclusion", vpc_peering_exclusion)
+
+    @_builtins.property
+    @pulumi.getter(name="egressOnlyInternetGatewayExclusion")
+    def egress_only_internet_gateway_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusion']]:
+        """
+        The desired exclusion mode for Egress-Only Internet Gateways.
+        """
+        return pulumi.get(self, "egress_only_internet_gateway_exclusion")
+
+    @egress_only_internet_gateway_exclusion.setter
+    def egress_only_internet_gateway_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlEgressOnlyInternetGatewayExclusion']]):
+        pulumi.set(self, "egress_only_internet_gateway_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticFileSystemExclusion")
+    def elastic_file_system_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlElasticFileSystemExclusion']]:
+        """
+        The desired exclusion mode for Elastic File System.
+        """
+        return pulumi.get(self, "elastic_file_system_exclusion")
+
+    @elastic_file_system_exclusion.setter
+    def elastic_file_system_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlElasticFileSystemExclusion']]):
+        pulumi.set(self, "elastic_file_system_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetGatewayExclusion")
+    def internet_gateway_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlInternetGatewayExclusion']]:
+        """
+        The desired exclusion mode for Internet Gateways.
+        """
+        return pulumi.get(self, "internet_gateway_exclusion")
+
+    @internet_gateway_exclusion.setter
+    def internet_gateway_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlInternetGatewayExclusion']]):
+        pulumi.set(self, "internet_gateway_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaExclusion")
+    def lambda_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlLambdaExclusion']]:
+        """
+        The desired exclusion mode for Lambda.
+        """
+        return pulumi.get(self, "lambda_exclusion")
+
+    @lambda_exclusion.setter
+    def lambda_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlLambdaExclusion']]):
+        pulumi.set(self, "lambda_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Optional['VpcEncryptionControlMode']]:
+        """
+        The mode of the VPC encryption control.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Optional['VpcEncryptionControlMode']]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayExclusion")
+    def nat_gateway_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusion']]:
+        """
+        The desired exclusion mode for NAT Gateways.
+        """
+        return pulumi.get(self, "nat_gateway_exclusion")
+
+    @nat_gateway_exclusion.setter
+    def nat_gateway_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlNatGatewayExclusion']]):
+        pulumi.set(self, "nat_gateway_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceExclusions")
+    def resource_exclusions(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionsArgs']]:
+        return pulumi.get(self, "resource_exclusions")
+
+    @resource_exclusions.setter
+    def resource_exclusions(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionsArgs']]):
+        pulumi.set(self, "resource_exclusions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The state of the VPC encryption control.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A message describing the state of the VPC encryption control.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state_message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPrivateGatewayExclusion")
+    def virtual_private_gateway_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusion']]:
+        """
+        The desired exclusion mode for Virtual Private Gateways.
+        """
+        return pulumi.get(self, "virtual_private_gateway_exclusion")
+
+    @virtual_private_gateway_exclusion.setter
+    def virtual_private_gateway_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlVirtualPrivateGatewayExclusion']]):
+        pulumi.set(self, "virtual_private_gateway_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEncryptionControlId")
+    def vpc_encryption_control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the VPC encryption control.
+        """
+        return pulumi.get(self, "vpc_encryption_control_id")
+
+    @vpc_encryption_control_id.setter
+    def vpc_encryption_control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_encryption_control_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLatticeExclusion")
+    def vpc_lattice_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusion']]:
+        """
+        The desired exclusion mode for VPC Lattice.
+        """
+        return pulumi.get(self, "vpc_lattice_exclusion")
+
+    @vpc_lattice_exclusion.setter
+    def vpc_lattice_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlVpcLatticeExclusion']]):
+        pulumi.set(self, "vpc_lattice_exclusion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeeringExclusion")
+    def vpc_peering_exclusion(self) -> pulumi.Input[Optional['VpcEncryptionControlVpcPeeringExclusion']]:
+        """
+        The desired exclusion mode for VPC Peering.
+        """
+        return pulumi.get(self, "vpc_peering_exclusion")
+
+    @vpc_peering_exclusion.setter
+    def vpc_peering_exclusion(self, value: pulumi.Input[Optional['VpcEncryptionControlVpcPeeringExclusion']]):
+        pulumi.set(self, "vpc_peering_exclusion", value)
+
+
+class VpcEncryptionControlExclusionArgsDict(TypedDict):
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The current state of the exclusion configuration.
+    """
+    state_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A message providing additional information about the exclusion state.
+    """
+
+@pulumi.input_type
+class VpcEncryptionControlExclusionArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 state_message: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] state: The current state of the exclusion configuration.
+        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the exclusion state.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if state_message is not None:
+            pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The current state of the exclusion configuration.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A message providing additional information about the exclusion state.
+        """
+        return pulumi.get(self, "state_message")
+
+    @state_message.setter
+    def state_message(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state_message", value)
+
+
+class VpcEncryptionControlExclusionsArgsDict(TypedDict):
+    egress_only_internet_gateway: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    elastic_file_system: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    internet_gateway: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    lambda_: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    nat_gateway: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    virtual_private_gateway: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    vpc_lattice: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+    vpc_peering: NotRequired[pulumi.Input[Optional['VpcEncryptionControlExclusionArgsDict']]]
+
+@pulumi.input_type
+class VpcEncryptionControlExclusionsArgs:
+    def __init__(__self__, *,
+                 egress_only_internet_gateway: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 elastic_file_system: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 internet_gateway: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 lambda_: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 nat_gateway: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 virtual_private_gateway: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 vpc_lattice: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None,
+                 vpc_peering: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']] = None):
+        if egress_only_internet_gateway is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
+        if elastic_file_system is not None:
+            pulumi.set(__self__, "elastic_file_system", elastic_file_system)
+        if internet_gateway is not None:
+            pulumi.set(__self__, "internet_gateway", internet_gateway)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if virtual_private_gateway is not None:
+            pulumi.set(__self__, "virtual_private_gateway", virtual_private_gateway)
+        if vpc_lattice is not None:
+            pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+        if vpc_peering is not None:
+            pulumi.set(__self__, "vpc_peering", vpc_peering)
+
+    @_builtins.property
+    @pulumi.getter(name="egressOnlyInternetGateway")
+    def egress_only_internet_gateway(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "egress_only_internet_gateway")
+
+    @egress_only_internet_gateway.setter
+    def egress_only_internet_gateway(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "egress_only_internet_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticFileSystem")
+    def elastic_file_system(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "elastic_file_system")
+
+    @elastic_file_system.setter
+    def elastic_file_system(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "elastic_file_system", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetGateway")
+    def internet_gateway(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "internet_gateway")
+
+    @internet_gateway.setter
+    def internet_gateway(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "internet_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPrivateGateway")
+    def virtual_private_gateway(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "virtual_private_gateway")
+
+    @virtual_private_gateway.setter
+    def virtual_private_gateway(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "virtual_private_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "vpc_lattice")
+
+    @vpc_lattice.setter
+    def vpc_lattice(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "vpc_lattice", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeering")
+    def vpc_peering(self) -> pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]:
+        return pulumi.get(self, "vpc_peering")
+
+    @vpc_peering.setter
+    def vpc_peering(self, value: pulumi.Input[Optional['VpcEncryptionControlExclusionArgs']]):
+        pulumi.set(self, "vpc_peering", value)
 
 
 class VpcEndpointDnsOptionsSpecificationArgsDict(TypedDict):
